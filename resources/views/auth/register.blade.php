@@ -32,80 +32,52 @@
         data-image="{{ asset('assets/back/assets/img/register.jpg') }}">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-5 col-md-offset-3">
                     <div class="card card-signup">
                         <h2 class="card-title text-center">Register</h2>
                         <div class="row">
-                            <div class="col-md-5 col-md-offset-1">
-                                <div class="card-content">
-                                    <div class="info info-horizontal">
-                                        <div class="icon icon-rose">
-                                            <i class="material-icons">timeline</i>
-                                        </div>
-                                        <div class="description">
-                                            <h4 class="info-title">Marketing</h4>
-                                            <p class="description">
-                                                We've created the marketing campaign of the website. It was a very
-                                                interesting collaboration.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="info info-horizontal">
-                                        <div class="icon icon-primary">
-                                            <i class="material-icons">code</i>
-                                        </div>
-                                        <div class="description">
-                                            <h4 class="info-title">Fully Coded in HTML5</h4>
-                                            <p class="description">
-                                                We've developed the website with HTML5 and CSS3. The client has access
-                                                to the code using GitHub.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="info info-horizontal">
-                                        <div class="icon icon-info">
-                                            <i class="material-icons">group</i>
-                                        </div>
-                                        <div class="description">
-                                            <h4 class="info-title">Built Audience</h4>
-                                            <p class="description">
-                                                There is also a Fully Customizable CMS Admin Dashboard for this product.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <form class="form" method="" action="#">
+                            <div class="col-md-11">
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
                                     <div class="card-content">
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="material-icons">face</i>
                                             </span>
-                                            <input type="text" class="form-control" placeholder="First Name...">
+                                            <input type="text" name="name" class="form-control" placeholder="Name..."
+                                                :value="old('name')" required autofocus autocomplete="name">
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="material-icons">email</i>
                                             </span>
-                                            <input type="text" class="form-control" placeholder="Email...">
+                                            <input type="email" name="email" :value="old('email')" required
+                                                class="form-control" placeholder="Email...">
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="material-icons">lock_outline</i>
                                             </span>
-                                            <input type="password" placeholder="Password..." class="form-control" />
+                                            <input type="password" name="password" placeholder="Password..."
+                                                class="form-control" required autocomplete="new-password" />
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                            <input type="password" name="password_confirmation"
+                                                placeholder="Confirm Password..." required autocomplete="new-password"
+                                                class="form-control" />
                                         </div>
                                         <!-- If you want to add a checkbox to this form, uncomment this code -->
-                                        <div class="checkbox">
+                                        <div class="checkbox text-right">
                                             <label>
-                                                <input type="checkbox" name="optionsCheckboxes" checked> I agree to the
-                                                <a href="#something">terms and conditions</a>.
+                                                <a href="{{ route('login') }}">Already registered?</a>.
                                             </label>
                                         </div>
                                     </div>
                                     <div class="footer text-center">
-                                        <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
+                                        <button class="btn btn-primary btn-round">Get Started</button>
                                     </div>
                                 </form>
                             </div>

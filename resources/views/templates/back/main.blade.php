@@ -100,15 +100,21 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('assets/back/assets/js/demo.js') }}"></script>
 <script type="text/javascript">
-    $().ready(function () {
+    $(document).ready(function () {
         demo.checkFullPageBackgroundImage();
 
         setTimeout(function () {
             // after 1000 ms we add the class animated to the login/register card
             $('.card').removeClass('card-hidden');
         }, 700)
+
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
+
+        demo.initVectorMap();
     });
 </script>
+<!-- @stack('javascript') -->
 
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/pages/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:32:19 GMT -->
