@@ -257,7 +257,7 @@
                             </form>
                             <a href="#" onclick="logout()" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-sign-out"></i>
-                                <p class="hidden-lg hidden-md">Profile</p>
+                                <p class="hidden-lg hidden-md">Logout</p>
                             </a>
                         </li>
                         <li class="separator hidden-lg hidden-md"></li>
