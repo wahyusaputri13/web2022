@@ -114,7 +114,7 @@
         demo.initVectorMap();
     });
 </script>
-<!-- @stack('javascript') -->
+@stack('javascript')
 
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/pages/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:32:19 GMT -->
