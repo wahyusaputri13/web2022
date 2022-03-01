@@ -6,6 +6,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/back/assets/img/apple-icon.png') }}" />
     <link rel="icon" type="image/png" href="{{ asset('assets/back/assets/img/favicon.png') }}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -112,6 +113,43 @@
         demo.initDashboardPageCharts();
 
         demo.initVectorMap();
+    });
+
+    // btn hapus
+    $(document).on('click', '.delete-data-table', function (a) {
+        a.preventDefault();
+        swal({
+            title: 'Are you sure?',
+            text: "Do you realy want to delete this records? This process cannot be undone.",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonClass: 'btn btn-danger',
+            cancelButtonClass: 'btn btn-blue',
+            confirmButtonText: 'Delete!',
+            buttonsStyling: false
+        }).then((result) => {
+            a.preventDefault();
+            var url = $(this).attr('href');
+            console.log(url);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: url,
+                method: 'delete',
+                success: function () {
+                    swal(
+                        'Deleted!',
+                        'data has been deleted.',
+                        'success'
+                    )
+                    $('#datatables').DataTable().ajax.reload();
+                }
+            })
+        })
     });
 </script>
 @stack('javascript')

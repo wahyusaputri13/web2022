@@ -48,13 +48,13 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="{{ request()->is('menu') ? 'active' : '' }}">
+                <li class="{{ request()->is('menu*') ? 'active' : '' }}">
                     <a href="{{ url('menu') }}">
                         <i class="material-icons">menu</i>
                         <p>Menu</p>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a data-toggle="collapse" href="#pagesExamples">
                         <i class="material-icons">image</i>
                         <p>Pages
@@ -83,7 +83,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <!-- <li>
                             <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="material-icons">dashboard</i>
                                 <p class="hidden-lg hidden-md">Dashboard</p>
@@ -139,7 +139,7 @@
                                     <a href="#">Another One</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
                             <form id="myForm" method="POST" action="{{ route('logout') }}" hidden>
                                 @csrf
@@ -151,7 +151,7 @@
                         </li>
                         <li class="separator hidden-lg hidden-md"></li>
                     </ul>
-                    <form class="navbar-form navbar-right" role="search">
+                    <!-- <form class="navbar-form navbar-right" role="search">
                         <div class="form-group form-search is-empty">
                             <input type="text" class="form-control" placeholder="Search">
                             <span class="material-input"></span>
@@ -160,7 +160,7 @@
                             <i class="material-icons">search</i>
                             <div class="ripple-container"></div>
                         </button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </nav>
