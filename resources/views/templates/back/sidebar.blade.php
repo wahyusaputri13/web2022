@@ -54,6 +54,12 @@
                         <p>Menu</p>
                     </a>
                 </li>
+                <li class="{{ request()->is('website*') ? 'active' : '' }}">
+                    <a href="{{ url('website') }}">
+                        <i class="material-icons">web</i>
+                        <p>Website</p>
+                    </a>
+                </li>
                 <!-- <li>
                     <a data-toggle="collapse" href="#pagesExamples">
                         <i class="material-icons">image</i>

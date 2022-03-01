@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Website;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('front/index');
+    $data = Website::first();
+    return view('front/index', compact('data'));
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -24,4 +27,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('menu', MenuController::class);
+    Route::resource('website', WebsiteController::class);
 });
