@@ -17,7 +17,7 @@
                             {{Form::text('menu', null,['class' => 'form-control'])}}
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-fill">Insert</button>
+                            <button type="submit" class="btn btn-success btn-fill">Insert</button>
                         </div>
                         {{Form::close()}}
                     </div>
@@ -25,17 +25,18 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container-fluid">
-            <p class="copyright pull-right">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-                <a href="http://www.creative-tim.com/">Creative Tim</a>, made with love for a better web
-            </p>
-        </div>
-    </footer>
+</div>
+<footer class="footer">
+    <div class="container-fluid">
+        <p class="copyright pull-right">
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            <a href="http://www.creative-tim.com/">Creative Tim</a>, made with love for a better web
+        </p>
+    </div>
+</footer>
 </div>
 </div>
 @endsection

@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Phone</label>
-                            {{Form::number('phone', null,['class' => 'form-control'])}}
+                            {{Form::text('phone', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Instagram</label>
@@ -37,7 +37,7 @@
                             {{Form::text('youtube', null,['class' => 'form-control'])}}
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-fill">Insert</button>
+                            <button type="submit" class="btn btn-success btn-fill">Insert</button>
                         </div>
                         {{Form::close()}}
                     </div>

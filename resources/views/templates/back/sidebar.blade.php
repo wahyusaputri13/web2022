@@ -60,6 +60,12 @@
                         <p>Website</p>
                     </a>
                 </li>
+                <li class="{{ request()->is('gallery*') ? 'active' : '' }}">
+                    <a href="{{ url('gallery') }}">
+                        <i class="material-icons">collections</i>
+                        <p>Gallery</p>
+                    </a>
+                </li>
                 <!-- <li>
                     <a data-toggle="collapse" href="#pagesExamples">
                         <i class="material-icons">image</i>

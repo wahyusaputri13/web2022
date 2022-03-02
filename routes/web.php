@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Website;
+use App\Models\Gallery;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,8 @@ use App\Models\Website;
 
 Route::get('/', function () {
     $data = Website::first();
-    return view('front/index', compact('data'));
+    $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
+    return view('front/index', compact('data', 'gallery'));
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -28,4 +31,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('menu', MenuController::class);
     Route::resource('website', WebsiteController::class);
+    Route::resource('gallery', GalleryController::class);
 });

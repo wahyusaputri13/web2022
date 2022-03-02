@@ -39,7 +39,6 @@
 </head>
 
 <body>
-
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -52,12 +51,12 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                    <li><a href="#recent-blog-posts">Blog</a></li>
+                    <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+                    <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+                    <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
+                    <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+                    <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
                             <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
@@ -74,8 +73,8 @@
                             <li><a href="#">Drop Down 3</a></li>
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    </li> -->
+                    <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
                     @if (Route::has('login'))
                     @auth
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
@@ -119,7 +118,7 @@
 
     <main id="main">
         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
+        <!-- <section id="about" class="about">
 
             <div class="container" data-aos="fade-up">
                 <div class="row gx-0">
@@ -152,10 +151,11 @@
                 </div>
             </div>
 
-        </section><!-- End About Section -->
+        </section> -->
+        <!-- End About Section -->
 
         <!-- ======= Values Section ======= -->
-        <section id="values" class="values">
+        <!-- <section id="values" class="values">
 
             <div class="container" data-aos="fade-up">
 
@@ -197,10 +197,11 @@
 
             </div>
 
-        </section><!-- End Values Section -->
+        </section> -->
+        <!-- End Values Section -->
 
         <!-- ======= Counts Section ======= -->
-        <section id="counts" class="counts">
+        <!-- <section id="counts" class="counts">
             <div class="container" data-aos="fade-up">
 
                 <div class="row gy-4">
@@ -252,10 +253,11 @@
                 </div>
 
             </div>
-        </section><!-- End Counts Section -->
+        </section> -->
+        <!-- End Counts Section -->
 
         <!-- ======= Features Section ======= -->
-        <section id="features" class="features">
+        <!-- <section id="features" class="features">
 
             <div class="container" data-aos="fade-up">
 
@@ -318,14 +320,12 @@
                         </div>
                     </div>
 
-                </div> <!-- / row -->
+                </div> 
 
-                <!-- Feature Tabs -->
                 <div class="row feture-tabs" data-aos="fade-up">
                     <div class="col-lg-6">
                         <h3>Neque officiis dolore maiores et exercitationem quae est seda lidera pat claero</h3>
 
-                        <!-- Tabs -->
                         <ul class="nav nav-pills mb-3">
                             <li>
                                 <a class="nav-link active" data-bs-toggle="pill" href="#tab1">Saepe fuga</a>
@@ -336,9 +336,7 @@
                             <li>
                                 <a class="nav-link" data-bs-toggle="pill" href="#tab3">Corrupti</a>
                             </li>
-                        </ul><!-- End Tabs -->
-
-                        <!-- Tab Content -->
+                        </ul>
                         <div class="tab-content">
 
                             <div class="tab-pane fade show active" id="tab1">
@@ -357,7 +355,7 @@
                                 <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta
                                     tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at.
                                     Dolorem quo tempora. Quia et perferendis.</p>
-                            </div><!-- End Tab 1 Content -->
+                            </div>
 
                             <div class="tab-pane fade show" id="tab2">
                                 <p>Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita.
@@ -375,7 +373,7 @@
                                 <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta
                                     tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at.
                                     Dolorem quo tempora. Quia et perferendis.</p>
-                            </div><!-- End Tab 2 Content -->
+                            </div>
 
                             <div class="tab-pane fade show" id="tab3">
                                 <p>Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita.
@@ -393,7 +391,7 @@
                                 <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta
                                     tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at.
                                     Dolorem quo tempora. Quia et perferendis.</p>
-                            </div><!-- End Tab 3 Content -->
+                            </div>
 
                         </div>
 
@@ -403,10 +401,8 @@
                         <img src="{{ asset('assets/front/assets/img/features-2.png') }}" class="img-fluid" alt="">
                     </div>
 
-                </div><!-- End Feature Tabs -->
-
-                <!-- Feature Icons -->
-                <div class="row feature-icons" data-aos="fade-up">
+                </div>
+<div class="row feature-icons" data-aos="fade-up">
                     <h3>Ratione mollitia eos ab laudantium rerum beatae quo</h3>
 
                     <div class="row">
@@ -478,14 +474,15 @@
 
                     </div>
 
-                </div><!-- End Feature Icons -->
+                </div> 
 
-            </div>
+        </div>
 
-        </section><!-- End Features Section -->
+        </section> -->
+        <!-- End Features Section -->
 
         <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
+        <!-- <section id="services" class="services">
 
             <div class="container" data-aos="fade-up">
 
@@ -560,10 +557,11 @@
 
             </div>
 
-        </section><!-- End Services Section -->
+        </section> -->
+        <!-- End Services Section -->
 
         <!-- ======= Pricing Section ======= -->
-        <section id="pricing" class="pricing">
+        <!-- <section id="pricing" class="pricing">
 
             <div class="container" data-aos="fade-up">
 
@@ -646,10 +644,10 @@
 
             </div>
 
-        </section><!-- End Pricing Section -->
+        </section>End Pricing Section -->
 
         <!-- ======= F.A.Q Section ======= -->
-        <section id="faq" class="faq">
+        <!-- <section id="faq" class="faq">
 
             <div class="container" data-aos="fade-up">
 
@@ -660,7 +658,6 @@
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <!-- F.A.Q List 1-->
                         <div class="accordion accordion-flush" id="faqlist1">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -717,7 +714,6 @@
 
                     <div class="col-lg-6">
 
-                        <!-- F.A.Q List 2-->
                         <div class="accordion accordion-flush" id="faqlist2">
 
                             <div class="accordion-item">
@@ -779,19 +775,73 @@
 
             </div>
 
-        </section><!-- End F.A.Q Section -->
+        </section> -->
+        <!-- End F.A.Q Section -->
 
-        <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="portfolio">
+        <!-- ======= Recent Blog Posts Section ======= -->
+        <section id="recent-blog-posts" class="recent-blog-posts">
 
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
-                    <h2>Portfolio</h2>
-                    <p>Check our latest work</p>
+                    <h2>Blog</h2>
+                    <p>Recent posts form our Blog</p>
                 </header>
 
-                <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="post-box">
+                            <div class="post-img"><img src="{{ asset('assets/front/assets/img/blog/blog-1.jpg') }}"
+                                    class="img-fluid" alt=""></div>
+                            <span class="post-date">Tue, September 15</span>
+                            <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit
+                            </h3>
+                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="post-box">
+                            <div class="post-img"><img src="{{ asset('assets/front/assets/img/blog/blog-2.jpg') }}"
+                                    class="img-fluid" alt=""></div>
+                            <span class="post-date">Fri, August 28</span>
+                            <h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
+                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="post-box">
+                            <div class="post-img"><img src="{{ asset('assets/front/assets/img/blog/blog-3.jpg') }}"
+                                    class="img-fluid" alt=""></div>
+                            <span class="post-date">Mon, July 11</span>
+                            <h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
+                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- End Recent Blog Posts Section -->
+
+        <!-- ======= Gallery Section ======= -->
+        <section id="gallery" class="portfolio">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Gallery</h2>
+                    <p>Check our latest photo</p>
+                </header>
+
+                <!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
@@ -800,171 +850,34 @@
                             <li data-filter=".filter-web">Web</li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
+                    @foreach($gallery as $g)
                     <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-1.jpg') }}"
-                                class="img-fluid" alt="">
+                        <div class="portfolio-wrap d-flex justify-content-center">
+                            <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>App</p>
+                                <h4>{{ $g->description }}</h4>
+                                <!-- <p>App</p> -->
                                 <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-1.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 1"><i
+                                    <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
+                                        class="portfokio-lightbox" title="{{ $g->description }}"><i
                                             class="bi bi-plus"></i></a>
                                     <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-2.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-2.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="Web 3"><i
-                                            class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-3.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>App 2</h4>
-                                <p>App</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-3.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 2"><i
-                                            class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-4.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Card 2</h4>
-                                <p>Card</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-4.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="Card 2"><i
-                                            class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-5.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Web 2</h4>
-                                <p>Web</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-5.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="Web 2"><i
-                                            class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-6.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>App 3</h4>
-                                <p>App</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-6.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 3"><i
-                                            class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-7.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Card 1</h4>
-                                <p>Card</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-7.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="Card 1"><i
-                                            class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-8.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Card 3</h4>
-                                <p>Card</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-8.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="Card 3"><i
-                                            class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/front/assets/img/portfolio/portfolio-9.jpg') }}"
-                                class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ asset('assets/front/assets/img/portfolio/portfolio-9.jpg') }}"
-                                        data-gallery="portfolioGallery" class="portfokio-lightbox" title="Web 3"><i
-                                            class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
-
             </div>
 
-        </section><!-- End Portfolio Section -->
+        </section>
+        <!-- End Gallery Section -->
 
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials">
+        <!-- <section id="testimonials" class="testimonials">
 
             <div class="container" data-aos="fade-up">
 
@@ -995,7 +908,7 @@
                                     <h4>Ceo &amp; Founder</h4>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -1016,7 +929,7 @@
                                     <h4>Designer</h4>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -1037,7 +950,7 @@
                                     <h4>Store Owner</h4>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -1058,7 +971,7 @@
                                     <h4>Freelancer</h4>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -1079,7 +992,7 @@
                                     <h4>Entrepreneur</h4>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                     </div>
                     <div class="swiper-pagination"></div>
@@ -1087,10 +1000,11 @@
 
             </div>
 
-        </section><!-- End Testimonials Section -->
+        </section> -->
+        <!-- End Testimonials Section -->
 
         <!-- ======= Team Section ======= -->
-        <section id="team" class="team">
+        <!-- <section id="team" class="team">
 
             <div class="container" data-aos="fade-up">
 
@@ -1189,10 +1103,11 @@
 
             </div>
 
-        </section><!-- End Team Section -->
+        </section> -->
+        <!-- End Team Section -->
 
         <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients">
+        <!-- <section id="clients" class="clients">
 
             <div class="container" data-aos="fade-up">
 
@@ -1232,62 +1147,13 @@
                 </div>
             </div>
 
-        </section><!-- End Clients Section -->
+        </section> -->
+        <!-- End Clients Section -->
 
-        <!-- ======= Recent Blog Posts Section ======= -->
-        <section id="recent-blog-posts" class="recent-blog-posts">
 
-            <div class="container" data-aos="fade-up">
-
-                <header class="section-header">
-                    <h2>Blog</h2>
-                    <p>Recent posts form our Blog</p>
-                </header>
-
-                <div class="row">
-
-                    <div class="col-lg-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{ asset('assets/front/assets/img/blog/blog-1.jpg') }}"
-                                    class="img-fluid" alt=""></div>
-                            <span class="post-date">Tue, September 15</span>
-                            <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit
-                            </h3>
-                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{ asset('assets/front/assets/img/blog/blog-2.jpg') }}"
-                                    class="img-fluid" alt=""></div>
-                            <span class="post-date">Fri, August 28</span>
-                            <h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
-                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{ asset('assets/front/assets/img/blog/blog-3.jpg') }}"
-                                    class="img-fluid" alt=""></div>
-                            <span class="post-date">Mon, July 11</span>
-                            <h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
-                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section><!-- End Recent Blog Posts Section -->
 
         <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
+        <!-- <section id="contact" class="contact">
 
             <div class="container" data-aos="fade-up">
 
@@ -1374,14 +1240,15 @@
 
             </div>
 
-        </section><!-- End Contact Section -->
+        </section> -->
+        <!-- End Contact Section -->
 
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
 
-        <div class="footer-newsletter">
+        <!-- <div class="footer-newsletter">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 text-center">
@@ -1395,7 +1262,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="footer-top">
             <div class="container">
@@ -1415,25 +1282,25 @@
                     </div>
 
                     <div class="col-lg-2 col-6 footer-links">
-                        <h4>Useful Links</h4>
+                        <!-- <h4>Useful Links</h4>
                         <ul>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
 
                     <div class="col-lg-2 col-6 footer-links">
-                        <h4>Our Services</h4>
+                        <!-- <h4>Our Services</h4>
                         <ul>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
 
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
