@@ -19,6 +19,7 @@ class CreateWebsitesTable extends Migration
             $table->string('address')->nullable()->default("-");
             $table->string('phone')->nullable()->default("-");
             $table->string('instagram')->nullable()->default("#");
+            $table->string('twitter')->nullable()->default("#");
             $table->string('facebook')->nullable()->default("#");
             $table->string('youtube')->nullable()->default("#");
             $table->timestamps();

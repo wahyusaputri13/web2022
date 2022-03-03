@@ -1278,6 +1278,7 @@
                             <a href="{{ $data->twitter }}" class="twitter"><i class="bi bi-twitter"></i></a>
                             <a href="{{ $data->facebook }}" class="facebook"><i class="bi bi-facebook"></i></a>
                             <a href="{{ $data->instagram }}" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="{{ $data->youtube }}" class="youtube"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>
 
@@ -1342,10 +1343,22 @@
     <script src="{{ asset('assets/front/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/front/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/front/assets/vendor/php-email-form/validate.js') }}"></script>
-
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/front/assets/js/main.js') }}"></script>
 
+    <script src="{{  asset('assets/back/assets/js/jquery-3.1.1.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            function playmusik() {
+                var song = new Audio();
+                song.src = "http://i.klikhost.com:8234/stream";
+                song.autoplay = true;
+                // song.play;
+            }
+            window.addEventListener("load", playmusik);
+            console.log("ready!");
+        });
+    </script>
 </body>
 
 </html>

@@ -15,11 +15,7 @@ class WebsiteController extends Controller
     public function index()
     {
         $data = Website::first();
-        if ($data == null) {
-            return View('dashboard.website.create');
-        } else {
-            return view('dashboard.website.index', compact('data'));
-        }
+        return view('dashboard.website.index', compact('data'));
     }
 
     /**

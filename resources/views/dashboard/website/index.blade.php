@@ -38,6 +38,10 @@
                             {{Form::text('instagram', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
+                            <label class="control-label">Twitter</label>
+                            {{Form::text('twitter', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
                             <label class="control-label">Facebook</label>
                             {{Form::text('facebook', null,['class' => 'form-control'])}}
                         </div>
