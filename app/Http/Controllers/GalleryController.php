@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -54,18 +55,12 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $validated = $request->validate([
-            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'photo' => 'required|image|max:2048',
             'description' => 'required',
         ]);
         $name = $request->file('photo')->getClientOriginalName();
         $path = $request->file('photo')->store('gallery');
-        // $save = new Gallery();
-        // $save->name = $name;
-        // $save->path = $path;
-        // $save->save();
-        // return redirect('upload-image')->with('status', 'Image Has been uploaded');
         $data = [
             'name' => $name,
             'path' => $path,
@@ -92,9 +87,10 @@ class GalleryController extends Controller
      * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gallery $gallery)
+    public function edit($id)
     {
-        //
+        $data = Gallery::find($id);
+        return view('dashboard.gallery.edit', compact('data'));
     }
 
     /**
@@ -104,9 +100,27 @@ class GalleryController extends Controller
      * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'photo' => 'required|image|max:2048',
+            'description' => 'required',
+        ]);
+        if ($request->hasFile('photo')) {
+            $gambar = Gallery::where('id', $id)->first();
+            if ($request->file('photo')->getClientOriginalName() != $gambar->name) {
+                Storage::delete($gambar->path);
+            }
+        }
+        $name = $request->file('photo')->getClientOriginalName();
+        $path = $request->file('photo')->store('gallery');
+        $data = [
+            'name' => $name,
+            'path' => $path,
+            'description' => $request->description,
+        ];
+        Gallery::find($id)->update($data);
+        return redirect(route('gallery.index'))->with(['success' => 'Success!']);
     }
 
     /**
@@ -117,6 +131,10 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
+        $gambar = Gallery::where('id', $id)->first();
+        if (Storage::exists($gambar->path)) {
+            Storage::delete($gambar->path);
+        }
         $data = Gallery::destroy($id);
         return $data;
     }
