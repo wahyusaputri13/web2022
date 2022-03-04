@@ -15,6 +15,7 @@ class CreateWebsitesTable extends Migration
     {
         Schema::create('websites', function (Blueprint $table) {
             $table->id();
+            $table->string('web_name')->nullable()->default("-");
             $table->string('email')->nullable()->default("-");
             $table->string('address')->nullable()->default("-");
             $table->string('phone')->nullable()->default("-");

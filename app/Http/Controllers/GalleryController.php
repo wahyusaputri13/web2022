@@ -6,6 +6,7 @@ use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
@@ -35,6 +36,15 @@ class GalleryController extends Controller
                 ->make(true);
         }
         return view('dashboard.gallery.index');
+    }
+
+    public function fetch(Request $request)
+    {
+        if ($request->ajax()) {
+            $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
+            // $data = DB::table('shops')->simplePaginate(5);
+            return view('front.gallery', compact('gallery'))->render();
+        }
     }
 
     /**
