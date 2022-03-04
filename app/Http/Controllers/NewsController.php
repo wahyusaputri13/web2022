@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gallery;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 
-class GalleryController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class GalleryController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Gallery::all();
+            $data = News::all();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -25,8 +25,8 @@ class GalleryController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('gallery.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i></a>
-                        <a href="' . route('gallery.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i></a>
+                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i></a>
+                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i></a>
                     </div>';
                         return $actionBtn;
                     }
@@ -34,7 +34,7 @@ class GalleryController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('dashboard.gallery.index');
+        return view('dashboard.news.index');
     }
 
     /**
@@ -44,7 +44,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('dashboard.gallery.create');
+        return view('dashboard.news.create');
     }
 
     /**
@@ -57,26 +57,28 @@ class GalleryController extends Controller
     {
         $validated = $request->validate([
             'photo' => 'required|image|max:2048',
+            'title' => 'required',
             'description' => 'required',
         ]);
         $name = $request->file('photo')->getClientOriginalName();
-        $path = $request->file('photo')->store('gallery');
+        $path = $request->file('photo')->store('news');
         $data = [
-            'name' => $name,
+            'photo' => $name,
             'path' => $path,
+            'title' => $request->title,
             'description' => $request->description,
         ];
-        Gallery::create($data);
-        return redirect(route('gallery.index'))->with(['success' => 'Success!']);
+        News::create($data);
+        return redirect(route('news.index'))->with(['success' => 'Success!']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(Gallery $gallery)
+    public function show(News $news)
     {
         //
     }
@@ -84,20 +86,20 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $data = Gallery::find($id);
-        return view('dashboard.gallery.edit', compact('data'));
+        $data = News::find($id);
+        return view('dashboard.news.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -105,44 +107,43 @@ class GalleryController extends Controller
         if ($request->hasFile('photo')) {
             $validated = $request->validate([
                 'photo' => 'required|image|max:2048',
+                'title' => 'required',
                 'description' => 'required',
             ]);
-            $gambar = Gallery::where('id', $id)->first();
-            if ($request->file('photo')->getClientOriginalName() != $gambar->name) {
+            $gambar = News::where('id', $id)->first();
+            if ($request->file('photo')->getClientOriginalName() != $gambar->photo) {
                 Storage::delete($gambar->path);
                 $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('gallery');
+                $path = $request->file('photo')->store('news');
                 $data = [
-                    'name' => $name,
+                    'photo' => $name,
                     'path' => $path,
+                    'title' => $request->title,
                     'description' => $request->description,
                 ];
             }
         } else {
             $validated = $request->validate([
+                'title' => 'required',
                 'description' => 'required',
             ]);
             $data = [
+                'title' => $request->title,
                 'description' => $request->description,
             ];
         }
-        Gallery::find($id)->update($data);
-        return redirect(route('gallery.index'))->with(['success' => 'Success!']);
+        News::find($id)->update($data);
+        return redirect(route('news.index'))->with(['success' => 'Success!']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(News $news)
     {
-        $gambar = Gallery::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
-        }
-        $data = Gallery::destroy($id);
-        return $data;
+        //
     }
 }

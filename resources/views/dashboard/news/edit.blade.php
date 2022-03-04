@@ -7,16 +7,21 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">collections</i>
+                        <i class="material-icons">event_note</i>
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">Stacked Form</h4>
-                        {{Form::open(['route' => 'gallery.store','method' => 'post', 'files' => 'true', ''])}}
+                        {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
+                        'true', ''])}}
                         <div class="col text-center">
                             <!-- <legend>Regular Image</legend> -->
                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail">
+                                    @if($data->path)
+                                    <img src="{{ asset('storage') }}/{{ $data->path }}" alt="...">
+                                    @else
                                     <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
+                                    @endif
                                 </div>
                                 <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                 <div>
@@ -41,15 +46,15 @@
                             </div>
                         </div>
                         <div class="form-group label-floating">
+                            <label class="control-label">Title</label>
+                            {{Form::text('title', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
                             <label class="control-label">Description</label>
                             {{Form::text('description', null,['class' => 'form-control'])}}
                         </div>
-                        <!-- <div class="form-group label-floating">
-                            <label class="control-label">Photo</label>
-                            {{Form::file('foto', null,['class' => 'form-control'])}}
-                        </div> -->
                         <div class="text-right">
-                            <button type="submit" class="btn btn-success btn-fill">Insert</button>
+                            <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}
                     </div>

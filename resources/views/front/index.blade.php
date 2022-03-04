@@ -841,16 +841,17 @@
                     <p>Check our latest photo</p>
                 </header>
 
-                <!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="row" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-lg-12 d-flex justify-content-center">
-                        <ul id="portfolio-flters">
+                        <!-- <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
                             <li data-filter=".filter-app">App</li>
                             <li data-filter=".filter-card">Card</li>
                             <li data-filter=".filter-web">Web</li>
-                        </ul>
+                        </ul> -->
+                        {{ $gallery->links() }}
                     </div>
-                </div> -->
+                </div>
 
                 <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach($gallery as $g)

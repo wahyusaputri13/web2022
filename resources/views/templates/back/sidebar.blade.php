@@ -48,16 +48,22 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="{{ request()->is('menu*') ? 'active' : '' }}">
+                <!-- <li class="{{ request()->is('menu*') ? 'active' : '' }}">
                     <a href="{{ url('menu') }}">
                         <i class="material-icons">menu</i>
                         <p>Menu</p>
                     </a>
-                </li>
+                </li> -->
                 <li class="{{ request()->is('website*') ? 'active' : '' }}">
                     <a href="{{ url('website') }}">
                         <i class="material-icons">web</i>
                         <p>Website</p>
+                    </a>
+                </li>
+                <li class="{{ request()->is('news*') ? 'active' : '' }}">
+                    <a href="{{ url('news') }}">
+                        <i class="material-icons">event_note</i>
+                        <p>News</p>
                     </a>
                 </li>
                 <li class="{{ request()->is('gallery*') ? 'active' : '' }}">

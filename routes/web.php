@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Website;
@@ -32,4 +33,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('menu', MenuController::class);
     Route::resource('website', WebsiteController::class);
     Route::resource('gallery', GalleryController::class);
+    Route::resource('news', NewsController::class);
 });

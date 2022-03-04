@@ -15,12 +15,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">collections</i>
+                        <i class="material-icons">event_note</i>
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
-                            <a href="{{ url('gallery/create') }}" class="btn btn-info btn-round">Add Data <i
+                            <a href="{{ url('news/create') }}" class="btn btn-info btn-round">Add Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
                             </a>
@@ -34,7 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Description</th>
+                                        <th>Title</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -89,7 +89,7 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
-            { data: 'description', name: 'description' },
+            { data: 'title', name: 'title' },
             { data: 'action', },
         ]
 
