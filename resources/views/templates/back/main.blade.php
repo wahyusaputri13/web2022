@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/back/assets/img/apple-icon.png') }}" />
     <link rel="icon" type="image/png" href="{{ asset('assets/back/assets/img/favicon.png') }}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template</title>
+    <title>{{ $data_website->web_name }}</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Canonical SEO -->
@@ -113,6 +113,7 @@
 <script src="{{ asset('assets/back/assets/js/material-dashboard.js') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('assets/back/assets/js/demo.js') }}"></script>
+<script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         demo.checkFullPageBackgroundImage();

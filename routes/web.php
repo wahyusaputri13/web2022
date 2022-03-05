@@ -5,7 +5,6 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Website;
 use App\Models\News;
 use App\Models\Gallery;
 
@@ -21,16 +20,16 @@ use App\Models\Gallery;
 */
 
 Route::get('/', function () {
-    $data = Website::first();
     $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
     $news = News::orderBy('created_at', 'desc')->paginate(9);
-    return view('front/index', compact('data', 'gallery', 'news'));
+    return view('front/index', compact('gallery', 'news'));
 });
 
+Route::get('/gallery/fetch', [GalleryController::class, 'fetch'])->name('gallery.fetch');
+
 Route::get('/photos', function () {
-    $data = Website::first();
     $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
-    return view('front/allgallery', compact('data', 'gallery'));
+    return view('front/allgallery', compact('gallery'));
 })->name('photo');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

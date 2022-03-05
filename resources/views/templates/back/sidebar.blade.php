@@ -8,7 +8,7 @@
     -->
         <div class="logo">
             <a href="{{ url('/') }}" target="_blank" class="simple-text">
-                Creative Tim
+                {{ $data_website->web_name }}
             </a>
         </div>
         <div class="logo logo-mini">

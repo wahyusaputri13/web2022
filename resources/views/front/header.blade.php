@@ -4,7 +4,7 @@
 
         <a href="{{ url('/') }}" class="logo d-flex align-items-center">
             <!-- <img src="{{ asset('assets/front/assets/img/logo.png') }}" alt=""> -->
-            <span>{{ $data->web_name }}</span>
+            <span>{{ $data_website->web_name }}</span>
         </a>
 
         <nav id="navbar" class="navbar">

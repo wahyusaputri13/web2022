@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{{ $data->web_name }}</title>
+    <title>{{ $data_website->web_name }}</title>
     <meta content="" name="description">
 
     <meta content="" name="keywords">
@@ -52,18 +52,18 @@
                     <div class="col-lg-5 col-md-12 footer-info">
                         <a href="{{ url('/') }}" class="logo d-flex align-items-center">
                             <!-- <img src="{{ asset('assets/front/assets/img/logo.png') }}" alt=""> -->
-                            <span>{{ $data->web_name }}</span>
+                            <span>{{ $data_website->web_name }}</span>
                         </a>
                         <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
                             valies darta donna mare fermentum iaculis eu non diam phasellus.</p> -->
                         <div class="social-links mt-4">
-                            <a href="{{ $data->twitter }}" target="_blank" class="twitter"><i
+                            <a href="{{ $data_website->twitter }}" target="_blank" class="twitter"><i
                                     class="bi bi-twitter"></i></a>
-                            <a href="{{ $data->facebook }}" target="_blank" class="facebook"><i
+                            <a href="{{ $data_website->facebook }}" target="_blank" class="facebook"><i
                                     class="bi bi-facebook"></i></a>
-                            <a href="{{ $data->instagram }}" target="_blank" class="instagram"><i
+                            <a href="{{ $data_website->instagram }}" target="_blank" class="instagram"><i
                                     class="bi bi-instagram"></i></a>
-                            <a href="{{ $data->youtube }}" target="_blank" class="youtube"><i
+                            <a href="{{ $data_website->youtube }}" target="_blank" class="youtube"><i
                                     class="bi bi-youtube"></i></a>
                         </div>
                     </div>
@@ -77,9 +77,9 @@
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                         <h4>Contact Us</h4>
                         <p>
-                            {{ $data->address }} <br><br>
-                            <strong>Phone:</strong> {{ $data->phone }}<br>
-                            <strong>Email:</strong> {{ $data->email }}<br>
+                            {{ $data_website->address }} <br><br>
+                            <strong>Phone:</strong> {{ $data_website->phone }}<br>
+                            <strong>Email:</strong> {{ $data_website->email }}<br>
                         </p>
 
                     </div>
@@ -129,6 +129,7 @@
             console.log("ready!");
         });
     </script>
+    @stack('javascript')
 </body>
 
 </html>
