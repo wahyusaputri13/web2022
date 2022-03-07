@@ -1,3 +1,4 @@
+@if($gallery->count() != 0)
 <!-- ======= Recent Blog Posts Section ======= -->
 <section id="recent-blog-posts" class="recent-blog-posts">
 
@@ -7,8 +8,19 @@
             <h2>Blog</h2>
             <p>Recent posts form our Blog</p>
         </header>
-
-        <div class="row">
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-12 d-flex justify-content-center">
+                @if(Route::current()->getName() == 'news.all')
+                {!! $news->render() !!}
+                <!-- {{ $news->links() }} -->
+                @else
+                <!-- <ul id="recent-blog-posts-flters"> -->
+                <a href="{{ url('/newsall') }}">Show All</a>
+                <!-- </ul> -->
+                @endif
+            </div>
+        </div>
+        <div class="row mt-4">
             @foreach($news as $n)
             <div class="col-lg-4">
                 <div class="post-box">
@@ -25,9 +37,9 @@
                 </div>
             </div>
             @endforeach
-
         </div>
     </div>
 
 </section>
 <!-- End Recent Blog Posts Section -->
+@endif

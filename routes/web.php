@@ -21,12 +21,13 @@ use App\Models\Gallery;
 
 Route::get('/', function () {
     $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
-    $news = News::orderBy('created_at', 'desc')->paginate(9);
+    $news = News::orderBy('date', 'desc')->paginate(9);
     return view('front/index', compact('gallery', 'news'));
 })->name('root');
 
-Route::get('/news-detail/{id}', [FrontController::class, 'newsdetail']);
-Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo');
+Route::get('/news-detail/{id}', [FrontController::class, 'newsdetail'])->name('news.detail');
+Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
+Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

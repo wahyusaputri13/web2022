@@ -3,13 +3,15 @@
 @include('templates.back.sidebar')
 <div class="content">
     <div class="container-fluid">
+
         @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>{{ $message }}</strong>
+        <div class="col-md-4" hidden>
+            <button id="btn-notif" class="btn btn-primary btn-block" onclick="demo.showNotification('top','center')">Top
+                Center</button>
         </div>
+        <script>
+            document.getElementById("btn-notif").click();
+        </script>
         @endif
         <div class="row">
             <div class="col-md-12">

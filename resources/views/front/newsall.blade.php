@@ -2,6 +2,6 @@
 @section('container')
 @include('front.header')
 <main id="main">
-    @include('front.gallery')
+    @include('front.news')
 </main>
 @endsection

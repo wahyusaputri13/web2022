@@ -122,6 +122,7 @@ class NewsController extends Controller
                     'photo' => $name,
                     'path' => $path,
                     'title' => $request->title,
+                    'date' => $request->date,
                     'upload_by' => auth()->user()->name,
                     'description' => $request->description,
                 ];
@@ -133,6 +134,7 @@ class NewsController extends Controller
             ]);
             $data = [
                 'title' => $request->title,
+                'date' => $request->date,
                 'upload_by' => auth()->user()->name,
                 'description' => $request->description,
             ];
@@ -147,8 +149,13 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        $gambar = News::where('id', $id)->first();
+        if (Storage::exists($gambar->path)) {
+            Storage::delete($gambar->path);
+        }
+        $data = News::destroy($id);
+        return $data;
     }
 }

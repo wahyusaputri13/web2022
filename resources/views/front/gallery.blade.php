@@ -1,3 +1,4 @@
+@if($gallery->count() != 0)
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="portfolio">
 
@@ -10,7 +11,7 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-12 d-flex justify-content-center">
-                @if(Route::current()->getName() == 'photo')
+                @if(Route::current()->getName() == 'photo.all')
                 {!! $gallery->render() !!}
                 <!-- {{ $gallery->links() }} -->
                 @else
@@ -42,6 +43,7 @@
     </div>
 
 </section>
+@endif
 <!-- End Gallery Section -->
 @push('javascript')
 <script>
