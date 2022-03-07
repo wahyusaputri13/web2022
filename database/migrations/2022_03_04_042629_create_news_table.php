@@ -18,7 +18,9 @@ class CreateNewsTable extends Migration
             $table->string('photo');
             $table->string('path');
             $table->string('title');
-            $table->string('description', 999);
+            $table->date('date');
+            $table->string('upload_by');
+            $table->text('description', 4294967295);
             $table->timestamps();
         });
     }

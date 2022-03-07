@@ -38,15 +38,6 @@ class GalleryController extends Controller
         return view('dashboard.gallery.index');
     }
 
-    public function fetch(Request $request)
-    {
-        if ($request->ajax()) {
-            $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
-            // $data = DB::table('shops')->simplePaginate(5);
-            return view('front.gallery', compact('gallery'))->render();
-        }
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -66,7 +57,7 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'photo' => 'required|image|max:2048',
+            'photo' => 'required|image|max:12048',
             'description' => 'required',
         ]);
         $name = $request->file('photo')->getClientOriginalName();
@@ -114,7 +105,7 @@ class GalleryController extends Controller
     {
         if ($request->hasFile('photo')) {
             $validated = $request->validate([
-                'photo' => 'required|image|max:2048',
+                'photo' => 'required|image|max:12048',
                 'description' => 'required',
             ]);
             $gambar = Gallery::where('id', $id)->first();

@@ -4,7 +4,9 @@
 
         <a href="{{ url('/') }}" class="logo d-flex align-items-center">
             <!-- <img src="{{ asset('assets/front/assets/img/logo.png') }}" alt=""> -->
+            @if(Route::current()->getName() != 'root')
             <span>{{ $data_website->web_name }}</span>
+            @endif
         </a>
 
         <nav id="navbar" class="navbar">

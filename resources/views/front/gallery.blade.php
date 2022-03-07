@@ -11,7 +11,8 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-12 d-flex justify-content-center">
                 @if(Route::current()->getName() == 'photo')
-                {{ $gallery->links() }}
+                {!! $gallery->render() !!}
+                <!-- {{ $gallery->links() }} -->
                 @else
                 <ul id="portfolio-flters">
                     <a href="{{ url('/photos') }}">Show All</a>
@@ -44,26 +45,23 @@
 <!-- End Gallery Section -->
 @push('javascript')
 <script>
-    $(document).ready(function () {
-
-        $(document).on('click', '.page-link', function (event) {
-            event.preventDefault();
-            var page = $(this).attr('href').split('page=')[1];
-            fetch_data(page);
+    $(function () {
+        $('body').on('click', '.pagination a', function (e) {
+            e.preventDefault();
+            $('#load').append('<img style="position: absolute; left: 0; top: 0; z-index: 10000;" src="https://i.imgur.com/v3KWF05.gif />');
+            var url = $(this).attr('href');
+            window.history.pushState("", "", url);
+            loadPosts(url);
         });
-
-        function fetch_data(page) {
-            var _token = $("input[name=_token]").val();
+        function loadPosts(url) {
             $.ajax({
-                url: "{{ route('gallery.fetch') }}",
-                method: "POST",
-                data: { _token: _token, page: page },
-                success: function (data) {
-                    $('#table_data').html(data);
-                }
+                url: url
+            }).done(function (data) {
+                $('.portfolio').html(data);
+            }).fail(function () {
+                console.log("Failed to load data!");
             });
         }
-        console.log("pagination ready!");
     });
 </script>
 @endpush

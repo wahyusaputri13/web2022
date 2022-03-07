@@ -15,11 +15,13 @@
                     <div class="post-img">
                         <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="">
                     </div>
-                    <span class="post-date">Tue, September 15</span>
+                    <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
+                        \Carbon\Carbon::parse( $n->date
+                        )->toFormattedDateString() }}</span>
                     <h3 class="post-title">{{ $n->title }}
                     </h3>
-                    <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i
-                            class="bi bi-arrow-right"></i></a>
+                    <a href="{{ url('/news-detail', $n->id) }}" class="readmore stretched-link mt-auto"><span>Read
+                            More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             @endforeach

@@ -44,6 +44,10 @@
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
                     <div class="form-group label-floating">
+                        <label class="control-label">Date</label>
+                        {{Form::date('date', null,['class' => 'form-control'])}}
+                    </div>
+                    <div class="form-group label-floating">
                         <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'form-control', 'id' => 'editor'])}}
                     </div>

@@ -26,6 +26,10 @@
                             {{Form::text('web_name', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
+                            <label class="control-label">Website Description</label>
+                            {{Form::text('web_description', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
                             <label class="control-label">Email</label>
                             {{Form::email('email', null,['class' => 'form-control'])}}
                         </div>

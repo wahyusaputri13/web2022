@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <meta content="" name="keywords">
-
+    <!-- <meta name="_token" content="{{ csrf_token() }}"> -->
     <!-- Favicons -->
     <link href="{{ asset('assets/front/assets/img/favicon.png') }}" rel="icon">
     <link href="{{ asset('assets/front/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -118,15 +118,24 @@
 
     <script src="{{  asset('assets/back/assets/js/jquery-3.1.1.min.js') }}"></script>
     <script>
-        $(document).ready(function () {
-            function playmusik() {
-                var song = new Audio();
-                song.src = "http://i.klikhost.com:8234/stream";
-                song.autoplay = true;
-                // song.play;
+        $('.btn-playstream').click(function () {
+            currentvalue = document.getElementById('audio_1').value;
+            if (currentvalue == "on") {
+                document.getElementById('audio_1').pause();
+                document.getElementById("audio_1").value = "off";
+                console.log("off!");
+            } else {
+                document.getElementById('audio_1').play();
+                document.getElementById("audio_1").value = "on";
+                console.log("on!");
             }
-            window.addEventListener("load", playmusik);
-            console.log("ready!");
+            // function playmusik() {
+            //     var song = new Audio();
+            //     song.src = "http://i.klikhost.com:8234/stream";
+            //     // song.autoplay = true;
+            //     song.play;
+            // }
+            // window.addEventListener("load", playmusik);
         });
     </script>
     @stack('javascript')

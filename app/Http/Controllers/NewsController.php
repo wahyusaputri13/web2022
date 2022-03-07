@@ -56,8 +56,9 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'photo' => 'required|image|max:2048',
+            'photo' => 'required|image|max:12048',
             'title' => 'required',
+            'date' => 'required',
             'description' => 'required',
         ]);
         $name = $request->file('photo')->getClientOriginalName();
@@ -66,6 +67,8 @@ class NewsController extends Controller
             'photo' => $name,
             'path' => $path,
             'title' => $request->title,
+            'date' => $request->date,
+            'upload_by' => auth()->user()->name,
             'description' => $request->description,
         ];
         News::create($data);
@@ -106,7 +109,7 @@ class NewsController extends Controller
     {
         if ($request->hasFile('photo')) {
             $validated = $request->validate([
-                'photo' => 'required|image|max:2048',
+                'photo' => 'required|image|max:12048',
                 'title' => 'required',
                 'description' => 'required',
             ]);
@@ -119,6 +122,7 @@ class NewsController extends Controller
                     'photo' => $name,
                     'path' => $path,
                     'title' => $request->title,
+                    'upload_by' => auth()->user()->name,
                     'description' => $request->description,
                 ];
             }
@@ -129,6 +133,7 @@ class NewsController extends Controller
             ]);
             $data = [
                 'title' => $request->title,
+                'upload_by' => auth()->user()->name,
                 'description' => $request->description,
             ];
         }

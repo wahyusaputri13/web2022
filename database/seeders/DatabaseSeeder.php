@@ -16,13 +16,15 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
+            'web_name' => 'PesonaFM',
+            'web_description' => '"Selalu Ada Untuk Anda!"',
             'email' => '-',
-            'address' => '-',
+            'address' => 'Jl. Sabuk Alu, No 2 A, Komplek Kantor Diskominfo',
             'phone' => '-',
-            'instagram' => '#',
+            'instagram' => 'https://www.instagram.com/pesonafmwonosobo/',
             'twitter' => '#',
-            'facebook' => '#',
-            'youtube' => '#',
+            'facebook' => 'https://www.facebook.com/Pesona-FM-Wonosobo-921-FM-253009781384019/',
+            'youtube' => 'https://www.youtube.com/channel/UCklHzjhKAwuLFJJXPorNidQ',
         ]);
 
         DB::table('users')->insert([
