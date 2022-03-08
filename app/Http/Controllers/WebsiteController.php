@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Website;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WebsiteController extends Controller
 {
@@ -72,13 +73,23 @@ class WebsiteController extends Controller
      * @param  \App\Models\Website  $website
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id = 1)
     {
-        $id = 1;
-        Website::find($id)->update(
-            $request->except(['_token']),
-        );
-        return redirect(route('website.index'))->with(['success' => 'Success!']);
+        $gambar = Website::find($id);
+        $name = $gambar->image_hero_name;
+        $path = $gambar->image_hero;
+        if ($request->hasFile('image_hero')) {
+            if ($request->file('image_hero')->getClientOriginalName() != $gambar->image_hero_name) {
+                Storage::delete($gambar->image_hero);
+                $name = $request->file('image_hero')->getClientOriginalName();
+                $path = $request->file('image_hero')->store('website');
+            }
+        }
+        Website::find($id)->update($request->except(['_token', 'image_hero']) + [
+            'image_hero_name' => $name,
+            'image_hero' => $path
+        ]);
+        return redirect()->back();
     }
 
     /**

@@ -7,7 +7,7 @@
                 <h1 data-aos="fade-up">{{ $data_website->web_name }}</h1>
                 <h2 data-aos="fade-up" data-aos-delay="400">{{ $data_website->web_description }}</h2>
                 <audio id="audio_1">
-                    <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">
+                    <source src="{{ $data_website->url_stream }}" type="audio/mpeg">
                 </audio>
                 <div data-aos="fade-up" data-aos-delay="600">
                     <div class="text-center text-lg-start">
@@ -20,7 +20,11 @@
                 </div>
             </div>
             <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                @if($data_website->image_hero)
+                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid" alt="">
+                @else
                 <img src="{{ asset('assets/front/assets/img/hero-img.png') }}" class="img-fluid" alt="">
+                @endif
             </div>
         </div>
     </div>

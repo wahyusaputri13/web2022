@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             'twitter' => '#',
             'facebook' => 'https://www.facebook.com/Pesona-FM-Wonosobo-921-FM-253009781384019/',
             'youtube' => 'https://www.youtube.com/channel/UCklHzjhKAwuLFJJXPorNidQ',
+            'url_stream' => 'http://i.klikhost.com:8234/stream',
         ]);
 
         DB::table('users')->insert([

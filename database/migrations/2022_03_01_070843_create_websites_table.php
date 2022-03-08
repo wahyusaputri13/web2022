@@ -25,6 +25,9 @@ class CreateWebsitesTable extends Migration
             $table->string('twitter')->nullable()->default("#");
             $table->string('facebook')->nullable()->default("#");
             $table->string('youtube')->nullable()->default("#");
+            $table->string('url_stream')->nullable()->default("#");
+            $table->string('image_hero')->nullable();
+            $table->string('image_hero_name')->nullable();
             $table->timestamps();
         });
     }
