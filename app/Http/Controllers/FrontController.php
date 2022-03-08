@@ -32,4 +32,9 @@ class FrontController extends Controller
         }
         return view('front.allgallery', compact('gallery'));
     }
+
+    public function setup(Request $request)
+    {
+        dd($request->all());
+    }
 }

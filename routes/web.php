@@ -9,6 +9,7 @@ use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Website;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,15 +22,19 @@ use App\Models\Gallery;
 */
 
 Route::get('/', function () {
-    // dd(Website::all());
-    $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
-    $news = News::orderBy('date', 'desc')->paginate(9);
-    return view('front/index', compact('gallery', 'news'));
+    if (Website::all() == null) {
+        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
+        $news = News::orderBy('date', 'desc')->paginate(9);
+        return view('front/index', compact('gallery', 'news'));
+    } else {
+        return view('front.setup');
+    }
 })->name('root');
 
 Route::get('/news-detail/{id}', [FrontController::class, 'newsdetail'])->name('news.detail');
 Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
 Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
+Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
