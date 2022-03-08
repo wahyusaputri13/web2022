@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\WebsiteController;
@@ -38,4 +39,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('menu', MenuController::class);
     Route::resource('website', WebsiteController::class);
     Route::resource('news', NewsController::class);
+    Route::resource('myprofile', CredentialController::class);
 });

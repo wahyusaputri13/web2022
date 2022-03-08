@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         DB::table('websites')->insert([
             'web_name' => 'PesonaFM',
             'web_description' => '"Selalu Ada Untuk Anda!"',
-            'email' => '-',
+            'email' => 'admin@admin.com',
             'address' => 'Jl. Sabuk Alu, No 2 A, Komplek Kantor Diskominfo',
             'phone' => '-',
             'instagram' => 'https://www.instagram.com/pesonafmwonosobo/',

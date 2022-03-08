@@ -19,7 +19,11 @@
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="photo">
-                    <img src="{{ asset('assets/back/assets/img/faces/avatar.jpg') }}" />
+                    @if(auth()->user()->profile_photo_path)
+                    <img src="{{ asset('storage') }}/{{ auth()->user()->profile_photo_path }}" />
+                    @else
+                    <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
+                    @endif
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -29,10 +33,7 @@
                     <div class="collapse" id="collapseExample">
                         <ul class="nav">
                             <li>
-                                <a href="#">My Profile</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/user/profile') }}">Edit Profile</a>
+                                <a href="{{ route('myprofile.edit', auth()->user()->id) }}">Edit Profile</a>
                             </li>
                             <li>
                                 <a href="#">Settings</a>

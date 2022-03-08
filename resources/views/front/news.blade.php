@@ -1,4 +1,4 @@
-@if($gallery->count() != 0)
+@if($news->count() != 0)
 <!-- ======= Recent Blog Posts Section ======= -->
 <section id="recent-blog-posts" class="recent-blog-posts">
 
