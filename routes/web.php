@@ -22,7 +22,7 @@ use App\Models\Website;
 */
 
 Route::get('/', function () {
-    if (Website::all() == null) {
+    if (Website::all()->count() != 0) {
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
         $news = News::orderBy('date', 'desc')->paginate(9);
         return view('front/index', compact('gallery', 'news'));

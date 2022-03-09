@@ -70,17 +70,17 @@
                                 </h3>
                                 <h5>This information will let us know more about you.</h5>
                             </div>
-                            <div class="wizard-navigation">
+                            <div class="wizard-navigation" hidden>
                                 <ul>
                                     <li>
                                         <a href="#about" data-toggle="tab">About</a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="#account" data-toggle="tab">Account</a>
                                     </li>
                                     <li>
                                         <a href="#address" data-toggle="tab">Address</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                             <div class="tab-content">
@@ -95,25 +95,49 @@
                                         <div class="col-sm-5">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Website Description</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" name="web_description" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-sm-5 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Email</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" name="email" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-sm-5">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Address</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" name="address" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-sm-5 col-sm-offset-1">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Phone</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" name="phone" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Twitter</label>
+                                                <input type="text" name="twitter" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Facebook</label>
+                                                <input type="text" name="facebook" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Instagram</label>
+                                                <input type="text" name="instagram" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Youtube</label>
+                                                <input type="text" name="youtube" class="form-control">
                                             </div>
                                         </div>
                                         <!-- <div class="col-sm-5 col-sm-offset-1">
@@ -135,7 +159,7 @@
                                                                         </div> -->
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="account">
+                                <!-- <div class="tab-pane" id="account">
                                     <h4 class="info-text"> What are you doing? (checkboxes) </h4>
                                     <div class="row">
                                         <div class="col-lg-10 col-lg-offset-1">
@@ -192,7 +216,7 @@
                                                     <label class="control-label">First Name
                                                         <small>(required)</small>
                                                     </label>
-                                                    <input name="firstname" type="text" class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="input-group">
@@ -203,7 +227,7 @@
                                                     <label class="control-label">Last Name
                                                         <small>(required)</small>
                                                     </label>
-                                                    <input name="lastname" type="text" class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -216,12 +240,12 @@
                                                     <label class="control-label">Email
                                                         <small>(required)</small>
                                                     </label>
-                                                    <input name="email" type="email" class="form-control">
+                                                    <input type="email" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="wizard-footer">
                                 <div class="pull-right">

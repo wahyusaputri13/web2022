@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Website;
 
 class FrontController extends Controller
 {
@@ -35,6 +36,8 @@ class FrontController extends Controller
 
     public function setup(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+        Website::create($request->except('finish'));
+        return redirect(route('root'));
     }
 }
