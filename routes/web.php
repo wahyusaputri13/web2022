@@ -29,18 +29,20 @@ Route::get('/', function () {
     } else {
         return view('front.setup');
     }
-})->name('root');
+})->name('root')->middleware('data_web');
 
-Route::get('/news-detail/{id}', [FrontController::class, 'newsdetail'])->name('news.detail');
-Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
-Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
-Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
+Route::group(['middleware' => 'data_web'], function () {
+    Route::get('/news-detail/{id}', [FrontController::class, 'newsdetail'])->name('news.detail');
+    Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
+    Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
+    Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
+});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('website', WebsiteController::class);

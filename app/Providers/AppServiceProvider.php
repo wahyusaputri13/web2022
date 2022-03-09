@@ -25,8 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $data = Website::first();
         Paginator::useBootstrap();
-        view()->share('data_website', $data);
     }
 }

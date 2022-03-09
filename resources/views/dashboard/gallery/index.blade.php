@@ -4,14 +4,13 @@
 <div class="content">
     <div class="container-fluid">
 
-        @if ($message = Session::get('success'))
         <div class="col-md-4" hidden>
-            <button id="btn-notif" class="btn btn-primary btn-block" onclick="demo.showNotification('top','center')">Top
+            <button class="btn btn-primary btn-block" id="btnPlekentung"
+                onclick="demo.showNotification('top','center')">Top
                 Center</button>
         </div>
-        <script>
-            document.getElementById("btn-notif").click();
-        </script>
+
+        @if ($message = Session::get('success'))
         @endif
         <div class="row">
             <div class="col-md-12">
@@ -83,7 +82,14 @@
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
+    // var table = $('#datatables').DataTable();
+    // $('.card .material-datatables label').addClass('form-group');
+</script>
+<script>
+    // $(document).ready(function () {
+    //     document.getElementById('btnPlekentung').click();
+    // });
+    demo.showNotification('top', 'center')
+    console.log('sukses');
 </script>
 @endpush
