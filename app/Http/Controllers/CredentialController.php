@@ -93,7 +93,7 @@ class CredentialController extends Controller
             ];
         }
         User::find(auth()->user()->id)->update($data);
-        return redirect()->back();
+        return redirect()->back()->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**

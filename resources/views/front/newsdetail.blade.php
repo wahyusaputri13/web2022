@@ -51,7 +51,7 @@
                             {!! $data->description !!}
                         </div>
 
-                        <div class="entry-footer">
+                        <!-- <div class="entry-footer">
                             <i class="bi bi-folder"></i>
                             <ul class="cats">
                                 <li><a href="#">Business</a></li>
@@ -63,7 +63,7 @@
                                 <li><a href="#">Tips</a></li>
                                 <li><a href="#">Marketing</a></li>
                             </ul>
-                        </div>
+                        </div> -->
 
                     </article>
                     <!-- End blog entry -->
@@ -93,15 +93,16 @@
 
                     <div class="sidebar">
 
-                        <h3 class="sidebar-title">Search</h3>
+                        <!-- <h3 class="sidebar-title">Search</h3>
                         <div class="sidebar-item search-form">
                             <form action="">
                                 <input type="text">
                                 <button type="submit"><i class="bi bi-search"></i></button>
                             </form>
-                        </div><!-- End sidebar search formn-->
+                        </div> -->
+                        <!-- End sidebar search formn-->
 
-                        <h3 class="sidebar-title">Categories</h3>
+                        <!-- <h3 class="sidebar-title">Categories</h3>
                         <div class="sidebar-item categories">
                             <ul>
                                 <li><a href="#">General <span>(25)</span></a></li>
@@ -111,7 +112,8 @@
                                 <li><a href="#">Creative <span>(8)</span></a></li>
                                 <li><a href="#">Educaion <span>(14)</span></a></li>
                             </ul>
-                        </div><!-- End sidebar categories-->
+                        </div> -->
+                        <!-- End sidebar categories-->
 
                         <h3 class="sidebar-title">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">
@@ -126,7 +128,7 @@
                             @endforeach
                         </div><!-- End sidebar recent posts-->
 
-                        <h3 class="sidebar-title">Tags</h3>
+                        <!-- <h3 class="sidebar-title">Tags</h3>
                         <div class="sidebar-item tags">
                             <ul>
                                 <li><a href="#">App</a></li>
@@ -141,7 +143,8 @@
                                 <li><a href="#">Tips</a></li>
                                 <li><a href="#">Marketing</a></li>
                             </ul>
-                        </div><!-- End sidebar tags-->
+                        </div> -->
+                        <!-- End sidebar tags-->
 
                     </div><!-- End sidebar -->
 

@@ -3,6 +3,9 @@
 @include('templates.back.sidebar')
 <div class="content">
     <div class="container-fluid">
+        @if ($message = Session::get('success'))
+        <div id="elementId" hidden>{{ $message }}</div>
+        @endif
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
@@ -74,5 +77,14 @@
     </div>
 </div>
 @endsection
-<!-- @push('javascript') -->
-<!-- @endpush -->
+@push('javascript')
+<script>
+    $(document).ready(function () {
+        if ($('#elementId').length > 0) {
+            const pesan = document.getElementById('elementId').innerText;
+            console.log(pesan);
+            demo.showNotification('top', 'center', pesan)
+        }
+    });
+</script>
+@endpush
