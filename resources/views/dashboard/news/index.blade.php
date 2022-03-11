@@ -4,12 +4,7 @@
 <div class="content">
     <div class="container-fluid">
         @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>{{ $message }}</strong>
-        </div>
+        <div id="elementId" hidden>{{ $message }}</div>
         @endif
         <div class="row">
             <div class="col-md-12">
@@ -83,5 +78,14 @@
     });
         // var table = $('#datatables').DataTable();
         // $('.card .material-datatables label').addClass('form-group');
+</script>
+<script>
+    $(document).ready(function () {
+        if ($('#elementId').length > 0) {
+            const pesan = document.getElementById('elementId').innerText;
+            console.log(pesan);
+            demo.showNotification('top', 'center', pesan)
+        }
+    });
 </script>
 @endpush

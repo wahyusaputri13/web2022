@@ -72,7 +72,7 @@ class NewsController extends Controller
             'description' => $request->description,
         ];
         News::create($data);
-        return redirect(route('news.index'))->with(['success' => 'Success!']);
+        return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }
 
     /**
@@ -140,7 +140,7 @@ class NewsController extends Controller
             ];
         }
         News::find($id)->update($data);
-        return redirect(route('news.index'))->with(['success' => 'Success!']);
+        return redirect(route('news.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**

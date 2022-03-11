@@ -3,13 +3,6 @@
 @include('templates.back.sidebar')
 <div class="content">
     <div class="container-fluid">
-
-        <div class="col-md-4" hidden>
-            <button class="btn btn-primary btn-block" id="btnPlekentung"
-                onclick="demo.showNotification('top','center')">Top
-                Center</button>
-        </div>
-
         <!-- <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -415,9 +408,4 @@
 </div>
 @endsection
 @push('javascript')
-<script>
-    $(document).ready(function () {
-        document.getElementById('btnPlekentung').click();
-    });
-</script>
 @endpush

@@ -68,7 +68,7 @@ class GalleryController extends Controller
             'description' => $request->description,
         ];
         Gallery::create($data);
-        return redirect(route('gallery.index'))->with(['success' => 'Success!']);
+        return redirect(route('gallery.index'))->with(['success' => 'Data added successfully!']);
     }
 
     /**
@@ -128,7 +128,7 @@ class GalleryController extends Controller
             ];
         }
         Gallery::find($id)->update($data);
-        return redirect(route('gallery.index'))->with(['success' => 'Success!']);
+        return redirect(route('gallery.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**

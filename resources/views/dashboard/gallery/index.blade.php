@@ -3,14 +3,8 @@
 @include('templates.back.sidebar')
 <div class="content">
     <div class="container-fluid">
-
-        <div class="col-md-4" hidden>
-            <button class="btn btn-primary btn-block" id="btnPlekentung"
-                onclick="demo.showNotification('top','center')">Top
-                Center</button>
-        </div>
-
         @if ($message = Session::get('success'))
+        <div id="elementId" hidden>{{ $message }}</div>
         @endif
         <div class="row">
             <div class="col-md-12">
@@ -82,14 +76,14 @@
         ]
 
     });
-    // var table = $('#datatables').DataTable();
-    // $('.card .material-datatables label').addClass('form-group');
 </script>
 <script>
-    // $(document).ready(function () {
-    //     document.getElementById('btnPlekentung').click();
-    // });
-    demo.showNotification('top', 'center')
-    console.log('sukses');
+    $(document).ready(function () {
+        if ($('#elementId').length > 0) {
+            const pesan = document.getElementById('elementId').innerText;
+            console.log(pesan);
+            demo.showNotification('top', 'center', pesan)
+        }
+    });
 </script>
 @endpush

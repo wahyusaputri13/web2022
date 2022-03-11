@@ -61,86 +61,85 @@
                 <!--      Wizard container        -->
                 <div class="wizard-container">
                     <div class="card wizard-card" data-color="rose" id="wizardProfile">
-                        <form action="{{ route('setup-first') }}" method="post">
-                            @csrf
-                            <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-                            <div class="wizard-header">
-                                <h3 class="wizard-title">
-                                    Build Your Profile
-                                </h3>
-                                <h5>This information will let us know more about you.</h5>
-                            </div>
-                            <div class="wizard-navigation" hidden>
-                                <ul>
-                                    <li>
-                                        <a href="#about" data-toggle="tab">About</a>
-                                    </li>
-                                    <!-- <li>
+                        {{Form::open(['route' => 'setup-first','method' => 'post', 'files' => 'true', ''])}}
+                        <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                        <div class="wizard-header">
+                            <h3 class="wizard-title">
+                                Build Your Profile
+                            </h3>
+                            <h5>This information will let us know more about you.</h5>
+                        </div>
+                        <div class="wizard-navigation" hidden>
+                            <ul>
+                                <li>
+                                    <a href="#about" data-toggle="tab">About</a>
+                                </li>
+                                <!-- <li>
                                         <a href="#account" data-toggle="tab">Account</a>
                                     </li>
                                     <li>
                                         <a href="#address" data-toggle="tab">Address</a>
                                     </li> -->
-                                </ul>
-                            </div>
-                            <div class="tab-content">
-                                <div class="tab-pane" id="about">
-                                    <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Website Name</label>
-                                                <input type="text" name="web_name" class="form-control">
-                                            </div>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="about">
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Website Name</label>
+                                            {{Form::text('web_name', null,['class' => 'form-control'])}}
                                         </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Website Description</label>
-                                                <input type="text" name="web_description" class="form-control">
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Website Description</label>
+                                            {{Form::text('web_description', null,['class' => 'form-control'])}}
                                         </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Email</label>
-                                                <input type="text" name="email" class="form-control">
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Email</label>
+                                            {{Form::email('email', null,['class' => 'form-control'])}}
                                         </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Address</label>
-                                                <input type="text" name="address" class="form-control">
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Address</label>
+                                            {{Form::text('address', null,['class' => 'form-control'])}}
                                         </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Phone</label>
-                                                <input type="text" name="phone" class="form-control">
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Phone</label>
+                                            {{Form::text('phone', null,['class' => 'form-control'])}}
                                         </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Twitter</label>
-                                                <input type="text" name="twitter" class="form-control">
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Twitter</label>
+                                            {{Form::text('twitter', null,['class' => 'form-control'])}}
                                         </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Facebook</label>
-                                                <input type="text" name="facebook" class="form-control">
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Facebook</label>
+                                            {{Form::text('facebook', null,['class' => 'form-control'])}}
                                         </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Instagram</label>
-                                                <input type="text" name="instagram" class="form-control">
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Instagram</label>
+                                            {{Form::text('instagram', null,['class' => 'form-control'])}}
                                         </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Youtube</label>
-                                                <input type="text" name="youtube" class="form-control">
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Youtube</label>
+                                            {{Form::text('youtube', null,['class' => 'form-control'])}}
                                         </div>
-                                        <!-- <div class="col-sm-5 col-sm-offset-1">
+                                    </div>
+                                    <!-- <div class="col-sm-5 col-sm-offset-1">
                                                                             <div class="form-group label-floating">
                                                                                 <label class="control-label">Address</label>
                                                                                 <select name="country" class="form-control">
@@ -157,9 +156,9 @@
                                                                                 </select>
                                                                             </div>
                                                                         </div> -->
-                                    </div>
                                 </div>
-                                <!-- <div class="tab-pane" id="account">
+                            </div>
+                            <!-- <div class="tab-pane" id="account">
                                     <h4 class="info-text"> What are you doing? (checkboxes) </h4>
                                     <div class="row">
                                         <div class="col-lg-10 col-lg-offset-1">
@@ -246,21 +245,21 @@
                                         </div>
                                     </div>
                                 </div> -->
+                        </div>
+                        <div class="wizard-footer">
+                            <div class="pull-right">
+                                <input type='button' class='btn btn-next btn-fill btn-rose btn-wd' name='next'
+                                    value='Next' />
+                                <input type='submit' class='btn btn-finish btn-fill btn-rose btn-wd' name='finish'
+                                    value='Finish' />
                             </div>
-                            <div class="wizard-footer">
-                                <div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-rose btn-wd' name='next'
-                                        value='Next' />
-                                    <input type='submit' class='btn btn-finish btn-fill btn-rose btn-wd' name='finish'
-                                        value='Finish' />
-                                </div>
-                                <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd'
-                                        name='previous' value='Previous' />
-                                </div>
-                                <div class="clearfix"></div>
+                            <div class="pull-left">
+                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd'
+                                    name='previous' value='Previous' />
                             </div>
-                        </form>
+                            <div class="clearfix"></div>
+                        </div>
+                        {{Form::close()}}
                     </div>
                 </div>
                 <!-- wizard container -->

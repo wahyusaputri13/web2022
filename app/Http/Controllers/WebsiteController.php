@@ -37,11 +37,6 @@ class WebsiteController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(
-            [],
-        );
-        Website::create($validated);
-        return redirect(route('website.index'))->with(['success' => 'Success!']);
     }
 
     /**
@@ -89,7 +84,7 @@ class WebsiteController extends Controller
             'image_hero_name' => $name,
             'image_hero' => $path
         ]);
-        return redirect()->back();
+        return redirect()->back()->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**

@@ -387,11 +387,15 @@ section {
   font-size: 48px;
   font-weight: 700;
   color: #fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 .hero h2 {
   color: #fff;
   margin: 15px 0 0 0;
   font-size: 26px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
 }
 .hero .btn-get-started {
   margin-top: 30px;
