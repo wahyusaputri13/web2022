@@ -1,3 +1,5 @@
+@extends('front.layouts.app')
+@section('content')
 @if($gallery->count() != 0)
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="portfolio">
@@ -43,9 +45,10 @@
     </div>
 
 </section>
-@endif
 <!-- End Gallery Section -->
-@push('javascript')
+@endif
+@endsection
+@push('after-script')
 <script>
     $(function () {
         $('body').on('click', '.pagination a', function (e) {

@@ -1,6 +1,5 @@
-@extends('front.main')
-@section('container')
-@include('front.header')
+@extends('front.layouts.app')
+@section('content')
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -156,5 +155,6 @@
     </section><!-- End Blog Single Section -->
 
 </main>
-<!-- End #main -->
 @endsection
+@push('after-script')
+@endpush

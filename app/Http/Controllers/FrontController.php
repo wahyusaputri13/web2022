@@ -13,30 +13,29 @@ class FrontController extends Controller
     {
         $data = News::find($id);
         $news = News::orderBy('date', 'desc')->paginate(5);
-        return view('front.newsdetail', compact('data', 'news'));
+        return view('front.pages.newsdetail', compact('data', 'news'));
     }
 
     public function newsall(Request $request)
     {
         $news = News::orderBy('date', 'desc')->paginate(9);
         if ($request->ajax()) {
-            return view('front.news', compact('news'));
+            return view('front.pages.news', compact('news'));
         }
-        return view('front.newsall', compact('news'));
+        return view('front.pages.news', compact('news'));
     }
 
     public function galleryall(Request $request)
     {
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
         if ($request->ajax()) {
-            return view('front.gallery', compact('gallery'));
+            return view('front.pages.gallery', compact('gallery'));
         }
-        return view('front.allgallery', compact('gallery'));
+        return view('front.pages.gallery', compact('gallery'));
     }
 
     public function setup(Request $request)
     {
-        // dd($request->all());
         Website::create($request->except('finish'));
         return redirect(route('root'));
     }

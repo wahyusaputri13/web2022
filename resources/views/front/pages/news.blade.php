@@ -1,3 +1,5 @@
+@extends('front.layouts.app')
+@section('content')
 @if($news->count() != 0)
 <!-- ======= Recent Blog Posts Section ======= -->
 <section id="recent-blog-posts" class="recent-blog-posts">
@@ -43,3 +45,26 @@
 </section>
 <!-- End Recent Blog Posts Section -->
 @endif
+@endsection
+@push('after-script')
+<script>
+    $(function () {
+        $('body').on('click', '.pagination a', function (e) {
+            e.preventDefault();
+            $('#load').append('<img style="position: absolute; left: 0; top: 0; z-index: 10000;" src="https://i.imgur.com/v3KWF05.gif />');
+            var url = $(this).attr('href');
+            window.history.pushState("", "", url);
+            loadPosts(url);
+        });
+        function loadPosts(url) {
+            $.ajax({
+                url: url
+            }).done(function (data) {
+                $('.recent-blog-posts').html(data);
+            }).fail(function () {
+                console.log("Failed to load data!");
+            });
+        }
+    });
+</script>
+@endpush

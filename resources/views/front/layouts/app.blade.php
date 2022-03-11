@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-    @include('includes.meta')
+    @include('front.includes.meta')
 
-    <title>@yield('title') | Football Analytics</title>
+    <title>{{ $data_website->web_name }}</title>
 
     @stack('before-style')
-    @include('includes.style')
+    @include('front.includes.style')
     @stack('after-style')
 </head>
 
 <body>
-    @include('includes.header')
+    @include('front.includes.header')
     @yield('content')
-    @include('includes.footer')
+    @include('front.includes.footer')
     @stack('before-script')
-    @include('includes.script')
+    @include('front.includes.script')
     @stack('after-script')
 
 </body>

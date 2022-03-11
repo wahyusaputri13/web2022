@@ -25,9 +25,9 @@ Route::get('/', function () {
     if (Website::all()->count() != 0) {
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
         $news = News::orderBy('date', 'desc')->paginate(9);
-        return view('front/index', compact('gallery', 'news'));
+        return view('front.pages.index', compact('gallery', 'news'));
     } else {
-        return view('front.setup');
+        return view('front.pages.setup');
     }
 })->name('root')->middleware('data_web');
 
