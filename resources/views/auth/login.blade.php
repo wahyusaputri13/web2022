@@ -13,11 +13,11 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="">
+                <!-- <li class="">
                     <a href="{{ url('/register') }}">
                         <i class="material-icons">person_add</i> Register
                     </a>
-                </li>
+                </li> -->
                 <li class=" active ">
                     <a href="{{ url('/login') }}">
                         <i class="material-icons">fingerprint</i> Login
