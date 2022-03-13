@@ -155,7 +155,7 @@ class NewsController extends Controller
         if (Storage::exists($gambar->path)) {
             Storage::delete($gambar->path);
         }
-        $data = News::destroy($id);
-        return $data;
+        $data = News::find($id);
+        return $data->delete();
     }
 }
