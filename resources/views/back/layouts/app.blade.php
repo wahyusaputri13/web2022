@@ -12,7 +12,9 @@
 </head>
 
 <body>
+    @if(Route::current()->getName() == 'dashboard')
     @include('back.includes.header')
+    @endif
     @yield('content')
     @include('back.includes.footer')
     @stack('before-script')

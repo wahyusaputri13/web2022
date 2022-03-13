@@ -1,5 +1,5 @@
-@extends('templates.back.main')
-@section('container')
+@extends('back.layouts.app')
+@section('content')
 <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
     <div class="container">
         <div class="navbar-header">
