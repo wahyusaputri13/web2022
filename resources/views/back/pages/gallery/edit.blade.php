@@ -1,6 +1,5 @@
-@extends('templates.back.main')
-@section('container')
-@include('templates.back.sidebar')
+@extends('back.layouts.app')
+@section('content')
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -64,5 +63,5 @@
     </div>
 </div>
 @endsection
-@push('javascript')
+@push('after-script')
 @endpush

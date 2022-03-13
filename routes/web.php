@@ -39,7 +39,7 @@ Route::group(['middleware' => 'data_web'], function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('back.pages.dashboard');
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web']], function () {

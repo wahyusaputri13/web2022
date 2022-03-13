@@ -16,7 +16,7 @@ class WebsiteController extends Controller
     public function index()
     {
         $data = Website::first();
-        return view('dashboard.website.index', compact('data'));
+        return view('back.pages.website.index', compact('data'));
     }
 
     /**

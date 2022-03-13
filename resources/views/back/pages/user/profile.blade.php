@@ -1,6 +1,5 @@
-@extends('templates.back.main')
-@section('container')
-@include('templates.back.sidebar')
+@extends('back.layouts.app')
+@section('content')
 <div class="content">
     <div class="container-fluid">
         @if ($message = Session::get('success'))
@@ -77,7 +76,7 @@
     </div>
 </div>
 @endsection
-@push('javascript')
+@push('after-script')
 <script>
     $(document).ready(function () {
         if ($('#elementId').length > 0) {
