@@ -23,6 +23,14 @@ class FrontController extends Controller
         return view('front.pages.newsbyauthor', compact('data', 'news'));
     }
 
+    public function newsBySearch(Request $request)
+    {
+        $cari = $request->kolomcari;
+        $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate(5);
+        $news = News::orderBy('date', 'desc')->paginate(5);
+        return view('front.pages.newsbyauthor', compact('data', 'news'));
+    }
+
     public function newsall(Request $request)
     {
         $news = News::orderBy('date', 'desc')->paginate(9);

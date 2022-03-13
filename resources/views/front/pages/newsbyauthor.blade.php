@@ -36,7 +36,8 @@
 
                         <div class="entry-meta">
                             <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                        href="{{ url('/news-author', $author->upload_by) }}">{{
                                         $author->upload_by }}</a></li>
                                 <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time>{{
                                             \Carbon\Carbon::parse( $author->date )->format('l') }}, {{
@@ -67,7 +68,7 @@
 
                     <div class="row" data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-12 d-flex justify-content-center">
-                            {!! $news->render() !!}
+                            {!! $data->render() !!}
                         </div>
                     </div>
 
@@ -77,13 +78,13 @@
 
                     <div class="sidebar">
 
-                        <!-- <h3 class="sidebar-title">Search</h3>
+                        <h3 class="sidebar-title">Search</h3>
                         <div class="sidebar-item search-form">
-                            <form action="">
-                                <input type="text">
-                                <button type="submit"><i class="bi bi-search"></i></button>
-                            </form>
-                        </div> -->
+                            {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
+                            {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
+                            <button type="submit"><i class="bi bi-search"></i></button>
+                            {{Form::close()}}
+                        </div>
                         <!-- End sidebar search formn-->
 
                         <!-- <h3 class="sidebar-title">Categories</h3>
