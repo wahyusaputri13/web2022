@@ -104,7 +104,7 @@
 
         <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
             @foreach($gallery as $g)
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="col-lg-3 col-md-4 portfolio-item filter-app">
                 <div class="portfolio-wrap d-flex justify-content-center">
                     <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
@@ -113,7 +113,7 @@
                         <div class="portfolio-links">
                             <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
                                 class="portfokio-lightbox" title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                            <!-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> -->
                         </div>
                     </div>
                 </div>

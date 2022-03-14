@@ -1,11 +1,11 @@
 <footer class="footer">
     <div class="container-fluid">
         <p class="copyright pull-right">
-            &copy;
-            <script>
+            &copy; 2022
+            <!-- <script>
                 document.write(new Date().getFullYear())
-            </script>
-            <a href="http://www.creative-tim.com/">Creative Tim</a>, Isa Maulana Tantra
+            </script> -->
+            <a href="https://website.wonosobokab.go.id/">Pemerintah Kab. Wonosobo</a>, Isa Maulana Tantra
         </p>
     </div>
 </footer>

@@ -35,7 +35,7 @@
                         <div class="portfolio-links">
                             <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
                                 class="portfokio-lightbox" title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                            <!-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> -->
                         </div>
                     </div>
                 </div>

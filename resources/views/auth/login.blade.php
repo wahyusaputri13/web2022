@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}">Material Dashboard Pro</a>
+            <a class="navbar-brand" href="{{ url('/') }}">{{ $data_website->web_name }}</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -80,11 +80,11 @@
             <nav class="pull-left">
             </nav>
             <p class="copyright pull-right">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-                <a href="http://www.creative-tim.com/">Creative Tim</a>, made with love for a better web
+                &copy; 2022
+                <!-- <script>
+                        document.write(new Date().getFullYear())
+                    </script> -->
+                <a href="https://website.wonosobokab.go.id/">Pemerintah Kab. Wonosobo</a>, Isa Maulana Tantra
             </p>
         </div>
     </footer>
