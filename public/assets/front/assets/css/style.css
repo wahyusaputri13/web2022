@@ -107,7 +107,7 @@ section {
 .breadcrumbs ol li + li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #8894f6;
+  color: #fff;
   content: "/";
 }
 
