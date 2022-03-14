@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Title</label>
+                                    <label class="control-label">Email</label>
                                     {{Form::text('email', null,['class' => 'form-control'])}}
                                 </div>
                             </div>
