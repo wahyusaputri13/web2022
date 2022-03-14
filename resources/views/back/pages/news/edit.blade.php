@@ -47,9 +47,9 @@
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
-                    <div class="form-group label-floating">
+                    <div class="form-group">
                         <label class="control-label">Date</label>
-                        {{Form::date('date', null,['class' => 'form-control'])}}
+                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
@@ -66,7 +66,11 @@
 </div>
 @endsection
 @push('after-script')
-<script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        demo.initFormExtendedDatetimepickers();
+    });
+
     ClassicEditor
         .create(document.querySelector('#editor'))
         .catch(error => {
