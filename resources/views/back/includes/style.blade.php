@@ -1,5 +1,5 @@
-<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/back/assets/img/apple-icon.png') }}" />
-<link rel="icon" type="image/png" href="{{ asset('assets/back/assets/img/favicon.png') }}" />
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/back/assets/img/pesona32x32.png') }}" />
+<link rel="icon" type="image/png" href="{{ asset('assets/back/assets/img/pesona32x32.png') }}" />
 <!-- Canonical SEO -->
 <link rel="canonical" href="//www.creative-tim.com/product/material-dashboard-pro" />
 <!--  Social tags      -->
