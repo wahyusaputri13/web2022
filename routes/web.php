@@ -21,6 +21,13 @@ use App\Models\Website;
 |
 */
 
+Route::group(
+    ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
+    function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    }
+);
+
 Route::get('/', function () {
     if (Website::all()->count() != 0) {
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
