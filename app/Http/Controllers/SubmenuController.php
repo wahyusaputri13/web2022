@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Submenu;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class MenuController extends Controller
+class SubmenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +17,16 @@ class MenuController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Menu::all();
+            $data = Submenu::with(['menu']);
             return DataTables::of($data)
-                ->addIndexColumn()
+                // ->addIndexColumn()
                 ->addColumn(
                     'action',
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('menu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
-                        <a href="' . route('menu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
+                        <a href="' . route('submenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
+                        <a href="' . route('submenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
                     </div>';
                         return $actionBtn;
                     }
@@ -33,7 +34,7 @@ class MenuController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.pages.menu.index');
+        return view('back.pages.submenu.index');
     }
 
     /**
@@ -43,7 +44,8 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('back.pages.menu.create');
+        $menu = Menu::orderBy('menu', 'asc')->pluck('menu', 'id');
+        return view('back.pages.submenu.create', compact('menu'));
     }
 
     /**
@@ -56,20 +58,23 @@ class MenuController extends Controller
     {
         $validated = $request->validate(
             [
-                'menu' => 'required'
+                'menu_id' => 'required',
+                'title' => 'required',
+                'url' => 'required',
+                'icon' => 'required',
             ],
         );
-        Menu::create($validated);
-        return redirect(route('menu.index'))->with(['success' => 'Data added successfully!']);
+        Submenu::create($request->except('_token'));
+        return redirect(route('submenu.index'))->with(['success' => 'Data added successfully!']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Menu  $menu
+     * @param  \App\Models\Submenu  $submenu
      * @return \Illuminate\Http\Response
      */
-    public function show(Menu $menu)
+    public function show(Submenu $submenu)
     {
         //
     }
@@ -77,39 +82,35 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Menu  $menu
+     * @param  \App\Models\Submenu  $submenu
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Submenu $submenu)
     {
-        $data = Menu::find($id);
-        return view('back.pages.menu.edit', compact('data'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Menu  $menu
+     * @param  \App\Models\Submenu  $submenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Submenu $submenu)
     {
-        Menu::find($id)->update(
-            $request->except(['_token']),
-        );
-        return redirect(route('menu.index'))->with(['success' => 'Data has been successfully changed!']);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Menu  $menu
+     * @param  \App\Models\Submenu  $submenu
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($submenu)
     {
-        $data = menu::destroy($id);
+        $data = Submenu::destroy($submenu);
         return $data;
     }
 }

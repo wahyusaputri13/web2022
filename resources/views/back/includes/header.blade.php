@@ -49,12 +49,18 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <!-- <li class="{{ request()->is('menu*') ? 'active' : '' }}">
+                <li class="{{ request()->is('menu*') ? 'active' : '' }}">
                     <a href="{{ url('menu') }}">
                         <i class="material-icons">menu</i>
                         <p>Menu</p>
                     </a>
-                </li> -->
+                </li>
+                <li class="{{ request()->is('submenu*') ? 'active' : '' }}">
+                    <a href="{{ url('submenu') }}">
+                        <i class="material-icons">subject</i>
+                        <p>Submenu</p>
+                    </a>
+                </li>
                 <li class="{{ request()->is('website*') ? 'active' : '' }}">
                     <a href="{{ url('website') }}">
                         <i class="material-icons">web</i>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\SubmenuController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
@@ -54,6 +55,7 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
 Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
+    Route::resource('submenu', SubmenuController::class);
     Route::resource('website', WebsiteController::class);
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);

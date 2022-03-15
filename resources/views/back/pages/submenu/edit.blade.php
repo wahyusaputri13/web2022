@@ -17,7 +17,7 @@
                             {{Form::text('menu', null,['class' => 'form-control'])}}
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-success btn-fill">Update</button>
+                            <button type="submit" class="btn btn-fill">Update</button>
                         </div>
                         {{Form::close()}}
                     </div>

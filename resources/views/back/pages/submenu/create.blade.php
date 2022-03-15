@@ -19,10 +19,26 @@
                             </ul>
                         </div>
                         @endif
-                        {{Form::open(['route' => 'menu.store','method' => 'post', 'files' => 'true', ''])}}
+                        {{Form::open(['route' => 'submenu.store','method' => 'post', 'files' => 'true', ''])}}
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>
-                            {{Form::text('menu', null,['class' => 'form-control'])}}
+                            {{Form::select('menu_id', $menu, null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Title Submenu</label>
+                            {{Form::text('title', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">URL Submenu</label>
+                            {{Form::text('url', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Icon Submenu</label>
+                            {{Form::text('icon', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Active?</label>
+                            {{Form::checkbox('is_active', 1,['class' => 'form-control'])}}
                         </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>
