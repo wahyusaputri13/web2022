@@ -6,11 +6,11 @@
     <section class="breadcrumbs">
         <div class="container">
 
-            <ol>
-                <li><a href="index.html">Home</a></li>
+            <!-- <ol>
+                <li><a href="#">Home</a></li>
                 <li>Blog</li>
-            </ol>
-            <h2>Blog</h2>
+            </ol> -->
+            <h2>{{ $hasil }}</h2>
 
         </div>
     </section>
@@ -31,7 +31,7 @@
                         </div>
 
                         <h2 class="entry-title">
-                            <a href="#">{{ $author->title }}</a>
+                            <a href="{{ url('/news-detail', $author->id) }}">{{ $author->title }}</a>
                         </h2>
 
                         <div class="entry-meta">

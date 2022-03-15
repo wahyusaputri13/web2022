@@ -18,17 +18,19 @@ class FrontController extends Controller
 
     public function newsByAuthor($id)
     {
+        $hasil = 'All post by : ' . $id;
         $data = News::where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
-        $news = News::orderBy('date', 'desc')->paginate(5);
-        return view('front.pages.newsbyauthor', compact('data', 'news'));
+        $news = News::latest('date')->take(5)->get();
+        return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsBySearch(Request $request)
     {
         $cari = $request->kolomcari;
+        $hasil = 'Search result : ' . $cari;
         $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate(5);
-        $news = News::orderBy('date', 'desc')->paginate(5);
-        return view('front.pages.newsbyauthor', compact('data', 'news'));
+        $news = News::latest('date')->take(5)->get();
+        return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsall(Request $request)
