@@ -85,9 +85,11 @@ class SubmenuController extends Controller
      * @param  \App\Models\Submenu  $submenu
      * @return \Illuminate\Http\Response
      */
-    public function edit(Submenu $submenu)
+    public function edit($id)
     {
-        //
+        $data = Submenu::find($id);
+        $menu = Menu::orderBy('menu', 'asc')->pluck('menu', 'id');
+        return view('back.pages.submenu.edit', compact('data', 'menu'));
     }
 
     /**
@@ -97,9 +99,12 @@ class SubmenuController extends Controller
      * @param  \App\Models\Submenu  $submenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Submenu $submenu)
+    public function update(Request $request, $id)
     {
-        //
+        Submenu::find($id)->update(
+            $request->except(['_token']),
+        );
+        return redirect(route('submenu.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**

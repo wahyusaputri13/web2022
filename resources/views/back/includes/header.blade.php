@@ -79,36 +79,25 @@
                         <p>Gallery</p>
                     </a>
                 </li>
-                <!-- <li>
-                    <a data-toggle="collapse" href="#pagesExamples">
+                @foreach($menu_website as $menu)
+                <li>
+                    <a data-toggle="collapse" href="#pagesExamples{{ $loop->iteration }}">
                         <i class="material-icons">image</i>
-                        <p>Pages
+                        <p>{{ $menu->menu }}
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse" id="pagesExamples">
+                    <div class="collapse" id="pagesExamples{{ $loop->iteration }}">
                         <ul class="nav">
+                            @foreach($menu->submenu as $submenu)
                             <li>
-                                <a href="#">Pricing</a>
+                                <a href="#"><i class="material-icons">image</i>{{ $submenu->title }}</a>
                             </li>
-                            <li>
-                                <a href="#">Timeline</a>
-                            </li>
-                            <li>
-                                <a href="#">Login Page</a>
-                            </li>
-                            <li>
-                                <a href="#">Register Page</a>
-                            </li>
-                            <li>
-                                <a href="#">Lock Screen Page</a>
-                            </li>
-                            <li>
-                                <a href="#">User Profile</a>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
-                </li> -->
+                </li>
+                @endforeach
             </ul>
         </div>
     </div>

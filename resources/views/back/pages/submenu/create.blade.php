@@ -36,9 +36,9 @@
                             <label class="control-label">Icon Submenu</label>
                             {{Form::text('icon', null,['class' => 'form-control'])}}
                         </div>
-                        <div class="form-group label-floating">
+                        <div class="form-group text-center">
                             <label class="control-label">Active?</label>
-                            {{Form::checkbox('is_active', 1,['class' => 'form-control'])}}
+                            {{Form::checkbox('is_active', 1, null,['class' => 'form-control'])}}
                         </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>

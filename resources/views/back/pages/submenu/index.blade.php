@@ -30,6 +30,8 @@
                                         <th>#</th>
                                         <th>Menu Name</th>
                                         <th>Submenu Name</th>
+                                        <th>URL</th>
+                                        <th>Icon</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -74,6 +76,8 @@
             { data: 'id', name: 'id' },
             { data: 'menu.menu', name: 'menu.menu' },
             { data: 'title', name: 'title' },
+            { data: 'url', name: 'url' },
+            { data: 'icon', name: 'icon' },
             { data: 'action', },
         ]
 
