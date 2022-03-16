@@ -56,7 +56,7 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);
-    Route::resource('website', WebsiteController::class);
+    Route::resource('settings', WebsiteController::class);
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
 });

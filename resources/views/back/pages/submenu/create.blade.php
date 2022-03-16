@@ -20,9 +20,9 @@
                         </div>
                         @endif
                         {{Form::open(['route' => 'submenu.store','method' => 'post', 'files' => 'true', ''])}}
-                        <div class="form-group label-floating">
-                            <label class="control-label">Menu Name</label>
-                            {{Form::select('menu_id', $menu, null,['class' => 'form-control'])}}
+                        <div>
+                            {{Form::select('menu_id', $menu, null,['class' => 'form-control selectpicker', 'data-style'
+                            => 'btn btn-success btn-round', 'title' => 'Choose Parent Menu'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Title Submenu</label>
@@ -36,9 +36,10 @@
                             <label class="control-label">Icon Submenu</label>
                             {{Form::text('icon', null,['class' => 'form-control'])}}
                         </div>
-                        <div class="form-group text-center">
-                            <label class="control-label">Active?</label>
-                            {{Form::checkbox('is_active', 1, null,['class' => 'form-control'])}}
+                        <div class="checkbox">
+                            <label>
+                                {{Form::checkbox('is_active', 1, null,[])}} Active?
+                            </label>
                         </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>

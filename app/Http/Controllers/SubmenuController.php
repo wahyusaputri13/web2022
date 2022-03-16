@@ -56,6 +56,7 @@ class SubmenuController extends Controller
      */
     public function store(Request $request)
     {
+        $centang = ($request->input('is_active')) ? 1 : 0;
         $validated = $request->validate(
             [
                 'menu_id' => 'required',
@@ -64,7 +65,7 @@ class SubmenuController extends Controller
                 'icon' => 'required',
             ],
         );
-        Submenu::create($request->except('_token'));
+        Submenu::create($validated + ['is_active' => $centang]);
         return redirect(route('submenu.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -101,8 +102,17 @@ class SubmenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $centang = ($request->input('is_active')) ? 1 : 0;
+        $validated = $request->validate(
+            [
+                'menu_id' => 'required',
+                'title' => 'required',
+                'url' => 'required',
+                'icon' => 'required',
+            ],
+        );
         Submenu::find($id)->update(
-            $request->except(['_token']),
+            $validated + ['is_active' => $centang]
         );
         return redirect(route('submenu.index'))->with(['success' => 'Data has been successfully changed!']);
     }

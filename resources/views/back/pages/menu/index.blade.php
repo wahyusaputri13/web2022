@@ -31,6 +31,8 @@
                                                                         <tr>
                                                                                 <th>#</th>
                                                                                 <th>Menu Name</th>
+                                                                                <th>Menu Icon</th>
+                                                                                <th>Menu URL</th>
                                                                                 <th
                                                                                         class="disabled-sorting text-center">
                                                                                         Actions</th>
@@ -74,6 +76,8 @@
                 columns: [
                         { data: 'DT_RowIndex' },
                         { data: 'menu', name: 'menu' },
+                        { data: 'menu_icon', name: 'menu_icon' },
+                        { data: 'menu_url', name: 'menu_url' },
                         { data: 'action', },
                 ]
 

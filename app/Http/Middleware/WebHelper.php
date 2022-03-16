@@ -22,12 +22,9 @@ class WebHelper
         //its just a dummy data object.
         $data = Website::first();
         $menu = Menu::with('submenu')->get();
-        // $menu = Menu::all();
-        // $submenu = Submenu::all();
         // Sharing is caring
         view()->share('data_website', $data);
         view()->share('menu_website', $menu);
-        // view()->share('submenu_website', $submenu);
         return $next($request);
     }
 }

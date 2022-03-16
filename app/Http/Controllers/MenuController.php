@@ -56,10 +56,10 @@ class MenuController extends Controller
     {
         $validated = $request->validate(
             [
-                'menu' => 'required'
+                'menu' => 'required',
             ],
         );
-        Menu::create($validated);
+        Menu::create($request->except('_token'));
         return redirect(route('menu.index'))->with(['success' => 'Data added successfully!']);
     }
 

@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">Stacked Form</h4> -->
-                        {{Form::model($data, ['route' => ['website.update', $data->id],'method' => 'put', 'files' =>
+                        {{Form::model($data, ['route' => ['settings.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
                         <div class="row">
                             <div class="col-md-12 text-center">

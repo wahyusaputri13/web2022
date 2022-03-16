@@ -24,6 +24,14 @@
                             <label class="control-label">Menu Name</label>
                             {{Form::text('menu', null,['class' => 'form-control'])}}
                         </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Menu Icon</label>
+                            {{Form::text('menu_icon', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Menu Url</label>
+                            {{Form::text('menu_url', null,['class' => 'form-control'])}}
+                        </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>
                         </div>

@@ -28,9 +28,10 @@
                             <label class="control-label">Icon Submenu</label>
                             {{Form::text('icon', null,['class' => 'form-control'])}}
                         </div>
-                        <div class="form-group text-center">
-                            <label class="control-label">Active?</label>
-                            {{Form::checkbox('is_active', 1, null,['class' => 'form-control'])}}
+                        <div class="checkbox">
+                            <label>
+                                {{Form::checkbox('is_active', 1, null,[])}} Active?
+                            </label>
                         </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-success btn-fill">Update</button>

@@ -43,55 +43,30 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                    <a href="{{ url('dashboard') }}">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li class="{{ request()->is('menu*') ? 'active' : '' }}">
-                    <a href="{{ url('menu') }}">
-                        <i class="material-icons">menu</i>
-                        <p>Menu</p>
-                    </a>
-                </li>
-                <li class="{{ request()->is('submenu*') ? 'active' : '' }}">
-                    <a href="{{ url('submenu') }}">
-                        <i class="material-icons">subject</i>
-                        <p>Submenu</p>
-                    </a>
-                </li>
-                <li class="{{ request()->is('website*') ? 'active' : '' }}">
-                    <a href="{{ url('website') }}">
-                        <i class="material-icons">web</i>
-                        <p>Website</p>
-                    </a>
-                </li>
-                <li class="{{ request()->is('news*') ? 'active' : '' }}">
-                    <a href="{{ url('news') }}">
-                        <i class="material-icons">event_note</i>
-                        <p>News</p>
-                    </a>
-                </li>
-                <li class="{{ request()->is('gallery*') ? 'active' : '' }}">
-                    <a href="{{ url('gallery') }}">
-                        <i class="material-icons">collections</i>
-                        <p>Gallery</p>
-                    </a>
-                </li>
                 @foreach($menu_website as $menu)
+                @if($menu->submenu->isEmpty())
+                <li class="{{ request()->is(strtolower($menu->menu.'*')) ? 'active' : '' }}">
+                    <a href="{{ $menu->menu_url }}">
+                        <i class="material-icons">{{ $menu->menu_icon }}</i>
+                        <p>{{ $menu->menu }}</p>
+                    </a>
+                </li>
+                @else
                 <li>
                     <a data-toggle="collapse" href="#pagesExamples{{ $loop->iteration }}">
-                        <i class="material-icons">image</i>
+                        <i class="material-icons">{{ $menu->menu_icon }}</i>
                         <p>{{ $menu->menu }}
                             <b class="caret"></b>
                         </p>
                     </a>
+                    @endif
                     <div class="collapse" id="pagesExamples{{ $loop->iteration }}">
                         <ul class="nav">
                             @foreach($menu->submenu as $submenu)
-                            <li>
-                                <a href="#"><i class="material-icons">image</i>{{ $submenu->title }}</a>
+                            <li class="{{ request()->is(strtolower($submenu->title.'*')) ? 'active' : '' }}">
+                                <a href="{{ $submenu->url }}"><i class="material-icons">{{ $submenu->icon }}</i>{{
+                                    $submenu->title
+                                    }}</a>
                             </li>
                             @endforeach
                         </ul>
