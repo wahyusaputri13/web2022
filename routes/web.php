@@ -7,6 +7,7 @@ use App\Http\Controllers\SubmenuController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
@@ -59,4 +60,5 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('settings', WebsiteController::class);
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
+    Route::resource('role', RoleController::class);
 });
