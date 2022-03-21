@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\Submenu;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -24,6 +25,7 @@ class RoleController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
+                        <a href="' . route('role.show', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">accessibility</i> accessibility</a>
                         <a href="' . route('role.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
                         <a href="' . route('role.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
                     </div>';
@@ -69,9 +71,25 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $data = Submenu::all();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'access',
+                    function ($data) {
+                        $actionBtn = '<center>
+                                           <input class="sandikentang" type="checkbox" onclick="centang('  . $data->id . ')" />
+                                    </center>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['access'])
+                ->make(true);
+        }
+        return view('back.pages.role.access');
     }
 
     /**
@@ -111,5 +129,23 @@ class RoleController extends Controller
     {
         $data = Role::destroy($id);
         return $data;
+    }
+
+    public function changeAccess()
+    {
+        $menu_id = $this->input->post('menuId');
+        $role_id = $this->input->post('roleId');
+        $data = [
+            'role_id' => $role_id,
+            'menu_id' => $menu_id
+        ];
+        $result = $this->db->get_where('user_access_menu', $data);
+        if ($result->num_rows() < 1) {
+            $this->db->insert('user_access_menu', $data);
+        } else {
+            $this->db->delete('user_access_menu', $data);
+        }
+        // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
+        $this->session->set_flashdata('flash', 'Diubah');
     }
 }
