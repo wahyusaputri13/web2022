@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
-use App\Models\Submenu;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB;
@@ -75,14 +75,14 @@ class RoleController extends Controller
     public function show(Request $request)
     {
         if ($request->ajax()) {
-            $data = Submenu::all();
+            $data = Menu::all();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
                     'access',
                     function ($data) {
                         $actionBtn = '<center>
-                                           <input class="sandikentang" type="checkbox" onclick="centang('  . $data->id . ')" />
+                                           <input type="checkbox" onclick="centang('  . $data->id . ')" />
                                     </center>';
                         return $actionBtn;
                     }
@@ -147,7 +147,7 @@ class RoleController extends Controller
         return response()->json(
             [
                 'success' => true,
-                'message' => 'Data has been successfully changed!' . $result
+                'message' => 'Data has been successfully changed!'
             ]
         );
     }

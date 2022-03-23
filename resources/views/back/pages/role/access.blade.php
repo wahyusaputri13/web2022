@@ -28,7 +28,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Submenu</th>
+                                        <th>Menu</th>
                                         <th class="disabled-sorting text-center">
                                             Access</th>
                                     </tr>
@@ -70,7 +70,7 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
-            { data: 'title', name: 'title' },
+            { data: 'menu', name: 'menu' },
             { data: 'access', },
         ]
 
