@@ -43,15 +43,16 @@
                 </div>
             </div>
             <ul class="nav">
-                @foreach($menu_website as $menu)
-                @if($menu->submenu->isEmpty())
-                <li class="{{ request()->is(strtolower($menu->menu.'*')) ? 'active' : '' }}">
-                    <a href="{{ $menu->menu_url }}">
-                        <i class="material-icons">{{ $menu->menu_icon }}</i>
-                        <p>{{ $menu->menu }}</p>
-                    </a>
-                </li>
-                @else
+                @php
+                $role_id = auth()->user()->role_id;
+                $queryMenu = DB::table('menus')
+                ->join('user_access_menu', 'menus.id', '=', 'user_access_menu.menu_id')
+                ->where('user_access_menu.role_id', '=' , $role_id)
+                ->orderBy('menus.menu', 'ASC')
+                ->get();
+                @endphp
+                @foreach($queryMenu as $menu)
+
                 <li>
                     <a data-toggle="collapse" href="#pagesExamples{{ $loop->iteration }}">
                         <i class="material-icons">{{ $menu->menu_icon }}</i>
@@ -59,10 +60,17 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    @endif
+                    @php
+                    $menuId = $menu->menu_id;
+                    $subMenus = DB::table('submenus')
+                    ->join('menus', 'submenus.menu_id', '=', 'menus.id')
+                    ->where('submenus.menu_id', '=' , $menuId)
+                    ->where('submenus.is_active', '=' , 1)
+                    ->get();
+                    @endphp
                     <div class="collapse" id="pagesExamples{{ $loop->iteration }}">
                         <ul class="nav">
-                            @foreach($menu->submenu as $submenu)
+                            @foreach($subMenus as $submenu)
                             <li class="{{ request()->is(strtolower($submenu->title.'*')) ? 'active' : '' }}">
                                 <a href="{{ $submenu->url }}"><i class="material-icons">{{ $submenu->icon }}</i>{{
                                     $submenu->title
@@ -73,6 +81,7 @@
                     </div>
                 </li>
                 @endforeach
+
             </ul>
         </div>
     </div>
