@@ -8,6 +8,7 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
@@ -61,5 +62,6 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('role', RoleController::class);
-    Route::post('/sendCentang', [RoleController::class, 'changeAccess']);
+    Route::resource('user', UserController::class);
+    Route::post('sendCentang', [RoleController::class, 'changeAccess']);
 });

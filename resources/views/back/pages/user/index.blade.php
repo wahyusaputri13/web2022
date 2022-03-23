@@ -13,24 +13,26 @@
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
-                        <!-- <div class="text-right">
-                            <a href="#" class="btn btn-info btn-round">Add Data <i
+                        <div class="text-right">
+                            <a href="{{ url('user/create') }}" class="btn btn-info btn-round">Add Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
                             </a>
-                        </div> -->
-                        <!-- <div class="toolbar text-right"> -->
-                        <!--        Here you can write extra buttons/actions for the toolbar              -->
-                        <!-- </div> -->
+                        </div>
+                        <div class="toolbar text-right">
+                            <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        </div>
                         <div class="material-datatables">
                             <table id="datatables" class="table table-striped table-no-bordered table-hover devan"
                                 cellspacing="0" width="100%" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Menu</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
                                         <th class="disabled-sorting text-center">
-                                            Access</th>
+                                            Actions</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>
@@ -70,48 +72,15 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
-            { data: 'menu', name: 'menu' },
-            { data: 'access', },
+            { data: 'name', name: 'name' },
+            { data: 'email', name: 'email' },
+            { data: 'role_id', name: 'role_id' },
+            { data: 'action', },
         ]
 
     });
         // var table = $('#datatables').DataTable();
         // $('.card .material-datatables label').addClass('form-group');
-</script>
-<script type="text/javascript">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    function centang(submenu) {
-        // e.preventDefault();
-        const { pathname } = window.location;
-        const paths = pathname.split("/").filter(entry => entry !== "");
-        const lastPath = parseInt(paths[paths.length - 1]);
-        var url = "{{ url('sendCentang') }}";
-
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: {
-                menuId: submenu,
-                roleId: lastPath
-            },
-            success: function (response) {
-                if (response.success) {
-                    // alert(response.message) //Message come from controller
-                    demo.showNotification('top', 'center', response.message)
-                } else {
-                    alert("Error")
-                }
-            },
-            error: function (error) {
-                console.log(error)
-            }
-        });
-    };
 </script>
 <script>
     $(document).ready(function () {
