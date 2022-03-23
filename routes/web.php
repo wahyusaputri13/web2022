@@ -61,4 +61,5 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('role', RoleController::class);
+    Route::post('/sendCentang', [RoleController::class, 'changeAccess']);
 });

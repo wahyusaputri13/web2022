@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\Submenu;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -131,21 +132,34 @@ class RoleController extends Controller
         return $data;
     }
 
-    public function changeAccess()
+    public function changeAccess(Request $request)
     {
-        $menu_id = $this->input->post('menuId');
-        $role_id = $this->input->post('roleId');
         $data = [
-            'role_id' => $role_id,
-            'menu_id' => $menu_id
+            'role_id' => $request->roleId,
+            'menu_id' => $request->menuId
         ];
-        $result = $this->db->get_where('user_access_menu', $data);
-        if ($result->num_rows() < 1) {
-            $this->db->insert('user_access_menu', $data);
+        $result = DB::table('user_access_menu')->where($data)->count();
+        if ($result < 1) {
+            DB::table('user_access_menu')->insert($data);
         } else {
-            $this->db->delete('user_access_menu', $data);
+            DB::table('user_access_menu')->where($data)->delete();
         }
-        // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
-        $this->session->set_flashdata('flash', 'Diubah');
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data has been successfully changed!' . $result
+            ]
+        );
+    }
+
+    function check_access($role_id, $menu_id)
+    {
+        // $ci = get_instance();
+        // $ci->db->where('role_id', $role_id);
+        // $ci->db->where('menu_id', $menu_id);
+        // $result = $ci->db->get('user_access_menu');
+        // if ($result->num_rows() > 0) {
+        //     return "checked='checked'";
+        // }
     }
 }

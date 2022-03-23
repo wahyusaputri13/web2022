@@ -78,6 +78,41 @@
         // var table = $('#datatables').DataTable();
         // $('.card .material-datatables label').addClass('form-group');
 </script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function centang(submenu) {
+        // e.preventDefault();
+        const { pathname } = window.location;
+        const paths = pathname.split("/").filter(entry => entry !== "");
+        const lastPath = parseInt(paths[paths.length - 1]);
+        var url = "{{ url('/sendCentang') }}";
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: {
+                menuId: submenu,
+                roleId: lastPath
+            },
+            success: function (response) {
+                if (response.success) {
+                    // alert(response.message) //Message come from controller
+                    demo.showNotification('top', 'center', response.message)
+                } else {
+                    alert("Error")
+                }
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+    };
+</script>
 <script>
     $(document).ready(function () {
         if ($('#elementId').length > 0) {
@@ -86,23 +121,5 @@
             demo.showNotification('top', 'center', pesan)
         }
     });
-
-    function centang(submenu) {
-        const { pathname } = window.location;
-        const paths = pathname.split("/").filter(entry => entry !== "");
-        const lastPath = parseInt(paths[paths.length - 1]);
-        console.log(submenu, lastPath);
-        $.ajax({
-            url: url('role/changeaccess/'),
-            type: 'post',
-            data: {
-                menuId: submenu,
-                roleId: lastPath
-            },
-            success: function () {
-                document.location.href = window.location;
-            }
-        });
-    };
 </script>
 @endpush
