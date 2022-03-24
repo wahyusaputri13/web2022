@@ -33,10 +33,11 @@ Route::group(
 
 Route::get('/', function () {
     $themes = Website::all()->first();
+    $themes2 = 'front.b';
     if (Website::all()->count() != 0) {
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
         $news = News::orderBy('date', 'desc')->paginate(9);
-        return view($themes->themes_front . '.pages.index', compact('gallery', 'news'));
+        return view($themes2 . '.pages.index', compact('gallery', 'news'));
     } else {
         return view($themes->themes_front . '.pages.setup');
     }

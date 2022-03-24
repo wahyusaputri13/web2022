@@ -1,4 +1,4 @@
-@extends('back.layouts.app')
+@extends('back.a.layouts.app')
 @section('content')
 <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
     <div class="container">
