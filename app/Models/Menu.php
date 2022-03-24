@@ -14,4 +14,9 @@ class Menu extends Model
     {
         return $this->hasMany(Submenu::class);
     }
+
+    public function roleaccess()
+    {
+        return $this->hasMany(UserAccessMenu::class);
+    }
 }

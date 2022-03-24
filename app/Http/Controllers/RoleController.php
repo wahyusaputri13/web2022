@@ -72,10 +72,25 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(Request $request, $id)
     {
+        // $users = DB::table('user_access_menus')
+        //     ->where('role_id', '=', $id)
+        //     ->where('menu_id', '=',)
+        //     ->get();
+        // $data = Menu::with('roleaccess')->get();
+        // foreach ($data as $ct) {
+        //     echo $ct;
+        //     foreach ($ct->roleaccess as $c) {
+        //         if ($ct->id == $c->menu_id && $c->role_id == $id) {
+        //             if ($c->role_id == $id) {
+        //             } else {
+        //             }
+        //         }
+        //     }
+        // }
         if ($request->ajax()) {
-            $data = Menu::all();
+            $data = Menu::with('roleaccess')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -84,6 +99,7 @@ class RoleController extends Controller
                         $actionBtn = '<center>
                                            <input type="checkbox" onclick="centang('  . $data->id . ')" />
                                     </center>';
+
                         return $actionBtn;
                     }
                 )
@@ -138,11 +154,11 @@ class RoleController extends Controller
             'role_id' => $request->roleId,
             'menu_id' => $request->menuId
         ];
-        $result = DB::table('user_access_menu')->where($data)->count();
+        $result = DB::table('user_access_menus')->where($data)->count();
         if ($result < 1) {
-            DB::table('user_access_menu')->insert($data);
+            DB::table('user_access_menus')->insert($data);
         } else {
-            DB::table('user_access_menu')->where($data)->delete();
+            DB::table('user_access_menus')->where($data)->delete();
         }
         return response()->json(
             [

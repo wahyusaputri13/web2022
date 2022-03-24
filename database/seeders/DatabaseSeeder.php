@@ -58,6 +58,13 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'menu_id' => 1,
+                'title' => 'Themes',
+                'url' => '/themes',
+                'icon' => 'palette',
+                'is_active' => 1
+            ],
+            [
+                'menu_id' => 1,
                 'title' => 'Submenu',
                 'url' => '/submenu',
                 'icon' => 'subject',
@@ -120,7 +127,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($user_access as $datum) {
-            DB::table('user_access_menu')->insert($datum);
+            DB::table('user_access_menus')->insert($datum);
         }
 
         // \App\Models\User::factory(10)->create();

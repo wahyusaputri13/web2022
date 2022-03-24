@@ -32,12 +32,13 @@ Route::group(
 );
 
 Route::get('/', function () {
+    $themes = Website::all()->first();
     if (Website::all()->count() != 0) {
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
         $news = News::orderBy('date', 'desc')->paginate(9);
-        return view('front.pages.index', compact('gallery', 'news'));
+        return view($themes->themes_front . '.pages.index', compact('gallery', 'news'));
     } else {
-        return view('front.pages.setup');
+        return view($themes->themes_front . '.pages.setup');
     }
 })->name('root')->middleware('data_web');
 
@@ -51,7 +52,8 @@ Route::group(['middleware' => 'data_web'], function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
-    return view('back.pages.dashboard');
+    $themes = Website::all()->first();
+    return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web']], function () {
