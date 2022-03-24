@@ -51,8 +51,26 @@
                 ->orderBy('menus.menu', 'ASC')
                 ->get();
                 @endphp
+
                 @foreach($queryMenu as $menu)
 
+                @php
+                $menuId = $menu->menu_id;
+                $subMenus = DB::table('submenus')
+                ->join('menus', 'submenus.menu_id', '=', 'menus.id')
+                ->where('submenus.menu_id', '=' , $menuId)
+                ->where('submenus.is_active', '=' , 1)
+                ->get();
+                @endphp
+
+                @if($subMenus->isEmpty())
+                <li class="{{ request()->is(strtolower($menu->menu.'*')) ? 'active' : '' }}">
+                    <a href="{{ $menu->menu_url }}">
+                        <i class="material-icons">{{ $menu->menu_icon }}</i>
+                        <p>{{ $menu->menu }}</p>
+                    </a>
+                </li>
+                @else
                 <li>
                     <a data-toggle="collapse" href="#pagesExamples{{ $loop->iteration }}">
                         <i class="material-icons">{{ $menu->menu_icon }}</i>
@@ -60,14 +78,6 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    @php
-                    $menuId = $menu->menu_id;
-                    $subMenus = DB::table('submenus')
-                    ->join('menus', 'submenus.menu_id', '=', 'menus.id')
-                    ->where('submenus.menu_id', '=' , $menuId)
-                    ->where('submenus.is_active', '=' , 1)
-                    ->get();
-                    @endphp
                     <div class="collapse" id="pagesExamples{{ $loop->iteration }}">
                         <ul class="nav">
                             @foreach($subMenus as $submenu)
@@ -80,8 +90,9 @@
                         </ul>
                     </div>
                 </li>
-                @endforeach
+                @endif
 
+                @endforeach
             </ul>
         </div>
     </div>

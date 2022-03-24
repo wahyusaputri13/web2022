@@ -103,6 +103,7 @@
                 if (response.success) {
                     // alert(response.message) //Message come from controller
                     demo.showNotification('top', 'center', response.message)
+                    location.reload();
                 } else {
                     alert("Error")
                 }

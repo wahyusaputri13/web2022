@@ -32,13 +32,13 @@ class DatabaseSeeder extends Seeder
 
         $menus = [
             [
-                'menu' => 'website'
+                'menu' => 'Website'
             ],
             [
-                'menu' => 'postings'
+                'menu' => 'Postings'
             ],
             [
-                'menu' => 'dashboard',
+                'menu' => 'Dashboard',
                 'menu_icon' => 'dashboard',
                 'menu_url' => 'dashboard'
             ]
