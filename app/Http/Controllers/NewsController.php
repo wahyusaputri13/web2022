@@ -34,7 +34,7 @@ class NewsController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.pages.news.index');
+        return view('back.a.pages.news.index');
     }
 
     /**
@@ -44,7 +44,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('back.pages.news.create');
+        return view('back.a.pages.news.create');
     }
 
     /**
@@ -95,7 +95,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
-        return view('back.pages.news.edit', compact('data'));
+        return view('back.a.pages.news.edit', compact('data'));
     }
 
     /**

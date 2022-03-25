@@ -35,7 +35,7 @@ class UserController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.pages.user.index');
+        return view('back.a.pages.user.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class UserController extends Controller
     public function create()
     {
         $role = Role::orderBy('role', 'asc')->pluck('role', 'id');
-        return view('back.pages.user.create', compact('role'));
+        return view('back.a.pages.user.create', compact('role'));
     }
 
     /**
@@ -96,7 +96,7 @@ class UserController extends Controller
     {
         $role = Role::orderBy('role', 'asc')->pluck('role', 'id');
         $data = User::find($id);
-        return view('back.pages.user.edit', compact('data', 'role'));
+        return view('back.a.pages.user.edit', compact('data', 'role'));
     }
 
     /**

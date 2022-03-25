@@ -35,7 +35,7 @@ class GalleryController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.pages.gallery.index');
+        return view('back.a.pages.gallery.index');
     }
 
     /**
@@ -45,7 +45,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('back.pages.gallery.create');
+        return view('back.a.pages.gallery.create');
     }
 
     /**
@@ -91,7 +91,7 @@ class GalleryController extends Controller
     public function edit($id)
     {
         $data = Gallery::find($id);
-        return view('back.pages.gallery.edit', compact('data'));
+        return view('back.a.pages.gallery.edit', compact('data'));
     }
 
     /**

@@ -33,7 +33,7 @@ class MenuController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.pages.menu.index');
+        return view('back.a.pages.menu.index');
     }
 
     /**
@@ -43,7 +43,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('back.pages.menu.create');
+        return view('back.a.pages.menu.create');
     }
 
     /**
@@ -83,7 +83,7 @@ class MenuController extends Controller
     public function edit($id)
     {
         $data = Menu::find($id);
-        return view('back.pages.menu.edit', compact('data'));
+        return view('back.a.pages.menu.edit', compact('data'));
     }
 
     /**

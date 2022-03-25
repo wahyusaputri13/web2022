@@ -36,7 +36,7 @@ class RoleController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.pages.role.index');
+        return view('back.a.pages.role.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('back.pages.role.create');
+        return view('back.a.pages.role.create');
     }
 
     /**
@@ -80,13 +80,22 @@ class RoleController extends Controller
         //     ->get();
         // $data = Menu::with('roleaccess')->get();
         // foreach ($data as $ct) {
-        //     echo $ct;
         //     foreach ($ct->roleaccess as $c) {
-        //         if ($ct->id == $c->menu_id && $c->role_id == $id) {
-        //             if ($c->role_id == $id) {
-        //             } else {
-        //             }
+        //         // return response()->json($c);
+        //         if ($c->role_id == $id) {
+        //             echo '<center><input type="checkbox" onclick="centang('  . $ct->id . ')" /></center>';
+        //             // if ($ct->id == $c->menu_id && $c->role_id == $id) {
+        //             //     if ($c->role_id == $id) {
+        //             //     } else {
+        //             //     }
         //         }
+        //     }
+        // }
+        // $data = Menu::with('roleaccess')->get();
+        // foreach ($data as $d) {
+        //     dd($d->roleaccess);
+        //     foreach ($d as $dad) {
+        //         dd($dad->role_id);
         //     }
         // }
         if ($request->ajax()) {
@@ -99,14 +108,14 @@ class RoleController extends Controller
                         $actionBtn = '<center>
                                            <input type="checkbox" onclick="centang('  . $data->id . ')" />
                                     </center>';
-
+                        // $c->role_id == $id
                         return $actionBtn;
                     }
                 )
                 ->rawColumns(['access'])
                 ->make(true);
         }
-        return view('back.pages.role.access');
+        return view('back.a.pages.role.access');
     }
 
     /**
@@ -118,7 +127,7 @@ class RoleController extends Controller
     public function edit($id)
     {
         $data = Role::find($id);
-        return view('back.pages.role.edit', compact('data'));
+        return view('back.a.pages.role.edit', compact('data'));
     }
 
     /**

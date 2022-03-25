@@ -58,7 +58,7 @@ class CredentialController extends Controller
     public function edit($id)
     {
         $data = User::find($id);
-        return view('back.pages.user.profile', compact('data'));
+        return view('back.a.pages.user.profile', compact('data'));
     }
 
     /**

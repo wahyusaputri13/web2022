@@ -34,7 +34,7 @@ class SubmenuController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.pages.submenu.index');
+        return view('back.a.pages.submenu.index');
     }
 
     /**
@@ -45,7 +45,7 @@ class SubmenuController extends Controller
     public function create()
     {
         $menu = Menu::orderBy('menu', 'asc')->pluck('menu', 'id');
-        return view('back.pages.submenu.create', compact('menu'));
+        return view('back.a.pages.submenu.create', compact('menu'));
     }
 
     /**
@@ -90,7 +90,7 @@ class SubmenuController extends Controller
     {
         $data = Submenu::find($id);
         $menu = Menu::orderBy('menu', 'asc')->pluck('menu', 'id');
-        return view('back.pages.submenu.edit', compact('data', 'menu'));
+        return view('back.a.pages.submenu.edit', compact('data', 'menu'));
     }
 
     /**
