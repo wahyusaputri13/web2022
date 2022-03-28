@@ -1,6 +1,6 @@
 <!-- Favicons -->
-<link href="{{ asset('assets/front/assets/img/pesona32x32.png') }}" rel="icon">
-<link href="{{ asset('assets/front/assets/img/pesona32x32.png') }}" rel="apple-touch-icon">
+<link href="{{ asset('assets/front/flexstart/assets/img/favicon.png') }}" rel="icon">
+<link href="{{ asset('assets/front/flexstart/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
 <link
@@ -8,15 +8,15 @@
   rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="{{ asset('assets/front/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/flexstart/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/flexstart/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/flexstart/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/flexstart/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/flexstart/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/flexstart/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="{{ asset('assets/front/assets/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/flexstart/assets/css/style.css') }}" rel="stylesheet">
 
 <!-- =======================================================
   * Template Name: FlexStart - v1.9.0

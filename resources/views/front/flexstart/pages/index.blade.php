@@ -15,7 +15,7 @@
                     <div class="text-center text-lg-start">
                         <a class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center btn-playstream"
                             value="off">
-                            <span>Streaming Radio</span>
+                            <span>Get Started</span>
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -25,7 +25,7 @@
                 @if($data_website->image_hero)
                 <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid" alt="">
                 @else
-                <img src="{{ asset('assets/front/assets/img/hero-img.png') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid" alt="">
                 @endif
             </div>
         </div>

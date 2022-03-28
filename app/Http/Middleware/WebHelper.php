@@ -6,7 +6,6 @@ use Closure;
 use Illuminate\Http\Request;
 use App\Models\Website;
 use App\Models\Menu;
-use App\Models\Submenu;
 
 class WebHelper
 {

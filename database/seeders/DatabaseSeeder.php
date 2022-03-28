@@ -18,10 +18,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $role = [
+        $themes = [
             [
                 'name' => 'FlexStart',
                 'image' => 'img/FlexStart.png'
+            ],
+            [
+                'name' => 'HeroBiz',
+                'image' => 'img/HeroBiz.png'
             ],
             [
                 'name' => 'Arsha',
@@ -29,7 +33,7 @@ class DatabaseSeeder extends Seeder
             ]
         ];
 
-        foreach ($role as $datum) {
+        foreach ($themes as $datum) {
             Themes::create($datum);
         }
 
@@ -146,7 +150,7 @@ class DatabaseSeeder extends Seeder
             DB::table('user_access_menus')->insert($datum);
         }
 
-        \App\Models\User::factory(10)->create();
+        // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
             'web_name' => 'Web2022',
             'web_description' => '"Hello World!"',
@@ -158,15 +162,15 @@ class DatabaseSeeder extends Seeder
             'facebook' => '#',
             'youtube' => '#',
             'url_stream' => '#',
-            'themes_front' => 'front.a',
+            'themes_front' => 'FlexStart',
             'themes_back' => 'back.a',
         ]);
 
-        // DB::table('users')->insert([
-        //     'name' => 'superadmin',
-        //     'email' => 'superadmin@app.com',
-        //     'password' => bcrypt('password'),
-        //     'role_id' => 1
-        // ]);
+        DB::table('users')->insert([
+            'name' => 'superadmin',
+            'email' => 'superadmin@app.com',
+            'password' => bcrypt('password'),
+            'role_id' => 1
+        ]);
     }
 }

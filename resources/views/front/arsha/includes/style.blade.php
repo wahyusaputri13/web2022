@@ -1,6 +1,6 @@
 <!-- Favicons -->
-<link href="{{ asset('assets/front.b/assets/img/favicon.png') }}" rel="icon">
-<link href="{{ asset('assets/front.b/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+<link href="{{ asset('assets/front/arsha/assets/img/favicon.png') }}" rel="icon">
+<link href="{{ asset('assets/front/arsha/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
 <link
@@ -8,16 +8,16 @@
   rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="{{ asset('assets/front.b/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front.b/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front.b/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front.b/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front.b/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front.b/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front.b/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/arsha/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/arsha/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/arsha/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/arsha/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/arsha/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/arsha/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/arsha/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="{{ asset('assets/front.b/assets/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/front/arsha/assets/css/style.css') }}" rel="stylesheet">
 
 <!-- =======================================================
   * Template Name: Arsha - v4.7.1
