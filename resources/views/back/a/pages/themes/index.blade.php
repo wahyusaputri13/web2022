@@ -11,7 +11,7 @@
                 <div class="card card-product">
                     <div class="card-image" data-header-animation="true">
                         <a href="#pablo">
-                            <img class="img" src="{{ asset($theme->image) }}" width="10px" height="10px">
+                            <img class="img" src="{{ asset($theme->image) }}">
                         </a>
                     </div>
                     <div class="card-content">

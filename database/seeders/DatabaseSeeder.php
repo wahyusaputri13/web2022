@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Role;
 use App\Models\Submenu;
 use App\Models\Themes;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -143,6 +144,14 @@ class DatabaseSeeder extends Seeder
             [
                 'role_id' => '1',
                 'menu_id' => '3'
+            ],
+            [
+                'role_id' => '2',
+                'menu_id' => '2'
+            ],
+            [
+                'role_id' => '2',
+                'menu_id' => '3'
             ]
         ];
 
@@ -166,11 +175,23 @@ class DatabaseSeeder extends Seeder
             'themes_back' => 'back.a',
         ]);
 
-        DB::table('users')->insert([
-            'name' => 'superadmin',
-            'email' => 'superadmin@app.com',
-            'password' => bcrypt('password'),
-            'role_id' => 1
-        ]);
+        $user = [
+            [
+                'name' => 'superadmin',
+                'email' => 'superadmin@app.com',
+                'password' => bcrypt('password'),
+                'role_id' => 1
+            ],
+            [
+                'name' => 'admin',
+                'email' => 'admin@app.com',
+                'password' => bcrypt('password'),
+                'role_id' => 2
+            ]
+        ];
+
+        foreach ($user as $datum) {
+            User::create($datum);
+        }
     }
 }
