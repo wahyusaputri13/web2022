@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Themes;
+use App\Models\Website;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class ThemesController extends Controller
 {
@@ -12,9 +14,11 @@ class ThemesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = Website::first();
+        $themes = Themes::all();
+        return view('back.a.pages.themes.index', compact('themes', 'data'));
     }
 
     /**
@@ -67,9 +71,12 @@ class ThemesController extends Controller
      * @param  \App\Models\Themes  $themes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Themes $themes)
+    public function update(Request $request, $id = 1)
     {
-        //
+        Website::find($id)->update([
+            'themes_front' => $request->themes_front,
+        ]);
+        return redirect()->back()->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**

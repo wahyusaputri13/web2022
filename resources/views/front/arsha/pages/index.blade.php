@@ -1,4 +1,4 @@
-@extends('front.b.layouts.app')
+@extends('front.arsha.layouts.app')
 @section('content')
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">

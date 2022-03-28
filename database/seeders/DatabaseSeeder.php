@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Role;
 use App\Models\Submenu;
+use App\Models\Themes;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +18,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $role = [
+            [
+                'name' => 'FlexStart',
+                'image' => 'img/FlexStart.png'
+            ],
+            [
+                'name' => 'Arsha',
+                'image' => 'img/arsha.png'
+            ]
+        ];
+
+        foreach ($role as $datum) {
+            Themes::create($datum);
+        }
+
         $role = [
             [
                 'role' => 'Superadmin'
@@ -130,25 +146,27 @@ class DatabaseSeeder extends Seeder
             DB::table('user_access_menus')->insert($datum);
         }
 
-        // \App\Models\User::factory(10)->create();
-        // DB::table('websites')->insert([
-        //     'web_name' => 'Web2022',
-        //     'web_description' => '"Hello World!"',
-        //     'email' => 'superadmin@app.com',
-        //     'address' => 'On Earth!',
-        //     'phone' => '-',
-        //     'instagram' => '#',
-        //     'twitter' => '#',
-        //     'facebook' => '#',
-        //     'youtube' => '#',
-        //     'url_stream' => '#',
-        // ]);
-
-        DB::table('users')->insert([
-            'name' => 'superadmin',
+        \App\Models\User::factory(10)->create();
+        DB::table('websites')->insert([
+            'web_name' => 'Web2022',
+            'web_description' => '"Hello World!"',
             'email' => 'superadmin@app.com',
-            'password' => bcrypt('password'),
-            'role_id' => 1
+            'address' => 'On Earth!',
+            'phone' => '-',
+            'instagram' => '#',
+            'twitter' => '#',
+            'facebook' => '#',
+            'youtube' => '#',
+            'url_stream' => '#',
+            'themes_front' => 'front.a',
+            'themes_back' => 'back.a',
         ]);
+
+        // DB::table('users')->insert([
+        //     'name' => 'superadmin',
+        //     'email' => 'superadmin@app.com',
+        //     'password' => bcrypt('password'),
+        //     'role_id' => 1
+        // ]);
     }
 }

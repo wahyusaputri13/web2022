@@ -9,6 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ThemesController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
@@ -33,11 +34,11 @@ Route::group(
 
 Route::get('/', function () {
     $themes = Website::all()->first();
-    $themes2 = 'front.b';
+    // $themes2 = 'front.b';
     if (Website::all()->count() != 0) {
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
         $news = News::orderBy('date', 'desc')->paginate(9);
-        return view($themes2 . '.pages.index', compact('gallery', 'news'));
+        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
     } else {
         return view($themes->themes_front . '.pages.setup');
     }
@@ -66,5 +67,6 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('myprofile', CredentialController::class);
     Route::resource('role', RoleController::class);
     Route::resource('user', UserController::class);
+    Route::resource('themes', ThemesController::class);
     Route::post('sendCentang', [RoleController::class, 'changeAccess']);
 });

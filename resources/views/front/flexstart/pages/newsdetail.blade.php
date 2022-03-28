@@ -1,4 +1,4 @@
-@extends('front.a.layouts.app')
+@extends('front.flexstart.layouts.app')
 @section('content')
 <main id="main">
 
@@ -7,70 +7,85 @@
         <div class="container">
 
             <!-- <ol>
-                <li><a href="#">Home</a></li>
-                <li>Blog</li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li>Blog Single</li>
             </ol> -->
-            <h2>{{ $hasil }}</h2>
+            <!-- <h2>Blog Single</h2> -->
 
         </div>
     </section>
     <!-- End Breadcrumbs -->
 
-    <!-- ======= Blog Section ======= -->
+    <!-- ======= Blog Single Section ======= -->
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
 
             <div class="row">
 
                 <div class="col-lg-8 entries">
-                    @foreach($data as $author)
-                    <article class="entry">
+
+                    <article class="entry entry-single">
 
                         <div class="entry-img">
-                            <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid" alt="">
                         </div>
 
                         <h2 class="entry-title">
-                            <a href="{{ url('/news-detail', $author->id) }}">{{ $author->title }}</a>
+                            <a href="#">{{ $data->title }}</a>
                         </h2>
 
                         <div class="entry-meta">
                             <ul>
                                 <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                        href="{{ url('/news-author', $author->upload_by) }}">{{
-                                        $author->upload_by }}</a></li>
+                                        href="{{ url('/news-author', $data->upload_by) }}">{{
+                                        $data->upload_by }}</a></li>
                                 <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time>{{
-                                            \Carbon\Carbon::parse( $author->date )->format('l') }}, {{
-                                            \Carbon\Carbon::parse( $author->date
+                                            \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
+                                            \Carbon\Carbon::parse( $data->date
                                             )->toFormattedDateString() }}</time></a></li>
                             </ul>
                         </div>
 
                         <div class="entry-content">
-                            <p>
-                                Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                praesentium.
-                                Aliquam et
-                                laboriosam eius aut nostrum quidem aliquid dicta.
-                                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est
-                                cum
-                                et quod
-                                quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                            </p>
-                            <div class="read-more">
-                                <a href="{{ url('/news-detail', $author->id) }}">Read More</a>
-                            </div>
+                            {!! $data->description !!}
                         </div>
+
+                        <!-- <div class="entry-footer">
+                            <i class="bi bi-folder"></i>
+                            <ul class="cats">
+                                <li><a href="#">Business</a></li>
+                            </ul>
+
+                            <i class="bi bi-tags"></i>
+                            <ul class="tags">
+                                <li><a href="#">Creative</a></li>
+                                <li><a href="#">Tips</a></li>
+                                <li><a href="#">Marketing</a></li>
+                            </ul>
+                        </div> -->
 
                     </article>
                     <!-- End blog entry -->
-                    @endforeach
 
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            {!! $data->render() !!}
+                    <!-- <div class="blog-author d-flex align-items-center">
+                        <img src="{{ asset('front.flexstart/assets/img/blog/blog-author.jpg') }}"
+                            class="rounded-circle float-left" alt="">
+                        <div>
+                            <h4>Jane Smith</h4>
+                            <div class="social-links">
+                                <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
+                                <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
+                                <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+                            </div>
+                            <p>
+                                Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium.
+                                Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium
+                                ut unde voluptas.
+                            </p>
                         </div>
-                    </div>
+                    </div> -->
+                    <!-- End blog author bio -->
 
                 </div><!-- End blog entries list -->
 
@@ -111,8 +126,7 @@
                                     )->toFormattedDateString() }}</time>
                             </div>
                             @endforeach
-                        </div>
-                        <!-- End sidebar recent posts-->
+                        </div><!-- End sidebar recent posts-->
 
                         <!-- <h3 class="sidebar-title">Tags</h3>
                         <div class="sidebar-item tags">
@@ -139,7 +153,7 @@
             </div>
 
         </div>
-    </section><!-- End Blog Section -->
+    </section><!-- End Blog Single Section -->
 
 </main>
 @endsection

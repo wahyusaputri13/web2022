@@ -1,4 +1,4 @@
-@extends('front.a.layouts.app')
+@extends('front.flexstart.layouts.app')
 @section('content')
 <main id="main">
 

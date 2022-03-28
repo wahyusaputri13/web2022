@@ -1,4 +1,4 @@
-@extends('front.a.layouts.app')
+@extends('front.flexstart.layouts.app')
 @section('content')
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="hero d-flex align-items-center">

@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-    @include('front.b.includes.meta')
+    @include('front.flexstart.includes.meta')
 
     <title>{{ $data_website->web_name }}</title>
 
     @stack('before-style')
-    @include('front.b.includes.style')
+    @include('front.flexstart.includes.style')
     @stack('after-style')
 </head>
 
 <body>
-    @include('front.b.includes.header')
+    @include('front.flexstart.includes.header')
     @yield('content')
-    @include('front.b.includes.footer')
+    @include('front.flexstart.includes.footer')
     @stack('before-script')
-    @include('front.b.includes.script')
+    @include('front.flexstart.includes.script')
     @stack('after-script')
 
 </body>

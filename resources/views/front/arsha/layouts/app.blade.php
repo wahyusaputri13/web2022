@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-    @include('front.a.includes.meta')
+    @include('front.arsha.includes.meta')
 
     <title>{{ $data_website->web_name }}</title>
 
     @stack('before-style')
-    @include('front.a.includes.style')
+    @include('front.arsha.includes.style')
     @stack('after-style')
 </head>
 
 <body>
-    @include('front.a.includes.header')
+    @include('front.arsha.includes.header')
     @yield('content')
-    @include('front.a.includes.footer')
+    @include('front.arsha.includes.footer')
     @stack('before-script')
-    @include('front.a.includes.script')
+    @include('front.arsha.includes.script')
     @stack('after-script')
 
 </body>

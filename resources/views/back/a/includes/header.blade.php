@@ -60,6 +60,7 @@
                 ->join('menus', 'submenus.menu_id', '=', 'menus.id')
                 ->where('submenus.menu_id', '=' , $menuId)
                 ->where('submenus.is_active', '=' , 1)
+                ->orderBy('submenus.title', 'ASC')
                 ->get();
                 @endphp
 

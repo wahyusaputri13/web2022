@@ -1,4 +1,4 @@
-@extends('front.a.layouts.app')
+@extends('front.arsha.layouts.app')
 @section('content')
 <main id="main">
 
