@@ -2,6 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+        {{ Breadcrumbs::render('gallery') }}
         @if ($message = Session::get('success'))
         <div id="elementId" hidden>{{ $message }}</div>
         @endif
