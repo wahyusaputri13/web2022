@@ -67,17 +67,17 @@
                             <h3 class="wizard-title">
                                 Build Your Profile
                             </h3>
-                            <h5>This information will let us know more about you.</h5>
+                            <h5>This information is needed for your website.</h5>
                         </div>
-                        <div class="wizard-navigation" hidden>
+                        <div class="wizard-navigation">
                             <ul>
                                 <li>
                                     <a href="#about" data-toggle="tab">About</a>
                                 </li>
-                                <!-- <li>
-                                        <a href="#account" data-toggle="tab">Account</a>
-                                    </li>
-                                    <li>
+                                <li>
+                                    <a href="#account" data-toggle="tab">Themes</a>
+                                </li>
+                                <!--  <li>
                                         <a href="#address" data-toggle="tab">Address</a>
                                     </li> -->
                             </ul>
@@ -158,41 +158,29 @@
                                                                         </div> -->
                                 </div>
                             </div>
-                            <!-- <div class="tab-pane" id="account">
-                                    <h4 class="info-text"> What are you doing? (checkboxes) </h4>
-                                    <div class="row">
-                                        <div class="col-lg-10 col-lg-offset-1">
-                                            <div class="col-sm-4">
-                                                <div class="choice" data-toggle="wizard-checkbox">
-                                                    <input type="checkbox" name="jobb" value="Design">
-                                                    <div class="icon">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </div>
-                                                    <h6>Design</h6>
+                            <div class="tab-pane" id="account">
+                                <h4 class="info-text"> Please select a theme </h4>
+                                <div class="row">
+                                    <div class="col-lg-10 col-lg-offset-1">
+                                        @foreach($data as $dt)
+                                        <div class="col-sm-4">
+                                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail">
+                                                    <img src="{{ asset($dt->image) }}" alt="...">
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="choice" data-toggle="wizard-checkbox">
-                                                    <input type="checkbox" name="jobb" value="Code">
-                                                    <div class="icon">
-                                                        <i class="fa fa-terminal"></i>
-                                                    </div>
-                                                    <h6>Code</h6>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="choice" data-toggle="wizard-checkbox">
-                                                    <input type="checkbox" name="jobb" value="Develop">
-                                                    <div class="icon">
-                                                        <i class="fa fa-laptop"></i>
-                                                    </div>
-                                                    <h6>Develop</h6>
+                                                <h6>{{ $dt->name }}</h6>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" value="{{ $dt->name }}" name="themes_front">
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="address">
+                            </div>
+                            <!--   <div class="tab-pane" id="address">
                                     <div class="row">
                                         <h4 class="info-text"> Let's start with the basic information (with
                                             validation)</h4>

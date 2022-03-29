@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Website;
+use App\Models\Themes;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,7 +40,8 @@ Route::get('/', function () {
         $news = News::orderBy('date', 'desc')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
     } else {
-        return view($themes->themes_front . '.pages.setup');
+        $data = Themes::all();
+        return view('front.setup', compact('data'));
     }
 })->name('root')->middleware('data_web');
 
