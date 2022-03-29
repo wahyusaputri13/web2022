@@ -74,6 +74,9 @@ class RoleController extends Controller
      */
     public function show(Request $request, $id)
     {
+        // return $data = Menu::with(['roleaccess', 'punyaRole' => function ($q) use ($id) {
+        //     $q->where('role_id', $id);
+        // }])->get();
         // $users = DB::table('user_access_menus')
         //     ->where('role_id', '=', $id)
         //     ->where('menu_id', '=',)
@@ -99,15 +102,24 @@ class RoleController extends Controller
         //     }
         // }
         if ($request->ajax()) {
-            $data = Menu::with('roleaccess')->get();
+            $data  = Menu::with(['roleaccess', 'punyaRole' => function ($q) use ($id) {
+                $q->where('role_id', $id);
+            }]);
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
                     'access',
                     function ($data) {
-                        $actionBtn = '<center>
+                        if ($data->punyaRole) {
+                            $actionBtn = '<center>
+                                           <input type="checkbox" onclick="centang('  . $data->id . ')" checked />
+                                    </center>';
+                        } else {
+                            $actionBtn = '<center>
                                            <input type="checkbox" onclick="centang('  . $data->id . ')" />
                                     </center>';
+                        }
+
                         // $c->role_id == $id
                         return $actionBtn;
                     }

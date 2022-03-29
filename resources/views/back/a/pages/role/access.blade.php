@@ -70,7 +70,7 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex' },
+            { data: 'DT_RowIndex', name: 'DT_Row_Index', orderable: false, searchable: false },
             { data: 'menu', name: 'menu' },
             { data: 'access', },
         ]

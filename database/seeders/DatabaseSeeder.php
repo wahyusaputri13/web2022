@@ -53,10 +53,12 @@ class DatabaseSeeder extends Seeder
 
         $menus = [
             [
-                'menu' => 'Website'
+                'menu' => 'Website',
+                'menu_icon' => 'view_stream'
             ],
             [
-                'menu' => 'Postings'
+                'menu' => 'Postings',
+                'menu_icon' => 'view_quilt'
             ],
             [
                 'menu' => 'Dashboard',

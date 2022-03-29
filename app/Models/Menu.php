@@ -19,4 +19,9 @@ class Menu extends Model
     {
         return $this->hasMany(UserAccessMenu::class);
     }
+
+    public function punyaRole()
+    {
+        return $this->hasOne(UserAccessMenu::class, 'menu_id');
+    }
 }

@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="sidebar" data-active-color="green" data-background-color="white"
+    <div class="sidebar" data-active-color="green" data-background-color="black"
         data-image="{{ asset('assets/back/assets/img/sidebar-3.jpg') }}">
         <!--
         Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
