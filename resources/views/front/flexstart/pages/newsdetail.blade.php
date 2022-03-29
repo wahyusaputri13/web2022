@@ -44,6 +44,9 @@
                                             \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
                                             \Carbon\Carbon::parse( $data->date
                                             )->toFormattedDateString() }}</time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a
+                                        href="{{ url('/news-author', $data->upload_by) }}">{{
+                                        views($data)->count(); }}</a></li>
                             </ul>
                         </div>
 

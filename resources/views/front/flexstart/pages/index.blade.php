@@ -8,7 +8,7 @@
             <div class="col-lg-6 d-flex flex-column justify-content-center">
                 <h1 data-aos="fade-up">{{ $data_website->web_name }}</h1>
                 <h2 data-aos="fade-up" data-aos-delay="400">{{ $data_website->web_description }}</h2>
-                <audio id="audio_1">
+                <!-- <audio id="audio_1">
                     <source src="{{ $data_website->url_stream }}" type="audio/mpeg">
                 </audio>
                 <div data-aos="fade-up" data-aos-delay="600">
@@ -19,7 +19,7 @@
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Website;
+use CyrildeWit\EloquentViewable\Views;
 
 class FrontController extends Controller
 {
@@ -17,6 +18,7 @@ class FrontController extends Controller
     public function newsdetail($id)
     {
         $data = News::find($id);
+        views($data)->cooldown(5)->record();
         $news = News::orderBy('date', 'desc')->paginate(5);
         return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news'));
     }
@@ -60,5 +62,25 @@ class FrontController extends Controller
     {
         Website::create($request->except('finish'));
         return redirect(route('root'));
+    }
+
+    public function tentangkami()
+    {
+        return view('front.tentang-kami');
+    }
+
+    public function latarbelakang()
+    {
+        return view('front.latar-belakang');
+    }
+
+    public function tujuan()
+    {
+        return view('front.tujuan');
+    }
+
+    public function kampungpancasila()
+    {
+        return view('front.kampung-pancasila');
     }
 }

@@ -162,12 +162,26 @@ class DatabaseSeeder extends Seeder
         }
 
         // \App\Models\User::factory(10)->create();
+        // DB::table('websites')->insert([
+        //     'web_name' => 'Web2022',
+        //     'web_description' => '"Hello World!"',
+        //     'email' => 'superadmin@app.com',
+        //     'address' => 'On Earth!',
+        //     'phone' => '-',
+        //     'instagram' => '#',
+        //     'twitter' => '#',
+        //     'facebook' => '#',
+        //     'youtube' => '#',
+        //     'url_stream' => '#',
+        //     'themes_front' => 'FlexStart',
+        //     'themes_back' => 'back.a',
+        // ]);
         DB::table('websites')->insert([
-            'web_name' => 'Web2022',
-            'web_description' => '"Hello World!"',
+            'web_name' => 'KAMPUNG PANCASILA WONOSOBO',
+            'web_description' => '"Semarak Kampung Pancasila Wonosobo penjaga Persatuan dan Kesatuan Bangsa!"',
             'email' => 'superadmin@app.com',
-            'address' => 'On Earth!',
-            'phone' => '-',
+            'address' => 'Kodim 0707 Jl. Pemuda No.11, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311',
+            'phone' => '(0286) 321019',
             'instagram' => '#',
             'twitter' => '#',
             'facebook' => '#',

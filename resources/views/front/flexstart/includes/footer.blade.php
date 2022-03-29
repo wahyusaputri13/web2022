@@ -5,10 +5,10 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-5 col-md-12 footer-info">
-                    <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-                        <!-- <img src="{{ asset('assets/front/assets/img/logo.png') }}" alt=""> -->
+                    <!-- <a href="{{ url('/') }}" class="logo d-flex align-items-center">
+                        <img src="{{ asset('assets/front/assets/img/logo.png') }}" alt="">
                         <span>{{ $data_website->web_name }}</span>
-                    </a>
+                    </a> -->
                     <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
                             valies darta donna mare fermentum iaculis eu non diam phasellus.</p> -->
                     <div class="social-links mt-4">
@@ -27,6 +27,23 @@
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
+                    <h4>Related Links</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
+                                href="https://kapencar-kertek.wonosobokab.go.id/">Desa Kapencar, Kertek</a>
+                        </li>
+                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
+                                href="https://buntu-kejajar.wonosobokab.go.id/">Desa Buntu, Kejajar</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
+                                href="https://kadipaten-selomerto.wonosobokab.go.id/">Desa Kadipaten,
+                                Selomerto</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
+                                href="https://jonggolsari-leksono.wonosobokab.go.id/">Desa Jonggolsari,
+                                Leksono</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
+                                href="https://kelurahanjaraksari.wonosobokab.go.id/">Kelurahan Jaraksari,
+                                Wonosobo</a></li>
+                    </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
