@@ -18,12 +18,12 @@ body {
 }
 
 a {
-  color: #4154f1;
+  color: #030303;
   text-decoration: none;
 }
 
 a:hover {
-  color: #717ff5;
+  color: #f57171;
   text-decoration: none;
 }
 
@@ -120,7 +120,7 @@ section {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #4154f1;
+  background: #ff0000;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -132,8 +132,8 @@ section {
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #6776f4;
-  color: #fff;
+  background: #f15151;
+  color: rgb(255, 255, 255);
 }
 .back-to-top.active {
   visibility: visible;
@@ -204,7 +204,7 @@ section {
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #013289;
+  color: #000000;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -214,10 +214,10 @@ section {
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #4154f1;
+  color: #ff0000;
 }
 .navbar .getstarted, .navbar .getstarted:focus {
-  background: #4154f1;
+  background: #ff0000;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
@@ -225,7 +225,7 @@ section {
 }
 .navbar .getstarted:hover, .navbar .getstarted:focus:hover {
   color: #fff;
-  background: #5969f3;
+  background: #f35959;
 }
 .navbar .dropdown ul {
   display: block;
@@ -255,7 +255,7 @@ section {
   font-size: 12px;
 }
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #4154f1;
+  color: #ff0000;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -385,7 +385,7 @@ section {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
-  color: #012970;
+  color: rgb(0, 0, 0);
 }
 .hero h2 {
   color: #444444;
@@ -1973,18 +1973,18 @@ section {
 .footer .footer-top .social-links a {
   font-size: 20px;
   display: inline-block;
-  color: rgba(1, 41, 112, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   line-height: 0;
   margin-right: 10px;
   transition: 0.3s;
 }
 .footer .footer-top .social-links a:hover {
-  color: #012970;
+  color: #323333;
 }
 .footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #012970;
+  color: #000000;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 12px;
@@ -2012,13 +2012,13 @@ section {
   padding-top: 0;
 }
 .footer .footer-top .footer-links ul a {
-  color: #013289;
+  color: #000000;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
 .footer .footer-top .footer-links ul a:hover {
-  color: #4154f1;
+  color: #fa0000;
 }
 .footer .footer-top .footer-contact p {
   line-height: 26px;
@@ -2026,7 +2026,7 @@ section {
 .footer .copyright {
   text-align: center;
   padding-top: 30px;
-  color: #012970;
+  color: #000000;
 }
 .footer .credits {
   padding-top: 10px;

@@ -40,7 +40,8 @@
                             <p style="text-align: justify; text-indent: 0.5in;">
                                 Kampung Pancasila adalah julukan untuk desa yang dijadikan contoh penerapan nilai-nilai
                                 Pancasila
-                                Mengutip buku Prosiding Kongres Pancasila V oleh Sudjito, program Kampung Pancasila
+                                Mengutip buku <em>Prosiding Kongres Pancasila V</em> oleh Sudjito, program Kampung
+                                Pancasila
                                 dilakukan melalui tiga tahapan,
                                 yakni interpretasi, internalisasi, dan aktualisasi Pancasila. Sedangkan, proses
                                 pelaksanaannya mencakup bidang sosial,
