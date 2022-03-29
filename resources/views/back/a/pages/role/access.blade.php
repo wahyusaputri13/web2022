@@ -34,13 +34,6 @@
                                             Access</th>
                                     </tr>
                                 </thead>
-                                <!-- <tfoot>
-                                                                        <tr>
-                                                                                <th>#</th>
-                                                                                <th>Name</th>
-                                                                                <th class="text-right">Actions</th>
-                                                                        </tr>
-                                                                </tfoot> -->
                             </table>
                         </div>
                     </div>

@@ -74,33 +74,6 @@ class RoleController extends Controller
      */
     public function show(Request $request, $id)
     {
-        // return $data = Menu::with(['roleaccess', 'punyaRole' => function ($q) use ($id) {
-        //     $q->where('role_id', $id);
-        // }])->get();
-        // $users = DB::table('user_access_menus')
-        //     ->where('role_id', '=', $id)
-        //     ->where('menu_id', '=',)
-        //     ->get();
-        // $data = Menu::with('roleaccess')->get();
-        // foreach ($data as $ct) {
-        //     foreach ($ct->roleaccess as $c) {
-        //         // return response()->json($c);
-        //         if ($c->role_id == $id) {
-        //             echo '<center><input type="checkbox" onclick="centang('  . $ct->id . ')" /></center>';
-        //             // if ($ct->id == $c->menu_id && $c->role_id == $id) {
-        //             //     if ($c->role_id == $id) {
-        //             //     } else {
-        //             //     }
-        //         }
-        //     }
-        // }
-        // $data = Menu::with('roleaccess')->get();
-        // foreach ($data as $d) {
-        //     dd($d->roleaccess);
-        //     foreach ($d as $dad) {
-        //         dd($dad->role_id);
-        //     }
-        // }
         if ($request->ajax()) {
             $data  = Menu::with(['roleaccess', 'punyaRole' => function ($q) use ($id) {
                 $q->where('role_id', $id);
@@ -119,8 +92,6 @@ class RoleController extends Controller
                                            <input type="checkbox" onclick="centang('  . $data->id . ')" />
                                     </center>';
                         }
-
-                        // $c->role_id == $id
                         return $actionBtn;
                     }
                 )
@@ -187,16 +158,5 @@ class RoleController extends Controller
                 'message' => 'Data has been successfully changed!'
             ]
         );
-    }
-
-    function check_access($role_id, $menu_id)
-    {
-        // $ci = get_instance();
-        // $ci->db->where('role_id', $role_id);
-        // $ci->db->where('menu_id', $menu_id);
-        // $result = $ci->db->get('user_access_menu');
-        // if ($result->num_rows() > 0) {
-        //     return "checked='checked'";
-        // }
     }
 }
