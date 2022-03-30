@@ -84,13 +84,19 @@ class RoleController extends Controller
                     'access',
                     function ($data) {
                         if ($data->punyaRole) {
-                            $actionBtn = '<center>
-                                           <input type="checkbox" onclick="centang('  . $data->id . ')" checked />
-                                    </center>';
+                            $actionBtn = '<center><div class="togglebutton">
+                                                <label>
+                                                    <input type="checkbox" checked onclick="centang('  . $data->id . ')">
+                                                    <span class="toggle"></span>
+                                                </label>
+                                            </div></center>';
                         } else {
-                            $actionBtn = '<center>
-                                           <input type="checkbox" onclick="centang('  . $data->id . ')" />
-                                    </center>';
+                            $actionBtn = '<center><div class="togglebutton">
+                                                <label>
+                                                    <input type="checkbox" onclick="centang('  . $data->id . ')">
+                                                    <span class="toggle"></span>
+                                                </label>
+                                            </div></center>';
                         }
                         return $actionBtn;
                     }
