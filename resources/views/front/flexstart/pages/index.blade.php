@@ -10,8 +10,8 @@
                     class="img-fluid">
             </div>
             <div class="col-lg-3 col-sm-6 col-6 d-flex justify-content-center">
-                <img src="{{ asset('kampung/0707.png') }}" class="img-fluid"
-                    style="max-width: 100px; max-height: 100px;">
+                <img src="{{ asset('kampung/kodim.png') }}" class="img-fluid"
+                    style="max-width: 110px; max-height: 100px;">
             </div>
             <div class="col-lg-3 col-sm-6 col-6 d-flex justify-content-center">
                 <img src="{{ asset('kampung/Lambang_Polda_Jateng.png') }}" style="max-width: 100px; max-height: 100px;"
