@@ -9,6 +9,34 @@
             @endif
         </a>
 
+     @if(Route::current()->getName() != 'root')
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto" href="{{ url('/') }}" style="color: black;">Home</a></li>
+                <li class="dropdown" ><a href="#" style="color: black;"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="{{ route('tentang-kami') }}" >Tentang Kami</a></li>
+                        <li><a href="{{ route('latar-belakang') }}">Latar Belakang</a></li>
+                        <li><a href="{{ route('tujuan') }}">Tujuan</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" target="_blank"
+                        href="https://jatengprov.go.id/beritadaerah/desa-kapencar-menjadi-kampung-pancasila/" style="color: black;">Berita</a>
+                </li>
+                <li><a class="nav-link scrollto" href="{{ route('kampung-pancasila') }}" style="color: black;">Kampung Pancasila Wonosobo</a>
+                </li>
+    
+                @if (Route::has('login'))
+                @auth
+                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                @else
+                {{-- <li><a class="getstarted scrollto" href="{{ route('login') }}">Get Started</a></li> --}}
+                @endauth
+                @endif
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+        @else
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto" href="{{ url('/') }}">Home</a></li>
@@ -52,13 +80,13 @@
                 @auth
                 <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                 @else
-                <li><a class="getstarted scrollto" href="{{ route('login') }}">Get Started</a></li>
+                {{-- <li><a class="getstarted scrollto" href="{{ route('login') }}">Get Started</a></li> --}}
                 @endauth
                 @endif
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-
+        @endif
     </div>
 </header>
 <!-- End Header -->

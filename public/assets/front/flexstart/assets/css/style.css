@@ -157,7 +157,7 @@ section {
   padding: 20px 0;
 }
 .header.header-scrolled {
-  background: #fff;
+  background: rgba(0, 0, 0, 0.514);
   padding: 15px 0;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
 }
@@ -172,7 +172,7 @@ section {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #000000;
+  color: #e21313;
   font-family: "Nunito", sans-serif;
   margin-top: 3px;
 }
@@ -204,7 +204,7 @@ section {
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -237,7 +237,7 @@ section {
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  background: #fff;
+  background: rgb(0, 0, 0);
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
   border-radius: 4px;
@@ -385,7 +385,7 @@ section {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
-  color: rgb(0, 0, 0);
+  color: rgb(253, 253, 253);
 }
 .hero h2 {
   color: #444444;
@@ -1885,7 +1885,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  background: #f6f9ff;
+  background: #ac0707;
   padding: 0 0 30px 0;
   font-size: 14px;
 }
@@ -2026,7 +2026,7 @@ section {
 .footer .copyright {
   text-align: center;
   padding-top: 30px;
-  color: #000000;
+  color: #fff;
 }
 .footer .credits {
   padding-top: 10px;
