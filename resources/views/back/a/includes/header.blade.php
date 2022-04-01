@@ -45,10 +45,10 @@
             <ul class="nav">
                 @php
                 $role_id = auth()->user()->role_id;
-                $queryMenu = DB::table('menus')
-                ->join('user_access_menus', 'menus.id', '=', 'user_access_menus.menu_id')
+                $queryMenu = DB::table('admin_menus')
+                ->join('user_access_menus', 'admin_menus.id', '=', 'user_access_menus.menu_id')
                 ->where('user_access_menus.role_id', '=' , $role_id)
-                ->orderBy('menus.menu', 'ASC')
+                ->orderBy('admin_menus.menu', 'ASC')
                 ->get();
                 @endphp
 
@@ -57,7 +57,7 @@
                 @php
                 $menuId = $menu->menu_id;
                 $subMenus = DB::table('submenus')
-                ->join('menus', 'submenus.menu_id', '=', 'menus.id')
+                ->join('admin_menus', 'submenus.menu_id', '=', 'admin_menus.id')
                 ->where('submenus.menu_id', '=' , $menuId)
                 ->where('submenus.is_active', '=' , 1)
                 ->orderBy('submenus.title', 'ASC')

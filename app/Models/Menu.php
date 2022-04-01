@@ -9,6 +9,7 @@ class Menu extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $table = 'admin_menus';
 
     public function submenu()
     {
