@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Arsha',
-                'image' => 'img/arsha.png'
+                'image' => 'img/Arsha.png'
             ]
         ];
 

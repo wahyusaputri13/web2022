@@ -60,7 +60,7 @@
             <div class="col-sm-8 col-sm-offset-2">
                 <!--      Wizard container        -->
                 <div class="wizard-container">
-                    <div class="card wizard-card" data-color="rose" id="wizardProfile">
+                    <div class="card wizard-card" data-color="green" id="wizardProfile">
                         {{Form::open(['route' => 'setup-first','method' => 'post', 'files' => 'true', ''])}}
                         <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
                         <div class="wizard-header">
@@ -236,7 +236,7 @@
                         </div>
                         <div class="wizard-footer">
                             <div class="pull-right">
-                                <input type='button' class='btn btn-next btn-fill btn-rose btn-wd' name='next'
+                                <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next'
                                     value='Next' />
                                 <input type='submit' class='btn btn-finish btn-fill btn-rose btn-wd' name='finish'
                                     value='Finish' />
