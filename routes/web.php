@@ -74,4 +74,5 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('user', UserController::class);
     Route::resource('themes', ThemesController::class);
     Route::post('sendCentang', [RoleController::class, 'changeAccess']);
+    Route::get('getAlamat', [WebsiteController::class, 'location']);
 });

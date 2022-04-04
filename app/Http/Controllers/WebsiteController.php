@@ -61,6 +61,11 @@ class WebsiteController extends Controller
         //
     }
 
+    public function location()
+    {
+        $result = Website::find(1);
+        return json_encode($result);
+    }
     /**
      * Update the specified resource in storage.
      *

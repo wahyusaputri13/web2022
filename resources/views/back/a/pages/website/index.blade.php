@@ -16,7 +16,7 @@
                         <!-- <h4 class="card-title">Stacked Form</h4> -->
                         {{Form::model($data, ['route' => ['settings.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
-                        <div class="row mb-3">
+                        <div class="row">
                             <div class="col"></div>
                         </div>
                         <div class="row">
@@ -140,6 +140,26 @@
                                 </div>
                             </div> -->
                         </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <legend>Maps</legend>
+                                <div id="map" style="height: 500px;"></div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Latitude</label>
+                                        {{Form::text('latitude', null,['class' => 'form-control', 'readonly' =>
+                                        'true', 'id' => 'Latitude'])}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Longitude</label>
+                                        {{Form::text('longitude', null,['class' => 'form-control', 'readonly' =>
+                                        'true', 'id' => 'Longitude'])}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
@@ -152,6 +172,13 @@
 </div>
 @endsection
 @push('after-script')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="">
+    </script>
 <script>
     $(document).ready(function () {
         if ($('#elementId').length > 0) {
@@ -159,6 +186,42 @@
             console.log(pesan);
             demo.showNotification('top', 'center', pesan)
         }
+
+        $.getJSON('getAlamat', function (data) {
+            navigator.geolocation.getCurrentPosition(function (location) {
+                var map = L.map('map').setView([data.latitude, data.longitude], 19);
+                var marker = L.marker([data.latitude, data.longitude], {
+                    draggable: 'true'
+                }).addTo(map);
+                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1,
+                    accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+                }).addTo(map);
+
+                $("#Latitude").val(location.coords.latitude),
+                    $("#Longitude").val(location.coords.longitude),
+                    marker.on('dragend', function (event) {
+                        var position = marker.getLatLng();
+                        marker.setLatLng(position, {
+                            draggable: 'true'
+                        }).bindPopup(position).update();
+                        $("#Latitude").val(position.lat);
+                        $("#Longitude").val(position.lng).keyup();
+                    });
+
+                $("#Latitude, #Longitude").change(function () {
+                    var position = [parseInt($("#Latitude").val()), parseInt($("#Longitude").val())];
+                    marker.setLatLng(position, {
+                        draggable: 'true'
+                    }).bindPopup(position).update();
+                    map.panTo(position);
+                });
+            });
+        });
     });
 </script>
 @endpush
