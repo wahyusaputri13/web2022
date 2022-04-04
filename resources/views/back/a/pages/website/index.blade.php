@@ -146,16 +146,16 @@
                                 <div id="map" style="height: 500px;"></div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group label-floating">
-                                        <label class="control-label">Latitude</label>
-                                        {{Form::text('latitude', null,['class' => 'form-control', 'readonly' =>
-                                        'true', 'id' => 'Latitude'])}}
+                                        <!-- <label class="control-label">Latitude</label> -->
+                                        {{Form::hidden('latitude', null,['class' => 'form-control', 'id' =>
+                                        'Latitude'])}}
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group label-floating">
-                                        <label class="control-label">Longitude</label>
-                                        {{Form::text('longitude', null,['class' => 'form-control', 'readonly' =>
-                                        'true', 'id' => 'Longitude'])}}
+                                        <!-- <label class="control-label">Longitude</label> -->
+                                        {{Form::hidden('longitude', null,['class' => 'form-control', 'id' =>
+                                        'Longitude'])}}
                                     </div>
                                 </div>
                             </div>
