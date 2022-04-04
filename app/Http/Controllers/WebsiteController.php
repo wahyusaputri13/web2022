@@ -73,6 +73,8 @@ class WebsiteController extends Controller
         $gambar = Website::find($id);
         $name = $gambar->image_hero_name;
         $path = $gambar->image_hero;
+        $name2 = $gambar->favicon_name;
+        $path2 = $gambar->favicon;
         if ($request->hasFile('image_hero')) {
             if ($request->file('image_hero')->getClientOriginalName() != $gambar->image_hero_name) {
                 Storage::delete($gambar->image_hero);
@@ -80,9 +82,18 @@ class WebsiteController extends Controller
                 $path = $request->file('image_hero')->store('website');
             }
         }
-        Website::find($id)->update($request->except(['_token', 'image_hero']) + [
+        if ($request->hasFile('favicon')) {
+            if ($request->file('favicon')->getClientOriginalName() != $gambar->favicon_name) {
+                Storage::delete($gambar->favicon);
+                $name2 = $request->file('favicon')->getClientOriginalName();
+                $path2 = $request->file('favicon')->store('website');
+            }
+        }
+        Website::find($id)->update($request->except(['_token', 'image_hero', 'favicon']) + [
             'image_hero_name' => $name,
-            'image_hero' => $path
+            'image_hero' => $path,
+            'favicon_name' => $name2,
+            'favicon' => $path2,
         ]);
         return redirect()->back()->with(['success' => 'Data has been successfully changed!']);
     }

@@ -11,7 +11,7 @@
                     </a> -->
                     <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
                             valies darta donna mare fermentum iaculis eu non diam phasellus.</p> -->
-                    {{-- <div class="social-links mt-4">
+                    <div class="social-links mt-4">
                         <a href="{{ $data_website->twitter }}" target="_blank" class="twitter"><i
                                 class="bi bi-twitter"></i></a>
                         <a href="{{ $data_website->facebook }}" target="_blank" class="facebook"><i
@@ -20,14 +20,14 @@
                                 class="bi bi-instagram"></i></a>
                         <a href="{{ $data_website->youtube }}" target="_blank" class="youtube"><i
                                 class="bi bi-youtube"></i></a>
-                    </div> --}}
+                    </div>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>Related Links</h4>
+                    <!-- <h4>Related Links</h4>
                     <ul>
                         <li><i class="bi bi-chevron-right"></i> <a target="_blank"
                                 href="https://kapencar-kertek.wonosobokab.go.id/">Desa Kapencar, Kertek</a>
@@ -43,9 +43,9 @@
                         <li><i class="bi bi-chevron-right"></i> <a target="_blank"
                                 href="https://kelurahanjaraksari.wonosobokab.go.id/">Kelurahan Jaraksari,
                                 Wonosobo</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
-                
+
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                     <h4>Contact Us</h4>
@@ -63,7 +63,8 @@
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span><a href="https://website.wonosobokab.go.id/" style="color: white;">Diskominfo Kab.
+            &copy; Copyright <strong><span><a href="https://website.wonosobokab.go.id/">Diskominfo
+                        Kab.
                         Wonosobo.</a></span></strong>
         </div>
         <div class="credits">
@@ -71,7 +72,7 @@
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
-            <a href="#" style="color: white;">Isa Maulana Tantra - Devandewa</a>
+            <a href="#">Isa Maulana Tantra</a>
         </div>
     </div>
 </footer><!-- End Footer -->

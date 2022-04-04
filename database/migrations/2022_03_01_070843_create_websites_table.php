@@ -17,7 +17,6 @@ class CreateWebsitesTable extends Migration
             $table->id();
             $table->string('web_name')->nullable()->default("-");
             $table->string('web_description')->nullable()->default("-");
-            $table->string('hero_img')->nullable()->default("-");
             $table->string('email')->nullable()->default("-");
             $table->string('address')->nullable()->default("-");
             $table->string('phone')->nullable()->default("-");
@@ -28,6 +27,8 @@ class CreateWebsitesTable extends Migration
             $table->string('url_stream')->nullable()->default("#");
             $table->string('image_hero')->nullable();
             $table->string('image_hero_name')->nullable();
+            $table->string('favicon')->nullable()->default('assets/pemda.ico');
+            $table->string('favicon_name')->nullable();
             $table->timestamps();
         });
     }

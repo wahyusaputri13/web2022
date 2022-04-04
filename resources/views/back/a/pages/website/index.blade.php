@@ -16,9 +16,12 @@
                         <!-- <h4 class="card-title">Stacked Form</h4> -->
                         {{Form::model($data, ['route' => ['settings.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
+                        <div class="row mb-3">
+                            <div class="col"></div>
+                        </div>
                         <div class="row">
-                            <div class="col-md-12 text-center">
-                                <!-- <legend>Regular Image</legend> -->
+                            <div class="col-md-6 text-center">
+                                <legend>Hero Image</legend>
                                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
                                         @if($data->image_hero)
@@ -33,23 +36,49 @@
                                         <span class="btn btn-success btn-round btn-file">
                                             <span class="fileinput-new">Select image</span>
                                             <span class="fileinput-exists">Change</span>
-                                            <!-- <input type="file" name="photo" /> -->
                                             {{Form::file('image_hero', null,['class' => 'form-control'])}}
                                         </span>
                                         <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
                                             data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                     </div>
-                                    @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    @endif
                                 </div>
                             </div>
+                            <div class="col-md-6 text-center">
+                                <legend>Favicon Image</legend>
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        @if($data->favicon == 'assets/pemda.ico')
+                                        <img src="{{ asset('') }}{{ $data->favicon }}" alt="...">
+                                        @elseif($data->favicon)
+                                        <img src="{{ asset('storage') }}/{{ $data->favicon }}" alt="...">
+                                        @else
+                                        <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
+                                            alt="...">
+                                        @endif
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                    <div>
+                                        <span class="btn btn-success btn-round btn-file">
+                                            <span class="fileinput-new">Select image</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            {{Form::file('favicon', null,['class' => 'form-control'])}}
+                                        </span>
+                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
+                                            data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Website Name</label>
@@ -104,18 +133,18 @@
                                     {{Form::text('youtube', null,['class' => 'form-control'])}}
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Url Stream Radio</label>
                                     {{Form::text('url_stream', null,['class' => 'form-control'])}}
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
-                        {{Form::close()}}
                     </div>
+                    {{Form::close()}}
                 </div>
             </div>
         </div>

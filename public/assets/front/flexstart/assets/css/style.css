@@ -18,12 +18,12 @@ body {
 }
 
 a {
-  color: #030303;
+  color: #4154f1;
   text-decoration: none;
 }
 
 a:hover {
-  color: #f57171;
+  color: #717ff5;
   text-decoration: none;
 }
 
@@ -71,7 +71,7 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
-  background: #ffffff;
+  background: #012970;
   min-height: 40px;
   margin-top: 82px;
   color: #fff;
@@ -120,7 +120,7 @@ section {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #ff0000;
+  background: #4154f1;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -132,8 +132,8 @@ section {
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #f15151;
-  color: rgb(255, 255, 255);
+  background: #6776f4;
+  color: #fff;
 }
 .back-to-top.active {
   visibility: visible;
@@ -157,7 +157,7 @@ section {
   padding: 20px 0;
 }
 .header.header-scrolled {
-  background: rgba(0, 0, 0, 0.514);
+  background: #fff;
   padding: 15px 0;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
 }
@@ -172,7 +172,7 @@ section {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #e21313;
+  color: #012970;
   font-family: "Nunito", sans-serif;
   margin-top: 3px;
 }
@@ -204,7 +204,7 @@ section {
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: #013289;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -214,10 +214,10 @@ section {
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #ff0000;
+  color: #4154f1;
 }
 .navbar .getstarted, .navbar .getstarted:focus {
-  background: #ff0000;
+  background: #4154f1;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
@@ -225,7 +225,7 @@ section {
 }
 .navbar .getstarted:hover, .navbar .getstarted:focus:hover {
   color: #fff;
-  background: #f35959;
+  background: #5969f3;
 }
 .navbar .dropdown ul {
   display: block;
@@ -237,7 +237,7 @@ section {
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  background: rgb(0, 0, 0);
+  background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
   border-radius: 4px;
@@ -255,7 +255,7 @@ section {
   font-size: 12px;
 }
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #ff0000;
+  color: #4154f1;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -378,14 +378,14 @@ section {
 .hero {
   width: 100%;
   height: 100vh;
-  background: url(../img/bg.gif) top center no-repeat;
+  background: url(../img/hero-bg.png) top center no-repeat;
   background-size: cover;
 }
 .hero h1 {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
-  color: rgb(253, 253, 253);
+  color: #012970;
 }
 .hero h2 {
   color: #444444;
@@ -1487,11 +1487,11 @@ section {
   margin: 0 0 20px 0;
 }
 .blog .entry .entry-title a {
-  color: #000000;
+  color: #012970;
   transition: 0.3s;
 }
 .blog .entry .entry-title a:hover {
-  color: #ff0000;
+  color: #4154f1;
 }
 .blog .entry .entry-meta {
   margin-bottom: 15px;
@@ -1885,7 +1885,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  background: #ac0707;
+  background: #f6f9ff;
   padding: 0 0 30px 0;
   font-size: 14px;
 }
@@ -1934,7 +1934,7 @@ section {
   background: #5969f3;
 }
 .footer .footer-top {
-  background: white url(../img/peta.png) no-repeat right top;
+  background: white url(../img/footer-bg.png) no-repeat right top;
   background-size: contain;
   border-top: 1px solid #e1ecff;
   border-bottom: 1px solid #e1ecff;
@@ -1973,18 +1973,18 @@ section {
 .footer .footer-top .social-links a {
   font-size: 20px;
   display: inline-block;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(1, 41, 112, 0.5);
   line-height: 0;
   margin-right: 10px;
   transition: 0.3s;
 }
 .footer .footer-top .social-links a:hover {
-  color: #323333;
+  color: #012970;
 }
 .footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #000000;
+  color: #012970;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 12px;
@@ -2012,13 +2012,13 @@ section {
   padding-top: 0;
 }
 .footer .footer-top .footer-links ul a {
-  color: #000000;
+  color: #013289;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
 .footer .footer-top .footer-links ul a:hover {
-  color: #fa0000;
+  color: #4154f1;
 }
 .footer .footer-top .footer-contact p {
   line-height: 26px;
@@ -2026,7 +2026,7 @@ section {
 .footer .copyright {
   text-align: center;
   padding-top: 30px;
-  color: #fff;
+  color: #012970;
 }
 .footer .credits {
   padding-top: 10px;

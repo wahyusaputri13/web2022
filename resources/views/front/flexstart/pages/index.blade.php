@@ -4,29 +4,11 @@
 <section id="hero" class="hero d-flex align-items-center">
 
     <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-3 col-sm-6 col-6 d-flex justify-content-center">
-                <img src="{{ asset('kampung/Pancasila_Perisai.svg') }}" style="max-width: 100px; max-height: 100px;"
-                    class="img-fluid">
-            </div>
-            <div class="col-lg-3 col-sm-6 col-6 d-flex justify-content-center">
-                <img src="{{ asset('kampung/kodim.png') }}" class="img-fluid"
-                    style="max-width: 110px; max-height: 100px;">
-            </div>
-            <div class="col-lg-3 col-sm-6 col-6 d-flex justify-content-center">
-                <img src="{{ asset('kampung/Lambang_Polda_Jateng.png') }}" style="max-width: 100px; max-height: 100px;"
-                    class="img-fluid">
-            </div>
-            <div class="col-lg-3 col-sm-6 col-6 d-flex justify-content-center">
-                <img src="{{ asset('kampung/wonosobo.png') }}" style="max-width: 120px; max-height: 100px;"
-                    class="img-fluid">
-            </div>
-        </div>
         <div class="row">
-            <div class="col-lg-12 d-flex flex-column justify-content-center" style="text-align: center;">
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
                 <h1 data-aos="fade-up">{{ $data_website->web_name }}</h1>
                 <h2 data-aos="fade-up" data-aos-delay="400">{{ $data_website->web_description }}</h2>
-                <!-- <audio id="audio_1">
+                <audio id="audio_1">
                     <source src="{{ $data_website->url_stream }}" type="audio/mpeg">
                 </audio>
                 <div data-aos="fade-up" data-aos-delay="600">
@@ -37,14 +19,14 @@
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
-                </div> -->
+                </div>
             </div>
             <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-                <!-- @if($data_website->image_hero)
+                @if($data_website->image_hero)
                 <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid" alt="">
                 @else
                 <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid" alt="">
-                @endif -->
+                @endif
             </div>
         </div>
     </div>
