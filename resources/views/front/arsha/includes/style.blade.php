@@ -1,7 +1,11 @@
 <!-- Favicons -->
-<link href="{{ asset('assets/front/arsha/assets/img/favicon.png') }}" rel="icon">
-<link href="{{ asset('assets/front/arsha/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
+@if($data_website->favicon == 'assets/pemda.ico')
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('') }}{{ $data_website->favicon }}" />
+<link rel="icon" type="image/png" href="{{ asset('') }}{{ $data_website->favicon }}" />
+@else
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
+<link rel="icon" type="image/png" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
+@endif
 <!-- Google Fonts -->
 <link
   href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"

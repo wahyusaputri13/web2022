@@ -12,7 +12,7 @@
         @if(Route::current()->getName() != 'root')
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto" href="{{ url('/') }}" style="color: black;">Home</a></li>
+                <!-- <li><a class="nav-link scrollto" href="{{ url('/') }}" style="color: black;">Home</a></li>
                 <li class="dropdown"><a href="#" style="color: black;"><span>Profil</span> <i
                             class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -27,7 +27,7 @@
                 </li>
                 <li><a class="nav-link scrollto" href="{{ route('kampung-pancasila') }}" style="color: black;">Kampung
                         Pancasila Wonosobo</a>
-                </li>
+                </li> -->
 
                 @if (Route::has('login'))
                 @auth
@@ -83,7 +83,7 @@
                 @auth
                 <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                 @else
-                {{-- <li><a class="getstarted scrollto" href="{{ route('login') }}">Get Started</a></li> --}}
+                <li><a class="getstarted scrollto" href="{{ route('login') }}">Get Started</a></li>
                 @endauth
                 @endif
             </ul>

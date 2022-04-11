@@ -71,6 +71,9 @@
                             More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
+            @if($loop->iteration == 6)
+            @break
+            @endif
             @endforeach
         </div>
     </div>
@@ -118,6 +121,9 @@
                     </div>
                 </div>
             </div>
+            @if($loop->iteration == 8)
+            @break
+            @endif
             @endforeach
         </div>
     </div>
