@@ -2,13 +2,15 @@
 <header id="header" class="header fixed-top" data-scrollto-offset="0">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-        <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+        <a href="{{ url('/') }}" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1>HeroBiz<span>.</span></h1>
+            @if(Route::current()->getName() != 'root')
+            <h1>{{ $data_website->web_name }}<span>.</span></h1>
+            @endif
         </a>
 
-        <nav id="navbar" class="navbar">
+        <nav id="navbar" class="navbar" hidden>
             <ul>
 
                 <li class="dropdown"><a href="#"><span>Home</span> <i

@@ -5,8 +5,11 @@
     <header id="header" class="fixed-top header-inner-pages">
         @endif
         <div class="container d-flex align-items-center">
-
+            @if(Route::current()->getName() != 'root')
             <h1 class="logo me-auto"><a href="{{ url('/') }}">{{ $data_website->web_name }}</a></h1>
+            @else
+            <h1 class="logo me-auto"><a href="{{ url('/') }}"></h1>
+            @endif
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 

@@ -21,16 +21,16 @@ class DatabaseSeeder extends Seeder
     {
         $themes = [
             [
-                'name' => 'FlexStart',
-                'image' => 'img/FlexStart.png'
+                'name' => 'flexstart',
+                'image' => 'img/flexstart.png'
             ],
             [
-                'name' => 'HeroBiz',
-                'image' => 'img/HeroBiz.png'
+                'name' => 'herobiz',
+                'image' => 'img/herobiz.png'
             ],
             [
-                'name' => 'Arsha',
-                'image' => 'img/Arsha.png'
+                'name' => 'arsha',
+                'image' => 'img/arsha.png'
             ]
         ];
 
@@ -173,7 +173,7 @@ class DatabaseSeeder extends Seeder
             'facebook' => '#',
             'youtube' => '#',
             'url_stream' => '#',
-            'themes_front' => 'FlexStart',
+            'themes_front' => 'flexstart',
             'themes_back' => 'back.a',
         ]);
         // DB::table('websites')->insert([
