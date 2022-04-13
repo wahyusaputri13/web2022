@@ -45,19 +45,12 @@
         </header>
         <div class="row" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-12 d-flex justify-content-center">
-                @if(Route::current()->getName() == 'news.all')
-                {!! $news->render() !!}
-                <!-- {{ $news->links() }} -->
-                @else
-                <!-- <ul id="recent-blog-posts-flters"> -->
-                <a href="{{ url('/newsall') }}">Show All</a>
-                <!-- </ul> -->
-                @endif
+                <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/newsall') }}">Show All</a>
             </div>
         </div>
         <div class="row mt-4">
             @foreach($news as $n)
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 mb-3">
                 <div class="post-box">
                     <div class="post-img">
                         <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="">
@@ -94,14 +87,9 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-12 d-flex justify-content-center">
-                @if(Route::current()->getName() == 'photo.all')
-                {!! $gallery->render() !!}
-                <!-- {{ $gallery->links() }} -->
-                @else
-                <ul id="portfolio-flters">
-                    <a href="{{ url('/photos') }}">Show All</a>
-                </ul>
-                @endif
+                <div class="mb-3">
+                    <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/photos') }}">Show All</a>
+                </div>
             </div>
         </div>
 

@@ -3,28 +3,14 @@
 @if($news->count() != 0)
 <!-- ======= Recent Blog Posts Section ======= -->
 <section id="recent-blog-posts" class="recent-blog-posts">
-
     <div class="container" data-aos="fade-up">
-
         <header class="section-header">
             <h2>Blog</h2>
             <p>Recent posts form our Blog</p>
         </header>
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-center">
-                @if(Route::current()->getName() == 'news.all')
-                {!! $news->render() !!}
-                <!-- {{ $news->links() }} -->
-                @else
-                <!-- <ul id="recent-blog-posts-flters"> -->
-                <a href="{{ url('/newsall') }}">Show All</a>
-                <!-- </ul> -->
-                @endif
-            </div>
-        </div>
-        <div class="row mt-4">
+        <div class="row mt-3">
             @foreach($news as $n)
-            <div class="col-lg-4">
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                 <div class="post-box">
                     <div class="post-img">
                         <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="">
@@ -40,8 +26,13 @@
             </div>
             @endforeach
         </div>
+        <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-12 d-flex justify-content-center">
+                {!! $news->render() !!}
+                <!-- {{ $news->links() }} -->
+            </div>
+        </div>
     </div>
-
 </section>
 <!-- End Recent Blog Posts Section -->
 @endif

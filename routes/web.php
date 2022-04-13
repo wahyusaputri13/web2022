@@ -36,7 +36,7 @@ Route::group(
 Route::get('/', function () {
     $themes = Website::all()->first();
     if (Website::all()->count() != 0) {
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
+        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         $news = News::orderBy('date', 'desc')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
     } else {

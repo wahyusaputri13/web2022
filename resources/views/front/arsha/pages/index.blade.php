@@ -35,10 +35,10 @@
 
             <div class="row">
                 @foreach($news as $n)
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
                         <div class="post-img">
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
                         </div>
                         <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a>
                         </h4>
@@ -51,25 +51,27 @@
                 @break
                 @endif
                 @endforeach
+                <div class="d-flex justify-content-end">
+                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;"
+                        href="{{ url('/newsall') }}">Show
+                        All</a>
+                </div>
             </div>
-
         </div>
     </section><!-- End Services Section -->
     <!-- keanehan yang terjadi jika div dibawah ini dihapus maka slideshow blank hitam -->
     <div class="skills-content">
     </div>
     <!-- end of aneh -->
-
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
         <div class="container" data-aos="fade-up">
-
             <div class="section-title">
                 <h2>Gallery</h2>
                 <p>Check our latest photo</p>
-                <a href="{{ url('/photos') }}">Show All</a>
+                <a class="btn rounded-pill" style="background: #47b2e4; color: white;" href="{{ url('/photos') }}">Show
+                    All</a>
             </div>
-
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                 @foreach($gallery as $g)
                 <div class="col-lg-3 col-md-6 portfolio-item filter-web">
@@ -91,10 +93,9 @@
                 @endif
                 @endforeach
             </div>
-
         </div>
-    </section><!-- End Portfolio Section -->
-
+    </section>
+    <!-- End Portfolio Section -->
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">

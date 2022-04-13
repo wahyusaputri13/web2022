@@ -42,7 +42,7 @@ class FrontController extends Controller
 
     public function newsall(Request $request)
     {
-        $news = News::orderBy('date', 'desc')->paginate(9);
+        $news = News::orderBy('date', 'desc')->paginate(12);
         if ($request->ajax()) {
             return view('front.' . $this->themes->themes_front . '.pages.news', compact('news'));
         }
@@ -51,7 +51,7 @@ class FrontController extends Controller
 
     public function galleryall(Request $request)
     {
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
+        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         if ($request->ajax()) {
             return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
         }
