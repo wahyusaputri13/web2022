@@ -11,18 +11,6 @@
             <p>Check our latest photo</p>
         </header>
 
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-center">
-                @if(Route::current()->getName() == 'photo.all')
-                {!! $gallery->render() !!}
-                <!-- {{ $gallery->links() }} -->
-                @else
-                <ul id="portfolio-flters">
-                    <a href="{{ url('/photos') }}">Show All</a>
-                </ul>
-                @endif
-            </div>
-        </div>
 
         <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
             @foreach($gallery as $g)
@@ -42,6 +30,13 @@
             </div>
             @endforeach
         </div>
+        <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-12 d-flex justify-content-center">
+                {!! $gallery->render() !!}
+                <!-- {{ $gallery->links() }} -->
+            </div>
+        </div>
+
     </div>
 
 </section>

@@ -1,40 +1,30 @@
 @extends('front.flexstart.layouts.app')
 @section('content')
 <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
         <div class="container">
-
             <!-- <ol>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li>Blog Single</li>
             </ol> -->
             <!-- <h2>Blog Single</h2> -->
-
         </div>
     </section>
     <!-- End Breadcrumbs -->
-
     <!-- ======= Blog Single Section ======= -->
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
-
             <div class="row">
-
                 <div class="col-lg-8 entries">
-
                     <article class="entry entry-single">
-
                         <div class="entry-img">
-                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid">
                         </div>
-
                         <h2 class="entry-title">
                             <a href="#">{{ $data->title }}</a>
                         </h2>
-
                         <div class="entry-meta">
                             <ul>
                                 <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
@@ -48,11 +38,9 @@
                                     views($data)->count(); }}</a></li>
                             </ul>
                         </div>
-
                         <div class="entry-content">
                             {!! $data->description !!}
                         </div>
-
                         <!-- <div class="entry-footer">
                             <i class="bi bi-folder"></i>
                             <ul class="cats">
@@ -121,7 +109,7 @@
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix">
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" alt="">
+                                <img src="{{ asset('storage/') }}/{{ $n->path}}">
                                 <h4><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a></h4>
                                 <time datetime="2020-01-01">{{
                                     \Carbon\Carbon::parse( $n->date

@@ -6,7 +6,7 @@
     <div class="container" data-aos="fade-up">
         <header class="section-header">
             <h2>Blog</h2>
-            <p>Recent posts form our Blog</p>
+            <p>Recent posts from our Blog</p>
         </header>
         <div class="row mt-3">
             @foreach($news as $n)

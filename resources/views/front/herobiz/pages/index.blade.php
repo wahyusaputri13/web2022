@@ -15,26 +15,17 @@
         </div>
     </div>
 </section>
-
 <main id="main">
-
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio" data-aos="fade-up">
-
         <div class="container">
-
             <div class="section-header">
                 <h2>Gallery</h2>
-
             </div>
-
         </div>
-
         <div class="container-fluid" data-aos="fade-up" data-aos-delay="200">
-
             <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
                 data-portfolio-sort="original-order">
-
                 <ul class="portfolio-flters">
                     <!-- <li data-filter="*" class="filter-active">All</li>
                     <li data-filter=".filter-app">App</li>
@@ -43,7 +34,6 @@
                     <li data-filter=".filter-books">Books</li> -->
                 </ul>
                 <!-- End Portfolio Filters -->
-
                 <div class="row g-0 portfolio-container">
                     @foreach($gallery as $g)
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
@@ -62,11 +52,11 @@
                     @break
                     @endif
                     @endforeach
-                    <div class="d-flex justify-content-end m-2">
-                        <a href="{{ route('news.all') }}" class="btn"
-                            style="background-color: var(--color-primary); color: white;">Show
-                            All</a>
-                    </div>
+                </div>
+                <div class="d-flex justify-content-end m-2">
+                    <a href="{{ url('photos') }}" class="btn"
+                        style="background-color: var(--color-primary); color: white;">Show
+                        All</a>
                 </div>
                 <!-- End Portfolio Container -->
 

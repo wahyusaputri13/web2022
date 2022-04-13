@@ -6,11 +6,12 @@
     <div class="container mt-5" data-aos="fade-up">
         <header class="section-header" style="text-align: center;">
             <h2>Blog</h2>
-            <p>Recent posts form our Blog</p>
+            <p>Recent posts from our Blog</p>
         </header>
         <div class="row mt-3">
             @foreach($news as $n)
-            <div class="col-xl-3 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch" data-aos="zoom-in"
+                data-aos-delay="100">
                 <div class="card" style="border-radius: 15px">
                     <div>
                         <img src="{{ asset('storage/') }}/{{ $n->path}}" style="border-radius: 15px" class="img-fluid">
@@ -21,7 +22,7 @@
                         )->toFormattedDateString() }}</span>
                     <h3 class="m-1">{{ $n->title }}</h3>
                     <div class="d-flex justify-content-center mb-1">
-                        <a class="btn" style="background: #47b2e4; color: white;"
+                        <a class="btn" style="background: #37517e; color: white;"
                             href="{{ url('/news-detail', $n->id) }}"><span>Read
                                 More</span><i class="bi bi-arrow-right"></i></a>
                     </div>
