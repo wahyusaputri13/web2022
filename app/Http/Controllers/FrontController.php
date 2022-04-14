@@ -7,6 +7,7 @@ use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Website;
 use CyrildeWit\EloquentViewable\Views;
+use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
@@ -77,5 +78,28 @@ class FrontController extends Controller
     public function kampungpancasila()
     {
         return view('front.kampung-pancasila');
+    }
+
+    public function loadsql()
+    {
+        $users = DB::table('ppid_posts')->get();
+        foreach ($users as $us) {
+            $validated =
+                [
+                    'photo' => 'soulofjava',
+                    'path' => 'img/soulofjava.jpg',
+                    'date' => $us->post_date,
+                    'description' => $us->post_content,
+                    'title' => $us->post_title,
+                    'upload_by' => 'Admin',
+                ];
+            News::create($validated);
+        }
+        return response()->json('Selesai');
+    }
+
+    public function hapusstring()
+    {
+        $users = DB::table('ppid_posts')->get();
     }
 }

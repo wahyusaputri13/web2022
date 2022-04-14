@@ -58,6 +58,8 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
     Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
     Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
+    Route::get('/load-sql', [FrontController::class, 'loadsql'])->name('load-sql');
+    Route::get('/hapus-string', [FrontController::class, 'hapusstring'])->name('hapus-string');
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
