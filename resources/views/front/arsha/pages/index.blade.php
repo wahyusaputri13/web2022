@@ -39,7 +39,11 @@
                 <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
                         <div class="post-img">
+                            @if(file_exists(public_path('storage/'.$n->path)))
                             <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                            @else
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            @endif
                         </div>
                         <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a>
                         </h4>

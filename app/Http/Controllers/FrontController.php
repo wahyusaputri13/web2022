@@ -82,24 +82,50 @@ class FrontController extends Controller
 
     public function loadsql()
     {
-        $users = DB::table('ppid_posts')->get();
-        foreach ($users as $us) {
+        set_time_limit(0);
+
+        $variable = DB::table('ppid_posts')->get();
+        foreach ($variable as $us) {
+            $isi = str_replace("wp-image", "img-fluid ", $us->post_content);
             $validated =
                 [
                     'photo' => 'soulofjava',
                     'path' => 'img/soulofjava.jpg',
                     'date' => $us->post_date,
-                    'description' => $us->post_content,
+                    'description' => $isi,
                     'title' => $us->post_title,
                     'upload_by' => 'Admin',
                 ];
             News::create($validated);
         }
-        return response()->json('Selesai');
-    }
 
-    public function hapusstring()
-    {
-        $users = DB::table('ppid_posts')->get();
+        // hapus data content yang kosong
+        $users = DB::table('news')
+            ->where('description', '=', '')
+            ->get();
+        foreach ($users as $us) {
+            News::destroy($us->id);
+        }
+
+        $users = DB::table('news')
+            ->where('title', '=', '')
+            ->get();
+        foreach ($users as $us) {
+            News::destroy($us->id);
+        }
+
+        // // cek duplikasi dan hapus
+        $users = News::all();
+        $usersUnique = $users->unique('title');
+        $usersDupes = $users->diff($usersUnique);
+        foreach ($usersDupes as $dp) {
+            News::destroy($dp->id);
+        }
+
+        // // hitung data
+        // $data = News::all()->count();
+        // return response()->json($data);
+
+        return response()->json('Selesai');
     }
 }

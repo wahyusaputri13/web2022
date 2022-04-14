@@ -51,8 +51,12 @@
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
+                                    @if(file_exists(public_path('storage/'.$n->path)))
                                     <img src="{{ asset('storage/') }}/{{ $n->path}}"
                                         class="img-fluid rounded-start rounded-end">
+                                    @else
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                    @endif
                                 </div>
                                 <div class="col-md-8" style="text-align: center;">
                                     <h5 class="card-title"><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title
