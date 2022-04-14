@@ -1,6 +1,5 @@
 @extends('front.flexstart.layouts.app')
 @section('content')
-@if($news->count() != 0)
 <!-- ======= Recent Blog Posts Section ======= -->
 <section id="recent-blog-posts" class="recent-blog-posts">
     <div class="container" data-aos="fade-up">
@@ -35,7 +34,6 @@
     </div>
 </section>
 <!-- End Recent Blog Posts Section -->
-@endif
 @endsection
 @push('after-script')
 @endpush

@@ -2,6 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+        {{ Breadcrumbs::render('submenu') }}
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -33,7 +34,8 @@
                                 {{Form::checkbox('is_active', 1, null,[])}} Active?
                             </label>
                         </div>
-                        <div class="text-right">
+                        <div class="d-flex text-right">
+                            <a href="{{ url('submenu') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}

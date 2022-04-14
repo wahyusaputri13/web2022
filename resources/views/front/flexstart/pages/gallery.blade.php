@@ -1,6 +1,5 @@
 @extends('front.flexstart.layouts.app')
 @section('content')
-@if($gallery->count() != 0)
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="portfolio">
 
@@ -40,7 +39,6 @@
 
 </section>
 <!-- End Gallery Section -->
-@endif
 @endsection
 @push('after-script')
 @endpush

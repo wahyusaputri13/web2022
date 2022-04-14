@@ -12,8 +12,10 @@
             </a>
         </div>
         <div class="logo logo-mini">
-            <a href="http://www.creative-tim.com/" class="simple-text">
-                Ct
+            <a href="{{ url('/') }}" class="simple-text">
+                <span class="material-icons">
+                    language
+                </span>
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -36,7 +38,10 @@
                                 <a href="{{ route('myprofile.edit', auth()->user()->id) }}">Edit Profile</a>
                             </li>
                             <li>
-                                <a href="#">Settings</a>
+                                <a href="{{ url('settings') }}">Settings</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('themes') }}">Themes</a>
                             </li>
                         </ul>
                     </div>
@@ -66,7 +71,7 @@
 
                 @if($subMenus->isEmpty())
                 <li class="{{ request()->is(strtolower($menu->menu.'*')) ? 'active' : '' }}">
-                    <a href="{{ $menu->menu_url }}">
+                    <a href="{{ '/'.$menu->menu_url }}">
                         <i class="material-icons">{{ $menu->menu_icon }}</i>
                         <p>{{ $menu->menu }}</p>
                     </a>

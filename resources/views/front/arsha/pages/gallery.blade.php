@@ -1,6 +1,5 @@
 @extends('front.arsha.layouts.app')
 @section('content')
-@if($gallery->count() != 0)
 <main id="main">
 
     <!-- keanehan yang terjadi jika div dibawah ini dihapus maka slideshow blank hitam -->
@@ -46,8 +45,6 @@
     </section>
     <!-- End Gallery Section -->
 </main>
-<!-- End #main -->
-@endif
 @endsection
 @push('after-script')
 @endpush

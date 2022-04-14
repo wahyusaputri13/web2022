@@ -10,6 +10,8 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
+use App\Http\Controllers\FrontMenuController;
+use App\Http\Controllers\FrontSubmenuController;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
@@ -73,6 +75,8 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('role', RoleController::class);
     Route::resource('user', UserController::class);
     Route::resource('themes', ThemesController::class);
+    Route::resource('frontmenu', FrontMenuController::class);
+    Route::resource('frontsubmenu', FrontSubmenuController::class);
     Route::post('sendCentang', [RoleController::class, 'changeAccess']);
     Route::get('getAlamat', [WebsiteController::class, 'location']);
 });

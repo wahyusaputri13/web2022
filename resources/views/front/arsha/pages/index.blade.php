@@ -25,6 +25,7 @@
 <!-- End Hero -->
 
 <main id="main">
+    @if($news->count() != 0)
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
         <div class="container" data-aos="fade-up">
@@ -58,7 +59,10 @@
                 </div>
             </div>
         </div>
-    </section><!-- End Services Section -->
+    </section>
+    <!-- End Services Section -->
+    @endif
+    @if($gallery->count() != 0)
     <!-- keanehan yang terjadi jika div dibawah ini dihapus maka slideshow blank hitam -->
     <div class="skills-content">
     </div>
@@ -95,6 +99,7 @@
             </div>
         </div>
     </section>
+    @endif
     <!-- End Portfolio Section -->
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">

@@ -11,15 +11,15 @@
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">Stacked Form</h4>
-                        {{Form::model($data, ['route' => ['menu.update', $data->id],'method' => 'put', 'files' =>
+                        {{Form::model($data, ['route' => ['frontmenu.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
+                        <div class="form-group label-floating">
+                            <label class="control-label">Position Order</label>
+                            {{Form::text('position_order', null,['class' => 'form-control'])}}
+                        </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>
                             {{Form::text('menu', null,['class' => 'form-control'])}}
-                        </div>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Menu Icon</label>
-                            {{Form::text('menu_icon', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Url</label>

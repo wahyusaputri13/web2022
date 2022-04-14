@@ -84,13 +84,13 @@ class DatabaseSeeder extends Seeder
                 'icon' => 'menu',
                 'is_active' => 1
             ],
-            [
-                'menu_id' => 1,
-                'title' => 'Themes',
-                'url' => '/themes',
-                'icon' => 'palette',
-                'is_active' => 1
-            ],
+            // [
+            //     'menu_id' => 1,
+            //     'title' => 'Themes',
+            //     'url' => '/themes',
+            //     'icon' => 'palette',
+            //     'is_active' => 1
+            // ],
             [
                 'menu_id' => 1,
                 'title' => 'Submenu',
@@ -98,13 +98,13 @@ class DatabaseSeeder extends Seeder
                 'icon' => 'subject',
                 'is_active' => 1
             ],
-            [
-                'menu_id' => 1,
-                'title' => 'Settings',
-                'url' => '/settings',
-                'icon' => 'settings',
-                'is_active' => 1
-            ],
+            // [
+            //     'menu_id' => 1,
+            //     'title' => 'Settings',
+            //     'url' => '/settings',
+            //     'icon' => 'settings',
+            //     'is_active' => 1
+            // ],
             [
                 'menu_id' => 1,
                 'title' => 'Role',
@@ -131,6 +131,20 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Gallery',
                 'url' => '/gallery',
                 'icon' => 'collections',
+                'is_active' => 1
+            ],
+            [
+                'menu_id' => 2,
+                'title' => 'Menu',
+                'url' => '/frontmenu',
+                'icon' => 'menu',
+                'is_active' => 1
+            ],
+            [
+                'menu_id' => 2,
+                'title' => 'Submenu',
+                'url' => '/frontsubmenu',
+                'icon' => 'subject',
                 'is_active' => 1
             ]
         ];

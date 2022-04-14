@@ -59,6 +59,18 @@ Breadcrumbs::for('users', function ($trail) {
     $trail->push('Users', url('users'));
 });
 
+// Dashboard > Menu Front
+Breadcrumbs::for('menufront', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Menu Front', url('menufront'));
+});
+
+// Dashboard > Menu Front
+Breadcrumbs::for('submenufront', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Submenu Front', url('submenufront'));
+});
+
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');

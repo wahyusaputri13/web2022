@@ -2,6 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+        {{ Breadcrumbs::render('role') }}
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -24,7 +25,8 @@
                             <label class="control-label">Role Name</label>
                             {{Form::text('role', null,['class' => 'form-control'])}}
                         </div>
-                        <div class="text-right">
+                        <div class="d-flex text-right">
+                            <a href="{{ url('role') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>
                         </div>
                         {{Form::close()}}

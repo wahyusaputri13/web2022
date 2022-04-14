@@ -2,6 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+        {{ Breadcrumbs::render('news') }}
         <div class="row">
             <div class="card">
                 <div class="card-header card-header-icon" data-background-color="green">
@@ -55,7 +56,8 @@
                         <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
                     </div>
-                    <div class="text-right">
+                    <div class="d-flex text-right">
+                        <a href="{{ url('news') }}" class="btn btn-default btn-fill">Cancel</a>
                         <button type="submit" class="btn btn-success btn-fill">Update</button>
                     </div>
                     {{Form::close()}}

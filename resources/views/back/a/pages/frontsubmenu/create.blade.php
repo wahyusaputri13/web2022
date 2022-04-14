@@ -2,7 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        {{ Breadcrumbs::render('users') }}
+        {{ Breadcrumbs::render('submenufront') }}
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -20,29 +20,21 @@
                             </ul>
                         </div>
                         @endif
-                        {{Form::open(['route' => 'user.store','method' => 'post', 'files' => 'true', ''])}}
+                        {{Form::open(['route' => 'frontsubmenu.store','method' => 'post', 'files' => 'true', ''])}}
                         <div>
-                            {{Form::select('role_id', $role, null,['class' => 'form-control selectpicker', 'data-style'
-                            => 'btn btn-success btn-round', 'title' => 'Choose Role'])}}
+                            {{Form::select('menu_id', $menu, null,['class' => 'form-control selectpicker', 'data-style'
+                            => 'btn btn-success btn-round', 'title' => 'Choose Parent Menu'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Name</label>
+                            <label class="control-label">Submenu Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Email</label>
-                            {{Form::email('email', null,['class' => 'form-control'])}}
-                        </div>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Password</label>
-                            {{Form::password('password',['class' => 'form-control'])}}
-                        </div>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Confirm Password</label>
-                            {{Form::password('password_confirmation',['class' => 'form-control'])}}
+                            <label class="control-label">Submenu Url</label>
+                            {{Form::text('url', null,['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">
-                            <a href="{{ url('user') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <a href="{{ url('frontsubmenu') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>
                         </div>
                         {{Form::close()}}

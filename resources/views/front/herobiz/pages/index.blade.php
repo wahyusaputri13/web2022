@@ -16,6 +16,7 @@
     </div>
 </section>
 <main id="main">
+    @if($gallery->count() != 0)
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio" data-aos="fade-up">
         <div class="container">
@@ -64,7 +65,8 @@
 
         </div>
     </section><!-- End Portfolio Section -->
-
+    @endif
+    @if($news->count() != 0)
     <!-- ======= Recent Blog Posts Section ======= -->
     <section id="recent-blog-posts" class="recent-blog-posts">
 
@@ -109,7 +111,7 @@
         </div>
 
     </section><!-- End Recent Blog Posts Section -->
-
+    @endif
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
         <div class="container">

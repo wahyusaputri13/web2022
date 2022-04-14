@@ -2,6 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
+        {{ Breadcrumbs::render('gallery') }}
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -47,7 +48,8 @@
                             <label class="control-label">Photo</label>
                             {{Form::file('foto', null,['class' => 'form-control'])}}
                         </div> -->
-                        <div class="text-right">
+                        <div class="d-flex text-right">
+                            <a href="{{ url('gallery') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>
                         </div>
                         {{Form::close()}}
