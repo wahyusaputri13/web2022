@@ -72,10 +72,10 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex' },
+            { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email' },
-            { data: 'role_id', name: 'role_id' },
+            { data: 'role.role' },
             { data: 'action', },
         ]
 

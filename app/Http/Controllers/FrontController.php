@@ -43,18 +43,13 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         $news = News::orderBy('date', 'desc')->paginate(12);
-        if ($request->ajax()) {
-            return view('front.' . $this->themes->themes_front . '.pages.news', compact('news'));
-        }
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news'));
+        $sidepost = News::latest('date')->take(5)->get();
+        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sidepost'));
     }
 
     public function galleryall(Request $request)
     {
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
-        if ($request->ajax()) {
-            return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
-        }
         return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
     }
 
