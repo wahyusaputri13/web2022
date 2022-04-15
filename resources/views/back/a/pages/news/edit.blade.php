@@ -16,10 +16,10 @@
                         <!-- <legend>Regular Image</legend> -->
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
-                                @if($data->path)
-                                <img src="{{ asset('storage') }}/{{ $data->path }}" alt="...">
+                                @if(file_exists(public_path('storage/'.$data->path)))
+                                <img src="{{ asset('storage') }}/{{ $data->path }}">
                                 @else
-                                <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
+                                <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}">
                                 @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail"></div>

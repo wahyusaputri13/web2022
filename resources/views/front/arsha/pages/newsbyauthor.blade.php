@@ -23,11 +23,16 @@
                     @foreach($data as $author)
                     <article class="entry">
                         <div class="card mb-3">
-                            <div class="entry-img">
-                                <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid" alt="">
+                            <div class="entry-img" style="text-align: center;">
+                                @if(file_exists(public_path('storage/'.$author->path)))
+                                <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
+                                @else
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                @endif
                             </div>
                             <h2 class="entry-title" style="text-align: center;">
-                                <a href="{{ url('/news-detail', $author->id) }}">{{ $author->title }}</a>
+                                <a href="{{ url('/news-detail', $author->id) }}">{{ $author->title
+                                    }}</a>
                             </h2>
                             <div class="entry-meta">
                                 <p class="card-text m-2"><small class="text-muted"><i class="bi bi-person"></i><a
@@ -38,17 +43,10 @@
                                             )->toFormattedDateString() }}</time> <i class="bi bi-eye"></i> {{
                                         views($author)->count(); }}</small></p>
                             </div>
-                            <div class="entry-content">
-                                <p style="text-align: justify;" class="m-2">
-                                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                    praesentium.
-                                    Aliquam et
-                                    laboriosam eius aut nostrum quidem aliquid dicta.
-                                    Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta.
-                                    Est
-                                    cum
-                                    et quod
-                                    quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
+                            <div class="entry-content m-2" style="text-align: justify;">
+                                <p>
+                                    {{-- {!! \Illuminate\Support\Str::limit($author->description, 350, $end='...') !!}
+                                    --}}
                                 </p>
                                 <div class="d-flex justify-content-end m-2">
                                     <a href="{{ url('/news-detail', $author->id) }}" class="btn btn-primary">Read
@@ -72,7 +70,8 @@
                         <h3>Search</h3>
                         <div class="sidebar-item search-form">
                             {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
-                            {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
+                            {{Form::text('kolomcari', null,['class' => 'form-control mb-3',
+                            'placeholder' => 'Title Post'])}}
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary mt-1"><i class="bi bi-search"></i></button>
                             </div>
@@ -83,12 +82,17 @@
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
+                                    @if(file_exists(public_path('storage/'.$n->path)))
                                     <img src="{{ asset('storage/') }}/{{ $n->path}}"
                                         class="img-fluid rounded-start rounded-end">
+                                    @else
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                    @endif
                                 </div>
                                 <div class="col-md-8" style="text-align: center;">
-                                    <h5 class="card-title"><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title
-                                            }}</a></h5>
+                                    <h5 class="card-title"><a href="{{ url('/news-detail', $n->id) }}">
+                                            {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                                        </a></h5>
                                     <p class="card-text"><small class="text-muted"><time datetime="2020-01-01">{{
                                                 \Carbon\Carbon::parse( $n->date
                                                 )->toFormattedDateString() }}</time></small>

@@ -45,7 +45,8 @@
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                             @endif
                         </div>
-                        <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a>
+                        <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->id) }}">
+                                {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
                         </h4>
                         <h6 style="text-align: center;">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                             \Carbon\Carbon::parse( $n->date

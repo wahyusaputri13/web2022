@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\Website;
 use CyrildeWit\EloquentViewable\Views;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class FrontController extends Controller
 {
@@ -60,33 +61,36 @@ class FrontController extends Controller
         return redirect(route('root'));
     }
 
+    // kampung pancasila
     public function tentangkami()
     {
-        return view('front.tentang-kami');
+        return view('front.kampungpancasila.tentang-kami');
     }
 
     public function latarbelakang()
     {
-        return view('front.latar-belakang');
+        return view('front.kampungpancasila.latar-belakang');
     }
 
     public function tujuan()
     {
-        return view('front.tujuan');
+        return view('front.kampungpancasila.tujuan');
     }
 
     public function kampungpancasila()
     {
-        return view('front.kampung-pancasila');
+        return view('front.kampungpancasila.kampung-pancasila');
     }
 
     public function loadsql()
     {
         set_time_limit(0);
 
+
         $variable = DB::table('ppid_posts')->get();
         foreach ($variable as $us) {
             $isi = str_replace("wp-image", "img-fluid ", $us->post_content);
+
             $validated =
                 [
                     'photo' => 'soulofjava',
@@ -127,5 +131,23 @@ class FrontController extends Controller
         // return response()->json($data);
 
         return response()->json('Selesai');
+    }
+
+    public function check()
+    {
+        $data = News::where('description', 'like', '%.pdf%')->get();
+        // $abc = News::all();
+        // foreach ($data as $b) {
+        //     $pdf = str_replace("[vc_row][vc_column][v_pfbk_flip_book ", "<embed ", $b->description);
+        //     News::find($b->id)->update([
+        //         'description' => $pdf
+        //     ]);
+        // }
+        // return response()->json('selesai');
+        // $data = News::where('description', 'like', '%.pdf%')->count();
+        // foreach ($data as $dt) {
+        // echo $dt->description;
+        // }
+        return $data;
     }
 }

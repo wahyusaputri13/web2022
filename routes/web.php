@@ -59,6 +59,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
     Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
     Route::get('/load-sql', [FrontController::class, 'loadsql']);
+    Route::get('/check', [FrontController::class, 'check']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {

@@ -10,6 +10,6 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
 class News extends Model implements Viewable
 {
-    use HasFactory, SoftDeletes, InteractsWithViews;
+    use HasFactory, InteractsWithViews;
     protected $guarded = [];
 }

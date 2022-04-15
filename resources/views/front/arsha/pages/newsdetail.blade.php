@@ -21,9 +21,15 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8">
                     <div class="card mb-3">
-                        <img src="{{ asset('storage/') }}/{{ $data->path}}" class="card-img-top" alt="...">
+                        @if(file_exists(public_path('storage/'.$data->path)))
+                        <img src="{{ asset('storage/') }}/{{ $data->path}}" class="card-img-top">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        @endif
                         <div class="card-body">
-                            <h5 class="card-title">{{ $data->title }}</h5>
+                            <h5 class="card-title">
+                                {{ $data->title }}
+                            </h5>
                             <p class="card-text"><small class="text-muted"><i class="bi bi-person"></i><a
                                         href="{{ url('/news-author', $data->upload_by) }}" class="text-muted"> {{
                                         $data->upload_by }}</a> <i class="bi bi-clock"></i> <time>{{
@@ -40,7 +46,8 @@
                         <h3>Search</h3>
                         <div class="sidebar-item search-form">
                             {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
-                            {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
+                            {{Form::text('kolomcari', null,['class' => 'form-control mb-3',
+                            'placeholder' => 'Title Post'])}}
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary mt-1"><i class="bi bi-search"></i></button>
                             </div>
@@ -59,8 +66,9 @@
                                     @endif
                                 </div>
                                 <div class="col-md-8" style="text-align: center;">
-                                    <h5 class="card-title"><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title
-                                            }}</a></h5>
+                                    <h5 class="card-title"><a href="{{ url('/news-detail', $n->id) }}">
+                                            {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                                        </a></h5>
                                     <p class="card-text"><small class="text-muted"><time datetime="2020-01-01">{{
                                                 \Carbon\Carbon::parse( $n->date
                                                 )->toFormattedDateString() }}</time></small>

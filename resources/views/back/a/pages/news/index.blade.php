@@ -30,6 +30,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Title</th>
+                                        <th>Date</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -71,8 +72,9 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
-            { data: 'title', name: 'title' },
-            { data: 'action', },
+            { data: 'title', name: 'title', className: "text-center" },
+            { data: 'tgl', className: "text-center" },
+            { data: 'action', className: "text-center" },
         ]
 
     });

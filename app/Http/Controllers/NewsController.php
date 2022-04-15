@@ -17,7 +17,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = News::all();
+            $data = News::orderBy('date', 'DESC')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -31,7 +31,16 @@ class NewsController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action'])
+                ->addColumn(
+                    'tgl',
+                    function ($data) {
+                        $actionBtn = '<center>' .
+                            \Carbon\Carbon::parse($data->date)->toFormattedDateString()
+                            . '</center>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
         return view('back.a.pages.news.index');
@@ -55,22 +64,36 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'photo' => 'required|image|max:12048',
-            'title' => 'required',
-            'date' => 'required',
-            'description' => 'required',
-        ]);
-        $name = $request->file('photo')->getClientOriginalName();
-        $path = $request->file('photo')->store('news');
-        $data = [
-            'photo' => $name,
-            'path' => $path,
-            'title' => $request->title,
-            'date' => $request->date,
-            'upload_by' => auth()->user()->name,
-            'description' => $request->description,
-        ];
+        if ($request->hasFile('photo')) {
+            $validated = $request->validate([
+                'photo' => 'image|max:12048',
+                'title' => 'required',
+                'date' => 'required',
+                'description' => 'required',
+            ]);
+            $name = $request->file('photo')->getClientOriginalName();
+            $path = $request->file('photo')->store('news');
+            $data = [
+                'photo' => $name,
+                'path' => $path,
+                'title' => $request->title,
+                'date' => $request->date,
+                'upload_by' => auth()->user()->name,
+                'description' => $request->description,
+            ];
+        } else {
+            $validated = $request->validate([
+                'title' => 'required',
+                'date' => 'required',
+                'description' => 'required',
+            ]);
+            $data = [
+                'title' => $request->title,
+                'date' => $request->date,
+                'upload_by' => auth()->user()->name,
+                'description' => $request->description,
+            ];
+        }
         News::create($data);
         return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }

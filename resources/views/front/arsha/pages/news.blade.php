@@ -23,7 +23,9 @@
                         \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                         \Carbon\Carbon::parse( $n->date
                         )->toFormattedDateString() }}</span>
-                    <h3 class="m-1">{{ $n->title }}</h3>
+                    <h3 class="m-1" style="text-align: center;">
+                        {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                    </h3>
                     <div class="d-flex justify-content-center mb-1">
                         <a class="btn" style="background: #37517e; color: white;"
                             href="{{ url('/news-detail', $n->id) }}"><span>Read
