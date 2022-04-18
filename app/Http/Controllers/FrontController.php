@@ -70,7 +70,10 @@ class FrontController extends Controller
 
     public function subpage($id)
     {
-        $data = FrontSubmenu::find($id);
+        // $data = FrontSubmenu::find($id);
+        $data = DB::table('front_submenus')
+            ->where('url', '=', $id)
+            ->get();
         // views($data)->cooldown(5)->record();
         // $news = News::orderBy('date', 'desc')->paginate(5);
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));

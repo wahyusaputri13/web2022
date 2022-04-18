@@ -32,10 +32,6 @@
                             {{Form::text('name', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Submenu Url</label>
-                            {{Form::text('url', null,['class' => 'form-control'])}}
-                        </div>
-                        <div class="form-group label-floating">
                             <label class="control-label">Content</label>
                             {{Form::textarea('content', null,['class' => 'my-editor form-control'])}}
                         </div>

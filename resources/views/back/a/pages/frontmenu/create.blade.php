@@ -29,10 +29,6 @@
                             <label class="control-label">Menu Name</label>
                             {{Form::text('menu', null,['class' => 'form-control', 'id' => 'title'])}}
                         </div>
-                        <!-- <div class="form-group label-floating">
-                            <label class="control-label">Menu Url</label>
-                            {{Form::text('menu_url', null,['class' => 'form-control', 'id' => 'slug'])}}
-                        </div> -->
                         <div class="form-group label-floating">
                             <label class="control-label">Content</label>
                             {{Form::textarea('content', null,['class' => 'my-editor form-control'])}}
