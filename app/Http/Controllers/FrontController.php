@@ -86,7 +86,7 @@ class FrontController extends Controller
     {
         set_time_limit(0);
 
-
+        // insert data dari table ppid_post ke tabel news
         $variable = DB::table('ppid_posts')->get();
         foreach ($variable as $us) {
             $isi = str_replace("wp-image", "img-fluid ", $us->post_content);
@@ -103,7 +103,7 @@ class FrontController extends Controller
             News::create($validated);
         }
 
-        // hapus data content yang kosong
+        // hapus data kolom content yang kosong
         $users = DB::table('news')
             ->where('description', '=', '')
             ->get();
@@ -111,6 +111,7 @@ class FrontController extends Controller
             News::destroy($us->id);
         }
 
+        // hapus data kolom title yang kosong
         $users = DB::table('news')
             ->where('title', '=', '')
             ->get();
@@ -118,7 +119,7 @@ class FrontController extends Controller
             News::destroy($us->id);
         }
 
-        // // cek duplikasi dan hapus
+        // cek duplikasi dan hapus
         $users = News::all();
         $usersUnique = $users->unique('title');
         $usersDupes = $users->diff($usersUnique);
@@ -135,19 +136,44 @@ class FrontController extends Controller
 
     public function check()
     {
-        $data = News::where('description', 'like', '%.pdf%')->get();
-        // $abc = News::all();
-        // foreach ($data as $b) {
-        //     $pdf = str_replace("[vc_row][vc_column][v_pfbk_flip_book ", "<embed ", $b->description);
-        //     News::find($b->id)->update([
-        //         'description' => $pdf
+        // ubah deskripsi yang ada pdf 1
+        // $data = News::where('description', 'like', '%[vc_row][vc_column][v_pfbk_flip_book%')->get();
+        // $width = '"100%"';
+        // $height = '"750"';
+        // foreach ($data as $dt) {
+        //     $pdfa = str_replace("[vc_row][vc_column][v_pfbk_flip_book", "<embed", $dt->description);
+        //     $slice = Str::after($pdfa, '.pdf"');
+        //     $pdfb = str_replace($slice, " width=" . $width . " height=" . $height . ">", $pdfa);
+        //     News::find($dt->id)->update([
+        //         'description' => $pdfb
         //     ]);
         // }
-        // return response()->json('selesai');
+
+        // ubah deskripsi yang ada pdf 2
+        // $data = News::where('description', 'like', '%[pfbk_pdf_flipbook%')->get();
+        // $width = '"100%"';
+        // $height = '"750"';
+        // foreach ($data as $dt) {
+        //     $pdfa = str_replace("[pfbk_pdf_flipbook", "<embed", $dt->description);
+        //     $slice = Str::after($pdfa, '.pdf"');
+        //     $pdfb = str_replace($slice, " width=" . $width . " height=" . $height . ">", $pdfa);
+        //     News::find($dt->id)->update([
+        //         'description' => $pdfb
+        //     ]);
+        // }
+
+        // $id = 3790;
+        // $data = News::find($id);
+        // $slice = Str::after($data->description, '.pdf"');
+        // $pdfb = str_replace("][/vc_column][/vc_row]", "width=" . $width . " height=" . $height . ">", $data->description);
+        $data = News::where('description', 'like', '%.pdf%')->get();
+        // $abc = News::all();
+        // News::find($b->id)->update([
         // $data = News::where('description', 'like', '%.pdf%')->count();
         // foreach ($data as $dt) {
         // echo $dt->description;
         // }
+        // return response()->json('selesai');
         return $data;
     }
 }
