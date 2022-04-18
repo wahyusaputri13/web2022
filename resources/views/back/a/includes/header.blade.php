@@ -48,57 +48,58 @@
                 </div>
             </div>
             <ul class="nav">
-                @php
-                $role_id = auth()->user()->role_id;
-                $queryMenu = DB::table('admin_menus')
-                ->join('user_access_menus', 'admin_menus.id', '=', 'user_access_menus.menu_id')
-                ->where('user_access_menus.role_id', '=' , $role_id)
-                ->orderBy('admin_menus.menu', 'ASC')
-                ->get();
-                @endphp
-
-                @foreach($queryMenu as $menu)
-
-                @php
-                $menuId = $menu->menu_id;
-                $subMenus = DB::table('submenus')
-                ->join('admin_menus', 'submenus.menu_id', '=', 'admin_menus.id')
-                ->where('submenus.menu_id', '=' , $menuId)
-                ->where('submenus.is_active', '=' , 1)
-                ->orderBy('submenus.title', 'ASC')
-                ->get();
-                @endphp
-
-                @if($subMenus->isEmpty())
-                <li class="{{ request()->is(strtolower($menu->menu.'*')) ? 'active' : '' }}">
-                    <a href="{{ '/'.$menu->menu_url }}">
-                        <i class="material-icons">{{ $menu->menu_icon }}</i>
-                        <p>{{ $menu->menu }}</p>
+                <li class="{{ (request()->is('dashboard')) ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}">
+                        <i class="material-icons">dashboard</i>
+                        <p>Dashboard</p>
                     </a>
                 </li>
-                @else
                 <li>
-                    <a data-toggle="collapse" href="#pagesExamples{{ $loop->iteration }}">
-                        <i class="material-icons">{{ $menu->menu_icon }}</i>
-                        <p>{{ $menu->menu }}
+                    <a data-toggle="collapse" href="#pagesExamples">
+                        <i class="material-icons">view_quilt</i>
+                        <p>Postings
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse" id="pagesExamples{{ $loop->iteration }}">
+                    <div class="collapse" id="pagesExamples">
                         <ul class="nav">
-                            @foreach($subMenus as $submenu)
-                            <li class="{{ request()->is(strtolower($submenu->title.'*')) ? 'active' : '' }}">
-                                <a href="{{ $submenu->url }}"><i class="material-icons">{{ $submenu->icon }}</i>{{
-                                    $submenu->title
-                                    }}</a>
+                            <li class="{{ (request()->is('news*')) ? 'active' : '' }}">
+                                <a href="{{ url('/news') }}">
+                                    <i class="material-icons">event_note</i>
+                                    News</a>
                             </li>
-                            @endforeach
+                            <li class="{{ (request()->is('gallery*')) ? 'active' : '' }}">
+                                <a href="{{ url('/gallery') }}"> <i class="material-icons">collections</i>
+                                    Gallery</a>
+                            </li>
+                            <li class="{{ (request()->is('frontmenu*')) ? 'active' : '' }}">
+                                <a href="{{ url('/frontmenu') }}"> <i class="material-icons">menu</i>
+                                    Nav Menu</a>
+                            </li>
+                            <li class="{{ (request()->is('frontsubmenu*')) ? 'active' : '' }}">
+                                <a href="{{ url('/frontsubmenu') }}"> <i class="material-icons">subject</i>
+                                    Nav Submenu</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
-                @endif
-
-                @endforeach
+                <li>
+                    <a data-toggle="collapse" href="#pagesExamples2">
+                        <i class="material-icons">view_stream</i>
+                        <p>Website
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="pagesExamples2">
+                        <ul class="nav">
+                            <li class="{{ (request()->is('user*')) ? 'active' : '' }}">
+                                <a href="{{ url('/user') }}">
+                                    <i class="material-icons">person</i>
+                                    Users</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

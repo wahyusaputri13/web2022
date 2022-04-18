@@ -5,6 +5,9 @@
 
     <div class="container">
         <div class="row">
+            <h1>
+                {{ $data_website->nav_menu }}
+            </h1>
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                 data-aos="fade-up" data-aos-delay="200">
                 <h1>{{ $data_website->web_name }}</h1>

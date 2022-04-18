@@ -58,6 +58,8 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
     Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
     Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
+    Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
+    Route::get('/subpage/{id}', [FrontController::class, 'subpage'])->name('subpage');
     Route::get('/load-sql', [FrontController::class, 'loadsql']);
     Route::get('/check', [FrontController::class, 'check']);
 });
@@ -81,4 +83,5 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('frontsubmenu', FrontSubmenuController::class);
     Route::post('sendCentang', [RoleController::class, 'changeAccess']);
     Route::get('getAlamat', [WebsiteController::class, 'location']);
+    Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 });

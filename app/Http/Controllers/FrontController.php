@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FrontMenu;
+use App\Models\FrontSubmenu;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
@@ -55,6 +57,25 @@ class FrontController extends Controller
         return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
     }
 
+    public function page($id)
+    {
+        // $data = FrontMenu::find($id);
+        $data = DB::table('front_menus')
+            ->where('menu_url', '=', $id)
+            ->get();
+        // views($data)->cooldown(5)->record();
+        // $news = News::orderBy('date', 'desc')->paginate(5);
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+    }
+
+    public function subpage($id)
+    {
+        $data = FrontSubmenu::find($id);
+        // views($data)->cooldown(5)->record();
+        // $news = News::orderBy('date', 'desc')->paginate(5);
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+    }
+
     public function setup(Request $request)
     {
         Website::create($request->except('finish'));
@@ -82,6 +103,7 @@ class FrontController extends Controller
         return view('front.kampungpancasila.kampung-pancasila');
     }
 
+    // sql ppid setda
     public function loadsql()
     {
         set_time_limit(0);
@@ -162,18 +184,21 @@ class FrontController extends Controller
         //     ]);
         // }
 
-        // $id = 3790;
+        // $id = 5602;
         // $data = News::find($id);
-        // $slice = Str::after($data->description, '.pdf"');
+        // $slice = Str::after($data->description, 'src="');
+        // $slice2 = Str::before($slice, '"');
         // $pdfb = str_replace("][/vc_column][/vc_row]", "width=" . $width . " height=" . $height . ">", $data->description);
-        $data = News::where('description', 'like', '%.pdf%')->get();
-        // $abc = News::all();
+        // $data = News::where('description', 'like', '%.pdf%')->get();
+        $data = News::all();
         // News::find($b->id)->update([
         // $data = News::where('description', 'like', '%.pdf%')->count();
-        // foreach ($data as $dt) {
-        // echo $dt->description;
-        // }
+        foreach ($data as $dt) {
+            $slice = Str::after($dt->description, 'src="');
+            $slice2 = Str::before($slice, '"');
+            echo $slice2;
+        }
         // return response()->json('selesai');
-        return $data;
+        // return $slice2;
     }
 }

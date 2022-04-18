@@ -18,6 +18,7 @@ class CreateFrontSubmenusTable extends Migration
             $table->integer('menu_id');
             $table->string('name');
             $table->string('url')->nullable();
+            $table->text('content', 4294967295)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

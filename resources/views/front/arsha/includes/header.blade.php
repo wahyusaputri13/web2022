@@ -15,6 +15,7 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
+                   
                     @php
                     $queryMenu = DB::table('front_menus')
                     ->orderBy('front_menus.position_order', 'ASC')
@@ -33,13 +34,14 @@
                     @endphp
 
                     @if($menu->menu_url)
-                    <li><a class="nav-link scrollto" href="{{ $menu->menu_url }}">{{ $menu->menu }}</a></li>
+                    <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu }}</a>
+                    </li>
                     @else
                     <li class="dropdown"><a href="#"><span>{{ $menu->menu }}</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
                             @foreach($subMenus as $submenu)
-                            <li><a href="{{ $submenu->url }}">{{ $submenu->name }}</a></li>
+                            <li><a href="{{ url('/subpage', $submenu->url) }}">{{ $submenu->name }}</a></li>
                             @endforeach
                             <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
                                         class="bi bi-chevron-right"></i></a>

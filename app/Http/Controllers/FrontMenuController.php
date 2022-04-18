@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\FrontMenu;
+use App\Models\FrontSubmenu;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class FrontMenuController extends Controller
 {
@@ -112,5 +114,11 @@ class FrontMenuController extends Controller
     {
         $data = FrontMenu::destroy($id);
         return $data;
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(FrontMenu::class, 'menu_url', $request->menu);
+        return response()->json(['slug' => $slug]);
     }
 }

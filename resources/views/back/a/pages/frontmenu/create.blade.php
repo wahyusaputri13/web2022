@@ -27,15 +27,15 @@
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>
-                            {{Form::text('menu', null,['class' => 'form-control'])}}
+                            {{Form::text('menu', null,['class' => 'form-control', 'id' => 'title'])}}
                         </div>
-                        <div class="form-group label-floating">
+                        <!-- <div class="form-group label-floating">
                             <label class="control-label">Menu Url</label>
-                            {{Form::text('menu_url', null,['class' => 'form-control'])}}
-                        </div>
+                            {{Form::text('menu_url', null,['class' => 'form-control', 'id' => 'slug'])}}
+                        </div> -->
                         <div class="form-group label-floating">
                             <label class="control-label">Content</label>
-                            {{Form::textarea('Content', null,['class' => 'my-editor form-control'])}}
+                            {{Form::textarea('content', null,['class' => 'my-editor form-control'])}}
                         </div>
                         <div class="d-flex text-right">
                             <a href="{{ url('frontmenu') }}" class="btn btn-default btn-fill">Cancel</a>
@@ -50,6 +50,15 @@
 </div>
 @endsection
 @push('after-script')
+<!-- <script>
+    const title = document.getElementById('title');
+    const slug = document.getElementById('slug');
+    title.addEventListener('change', function () {
+        fetch('/menu/checkSlug?menu=' + title.value)
+            .then(response => response.json())
+            .then(data => slug.value = data.slug)
+    });
+</script> -->
 <script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
     referrerpolicy="origin"></script>
 <script>
