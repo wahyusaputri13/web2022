@@ -17,26 +17,28 @@
                 <ul>
                     @foreach($nav_menu as $menu)
                     @if($menu->submenu()->exists())
-                    <li class="dropdown"><a href="#"><span>{{ $menu->menu }}</span> <i
+                    <li class="dropdown"><a href="#"><span>{{ $menu->menu_name }}</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
                             @foreach($menu->submenu as $sm)
-                            <li><a href="{{ url('subpage', $sm->url) }}">{{ $sm->name }}</a></li>
-                            @endforeach
-                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
+                            @if($sm->submenu()->exists())
+                            <li class="dropdown"><a href="#"><span>{{ $sm->menu_name }}</span> <i
                                         class="bi bi-chevron-right"></i></a>
                                 <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                    @foreach($sm->submenu as $sub3)
+                                    <li><a href="{{ url('subpage', $sub3->menu_url) }}">{{ $sub3->menu_name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
+                            @else
+                            <li><a href="{{ url('subpage', $sm->menu_url) }}">{{ $sm->menu_name }}</a></li>
+                            @endif
+                            @endforeach
                         </ul>
                     </li>
-                    @else
-                    <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu }}</a>
+                    @elseif($menu->menu_parent == 'root')
+                    <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
+                            }}</a>
                     </li>
                     @endif
                     @endforeach
@@ -52,3 +54,10 @@
         </div>
     </header>
     <!-- End Header -->
+    @foreach($nav_menu as $menu)
+    @foreach($menu->submenu as $abc)
+    @foreach($abc->submenu as $bca)
+    {{ $bca->menu_name }}
+    @endforeach
+    @endforeach
+    @endforeach

@@ -44,7 +44,7 @@ class FrontSubmenuController extends Controller
      */
     public function create()
     {
-        $menu = FrontMenu::orderBy('menu', 'asc')->pluck('menu', 'id');
+        $menu = FrontMenu::orderBy('menu_name', 'asc')->pluck('menu_name', 'id');
         return view('back.a.pages.frontsubmenu.create', compact('menu'));
     }
 

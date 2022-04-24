@@ -74,11 +74,7 @@
                             </li>
                             <li class="{{ (request()->is('frontmenu*')) ? 'active' : '' }}">
                                 <a href="{{ url('/frontmenu') }}"> <i class="material-icons">menu</i>
-                                    Nav Menu</a>
-                            </li>
-                            <li class="{{ (request()->is('frontsubmenu*')) ? 'active' : '' }}">
-                                <a href="{{ url('/frontsubmenu') }}"> <i class="material-icons">subject</i>
-                                    Nav Submenu</a>
+                                    Menu</a>
                             </li>
                         </ul>
                     </div>

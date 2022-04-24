@@ -29,7 +29,6 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Position Order</th>
                                         <th>Menu Name</th>
                                         <th>Menu URL</th>
                                         <th class="disabled-sorting text-center">
@@ -73,8 +72,7 @@
         },
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'position_order', name: 'position_order' },
-            { data: 'menu', name: 'menu' },
+            { data: 'menu_name', name: 'menu_name' },
             { data: 'menu_url', name: 'menu_url' },
             { data: 'action', },
         ]

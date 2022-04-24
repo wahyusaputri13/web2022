@@ -7,6 +7,8 @@ use App\Models\FrontSubmenu;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class FrontMenuController extends Controller
 {
@@ -58,11 +60,12 @@ class FrontMenuController extends Controller
     {
         $validated = $request->validate(
             [
-                'position_order' => 'required|unique:front_menus|integer',
-                'menu' => 'required',
+                'menu_name' => 'required',
             ],
         );
-        FrontMenu::create($request->except('_token'));
+        FrontMenu::create($request->except('_token') + [
+            'menu_url' => Str::slug($request->menu_name)
+        ]);
         return redirect(route('frontmenu.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -120,5 +123,16 @@ class FrontMenuController extends Controller
     {
         $slug = SlugService::createSlug(FrontMenu::class, 'menu_url', $request->menu);
         return response()->json(['slug' => $slug]);
+    }
+
+    public function loadData(Request $request)
+    {
+        if ($request->has('q')) {
+            $cari = $request->q;
+            $data = DB::table('front_menus')->select('id', 'menu_name')->where('menu_name', 'LIKE', '%' . $cari . '%')->get();
+        } else {
+            $data = FrontMenu::orderBy('id', 'ASC')->limit(10)->get();
+        }
+        return response()->json($data);
     }
 }

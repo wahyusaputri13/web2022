@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Menu;
+use App\Models\FrontMenu;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Role;
-use App\Models\Submenu;
 use App\Models\Themes;
 use App\Models\User;
 
@@ -54,130 +53,6 @@ class DatabaseSeeder extends Seeder
 
         foreach ($role as $datum) {
             Role::create($datum);
-        }
-
-        $menus = [
-            [
-                'menu' => 'Website',
-                'menu_icon' => 'view_stream'
-            ],
-            [
-                'menu' => 'Postings',
-                'menu_icon' => 'view_quilt'
-            ],
-            [
-                'menu' => 'Dashboard',
-                'menu_icon' => 'dashboard',
-                'menu_url' => 'dashboard'
-            ]
-        ];
-
-        foreach ($menus as $datum) {
-            Menu::create($datum);
-        }
-
-        $submenus = [
-            [
-                'menu_id' => 1,
-                'title' => 'Menu',
-                'url' => '/menu',
-                'icon' => 'menu',
-                'is_active' => 1
-            ],
-            // [
-            //     'menu_id' => 1,
-            //     'title' => 'Themes',
-            //     'url' => '/themes',
-            //     'icon' => 'palette',
-            //     'is_active' => 1
-            // ],
-            [
-                'menu_id' => 1,
-                'title' => 'Submenu',
-                'url' => '/submenu',
-                'icon' => 'subject',
-                'is_active' => 1
-            ],
-            // [
-            //     'menu_id' => 1,
-            //     'title' => 'Settings',
-            //     'url' => '/settings',
-            //     'icon' => 'settings',
-            //     'is_active' => 1
-            // ],
-            [
-                'menu_id' => 1,
-                'title' => 'Role',
-                'url' => '/role',
-                'icon' => 'assignment_ind',
-                'is_active' => 1
-            ],
-            [
-                'menu_id' => 1,
-                'title' => 'User',
-                'url' => '/user',
-                'icon' => 'person',
-                'is_active' => 1
-            ],
-            [
-                'menu_id' => 2,
-                'title' => 'News',
-                'url' => '/news',
-                'icon' => 'event_note',
-                'is_active' => 1
-            ],
-            [
-                'menu_id' => 2,
-                'title' => 'Gallery',
-                'url' => '/gallery',
-                'icon' => 'collections',
-                'is_active' => 1
-            ],
-            [
-                'menu_id' => 2,
-                'title' => 'Menu',
-                'url' => '/frontmenu',
-                'icon' => 'menu',
-                'is_active' => 1
-            ],
-            [
-                'menu_id' => 2,
-                'title' => 'Submenu',
-                'url' => '/frontsubmenu',
-                'icon' => 'subject',
-                'is_active' => 1
-            ]
-        ];
-
-        foreach ($submenus as $datum) {
-            Submenu::create($datum);
-        }
-
-        $user_access = [
-            [
-                'role_id' => '1',
-                'menu_id' => '1'
-            ],
-            [
-                'role_id' => '1',
-                'menu_id' => '2'
-            ],
-            [
-                'role_id' => '1',
-                'menu_id' => '3'
-            ],
-            [
-                'role_id' => '2',
-                'menu_id' => '2'
-            ],
-            [
-                'role_id' => '2',
-                'menu_id' => '3'
-            ]
-        ];
-
-        foreach ($user_access as $datum) {
-            DB::table('user_access_menus')->insert($datum);
         }
 
         // \App\Models\User::factory(10)->create();
