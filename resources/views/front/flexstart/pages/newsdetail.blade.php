@@ -19,8 +19,14 @@
             <div class="row">
                 <div class="col-lg-8 entries">
                     <article class="entry entry-single">
-                        <div class="entry-img">
-                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid">
+                        <div class="d-flex justify-content-center">
+                            <div class="entry-img">
+                                @if(file_exists(public_path('storage/'.$data->path)))
+                                <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid">
+                                @else
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                @endif
+                            </div>
                         </div>
                         <h2 class="entry-title">
                             <a href="#">{{ $data->title }}</a>
@@ -109,8 +115,14 @@
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix">
+                                @if(file_exists(public_path('storage/'.$n->path)))
                                 <img src="{{ asset('storage/') }}/{{ $n->path}}">
-                                <h4><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a></h4>
+                                @else
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                @endif
+                                <h4><a href="{{ url('/news-detail', $n->slug) }}">
+                                        {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                                    </a></h4>
                                 <time datetime="2020-01-01">{{
                                     \Carbon\Carbon::parse( $n->date
                                     )->toFormattedDateString() }}</time>

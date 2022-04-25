@@ -31,7 +31,7 @@
                                 @endif
                             </div>
                             <h2 class="entry-title" style="text-align: center;">
-                                <a href="{{ url('/news-detail', $author->id) }}">{{ $author->title
+                                <a href="{{ url('/news-detail', $author->slug) }}">{{ $author->title
                                     }}</a>
                             </h2>
                             <div class="entry-meta">
@@ -49,7 +49,7 @@
                                     --}}
                                 </p>
                                 <div class="d-flex justify-content-end m-2">
-                                    <a href="{{ url('/news-detail', $author->id) }}" class="btn btn-primary">Read
+                                    <a href="{{ url('/news-detail', $author->slug) }}" class="btn btn-primary">Read
                                         More</a>
                                 </div>
                             </div>

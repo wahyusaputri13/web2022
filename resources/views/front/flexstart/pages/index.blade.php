@@ -23,9 +23,9 @@
             </div>
             <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid" alt="">
+                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid">
                 @else
-                <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid">
                 @endif
             </div>
         </div>
@@ -53,14 +53,19 @@
             <div class="col-lg-4 col-md-6 mb-3">
                 <div class="post-box">
                     <div class="post-img">
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="">
+                        @if(file_exists(public_path('storage/'.$n->path)))
+                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        @endif
                     </div>
                     <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                         \Carbon\Carbon::parse( $n->date
                         )->toFormattedDateString() }}</span>
-                    <h3 class="post-title">{{ $n->title }}
+                    <h3 class="post-title">
+                        {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
                     </h3>
-                    <a href="{{ url('/news-detail', $n->id) }}" class="readmore stretched-link mt-auto"><span>Read
+                    <a href="{{ url('/news-detail', $n->slug) }}" class="readmore stretched-link mt-auto"><span>Read
                             More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
@@ -97,7 +102,7 @@
             @foreach($gallery as $g)
             <div class="col-lg-3 col-md-4 portfolio-item filter-app">
                 <div class="portfolio-wrap d-flex justify-content-center">
-                    <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid" alt="">
+                    <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
                     <div class="portfolio-info">
                         <h4>{{ $g->description }}</h4>
                         <!-- <p>App</p> -->

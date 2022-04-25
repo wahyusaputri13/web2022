@@ -12,14 +12,19 @@
             <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                 <div class="post-box">
                     <div class="post-img">
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="">
+                        @if(file_exists(public_path('storage/'.$n->path)))
+                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        @endif
                     </div>
                     <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                         \Carbon\Carbon::parse( $n->date
                         )->toFormattedDateString() }}</span>
-                    <h3 class="post-title">{{ $n->title }}
+                    <h3 class="post-title">
+                        {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
                     </h3>
-                    <a href="{{ url('/news-detail', $n->id) }}" class="readmore stretched-link mt-auto"><span>Read
+                    <a href="{{ url('/news-detail', $n->slug) }}" class="readmore stretched-link mt-auto"><span>Read
                             More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>

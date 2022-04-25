@@ -31,7 +31,7 @@
                         </div>
 
                         <h2 class="entry-title">
-                            <a href="{{ url('/news-detail', $author->id) }}">{{ $author->title }}</a>
+                            <a href="{{ url('/news-detail', $author->slug) }}">{{ $author->title }}</a>
                         </h2>
 
                         <div class="entry-meta">
@@ -48,17 +48,10 @@
 
                         <div class="entry-content">
                             <p>
-                                Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                praesentium.
-                                Aliquam et
-                                laboriosam eius aut nostrum quidem aliquid dicta.
-                                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est
-                                cum
-                                et quod
-                                quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
+                                {!! \Illuminate\Support\Str::limit($author->description, 350, $end='...') !!}
                             </p>
                             <div class="read-more">
-                                <a href="{{ url('/news-detail', $author->id) }}">Read More</a>
+                                <a href="{{ url('/news-detail', $author->slug) }}">Read More</a>
                             </div>
                         </div>
 
@@ -104,8 +97,14 @@
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix">
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" alt="">
-                                <h4><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a></h4>
+                                @if(file_exists(public_path('storage/'.$n->path)))
+                                <img src="{{ asset('storage/') }}/{{ $n->path}}">
+                                @else
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                @endif
+                                <h4><a href="{{ url('/news-detail', $n->slug) }}">
+                                        {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                                    </a></h4>
                                 <time datetime="2020-01-01">{{
                                     \Carbon\Carbon::parse( $n->date
                                     )->toFormattedDateString() }}</time>
