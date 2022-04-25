@@ -48,7 +48,7 @@ Route::get('/', function () {
 })->name('root')->middleware('data_web');
 
 Route::group(['middleware' => 'data_web'], function () {
-    Route::get('/news-detail/{id}', [FrontController::class, 'newsdetail'])->name('news.detail');
+    Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
     Route::get('/news-author/{id}', [FrontController::class, 'newsbyauthor'])->name('news.author');
     Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
     Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
@@ -59,7 +59,6 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
     Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
     Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
-    Route::get('/subpage/{id}', [FrontController::class, 'subpage'])->name('subpage');
     Route::get('/load-sql', [FrontController::class, 'loadsql']);
     Route::get('/check', [FrontController::class, 'check']);
 });

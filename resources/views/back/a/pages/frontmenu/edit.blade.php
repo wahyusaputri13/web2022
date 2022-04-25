@@ -14,12 +14,17 @@
                         {{Form::model($data, ['route' => ['frontmenu.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
                         <div class="form-group label-floating">
-                            <label class="control-label">Position Order</label>
-                            {{Form::text('position_order', null,['class' => 'form-control'])}}
+                            <label class="control-label">Menu Parent</label>
+                            <select class="cari form-control" name="menu_parent">
+                                <option value="root">Root</option>
+                            </select>
+                            <!-- {{Form::text('menu_parent', null,['class' => 'cari form-control'])}} -->
+                            <!-- {{ Form::select('menu_parent', [],null,['class'=>'cari form-control'])
+                            }} -->
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>
-                            {{Form::text('menu', null,['class' => 'form-control'])}}
+                            {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Content</label>
@@ -38,6 +43,29 @@
 </div>
 @endsection
 @push('after-script')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script type="text/javascript">
+    $('.cari').select2({
+        placeholder: 'Cari...',
+        ajax: {
+            url: '/cari',
+            dataType: 'json',
+            delay: 250,
+            option: 'selected',
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.menu_name,
+                            id: item.id
+                        }
+                    })
+                };
+            },
+            cache: true
+        }
+    });
+</script>
 <script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
     referrerpolicy="origin"></script>
 <script>

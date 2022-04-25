@@ -11,7 +11,7 @@
                 <h2>{{ $data_website->web_description }}</h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
                     <a href="#about" class="btn-get-started scrollto">Get Started</a>
-                    <a href="https://www.youtube.com/watch?v=Zx7_Zmyyh5k" class="glightbox btn-watch-video"><i
+                    <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video"><i
                             class="bi bi-play-circle"></i><span>Watch Video</span></a>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                             @endif
                         </div>
-                        <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->id) }}">
+                        <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->slug) }}">
                                 {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
                         </h4>
                         <h6 style="text-align: center;">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
@@ -112,10 +112,10 @@
 
             <div class="section-title">
                 <h2>Contact</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
                     consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
                     fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
+                    in iste officiis commodi quidem hic quas.</p> -->
             </div>
 
             <div class="row">

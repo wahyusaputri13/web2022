@@ -40,9 +40,11 @@
                             <li>
                                 <a href="{{ url('settings') }}">Settings</a>
                             </li>
+                            @if (auth()->user()->role_id == 1)
                             <li>
                                 <a href="{{ url('themes') }}">Themes</a>
                             </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -79,6 +81,7 @@
                         </ul>
                     </div>
                 </li>
+                @if (auth()->user()->role_id == 1)
                 <li>
                     <a data-toggle="collapse" href="#pagesExamples2">
                         <i class="material-icons">view_stream</i>
@@ -96,6 +99,7 @@
                         </ul>
                     </div>
                 </li>
+                @endif
             </ul>
         </div>
     </div>

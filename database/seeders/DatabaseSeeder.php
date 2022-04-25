@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
             'facebook' => '#',
             'youtube' => '#',
             'url_stream' => '#',
-            'themes_front' => 'flexstart',
+            'themes_front' => 'arsha',
             'themes_back' => 'back.a',
         ]);
         // DB::table('websites')->insert([

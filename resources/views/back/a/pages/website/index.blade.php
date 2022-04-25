@@ -133,6 +133,12 @@
                                     {{Form::text('youtube', null,['class' => 'form-control'])}}
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Heroes Video</label>
+                                    {{Form::text('heroes_video', null,['class' => 'form-control'])}}
+                                </div>
+                            </div>
                             <!-- <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Url Stream Radio</label>

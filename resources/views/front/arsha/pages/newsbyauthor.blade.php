@@ -90,7 +90,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-8" style="text-align: center;">
-                                    <h5 class="card-title"><a href="{{ url('/news-detail', $n->id) }}">
+                                    <h5 class="card-title"><a href="{{ url('/news-detail', $n->slug) }}">
                                             {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
                                         </a></h5>
                                     <p class="card-text"><small class="text-muted"><time datetime="2020-01-01">{{

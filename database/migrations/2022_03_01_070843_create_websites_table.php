@@ -29,6 +29,7 @@ class CreateWebsitesTable extends Migration
             $table->string('image_hero_name')->nullable();
             $table->string('favicon')->nullable()->default('assets/pemda.ico');
             $table->string('favicon_name')->nullable();
+            $table->string('heroes_video')->nullable()->default('https://www.youtube.com/watch?v=DhyDhaCynGw');
             $table->string('latitude')->nullable()->default('-7.356823979078527');
             $table->string('longitude')->nullable()->default('109.90581334769975');
             $table->timestamps();

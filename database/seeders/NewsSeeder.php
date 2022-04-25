@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Models\News;
+use Illuminate\Support\Str;
 
 class NewsSeeder extends Seeder
 {
@@ -20,6 +21,7 @@ class NewsSeeder extends Seeder
             News::create([
                 'upload_by' => $faker->name,
                 'title'  => $faker->sentence(5),
+                'slug'  => Str::slug($faker->sentence(5), '-'),
                 'photo'  => $faker->word(),
                 'path'  => 'news/' . $faker->image('public/storage/news', 1920, 1280, null, false),
                 'date'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),

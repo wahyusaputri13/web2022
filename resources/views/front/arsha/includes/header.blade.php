@@ -15,33 +15,54 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    @foreach($nav_menu as $menu)
-                    @if($menu->submenu()->exists())
+                    @php
+                    $queryMenu = DB::table('front_menus')
+                    ->where('menu_parent', '=', 'root')
+                    ->orderBy('id', 'ASC')
+                    ->get();
+                    @endphp
+                    @foreach($queryMenu as $menu)
+                    @php
+                    $menuId = $menu->id;
+                    $subMenus = DB::table('front_menus')
+                    ->where('menu_parent', '=' , $menuId)
+                    ->orderBy('menu_parent', 'ASC')
+                    ->get();
+                    @endphp
+                    @if(count($subMenus) == 0)
+                    <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
+                            }}</a>
+                    </li>
+                    @else
                     <li class="dropdown"><a href="#"><span>{{ $menu->menu_name }}</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            @foreach($menu->submenu as $sm)
-                            @if($sm->submenu()->exists())
+                            @foreach($subMenus as $sm)
+                            @php
+                            $menuId2 = $sm->id;
+                            $subMenus2 = DB::table('front_menus')
+                            ->where('menu_parent', '=' , $menuId2)
+                            ->orderBy('menu_parent', 'ASC')
+                            ->get();
+                            @endphp
+                            @if(count($subMenus2) == 0)
+                            <li><a href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name }}</a></li>
+                            @else
                             <li class="dropdown"><a href="#"><span>{{ $sm->menu_name }}</span> <i
                                         class="bi bi-chevron-right"></i></a>
                                 <ul>
-                                    @foreach($sm->submenu as $sub3)
-                                    <li><a href="{{ url('subpage', $sub3->menu_url) }}">{{ $sub3->menu_name }}</a></li>
+                                    @foreach($subMenus2 as $sub3)
+                                    <li><a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
-                            @else
-                            <li><a href="{{ url('subpage', $sm->menu_url) }}">{{ $sm->menu_name }}</a></li>
                             @endif
                             @endforeach
                         </ul>
                     </li>
-                    @elseif($menu->menu_parent == 'root')
-                    <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
-                            }}</a>
-                    </li>
                     @endif
                     @endforeach
+
                     @auth
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                     @else
@@ -54,10 +75,3 @@
         </div>
     </header>
     <!-- End Header -->
-    @foreach($nav_menu as $menu)
-    @foreach($menu->submenu as $abc)
-    @foreach($abc->submenu as $bca)
-    {{ $bca->menu_name }}
-    @endforeach
-    @endforeach
-    @endforeach

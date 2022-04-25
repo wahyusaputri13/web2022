@@ -6,6 +6,7 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class NewsController extends Controller
 {
@@ -80,6 +81,7 @@ class NewsController extends Controller
                 'date' => $request->date,
                 'upload_by' => auth()->user()->name,
                 'description' => $request->description,
+                'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
             ];
         } else {
             $validated = $request->validate([
@@ -92,6 +94,7 @@ class NewsController extends Controller
                 'date' => $request->date,
                 'upload_by' => auth()->user()->name,
                 'description' => $request->description,
+                'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
             ];
         }
         News::create($data);

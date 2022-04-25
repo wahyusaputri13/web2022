@@ -7,9 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class News extends Model implements Viewable
 {
-    use HasFactory, SoftDeletes, InteractsWithViews;
+    use HasFactory, SoftDeletes, InteractsWithViews, Sluggable;
     protected $guarded = [];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }

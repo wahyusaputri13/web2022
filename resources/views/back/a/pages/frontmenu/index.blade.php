@@ -29,6 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Menu Parent</th>
                                         <th>Menu Name</th>
                                         <th>Menu URL</th>
                                         <th class="disabled-sorting text-center">
@@ -71,7 +72,8 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex', orderable: false, searchable: false },
+            { data: 'id', orderable: false, searchable: false },
+            { data: 'menu_parent', name: 'menu_parent' },
             { data: 'menu_name', name: 'menu_name' },
             { data: 'menu_url', name: 'menu_url' },
             { data: 'action', },
