@@ -27,16 +27,27 @@
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <h5 class="card-title text-center">
                                 {{ $data->title }}
                             </h5>
-                            <p class="card-text"><small class="text-muted"><i class="bi bi-person"></i><a
-                                        href="{{ url('/news-author', $data->upload_by) }}" class="text-muted"> {{
-                                        $data->upload_by }}</a> <i class="bi bi-clock"></i> <time>{{
-                                        \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
-                                        \Carbon\Carbon::parse( $data->date
-                                        )->toFormattedDateString() }}</time> <i class="bi bi-eye"></i> {{
-                                    views($data)->count(); }}</small></p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="card-text"><small class="text-muted"><i class="bi bi-person"></i><a
+                                                href="{{ url('/news-author', $data->upload_by) }}" class="text-muted">
+                                                {{
+                                                $data->upload_by }}</a> <i class="bi bi-clock"></i> <time>{{
+                                                \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
+                                                \Carbon\Carbon::parse( $data->date
+                                                )->toFormattedDateString() }}</time> <i class="bi bi-eye"></i> {{
+                                            views($data)->count(); }}</small>
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        {!! Share::currentPage()->facebook()->twitter()->whatsapp(); !!}
+                                    </div>
+                                </div>
+                            </div>
                             <p class="card-text">{!! $data->description !!}</p>
                         </div>
                     </div>
@@ -86,4 +97,7 @@
 </main>
 @endsection
 @push('after-script')
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/share.js') }}"></script>
 @endpush
