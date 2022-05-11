@@ -31,18 +31,28 @@
                         <h2 class="entry-title">
                             <a href="#">{{ $data->title }}</a>
                         </h2>
-                        <div class="entry-meta">
-                            <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                        href="{{ url('/news-author', $data->upload_by) }}">{{
-                                        $data->upload_by }}</a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time>{{
-                                            \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
-                                            \Carbon\Carbon::parse( $data->date
-                                            )->toFormattedDateString() }}</time></a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-eye"></i> {{
-                                    views($data)->count(); }}</a></li>
-                            </ul>
+                        <div class="row">
+                            <div class="col-xl-9 col-md-9 col-sm-9">
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                                href="{{ url('/news-author', $data->upload_by) }}">{{
+                                                $data->upload_by }}</a></li>
+                                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                                href="#"><time>{{
+                                                    \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
+                                                    \Carbon\Carbon::parse( $data->date
+                                                    )->toFormattedDateString() }}</time></a></li>
+                                        <li class="d-flex align-items-center"><i class="bi bi-eye"></i> {{
+                                            views($data)->count(); }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-3 col-sm-3">
+                                <div class="d-flex justify-content-end">
+                                    {!! Share::currentPage()->facebook()->twitter()->whatsapp(); !!}
+                                </div>
+                            </div>
                         </div>
                         <div class="entry-content">
                             {!! $data->description !!}

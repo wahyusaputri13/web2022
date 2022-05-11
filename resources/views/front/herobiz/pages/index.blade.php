@@ -3,8 +3,12 @@
 <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
         data-aos="zoom-out">
+        @if($data_website->image_hero)
+        <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid animated">
+        @else
         <img src="{{ asset('assets/front/herobiz/assets/img/hero-carousel/hero-carousel-3.svg') }}"
             class="img-fluid animated">
+        @endif
         <h2>Welcome to <span>{{ $data_website->web_name }}</span></h2>
         <p>{{ $data_website->web_description }}</p>
         <div class="d-flex">

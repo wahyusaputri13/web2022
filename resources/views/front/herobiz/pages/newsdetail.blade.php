@@ -24,19 +24,26 @@
                         </h2>
                         <div class="entry-meta m-1">
                             <li class="d-flex align-items-center">
-                                <i class="bi bi-person"></i>
-                                <a href="{{ url('/news-author', $data->upload_by) }}" style="margin-right: 5px;">
-                                    {{ $data->upload_by }}
-                                </a>
-                                <i class="bi bi-clock"></i>
-                                <a style="margin-right: 5px;">
-                                    {{
-                                    \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
-                                    \Carbon\Carbon::parse( $data->date
-                                    )->toFormattedDateString() }}
-                                </a>
-                                <i class="bi bi-eye"></i>
-                                {{ views($data)->count(); }}
+                                <div class="col">
+                                    <i class="bi bi-person"></i>
+                                    <a href="{{ url('/news-author', $data->upload_by) }}" style="margin-right: 5px;">
+                                        {{ $data->upload_by }}
+                                    </a>
+                                    <i class="bi bi-clock"></i>
+                                    <a style="margin-right: 5px;">
+                                        {{
+                                        \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
+                                        \Carbon\Carbon::parse( $data->date
+                                        )->toFormattedDateString() }}
+                                    </a>
+                                    <i class="bi bi-eye"></i>
+                                    {{ views($data)->count(); }}
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        {!! Share::currentPage()->facebook()->twitter()->whatsapp(); !!}
+                                    </div>
+                                </div>
                             </li>
                         </div>
                         <div class="entry-content m-1">

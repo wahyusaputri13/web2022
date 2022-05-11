@@ -16,7 +16,11 @@
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-                <img src="{{ asset('assets/front/arsha/assets/img/hero-img.png') }}" class="img-fluid animated" alt="">
+                @if($data_website->image_hero)
+                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid animated">
+                @else
+                <img src="{{ asset('assets/front/arsha/assets/img/hero-img.png') }}" class="img-fluid animated">
+                @endif
             </div>
         </div>
     </div>
