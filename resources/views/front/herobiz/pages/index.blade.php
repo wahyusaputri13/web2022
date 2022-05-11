@@ -9,15 +9,14 @@
         <p>{{ $data_website->web_description }}</p>
         <div class="d-flex">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch
+            <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video d-flex align-items-center"><i
+                    class="bi bi-play-circle"></i><span>Watch
                     Video</span></a>
         </div>
     </div>
 </section>
 <main id="main">
     @if($gallery->count() != 0)
-    <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio" data-aos="fade-up">
         <div class="container">
             <div class="section-header">
@@ -34,7 +33,6 @@
                     <li data-filter=".filter-branding">Branding</li>
                     <li data-filter=".filter-books">Books</li> -->
                 </ul>
-                <!-- End Portfolio Filters -->
                 <div class="row g-0 portfolio-container">
                     @foreach($gallery as $g)
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
@@ -48,7 +46,6 @@
                                     class="bi bi-link-45deg"></i></a> -->
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
                     @if($loop->iteration == 12)
                     @break
                     @endif
@@ -59,29 +56,28 @@
                         style="background-color: var(--color-primary); color: white;">Show
                         All</a>
                 </div>
-                <!-- End Portfolio Container -->
-
             </div>
-
         </div>
-    </section><!-- End Portfolio Section -->
+    </section>
     @endif
     @if($news->count() != 0)
-    <!-- ======= Recent Blog Posts Section ======= -->
     <section id="recent-blog-posts" class="recent-blog-posts">
-
         <div class="container" data-aos="fade-up">
-
             <div class="section-header">
                 <h2>Blog</h2>
                 <p>Recent posts form our Blog</p>
             </div>
-
             <div class="row">
                 @foreach($news as $n)
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="post-box">
-                        <div class="post-img"><img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid"></div>
+                        <div class="post-img">
+                            @if(file_exists(public_path('storage/'.$n->path)))
+                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                            @else
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            @endif
+                        </div>
                         <div class="meta">
                             <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                                 \Carbon\Carbon::parse( $n->date
@@ -91,10 +87,10 @@
                         <h3 class="post-title">
                             {{ $n->title }}
                         </h3>
-                        <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium. Asperiores
-                            eum ipsa
-                            est officiis. Modi cupiditate exercitationem qui magni est...</p>
-                        <a href="{{ url('/news-detail', $n->id) }}" class="readmore stretched-link"><span>Read
+                        <p>
+                            {{ \Illuminate\Support\Str::limit($n->description, 75, $end='...') }}
+                        </p>
+                        <a href="{{ url('/news-detail', $n->slug) }}" class="readmore stretched-link"><span>Read
                                 More</span><i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -110,22 +106,19 @@
 
         </div>
 
-    </section><!-- End Recent Blog Posts Section -->
+    </section>
     @endif
-    <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
                 <h2>Contact Us</h2>
             </div>
         </div>
-
         <div class="map">
             <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
                                             $data_website->longitude }}&z=14&output=embed" frameborder="0"
                 allowfullscreen></iframe>
         </div>
-
         <div class="container">
             <div class="row gy-5 gx-lg-5">
                 <div class="col-lg-4">
@@ -138,7 +131,6 @@
                                 <p>{{ $data_website->address }}</p>
                             </div>
                         </div>
-                        <!-- End Info Item -->
                         <div class="info-item d-flex">
                             <i class="bi bi-envelope flex-shrink-0"></i>
                             <div>
@@ -146,7 +138,6 @@
                                 <p>{{ $data_website->email }}</p>
                             </div>
                         </div>
-                        <!-- End Info Item -->
                         <div class="info-item d-flex">
                             <i class="bi bi-phone flex-shrink-0"></i>
                             <div>
@@ -154,7 +145,6 @@
                                 <p>{{ $data_website->phone }}</p>
                             </div>
                         </div>
-                        <!-- End Info Item -->
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -183,15 +173,11 @@
                         </div>
                         <div class="text-center"><button type="submit">Send Message</button></div>
                     </form>
-                </div><!-- End Contact Form -->
-
+                </div>
             </div>
-
         </div>
-    </section><!-- End Contact Section -->
-
+    </section>
 </main>
-<!-- End #main -->
 @endsection
 @push('after-script')
 @endpush

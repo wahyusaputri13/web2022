@@ -10,69 +10,57 @@
             @endif
         </a>
 
-        <nav id="navbar" class="navbar" hidden>
+        <nav id="navbar" class="navbar">
             <ul>
-
-                <li class="dropdown"><a href="#"><span>Home</span> <i
-                            class="bi bi-chevron-down dropdown-indicator"></i></a>
-                    <ul>
-                        <li><a href="index.html" class="active">Home 1 - index.html</a></li>
-                        <li><a href="index-2.html">Home 2 - index-2.html</a></li>
-                        <li><a href="index-3.html">Home 3 - index-3.html</a></li>
-                        <li><a href="index-4.html">Home 4 - index-4.html</a></li>
-                    </ul>
+                @php
+                $queryMenu = DB::table('front_menus')
+                ->where('menu_parent', '=', 'root')
+                ->orderBy('id', 'ASC')
+                ->get();
+                @endphp
+                @foreach($queryMenu as $menu)
+                @php
+                $menuId = $menu->id;
+                $subMenus = DB::table('front_menus')
+                ->where('menu_parent', '=' , $menuId)
+                ->orderBy('menu_parent', 'ASC')
+                ->get();
+                @endphp
+                @if(count($subMenus) == 0)
+                <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
+                        }}</a>
                 </li>
-
-                <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
-                <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-                <li><a class="nav-link scrollto" href="index.html#portfolio">Portfolio</a></li>
-                <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i
+                @else
+                <li class="dropdown"><a href="#"><span>{{ $menu->menu_name }}</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li>
-                            <a href="#">Column 1 link 1</a>
-                            <a href="#">Column 1 link 2</a>
-                            <a href="#">Column 1 link 3</a>
-                        </li>
-                        <li>
-                            <a href="#">Column 2 link 1</a>
-                            <a href="#">Column 2 link 2</a>
-                            <a href="#">Column 3 link 3</a>
-                        </li>
-                        <li>
-                            <a href="#">Column 3 link 1</a>
-                            <a href="#">Column 3 link 2</a>
-                            <a href="#">Column 3 link 3</a>
-                        </li>
-                        <li>
-                            <a href="#">Column 4 link 1</a>
-                            <a href="#">Column 4 link 2</a>
-                            <a href="#">Column 4 link 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>Drop Down</span> <i
-                            class="bi bi-chevron-down dropdown-indicator"></i></a>
-                    <ul>
-                        <li><a href="#">Drop Down 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                    class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        @foreach($subMenus as $sm)
+                        @php
+                        $menuId2 = $sm->id;
+                        $subMenus2 = DB::table('front_menus')
+                        ->where('menu_parent', '=' , $menuId2)
+                        ->orderBy('menu_parent', 'ASC')
+                        ->get();
+                        @endphp
+                        @if(count($subMenus2) == 0)
+                        <li><a class="nav-link scrollto" href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name
+                                }}</a></li>
+                        @else
+                        <li class="dropdown"><a href="#"><span>{{ $sm->menu_name }}</span> <i
+                                    class="bi bi-chevron-right dropdown-indicator"></i></a>
                             <ul>
-                                <li><a href="#">Deep Drop Down 1</a></li>
-                                <li><a href="#">Deep Drop Down 2</a></li>
-                                <li><a href="#">Deep Drop Down 3</a></li>
-                                <li><a href="#">Deep Drop Down 4</a></li>
-                                <li><a href="#">Deep Drop Down 5</a></li>
+                                @foreach($subMenus2 as $sub3)
+                                <li class="dropdown"><a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name
+                                        }}</a></li>
+                                @endforeach
                             </ul>
                         </li>
-                        <li><a href="#">Drop Down 2</a></li>
-                        <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
+                        @endif
+                        @endforeach
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+                @endif
+                @endforeach
             </ul>
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav>

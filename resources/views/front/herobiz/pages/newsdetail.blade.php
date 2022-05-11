@@ -1,23 +1,16 @@
 @extends('front.herobiz.layouts.app')
 @section('content')
 <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
         <div class="container">
-
             <!-- <ol>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li>Blog Single</li>
             </ol> -->
             <!-- <h2>Blog Single</h2> -->
-
         </div>
     </section>
-    <!-- End Breadcrumbs -->
-
-    <!-- ======= Blog Single Section ======= -->
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
             <div class="row">
@@ -50,9 +43,7 @@
                             {!! $data->description !!}
                         </div>
                     </article>
-                    <!-- End blog entry -->
-
-                </div><!-- End blog entries list -->
+                </div>
                 <div class="col-lg-4">
                     <div class="sidebar">
                         <h3 class="sidebar-title mb-3">Search</h3>
@@ -67,17 +58,26 @@
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix mt-3">
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" alt="">
-                                <h4><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a></h4>
+                                @if(file_exists(public_path('storage/'.$n->path)))
+                                <img src="{{ asset('storage/') }}/{{ $n->path}}">
+                                @else
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                @endif
+                                <h4><a href="{{ url('/news-detail', $n->slug) }}">
+                                        {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                                    </a></h4>
                             </div>
                             @endforeach
                         </div>
-                    </div><!-- End sidebar -->
-                </div><!-- End blog sidebar -->
+                    </div>
+                </div>
             </div>
         </div>
-    </section><!-- End Blog Single Section -->
+    </section>
 </main>
 @endsection
 @push('after-script')
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/share.js') }}"></script>
 @endpush

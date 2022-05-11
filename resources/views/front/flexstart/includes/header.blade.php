@@ -3,7 +3,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-            <!-- <img src="{{ asset('assets/front/assets/img/logo.png') }}" alt=""> -->
+            <!-- <img src="{{ asset('assets/front/assets/img/logo.png') }}"> -->
             @if(Route::current()->getName() != 'root')
             <span>{{ $data_website->web_name }}</span>
             @endif
@@ -38,12 +38,58 @@
                 @endif
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+        </nav>
         @else
         <nav id="navbar" class="navbar">
             <ul>
-                <!-- <li><a class="nav-link scrollto" href="{{ url('/') }}">Home</a></li>
-                <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
+                @php
+                $queryMenu = DB::table('front_menus')
+                ->where('menu_parent', '=', 'root')
+                ->orderBy('id', 'ASC')
+                ->get();
+                @endphp
+                @foreach($queryMenu as $menu)
+                @php
+                $menuId = $menu->id;
+                $subMenus = DB::table('front_menus')
+                ->where('menu_parent', '=' , $menuId)
+                ->orderBy('menu_parent', 'ASC')
+                ->get();
+                @endphp
+                @if(count($subMenus) == 0)
+                <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
+                        }}</a>
+                </li>
+                @else
+                <li class="dropdown"><a href="#"><span>{{ $menu->menu_name }}</span> <i
+                            class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        @foreach($subMenus as $sm)
+                        @php
+                        $menuId2 = $sm->id;
+                        $subMenus2 = DB::table('front_menus')
+                        ->where('menu_parent', '=' , $menuId2)
+                        ->orderBy('menu_parent', 'ASC')
+                        ->get();
+                        @endphp
+                        @if(count($subMenus2) == 0)
+                        <li><a href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name }}</a></li>
+                        @else
+                        <li class="dropdown"><a href="#"><span>{{ $sm->menu_name }}</span> <i
+                                    class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                @foreach($subMenus2 as $sub3)
+                                <li><a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        @endif
+                        @endforeach
+                    </ul>
+                </li>
+                @endif
+                @endforeach
+                <!--<li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="{{ route('tentang-kami') }}">Tentang Kami</a></li>
                         <li><a href="{{ route('latar-belakang') }}">Latar Belakang</a></li>

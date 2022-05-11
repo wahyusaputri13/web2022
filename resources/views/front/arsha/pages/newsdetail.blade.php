@@ -1,8 +1,6 @@
 @extends('front.arsha.layouts.app')
 @section('content')
 <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
 
@@ -14,8 +12,6 @@
 
         </div>
     </section>
-    <!-- End Breadcrumbs -->
-
     <section id="portfolio-details" class="portfolio-details">
         <div class="container">
             <div class="row">
@@ -93,7 +89,6 @@
             </div>
         </div>
     </section>
-
 </main>
 @endsection
 @push('after-script')

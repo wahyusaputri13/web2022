@@ -1,6 +1,5 @@
 @extends('front.herobiz.layouts.app')
 @section('content')
-<!-- ======= Breadcrumbs ======= -->
 <div class="breadcrumbs">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
@@ -12,23 +11,32 @@
         </div>
     </div>
 </div>
-<!-- End Breadcrumbs -->
-
-<!-- ======= Blog Section ======= -->
 <section id="blog" class="blog">
     <div class="container" data-aos="fade-up">
         <header class="section-header">
             <h2>Blog</h2>
             <p>Recent posts from our Blog</p>
+            <div class="sidebar mt-4">
+                <div class="sidebar-item search-form">
+                    {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
+                    {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Search Title Post'])}}
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                    {{Form::close()}}
+                </div>
+            </div>
         </header>
         <div class="row g-5">
-            <div class="col-lg-8">
+            <div class="col">
                 <div class="row gy-4 posts-list">
                     @foreach($news as $n)
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <article class="d-flex flex-column">
                             <div class="post-img">
+                                @if(file_exists(public_path('storage/'.$n->path)))
                                 <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                                @else
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                @endif
                             </div>
                             <h2 class="title">
                                 <a href="#">{{ $n->title }}</a>
@@ -46,54 +54,25 @@
                             </div>
                             <div class="content">
                                 <p>
-                                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                    praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
+                                    {{ \Illuminate\Support\Str::limit($n->description, 50, $end='...') }}
                                 </p>
                             </div>
                             <div class="read-more mt-auto align-self-end">
-                                <a href="{{ url('/news-detail', $n->id) }}">Read More</a>
+                                <a href="{{ url('/news-detail', $n->slug) }}">Read More</a>
                             </div>
                         </article>
                     </div>
-                    <!-- End post list item -->
                     @endforeach
                 </div>
-                <!-- End blog posts list -->
                 <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-lg-12 d-flex justify-content-center">
-                        {!! $news->render() !!}
-                        <!-- {{ $news->links() }} -->
+                        {{ $news->links() }}
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="sidebar">
-                    <div class="sidebar-item search-form">
-                        <h3 class="sidebar-title mb-3">Search</h3>
-                        <div class="sidebar-item search-form">
-                            {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
-                            {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
-                            <button type="submit"><i class="bi bi-search"></i></button>
-                            {{Form::close()}}
-                        </div>
-                        <h3 class="sidebar-title mt-3">Recent Posts</h3>
-                        <div class="sidebar-item recent-posts">
-                            @foreach($sidepost as $n)
-                            <div class="post-item clearfix mt-3">
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" alt="">
-                                <h4><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a></h4>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <!-- End sidebar tags-->
-                </div>
-                <!-- End Blog Sidebar -->
             </div>
         </div>
     </div>
 </section>
-<!-- End Blog Section -->
 @endsection
 @push('after-script')
 @endpush

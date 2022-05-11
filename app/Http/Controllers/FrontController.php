@@ -39,7 +39,7 @@ class FrontController extends Controller
     {
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate(5);
+        $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
