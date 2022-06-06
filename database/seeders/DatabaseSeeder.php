@@ -20,20 +20,20 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             NewsSeeder::class,
-            GallerySeeder::class,
+            // GallerySeeder::class,
         ]);
 
         $themes = [
             [
-                'name' => 'flexstart',
+                'name' => 'Flexstart',
                 'image' => 'img/flexstart.png'
             ],
             [
-                'name' => 'herobiz',
+                'name' => 'HeroBiz',
                 'image' => 'img/herobiz.png'
             ],
             [
-                'name' => 'arsha',
+                'name' => 'Arsha',
                 'image' => 'img/arsha.png'
             ]
         ];
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
             'facebook' => '#',
             'youtube' => '#',
             'url_stream' => '#',
-            'themes_front' => 'arsha',
+            'themes_front' => 'Arsha',
             'themes_back' => 'back.a',
         ]);
         // DB::table('websites')->insert([

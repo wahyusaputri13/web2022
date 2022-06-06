@@ -257,10 +257,11 @@
     <footer class="footer">
         <p class="copyright pull-right">
             &copy;
-            <script>
+            <!-- <script>
                 document.write(new Date().getFullYear())
-            </script>
-            <a href="http://www.creative-tim.com/">Creative Tim</a>, Isa Maulana Tantra
+            </script> -->
+            2022
+            <a href="https://diskominnfo.wonosobokab.go.id/">Diskominfo Kab. Wonosobo</a>, Isa Maulana Tantra
         </p>
         </div>
     </footer>
