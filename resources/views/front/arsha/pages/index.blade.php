@@ -10,7 +10,10 @@
                 <h1>{{ $data_website->web_name }}</h1>
                 <h2>{{ $data_website->web_description }}</h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                    <!-- <audio id="audio_1"> -->
+                    <!-- <source src="http://i.klikhost.com:8210/stream" type="audio/mpeg"> -->
+                    <!-- </audio> -->
+                    <a href="#about" class="btn-get-started scrollto btn-playstream">Get Started</a>
                     <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video"><i
                             class="bi bi-play-circle"></i><span>Watch Video</span></a>
                 </div>
@@ -88,15 +91,25 @@
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                 @foreach($gallery as $g)
                 <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-img"><img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"
-                            alt="">
+                    <div class="portfolio-img">
+                        @if(file_exists(public_path('storage/'.$g->path)))
+                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        @endif
                     </div>
                     <div class="portfolio-info">
                         <h4>{{ $g->description }}</h4>
                         <!-- <p>Web</p> -->
+                        @if(file_exists(public_path('storage/'.$g->path)))
                         <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
                             class="portfolio-lightbox preview-link" title="{{ $g->description }}"><i
                                 class="bx bx-plus"></i></a>
+                        @else
+                        <a href="{{ asset('img/soulofjava.jpg') }}" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox preview-link" title="{{ $g->description }}"><i
+                                class="bx bx-plus"></i></a>
+                        @endif
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i
                                 class="bx bx-link"></i></a> -->
                     </div>

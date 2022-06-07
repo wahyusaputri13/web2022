@@ -9,8 +9,7 @@
                         <img src="{{ asset('assets/front/assets/img/logo.png') }}" alt="">
                         <span>{{ $data_website->web_name }}</span>
                     </a> -->
-                    <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                            valies darta donna mare fermentum iaculis eu non diam phasellus.</p> -->
+
                     <div class="social-links mt-4">
                         <a href="{{ $data_website->twitter }}" target="_blank" class="twitter"><i
                                 class="bi bi-twitter"></i></a>
@@ -21,6 +20,7 @@
                         <a href="{{ $data_website->youtube }}" target="_blank" class="youtube"><i
                                 class="bi bi-youtube"></i></a>
                     </div>
+                    <p class="mt-3">Total Pengunjung : {{ $counter_web }}</p>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">

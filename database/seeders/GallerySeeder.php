@@ -19,7 +19,6 @@ class GallerySeeder extends Seeder
         for ($i = 1; $i <= 20; $i++) {
             Gallery::create([
                 'name'  => $faker->word(),
-                'path'  => 'gallery/' . $faker->image('public/storage/gallery', 1920, 1280, null, false),
                 'description'  => $faker->sentence(5),
             ]);
         }

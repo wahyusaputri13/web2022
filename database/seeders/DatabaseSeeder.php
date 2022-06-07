@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             NewsSeeder::class,
-            // GallerySeeder::class,
+            GallerySeeder::class,
         ]);
 
         $themes = [

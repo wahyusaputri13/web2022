@@ -2,12 +2,14 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Counter;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Website;
 use App\Models\FrontMenu;
 use App\Models\Gallery;
 use App\Models\News;
+use Illuminate\Support\Facades\DB;
 
 class WebHelper
 {
@@ -25,11 +27,13 @@ class WebHelper
         $menu = FrontMenu::with('submenu')->get();
         $news = News::all()->count();
         $gallery = Gallery::all()->count();
+        $counter = Counter::distinct('ip')->count('ip');
         // Sharing is caring
         view()->share('data_website', $data);
         view()->share('nav_menu', $menu);
         view()->share('news_all', $news);
         view()->share('gallery_all', $gallery);
+        view()->share('counter_web', $counter);
         return $next($request);
     }
 }

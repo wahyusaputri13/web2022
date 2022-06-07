@@ -40,12 +40,22 @@
                 <div class="row g-0 portfolio-container">
                     @foreach($gallery as $g)
                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
-                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid" alt="">
+                        @if(file_exists(public_path('storage/'.$g->path)))
+                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        @endif
                         <div class="portfolio-info">
                             <h4>{{ $g->description }}</h4>
+                            @if(file_exists(public_path('storage/'.$g->path)))
                             <a href="{{ asset('storage/') }}/{{ $g->path}}" title="{{ $g->description }}"
                                 data-gallery="portfolio-gallery" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
+                            @else
+                            <a href="{{ asset('img/soulofjava.jpg') }}" title="{{ $g->description }}"
+                                data-gallery="portfolio-gallery" class="glightbox preview-link"><i
+                                    class="bi bi-zoom-in"></i></a>
+                            @endif
                             <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
                                     class="bi bi-link-45deg"></i></a> -->
                         </div>

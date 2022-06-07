@@ -12,11 +12,14 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\FrontMenuController;
 use App\Http\Controllers\FrontSubmenuController;
+use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Website;
 use App\Models\Themes;
+use PhpParser\Node\Stmt\Return_;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +41,22 @@ Route::group(
 Route::get('/', function () {
     $themes = Website::all()->first();
     if (Website::all()->count() != 0) {
+        $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
+        $data = [
+            'ip' => $geoipInfo->ip,
+            'iso_code' => $geoipInfo->iso_code,
+            'country' => $geoipInfo->country,
+            'city' => $geoipInfo->city,
+            'state' => $geoipInfo->state,
+            'state_name' => $geoipInfo->state_name,
+            'postal_code' => $geoipInfo->postal_code,
+            'lat' => $geoipInfo->lat,
+            'lon' => $geoipInfo->lon,
+            'timezone' => $geoipInfo->timezone,
+            'continent' => $geoipInfo->continent,
+            'currency' => $geoipInfo->currency,
+        ];
+        Counter::create($data);
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         $news = News::orderBy('date', 'desc')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));

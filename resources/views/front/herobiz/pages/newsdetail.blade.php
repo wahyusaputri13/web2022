@@ -17,7 +17,11 @@
                 <div class="col-lg-8 entries">
                     <article class="entry entry-single">
                         <div class="entry-img">
-                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid" alt="">
+                            @if(file_exists(public_path('storage/'.$data->path)))
+                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid">
+                            @else
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            @endif
                         </div>
                         <h2 class="entry-title m-1">
                             <a href="#">{{ $data->title }}</a>

@@ -51,8 +51,8 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <!-- <h4>Our Social Networks</h4>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p> -->
+                    <h4>Our Social Networks</h4>
+                    <!--<p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p> -->
                     <div class="social-links mt-3">
                         <a href="{{ $data_website->twitter }}" target="_blank" class="twitter"><i
                                 class="bx bxl-twitter"></i></a>
@@ -63,6 +63,7 @@
                         <a href="{{ $data_website->youtube }}" target="_blank" class="youtube"><i
                                 class="bx bxl-youtube"></i></a>
                     </div>
+                    <p class="mt-3">Total Pengunjung : {{ $counter_web }}</p>
                 </div>
 
             </div>

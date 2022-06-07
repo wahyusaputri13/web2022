@@ -27,7 +27,11 @@
                     <article class="entry">
 
                         <div class="entry-img">
-                            <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid" alt="">
+                            @if(file_exists(public_path('storage/'.$author->path)))
+                            <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
+                            @else
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            @endif
                         </div>
 
                         <h2 class="entry-title">
