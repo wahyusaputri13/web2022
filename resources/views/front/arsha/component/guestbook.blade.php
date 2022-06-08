@@ -1,4 +1,4 @@
-@extends('front.flexstart.layouts.app')
+@extends('front.arsha.layouts.app')
 @section('content')
 <main id="main">
 
@@ -23,7 +23,7 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="card-content">
-                                <table id="datatables" class="table is-striped" cellspacing="0" width="100%"
+                                <table id="datatables" class="table table-striped" cellspacing="0" width="100%"
                                     style="width:100%">
                                     <thead>
                                         <tr>
@@ -64,7 +64,7 @@
         },
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'date', name: 'date' },
+            { data: 'tgl' },
             { data: 'name', name: 'name' },
             { data: 'instansi', name: 'instansi' },
             { data: 'keperluan', name: 'keperluan' },

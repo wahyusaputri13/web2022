@@ -29,15 +29,15 @@ class DatabaseSeeder extends Seeder
 
         $themes = [
             [
-                'name' => 'Flexstart',
+                'name' => 'flexstart',
                 'image' => 'img/flexstart.png'
             ],
             [
-                'name' => 'HeroBiz',
+                'name' => 'herobiz',
                 'image' => 'img/herobiz.png'
             ],
             [
-                'name' => 'Arsha',
+                'name' => 'arsha',
                 'image' => 'img/arsha.png'
             ]
         ];
@@ -63,15 +63,15 @@ class DatabaseSeeder extends Seeder
         DB::table('websites')->insert([
             'web_name' => 'Web2022',
             'web_description' => '"Hello World!"',
-            'email' => 'superadmin@app.com',
-            'address' => 'On Earth!',
-            'phone' => '-',
+            'email' => 'diskominfo@wonosobokab.go.id',
+            'address' => 'Wonosobo - The Soul Of Java',
+            'phone' => '085643710007',
             'instagram' => '#',
             'twitter' => '#',
             'facebook' => '#',
             'youtube' => '#',
             'url_stream' => '#',
-            'themes_front' => 'Arsha',
+            'themes_front' => 'arsha',
             'themes_back' => 'back.a',
         ]);
         // DB::table('websites')->insert([
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
         $component = [
             [
                 'name' => 'Guest Book',
-                'active' => 1,
+                'active' => 0,
                 'slug' => Str::slug('Guest Book', '-'),
             ]
         ];
@@ -146,7 +146,7 @@ class DatabaseSeeder extends Seeder
                 'date'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
                 'instansi'  => $faker->company(3),
                 'jumlah'  => $faker->randomDigit(),
-                'keperluan'  => $faker->words(3, true)
+                'keperluan'  => $faker->sentence()
             ]);
         }
     }

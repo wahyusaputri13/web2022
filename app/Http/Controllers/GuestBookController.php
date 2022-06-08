@@ -22,9 +22,19 @@ class GuestBookController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = GuestBook::all();
+            $data = GuestBook::orderBy('date', 'desc');
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->addColumn(
+                    'tgl',
+                    function ($data) {
+                        $actionBtn = '<center>' .
+                            \Carbon\Carbon::parse($data->date)->toFormattedDateString()
+                            . '</center>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['tgl'])
                 ->make(true);
         }
         return view('front.' . $this->themes->themes_front . '.component.guestbook');

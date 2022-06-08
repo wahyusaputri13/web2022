@@ -6,12 +6,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up">{{ $data_website->web_name }}</h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">{{ $data_website->web_description }}</h2>
+                <h1 data-aos="fade-up" class="aos-init aos-animate">{{ $data_website->web_name }}</h1>
+                <h2 data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">{{
+                    $data_website->web_description }}</h2>
                 <audio id="audio_1">
                     <source src="{{ $data_website->url_stream }}" type="audio/mpeg">
                 </audio>
-                <div data-aos="fade-up" data-aos-delay="600">
+                <div data-aos="fade-up" data-aos-delay="600" class="aos-init aos-animate">
                     <div class="text-center text-lg-start">
                         <a class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center btn-playstream"
                             value="off">
@@ -21,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <div class="col-lg-6 hero-img aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
                 <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid">
                 @else
@@ -133,6 +134,64 @@
 </section>
 <!-- End Gallery Section -->
 @endif
+<section id="contact" class="contact">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <header class="section-header">
+            <h2>Contact</h2>
+            <p>Contact Us</p>
+        </header>
+        <div class="row gy-4">
+            <div class="col-lg-6">
+                <div class="row gy-4">
+                    <div class="col-md-6">
+                        <div class="info-box"> <i class="bi bi-geo-alt"></i>
+                            <h3>Address</h3>
+                            <p>{{ $data_website->address }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box"> <i class="bi bi-telephone"></i>
+                            <h3>Call Us</h3>
+                            <p>{{ $data_website->phone }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box"> <i class="bi bi-envelope"></i>
+                            <h3>Email Us</h3>
+                            <p>{{ $data_website->email }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box"> <i class="bi bi-clock"></i>
+                            <h3>Open Hours</h3>
+                            <p>Monday - Thursday (07:00AM - 04:00PM)<br>Friday (07:00AM - 11:00AM)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <form action="forms/contact.php" method="post" class="php-email-form">
+                    <div class="row gy-4">
+                        <div class="col-md-6"> <input type="text" name="name" class="form-control"
+                                placeholder="Your Name" required=""></div>
+                        <div class="col-md-6 "> <input type="email" class="form-control" name="email"
+                                placeholder="Your Email" required=""></div>
+                        <div class="col-md-12"> <input type="text" class="form-control" name="subject"
+                                placeholder="Subject" required=""></div>
+                        <div class="col-md-12"><textarea class="form-control" name="message" rows="6"
+                                placeholder="Message" required=""></textarea></div>
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div> <button
+                                type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
 @push('after-script')
 <script>

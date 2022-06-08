@@ -15,6 +15,18 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
+                    <!-- start looping component -->
+                    @php
+                    $component = DB::table('components')->where('active', '=', 1)->orderBy('name', 'ASC')->get();
+                    @endphp
+                    @foreach($component as $cp)
+                    <li>
+                        <a class="nav-link scrollto" href="{{ url('guestbook') }}">
+                            {{ $cp->name }}
+                        </a>
+                    </li>
+                    @endforeach
+                    <!-- end looping component -->
                     @php
                     $queryMenu = DB::table('front_menus')
                     ->where('menu_parent', '=', 'root')
