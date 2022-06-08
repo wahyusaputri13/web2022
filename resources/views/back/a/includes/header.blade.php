@@ -24,7 +24,7 @@
                     @if(auth()->user()->profile_photo_path)
                     <img src="{{ asset('storage') }}/{{ auth()->user()->profile_photo_path }}" />
                     @else
-                    <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
+                    <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}">
                     @endif
                 </div>
                 <div class="info">
@@ -37,14 +37,6 @@
                             <li>
                                 <a href="{{ route('myprofile.edit', auth()->user()->id) }}">Edit Profile</a>
                             </li>
-                            <li>
-                                <a href="{{ url('settings') }}">Settings</a>
-                            </li>
-                            @if (auth()->user()->role_id == 1)
-                            <li>
-                                <a href="{{ url('themes') }}">Themes</a>
-                            </li>
-                            @endif
                         </ul>
                     </div>
                 </div>
@@ -58,39 +50,55 @@
                 </li>
                 <li>
                     <a data-toggle="collapse" href="#pagesExamples">
-                        <i class="material-icons">view_quilt</i>
-                        <p>Postings
+                        <i class="material-icons">archive</i>
+                        <p>Posts
                             <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="pagesExamples">
                         <ul class="nav">
+                            <li class="{{ (request()->is('gallery*')) ? 'active' : '' }}">
+                                <a href="{{ url('/gallery') }}"> <i class="material-icons">collections</i>
+                                    Gallery</a>
+                            </li>
                             <li class="{{ (request()->is('news*')) ? 'active' : '' }}">
                                 <a href="{{ url('/news') }}">
                                     <i class="material-icons">event_note</i>
                                     News</a>
                             </li>
-                            <li class="{{ (request()->is('gallery*')) ? 'active' : '' }}">
-                                <a href="{{ url('/gallery') }}"> <i class="material-icons">collections</i>
-                                    Gallery</a>
-                            </li>
-                            <li class="{{ (request()->is('frontmenu*')) ? 'active' : '' }}">
-                                <a href="{{ url('/frontmenu') }}"> <i class="material-icons">menu</i>
-                                    Menu</a>
-                            </li>
                         </ul>
                     </div>
                 </li>
-                @if (auth()->user()->role_id == 1)
                 <li>
                     <a data-toggle="collapse" href="#pagesExamples2">
-                        <i class="material-icons">view_stream</i>
+                        <i class="material-icons">public</i>
                         <p>Website
                             <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="pagesExamples2">
                         <ul class="nav">
+                            <li class="{{ (request()->is('component*')) ? 'active' : '' }}">
+                                <a href="{{ url('/component') }}"><i class="material-icons">apps</i>
+                                    Components</a>
+                            </li>
+                            <li class="{{ (request()->is('frontmenu*')) ? 'active' : '' }}">
+                                <a href="{{ url('/frontmenu') }}"> <i class="material-icons">menu</i>
+                                    Menu</a>
+                            </li>
+                            <li class="{{ (request()->is('relatedlink*')) ? 'active' : '' }}">
+                                <a href="{{ url('/relatedlink') }}"><i class="material-icons">link</i>
+                                    Related Link</a>
+                            </li>
+                            <li class="{{ (request()->is('settings*')) ? 'active' : '' }}">
+                                <a href="{{ url('/settings') }}">
+                                    <i class="material-icons">settings</i>
+                                    Settings</a>
+                            </li>
+                            <li class="{{ (request()->is('themes*')) ? 'active' : '' }}">
+                                <a href="{{ url('/themes') }}"><i class="material-icons">brush</i>
+                                    Themes</a>
+                            </li>
                             <li class="{{ (request()->is('user*')) ? 'active' : '' }}">
                                 <a href="{{ url('/user') }}">
                                     <i class="material-icons">person</i>
@@ -99,7 +107,6 @@
                         </ul>
                     </div>
                 </li>
-                @endif
             </ul>
         </div>
     </div>

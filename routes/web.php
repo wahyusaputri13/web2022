@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MenuController;
@@ -12,6 +13,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\FrontMenuController;
 use App\Http\Controllers\FrontSubmenuController;
+use App\Http\Controllers\GuestBookController;
+use App\Http\Controllers\RelatedLinkController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -78,8 +81,10 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/tujuan', [FrontController::class, 'tujuan'])->name('tujuan');
     Route::get('/kampung-pancasila', [FrontController::class, 'kampungpancasila'])->name('kampung-pancasila');
     Route::get('/page/{id}', [FrontController::class, 'page'])->name('page');
+    Route::get('/component/{id}', [FrontController::class, 'component'])->name('component');
     Route::get('/load-sql', [FrontController::class, 'loadsql']);
     Route::get('/check', [FrontController::class, 'check']);
+    Route::resource('guestbook', GuestBookController::class);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
@@ -99,8 +104,10 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('themes', ThemesController::class);
     Route::resource('frontmenu', FrontMenuController::class);
     Route::resource('frontsubmenu', FrontSubmenuController::class);
-    Route::post('sendCentang', [RoleController::class, 'changeAccess']);
+    Route::resource('relatedlink', RelatedLinkController::class);
+    Route::resource('component', ComponentController::class);
+    Route::post('sendCentang', [ComponentController::class, 'changeAccess']);
     Route::get('getAlamat', [WebsiteController::class, 'location']);
-    Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-    Route::get('/cari', [FrontMenuController::class, 'loadData']);
+    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
+    // Route::get('/cari', [FrontMenuController::class, 'loadData']);
 });

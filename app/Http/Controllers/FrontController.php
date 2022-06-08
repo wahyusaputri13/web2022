@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Component;
 use App\Models\FrontMenu;
 use App\Models\FrontSubmenu;
 use Illuminate\Http\Request;
@@ -63,6 +64,12 @@ class FrontController extends Controller
             ->where('menu_url', '=', $id)
             ->get();
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+    }
+
+    public function component($id)
+    {
+        $data = Component::all();
+        return view('front.' . $this->themes->themes_front . '.component.guestbook', compact('data'));
     }
 
     public function setup(Request $request)

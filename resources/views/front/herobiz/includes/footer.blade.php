@@ -17,14 +17,13 @@
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links">
-                    <!-- <h4>Useful Links</h4>
+                    <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                    </ul> -->
+                        @foreach($related as $rr)
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ $rr->url }}" target="_blank">{{ $rr->name
+                                }}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
@@ -40,7 +39,7 @@
 
                 <div class="col-lg-4 col-md-6 footer-newsletter">
                     <!-- <h4>Our Newsletter</h4> -->
-                    <p class="mt-3">Total Pengunjung : {{ $counter_web }}</p>
+                    <p class="mt-3">Total Visitors : {{ $counter_web }}</p>
                     <!-- <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form> -->

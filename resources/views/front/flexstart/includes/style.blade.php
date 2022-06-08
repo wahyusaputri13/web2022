@@ -23,6 +23,9 @@
 <!-- Template Main CSS File -->
 <link href="{{ asset('assets/front/flexstart/assets/css/style.css') }}" rel="stylesheet">
 
+<!-- datatable -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bulma.min.css">
 <!-- =======================================================
   * Template Name: FlexStart - v1.9.0
   * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/

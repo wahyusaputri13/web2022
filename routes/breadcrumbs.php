@@ -71,6 +71,18 @@ Breadcrumbs::for('submenufront', function ($trail) {
     $trail->push('Submenu Front', url('submenufront'));
 });
 
+// Dashboard > Related Link
+Breadcrumbs::for('relatedlink', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Related Link', url('relatedlink'));
+});
+
+// Dashboard > Component
+Breadcrumbs::for('component', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Component', url('component'));
+});
+
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');

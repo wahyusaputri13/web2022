@@ -2,12 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\FrontMenu;
+use App\Models\Component;
+use App\Models\GuestBook;
+use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Role;
 use App\Models\Themes;
 use App\Models\User;
+use Illuminate\Support\Str;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -102,6 +106,48 @@ class DatabaseSeeder extends Seeder
 
         foreach ($user as $datum) {
             User::create($datum);
+        }
+
+        $related = [
+            [
+                'name' => 'Website Pemkab Wonosobo',
+                'url' => 'https://website.wonosobokab.go.id/',
+            ],
+            [
+                'name' => 'Dashboard Smartcity',
+                'url' => 'https://smartcity.wonosobokab.go.id/',
+            ],
+            [
+                'name' => 'Website Diskominfo Wonosobo',
+                'url' => 'https://diskominnfo.wonosobokab.go.id/',
+            ]
+        ];
+
+        foreach ($related as $rr) {
+            RelatedLink::create($rr);
+        }
+
+        $component = [
+            [
+                'name' => 'Guest Book',
+                'active' => 1,
+                'slug' => Str::slug('Guest Book', '-'),
+            ]
+        ];
+
+        foreach ($component as $cp) {
+            Component::create($cp);
+        }
+
+        $faker = Faker::create('id_ID');
+        for ($i = 1; $i <= 50; $i++) {
+            GuestBook::create([
+                'name'  => $faker->name(),
+                'date'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
+                'instansi'  => $faker->company(3),
+                'jumlah'  => $faker->randomDigit(),
+                'keperluan'  => $faker->words(3, true)
+            ]);
         }
     }
 }

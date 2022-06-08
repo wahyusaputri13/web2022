@@ -20,16 +20,22 @@
                         <a href="{{ $data_website->youtube }}" target="_blank" class="youtube"><i
                                 class="bi bi-youtube"></i></a>
                     </div>
-                    <p class="mt-3">Total Pengunjung : {{ $counter_web }}</p>
+                    <p class="mt-3">Total Visitors : {{ $counter_web }}</p>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <!-- <h4>Related Links</h4>
+                    <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
+                        @foreach($related as $rr)
+                        <li>
+                            <i class="bi bi-chevron-right"></i>
+                            <a target="_blank" href="{{ $rr->url }}">{{ $rr->name }}</a>
+                        </li>
+                        @endforeach
+                        <!-- <li><i class="bi bi-chevron-right"></i> <a target="_blank"
                                 href="https://kapencar-kertek.wonosobokab.go.id/">Desa Kapencar, Kertek</a>
                         </li>
                         <li><i class="bi bi-chevron-right"></i> <a target="_blank"
@@ -42,8 +48,8 @@
                                 Leksono</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a target="_blank"
                                 href="https://kelurahanjaraksari.wonosobokab.go.id/">Kelurahan Jaraksari,
-                                Wonosobo</a></li>
-                    </ul> -->
+                                Wonosobo</a></li> -->
+                    </ul>
                 </div>
 
 

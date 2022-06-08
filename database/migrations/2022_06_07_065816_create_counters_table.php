@@ -22,8 +22,8 @@ class CreateCountersTable extends Migration
             $table->string('state');
             $table->string('state_name');
             $table->string('postal_code');
-            $table->integer('lat');
-            $table->integer('lon');
+            $table->string('lat');
+            $table->string('lon');
             $table->string('timezone');
             $table->string('continent');
             $table->string('currency');

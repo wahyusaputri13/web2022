@@ -37,6 +37,22 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="green">
+                        <i class="material-icons">event_note</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Total Visitors</p>
+                        <h3 class="card-title">{{ $counter_web }}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <div class="stats">
+                            <i class="material-icons">local_offer</i> Tracked from Google Analytics
+                        </div> -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

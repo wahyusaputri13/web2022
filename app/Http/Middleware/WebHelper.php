@@ -9,6 +9,7 @@ use App\Models\Website;
 use App\Models\FrontMenu;
 use App\Models\Gallery;
 use App\Models\News;
+use App\Models\RelatedLink;
 use Illuminate\Support\Facades\DB;
 
 class WebHelper
@@ -27,13 +28,15 @@ class WebHelper
         $menu = FrontMenu::with('submenu')->get();
         $news = News::all()->count();
         $gallery = Gallery::all()->count();
-        $counter = Counter::distinct('ip')->count('ip');
+        $counter = Counter::all()->count();
+        $related = RelatedLink::all();
         // Sharing is caring
         view()->share('data_website', $data);
         view()->share('nav_menu', $menu);
         view()->share('news_all', $news);
         view()->share('gallery_all', $gallery);
         view()->share('counter_web', $counter);
+        view()->share('related', $related);
         return $next($request);
     }
 }
