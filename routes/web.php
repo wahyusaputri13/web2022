@@ -85,6 +85,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/load-sql', [FrontController::class, 'loadsql']);
     Route::get('/check', [FrontController::class, 'check']);
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
+    Route::post('guest', [FrontController::class, 'addguest']);
     Route::resource('guestbook', GuestBookController::class);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
@@ -111,5 +112,5 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::post('sendCentang', [ComponentController::class, 'changeAccess']);
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-    // Route::get('/cari', [FrontMenuController::class, 'loadData']);
+    Route::get('/cari', [FrontMenuController::class, 'loadData']);
 });

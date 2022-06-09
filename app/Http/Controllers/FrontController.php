@@ -6,6 +6,7 @@ use App\Models\Component;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\Website;
 use Illuminate\Support\Facades\DB;
@@ -81,6 +82,24 @@ class FrontController extends Controller
     public function reloadCaptcha()
     {
         return response()->json(['captcha' => captcha_img()]);
+    }
+
+    public function addguest(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'instansi' => 'required',
+            'keperluan' => 'required',
+            'jumlah' => 'required',
+        ]);
+        if ($validator->fails()) {
+            Alert::error('Failed', 'Make Sure All Input Is Filled');
+            return redirect()->back()->withInput();
+        } else {
+            GuestBook::create($request->except('_token'));
+            Alert::success('Success', 'Your Data Has Been Save');
+            return redirect(url('/'));
+        }
     }
 
     public function inbox(Request $request)
