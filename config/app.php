@@ -165,6 +165,8 @@ return [
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -236,6 +238,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Share' => Jorenvh\Share\ShareFacade::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ],
 
 ];

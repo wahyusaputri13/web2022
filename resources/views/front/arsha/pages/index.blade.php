@@ -65,9 +65,8 @@
                 @endif
                 @endforeach
                 <div class="d-flex justify-content-end">
-                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;"
-                        href="{{ url('/newsall') }}">Show
-                        All</a>
+                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;" href="{{ url('/newsall') }}">
+                        Show All</a>
                 </div>
             </div>
         </div>
@@ -85,8 +84,8 @@
             <div class="section-title">
                 <h2>Gallery</h2>
                 <p>Check our latest photo</p>
-                <a class="btn rounded-pill" style="background: #47b2e4; color: white;" href="{{ url('/photos') }}">Show
-                    All</a>
+                <a class="btn rounded-pill" style="background: #47b2e4; color: white;" href="{{ url('/photos') }}">
+                    Show All</a>
             </div>
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                 @foreach($gallery as $g)
@@ -164,32 +163,45 @@
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    {{Form::open(['url' => 'kotakmasuk','method' => 'post', 'files' => 'true', '', 'class' =>
+                    'php-email-form'])}}
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            {{Form::text('name', null,['class' => 'form-control', 'placeholder' => 'Your Name',
+                            'required'])}}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{Form::email('email', null,['class' => 'form-control', 'placeholder' => 'Email',
+                            'required'])}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{Form::number('phone', null,['class' => 'form-control', 'placeholder' => 'Phone Number',
+                        'required'])}}
+                    </div>
+                    <div class="form-group">
+                        {{Form::textarea('message', null,['class' => 'form-control', 'placeholder' => 'Message',
+                        'required'])}}
+                    </div>
+                    <div class="form-group">
                         <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="name">Your Name</label>
-                                <input type="text" name="name" class="form-control" id="name" required>
+                            <div class="col captcha text-center">
+                                <span>{!! captcha_img() !!}</span>
+                                <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                    &#x21bb;
+                                </button>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Your Email</label>
-                                <input type="email" class="form-control" name="email" id="email" required>
+                            <div class="col">
+                                {{Form::number('captcha', null,['class' => 'form-control',
+                                'placeholder' => 'Enter Captcha Result',
+                                'required'])}}
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="name">Subject</label>
-                            <input type="text" class="form-control" name="subject" id="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Message</label>
-                            <textarea class="form-control" name="message" rows="10" required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
-                    </form>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit">Send Message</button>
+                    </div>
+                    {{Form::close()}}
                 </div>
 
             </div>
@@ -202,6 +214,16 @@
 @endsection
 @push('after-script')
 <script>
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+
     $('.btn-playstream').click(function () {
         currentvalue = document.getElementById('audio_1').value;
         if (currentvalue == "on") {

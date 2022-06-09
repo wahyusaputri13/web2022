@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Component;
-use App\Models\FrontMenu;
-use App\Models\FrontSubmenu;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Inbox;
 use App\Models\Website;
-use CyrildeWit\EloquentViewable\Views;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FrontController extends Controller
 {
@@ -76,6 +76,31 @@ class FrontController extends Controller
     {
         Website::create($request->except('finish'));
         return redirect(route('root'));
+    }
+
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha' => captcha_img()]);
+    }
+
+    public function inbox(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'message' => 'required',
+            'captcha' => 'required|captcha',
+        ]);
+
+        if ($validator->fails()) {
+            Alert::error('Failed', 'You Have Enter The Wrong Captcha');
+            return redirect()->back()->withInput();
+        } else {
+            Inbox::create($request->except('_token', 'captcha'));
+            Alert::success('Success', 'Your Message Has Been Sent');
+            return redirect(url('/'));
+        }
     }
 
     // kampung pancasila

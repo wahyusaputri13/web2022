@@ -34,167 +34,199 @@
 
 </section>
 <!-- End Hero -->
-@if($news->count() != 0)
-<!-- ======= Recent Blog Posts Section ======= -->
-<section id="recent-blog-posts" class="recent-blog-posts">
+<main id="main">
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
 
-    <div class="container" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
 
-        <header class="section-header">
-            <h2>Blog</h2>
-            <p>Recent posts form our Blog</p>
-        </header>
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/newsall') }}">Show All</a>
+            <header class="section-header">
+                <h2>Blog</h2>
+                <p>Recent posts form our Blog</p>
+            </header>
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/newsall') }}">Show All</a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                @foreach($news as $n)
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="post-box">
+                        <div class="post-img">
+                            @if(file_exists(public_path('storage/'.$n->path)))
+                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                            @else
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            @endif
+                        </div>
+                        <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
+                            \Carbon\Carbon::parse( $n->date
+                            )->toFormattedDateString() }}</span>
+                        <h3 class="post-title">
+                            {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                        </h3>
+                        <a href="{{ url('/news-detail', $n->slug) }}" class="readmore stretched-link mt-auto"><span>Read
+                                More</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                @if($loop->iteration == 6)
+                @break
+                @endif
+                @endforeach
             </div>
         </div>
-        <div class="row mt-4">
-            @foreach($news as $n)
-            <div class="col-lg-4 col-md-6 mb-3">
-                <div class="post-box">
-                    <div class="post-img">
-                        @if(file_exists(public_path('storage/'.$n->path)))
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+
+    </section>
+    <!-- End Recent Blog Posts Section -->
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="portfolio">
+
+        <div class="container" data-aos="fade-up">
+
+            <header class="section-header">
+                <h2>Gallery</h2>
+                <p>Check our latest photo</p>
+            </header>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <div class="mb-3">
+                        <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/photos') }}">Show
+                            All</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                @foreach($gallery as $g)
+                <div class="col-lg-3 col-md-4 portfolio-item filter-app">
+                    <div class="portfolio-wrap d-flex justify-content-center">
+                        @if(file_exists(public_path('storage/'.$g->path)))
+                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                         @endif
+                        <div class="portfolio-info">
+                            <h4>{{ $g->description }}</h4>
+                            <!-- <p>App</p> -->
+                            <div class="portfolio-links">
+                                @if(file_exists(public_path('storage/'.$g->path)))
+                                <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
+                                    class="portfokio-lightbox" title="{{ $g->description }}"><i
+                                        class="bi bi-plus"></i></a>
+                                @else
+                                <a href="{{ asset('img/soulofjava.jpg') }}" data-gallery="portfolioGallery"
+                                    class="portfokio-lightbox" title="{{ $g->description }}"><i
+                                        class="bi bi-plus"></i></a>
+                                @endif
+                                <!-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> -->
+                            </div>
+                        </div>
                     </div>
-                    <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
-                        \Carbon\Carbon::parse( $n->date
-                        )->toFormattedDateString() }}</span>
-                    <h3 class="post-title">
-                        {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
-                    </h3>
-                    <a href="{{ url('/news-detail', $n->slug) }}" class="readmore stretched-link mt-auto"><span>Read
-                            More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
-            </div>
-            @if($loop->iteration == 6)
-            @break
-            @endif
-            @endforeach
-        </div>
-    </div>
-
-</section>
-<!-- End Recent Blog Posts Section -->
-@endif
-@if($gallery->count() != 0)
-<!-- ======= Gallery Section ======= -->
-<section id="gallery" class="portfolio">
-
-    <div class="container" data-aos="fade-up">
-
-        <header class="section-header">
-            <h2>Gallery</h2>
-            <p>Check our latest photo</p>
-        </header>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <div class="mb-3">
-                    <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/photos') }}">Show All</a>
-                </div>
+                @if($loop->iteration == 8)
+                @break
+                @endif
+                @endforeach
             </div>
         </div>
 
-        <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-            @foreach($gallery as $g)
-            <div class="col-lg-3 col-md-4 portfolio-item filter-app">
-                <div class="portfolio-wrap d-flex justify-content-center">
-                    @if(file_exists(public_path('storage/'.$g->path)))
-                    <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
-                    @else
-                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                    @endif
-                    <div class="portfolio-info">
-                        <h4>{{ $g->description }}</h4>
-                        <!-- <p>App</p> -->
-                        <div class="portfolio-links">
-                            @if(file_exists(public_path('storage/'.$g->path)))
-                            <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
-                                class="portfokio-lightbox" title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
-                            @else
-                            <a href="{{ asset('img/soulofjava.jpg') }}" data-gallery="portfolioGallery"
-                                class="portfokio-lightbox" title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
-                            @endif
-                            <!-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @if($loop->iteration == 8)
-            @break
-            @endif
-            @endforeach
-        </div>
-    </div>
-
-</section>
-<!-- End Gallery Section -->
-@endif
-<section id="contact" class="contact">
-    <div class="container aos-init aos-animate" data-aos="fade-up">
-        <header class="section-header">
-            <h2>Contact</h2>
-            <p>Contact Us</p>
-        </header>
-        <div class="row gy-4">
-            <div class="col-lg-6">
-                <div class="row gy-4">
-                    <div class="col-md-6">
-                        <div class="info-box"> <i class="bi bi-geo-alt"></i>
-                            <h3>Address</h3>
-                            <p>{{ $data_website->address }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-box"> <i class="bi bi-telephone"></i>
-                            <h3>Call Us</h3>
-                            <p>{{ $data_website->phone }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-box"> <i class="bi bi-envelope"></i>
-                            <h3>Email Us</h3>
-                            <p>{{ $data_website->email }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-box"> <i class="bi bi-clock"></i>
-                            <h3>Open Hours</h3>
-                            <p>Monday - Thursday (07:00AM - 04:00PM)<br>Friday (07:00AM - 11:00AM)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <form action="forms/contact.php" method="post" class="php-email-form">
+    </section>
+    <!-- End Gallery Section -->
+    <section id="contact" class="contact">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+            <header class="section-header">
+                <h2>Contact</h2>
+                <p>Contact Us</p>
+            </header>
+            <div class="row gy-4">
+                <div class="col-lg-6">
                     <div class="row gy-4">
-                        <div class="col-md-6"> <input type="text" name="name" class="form-control"
-                                placeholder="Your Name" required=""></div>
-                        <div class="col-md-6 "> <input type="email" class="form-control" name="email"
-                                placeholder="Your Email" required=""></div>
-                        <div class="col-md-12"> <input type="text" class="form-control" name="subject"
-                                placeholder="Subject" required=""></div>
-                        <div class="col-md-12"><textarea class="form-control" name="message" rows="6"
-                                placeholder="Message" required=""></textarea></div>
-                        <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div> <button
-                                type="submit">Send Message</button>
+                        <div class="col-md-6">
+                            <div class="info-box"> <i class="bi bi-geo-alt"></i>
+                                <h3>Address</h3>
+                                <p>{{ $data_website->address }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box"> <i class="bi bi-telephone"></i>
+                                <h3>Call Us</h3>
+                                <p>{{ $data_website->phone }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box"> <i class="bi bi-envelope"></i>
+                                <h3>Email Us</h3>
+                                <p>{{ $data_website->email }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box"> <i class="bi bi-clock"></i>
+                                <h3>Open Hours</h3>
+                                <p>Monday - Thursday (07:00AM - 04:00PM)<br>Friday (07:00AM - 11:00AM)</p>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
+                <div class="col-lg-6">
+                    {{Form::open(['url' => 'kotakmasuk','method' => 'post', 'files' => 'true', ''])}}
+                    <div class="row gy-4">
+                        <div class="col-md-6">
+                            {{Form::text('name', null,['class' => 'form-control', 'placeholder' => 'Your Name',
+                            'required'])}}
+                        </div>
+                        <div class="col-md-6 ">
+                            {{Form::email('email', null,['class' => 'form-control', 'placeholder' => 'Email',
+                            'required'])}}
+                        </div>
+                        <div class="col-md-12">
+                            {{Form::number('phone', null,['class' => 'form-control', 'placeholder' => 'Phone Number',
+                            'required'])}}
+                        </div>
+                        <div class="col-md-12">
+                            {{Form::textarea('message', null,['class' => 'form-control', 'placeholder' => 'Message',
+                            'required'])}}
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col captcha text-center">
+                                    <span>{!! captcha_img() !!}</span>
+                                    <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                        &#x21bb;
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    {{Form::number('captcha', null,['class' => 'form-control',
+                                    'placeholder' => 'Enter Captcha Result',
+                                    'required'])}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            {{Form::submit('Send Message', ['class' => 'btn', 'style' => 'background:#4154f1;
+                            color:white;'])}}
+                        </div>
+                    </div>
+                    {{Form::close()}}
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
 @endsection
 @push('after-script')
 <script>
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+
     $('.btn-playstream').click(function () {
         currentvalue = document.getElementById('audio_1').value;
         if (currentvalue == "on") {

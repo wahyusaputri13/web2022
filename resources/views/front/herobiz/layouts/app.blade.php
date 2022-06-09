@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     @include('front.herobiz.includes.header')
     @yield('content')
     @include('front.herobiz.includes.footer')

@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     @include('front.flexstart.includes.header')
     @yield('content')
     @include('front.flexstart.includes.footer')

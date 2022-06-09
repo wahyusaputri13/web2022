@@ -83,6 +83,12 @@ Breadcrumbs::for('component', function ($trail) {
     $trail->push('Component', url('component'));
 });
 
+// Dashboard > Inbox
+Breadcrumbs::for('inbox', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Inbox', url('inbox'));
+});
+
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');

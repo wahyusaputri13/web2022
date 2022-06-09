@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     @include('front.arsha.includes.header')
     @yield('content')
     @include('front.arsha.includes.footer')

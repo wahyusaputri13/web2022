@@ -12,8 +12,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\FrontMenuController;
-use App\Http\Controllers\FrontSubmenuController;
 use App\Http\Controllers\GuestBookController;
+use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
@@ -84,7 +84,9 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/component/{id}', [FrontController::class, 'component'])->name('component');
     Route::get('/load-sql', [FrontController::class, 'loadsql']);
     Route::get('/check', [FrontController::class, 'check']);
+    Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::resource('guestbook', GuestBookController::class);
+    Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
@@ -103,9 +105,9 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('user', UserController::class);
     Route::resource('themes', ThemesController::class);
     Route::resource('frontmenu', FrontMenuController::class);
-    Route::resource('frontsubmenu', FrontSubmenuController::class);
     Route::resource('relatedlink', RelatedLinkController::class);
     Route::resource('component', ComponentController::class);
+    Route::resource('inbox', InboxController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess']);
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);

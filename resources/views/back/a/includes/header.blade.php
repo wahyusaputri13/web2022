@@ -107,6 +107,12 @@
                         </ul>
                     </div>
                 </li>
+                <li class="{{ (request()->is('inbox')) ? 'active' : '' }}">
+                    <a href="{{ url('inbox') }}">
+                        <i class="material-icons">mail</i>
+                        <p>Inbox</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
