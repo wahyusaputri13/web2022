@@ -135,8 +135,14 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Heroes Video</label>
+                                    <label class="control-label">Hero Video</label>
                                     {{Form::text('heroes_video', null,['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Open Hours</label>
+                                    {{Form::text('open_hours', null,['class' => 'form-control'])}}
                                 </div>
                             </div>
                             <!-- <div class="col-md-6">

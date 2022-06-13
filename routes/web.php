@@ -112,5 +112,7 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::post('sendCentang', [ComponentController::class, 'changeAccess']);
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
+
+    // get data for front menu parent
     Route::get('/cari', [FrontMenuController::class, 'loadData']);
 });

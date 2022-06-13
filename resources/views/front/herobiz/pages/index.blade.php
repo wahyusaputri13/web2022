@@ -159,6 +159,13 @@
                                 <p>{{ $data_website->phone }}</p>
                             </div>
                         </div>
+                        <div class="info-item d-flex">
+                            <i class="bi bi-clock flex-shrink-0"></i>
+                            <div>
+                                <h4>Open Hours:</h4>
+                                <p>{{ $data_website->open_hours }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-8">

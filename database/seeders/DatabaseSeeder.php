@@ -60,20 +60,21 @@ class DatabaseSeeder extends Seeder
         }
 
         // \App\Models\User::factory(10)->create();
-        DB::table('websites')->insert([
-            'web_name' => 'Web2022',
-            'web_description' => '"Hello World!"',
-            'email' => 'diskominfo@wonosobokab.go.id',
-            'address' => 'Wonosobo - The Soul Of Java',
-            'phone' => '085643710007',
-            'instagram' => '#',
-            'twitter' => '#',
-            'facebook' => '#',
-            'youtube' => '#',
-            'url_stream' => '#',
-            'themes_front' => 'arsha',
-            'themes_back' => 'back.a',
-        ]);
+        // DB::table('websites')->insert([
+        //     'web_name' => 'Web2022',
+        //     'web_description' => '"Hello World!"',
+        //     'email' => 'diskominfo@wonosobokab.go.id',
+        //     'address' => 'Wonosobo - The Soul Of Java',
+        //     'phone' => '085643710007',
+        //     'instagram' => '#',
+        //     'twitter' => '#',
+        //     'facebook' => '#',
+        //     'youtube' => '#',
+        //     'url_stream' => '#',
+        //     'themes_front' => 'arsha',
+        //     'themes_back' => 'back.a',
+        //     'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
+        // ]);
         // DB::table('websites')->insert([
         //     'web_name' => 'KAMPUNG PANCASILA WONOSOBO',
         //     'web_description' => '"Semarak Kampung Pancasila Wonosobo penjaga Persatuan dan Kesatuan Bangsa!"',

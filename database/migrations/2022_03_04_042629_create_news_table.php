@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
             $table->date('date');
             $table->string('upload_by');
             $table->text('description', 4294967295);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -164,7 +164,7 @@
                         <div class="col-md-6">
                             <div class="info-box"> <i class="bi bi-clock"></i>
                                 <h3>Open Hours</h3>
-                                <p>Monday - Thursday (07:00AM - 04:00PM)<br>Friday (07:00AM - 11:00AM)</p>
+                                <p>{{ $data_website->open_hours }}</p>
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,7 @@ use App\Models\News;
 use App\Models\Gallery;
 use App\Models\GuestBook;
 use App\Models\Inbox;
+use App\Models\User;
 use App\Models\Website;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -75,8 +76,36 @@ class FrontController extends Controller
 
     public function setup(Request $request)
     {
-        Website::create($request->except('finish'));
-        return redirect(route('root'));
+        $validator = Validator::make(
+            $request->all(),
+            [
+                // 'web_name' => 'required',
+                'themes_front' => 'required',
+                'name' => 'required',
+                'email' => 'required',
+                'password' => 'required|min:6|confirmed',
+            ],
+            [
+                'themes_front.required' => 'Themes Must Be Chosen',
+                'name.required' => 'The Username field is required',
+                'email.required' => 'The Email field is required',
+            ]
+        );
+
+        if ($validator->fails()) {
+            // Alert::error('Failed', 'Passwords Do Not Match');
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            $data = [
+                'role_id' => '2',
+                'email' => $request->email,
+                'name' => $request->name,
+                'password' => bcrypt($request->password),
+            ];
+            Website::create($request->except('finish', 'name', 'password', 'password_confirmation'));
+            User::create($data);
+            return redirect(route('root'));
+        }
     }
 
     public function reloadCaptcha()
@@ -98,7 +127,7 @@ class FrontController extends Controller
         } else {
             GuestBook::create($request->except('_token'));
             Alert::success('Success', 'Your Data Has Been Save');
-            return redirect(url('/'));
+            return redirect()->back();
         }
     }
 

@@ -6,8 +6,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/back/assets/img/apple-icon.png') }}" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/back/assets/img/favicon.png') }}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/pemda.ico') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/pemda.ico') }}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>First Setup | Website</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -55,11 +55,21 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div class="content">
         <div class="container-fluid">
             <div class="col-sm-8 col-sm-offset-2">
                 <!--      Wizard container        -->
                 <div class="wizard-container">
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div class="card wizard-card" data-color="green" id="wizardProfile">
                         {{Form::open(['route' => 'setup-first','method' => 'post', 'files' => 'true', ''])}}
                         <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
@@ -77,6 +87,9 @@
                                 <li>
                                     <a href="#account" data-toggle="tab">Themes</a>
                                 </li>
+                                <li>
+                                    <a href="#user" data-toggle="tab">User</a>
+                                </li>
                                 <!--  <li>
                                         <a href="#address" data-toggle="tab">Address</a>
                                     </li> -->
@@ -87,26 +100,26 @@
                                 <div class="row">
                                     <div class="col-sm-5 col-sm-offset-1">
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Website Name</label>
-                                            {{Form::text('web_name', null,['class' => 'form-control'])}}
+                                            <label class="control-label">
+                                                Website Name
+                                            </label>
+                                            {{Form::text('web_name', null,[
+                                            'class' => 'form-control'
+                                            ])}}
                                         </div>
+                                        <!-- <div class="form-group label-floating is-empty has-error">
+                                            <label class="control-label">First Name
+                                                <small>(required)</small>
+                                            </label>
+                                            <input name="firstname" type="text" class="form-control error"
+                                                aria-required="true" aria-invalid="true">
+                                            <span class="material-input"></span>
+                                        </div> -->
                                     </div>
                                     <div class="col-sm-5">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Website Description</label>
                                             {{Form::text('web_description', null,['class' => 'form-control'])}}
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5 col-sm-offset-1">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Email</label>
-                                            {{Form::email('email', null,['class' => 'form-control'])}}
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Address</label>
-                                            {{Form::text('address', null,['class' => 'form-control'])}}
                                         </div>
                                     </div>
                                     <div class="col-sm-5 col-sm-offset-1">
@@ -117,8 +130,8 @@
                                     </div>
                                     <div class="col-sm-5">
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Twitter</label>
-                                            {{Form::text('twitter', null,['class' => 'form-control'])}}
+                                            <label class="control-label">Address</label>
+                                            {{Form::text('address', null,['class' => 'form-control'])}}
                                         </div>
                                     </div>
                                     <div class="col-sm-5 col-sm-offset-1">
@@ -129,8 +142,8 @@
                                     </div>
                                     <div class="col-sm-5">
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Instagram</label>
-                                            {{Form::text('instagram', null,['class' => 'form-control'])}}
+                                            <label class="control-label">Twitter</label>
+                                            {{Form::text('twitter', null,['class' => 'form-control'])}}
                                         </div>
                                     </div>
                                     <div class="col-sm-5 col-sm-offset-1">
@@ -139,23 +152,12 @@
                                             {{Form::text('youtube', null,['class' => 'form-control'])}}
                                         </div>
                                     </div>
-                                    <!-- <div class="col-sm-5 col-sm-offset-1">
-                                                                            <div class="form-group label-floating">
-                                                                                <label class="control-label">Address</label>
-                                                                                <select name="country" class="form-control">
-                                                                                    <option disabled="" selected=""></option>
-                                                                                    <option value="Afghanistan"> Afghanistan </option>
-                                                                                    <option value="Albania"> Albania </option>
-                                                                                    <option value="Algeria"> Algeria </option>
-                                                                                    <option value="American Samoa"> American Samoa </option>
-                                                                                    <option value="Andorra"> Andorra </option>
-                                                                                    <option value="Angola"> Angola </option>
-                                                                                    <option value="Anguilla"> Anguilla </option>
-                                                                                    <option value="Antarctica"> Antarctica </option>
-                                                                                    <option value="...">...</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div> -->
+                                    <div class="col-sm-5">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Instagram</label>
+                                            {{Form::text('instagram', null,['class' => 'form-control'])}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="account">
@@ -171,12 +173,41 @@
                                                 <h6>{{ $dt->name }}</h6>
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" value="{{ $dt->name }}" name="themes_front">
+                                                        {{Form::radio('themes_front', $dt->name)}}
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
                                         @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="user">
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Email</label>
+                                            {{Form::email('email', null,['class' => 'form-control'])}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Username</label>
+                                            {{Form::text('name', null,['class' => 'form-control'])}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Password</label>
+                                            {{Form::password('password', [
+                                            'class' => 'form-control'])}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Confirm Password</label>
+                                            {{Form::password('password_confirmation', ['class' => 'form-control'])}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -75,6 +75,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- End Modal -->
                                 <table id="datatables" class="table is-striped" cellspacing="0" width="100%"
                                     style="width:100%">
                                     <thead>

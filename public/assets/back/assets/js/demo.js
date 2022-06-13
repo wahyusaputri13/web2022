@@ -290,10 +290,10 @@ demo = {
     		      required: true,
     		      minlength: 3
     		    },
-    		    email: {
-    		      required: true,
-    		      minlength: 3,
-    		    }
+    		    // email: {
+    		    //   required: true,
+    		    //   minlength: 3,
+    		    // }
             },
 
             errorPlacement: function(error, element) {

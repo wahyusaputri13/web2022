@@ -22,7 +22,7 @@ class GuestBookController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = GuestBook::orderBy('date', 'desc');
+            $data = GuestBook::orderBy('created_at', 'desc');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

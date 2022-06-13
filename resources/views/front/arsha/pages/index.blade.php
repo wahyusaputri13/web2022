@@ -155,6 +155,12 @@
                             <h4>Call:</h4>
                             <p>{{ $data_website->phone }}</p>
                         </div>
+
+                        <div class="clock">
+                            <i class="bi bi-clock"></i>
+                            <h4>Open Hours:</h4>
+                            <p>{{ $data_website->open_hours }}</p>
+                        </div>
                         <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
                             $data_website->longitude }}&z=14&output=embed" frameborder="0"
                             style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
