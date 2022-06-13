@@ -10,8 +10,8 @@
                         <h3>{{ $data_website->web_name }}</h3>
                         <p>
                             {{ $data_website->address }}<br><br>
-                            <strong>Phone:</strong> {{ $data_website->phone }}<br>
-                            <strong>Email:</strong> {{ $data_website->email }}<br>
+                            <strong style="color: white;">Phone:</strong> {{ $data_website->phone }}<br>
+                            <strong style="color: white;">Email:</strong> {{ $data_website->email }}<br>
                         </p>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
 
             <div class="d-flex flex-column align-items-center align-items-lg-start">
                 <div class="copyright">
-                    &copy; 2022 <strong><span>Diskominfo Kab. Wonosobo</span></strong>
+                    &copy; 2022 <strong><span style="color: white;">Diskominfo Kab. Wonosobo</span></strong>
                 </div>
                 <div class="credits">
                     <!-- All the links in the footer should remain intact. -->
