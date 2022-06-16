@@ -62,7 +62,7 @@
                                     class="bi bi-chevron-right dropdown-indicator"></i></a>
                             <ul>
                                 @foreach($subMenus2 as $sub3)
-                                <li class="dropdown"><a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name
+                                <li><a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name
                                         }}</a></li>
                                 @endforeach
                             </ul>

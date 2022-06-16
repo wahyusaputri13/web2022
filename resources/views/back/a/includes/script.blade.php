@@ -40,7 +40,7 @@
 <script src="{{ asset('assets/back/assets/js/material-dashboard.js') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('assets/back/assets/js/demo.js') }}"></script>
-<script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script>
+<!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script> -->
 <script type="text/javascript">
     $(document).ready(function () {
         demo.checkFullPageBackgroundImage();

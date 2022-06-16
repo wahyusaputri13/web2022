@@ -67,6 +67,14 @@
         demo.initFormExtendedDatetimepickers();
     });
 </script>
+<!-- ck editor -->
+<!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace('my-editor');
+</script> -->
+<!-- end ck editor -->
+<!-- tiny mce editor -->
+<!-- <script src="{{ asset('assets/back/assets/tinymce/js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script> -->
 <script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
     referrerpolicy="origin"></script>
 <script>
@@ -108,4 +116,5 @@
 
     tinymce.init(editor_config);
 </script>
+<!-- end tiny mce editor -->
 @endpush

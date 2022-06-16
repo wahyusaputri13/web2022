@@ -102,7 +102,7 @@
                             {{ $n->title }}
                         </h3>
                         <p>
-                            {{ \Illuminate\Support\Str::limit($n->description, 75, $end='...') }}
+                            {!! \Illuminate\Support\Str::limit($n->description, 75, $end='...') !!}
                         </p>
                         <a href="{{ url('/news-detail', $n->slug) }}" class="readmore stretched-link"><span>Read
                                 More</span><i class="bi bi-arrow-right"></i></a>
