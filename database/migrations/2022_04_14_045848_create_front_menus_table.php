@@ -15,10 +15,11 @@ class CreateFrontMenusTable extends Migration
     {
         Schema::create('front_menus', function (Blueprint $table) {
             $table->id();
-            $table->string('menu_parent')->nullable('root');
+            $table->string('menu_parent')->nullable();
             $table->string('menu_name');
             $table->string('menu_url')->nullable();
             $table->text('content', 4294967295)->nullable();
+            $table->string('type')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

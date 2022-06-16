@@ -26,7 +26,7 @@
                 <!-- start looping menu & submenu -->
                 @php
                 $queryMenu = DB::table('front_menus')
-                ->where('menu_parent', '=', 'root')
+                ->where('menu_parent', '=', '1')
                 ->orderBy('id', 'ASC')
                 ->get();
                 @endphp

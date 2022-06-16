@@ -25,7 +25,7 @@ class WebHelper
     {
         //its just a dummy data object.
         $data = Website::first();
-        $menu = FrontMenu::with('submenu')->get();
+        $menu = FrontMenu::all();
         $news = News::all()->count();
         $gallery = Gallery::all()->count();
         $counter = Counter::all()->count();

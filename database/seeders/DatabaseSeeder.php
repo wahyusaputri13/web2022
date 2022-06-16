@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Component;
+use App\Models\FrontMenu;
 use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
@@ -57,6 +58,16 @@ class DatabaseSeeder extends Seeder
 
         foreach ($role as $datum) {
             Role::create($datum);
+        }
+
+        $front_menu = [
+            [
+                'menu_name' => 'Main Menu'
+            ]
+        ];
+
+        foreach ($front_menu as $ddd) {
+            FrontMenu::create($ddd);
         }
 
         // \App\Models\User::factory(10)->create();

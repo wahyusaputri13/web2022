@@ -15,12 +15,8 @@
                         'true', ''])}}
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Parent</label>
-                            <select class="cari form-control" name="menu_parent">
-                                <option value="root">Root</option>
-                            </select>
-                            <!-- {{Form::text('menu_parent', null,['class' => 'cari form-control'])}} -->
-                            <!-- {{ Form::select('menu_parent', [],null,['class'=>'cari form-control'])
-                            }} -->
+                            {{ Form::select('menu_parent', $root, null,
+                            ['class' => 'cari form-control']) }}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>

@@ -23,9 +23,8 @@
                         {{Form::open(['route' => 'frontmenu.store','method' => 'post', 'files' => 'true', ''])}}
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Parent</label>
-                            <select class="cari form-control" name="menu_parent">
-                                <option value="root" selected>Root</option>
-                            </select>
+                            {{ Form::select('menu_parent', $root, null,
+                            ['class' => 'cari form-control']) }}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>

@@ -20,7 +20,7 @@ class FrontMenuController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = FrontMenu::all();
+            $data = FrontMenu::all()->skip(1);
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -47,7 +47,8 @@ class FrontMenuController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.frontmenu.create');
+        $root = FrontMenu::pluck('menu_name', 'id');
+        return view('back.a.pages.frontmenu.create', compact('root'));
     }
 
     /**
@@ -89,7 +90,8 @@ class FrontMenuController extends Controller
     public function edit($id)
     {
         $data = FrontMenu::find($id);
-        return view('back.a.pages.frontmenu.edit', compact('data'));
+        $root = FrontMenu::pluck('menu_name', 'id');
+        return view('back.a.pages.frontmenu.edit', compact('data', 'root'));
     }
 
     /**
