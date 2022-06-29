@@ -190,13 +190,13 @@
                         </div>
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col captcha text-center">
+                                <div class="col-sm-12 col-md-12 captcha text-center mb-3">
                                     <span>{!! captcha_img() !!}</span>
                                     <button type="button" class="btn btn-danger" class="reload" id="reload">
                                         &#x21bb;
                                     </button>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-12 col-md-12 mb-3">
                                     {{Form::number('captcha', null,['class' => 'form-control',
                                     'placeholder' => 'Enter Captcha Result',
                                     'required'])}}

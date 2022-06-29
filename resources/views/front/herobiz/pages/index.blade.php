@@ -171,11 +171,11 @@
                 <div class="col-lg-8">
                     {{Form::open(['url' => 'kotakmasuk','method' => 'post', 'files' => 'true', ''])}}
                     <div class="row">
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 form-group mt-3">
                             {{Form::text('name', null,['class' => 'form-control', 'placeholder' => 'Your Name',
                             'required'])}}
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 form-group mt-3">
                             {{Form::email('email', null,['class' => 'form-control', 'placeholder' => 'Email',
                             'required'])}}
                         </div>
@@ -190,20 +190,20 @@
                     </div>
                     <div class="form-group mt-3">
                         <div class="row">
-                            <div class="col captcha text-center">
+                            <div class="col-sm-12 col-md-6 captcha text-center mb-3">
                                 <span>{!! captcha_img() !!}</span>
                                 <button type="button" class="btn btn-danger" class="reload" id="reload">
                                     &#x21bb;
                                 </button>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-12 col-md-6 mb-3">
                                 {{Form::number('captcha', null,['class' => 'form-control',
                                 'placeholder' => 'Enter Captcha Result',
                                 'required'])}}
                             </div>
                         </div>
                     </div>
-                    <div class="my-3 text-center">
+                    <div class="text-center">
                         {{Form::submit('Send Message', ['class' => 'btn', 'style' => 'background:#0ea2bd;
                         color:white;'])}}
                     </div>
