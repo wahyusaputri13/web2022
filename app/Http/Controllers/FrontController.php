@@ -82,7 +82,7 @@ class FrontController extends Controller
                 // 'web_name' => 'required',
                 'themes_front' => 'required',
                 'name' => 'required',
-                'email' => 'required',
+                'email' => 'required|unique:users',
                 'password' => 'required|min:6|confirmed',
             ],
             [
