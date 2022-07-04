@@ -3,9 +3,6 @@
 
 <head>
     @include('front.flexstart.includes.meta')
-
-    <title>{{ $data_website->web_name }}</title>
-
     @stack('before-style')
     @include('front.flexstart.includes.style')
     @stack('after-style')

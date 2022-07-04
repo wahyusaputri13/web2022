@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
 use App\Models\Component;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -22,8 +23,18 @@ class FrontController extends Controller
         $this->themes = Website::all()->first();
     }
 
+    public function seo()
+    {
+        return SEOMeta::setTitle($this->themes->web_name)
+            ->setDescription('$description')
+            ->setKeywords('$keywords')
+            ->addKeyword('$keyword')
+            ->addMeta('$meta', '$value');
+    }
+
     public function newsdetail($slug)
     {
+        $this->seo();
         $data = News::where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
         $news = News::orderBy('date', 'desc')->paginate(5);

@@ -3,9 +3,6 @@
 
 <head>
     @include('front.herobiz.includes.meta')
-
-    <title>{{ $data_website->web_name }}</title>
-
     @stack('before-style')
     @include('front.herobiz.includes.style')
     @stack('after-style')
