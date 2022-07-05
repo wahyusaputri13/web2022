@@ -174,6 +174,7 @@ return [
         /*
          * Application Service Providers...
          */
+        App\Providers\SeoServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -240,6 +241,7 @@ return [
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Seo' => App\Helpers\Seo::class,
     ],
 
 ];

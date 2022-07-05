@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\Seo;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
@@ -59,6 +60,7 @@ Route::get('/', function () {
             'continent' => $geoipInfo->continent,
             'currency' => $geoipInfo->currency,
         ];
+        Seo::seO();
         Counter::create($data);
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         $news = News::orderBy('date', 'desc')->paginate(9);

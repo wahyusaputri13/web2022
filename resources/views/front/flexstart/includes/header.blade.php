@@ -27,6 +27,7 @@
                 @php
                 $queryMenu = DB::table('front_menus')
                 ->where('menu_parent', '=', '1')
+                ->where('deleted_at', '=', null)
                 ->orderBy('id', 'ASC')
                 ->get();
                 @endphp

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Seo;
 use App\Models\GuestBook;
 use App\Models\Website;
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ class GuestBookController extends Controller
      */
     public function index(Request $request)
     {
+        Seo::seO();
         if ($request->ajax()) {
             $data = GuestBook::orderBy('created_at', 'desc');
             return DataTables::of($data)

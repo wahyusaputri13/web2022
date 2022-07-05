@@ -18,7 +18,7 @@ class CreateFrontMenusTable extends Migration
             $table->string('menu_parent')->nullable();
             $table->string('menu_name');
             $table->string('menu_url')->nullable();
-            $table->text('content', 4294967295)->nullable();
+            $table->longText('content')->nullable();
             $table->string('type')->nullable();
             $table->softDeletes();
             $table->timestamps();

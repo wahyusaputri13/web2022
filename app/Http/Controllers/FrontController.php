@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Artesaos\SEOTools\Facades\SEOMeta;
+use App\Helpers\Seo;
 use App\Models\Component;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -23,18 +23,9 @@ class FrontController extends Controller
         $this->themes = Website::all()->first();
     }
 
-    public function seo()
-    {
-        return SEOMeta::setTitle($this->themes->web_name)
-            ->setDescription('$description')
-            ->setKeywords('$keywords')
-            ->addKeyword('$keyword')
-            ->addMeta('$meta', '$value');
-    }
-
     public function newsdetail($slug)
     {
-        $this->seo();
+        Seo::seO();
         $data = News::where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
         $news = News::orderBy('date', 'desc')->paginate(5);
@@ -43,6 +34,7 @@ class FrontController extends Controller
 
     public function newsByAuthor($id)
     {
+        Seo::seO();
         $hasil = 'All post by : ' . $id;
         $data = News::where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
         $news = News::latest('date')->take(5)->get();
@@ -51,6 +43,7 @@ class FrontController extends Controller
 
     public function newsBySearch(Request $request)
     {
+        Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
         $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
@@ -60,6 +53,7 @@ class FrontController extends Controller
 
     public function newsall(Request $request)
     {
+        Seo::seO();
         $news = News::orderBy('date', 'desc')->paginate(12);
         $sidepost = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sidepost'));
@@ -67,12 +61,14 @@ class FrontController extends Controller
 
     public function galleryall(Request $request)
     {
+        Seo::seO();
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
     }
 
     public function page($id)
     {
+        Seo::seO();
         $data = DB::table('front_menus')
             ->where('menu_url', '=', $id)
             ->get();
@@ -81,6 +77,7 @@ class FrontController extends Controller
 
     public function component($id)
     {
+        Seo::seO();
         $data = Component::all();
         return view('front.' . $this->themes->themes_front . '.component.guestbook', compact('data'));
     }

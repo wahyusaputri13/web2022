@@ -1,6 +1,5 @@
 <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="{{ $data_website->web_description }}" name="description">
-<meta content="{{ $data_website->web_name }}" name="keywords">
-<meta content="{{ $data_website->web_name }}" name="title">
-<meta content="Isa Maulana Tantra" name="author">
+{!! SEO::generate() !!}
+<link rel="canonical" hreflang="id" href="{{ url('/') }}">
