@@ -12,7 +12,7 @@
                 <audio id="audio_1">
                     <source src="{{ $data_website->url_stream }}" type="audio/mpeg">
                 </audio>
-                <div data-aos="fade-up" data-aos-delay="600" class="aos-init aos-animate">
+                <div data-aos="fade-up" data-aos-delay="600" class="aos-init aos-animate d-none">
                     <div class="text-center text-lg-start">
                         <a class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center btn-playstream"
                             value="off">
@@ -24,9 +24,11 @@
             </div>
             <div class="col-lg-6 hero-img aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
-                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid">
+                <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid"
+                    alt="{{ $data_website->image_hero_name }}">
                 @else
-                <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid">
+                <img src="{{ asset('assets/front/flexstart/assets/img/hero-img.png') }}" class="img-fluid"
+                    alt="soul of java">
                 @endif
             </div>
         </div>
@@ -36,6 +38,7 @@
 <!-- End Hero -->
 <main id="main">
     <!-- ======= Recent Blog Posts Section ======= -->
+    @if($news->count() != 0)
     <section id="recent-blog-posts" class="recent-blog-posts">
 
         <div class="container" data-aos="fade-up">
@@ -55,9 +58,9 @@
                     <div class="post-box">
                         <div class="post-img">
                             @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->photo }}">
                             @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                             @endif
                         </div>
                         <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
@@ -78,7 +81,9 @@
         </div>
 
     </section>
+    @endif
     <!-- End Recent Blog Posts Section -->
+    @if($gallery->count() != 0)
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="portfolio">
 
@@ -103,9 +108,9 @@
                 <div class="col-lg-3 col-md-4 portfolio-item filter-app">
                     <div class="portfolio-wrap d-flex justify-content-center">
                         @if(file_exists(public_path('storage/'.$g->path)))
-                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid" alt="{{ $g->name }}">
                         @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                         @endif
                         <div class="portfolio-info">
                             <h4>{{ $g->description }}</h4>
@@ -134,6 +139,7 @@
 
     </section>
     <!-- End Gallery Section -->
+    @endif
     <section id="contact" class="contact">
         <div class="container aos-init aos-animate" data-aos="fade-up">
             <header class="section-header">

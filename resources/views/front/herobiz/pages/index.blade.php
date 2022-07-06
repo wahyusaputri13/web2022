@@ -11,7 +11,7 @@
         @endif
         <h2>Welcome to <span>{{ $data_website->web_name }}</span></h2>
         <p>{{ $data_website->web_description }}</p>
-        <div class="d-flex">
+        <div class="d-none">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
             <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video d-flex align-items-center"><i
                     class="bi bi-play-circle"></i><span>Watch

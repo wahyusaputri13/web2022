@@ -9,7 +9,7 @@
                 data-aos="fade-up" data-aos-delay="200">
                 <h1>{{ $data_website->web_name }}</h1>
                 <h2>{{ $data_website->web_description }}</h2>
-                <div class="d-flex justify-content-center justify-content-lg-start">
+                <div class="d-none justify-content-center justify-content-lg-start">
                     <!-- <audio id="audio_1"> -->
                     <!-- <source src="http://i.klikhost.com:8210/stream" type="audio/mpeg"> -->
                     <!-- </audio> -->

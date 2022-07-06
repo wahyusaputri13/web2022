@@ -24,7 +24,7 @@
                     @if(auth()->user()->profile_photo_path)
                     <img src="{{ asset('storage') }}/{{ auth()->user()->profile_photo_path }}" />
                     @else
-                    <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}">
+                    <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}">
                     @endif
                 </div>
                 <div class="info">

@@ -5,11 +5,6 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-5 col-md-12 footer-info">
-                    <!-- <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-                        <img src="{{ asset('assets/front/assets/img/logo.png') }}" alt="">
-                        <span>{{ $data_website->web_name }}</span>
-                    </a> -->
-
                     <div class="social-links mt-4">
                         <a href="{{ $data_website->twitter }}" target="_blank" class="twitter"><i
                                 class="bi bi-twitter"></i></a>

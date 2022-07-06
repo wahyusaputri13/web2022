@@ -3,7 +3,6 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-            <!-- <img src="{{ asset('assets/front/assets/img/logo.png') }}"> -->
             @if(Route::current()->getName() != 'root')
             <span>{{ $data_website->web_name }}</span>
             @endif
@@ -72,13 +71,6 @@
                 </li>
                 @endif
                 @endforeach
-                @if (Route::has('login'))
-                @auth
-                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                @else
-                <li><a class="getstarted scrollto" href="{{ route('login') }}">Get Started</a></li>
-                @endauth
-                @endif
                 <!-- end looping menu & submenu -->
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

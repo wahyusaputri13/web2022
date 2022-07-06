@@ -78,14 +78,7 @@
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav>
         <!-- .navbar -->
-
-        @if (Route::has('login'))
-        @auth
-        <a class="btn-getstarted scrollto" href="{{ url('/dashboard') }}">Dashboard</a>
-        @else
-        <a class="btn-getstarted scrollto" href="{{ route('login') }}">Get Started</a>
-        @endauth
-        @endif
+        <a class="scrollto"></a>
     </div>
 </header>
 <!-- End Header -->

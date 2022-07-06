@@ -75,12 +75,6 @@
                     </li>
                     @endif
                     @endforeach
-
-                    @auth
-                    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                    @else
-                    <li><a class="getstarted scrollto" href="{{ route('login') }}">Get Started</a></li>
-                    @endauth
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
