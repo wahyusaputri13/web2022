@@ -12,6 +12,7 @@ return [
         'bgImage' => false,
         'encrypt' => false,
         'fontColors' => ['#000000'],
+        'alt' => 'captcha'
     ],
     'math' => [
         'length' => 9,

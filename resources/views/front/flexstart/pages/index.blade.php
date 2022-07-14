@@ -9,7 +9,7 @@
                 <h1 data-aos="fade-up" class="aos-init aos-animate">{{ $data_website->web_name }}</h1>
                 <h2 data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">{{
                     $data_website->web_description }}</h2>
-                <audio id="audio_1">
+                <!-- <audio id="audio_1">
                     <source src="{{ $data_website->url_stream }}" type="audio/mpeg">
                 </audio>
                 <div data-aos="fade-up" data-aos-delay="600" class="aos-init aos-animate d-none">
@@ -20,7 +20,7 @@
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col-lg-6 hero-img aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
                 @if($data_website->image_hero)
