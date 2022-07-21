@@ -12,18 +12,6 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <!-- start looping component -->
-                @php
-                $component = DB::table('components')->where('active', '=', 1)->orderBy('name', 'ASC')->get();
-                @endphp
-                @foreach($component as $cp)
-                <li>
-                    <a class="nav-link scrollto" href="{{ url('guestbook') }}">
-                        {{ $cp->name }}
-                    </a>
-                </li>
-                @endforeach
-                <!-- end looping component -->
                 @php
                 $queryMenu = DB::table('front_menus')
                 ->where('menu_parent', '=', '1')
@@ -40,7 +28,8 @@
                 ->get();
                 @endphp
                 @if(count($subMenus) == 0)
-                <li><a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
+                <li>
+                    <a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
                         }}</a>
                 </li>
                 @else
@@ -56,7 +45,7 @@
                         ->get();
                         @endphp
                         @if(count($subMenus2) == 0)
-                        <li><a class="nav-link scrollto" href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name
+                        <li><a href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name
                                 }}</a></li>
                         @else
                         <li class="dropdown"><a href="#"><span>{{ $sm->menu_name }}</span> <i
@@ -74,6 +63,18 @@
                 </li>
                 @endif
                 @endforeach
+                <!-- start looping component -->
+                @php
+                $component = DB::table('components')->where('active', '=', 1)->orderBy('name', 'ASC')->get();
+                @endphp
+                @foreach($component as $cp)
+                <li>
+                    <a class="nav-link scrollto" href="{{ url('guestbook') }}">
+                        {{ $cp->name }}
+                    </a>
+                </li>
+                @endforeach
+                <!-- end looping component -->
             </ul>
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav>

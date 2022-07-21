@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
-                        <div class="text-right">
+                        <div class="text-right" hidden>
                             <a href="{{ url('component/create') }}" class="btn btn-info btn-round">Add Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
@@ -64,6 +64,7 @@
         processing: true,
         serverSide: true,
         lengthChange: false,
+        searching: false,
         language: {
             search: "_INPUT_",
             searchPlaceholder: "Search records",

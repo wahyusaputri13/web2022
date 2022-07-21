@@ -13,14 +13,8 @@
                         <i class="material-icons">event_note</i>
                     </div>
                     <div class="card-content">
-                        <!-- <h4 class="card-title">DataTables.net</h4> -->
-                        <div class="text-right">
-                            <a href="{{ url('inbox/create') }}" class="btn btn-info btn-round">Add Data <i
-                                    class="material-icons">add_circle_outline</i>
-                                <div class="ripple-container"></div>
-                            </a>
-                        </div>
-                        <div class="toolbar text-right">
+                        <h4 class="card-title" style="color: white;">a</h4>
+                        <div class="toolbar">
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
                         </div>
                         <div class="material-datatables">
