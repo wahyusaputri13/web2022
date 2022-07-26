@@ -69,6 +69,7 @@
         path_absolute: "/",
         selector: 'textarea.my-editor',
         relative_urls: false,
+        height: '500px',
         plugins: [
             "advlist autolink autosave lists link image charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars code fullscreen",
