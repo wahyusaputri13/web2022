@@ -64,7 +64,7 @@ Route::get('/', function () {
         Counter::create($data);
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         $news = News::orderBy('date', 'desc')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
+        return view('front.pesonafm.pages.index', compact('gallery', 'news'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
