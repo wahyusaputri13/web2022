@@ -8,7 +8,7 @@
     @stack('after-style')
 </head>
 
-<body>
+<body class="font-poppins">
     @include('sweetalert::alert')
     @include('front.pesonafm.includes.header')
     @yield('content')
