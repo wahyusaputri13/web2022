@@ -29,11 +29,11 @@
                 @endphp
                 @if(count($subMenus) == 0)
                 <li>
-                    <a class="nav-link scrollto" href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name
+                    <a class="nav-link scrollto" href="{{ url('page', $menu->menu_url) }}">{{ $menu->menu_name
                         }}</a>
                 </li>
                 @else
-                <li class="dropdown"><a href="#"><span>{{ $menu->menu_name }}</span> <i
+                <li class="dropdown"><a href="{{ url('page', $menu->menu_url) }}"><span>{{ $menu->menu_name }}</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         @foreach($subMenus as $sm)
@@ -48,8 +48,8 @@
                         <li><a href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name
                                 }}</a></li>
                         @else
-                        <li class="dropdown"><a href="#"><span>{{ $sm->menu_name }}</span> <i
-                                    class="bi bi-chevron-right dropdown-indicator"></i></a>
+                        <li class="dropdown"><a href="{{ url('page', $sm->menu_url) }}"><span>{{ $sm->menu_name
+                                    }}</span> <i class="bi bi-chevron-right dropdown-indicator"></i></a>
                             <ul>
 
                                 @foreach($subMenus2 as $sub3)
