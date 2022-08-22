@@ -51,7 +51,7 @@
   <div class="row row-cols-1 row-cols-md-3 g-6">
     <div class="col">
       <div class="card" style="width: 18rem;">
-        <img src="logo.jpeg" class="card-img-top" alt="gambar.jpeg">
+        <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Playing Now</h5>
           <h3 class="btn btn-info">Streaming Radio
