@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-6">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
