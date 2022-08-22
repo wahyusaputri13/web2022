@@ -56,7 +56,7 @@ class FrontController extends Controller
         Seo::seO();
         $news = News::orderBy('date', 'desc')->paginate(12);
         $sidepost = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sidepost'));
+        return view('front.pesonafm.pages.news', compact('news', 'sidepost'));
     }
 
     public function galleryall(Request $request)

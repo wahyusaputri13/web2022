@@ -89,7 +89,7 @@
           <h5 class="card-title">News</h5>
           <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid" alt="">
           <p class="card-text">This is a short card.</p>
-          <a href="newsall" class="btn btn-primary">Read More</a>
+          <a href="{{ url('newsall') }}" class="btn btn-primary">Read More</a>
         </div>
       </div>
     </div>
