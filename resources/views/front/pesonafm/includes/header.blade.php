@@ -27,6 +27,14 @@
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
           </li>
+          @if (Route::has('login'))
+					@auth
+					<li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+
+					@else
+					<li><a class="getstarted scrollto" href="{{ route('login') }}">Login</a></li>
+					@endauth
+					@endif
         </ul>
       </div>
     </div>
