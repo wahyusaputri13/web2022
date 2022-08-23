@@ -78,10 +78,11 @@
                                     @endphp
 
                                     @if(count($subMenus3) == 0)
-                                    <li><a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name }}</a></li>
+                                    <li><a href="{{ url('page', $sub3->menu_url) }}">{{
+                                            $sub3->menu_name }}</a></li>
                                     @else
                                     <li class="dropdown"><a href="#"><span>{{ $sub3->menu_name }}</span>
-                                            <i class="bi bi-chevron-down"></i></a>
+                                            <i class="bi bi-chevron-right"></i></a>
                                         <ul>
                                             @foreach($subMenus3 as $sub4)
                                             <li><a href="{{ url('page', $sub4->menu_url) }}">{{ $sub4->menu_name
