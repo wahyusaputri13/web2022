@@ -1,4 +1,4 @@
-@extends('front.layouts.app')
+@extends('front.pesonafm.layouts.app')
 @section('content')
 <main id="main">
 
