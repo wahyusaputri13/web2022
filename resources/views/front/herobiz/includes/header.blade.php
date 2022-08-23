@@ -24,6 +24,7 @@
                 $menuId = $menu->id;
                 $subMenus = DB::table('front_menus')
                 ->where('menu_parent', '=' , $menuId)
+                ->where('deleted_at', '=', null)
                 ->orderBy('menu_parent', 'ASC')
                 ->get();
                 @endphp
@@ -41,6 +42,7 @@
                         $menuId2 = $sm->id;
                         $subMenus2 = DB::table('front_menus')
                         ->where('menu_parent', '=' , $menuId2)
+                        ->where('deleted_at', '=', null)
                         ->orderBy('menu_parent', 'ASC')
                         ->get();
                         @endphp
@@ -58,6 +60,7 @@
                                 $menuId3 = $sub3->id;
                                 $subMenus3 = DB::table('front_menus')
                                 ->where('menu_parent', '=' , $menuId3)
+                                ->where('deleted_at', '=', null)
                                 ->orderBy('menu_parent', 'ASC')
                                 ->get();
                                 @endphp
