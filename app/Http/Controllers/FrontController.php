@@ -66,6 +66,11 @@ class FrontController extends Controller
         return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
     }
 
+    public function audio(Request $request)
+    {
+        return view('front.pesonafm.pages.audio');
+    }
+    
     public function page($id)
     {
         Seo::seO();

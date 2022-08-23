@@ -35,7 +35,7 @@
 <div class="background">
 
   <div class="row">
-    <div class="col mt-3" style="color: white;">
+    <div class="col mt-8" style="color: red;">
       <p class="display-1">LISTEN ONLINE</p>
     </div>
   </div>
@@ -117,7 +117,7 @@
           <h5 class="card-title">Top 10 playmusik</h5>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
             content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
+          <a href="audio" class="btn btn-primary">Read More</a>
         </div>
       </div>
     </div>
@@ -129,7 +129,7 @@
           <h5 class="card-title">Audio</h5>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
             content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
+          <a href="" class="btn btn-primary">Read More</a>
         </div>
       </div>
     </div>
@@ -146,9 +146,11 @@
       </div>
     </div>
   </div>
+  
   <div class="row">
     <div class="col mt-3" style="color: white;">
-      hit counter website
+    &copy; Copyright <strong><span><a href="https://website.wonosobokab.go.id/">Diskominfo Kab.
+                        Wonosobo.</a></span></strong>
     </div>
   </div>
 </div>
