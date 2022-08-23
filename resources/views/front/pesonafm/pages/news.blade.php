@@ -34,7 +34,7 @@
                         )->toFormattedDateString() }}</span>
                     <h3 class="post-title">{{ $n->title }}
                     </h3>
-                    <a href="{{ url('/news-detail', $n->id) }}" class="readmore stretched-link mt-auto"><span>Read
+                    <a href="{{ url('/news-detail', $n->slug) }}" class="readmore stretched-link mt-auto"><span>Read
                             More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
