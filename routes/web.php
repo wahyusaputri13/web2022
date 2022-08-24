@@ -9,6 +9,7 @@ use App\Http\Controllers\SubmenuController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\AudioController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Website;
+use App\Models\Audio;
 use App\Models\Themes;
 use PhpParser\Node\Stmt\Return_;
 

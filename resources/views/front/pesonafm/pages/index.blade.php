@@ -55,7 +55,93 @@
               </a>
             </div>
           </div>
+          <div class="group">
+            <div class="flex justify-center group-hover:scale-125">
+              <a href="https://www.tiktok.com/@pesonafm.official?_t=8V4CnyeOVX8&_r=1" target="_blank">
+                <img src="{{ asset('assets/front/pesonafm/tiktok.png') }}" class="scale-125 sm:scale-150">
+              </a>
+            </div>
+          </div>
+          <div class="group">
+            <div class="flex justify-center group-hover:scale-125">
+              <a href="https://twitter.com/pesonafmofc?s=21&t=21IEkLnxsotkWbw2ObgEQg" target="_blank">
+                <img src="{{ asset('assets/front/pesonafm/twitter.png') }}" class="scale-125 sm:scale-150">
+              </a>
+            </div>
+          </div>
+        
         </div>
+        <div class="card-body">
+          <h5 class="card-title">News</h5>
+          <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid" alt="">
+          <p class="card-text">This is a short card.</p>
+          <a href="{{ url('newsall') }}" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div
+        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+        <h1 class="text-2xl mt-2 xl:font-extrabold">
+          Chart Top 10 Music
+        </h1>
+</div> 
+
+   
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">social Media</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content.</p>
+          <a href="https://www.instagram.com/pesonafmwonosobo/" class="btn btn-primary"> <img
+              src="https://cdn-icons-png.flaticon.com/32/174/174855.png"> @pesonafmwonosobo </a>
+          <a href="https://www.facebook.com/people/Pesona-fm-wonosobo/100039381652233/" class="btn btn-primary"><img
+              src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/facebook.png"> Pesona fm wonosobo </a>
+          <a href="https://www.youtube.com/channel/UCklHzjhKAwuLFJJXPorNidQ" class="btn btn-primary"><img
+              src="https://img.icons8.com/color/40/000000/youtube-play.png"> Radio Pesona Wonosobo</a>
+          <a href="https://www.tiktok.com/@pesonafm.official?_t=8V4CnyeOVX8&_r=1" class="btn btn-primary"><img
+              src="https://cdn-icons-png.flaticon.com/32/3116/3116491.png"> @pesonafm.official</a>
+           <a href="https://twitter.com/pesonafmofc?s=21&t=21IEkLnxsotkWbw2ObgEQg" class="btn btn-primary"><img
+              src="https://cdn-icons-png.flaticon.com/32/733/733579.png"> @pesonafmofc</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Chart Top 10 Music</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <a href="audio" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card" style="width: 20rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Buaperrr (Buat Pesona Inspira)</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <a href="" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Contact</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+
       </div>
     </div>
     <div class="text-center mb-2">© 2022 DISKOMINFO</div>

@@ -17,6 +17,12 @@ Breadcrumbs::for('news', function ($trail) {
     $trail->push('News', url('news'));
 });
 
+// Dashboard > audio
+Breadcrumbs::for('audio', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('audio', url('audio'));
+});
+
 // Dashboard > Menu
 Breadcrumbs::for('menu', function ($trail) {
     $trail->parent('dashboard');
