@@ -1,180 +1,72 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-  .fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 50%;
-  }
-
-  .fa:hover {
-    opacity: 0.7;
-  }
-
-  .fa-facebook {
-    background: #3B5998;
-    color: white;
-  }
-
-  .fa-youtube {
-    background: #bb0000;
-    color: white;
-  }
-
-  .fa-instagram {
-    background: #125688;
-    color: white;
-  }
-</style>
-<div class="background">
-
-  <div class="row">
-    <div class="col mt-8" style="color: red;">
-      <p class="display-1">LISTEN ONLINE</p>
-    </div>
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-3 g-6">
-    <div class="col mt-3" style="color: white;">
-      kotak kotak
-    </div>
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Playing Now</h5>
-          <h3 class="btn btn-info">Streaming Radio
-            <div data-aos="fade-up" data-aos-delay="600">
-              <div class="text-center text-lg-start">
-                <a class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
-                  value="off">
-                  <div>
-                    <!-- <span id="previous-btn"><i class="fa fa-step-backward fa-fw" aria-hidden="true"></i></span> -->
-                    <span id="play-btn"><i class="fa fa-play fa-fw btn-playstream" aria-hidden="true"></i></span>
-                    <!-- <span id="next-btn"><i class="fa fa-step-forward fa-fw" aria-hidden="true"></i></span> -->
-                  </div>
-                </a>
-              </div>
-            </div>
-          </h3>
-        </div>
+<div class="container mx-auto py-1">
+  <div class="h-screen flex flex-col justify-between">
+    <div class="flex justify-between m-2 sm:mx-4">
+      <h1 class="text-3xl font-bold">92.1 FM Radio Pesona</h1>
+      <div class="flex space-x-4 font-medium sm:text-lg">
+        <a href="#" class="hover:scale-125">News</a>
+        <a href="#" class="hover:scale-125">Gallery</a>
+        <a href="#" class="hover:scale-125">Contact</a>
+        <a href="{{ url('login') }}" class="hover:scale-125">Login</a>
       </div>
     </div>
-
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-              <img src="galeri.jpeg" class="d-block w-100" alt="...">
+    <div class="flex flex-wrap justify-center flex-row sm:space-x-3 md:space-x-5">
+      <div
+        class="hp:mb-3 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5">
+        <h1 class="text-2xl mt-2 xl:font-extrabold">
+          Streaming Online
+        </h1>
+        <button
+          class="btn shadow-md shadow-red-500/50 bg-red-500 rounded-lg m-2 btn-playstream group-hover:scale-125 text-md w-14 p-1 ">Play</button>
+      </div>
+      <div
+        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5">
+        <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">News</h1>
+      </div>
+      <div
+        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
+        <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">Gallery</h1>
+      </div>
+      <div
+        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+        <h1 class="text-2xl mt-2 xl:font-extrabold">
+          Social Media
+        </h1>
+        <div class="flex space-x-4 m-2 sm:space-x-6">
+          <div class="group">
+            <div class="flex justify-center group-hover:scale-125">
+              <a href="https://www.instagram.com/pesonafmwonosobo" target="_blank">
+                <img src="{{ asset('assets/front/pesonafm/001-instagram.png') }}" class="scale-125 sm:scale-150">
+              </a>
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
-              <img src="logo.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="group">
+            <div class="flex justify-center group-hover:scale-125">
+              <a href="https://www.facebook.com/profile.php?id=100039381652233" target="_blank">
+                <img src="{{ asset('assets/front/pesonafm/002-facebook.png') }}" class="scale-125 sm:scale-150">
+              </a>
             </div>
-            <div class="carousel-item">
-              <img src="logo.jpeg" class="d-block w-100" alt="...">
+          </div>
+          <div class="group">
+            <div class="flex justify-center group-hover:scale-125">
+              <a href="https://www.youtube.com/channel/UCklHzjhKAwuLFJJXPorNidQ" target="_blank">
+                <img src="{{ asset('assets/front/pesonafm/003-youtube.png') }}" class="scale-125 sm:scale-150">
+              </a>
             </div>
           </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">News</h5>
-          <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid" alt="">
-          <p class="card-text">This is a short card.</p>
-          <a href="{{ url('newsall') }}" class="btn btn-primary">Read More</a>
-        </div>
       </div>
     </div>
-
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">social Media</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content.</p>
-          <a href="https://www.instagram.com/pesonafmwonosobo/" class="btn btn-primary"> <img
-              src="https://cdn-icons-png.flaticon.com/32/174/174855.png"> Instagram</a>
-          <a href="https://www.facebook.com/people/Pesona-fm-wonosobo/100039381652233/" class="btn btn-primary"><img
-              src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/facebook.png"> Facebook</a>
-          <a href="https://www.youtube.com/channel/UCklHzjhKAwuLFJJXPorNidQ" class="btn btn-primary"><img
-              src="https://img.icons8.com/color/40/000000/youtube-play.png"> Youtube</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Top 10 playmusik</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <a href="audio" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Audio</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <a href="" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Contact</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
+    <div class="text-center mb-2">© 2022 DISKOMINFO</div>
   </div>
-  
-  <div class="row">
-    <div class="col mt-3" style="color: white;">
-    &copy; Copyright <strong><span><a href="https://website.wonosobokab.go.id/">Diskominfo Kab.
-                        Wonosobo.</a></span></strong>
-    </div>
-  </div>
-</div>
 </div>
 <audio id="audio_1">
   <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">
 </audio>
-@endsection
-@push('after-style')
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  .background {
-    background-image: url("assets/front/pesonafm/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-  }
-</style>
-@endpush
 @push('after-script')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
   $('.btn-playstream').click(function () {
     currentvalue = document.getElementById('audio_1').value;
@@ -182,13 +74,14 @@
       document.getElementById('audio_1').pause();
       document.getElementById("audio_1").value = "off";
       console.log("off!");
-      $('.btn-playstream').removeClass('fa-pause');
+      $(".btn-playstream").html('Play');
     } else {
       document.getElementById('audio_1').play();
       document.getElementById("audio_1").value = "on";
       console.log("on!");
-      $('.btn-playstream').addClass('fa-pause');
+      $(".btn-playstream").html('Pause');
     }
   });
 </script>
 @endpush
+@endsection
