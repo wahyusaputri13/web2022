@@ -10,18 +10,6 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <!-- start looping component -->
-                @php
-                $component = DB::table('components')->where('active', '=', 1)->orderBy('name', 'ASC')->get();
-                @endphp
-                @foreach($component as $cp)
-                <li>
-                    <a class="nav-link scrollto" href="{{ url('guestbook') }}">
-                        {{ $cp->name }}
-                    </a>
-                </li>
-                @endforeach
-                <!-- end looping component -->
                 <!-- start looping menu & submenu -->
                 @php
                 $queryMenu = DB::table('front_menus')
@@ -96,6 +84,18 @@
                 @endif
                 @endforeach
                 <!-- end looping menu & submenu -->
+                <!-- start looping component -->
+                @php
+                $component = DB::table('components')->where('active', '=', 1)->orderBy('name', 'ASC')->get();
+                @endphp
+                @foreach($component as $cp)
+                <li>
+                    <a class="nav-link scrollto" href="{{ url($cp->slug) }}">
+                        {{ $cp->name }}
+                    </a>
+                </li>
+                @endforeach
+                <!-- end looping component -->
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

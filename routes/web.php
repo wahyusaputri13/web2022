@@ -16,6 +16,7 @@ use App\Http\Controllers\FrontMenuController;
 use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
+use App\Http\Controllers\AgendaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -88,7 +89,8 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/check', [FrontController::class, 'check']);
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);
-    Route::resource('guestbook', GuestBookController::class);
+    Route::resource('guest-book', GuestBookController::class);
+    Route::get('front-event', [FrontController::class, 'event']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
 
@@ -110,6 +112,7 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('frontmenu', FrontMenuController::class)->middleware('is_superadmin');
     Route::resource('relatedlink', RelatedLinkController::class)->middleware('is_superadmin');
     Route::resource('component', ComponentController::class)->middleware('is_superadmin');
+    Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess']);
     Route::get('getAlamat', [WebsiteController::class, 'location']);

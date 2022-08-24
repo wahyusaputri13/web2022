@@ -48,6 +48,26 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                @php
+                $Components = DB::table('Components')
+                ->where('active', '=', 1)
+                ->where('slug', '!=', 'guest-book')
+                ->get();
+                @endphp
+                @foreach($Components as $component)
+                <li class="{{ (request()->is($component->slug.'*')) ? 'active' : '' }}">
+                    <a href="{{ url($component->slug) }}">
+                        <i class="material-icons">date_range</i>
+                        <p>{{$component->name}}</p>
+                    </a>
+                </li>
+                @endforeach
+                <li class="{{ (request()->is('inbox')) ? 'active' : '' }}">
+                    <a href="{{ url('inbox') }}">
+                        <i class="material-icons">mail</i>
+                        <p>Inbox</p>
+                    </a>
+                </li>
                 <li>
                     <a data-toggle="collapse" href="#pagesExamples">
                         <i class="material-icons">archive</i>
@@ -109,12 +129,6 @@
                     </div>
                 </li>
                 @endif
-                <li class="{{ (request()->is('inbox')) ? 'active' : '' }}">
-                    <a href="{{ url('inbox') }}">
-                        <i class="material-icons">mail</i>
-                        <p>Inbox</p>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>

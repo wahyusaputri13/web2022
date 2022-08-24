@@ -10,7 +10,7 @@
                         <i class="material-icons">menu</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Stacked Form</h4>
+                        <h4 class="card-title">Form Add Menu / Submenu</h4>
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

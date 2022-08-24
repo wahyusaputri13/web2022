@@ -7,10 +7,10 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">menu</i>
+                        <i class="material-icons">person</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Stacked Form</h4>
+                        <h4 class="card-title">Form Edit User</h4>
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

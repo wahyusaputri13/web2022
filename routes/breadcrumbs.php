@@ -89,6 +89,12 @@ Breadcrumbs::for('inbox', function ($trail) {
     $trail->push('Inbox', url('inbox'));
 });
 
+// Dashboard > Agenda
+Breadcrumbs::for('agenda', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Event', url('event'));
+});
+
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');

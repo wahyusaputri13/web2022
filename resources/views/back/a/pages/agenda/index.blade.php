@@ -2,7 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        {{ Breadcrumbs::render('users') }}
+        {{ Breadcrumbs::render('agenda') }}
         @if ($message = Session::get('success'))
         <div id="elementId" hidden>{{ $message }}</div>
         @endif
@@ -10,12 +10,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">person</i>
+                        <i class="material-icons">date_range</i>
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
-                            <a href="{{ url('user/create') }}" class="btn btn-info btn-round">Add Data <i
+                            <a href="{{ url('event/create') }}" class="btn btn-info btn-round">Add Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
                             </a>
@@ -29,9 +29,9 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
+                                        <th>Date</th>
+                                        <th>Title</th>
+                                        <th>Location</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -72,11 +72,11 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'name', name: 'name' },
-            { data: 'email', name: 'email' },
-            { data: 'role.role' },
-            { data: 'action', },
+            { data: 'DT_RowIndex' },
+            { data: 'tgl', className: "text-center" },
+            { data: 'title', name: 'title', className: "text-center" },
+            { data: 'location', name: 'location', className: "text-center" },
+            { data: 'action', className: "text-center" },
         ]
 
     });

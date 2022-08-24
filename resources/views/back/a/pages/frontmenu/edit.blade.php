@@ -10,7 +10,7 @@
                         <i class="material-icons">menu</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Stacked Form</h4>
+                        <h4 class="card-title">Form Edit Menu / Submenu</h4>
                         {{Form::model($data, ['route' => ['frontmenu.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
                         <div class="form-group label-floating">

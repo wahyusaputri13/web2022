@@ -138,6 +138,28 @@ class FrontController extends Controller
             return redirect()->back();
         }
     }
+    
+    public function event(Request $request)
+    {
+        Seo::seO();
+        if ($request->ajax()) {
+            $data = GuestBook::orderBy('created_at', 'desc');
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'tgl',
+                    function ($data) {
+                        $actionBtn = '<center>' .
+                            \Carbon\Carbon::parse($data->date)->toFormattedDateString()
+                            . '</center>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['tgl'])
+                ->make(true);
+        }
+        return view('front.' . $this->themes->themes_front . '.event.index');
+    }
 
     public function inbox(Request $request)
     {

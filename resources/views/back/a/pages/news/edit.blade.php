@@ -9,7 +9,7 @@
                     <i class="material-icons">event_note</i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Stacked Form</h4>
+                    <h4 class="card-title">Form Edit News</h4>
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
                     <div class="col text-center">
