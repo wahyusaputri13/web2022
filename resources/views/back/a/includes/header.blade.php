@@ -69,6 +69,7 @@
                         </ul>
                     </div>
                 </li>
+                @if(Auth::user()->role_id == 1)
                 <li>
                     <a data-toggle="collapse" href="#pagesExamples2">
                         <i class="material-icons">public</i>
@@ -107,6 +108,7 @@
                         </ul>
                     </div>
                 </li>
+                @endif
                 <li class="{{ (request()->is('inbox')) ? 'active' : '' }}">
                     <a href="{{ url('inbox') }}">
                         <i class="material-icons">mail</i>
