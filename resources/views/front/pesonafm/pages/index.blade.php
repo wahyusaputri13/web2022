@@ -21,7 +21,7 @@
           class="btn shadow-md shadow-red-500/50 bg-red-500 rounded-lg m-2 btn-playstream group-hover:scale-125 text-md w-14 p-1 ">Play</button>
       </div>
       <div
-        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5">
+        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-zinc-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5">
         <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">News</h1>
       </div>
       <div
@@ -71,44 +71,20 @@
           </div>
         
         </div>
-        <div class="card-body">
-          <h5 class="card-title">News</h5>
-          <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid" alt="">
-          <p class="card-text">This is a short card.</p>
-          <a href="{{ url('newsall') }}" class="btn btn-primary">Read More</a>
-        </div>
+        
       </div>
 
     <div
-        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-yellow-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
         <h1 class="text-2xl mt-2 xl:font-extrabold">
           Chart Top 10 Music
         </h1>
 </div> 
-</div>
+    </div>
 
 
    
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">social Media</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content.</p>
-          <a href="https://www.instagram.com/pesonafmwonosobo/" class="btn btn-primary"> <img
-              src="https://cdn-icons-png.flaticon.com/32/174/174855.png"> @pesonafmwonosobo </a>
-          <a href="https://www.facebook.com/people/Pesona-fm-wonosobo/100039381652233/" class="btn btn-primary"><img
-              src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/facebook.png"> Pesona fm wonosobo </a>
-          <a href="https://www.youtube.com/channel/UCklHzjhKAwuLFJJXPorNidQ" class="btn btn-primary"><img
-              src="https://img.icons8.com/color/40/000000/youtube-play.png"> Radio Pesona Wonosobo</a>
-          <a href="https://www.tiktok.com/@pesonafm.official?_t=8V4CnyeOVX8&_r=1" class="btn btn-primary"><img
-              src="https://cdn-icons-png.flaticon.com/32/3116/3116491.png"> @pesonafm.official</a>
-           <a href="https://twitter.com/pesonafmofc?s=21&t=21IEkLnxsotkWbw2ObgEQg" class="btn btn-primary"><img
-              src="https://cdn-icons-png.flaticon.com/32/733/733579.png"> @pesonafmofc</a>
-        </div>
-      </div>
-    </div>
+   
     <div class="col">
       <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
