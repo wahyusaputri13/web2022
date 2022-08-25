@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Seo;
+use App\Models\Agenda;
 use App\Models\Component;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Yajra\DataTables\Facades\DataTables;
 
 class FrontController extends Controller
 {
@@ -138,12 +140,12 @@ class FrontController extends Controller
             return redirect()->back();
         }
     }
-    
+
     public function event(Request $request)
     {
         Seo::seO();
         if ($request->ajax()) {
-            $data = GuestBook::orderBy('created_at', 'desc');
+            $data = Agenda::orderBy('date', 'asc')->whereDate('date', '>=', now());
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -158,7 +160,7 @@ class FrontController extends Controller
                 ->rawColumns(['tgl'])
                 ->make(true);
         }
-        return view('front.' . $this->themes->themes_front . '.event.index');
+        return view('front.' . $this->themes->themes_front . '.component.event');
     }
 
     public function inbox(Request $request)

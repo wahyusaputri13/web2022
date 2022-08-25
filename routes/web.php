@@ -90,7 +90,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);
     Route::resource('guest-book', GuestBookController::class);
-    Route::get('front-event', [FrontController::class, 'event']);
+    Route::get('event', [FrontController::class, 'event']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
 
@@ -99,7 +99,7 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
-Route::group(['middleware' => ['auth', 'data_web']], function () {
+Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);
@@ -114,10 +114,10 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('component', ComponentController::class)->middleware('is_superadmin');
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
-    Route::post('sendCentang', [ComponentController::class, 'changeAccess']);
+    Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
     // get data for front menu parent
-    Route::get('/cari', [FrontMenuController::class, 'loadData']);
+    Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 });

@@ -27,7 +27,7 @@
                             {{Form::textarea('content', null,['class' => 'my-editor form-control'])}}
                         </div>
                         <div class="d-flex text-right">
-                            <a href="{{ url('frontmenu') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <a href="{{ route('frontmenu.index') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}

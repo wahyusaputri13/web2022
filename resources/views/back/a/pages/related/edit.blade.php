@@ -31,7 +31,7 @@
                         </div>
                         @endif
                         <div class="d-flex text-right">
-                            <a href="{{ url('relatedlink') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <a href="{{ route('relatedlink.index') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}

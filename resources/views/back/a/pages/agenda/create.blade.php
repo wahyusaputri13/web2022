@@ -24,7 +24,7 @@
                         {{Form::text('location', null,['class' => 'form-control'])}}
                     </div>
                     <div class="d-flex text-right">
-                        <a href="{{ url('event') }}" class="btn btn-default btn-fill">Cancel</a>
+                        <a href="{{ route('event.index') }}" class="btn btn-default btn-fill">Cancel</a>
                         <button type="submit" class="btn btn-success btn-fill">Insert</button>
                     </div>
                     {{Form::close()}}

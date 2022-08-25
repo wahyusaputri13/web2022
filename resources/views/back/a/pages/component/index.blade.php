@@ -91,7 +91,7 @@
         // const { pathname } = window.location;
         // const paths = pathname.split("/").filter(entry => entry !== "");
         // const lastPath = parseInt(paths[paths.length - 1]);
-        var url = "{{ url('sendCentang') }}";
+        var url = "{{ route('centang') }}";
 
         $.ajax({
             url: url,
