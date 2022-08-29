@@ -95,6 +95,11 @@ Breadcrumbs::for('agenda', function ($trail) {
     $trail->push('Event', url('event'));
 });
 
+// Dashboard > Complaint
+Breadcrumbs::for('complaint', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Public Complaints', url('complaint'));
+});
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');

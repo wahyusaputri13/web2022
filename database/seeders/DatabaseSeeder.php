@@ -141,14 +141,19 @@ class DatabaseSeeder extends Seeder
 
         $component = [
             [
+                'name' => 'Event',
+                'active' => 0,
+                'slug' => Str::slug('Event', '-'),
+            ],
+            [
                 'name' => 'Guest Book',
                 'active' => 0,
                 'slug' => Str::slug('Guest Book', '-'),
             ],
             [
-                'name' => 'Event',
+                'name' => 'Public Complaints',
                 'active' => 0,
-                'slug' => Str::slug('Event', '-'),
+                'slug' => Str::slug('Complaints', '-'),
             ]
         ];
 

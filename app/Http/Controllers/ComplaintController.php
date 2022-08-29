@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agenda;
+use App\Models\Complaint;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class AgendaController extends Controller
+class ComplaintController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class AgendaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Agenda::orderBy('date', 'DESC')->get();
+            $data = Complaint::orderBy('date', 'DESC')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -24,8 +24,9 @@ class AgendaController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('event.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('event.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                        <a href="' . route('complaint.show', $data->id) . ' " class="btn btn-simple btn-success btn-icon"><i class="material-icons">info</i> Show</a>
+                        <a href="' . route('complaint.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
+                        <a href="' . route('complaint.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
                     </div>';
                         return $actionBtn;
                     }
@@ -42,7 +43,7 @@ class AgendaController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
-        return view('back.a.pages.agenda.index');
+        return view('back.a.pages.complaint.index');
     }
 
     /**
@@ -52,7 +53,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.agenda.create');
+        return view('back.a.pages.complaint.create');
     }
 
     /**
@@ -64,22 +65,23 @@ class AgendaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required',
             'date' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
             'location' => 'required',
+            'description' => 'required',
         ]);
-        Agenda::create($validated);
-        return redirect(route('event.index'))->with(['success' => 'Data added successfully!']);
+        Complaint::create($validated + ['user_id' => auth()->user()->id]);
+        return redirect(route('complaint.index'))->with(['success' => 'Data added successfully!']);
     }
-
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Agenda  $agenda
+     * @param  \App\Models\Complaint  $complaint
      * @return \Illuminate\Http\Response
      */
-    public function show(Agenda $agenda)
+    public function show(Complaint $complaint)
     {
         //
     }
@@ -87,42 +89,35 @@ class AgendaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Agenda  $agenda
+     * @param  \App\Models\Complaint  $complaint
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agenda $agenda, $id)
+    public function edit(Complaint $complaint)
     {
-        $data = Agenda::find($id);
-        return view('back.a.pages.agenda.edit', compact('data'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Agenda  $agenda
+     * @param  \App\Models\Complaint  $complaint
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Complaint $complaint)
     {
-        $validated = $request->validate([
-            'title' => 'required',
-            'date' => 'required',
-            'location' => 'required',
-        ]);
-        Agenda::find($id)->update($validated);
-        return redirect(route('event.index'))->with(['success' => 'Data has been successfully changed!']);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Agenda  $agenda
+     * @param  \App\Models\Complaint  $complaint
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $data = Agenda::find($id);
+        $data = Complaint::find($id);
         return $data->delete();
     }
 }

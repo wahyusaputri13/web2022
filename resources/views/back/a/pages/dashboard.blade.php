@@ -40,7 +40,9 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="green">
-                        <i class="material-icons">event_note</i>
+                        <i class="material-icons">
+                            visibility
+                        </i>
                     </div>
                     <div class="card-content">
                         <p class="category">Total Visitors</p>

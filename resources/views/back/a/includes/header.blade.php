@@ -49,19 +49,28 @@
                     </a>
                 </li>
                 @php
-                $event = DB::table('Components')
+                $components = DB::table('components')
                 ->where('active', '=', 1)
-                ->where('name', '=', 'event')
-                ->count();
+                ->get();
                 @endphp
-                @if($event != 0)
+                @foreach($components as $component)
+                @if($component->id == 1)
                 <li class="{{ (Str::contains(Request::url(), 'event')) ? 'active' : '' }}">
                     <a href="{{ route('event.index') }}">
                         <i class="material-icons">date_range</i>
-                        <p>Event</p>
+                        <p>{{ $component->name }}</p>
                     </a>
                 </li>
                 @endif
+                @if($component->id == 3)
+                <li class="{{ (Str::contains(Request::url(), 'complaint')) ? 'active' : '' }}">
+                    <a href="{{ route('complaint.index') }}">
+                        <i class="material-icons">assignment</i>
+                        <p>{{ $component->name }}</p>
+                    </a>
+                </li>
+                @endif
+                @endforeach
                 <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>
