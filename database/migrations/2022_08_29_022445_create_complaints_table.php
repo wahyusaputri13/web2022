@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class CreateComplaintsTable extends Migration
 {
@@ -20,6 +21,8 @@ class CreateComplaintsTable extends Migration
             $table->string('phone');
             $table->longText('location');
             $table->longText('description');
+            $table->string('status')->default('open');
+            $table->string('assigned_to')->nullable();
             $table->string('attachment')->nullable();
             $table->integer('user_id');
             $table->softDeletes();

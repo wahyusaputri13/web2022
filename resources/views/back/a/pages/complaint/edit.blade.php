@@ -9,8 +9,9 @@
                     <i class="material-icons">date_range</i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Form Add Public Complaints</h4>
-                    {{Form::open(['route' => 'complaint.store','method' => 'post', 'files' => 'true', ''])}}
+                    <h4 class="card-title">Form Edit Public Complaints</h4>
+                    {{Form::model($data, ['route' => ['complaint.update', $data->id],'method' => 'put', 'files' =>
+                    'true', ''])}}
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group">

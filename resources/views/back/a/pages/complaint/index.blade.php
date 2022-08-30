@@ -32,6 +32,7 @@
                                         <th>Date</th>
                                         <th>Location</th>
                                         <th>Report Description</th>
+                                        <th>Status</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -76,6 +77,7 @@
             { data: 'tgl', className: "text-center" },
             { data: 'location', name: 'location', className: "text-center" },
             { data: 'description', name: 'description', className: "text-center" },
+            { data: 'statuz', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Complaint;
+use App\Models\LogComplaint;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -40,7 +41,18 @@ class ComplaintController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->addColumn(
+                    'statuz',
+                    function ($data) {
+                        if ($data->status == 'open') {
+                            $actionBtn = '<span class="tag label label-success">OPEN</span>';
+                        } else {
+                            $actionBtn = '<span class="tag label label-danger">CLOSE</span>';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'tgl', 'statuz'])
                 ->make(true);
         }
         return view('back.a.pages.complaint.index');
@@ -71,7 +83,11 @@ class ComplaintController extends Controller
             'location' => 'required',
             'description' => 'required',
         ]);
-        Complaint::create($validated + ['user_id' => auth()->user()->id]);
+        $id = Complaint::create($validated + ['user_id' => auth()->user()->id])->id;
+        LogComplaint::create([
+            'complaint_id' => $id,
+            'message' => 'Report Created'
+        ]);
         return redirect(route('complaint.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -81,9 +97,10 @@ class ComplaintController extends Controller
      * @param  \App\Models\Complaint  $complaint
      * @return \Illuminate\Http\Response
      */
-    public function show(Complaint $complaint)
+    public function show($id)
     {
-        //
+        $data = LogComplaint::where('complaint_id', $id)->with('report.report2')->get();
+        return view('back.a.pages.complaint.show', compact('data'));
     }
 
     /**
@@ -92,9 +109,10 @@ class ComplaintController extends Controller
      * @param  \App\Models\Complaint  $complaint
      * @return \Illuminate\Http\Response
      */
-    public function edit(Complaint $complaint)
+    public function edit($id)
     {
-        //
+        $data = Complaint::find($id);
+        return view('back.a.pages.complaint.edit', compact('data'));
     }
 
     /**
@@ -104,7 +122,7 @@ class ComplaintController extends Controller
      * @param  \App\Models\Complaint  $complaint
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Complaint $complaint)
+    public function update(Request $request, $id)
     {
         //
     }

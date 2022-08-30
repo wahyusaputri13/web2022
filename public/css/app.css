@@ -1659,9 +1659,6 @@ select {
 .p-1 {
   padding: 0.25rem;
 }
-.p-0 {
-  padding: 0px;
-}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1717,10 +1714,6 @@ select {
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-}
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
 }
 .pt-6 {
   padding-top: 1.5rem;
