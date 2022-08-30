@@ -116,6 +116,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
     Route::resource('complaint', ComplaintController::class);
+    Route::put('upstate', [ComplaintController::class, 'updatestatus'])->name('upstate');
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);

@@ -16,11 +16,11 @@ class CreateComplaintsTable extends Migration
     {
         Schema::create('complaints', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->string('name');
-            $table->string('phone');
-            $table->longText('location');
-            $table->longText('description');
+            $table->date('date')->nullable();
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->longText('location')->nullable();
+            $table->longText('description')->nullable();
             $table->string('status')->default('open');
             $table->string('assigned_to')->nullable();
             $table->string('attachment')->nullable();

@@ -15,8 +15,8 @@ class CreateLogComplaintsTable extends Migration
     {
         Schema::create('log_complaints', function (Blueprint $table) {
             $table->id();
-            $table->string('complaint_id');
-            $table->string('message');
+            $table->string('complaint_id')->nullable();
+            $table->string('message')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

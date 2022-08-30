@@ -25,8 +25,8 @@ class ComplaintController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('complaint.show', $data->id) . ' " class="btn btn-simple btn-success btn-icon"><i class="material-icons">info</i> Show</a>
-                        <a href="' . route('complaint.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
+                        <a href="' . route('complaint.show', $data->id) . ' " class="btn btn-simple btn-success btn-icon"><i class="material-icons">info</i> Timeline</a>
+                        <a href="' . route('complaint.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Show</a>
                         <a href="' . route('complaint.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
                     </div>';
                         return $actionBtn;
@@ -45,9 +45,11 @@ class ComplaintController extends Controller
                     'statuz',
                     function ($data) {
                         if ($data->status == 'open') {
-                            $actionBtn = '<span class="tag label label-success">OPEN</span>';
-                        } else {
-                            $actionBtn = '<span class="tag label label-danger">CLOSE</span>';
+                            $actionBtn = '<span class="tag label label-success">Open</span>';
+                        } else if($data->status == 'Being Processed') {
+                            $actionBtn = '<span class="tag label label-info">Processed</span>';
+                        }else{
+                            $actionBtn = '<span class="tag label label-danger">Close</span>';
                         }
                         return $actionBtn;
                     }
@@ -77,13 +79,18 @@ class ComplaintController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+             'photo' => 'required|image|max:12048',
             'date' => 'required',
             'name' => 'required',
             'phone' => 'required',
             'location' => 'required',
             'description' => 'required',
         ]);
-        $id = Complaint::create($validated + ['user_id' => auth()->user()->id])->id;
+         $path = $request->file('photo')->store('public_complaints');
+        $id = Complaint::create(request()->except('_method', '_token', 'photo') + [
+            'user_id' => auth()->user()->id,
+            'attachment' => $path
+            ])->id;
         LogComplaint::create([
             'complaint_id' => $id,
             'message' => 'Report Created'
@@ -125,6 +132,16 @@ class ComplaintController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+   
+    public function updatestatus(Request $request)
+    {
+        Complaint::where('id', $request->zzz)->update(['status' => 'Being Processed']);
+        LogComplaint::create([
+            'complaint_id' => $request->zzz,
+            'message' => 'Being Processed'
+        ]);
+        return back();
     }
 
     /**
