@@ -3,34 +3,29 @@
 <div class="container mx-auto py-1">
   <div class="h-screen flex flex-col justify-between">
     <div class="flex justify-between m-2 sm:mx-4">
-      <h1 class="text-3xl font-bold">92.1 FM Radio Pesona</h1>
+      <h1 class="text-3xl font-bold text-red-500">92.1 FM Radio Pesona</h1>
       <div class="flex space-x-4 font-medium sm:text-lg">
-        <a href="#" class="hover:scale-125">News</a>
-        <a href="#" class="hover:scale-125">Gallery</a>
-        <a href="#" class="hover:scale-125">Contact</a>
-        <a href="{{ url('login') }}" class="hover:scale-125">Login</a>
+        <a href="#" class="hover:scale-125 text-red-500">News</a>
+        <a href="#" class="hover:scale-125 text-red-500">Gallery</a>
+        <a href="#" class="hover:scale-125 text-red-500">Contact</a>
+        <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
       </div>
     </div>
     <div class="flex flex-wrap justify-center flex-row sm:space-x-3 md:space-x-5">
-      <div
-        class="hp:mb-3 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5">
+      <div class="hp:mb-3 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5">
         <h1 class="text-2xl mt-2 xl:font-extrabold">
           Streaming Online
         </h1>
-        <button
-          class="btn shadow-md shadow-red-500/50 bg-red-500 rounded-lg m-2 btn-playstream group-hover:scale-125 text-md w-14 p-1 ">Play</button>
+        <button class="btn shadow-md shadow-red-500/50 bg-red-500 rounded-lg m-2 btn-playstream group-hover:scale-125 text-md w-14 p-1 ">Play</button>
       </div>
-      <div
-        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-zinc-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5">
+      <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5">
         <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">News</h1>
       </div>
-      <div
-        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
+      <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
         <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">Gallery</h1>
       </div>
-      <div
-        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
-        <h1 class="text-2xl mt-2 xl:font-extrabold">
+      <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+        <h1 class="text-2xl mt-2 xl:font-extrabold ">
           Social Media
         </h1>
         <div class="flex space-x-4 m-2 sm:space-x-6">
@@ -69,58 +64,28 @@
               </a>
             </div>
           </div>
-        
+
         </div>
-        
+
       </div>
 
-    <div
-        class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+      <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
         <h1 class="text-2xl mt-2 xl:font-extrabold">
           Chart Top 10 Music
         </h1>
-</div> 
-    </div>
-
-
-   
-   
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Chart Top 10 Music</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <a href="audio" class="btn btn-primary">Read More</a>
-        </div>
+      </div>
+      <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+        <h1 class="text-2xl mt-2 xl:font-extrabold">
+          Buaperrr (Buat Pesona Inspira)
+        </h1>
+      </div>
+      <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+        <h1 class="text-2xl mt-2 xl:font-extrabold">
+          Contact
+        </h1>
       </div>
     </div>
 
-    <div class="col">
-      <div class="card" style="width: 20rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Buaperrr (Buat Pesona Inspira)</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <a href="" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Contact</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-
-      </div>
-    </div>
     <div class="text-center mb-2">© 2022 DISKOMINFO</div>
   </div>
 </div>
@@ -128,10 +93,9 @@
   <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">
 </audio>
 @push('after-script')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
-  $('.btn-playstream').click(function () {
+  $('.btn-playstream').click(function() {
     currentvalue = document.getElementById('audio_1').value;
     if (currentvalue == "on") {
       document.getElementById('audio_1').pause();
