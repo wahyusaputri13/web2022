@@ -119,6 +119,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::put('upstate', [ComplaintController::class, 'updatestatus'])->name('upstate');
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
+    Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
     // get data for front menu parent

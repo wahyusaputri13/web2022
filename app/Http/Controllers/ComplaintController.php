@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bidang;
 use App\Models\Complaint;
 use App\Models\LogComplaint;
+use App\Models\Tusi;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -46,9 +48,9 @@ class ComplaintController extends Controller
                     function ($data) {
                         if ($data->status == 'open') {
                             $actionBtn = '<span class="tag label label-success">Open</span>';
-                        } else if($data->status == 'Being Processed') {
+                        } else if ($data->status == 'Being Processed') {
                             $actionBtn = '<span class="tag label label-info">Processed</span>';
-                        }else{
+                        } else {
                             $actionBtn = '<span class="tag label label-danger">Close</span>';
                         }
                         return $actionBtn;
@@ -79,18 +81,18 @@ class ComplaintController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-             'photo' => 'required|image|max:12048',
+            'photo' => 'required|image|max:12048',
             'date' => 'required',
             'name' => 'required',
             'phone' => 'required',
             'location' => 'required',
             'description' => 'required',
         ]);
-         $path = $request->file('photo')->store('public_complaints');
+        $path = $request->file('photo')->store('public_complaints');
         $id = Complaint::create(request()->except('_method', '_token', 'photo') + [
             'user_id' => auth()->user()->id,
             'attachment' => $path
-            ])->id;
+        ])->id;
         LogComplaint::create([
             'complaint_id' => $id,
             'message' => 'Report Created'
@@ -119,7 +121,8 @@ class ComplaintController extends Controller
     public function edit($id)
     {
         $data = Complaint::find($id);
-        return view('back.a.pages.complaint.edit', compact('data'));
+        $languages  = Bidang::all();
+        return view('back.a.pages.complaint.edit', compact('data', 'languages'));
     }
 
     /**
@@ -133,7 +136,7 @@ class ComplaintController extends Controller
     {
         //
     }
-   
+
     public function updatestatus(Request $request)
     {
         Complaint::where('id', $request->zzz)->update(['status' => 'Being Processed']);
@@ -154,5 +157,29 @@ class ComplaintController extends Controller
     {
         $data = Complaint::find($id);
         return $data->delete();
+    }
+
+    public function getFrameworks(Request $request)
+    {
+        if ($request->languageId) {
+            $frameworks = Tusi::where('bidang_id', $request->languageId)->get();
+            // $frameworks = [
+            //     [
+            //         'id' => '1',
+            //         'name' => 'maulana',
+            //         'bidang_id' => '1',
+            //     ],
+            //     [
+            //         'id' => '2',
+            //         'name' => 'tantra',
+            //         'bidang_id' => '2',
+            //     ],
+            // ];
+            if ($frameworks) {
+                return response()->json(['status' => 'success', 'data' => $frameworks], 200);
+            }
+            return response()->json(['status' => 'failed', 'message' => 'No frameworks found'], 404);
+        }
+        return response()->json(['status' => 'failed', 'message' => 'Please select language'], 500);
     }
 }
