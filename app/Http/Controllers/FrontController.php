@@ -107,7 +107,7 @@ class FrontController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
             $data = [
-                'role_id' => '2',
+                'role_id' => '1',
                 'email' => $request->email,
                 'name' => $request->name,
                 'password' => bcrypt($request->password),

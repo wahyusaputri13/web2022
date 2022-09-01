@@ -31,7 +31,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Role</th>
+                                        <th>Phone</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -75,7 +75,7 @@
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email' },
-            { data: 'role.role' },
+            { data: 'user_phone', name: 'user_phone' },
             { data: 'action', },
         ]
 

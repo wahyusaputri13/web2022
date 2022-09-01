@@ -23,6 +23,8 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->integer('role_id')->default(0);
+            $table->integer('bidang_id')->nullable();
+            $table->string('user_phone')->nullable();
             $table->timestamps();
         });
     }

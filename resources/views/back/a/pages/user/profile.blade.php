@@ -66,6 +66,30 @@
                                     {{Form::text('email', null,['class' => 'form-control'])}}
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Phone Number</label>
+                                    {{Form::text('user_phone', null,['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Old Password</label>
+                                    {{Form::password('current_password',['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">New Password</label>
+                                    {{Form::password('new_password',['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">New Confirm Password</label>
+                                    {{Form::password('new_confirm_password',['class' => 'form-control'])}}
+                                </div>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-success pull-right">Update Profile</button>
                         <div class="clearfix"></div>

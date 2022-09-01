@@ -22,25 +22,36 @@
                         @endif
                         {{Form::model($data, ['route' => ['user.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
+                        @if($data->role_id == 2)
                         <div>
-                            {{Form::select('role_id', $role, null,['class' => 'form-control selectpicker', 'data-style'
-                            => 'btn btn-success btn-round', 'title' => 'Choose Role'])}}
+                            {{Form::select('bidang_id', $role, null,['class' => 'form-control selectpicker',
+                            'data-style'
+                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
                         </div>
+                        @endif
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Phone Number</label>
+                            {{Form::text('user_phone', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Email</label>
                             {{Form::email('email', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Password</label>
-                            {{Form::password('password',['class' => 'form-control'])}}
+                            <label class="control-label">Old Password</label>
+                            {{Form::password('current_password',['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Confirm Password</label>
-                            {{Form::password('password_confirmation',['class' => 'form-control'])}}
+                            <label class="control-label">New Password</label>
+                            {{Form::password('new_password',['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">New Confirm Password</label>
+                            {{Form::password('new_confirm_password',['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">
                             <a href="{{ route('user.index') }}" class="btn btn-default btn-fill">Cancel</a>

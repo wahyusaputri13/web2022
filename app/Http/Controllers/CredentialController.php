@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Storage;
 
 class CredentialController extends Controller
@@ -71,26 +73,38 @@ class CredentialController extends Controller
     public function update(Request $request)
     {
         if ($request->hasFile(['profile_photo_path'])) {
-            $validated = $request->validate([
+            $request->validate([
                 'profile_photo_path' => 'required|image|max:12048',
                 'name' => 'required',
                 'email' => 'required',
             ]);
             $gambar = User::find(auth()->user()->id);
             $gambar->updateProfilePhoto($request['profile_photo_path']);
-            $data = [
-                'name' => $request->name,
-                'email' => $request->email,
-            ];
+            if ($request->filled('current_password') || $request->filled('new_password') || $request->filled('new_confirm_password')) {
+                $request->validate([
+                    'current_password' => ['required', new MatchOldPassword],
+                    'new_password' => ['required', 'min:8'],
+                    'new_confirm_password' => ['same:new_password'],
+                ]);
+                $data = ($request->except('_method', '_token', 'current_password', 'new_password', 'new_confirm_password') + ['password' => Hash::make($request->new_password)]);
+            } else {
+                $data = ($request->except('_method', '_token', 'current_password', 'new_password', 'new_confirm_password'));
+            }
         } else {
-            $validated = $request->validate([
+            $request->validate([
                 'name' => 'required',
                 'email' => 'required',
             ]);
-            $data = [
-                'name' => $request->name,
-                'email' => $request->email,
-            ];
+            if ($request->filled('current_password') || $request->filled('new_password') || $request->filled('new_confirm_password')) {
+                $request->validate([
+                    'current_password' => ['required', new MatchOldPassword],
+                    'new_password' => ['required', 'min:8'],
+                    'new_confirm_password' => ['same:new_password'],
+                ]);
+                $data = ($request->except('_method', '_token', 'current_password', 'new_password', 'new_confirm_password') + ['password' => Hash::make($request->new_password)]);
+            } else {
+                $data = ($request->except('_method', '_token', 'current_password', 'new_password', 'new_confirm_password'));
+            }
         }
         User::find(auth()->user()->id)->update($data);
         return redirect()->back()->with(['success' => 'Data has been successfully changed!']);

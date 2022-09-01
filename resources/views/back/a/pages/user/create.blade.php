@@ -22,12 +22,16 @@
                         @endif
                         {{Form::open(['route' => 'user.store','method' => 'post', 'files' => 'true', ''])}}
                         <div>
-                            {{Form::select('role_id', $role, null,['class' => 'form-control selectpicker', 'data-style'
-                            => 'btn btn-success btn-round', 'title' => 'Choose Role'])}}
+                            {{Form::select('bidang_id', $role, null,['class' => 'form-control selectpicker', 'data-style'
+                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Phone Number</label>
+                            {{Form::text('user_phone', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Email</label>
