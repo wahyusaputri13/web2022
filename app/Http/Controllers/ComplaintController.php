@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bidang;
 use App\Models\Complaint;
 use App\Models\LogComplaint;
+use App\Models\User;
 use App\Models\Tusi;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -95,6 +96,7 @@ class ComplaintController extends Controller
         ])->id;
         LogComplaint::create([
             'complaint_id' => $id,
+            'user_id' => auth()->user()->id,
             'message' => 'Report Created'
         ]);
         return redirect(route('complaint.index'))->with(['success' => 'Data added successfully!']);
@@ -122,7 +124,8 @@ class ComplaintController extends Controller
     {
         $data = Complaint::find($id);
         $languages  = Bidang::all();
-        return view('back.a.pages.complaint.edit', compact('data', 'languages'));
+        $user  = User::where('id', '>', '2')->get();
+        return view('back.a.pages.complaint.edit', compact('data', 'languages', 'user'));
     }
 
     /**
@@ -134,7 +137,28 @@ class ComplaintController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $validated = $request->validate([
+            // 'photo' => 'required|image|max:12048',
+            'date' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+        ]);
+        // $path = $request->file('photo')->store('public_complaints');
+        // $id = Complaint::create(request()->except('_method', '_token', 'photo') + [
+        //     'attachment' => $path
+        // ])->id;
+        Complaint::where('id', $request->zzz)->update([
+            'status' => 'Being Processed',
+            'assigned_to' => $request->assigned_to
+        ]);
+        LogComplaint::create([
+            'complaint_id' => $request->zzz,
+                       'user_id' => auth()->user()->id,
+            'message' => 'Being Processed'
+        ]);
+        return redirect(route('complaint.index'))->with(['success' => 'Data update successfully!']);
     }
 
     public function updatestatus(Request $request)
@@ -142,7 +166,7 @@ class ComplaintController extends Controller
         Complaint::where('id', $request->zzz)->update(['status' => 'Being Processed']);
         LogComplaint::create([
             'complaint_id' => $request->zzz,
-            'message' => 'Being Processed'
+            'message' => 'Being Processedsdf adgasfdgasdfgas asd gasdgasd gasdg asdg '
         ]);
         return back();
     }

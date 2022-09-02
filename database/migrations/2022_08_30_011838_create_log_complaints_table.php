@@ -17,6 +17,7 @@ class CreateLogComplaintsTable extends Migration
             $table->id();
             $table->string('complaint_id')->nullable();
             $table->string('message')->nullable();
+            $table->string('user_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

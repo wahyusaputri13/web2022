@@ -11,14 +11,15 @@
                         @if($loop->index %2 == 0)
                         <li class="timeline-inverted">
                             <div class="timeline-badge danger">
-                                <i class="material-icons">card_travel</i>
+                                <i class="material-icons">radio_button_unchecked</i>
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <span class="label label-danger">{{ $d->message }}</span>
+                                    <span class="label label-success">{{ $d->message }}</span>
                                 </div>
                                 <div class="timeline-body">
-                                    <table border="1">
+                                    @if($loop->first)
+                                    <table class="table">
                                         <tr>
                                             <td>Reporter's Name</td>
                                             <td> : </td>
@@ -32,7 +33,8 @@
                                         <tr>
                                             <td>Date</td>
                                             <td> : </td>
-                                            <td>{{ $d->report->date }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($d->report->date)->toFormattedDateString() }}
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Location</td>
@@ -45,35 +47,39 @@
                                             <td>{{ $d->report->description }}</td>
                                         </tr>
                                     </table>
+                                    @endif
+                                    file report
                                 </div>
                                 <h6>
-                                    <i class="ti-time"></i> {{ $d->created_at->diffForHumans() }} by {{
-                                    $d->report->report2->name }}
+                                    <i class="ti-time"></i> {{ $d->created_at->diffForHumans() }} by
+                                    @php
+                                    $user = DB::table('users')->find($d->user_id);
+                                    @endphp
+                                    {{ $user->name }}
                                 </h6>
-                                <!-- @if($data->count() <= 1) 
-                                    {{Form::model($data, ['route' => ['upstate'],'method' => 'put', 'files' =>
-                                    'true', ''])}}
-                                    {{Form::text('zzz', $d->report->id, ['hidden'])}}
-                                    <button type="submit" class="btn btn-success btn-fill">follow-up</button>
-                                    {{Form::close()}}
-                                    @endif -->
                             </div>
                         </li>
                         @else
                         <li>
-                            <div class="timeline-badge success">
-                                <i class="material-icons">extension</i>
+                            <div class="timeline-badge danger">
+                                <i class="material-icons">radio_button_unchecked</i>
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <span class="label label-success">{{ $d->message }}</span>
                                 </div>
                                 <div class="timeline-body">
-                                    <p></p>
+                                    @php
+                                    $user = DB::table('users')->find($d->report->assigned_to);
+                                    @endphp
+                                    Being handled by {{ $user->name }}
                                 </div>
                                 <h6>
-                                    <i class="ti-time"></i> {{ $d->created_at->diffForHumans() }} by {{
-                                    $d->report->report2->name }}
+                                    <i class="ti-time"></i> {{ $d->created_at->diffForHumans() }} by
+                                    @php
+                                    $user = DB::table('users')->find($d->user_id);
+                                    @endphp
+                                    {{ $user->name }}
                                 </h6>
                             </div>
                         </li>

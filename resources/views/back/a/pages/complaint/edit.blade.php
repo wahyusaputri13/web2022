@@ -130,40 +130,17 @@
                                 <div class="tab-pane" id="address">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <h4 class="info-text"> Are you living in a nice area? </h4>
+                                            <!-- <h4 class="info-text"> Are you living in a nice area? </h4> -->
                                         </div>
-                                        <div class="col-sm-7 col-sm-offset-1">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Street Name</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Street No.</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">City</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Country</label>
-                                                <select name="country" class="form-control">
-                                                    <option disabled="" selected=""></option>
-                                                    <option value="Afghanistan"> Afghanistan </option>
-                                                    <option value="Albania"> Albania </option>
-                                                    <option value="Algeria"> Algeria </option>
-                                                    <option value="American Samoa"> American Samoa </option>
-                                                    <option value="Andorra"> Andorra </option>
-                                                    <option value="Angola"> Angola </option>
-                                                    <option value="Anguilla"> Anguilla </option>
-                                                    <option value="Antarctica"> Antarctica </option>
-                                                    <option value="...">...</option>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Personnel</label>
+                                                <select name="assigned_to" id="assigned_to" class="form-control">
+                                                    <option disabled="" selected=""> Select Person </option>
+                                                    @forelse ($user as $u)
+                                                    <option value="{{ $u->id }}">{{ $u->name }} </option>
+                                                    @empty
+                                                    @endforelse
                                                 </select>
                                             </div>
                                         </div>
@@ -173,10 +150,10 @@
                             <div class="wizard-footer">
                                 <div class="pull-right">
                                     <a href="{{ route('complaint.index') }}" class="btn btn-fill btn-fill">Cancel</a>
-                                    <!-- <button type="submit" class="btn btn-success btn-fill">Update</button> -->
                                     <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next'
                                         value='Next' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-rose btn-wd' name='finish'
+                                        {{Form::text('zzz', $data->id, ['hidden'])}}
+                                    <input type='submit' class='btn btn-finish btn-fill btn-rose btn-wd' name='finish'
                                         value='Finish' />
                                 </div>
                                 <div class="pull-left">
