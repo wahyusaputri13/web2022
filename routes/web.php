@@ -116,10 +116,11 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
     Route::resource('complaint', ComplaintController::class);
-    Route::put('upstate', [ComplaintController::class, 'updatestatus'])->name('upstate');
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
+    Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
+    Route::get('report/{id}', [ComplaintController::class, 'report']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
     // get data for front menu parent

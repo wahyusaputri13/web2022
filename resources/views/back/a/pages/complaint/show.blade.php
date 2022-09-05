@@ -47,8 +47,17 @@
                                             <td>{{ $d->report->description }}</td>
                                         </tr>
                                     </table>
+                                    @else
+                                    <table class="table text-center text-uppercase" border="1">
+                                        <tr>
+                                            <td>
+                                                <a href="{{ url('admin/report') }}/{{ $d->id }}" target="_blank">
+                                                    file report
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
                                     @endif
-                                    file report
                                 </div>
                                 <h6>
                                     <i class="ti-time"></i> {{ $d->created_at->diffForHumans() }} by

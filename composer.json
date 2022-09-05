@@ -22,6 +22,7 @@
         "laravelcollective/html": "^6.3",
         "livewire/livewire": "^2.5",
         "mews/captcha": "^3.2",
+        "novay/laravel-word-template": "^1.1",
         "realrashid/sweet-alert": "^5.1",
         "torann/geoip": "^3.0",
         "unisharp/laravel-filemanager": "^2.4",

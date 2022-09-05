@@ -8,6 +8,7 @@ use App\Models\LogComplaint;
 use App\Models\User;
 use App\Models\Tusi;
 use Illuminate\Http\Request;
+use Novay\WordTemplate\Facade as WordTemplate;
 use Yajra\DataTables\Facades\DataTables;
 
 class ComplaintController extends Controller
@@ -26,12 +27,27 @@ class ComplaintController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('complaint.show', $data->id) . ' " class="btn btn-simple btn-success btn-icon"><i class="material-icons">info</i> Timeline</a>
-                        <a href="' . route('complaint.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Show</a>
-                        <a href="' . route('complaint.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
-                    </div>';
+                        if ($data->status == 'open') {
+                            $actionBtn = '
+                            <div class="list-icons d-flex justify-content-center text-center">
+                            <a href="' . route('complaint.show', $data->id) . ' " class="btn btn-simple btn-success btn-icon"><i class="material-icons">info</i> Timeline</a>
+                            <a href="' . route('complaint.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Disposition</a>
+                            <a href="' . route('complaint.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                            </div>';
+                        } else if ($data->status == 'Being Processed') {
+                            $actionBtn = '
+                            <div class="list-icons d-flex justify-content-center text-center">
+                            <a href="' . route('complaint.show', $data->id) . ' " class="btn btn-simple btn-success btn-icon"><i class="material-icons">info</i> Timeline</a>
+                            <a href="' . route('complaint.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Report</a>
+                            <a href="' . route('complaint.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                            </div>';
+                        } else {
+                            $actionBtn = '
+                            <div class="list-icons d-flex justify-content-center text-center">
+                            <a href="' . route('complaint.show', $data->id) . ' " class="btn btn-simple btn-success btn-icon"><i class="material-icons">info</i> Timeline</a>
+                            <a href="' . route('complaint.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                            </div>';
+                        }
                         return $actionBtn;
                     }
                 )
@@ -81,7 +97,7 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'photo' => 'required|image|max:12048',
             'date' => 'required',
             'name' => 'required',
@@ -125,7 +141,11 @@ class ComplaintController extends Controller
         $data = Complaint::find($id);
         $languages  = Bidang::all();
         $user  = User::where('id', '>', '2')->get();
-        return view('back.a.pages.complaint.edit', compact('data', 'languages', 'user'));
+        if ($data->assigned_to) {
+            return view('back.a.pages.complaint.report', compact('data', 'languages', 'user'));
+        } else {
+            return view('back.a.pages.complaint.edit', compact('data', 'languages', 'user'));
+        }
     }
 
     /**
@@ -135,40 +155,40 @@ class ComplaintController extends Controller
      * @param  \App\Models\Complaint  $complaint
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-         $validated = $request->validate([
-            // 'photo' => 'required|image|max:12048',
+        $request->validate([
             'date' => 'required',
             'name' => 'required',
             'phone' => 'required',
             'location' => 'required',
             'description' => 'required',
         ]);
-        // $path = $request->file('photo')->store('public_complaints');
-        // $id = Complaint::create(request()->except('_method', '_token', 'photo') + [
-        //     'attachment' => $path
-        // ])->id;
         Complaint::where('id', $request->zzz)->update([
             'status' => 'Being Processed',
+            'bidang_id' => $request->language,
+            'tusi_id' => $request->framework,
             'assigned_to' => $request->assigned_to
         ]);
         LogComplaint::create([
             'complaint_id' => $request->zzz,
-                       'user_id' => auth()->user()->id,
+            'user_id' => auth()->user()->id,
             'message' => 'Being Processed'
         ]);
         return redirect(route('complaint.index'))->with(['success' => 'Data update successfully!']);
     }
 
-    public function updatestatus(Request $request)
+    public function finish(Request $request)
     {
-        Complaint::where('id', $request->zzz)->update(['status' => 'Being Processed']);
+        Complaint::where('id', $request->zzz)->update([
+            'status' => 'Closed',
+        ]);
         LogComplaint::create([
             'complaint_id' => $request->zzz,
-            'message' => 'Being Processedsdf adgasfdgasdfgas asd gasdgasd gasdg asdg '
+            'user_id' => auth()->user()->id,
+            'message' => 'Report Completed'
         ]);
-        return back();
+        return redirect(route('complaint.index'))->with(['success' => 'Data update successfully!']);
     }
 
     /**
@@ -187,23 +207,43 @@ class ComplaintController extends Controller
     {
         if ($request->languageId) {
             $frameworks = Tusi::where('bidang_id', $request->languageId)->get();
-            // $frameworks = [
-            //     [
-            //         'id' => '1',
-            //         'name' => 'maulana',
-            //         'bidang_id' => '1',
-            //     ],
-            //     [
-            //         'id' => '2',
-            //         'name' => 'tantra',
-            //         'bidang_id' => '2',
-            //     ],
-            // ];
+            $users = User::where('bidang_id', $request->languageId)->get();
             if ($frameworks) {
-                return response()->json(['status' => 'success', 'data' => $frameworks], 200);
+                return response()->json(['status' => 'success', 'data' => [$frameworks, $users]], 200);
             }
             return response()->json(['status' => 'failed', 'message' => 'No frameworks found'], 404);
         }
         return response()->json(['status' => 'failed', 'message' => 'Please select language'], 500);
+    }
+
+    public function report($id)
+    {
+        $log = LogComplaint::find($id);
+        $data = Complaint::find($log->complaint_id);
+        $petugas = User::find($data->assigned_to);
+        $file = public_path('report.rtf');
+        $bidang = Bidang::where('id', $data->bidang_id)->get();
+        $tusi = Tusi::where('id', $data->tusi_id)->get();
+
+        if ($bidang[0]->name == 'TRANTIB') {
+            $dispo = '() SEKRETARIAT (*) TRANTIB () GAKDA';
+        } else  if ($bidang[0]->name == 'GAKDA') {
+            $dispo = '() SEKRETARIAT () TRANTIB (v) GAKDA';
+        }
+
+        $array = array(
+            '$tanggal_lap' => date('d F Y', strtotime($data->date)),
+            '$pelapor' => $data->name,
+            '$phone_lap' => $data->phone,
+            '$lokasi' => $data->location,
+            '$deskripsi' => $data->description,
+            '$nama_petugas' => $petugas->name,
+            '$disposisi' => $dispo,
+            '$tgl_report' => date('d F Y', strtotime($log->created_at)),
+        );
+
+        $nama_file = date('d F Y', strtotime($log->created_at)) . '_' . $bidang[0]->name . '_' . $tusi[0]->name . '.doc';
+
+        return WordTemplate::export($file, $array, $nama_file);
     }
 }

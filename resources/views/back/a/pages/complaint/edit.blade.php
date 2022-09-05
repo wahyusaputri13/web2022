@@ -9,7 +9,7 @@
                     <i class="material-icons">date_range</i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Form Edit Public Complaints</h4>
+                    <h4 class="card-title">Form Disposition Public Complaints</h4>
                     <!-- <div class="col-sm-8 col-sm-offset-2"> -->
                     <!--      Wizard container        -->
                     <div class="wizard-container">
@@ -18,22 +18,19 @@
                             =>
                             'true', ''])}}
                             <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-                            <div class="wizard-header">
+                            <!-- <div class="wizard-header">
                                 <h3 class="wizard-title">
                                     Build Your Profile
                                 </h3>
                                 <h5>This information will let us know more about you.</h5>
-                            </div>
+                            </div> -->
                             <div class="wizard-navigation">
                                 <ul>
                                     <li>
-                                        <a href="#about" data-toggle="tab">About</a>
+                                        <a href="#about" data-toggle="tab">incident report</a>
                                     </li>
                                     <li>
-                                        <a href="#account" data-toggle="tab">Account</a>
-                                    </li>
-                                    <li>
-                                        <a href="#address" data-toggle="tab">Address</a>
+                                        <a href="#account" data-toggle="tab">disposition</a>
                                     </li>
                                 </ul>
                             </div>
@@ -55,19 +52,6 @@
                                                         @endif
                                                     </div>
                                                     <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                                    <div>
-                                                        <span class="btn btn-success btn-round btn-file">
-                                                            <span class="fileinput-new">Select image</span>
-                                                            <span class="fileinput-exists">Change</span>
-                                                            <!-- <input type="file" name="photo" /> -->
-                                                            {{Form::file('attachment', null,['class' =>
-                                                            'form-control'])}}
-                                                        </span>
-                                                        <a href="#pablo"
-                                                            class="btn btn-danger btn-round fileinput-exists"
-                                                            data-dismiss="fileinput"><i class="fa fa-times"></i>
-                                                            Remove</a>
-                                                    </div>
                                                     @if ($errors->any())
                                                     <div class="alert alert-danger">
                                                         <ul>
@@ -83,23 +67,25 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label class="control-label">Report Date</label>
-                                                {{Form::text('date', null,['class' => 'form-control datepicker'])}}
+                                                {{Form::text('date', null,['class' => 'form-control datepicker',
+                                                'readonly'])}}
                                             </div>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Reporter's Name</label>
-                                                {{Form::text('name', null,['class' => 'form-control'])}}
+                                                {{Form::text('name', null,['class' => 'form-control', 'readonly'])}}
                                             </div>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Reporter's Phone Number</label>
-                                                {{Form::text('phone', null,['class' => 'form-control'])}}
+                                                {{Form::text('phone', null,['class' => 'form-control', 'readonly'])}}
                                             </div>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Location</label>
-                                                {{Form::text('location', null,['class' => 'form-control'])}}
+                                                {{Form::text('location', null,['class' => 'form-control', 'readonly'])}}
                                             </div>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Report Description</label>
-                                                {{Form::text('description', null,['class' => 'form-control'])}}
+                                                {{Form::text('description', null,['class' => 'form-control',
+                                                'readonly'])}}
                                             </div>
                                         </div>
                                     </div>
@@ -124,23 +110,10 @@
                                                     <option> Select Bidang First</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="address">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <!-- <h4 class="info-text"> Are you living in a nice area? </h4> -->
-                                        </div>
-                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label class="control-label">Personnel</label>
                                                 <select name="assigned_to" id="assigned_to" class="form-control">
-                                                    <option disabled="" selected=""> Select Person </option>
-                                                    @forelse ($user as $u)
-                                                    <option value="{{ $u->id }}">{{ $u->name }} </option>
-                                                    @empty
-                                                    @endforelse
+                                                    <option> Select Person </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -152,7 +125,7 @@
                                     <a href="{{ route('complaint.index') }}" class="btn btn-fill btn-fill">Cancel</a>
                                     <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next'
                                         value='Next' />
-                                        {{Form::text('zzz', $data->id, ['hidden'])}}
+                                    {{Form::text('zzz', $data->id, ['hidden'])}}
                                     <input type='submit' class='btn btn-finish btn-fill btn-rose btn-wd' name='finish'
                                         value='Finish' />
                                 </div>
@@ -192,16 +165,24 @@
                     languageId: langId,
                 },
                 success: function (result) {
+                    console.log(result?.data[1]);
                     $("#framework").empty();
-                    // $("#framework").append(
-                    //     '<option selected disabled value="">Select</option>'
-                    // );
+                    $("#assigned_to").empty();
 
                     if (result && result?.status === "success") {
-                        result?.data?.map((framework) => {
+                        result?.data[0].map((framework) => {
                             const frameworks = `<option value='${framework?.id}'> ${framework?.name} </option>`;
                             $("#framework").append(frameworks);
                         });
+                        if (result?.data[1].length != 0) {
+                            result?.data[1].map((user) => {
+                                const users = `<option value='${user?.id}'> ${user?.name} </option>`;
+                                $("#assigned_to").append(users);
+                            });
+                        } else {
+                            const users = '<option selected disabled value="">Data Unavailable</option>';
+                            $("#assigned_to").append(users);
+                        }
                     }
                 },
                 error: function (result) {
