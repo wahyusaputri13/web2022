@@ -7,6 +7,8 @@ use App\Models\Complaint;
 use App\Models\LogComplaint;
 use App\Models\User;
 use App\Models\Tusi;
+// use PhpOffice\PhpWord\TemplateProcessor as TemplateProcessor;
+// use App\Http\Controllers\TemplateProcessor as TemplateProcessor;
 use Illuminate\Http\Request;
 use Novay\WordTemplate\Facade as WordTemplate;
 use Yajra\DataTables\Facades\DataTables;
@@ -245,5 +247,43 @@ class ComplaintController extends Controller
         $nama_file = date('d F Y', strtotime($log->created_at)) . '_' . $bidang[0]->name . '_' . $tusi[0]->name . '.doc';
 
         return WordTemplate::export($file, $array, $nama_file);
+    }
+
+    public function phpword($id)
+    {
+        $log = LogComplaint::find($id);
+        $data = Complaint::find($log->complaint_id);
+        $petugas = User::find($data->assigned_to);
+        $file = public_path('report.rtf');
+        $bidang = Bidang::where('id', $data->bidang_id)->get();
+        $tusi = Tusi::where('id', $data->tusi_id)->get();
+
+        if ($bidang[0]->name == 'TRANTIB') {
+            $dispo = '() SEKRETARIAT (*) TRANTIB () GAKDA';
+        } else  if ($bidang[0]->name == 'GAKDA') {
+            $dispo = '() SEKRETARIAT () TRANTIB (v) GAKDA';
+        }
+
+        $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(public_path('report.docx'));
+        $templateProcessor->setValue('tanggal_lap', date('d F Y', strtotime($data->date)));
+        $templateProcessor->setValue('pelapor', $data->name);
+        $templateProcessor->setValue('phone_lap', $data->phone);
+        $templateProcessor->setValue('lokasi', $data->location);
+        $templateProcessor->setValue('deskripsi', $data->description);
+        $templateProcessor->setValue('nama_petugas', $petugas->name);
+        $templateProcessor->setValue('disposisi', $dispo);
+        $templateProcessor->setValue('tgl_report', date('d F Y', strtotime($log->created_at)));
+        $templateProcessor->setImageValue('lampiran', [
+            'path' => 'https://images.unsplash.com/photo-1556035511-3168381ea4d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+            'width' => '400',
+            'height' => '400'
+        ]);
+
+        $nama_file = date('d F Y', strtotime($log->created_at)) . '_' . $bidang[0]->name . '_' . $tusi[0]->name . '.docx';
+
+        // header("Content-Disposition: attachment; filename=report.docx");
+        header("Content-Disposition: attachment; filename=" . $nama_file . "");
+        $templateProcessor->saveAs('php://output');
+        // $templateProcessor->saveAs('ekoyudhi.docx');
     }
 }

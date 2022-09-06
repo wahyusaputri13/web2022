@@ -120,7 +120,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
     Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
-    Route::get('report/{id}', [ComplaintController::class, 'report']);
+    Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
     // get data for front menu parent

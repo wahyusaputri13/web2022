@@ -34,6 +34,14 @@
                             {{Form::text('name', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
+                            <label class="control-label">NIP</label>
+                            {{Form::text('nip', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Jabatan / Golongan</label>
+                            {{Form::text('jabatan', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
                             <label class="control-label">Phone Number</label>
                             {{Form::text('user_phone', null,['class' => 'form-control'])}}
                         </div>

@@ -51,7 +51,7 @@
                                     <table class="table text-center text-uppercase" border="1">
                                         <tr>
                                             <td>
-                                                <a href="{{ url('admin/report') }}/{{ $d->id }}" target="_blank">
+                                                <a href="{{ url('admin/phpword') }}/{{ $d->id }}" target="_blank">
                                                     file report
                                                 </a>
                                             </td>

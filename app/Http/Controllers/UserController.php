@@ -61,7 +61,6 @@ class UserController extends Controller
     {
         $validated = $request->validate(
             [
-                'bidang_id' => ['required'],
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'confirmed']
@@ -69,6 +68,8 @@ class UserController extends Controller
         );
         $data = [
             'name' => $request->name,
+            'nip' => $request->nip,
+            'jabatan' => $request->jabatan,
             'email' => $request->email,
             'bidang_id' => $request->bidang_id,
             'user_phone' => $request->user_phone,
