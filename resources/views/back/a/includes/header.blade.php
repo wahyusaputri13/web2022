@@ -110,7 +110,7 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user'])) ? 'in' : '' }}"
+                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'whatsapp'])) ? 'in' : '' }}"
                         id="pagesExamples2">
                         <ul class="nav">
                             <li class="{{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
@@ -138,6 +138,11 @@
                                 <a href="{{ route('user.index') }}">
                                     <i class="material-icons">person</i>
                                     Users</a>
+                            </li>
+                            <li class="{{ (Str::contains(Request::url(), 'whatsapp')) ? 'active' : '' }}">
+                                <a href="{{ url('admin/whatsapp') }}">
+                                    <i class="material-icons">devices</i>
+                                    Whatsapp</a>
                             </li>
                         </ul>
                     </div>

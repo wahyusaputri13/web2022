@@ -113,4 +113,9 @@ class WebsiteController extends Controller
     {
         //
     }
+
+    public function wa()
+    {
+        return view('back.a.pages.website.wa');
+    }
 }

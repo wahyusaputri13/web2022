@@ -105,6 +105,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);
     Route::resource('settings', WebsiteController::class)->middleware('is_superadmin');
+    Route::get('whatsapp', [WebsiteController::class, 'wa'])->middleware('is_superadmin');
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('role', RoleController::class);

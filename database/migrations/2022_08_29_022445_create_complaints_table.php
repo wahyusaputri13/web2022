@@ -26,6 +26,8 @@ class CreateComplaintsTable extends Migration
             $table->string('attachment')->nullable();
             $table->integer('bidang_id')->nullable();
             $table->integer('tusi_id')->nullable();
+            $table->string('result_pic')->nullable();
+            $table->longText('result')->nullable();
             $table->integer('user_id');
             $table->softDeletes();
             $table->timestamps();

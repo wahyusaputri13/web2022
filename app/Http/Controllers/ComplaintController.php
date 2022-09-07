@@ -12,6 +12,7 @@ use App\Models\Tusi;
 use Illuminate\Http\Request;
 use Novay\WordTemplate\Facade as WordTemplate;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Http;
 
 class ComplaintController extends Controller
 {
@@ -182,9 +183,17 @@ class ComplaintController extends Controller
 
     public function finish(Request $request)
     {
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('public_complaints');
+        } else {
+            $path = null;
+        }
         Complaint::where('id', $request->zzz)->update([
             'status' => 'Closed',
+            'result' => $request->result,
+            'result_pic' => $path,
         ]);
+
         LogComplaint::create([
             'complaint_id' => $request->zzz,
             'user_id' => auth()->user()->id,
@@ -254,14 +263,16 @@ class ComplaintController extends Controller
         $log = LogComplaint::find($id);
         $data = Complaint::find($log->complaint_id);
         $petugas = User::find($data->assigned_to);
-        $file = public_path('report.rtf');
         $bidang = Bidang::where('id', $data->bidang_id)->get();
         $tusi = Tusi::where('id', $data->tusi_id)->get();
+        $lampiran = storage_path('app/public/' . $data->result_pic);
 
         if ($bidang[0]->name == 'TRANTIB') {
-            $dispo = '() SEKRETARIAT (*) TRANTIB () GAKDA';
+            $dispo = '() SEKRETARIAT (v) TRANTIB () GAKDA';
         } else  if ($bidang[0]->name == 'GAKDA') {
             $dispo = '() SEKRETARIAT () TRANTIB (v) GAKDA';
+        } else  if ($bidang[0]->name == 'SEKRETARIAT') {
+            $dispo = '(v) SEKRETARIAT () TRANTIB () GAKDA';
         }
 
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(public_path('report.docx'));
@@ -272,18 +283,26 @@ class ComplaintController extends Controller
         $templateProcessor->setValue('deskripsi', $data->description);
         $templateProcessor->setValue('nama_petugas', $petugas->name);
         $templateProcessor->setValue('disposisi', $dispo);
+        $templateProcessor->setValue('jabatan', $petugas->jabatan);
+        $templateProcessor->setValue('nip', $petugas->nip);
         $templateProcessor->setValue('tgl_report', date('d F Y', strtotime($log->created_at)));
+        $templateProcessor->setValue('jawaban', $data->result);
+        $templateProcessor->setValue('isi_disposisi', 'Silahkan di tindak lanjut berdasarkan laporan diatas.');
         $templateProcessor->setImageValue('lampiran', [
-            'path' => 'https://images.unsplash.com/photo-1556035511-3168381ea4d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+            'path' => $lampiran,
             'width' => '400',
             'height' => '400'
         ]);
 
         $nama_file = date('d F Y', strtotime($log->created_at)) . '_' . $bidang[0]->name . '_' . $tusi[0]->name . '.docx';
 
-        // header("Content-Disposition: attachment; filename=report.docx");
         header("Content-Disposition: attachment; filename=" . $nama_file . "");
         $templateProcessor->saveAs('php://output');
-        // $templateProcessor->saveAs('ekoyudhi.docx');
+
+        // Http::post('http://127.0.0.1:8001/send-message', [
+        Http::post('http://10.0.1.21:8001/send-message', [
+            'number' => '085643710007',
+            'message' => 'From Network Administrator Plekentung',
+        ]);
     }
 }

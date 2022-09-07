@@ -69,7 +69,7 @@
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
+    // var table = $('#datatables').DataTable();
+    // $('.card .material-datatables label').addClass('form-group');
 </script>
 @endpush

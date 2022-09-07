@@ -128,7 +128,40 @@
                                         <div class="col-sm-12">
                                             <!-- <h4 class="info-text"> Are you living in a nice area? </h4> -->
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col text-center">
+                                            <!-- <legend>Regular Image</legend> -->
+                                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail">
+                                                    <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
+                                                        alt="...">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                                <div>
+                                                    <span class="btn btn-success btn-round btn-file">
+                                                        <span class="fileinput-new">Select image</span>
+                                                        <span class="fileinput-exists">Change</span>
+                                                        <!-- <input type="file" name="photo" /> -->
+                                                        {{Form::file('photo', null,['class' => 'form-control'])}}
+                                                    </span>
+                                                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
+                                                        data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                                @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10 col-lg-offset-1">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Result</label>
+                                                {{Form::text('result', null,['class' => 'form-control'])}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

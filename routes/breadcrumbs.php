@@ -100,6 +100,12 @@ Breadcrumbs::for('complaint', function ($trail) {
     $trail->parent('dashboard');
     $trail->push('Public Complaints', url('complaint'));
 });
+
+// Dashboard > Whatsapp
+Breadcrumbs::for('whatsapp', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Whatsapp', url('whatsapp'));
+});
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');
