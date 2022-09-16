@@ -2,14 +2,32 @@
 @section('content')
 @if($news->count() != 0)
 <!-- ======= Recent Blog Posts Section ======= -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind config ={
+    darkMode: 'class',
+    theme: {
+      extend: {
+        spacing: {
+      13: '3.25rem',
+       },
+      }
+   
+    },
+  };
+  </script>
+  </head> 
+<body class="dark:bg-slate-800 dark:text-slate-200">
+    <h1 class="text-8xl font-bold text-center my-10"> Recent posts  <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">form our Blog</span>  </h1>
 <section id="recent-blog-posts" class="recent-blog-posts">
 
-    <div class="container" data-aos="fade-up">
-
-        <header class="section-header">
-            <h2>Blog</h2>
-            <p>Recent posts form our Blog</p>
-        </header>
+    
         <div class="row" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-12 d-flex justify-content-center">
                 @if(Route::current()->getName() == 'news.all')
