@@ -18,6 +18,7 @@ use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\DailyReportController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -116,6 +117,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::resource('component', ComponentController::class)->middleware('is_superadmin');
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
+    Route::resource('daily', DailyReportController::class);
     Route::resource('complaint', ComplaintController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);

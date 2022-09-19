@@ -48,6 +48,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="{{ (Str::contains(Request::url(), 'daily')) ? 'active' : '' }}">
+                    <a href="{{ url('admin/daily') }}">
+                        <i class="material-icons">today</i>
+                        <p>Daily Report</p>
+                    </a>
+                </li>
                 @php
                 $components = DB::table('components')
                 ->where('active', '=', 1)
