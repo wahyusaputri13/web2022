@@ -6,7 +6,7 @@
       <h1 class="text-3xl font-bold text-center mx-10"> <span class="bg-gradient-to-r from-red-500 to-rose-400 bg-clip-text text-transparent"> 92.1 FM Radio Pesona</span> </h1>
       <div class="flex space-x-4 font-medium sm:text-lg">
         <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
-        <a href="{{url('/galleryall')}}" class="hover:scale-125 text-red-500">Gallery</a>
+        <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Gallery</a>
         <a href="#" class="hover:scale-125 text-red-500">Contact</a>
         <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
       </div>
@@ -23,7 +23,7 @@
         <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">News</h1>
       </div>
       </a>
-      <a href="{{url('/galleryall')}}">
+      <a href="{{url('/photos')}}">
       <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
         <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">Gallery</h1>
       </div>

@@ -1,6 +1,6 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
-@if($music->count() != 0)
+@if($musicall->count() != 0)
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -26,27 +26,29 @@
   
   </style>
   </head> 
+  <table class="table-auto">
+  <thead>
+    <tr>
+      <th>Song</th>
+      <th>Artist</th>
+      <th>Year</th>
+    </tr>
+  </thead>
   <tbody>
-                                            <?php
-                                            $x=1;
-                                            foreach ($customer->result_array() as $i) :
-                                                $id = $i['music_id'];
-                                                $title = $i['title'];
-                                                $artis = $i['Artis'];
-                                                $album = $i['album'];
-                                            ?>
-
-                                            <tr>
-                                                <td><?php echo $x; ?></td>
-                                                <td><?php echo $title; ?></td>
-                                                <td><?php echo $artis; ?></td>
-                                                <td><?php echo $album; ?></td>
-                                                <td>
-                                                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#editCustomer<?php echo $id; ?>" title="Edit User"><i class="fas fa-edit"></i></a>
-                                                    <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#deleteCustomer<?php echo $id; ?>" title="Delete User"><i class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <?php
-                                                $x++;
-                                                endforeach; ?>
-                                        </tbody>
+    <tr>
+      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+      <td>Malcolm Lockyer</td>
+      <td>1961</td>
+    </tr>
+    <tr>
+      <td>Witchy Woman</td>
+      <td>The Eagles</td>
+      <td>1972</td>
+    </tr>
+    <tr>
+      <td>Shining Star</td>
+      <td>Earth, Wind, and Fire</td>
+      <td>1975</td>
+    </tr>
+  </tbody>
+</table>

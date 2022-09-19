@@ -7,6 +7,7 @@ use App\Models\Component;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Music;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;
@@ -62,16 +63,18 @@ class FrontController extends Controller
     public function musicall(Request $request)
     {
         Seo::seO();
-        $music = News::orderBy('date', 'desc')->paginate(12);
-        $sidepost = News::latest('date')->take(5)->get();
+        $music = Musicall::orderBy('date', 'desc')->paginate(12);
+        $sidepost = Musicall::latest('date')->take(5)->get();
         return view('front.pesonafm.pages.music', compact('music', 'sidepost'));
     }
 
     public function galleryall(Request $request)
     {
-        Seo::seO();
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
-        return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
+        Seo::SeO();
+        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
+        if ($request->ajax()) {
+            return view('front.pages.gallery', compact('gallery'));
+        }
     }
 
     public function audio(Request $request)
