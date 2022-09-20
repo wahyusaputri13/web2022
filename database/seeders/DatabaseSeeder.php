@@ -23,10 +23,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call([
-        // NewsSeeder::class,
-        // GallerySeeder::class,
-        // ]);
+        $this->call([
+            // NewsSeeder::class,
+            // GallerySeeder::class,
+            BidangTusiSeeder::class,
+        ]);
 
         $themes = [
             [
@@ -40,6 +41,10 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'arsha',
                 'image' => 'img/arsha.png'
+            ],
+            [
+                'name' => 'anada',
+                'image' => 'img/anada.png'
             ]
         ];
 
@@ -71,21 +76,21 @@ class DatabaseSeeder extends Seeder
         }
 
         // \App\Models\User::factory(10)->create();
-        // DB::table('websites')->insert([
-        //     'web_name' => 'Web2022',
-        //     'web_description' => '"Hello World!"',
-        //     'email' => 'diskominfo@wonosobokab.go.id',
-        //     'address' => 'Wonosobo - The Soul Of Java',
-        //     'phone' => '085643710007',
-        //     'instagram' => '#',
-        //     'twitter' => '#',
-        //     'facebook' => '#',
-        //     'youtube' => '#',
-        //     'url_stream' => '#',
-        //     'themes_front' => 'arsha',
-        //     'themes_back' => 'back.a',
-        //     'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
-        // ]);
+        DB::table('websites')->insert([
+            'web_name' => 'Web2022',
+            'web_description' => '"Hello World!"',
+            'email' => 'diskominfo@wonosobokab.go.id',
+            'address' => 'Wonosobo - The Soul Of Java',
+            'phone' => '085643710007',
+            'instagram' => '#',
+            'twitter' => '#',
+            'facebook' => '#',
+            'youtube' => '#',
+            'url_stream' => '#',
+            'themes_front' => 'flexstart',
+            'themes_back' => 'back.a',
+            'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
+        ]);
         // DB::table('websites')->insert([
         //     'web_name' => 'KAMPUNG PANCASILA WONOSOBO',
         //     'web_description' => '"Semarak Kampung Pancasila Wonosobo penjaga Persatuan dan Kesatuan Bangsa!"',
@@ -141,9 +146,19 @@ class DatabaseSeeder extends Seeder
 
         $component = [
             [
+                'name' => 'Event',
+                'active' => 0,
+                'slug' => Str::slug('Event', '-'),
+            ],
+            [
                 'name' => 'Guest Book',
                 'active' => 0,
                 'slug' => Str::slug('Guest Book', '-'),
+            ],
+            [
+                'name' => 'Public Complaints',
+                'active' => 0,
+                'slug' => Str::slug('Complaints', '-'),
             ]
         ];
 

@@ -10,18 +10,6 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <!-- start looping component -->
-                @php
-                $component = DB::table('components')->where('active', '=', 1)->orderBy('name', 'ASC')->get();
-                @endphp
-                @foreach($component as $cp)
-                <li>
-                    <a class="nav-link scrollto" href="{{ url('guestbook') }}">
-                        {{ $cp->name }}
-                    </a>
-                </li>
-                @endforeach
-                <!-- end looping component -->
                 <!-- start looping menu & submenu -->
                 @php
                 $queryMenu = DB::table('front_menus')
@@ -96,6 +84,29 @@
                 @endif
                 @endforeach
                 <!-- end looping menu & submenu -->
+                <!-- start looping component -->
+                @php
+                $component = DB::table('components')->where('active', '=', 1)->orderBy('name', 'ASC')->get();
+                @endphp
+                @foreach($component as $cp)
+                @if($cp->slug != 'complaints')
+                <li>
+                    <a class="nav-link scrollto" href="{{ url($cp->slug) }}">
+                        {{ $cp->name }}
+                    </a>
+                </li>
+                @endif
+                @if ($cp->slug == 'complaints')
+                <li class="dropdown">
+                    <a href="#"><span>{{ $cp->name }}</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="https://laporbupati.wonosobokab.go.id/" target="_blank">LaporBup</a></li>
+                        <li><a href="tel:112" target="_blank">Call Center 112</a></li>
+                    </ul>
+                </li>
+                @endif
+                @endforeach
+                <!-- end looping component -->
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

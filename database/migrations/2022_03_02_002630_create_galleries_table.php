@@ -18,6 +18,7 @@ class CreateGalleriesTable extends Migration
             $table->string('name');
             $table->string('path')->default('img/soulofjava.jpg');
             $table->text('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

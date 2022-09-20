@@ -10,7 +10,7 @@
                         <i class="material-icons">menu</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Stacked Form</h4>
+                        <h4 class="card-title">Form Add Menu / Submenu</h4>
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -35,7 +35,7 @@
                             {{Form::textarea('content', null,['class' => 'my-editor form-control'])}}
                         </div>
                         <div class="d-flex text-right">
-                            <a href="{{ url('frontmenu') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <a href="{{ route('frontmenu.index') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>
                         </div>
                         {{Form::close()}}
@@ -49,10 +49,11 @@
 @push('after-script')
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script type="text/javascript">
+    var url = "{{ route('carimenu') }}";
     $('.cari').select2({
         placeholder: 'Cari...',
         ajax: {
-            url: '/cari',
+            url: url,
             dataType: 'json',
             delay: 250,
             processResults: function (data) {

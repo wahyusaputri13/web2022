@@ -10,7 +10,7 @@
                         <i class="material-icons">menu</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Stacked Form</h4>
+                        <h4 class="card-title">Form Edit Menu / Submenu</h4>
                         {{Form::model($data, ['route' => ['frontmenu.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
                         <div class="form-group label-floating">
@@ -27,7 +27,7 @@
                             {{Form::textarea('content', null,['class' => 'my-editor form-control'])}}
                         </div>
                         <div class="d-flex text-right">
-                            <a href="{{ url('frontmenu') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <a href="{{ route('frontmenu.index') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}

@@ -10,7 +10,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">web</i>
+                        <i class="material-icons">settings</i>
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">Stacked Form</h4> -->

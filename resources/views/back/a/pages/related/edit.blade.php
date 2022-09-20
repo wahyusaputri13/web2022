@@ -7,10 +7,10 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">collections</i>
+                        <i class="material-icons">link</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Stacked Form</h4>
+                        <h4 class="card-title">Form Edit Related Link</h4>
                         {{Form::model($data, ['route' => ['relatedlink.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
                         <div class="form-group label-floating">
@@ -31,7 +31,7 @@
                         </div>
                         @endif
                         <div class="d-flex text-right">
-                            <a href="{{ url('gallery') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <a href="{{ route('relatedlink.index') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}

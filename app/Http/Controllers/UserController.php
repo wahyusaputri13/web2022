@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bidang;
 use App\Models\Role;
+use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
@@ -18,7 +20,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::with('role');
+            $data = User::where('id', '>', '2')->where('id', '!=', auth()->user()->id)->with('role');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -45,7 +47,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $role = Role::orderBy('role', 'asc')->pluck('role', 'id');
+        $role = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         return view('back.a.pages.user.create', compact('role'));
     }
 
@@ -61,15 +63,18 @@ class UserController extends Controller
             [
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'confirmed'],
-                'role_id' => ['required']
+                'password' => ['required', 'confirmed']
             ]
         );
         $data = [
             'name' => $request->name,
+            'nip' => $request->nip,
+            'jabatan' => $request->jabatan,
             'email' => $request->email,
+            'bidang_id' => $request->bidang_id,
+            'user_phone' => $request->user_phone,
             'password' => Hash::make($request->password),
-            'role_id' => $request->role_id
+            'role_id' => '2'
         ];
         User::create($data);
         return redirect(route('user.index'))->with(['success' => 'Data added successfully!']);
@@ -94,7 +99,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::orderBy('role', 'asc')->pluck('role', 'id');
+        $role = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         $data = User::find($id);
         return view('back.a.pages.user.edit', compact('data', 'role'));
     }
@@ -108,20 +113,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate(
+        $jem = User::find($id);
+        $request->validate(
             [
                 'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255'],
-                'password' => ['required', 'confirmed'],
-                'role_id' => ['required']
+                'email' => 'required|email|unique:users,email,' . $id . ',id',
+                'bidang_id' => ['required']
             ]
         );
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role_id' => $request->role_id
-        ];
+        if ($request->filled('current_password') || $request->filled('new_password') || $request->filled('new_confirm_password')) {
+            $request->validate([
+                'current_password' => ['required', Hash::check($request->password, $jem->password)],
+                'new_password' => ['required', 'min:8'],
+                'new_confirm_password' => ['same:new_password'],
+            ]);
+            $data = ($request->except('_method', '_token', 'current_password', 'new_password', 'new_confirm_password') + ['password' => Hash::make($request->new_password)]);
+        } else {
+            $data = ($request->except('_method', '_token', 'current_password', 'new_password', 'new_confirm_password'));
+        }
         User::find($id)->update($data);
         return redirect(route('user.index'))->with(['success' => 'Data has been successfully changed!']);
     }

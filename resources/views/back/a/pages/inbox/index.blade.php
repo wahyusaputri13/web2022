@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">event_note</i>
+                        <i class="material-icons">mail</i>
                     </div>
                     <div class="card-content">
                         <h4 class="card-title" style="color: white;">a</h4>

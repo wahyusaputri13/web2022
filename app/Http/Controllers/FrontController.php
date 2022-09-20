@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Seo;
+use App\Models\Agenda;
 use App\Models\Component;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Yajra\DataTables\Facades\DataTables;
 
 class FrontController extends Controller
 {
@@ -105,7 +107,7 @@ class FrontController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
             $data = [
-                'role_id' => '2',
+                'role_id' => '1',
                 'email' => $request->email,
                 'name' => $request->name,
                 'password' => bcrypt($request->password),
@@ -137,6 +139,28 @@ class FrontController extends Controller
             Alert::success('Success', 'Your Data Has Been Save');
             return redirect()->back();
         }
+    }
+
+    public function event(Request $request)
+    {
+        Seo::seO();
+        if ($request->ajax()) {
+            $data = Agenda::orderBy('date', 'asc')->whereDate('date', '>=', now());
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'tgl',
+                    function ($data) {
+                        $actionBtn = '<center>' .
+                            \Carbon\Carbon::parse($data->date)->toFormattedDateString()
+                            . '</center>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['tgl'])
+                ->make(true);
+        }
+        return view('front.' . $this->themes->themes_front . '.component.event');
     }
 
     public function inbox(Request $request)

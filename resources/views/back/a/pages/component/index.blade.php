@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">menu</i>
+                        <i class="material-icons">apps</i>
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
@@ -91,7 +91,7 @@
         // const { pathname } = window.location;
         // const paths = pathname.split("/").filter(entry => entry !== "");
         // const lastPath = parseInt(paths[paths.length - 1]);
-        var url = "{{ url('sendCentang') }}";
+        var url = "{{ route('centang') }}";
 
         $.ajax({
             url: url,
