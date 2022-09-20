@@ -48,12 +48,6 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="{{ (Str::contains(Request::url(), 'daily')) ? 'active' : '' }}">
-                    <a href="{{ url('admin/daily') }}">
-                        <i class="material-icons">today</i>
-                        <p>Daily Report</p>
-                    </a>
-                </li>
                 @php
                 $components = DB::table('components')
                 ->where('active', '=', 1)
@@ -64,14 +58,6 @@
                 <li class="{{ (Str::contains(Request::url(), 'event')) ? 'active' : '' }}">
                     <a href="{{ route('event.index') }}">
                         <i class="material-icons">date_range</i>
-                        <p>{{ $component->name }}</p>
-                    </a>
-                </li>
-                @endif
-                @if($component->id == 3)
-                <li class="{{ (Str::contains(Request::url(), 'complaint')) ? 'active' : '' }}">
-                    <a href="{{ route('complaint.index') }}">
-                        <i class="material-icons">assignment</i>
                         <p>{{ $component->name }}</p>
                     </a>
                 </li>
@@ -144,11 +130,6 @@
                                 <a href="{{ route('user.index') }}">
                                     <i class="material-icons">person</i>
                                     Users</a>
-                            </li>
-                            <li class="{{ (Str::contains(Request::url(), 'whatsapp')) ? 'active' : '' }}">
-                                <a href="{{ url('admin/whatsapp') }}">
-                                    <i class="material-icons">devices</i>
-                                    Whatsapp</a>
                             </li>
                         </ul>
                     </div>
