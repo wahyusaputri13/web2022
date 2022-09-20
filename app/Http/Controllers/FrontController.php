@@ -60,12 +60,12 @@ class FrontController extends Controller
         return view('front.pesonafm.pages.news', compact('news', 'sidepost'));
     }
 
-    public function musicall(Request $request)
+    public function music(Request $request)
     {
-        Seo::seO();
-        $music = Musicall::orderBy('date', 'desc')->paginate(12);
-        $sidepost = Musicall::latest('date')->take(5)->get();
-        return view('front.pesonafm.pages.music', compact('music', 'sidepost'));
+        Seo::SeO();
+        $music = Music::orderBy('years', '')->paginate(12);
+        $sidepost = Music::latest('years')->take(5)->get();
+        return view('front.pesonafm.pages.music', compact('music'));
     }
 
     public function galleryall(Request $request)

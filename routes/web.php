@@ -10,6 +10,7 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AudioController;
+use App\Http\Controllers\MusicController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
@@ -102,6 +103,7 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
 Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
+    Route::resource('music', MusicController::class);
     Route::resource('submenu', SubmenuController::class);
     Route::resource('settings', WebsiteController::class);
     Route::resource('news', NewsController::class);

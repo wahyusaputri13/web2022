@@ -1,6 +1,6 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
-@if($musicall->count() != 0)
+@if($music->count() != 0)
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -8,19 +8,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind config ={
-    darkMode: 'class',
-    theme: {
-      extend: {
-        spacing: {
-      13: '3.25rem',
-       },
-      }
-   
-    },
-  };
-  </script>
 <title> belajar tailwindCSS</title>
 <style type="text/tailwindcss">
   

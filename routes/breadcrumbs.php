@@ -11,6 +11,13 @@ Breadcrumbs::for('gallery', function ($trail) {
     $trail->push('Gallery', url('gallery'));
 });
 
+
+// Dashboard > Chart Top 10 music
+Breadcrumbs::for('music', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('music', url('music'));
+});
+
 // Dashboard > News
 Breadcrumbs::for('news', function ($trail) {
     $trail->parent('dashboard');

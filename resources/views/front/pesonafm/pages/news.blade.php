@@ -23,12 +23,12 @@
   };
   </script>
   </head> 
+  
 <body class="dark:bg-slate-800 dark:text-slate-200">
     <h1 class="text-8xl font-bold text-center my-10"> Recent posts  <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">form our Blog</span>  </h1>
 <section id="recent-blog-posts" class="recent-blog-posts">
 
-    
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
             <div class="col-lg-12 d-flex justify-content-center">
                 @if(Route::current()->getName() == 'news.all')
                 {!! $news->render() !!}
