@@ -42,12 +42,6 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">
-                    <img src="{{ asset('assets/front/anada/assets/img/logo-light.png') }}" class="logo default"
-                        alt="Logo">
-                    <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo logo-responsive"
-                        alt="Logo">
-                </a>
             </div>
             <!-- End Header Navigation -->
 
