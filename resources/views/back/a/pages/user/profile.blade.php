@@ -24,10 +24,11 @@
                                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
                                         @if($data->profile_photo_path)
-                                        <img src="{{ asset('storage') }}/{{ $data->profile_photo_path }}" alt="...">
+                                        <img src="{{ asset('storage') }}/{{ $data->profile_photo_path }}"
+                                            alt="profile picture">
                                         @else
                                         <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
-                                            alt="...">
+                                            alt="profile picture">
                                         @endif
                                     </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail"></div>
@@ -56,14 +57,50 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Title</label>
+                                    <label class="control-label">Name</label>
                                     {{Form::text('name', null,['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">NIP</label>
+                                    {{Form::text('nip', null,['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Jabatan / Golongan</label>
+                                    {{Form::text('jabatan', null,['class' => 'form-control'])}}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Email</label>
                                     {{Form::text('email', null,['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Phone Number</label>
+                                    {{Form::text('user_phone', null,['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Old Password</label>
+                                    {{Form::password('current_password',['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">New Password</label>
+                                    {{Form::password('new_password',['class' => 'form-control'])}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">New Confirm Password</label>
+                                    {{Form::password('new_confirm_password',['class' => 'form-control'])}}
                                 </div>
                             </div>
                         </div>

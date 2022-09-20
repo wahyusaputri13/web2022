@@ -9,7 +9,7 @@
                     <i class="material-icons">event_note</i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Stacked Form</h4>
+                    <h4 class="card-title">Form Edit News</h4>
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
                     <div class="col text-center">
@@ -57,7 +57,7 @@
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
                     </div>
                     <div class="d-flex text-right">
-                        <a href="{{ url('news') }}" class="btn btn-default btn-fill">Cancel</a>
+                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
                         <button type="submit" class="btn btn-success btn-fill">Update</button>
                     </div>
                     {{Form::close()}}

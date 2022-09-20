@@ -89,6 +89,29 @@ Breadcrumbs::for('inbox', function ($trail) {
     $trail->push('Inbox', url('inbox'));
 });
 
+// Dashboard > Agenda
+Breadcrumbs::for('agenda', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Event', url('event'));
+});
+
+// Dashboard > Complaint
+Breadcrumbs::for('complaint', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Public Complaints', url('complaint'));
+});
+
+// Dashboard > Whatsapp
+Breadcrumbs::for('whatsapp', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Whatsapp', url('whatsapp'));
+});
+
+// Dashboard > Daily Report
+Breadcrumbs::for('daily', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Daily Report', url('daily'));
+});
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');

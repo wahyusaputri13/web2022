@@ -10,12 +10,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">menu</i>
+                        <i class="material-icons">link</i>
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
-                            <a href="{{ url('relatedlink/create') }}" class="btn btn-info btn-round">Add Data <i
+                            <a href="{{ route('relatedlink.create') }}" class="btn btn-info btn-round">Add Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
                             </a>

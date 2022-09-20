@@ -16,6 +16,9 @@ use App\Http\Controllers\FrontMenuController;
 use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\DailyReportController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -88,7 +91,8 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/check', [FrontController::class, 'check']);
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);
-    Route::resource('guestbook', GuestBookController::class);
+    Route::resource('guest-book', GuestBookController::class);
+    Route::get('event', [FrontController::class, 'event']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
 
@@ -97,24 +101,31 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
-Route::group(['middleware' => ['auth', 'data_web']], function () {
+Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);
-    Route::resource('settings', WebsiteController::class);
+    Route::resource('settings', WebsiteController::class)->middleware('is_superadmin');
+    Route::get('whatsapp', [WebsiteController::class, 'wa'])->middleware('is_superadmin');
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('role', RoleController::class);
-    Route::resource('user', UserController::class);
-    Route::resource('themes', ThemesController::class);
-    Route::resource('frontmenu', FrontMenuController::class);
-    Route::resource('relatedlink', RelatedLinkController::class);
-    Route::resource('component', ComponentController::class);
+    Route::resource('user', UserController::class)->middleware('is_superadmin');
+    Route::resource('themes', ThemesController::class)->middleware('is_superadmin');
+    Route::resource('frontmenu', FrontMenuController::class)->middleware('is_superadmin');
+    Route::resource('relatedlink', RelatedLinkController::class)->middleware('is_superadmin');
+    Route::resource('component', ComponentController::class)->middleware('is_superadmin');
+    Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
-    Route::post('sendCentang', [ComponentController::class, 'changeAccess']);
+    Route::resource('daily', DailyReportController::class);
+    Route::resource('complaint', ComplaintController::class);
+    Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
+    Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
+    Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
+    Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
     // get data for front menu parent
-    Route::get('/cari', [FrontMenuController::class, 'loadData']);
+    Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 });

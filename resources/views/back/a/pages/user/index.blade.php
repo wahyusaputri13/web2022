@@ -10,12 +10,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">menu</i>
+                        <i class="material-icons">person</i>
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
-                            <a href="{{ url('user/create') }}" class="btn btn-info btn-round">Add Data <i
+                            <a href="{{ route('user.create') }}" class="btn btn-info btn-round">Add Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
                             </a>
@@ -31,7 +31,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Role</th>
+                                        <th>Phone</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -75,7 +75,7 @@
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email' },
-            { data: 'role.role' },
+            { data: 'user_phone', name: 'user_phone' },
             { data: 'action', },
         ]
 
