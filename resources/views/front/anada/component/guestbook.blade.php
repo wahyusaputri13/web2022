@@ -1,23 +1,8 @@
 @extends('front.anada.layouts.app')
 @section('content')
-<main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-
-            <!-- <ol>
-                <li><a href="index.html">Home</a></li>
-                <li>Inner Page</li>
-            </ol>
-            <h2>Inner Page</h2> -->
-
-        </div>
-    </section>
-    <!-- End Breadcrumbs -->
-
-    <section id="portfolio-details" class="portfolio-details">
-        <div class="container">
+<div class="blog-area full-blog blog-standard full-blog default-padding">
+    <div class="container">
+        <div class="blog-items">
             <div class="row">
                 <div class="col">
                     <div class="card mb-3">
@@ -25,7 +10,7 @@
                             <div class="card-content">
                                 <div class="text-center">
                                     <button type="button" style="color: white; background: #3D4D6A;" class="btn"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        data-toggle="modal" data-target="#exampleModal">
                                         Add Guest
                                     </button>
                                 </div>
@@ -99,9 +84,8 @@
                 </div>
             </div>
         </div>
-    </section>
-
-</main>
+    </div>
+</div>
 @endsection
 @push('after-script')
 <script type="text/javascript">

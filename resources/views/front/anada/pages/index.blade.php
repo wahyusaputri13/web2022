@@ -112,9 +112,13 @@
                         <div class="item">
                             <div class="thumb">
                                 @if(file_exists(public_path('storage/'.$g->path)))
-                                <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                                <a href="{{ asset('storage/') }}/{{ $g->path}}" target="_blank">
+                                    <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                                </a>
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                <a href="{{ asset('img/soulofjava.jpg') }}" target="_blank">
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                </a>
                                 @endif
                             </div>
                             <div class="info">

@@ -27,8 +27,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="info">
-
+                                <div class="info text-center">
                                     <h4>
                                         <a href="{{ url('/news-detail', $n->slug) }}">{{ $n->title }}</a>
                                     </h4>

@@ -42,6 +42,10 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <h2 class="wow fadeInDown text-white" data-wow-duration="1s">
+                        {{ $data_website->web_name }}</h2>
+                </a>
             </div>
             <!-- End Header Navigation -->
 

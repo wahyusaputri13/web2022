@@ -32,23 +32,26 @@
                                 <div class="meta">
                                     <ul>
                                         <li>
-                                            <a href="#">{{
+                                            <a href="{{ url('/news-author', $data->upload_by) }}">{{
                                                 $data->upload_by }}</a>
                                         </li>
                                         <li>
-                                            <i class="fas fa-eye"></i> {{
+                                            <i class="fas fa-eye"></i>{{
                                             views($data)->count(); }}</small>
                                         </li>
-                                        <li>
-                                            <a href="{{ Share::page('http://jorenvanhocht.be', 'Share title')->facebook()->getRawLinks(); }}"
-                                                target="_blank">
-                                                <i class="fab fa-facebook-square"></i>
-                                            </a>
-                                            <i class="fab fa-twitter-square"></i>
-                                            <i class="fab fa-whatsapp-square"></i>
+                                        <a href="{{ Share::page(Request::getHttpHost(), $data->title)->facebook()->getRawLinks() }}"
+                                            target="_blank">
+                                            <i class="fab fa-facebook-square"></i>
+                                        </a>
+                                        <a href="{{ Share::page(Request::getHttpHost(), $data->title)->twitter() }}"
+                                            target="_blank">
+                                        </a>
+                                        <i class="fab fa-twitter-square"></i>
+                                        <i class="fab fa-whatsapp-square"></i>
+                                        {!! Share::page(Request::getHttpHost(), $data->title)->twitter() !!}
                                         </li>
                                         <li>
-                                            {!! Share::currentPage()->facebook()->twitter()->whatsapp(); !!}
+                                            {!! Share::currentPage()->facebook() !!}
                                         </li>
                                     </ul>
                                 </div>
@@ -66,10 +69,11 @@
                     <aside>
                         <div class="sidebar-item search">
                             <div class="sidebar-info">
-                                <form>
-                                    <input type="text" name="text" class="form-control">
-                                    <button type="submit"><i class="fas fa-search"></i></button>
-                                </form>
+                                {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
+                                {{Form::text('kolomcari', null,['class' => 'form-control mb-3',
+                                'placeholder' => 'Title Post'])}}
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                                {{Form::close()}}
                             </div>
                         </div>
                         <div class="sidebar-item recent-post">
@@ -77,45 +81,30 @@
                                 <h4>Recent Post</h4>
                             </div>
                             <ul>
+                                @foreach($news as $n)
                                 <li>
                                     <div class="thumb">
                                         <a href="#">
-                                            <img src="assets/img/800x800.png" alt="Thumb">
+                                            @if(file_exists(public_path('storage/'.$n->path)))
+                                            <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                                class="img-fluid rounded-start rounded-end">
+                                            @else
+                                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                            @endif
                                         </a>
                                     </div>
                                     <div class="info">
-                                        <a href="#">Participate in staff meetingness manage dedicated</a>
-                                        <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> 12 Feb, 2020</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="assets/img/800x800.png" alt="Thumb">
+                                        <a href="{{ url('/news-detail', $n->slug) }}">{{
+                                            \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
                                         </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">Future Plan & Strategy for Consutruction </a>
                                         <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> 05 Jul, 2019</span>
+                                            <span class="post-date"><i class="fas fa-clock"></i> {{
+                                                \Carbon\Carbon::parse( $n->date
+                                                )->toFormattedDateString() }}</span>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="assets/img/800x800.png" alt="Thumb">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">Melancholy particular devonshire alteration</a>
-                                        <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> 29 Aug, 2020</span>
-                                        </div>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </aside>
@@ -128,4 +117,5 @@
 <!-- End Blog -->
 @endsection
 @push('after-script')
+<script src="{{ asset('js/share.js') }}"></script>
 @endpush
