@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Music;
+use App\Models\Buaper;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;
@@ -64,7 +65,7 @@ class FrontController extends Controller
     {
         Seo::SeO();
         $music = Music::orderBy('years', '')->paginate(12);
-        $sidepost = Music::latest('years')->take(5)->get();
+       
         return view('front.pesonafm.pages.music', compact('music'));
     }
 
@@ -73,8 +74,16 @@ class FrontController extends Controller
         Seo::SeO();
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
         if ($request->ajax()) {
-            return view('front.pages.gallery', compact('gallery'));
+            return view('front.pesonafm.pages.gallery', compact('gallery'));
         }
+    }
+
+    public function buaper(Request $request)
+    {
+        Seo::SeO();
+        $buaper = Buaper::orderBy('', '')->paginate(12);
+        $sidepost = Buaper::latest('')->take(5)->get();
+        return view('front.pesonafm.pages.buaper', compact('buaper'));
     }
 
     public function audio(Request $request)

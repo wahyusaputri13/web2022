@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Music;
+use App\Models\Buaper;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class MusicController extends Controller
+class BuaperController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class MusicController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Music::orderBy('years', '')->get();
+            $data = Buaper::orderBy('date', 'DESC')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -26,8 +26,8 @@ class MusicController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('music.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('music.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                        <a href="' . route('buaper.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
+                        <a href="' . route('buaper.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
                     </div>';
                         return $actionBtn;
                     }
@@ -44,7 +44,7 @@ class MusicController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
-        return view('front.pesonafm.pages.music');
+        return view('front.a.pages.buaper.index');
     }
 
     /**
@@ -54,7 +54,7 @@ class MusicController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.music.create');
+        return view('back.a.pages.buaper.create');
     }
 
     /**
@@ -68,44 +68,46 @@ class MusicController extends Controller
         if ($request->hasFile('photo')) {
             $validated = $request->validate([
                 'photo' => 'image|max:12048',
-                'Artis' => 'required',
-                'years' => 'required',
-                'song' => 'required',
+                'title' => 'required',
+                'date' => 'required',
+                'description' => 'required',
             ]);
-            $name = $request->file('artis')->getClientOriginalName();
-            $path = $request->file('artis')->store('music');
+            $name = $request->file('photo')->getClientOriginalName();
+            $path = $request->file('photo')->store('buaper');
             $data = [
-                'artis' => $name,
+                'photo' => $name,
                 'path' => $path,
-                'song' => $request->song,
-                'years' => $request->years,
-                'slug' => SlugService::createSlug(Music::class, 'slug', $request->song),
+                'title' => $request->title,
+                'date' => $request->date,
+                'upload_by' => auth()->user()->name,
+                'description' => $request->description,
+                'slug' => SlugService::createSlug(Buaper::class, 'slug', $request->title),
             ];
         } else {
             $validated = $request->validate([
-                'Song' => 'required',
-                'Years' => 'required',
-                'Artis' => 'required',
+                'title' => 'required',
+                'date' => 'required',
+                'description' => 'required',
             ]);
             $data = [
-                'Song' => $request->title,
-                'Years' => $request->date,
+                'title' => $request->title,
+                'date' => $request->date,
                 'upload_by' => auth()->user()->name,
                 'description' => $request->description,
-                'slug' => SlugService::createSlug(Music::class, 'slug', $request->title),
+                'slug' => SlugService::createSlug(Buaper::class, 'slug', $request->title),
             ];
         }
-        Music::create($data);
-        return redirect(route('music.index'))->with(['success' => 'Data added successfully!']);
+        Buaper::create($data);
+        return redirect(route('buaper.index'))->with(['success' => 'Data added successfully!']);
     }
 
     /**
      * Display the specified resource.
-     
-     * @param  \App\Models\Music  $music
+     *
+     * @param  \App\Models\Buaper  $buaper
      * @return \Illuminate\Http\Response
      */
-    public function show(Music $music)
+    public function show(buaper $buaper)
     {
         //
     }
@@ -113,20 +115,20 @@ class MusicController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Music  $music
+     * @param  \App\Models\Buaper  $buaper
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $data = Music::find($id);
-        return view('back.a.pages.music.edit', compact('data'));
+        $data = Buaper::find($id);
+        return view('back.a.pages.buaper.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Music  $music
+     * @param  \App\Models\Buaper  $buaper
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -134,52 +136,52 @@ class MusicController extends Controller
         if ($request->hasFile('photo')) {
             $validated = $request->validate([
                 'photo' => 'required|image|max:12048',
-                'song' => 'required',
-                'artis' => 'required',
+                'title' => 'required',
+                'description' => 'required',
             ]);
-            $gambar = music::where('id', $id)->first();
+            $gambar = Buaper::where('id', $id)->first();
             if ($request->file('photo')->getClientOriginalName() != $gambar->photo) {
                 Storage::delete($gambar->path);
                 $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('music');
+                $path = $request->file('photo')->store('buaper');
                 $data = [
                     'photo' => $name,
                     'path' => $path,
-                    'song' => $request->song,
-                    'years' => $request->years,
+                    'title' => $request->title,
+                    'date' => $request->date,
                     'upload_by' => auth()->user()->name,
-                    'artis' => $request->artis,
+                    'description' => $request->description,
                 ];
             }
         } else {
             $validated = $request->validate([
-                'song' => 'required',
-                'artis' => 'required',
+                'title' => 'required',
+                'description' => 'required',
             ]);
             $data = [
-                'song' => $request->song,
-                'years' => $request->years,
+                'title' => $request->title,
+                'date' => $request->date,
                 'upload_by' => auth()->user()->name,
-                'artis' => $request->artis,
+                'description' => $request->description,
             ];
         }
-        Music::find($id)->update($data);
-        return redirect(route('music.index'))->with(['success' => 'Data has been successfully changed!']);
+        Buaper::find($id)->update($data);
+        return redirect(route('buaper.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Music  $music
+     * @param  \App\Models\Buaper  $buaper
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $gambar = Music::where('id', $id)->first();
+        $gambar = Buaper::where('id', $id)->first();
         if (Storage::exists($gambar->path)) {
             Storage::delete($gambar->path);
         }
-        $data = Music::find($id);
+        $data = Buaper::find($id);
         return $data->delete();
     }
 }

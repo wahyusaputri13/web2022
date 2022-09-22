@@ -22,6 +22,7 @@ use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Music;
 use App\Models\Website;
 use App\Models\Audio;
 use App\Models\Themes;
@@ -80,6 +81,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
     Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
+    Route::get('/music', [FrontController::class, 'music'])->name('music');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
     Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
     Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
@@ -100,10 +102,12 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
+Route::resource('music', MusicController::class);
+Route::resource('buaper', BuaperController::class);
+
 Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
-    Route::resource('music', MusicController::class);
     Route::resource('submenu', SubmenuController::class);
     Route::resource('settings', WebsiteController::class);
     Route::resource('news', NewsController::class);

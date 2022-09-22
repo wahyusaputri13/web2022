@@ -8,7 +8,7 @@ Breadcrumbs::for('dashboard', function ($trail) {
 // Dashboard > Gallery
 Breadcrumbs::for('gallery', function ($trail) {
     $trail->parent('dashboard');
-    $trail->push('Gallery', url('gallery'));
+    $trail->push('Gallery', url('photos'));
 });
 
 
@@ -34,6 +34,12 @@ Breadcrumbs::for('audio', function ($trail) {
 Breadcrumbs::for('menu', function ($trail) {
     $trail->parent('dashboard');
     $trail->push('Menu', url('menu'));
+});
+
+// Dashboard > Buaper
+Breadcrumbs::for('buaper', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('buaper', url('buaper'));
 });
 
 // Dashboard > Role

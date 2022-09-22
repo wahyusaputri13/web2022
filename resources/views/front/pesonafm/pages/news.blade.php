@@ -45,7 +45,7 @@
             <div class="col-lg-4">
                 <div class="post-box">
                     <div class="post-img">
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="">
+                        <img src="{{ asset('storage/app') }}/{{ $n->path}}" class="img-fluid" alt="">
                     </div>
                     <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                         \Carbon\Carbon::parse( $n->date

@@ -28,7 +28,7 @@
                     <article class="entry entry-single">
 
                         <div class="entry-img">
-                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/app/') }}/{{ $data->path}}" class="img-fluid" alt="">
                         </div>
 
                         <h2 class="entry-title">
@@ -119,7 +119,7 @@
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix">
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" alt="">
+                                <img src="{{ asset('storage/app/') }}/{{ $n->path}}" alt="">
                                 <h4><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a></h4>
                                 <time datetime="2020-01-01">{{
                                     \Carbon\Carbon::parse( $n->date

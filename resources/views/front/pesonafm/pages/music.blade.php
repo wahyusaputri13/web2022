@@ -1,6 +1,5 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
-@if($music->count() != 0)
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -39,3 +38,4 @@
     </tr>
   </tbody>
 </table>
+@endsection
