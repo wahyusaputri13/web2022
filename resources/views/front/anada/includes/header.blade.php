@@ -186,7 +186,13 @@
             <div class="widget">
                 <h4 class="title">Additional Links</h4>
                 <ul>
+                    @if (Route::has('login'))
+                    @auth
+                    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                    @else
                     <li><a href="{{ url('login') }}">Login</a></li>
+                    @endauth
+                    @endif
                 </ul>
             </div>
         </div>
