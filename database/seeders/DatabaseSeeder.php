@@ -39,6 +39,14 @@ class DatabaseSeeder extends Seeder
                 'image' => 'img/herobiz.png'
             ],
             [
+                'name' => 'appway',
+                'image' => 'img/appway.png'
+            ],
+            [
+                'name' => 'anada',
+                'image' => 'img/anada.png'
+            ],
+            [
                 'name' => 'arsha',
                 'image' => 'img/arsha.png'
             ]

@@ -18,11 +18,11 @@
                     </div>
                     <div class="form-group col-lg-4">
                         <label class="control-label">Time Start</label>
-                        {{Form::text('t-start', null,['class' => 'form-control timepicker'])}}
+                        {{Form::text('t_start', null,['class' => 'form-control timepicker'])}}
                     </div>
                     <div class="form-group col-lg-4">
                         <label class="control-label">Time End</label>
-                        {{Form::text('t-end', null,['class' => 'form-control timepicker'])}}
+                        {{Form::text('t_end', null,['class' => 'form-control timepicker'])}}
                     </div>
                     <div class="form-group col-lg-6">
                         <label class="control-label">Location</label>

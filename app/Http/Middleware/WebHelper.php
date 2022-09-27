@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Complaint;
 use App\Models\Counter;
 use Closure;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class WebHelper
         $data = Website::first();
         $menu = FrontMenu::all();
         $news = News::all()->count();
+        $public_complaints = Complaint::all()->count();
         $gallery = Gallery::all()->count();
         $counter = Counter::all()->count();
         $related = RelatedLink::all();
@@ -34,6 +36,7 @@ class WebHelper
         view()->share('data_website', $data);
         view()->share('nav_menu', $menu);
         view()->share('news_all', $news);
+        view()->share('public_complaints', $public_complaints);
         view()->share('gallery_all', $gallery);
         view()->share('counter_web', $counter);
         view()->share('related', $related);

@@ -39,7 +39,16 @@ class DailyReportController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->addColumn(
+                    'jam',
+                    function ($data) {
+                        $actionBtn = '<center>' .
+                            $data->t_start . ' - ' . $data->t_end
+                            . ' WIB </center>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'tgl', 'jam'])
                 ->make(true);
         }
         return view('back.a.pages.daily.index');
@@ -65,8 +74,8 @@ class DailyReportController extends Controller
     {
         $validated = $request->validate([
             'date' => 'required',
-            't-start' => 'required',
-            't-end' => 'required',
+            't_start' => 'required',
+            't_end' => 'required',
             'location' => 'required',
             'personnel' => 'required',
             'report' => 'required',
@@ -109,8 +118,8 @@ class DailyReportController extends Controller
     {
         $validated = $request->validate([
             'date' => 'required',
-            't-start' => 'required',
-            't-end' => 'required',
+            't_start' => 'required',
+            't_end' => 'required',
             'location' => 'required',
             'personnel' => 'required',
             'report' => 'required',

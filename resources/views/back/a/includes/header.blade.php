@@ -145,11 +145,6 @@
                                     <i class="material-icons">person</i>
                                     Users</a>
                             </li>
-                            <li class="{{ (Str::contains(Request::url(), 'whatsapp')) ? 'active' : '' }}">
-                                <a href="{{ url('admin/whatsapp') }}">
-                                    <i class="material-icons">devices</i>
-                                    Whatsapp</a>
-                            </li>
                         </ul>
                     </div>
                 </li>
