@@ -9,7 +9,11 @@ module.exports = {
     ],
 
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+          primary:'#7CA4AE'
+        }
+      },
         fontFamily: {
         'ubuntu': ['Ubuntu', 'sans'],
       },
@@ -20,6 +24,7 @@ module.exports = {
         'lg': '1024px',
         'xl': '1280px',
       },
+
     },
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

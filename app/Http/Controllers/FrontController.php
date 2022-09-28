@@ -73,9 +73,9 @@ class FrontController extends Controller
     {
         Seo::SeO();
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
-        if ($request->ajax()) {
+        // if ($request->ajax()) {
             return view('front.pesonafm.pages.gallery', compact('gallery'));
-        }
+        // }
     }
 
     public function buaper(Request $request)

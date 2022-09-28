@@ -6,9 +6,9 @@ use App\Models\Buaper;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\DB;
 
-class BuaperController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class BuaperController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Buaper::orderBy('date', 'DESC')->get();
+            $data = Buaper::all();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -26,25 +26,16 @@ class BuaperController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('buaper.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('buaper.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                        <a href="' . route('buaper.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
+                        <a href="' . route('buaper.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
                     </div>';
                         return $actionBtn;
                     }
                 )
-                ->addColumn(
-                    'tgl',
-                    function ($data) {
-                        $actionBtn = '<center>' .
-                            \Carbon\Carbon::parse($data->date)->toFormattedDateString()
-                            . '</center>';
-                        return $actionBtn;
-                    }
-                )
-                ->rawColumns(['action', 'tgl'])
+                ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('front.a.pages.buaper.index');
+        return view('back.a.pages.buaper.index');
     }
 
     /**
@@ -65,38 +56,17 @@ class BuaperController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('photo')) {
-            $validated = $request->validate([
-                'photo' => 'image|max:12048',
-                'title' => 'required',
-                'date' => 'required',
-                'description' => 'required',
-            ]);
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->store('buaper');
-            $data = [
-                'photo' => $name,
-                'path' => $path,
-                'title' => $request->title,
-                'date' => $request->date,
-                'upload_by' => auth()->user()->name,
-                'description' => $request->description,
-                'slug' => SlugService::createSlug(Buaper::class, 'slug', $request->title),
-            ];
-        } else {
-            $validated = $request->validate([
-                'title' => 'required',
-                'date' => 'required',
-                'description' => 'required',
-            ]);
-            $data = [
-                'title' => $request->title,
-                'date' => $request->date,
-                'upload_by' => auth()->user()->name,
-                'description' => $request->description,
-                'slug' => SlugService::createSlug(Buaper::class, 'slug', $request->title),
-            ];
-        }
+        $validated = $request->validate([
+            'photo' => 'required|image|max:12048',
+            'description' => 'required',
+        ]);
+        $name = $request->file('photo')->getClientOriginalName();
+        $path = $request->file('photo')->store('buaper');
+        $data = [
+            'name' => $name,
+            'path' => $path,
+            'description' => $request->description,
+        ];
         Buaper::create($data);
         return redirect(route('buaper.index'))->with(['success' => 'Data added successfully!']);
     }
@@ -104,10 +74,10 @@ class BuaperController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Buaper  $buaper
+     * @param  \App\Models\Buaper  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function show(buaper $buaper)
+    public function show(Buaper $buaper)
     {
         //
     }
@@ -128,7 +98,7 @@ class BuaperController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Buaper  $buaper
+     * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -136,32 +106,24 @@ class BuaperController extends Controller
         if ($request->hasFile('photo')) {
             $validated = $request->validate([
                 'photo' => 'required|image|max:12048',
-                'title' => 'required',
                 'description' => 'required',
             ]);
             $gambar = Buaper::where('id', $id)->first();
-            if ($request->file('photo')->getClientOriginalName() != $gambar->photo) {
+            if ($request->file('photo')->getClientOriginalName() != $gambar->name) {
                 Storage::delete($gambar->path);
                 $name = $request->file('photo')->getClientOriginalName();
                 $path = $request->file('photo')->store('buaper');
                 $data = [
-                    'photo' => $name,
+                    'name' => $name,
                     'path' => $path,
-                    'title' => $request->title,
-                    'date' => $request->date,
-                    'upload_by' => auth()->user()->name,
                     'description' => $request->description,
                 ];
             }
         } else {
             $validated = $request->validate([
-                'title' => 'required',
                 'description' => 'required',
             ]);
             $data = [
-                'title' => $request->title,
-                'date' => $request->date,
-                'upload_by' => auth()->user()->name,
                 'description' => $request->description,
             ];
         }
@@ -181,7 +143,7 @@ class BuaperController extends Controller
         if (Storage::exists($gambar->path)) {
             Storage::delete($gambar->path);
         }
-        $data = Buaper::find($id);
-        return $data->delete();
+        $data = Buaper::destroy($id);
+        return $data;
     }
 }

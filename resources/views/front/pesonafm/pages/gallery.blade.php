@@ -1,6 +1,9 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
 @if($gallery->count() != 0)
+<body class="dark:bg-slate-800 dark:text-slate-200">
+    <h1 class="text-8xl font-bold text-center my-10"> Gallery  <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Section</span>  </h1>
+<section id="recent-blog-posts" class="recent-blog-posts">
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="portfolio">
 
@@ -27,12 +30,12 @@
             @foreach($gallery as $g)
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap d-flex justify-content-center">
-                    <img src="{{ asset('storage/app') }}/{{ $g->path}}" class="img-fluid" alt="">
+                    <img src="{{ asset('storage') }}/{{ $g->path}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>{{ $g->description }}</h4>
                         <!-- <p>App</p> -->
                         <div class="portfolio-links">
-                            <a href="{{ asset('storage/app') }}/{{ $g->path}}" data-gallery="portfolioGallery"
+                            <a href="{{ asset('storage') }}/{{ $g->path}}" data-gallery="portfolioGallery"
                                 class="portfokio-lightbox" title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
                             <!-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> -->
                         </div>
