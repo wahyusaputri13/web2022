@@ -74,7 +74,7 @@ class GalleryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Buaper  $gallery
+     * @param  \App\Models\Buaper  $buaper
      * @return \Illuminate\Http\Response
      */
     public function show(Buaper $buaper)

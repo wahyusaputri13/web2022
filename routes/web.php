@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Website;
+use App\Models\Music;
 use App\Models\Audio;
 use App\Models\Themes;
 use PhpParser\Node\Stmt\Return_;
@@ -102,11 +103,11 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
-Route::resource('music', MusicController::class);
 Route::resource('buaper', BuaperController::class);
 
 Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
+    Route::resource('music', MusicController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);
     Route::resource('settings', WebsiteController::class);

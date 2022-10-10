@@ -61,7 +61,7 @@ class FrontController extends Controller
         return view('front.pesonafm.pages.news', compact('news', 'sidepost'));
     }
 
-    public function music(Request $request)
+    public function musicall(Request $request)
     {
         Seo::SeO();
         $music = Music::orderBy('years', '')->paginate(12);
@@ -81,7 +81,7 @@ class FrontController extends Controller
     public function buaper(Request $request)
     {
         Seo::SeO();
-        $buaper = Buaper::orderBy('', '')->paginate(12);
+        $buaper = Buaper::orderBy('text', '')->paginate(12);
         $sidepost = Buaper::latest('')->take(5)->get();
         return view('front.pesonafm.pages.buaper', compact('buaper'));
     }

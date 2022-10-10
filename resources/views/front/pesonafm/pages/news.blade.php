@@ -23,10 +23,7 @@
   };
   </script>
   </head> 
-  
-<body class="dark:bg-slate-800 dark:text-slate-200">
-    <h1 class="text-8xl font-bold text-center my-10"> Recent posts  <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">form our Blog</span>  </h1>
-<section id="recent-blog-posts" class="recent-blog-posts">
+
 
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
             <div class="col-lg-12 d-flex justify-content-center">
@@ -40,12 +37,22 @@
                 @endif
             </div>
         </div>
-        <div class="row mt-4">
-            @foreach($news as $n)
-            <div class="col-lg-4">
-                <div class="post-box">
-                    <div class="post-img">
-                        <img src="{{ asset('storage') }}/{{ $n->path}}" class="img-fluid" alt="">
+  
+<body class="dark:bg-slate-800 dark:text-slate-200">
+    <h1 class="text-8xl font-bold text-center my-10"> Recent posts  <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">form our Blog</span>  </h1>
+<section id="recent-blog-posts" class="recent-blog-posts">
+<div class="container my-24 px-6 mx-auto">
+
+  <!-- Section: Design Block -->
+  <section class="mb-32 text-gray-800">
+
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg"
+        style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="light">
+        @foreach($news as $n)
+  <div class="rounded-lg shadow-lg bg-white max-w-sm">
+
+    <img src="{{ asset('storage') }}/{{ $n->path}}" class="img-fluid" alt="">
                     </div>
                     <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                         \Carbon\Carbon::parse( $n->date
@@ -60,6 +67,10 @@
         </div>
     </div>
 
+  </div>
+</div>
+        </a>
+     
 </section>
 <!-- End Recent Blog Posts Section -->
 @endif

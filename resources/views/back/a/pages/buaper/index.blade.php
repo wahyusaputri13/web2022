@@ -1,8 +1,8 @@
-@extends('back.a.layouts.app')
+
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        {{ Breadcrumbs::render('music') }}
+        {{ Breadcrumbs::render(buaper') }}
         @if ($message = Session::get('success'))
         <div id="elementId" hidden>{{ $message }}</div>
         @endif
@@ -10,12 +10,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">event_note</i>
+                        <i class="material-icons">collections</i>
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
-                            <a href="{{ url('music/create') }}" class="btn btn-info btn-round">Add Data <i
+                            <a href="{{ url('buaper/create') }}" class="btn btn-info btn-round">Add Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
                             </a>
@@ -29,8 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
-                                        <th>Date</th>
+                                        <th>Description</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -72,14 +71,11 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
-            { data: 'title', name: 'title', className: "text-center" },
-            { data: 'tgl', className: "text-center" },
-            { data: 'action', className: "text-center" },
+            { data: 'description', name: 'description' },
+            { data: 'action', },
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
 </script>
 <script>
     $(document).ready(function () {

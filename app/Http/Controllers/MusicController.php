@@ -18,7 +18,7 @@ class MusicController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Music::orderBy('years', '')->get();
+            $data = Music::all();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -44,7 +44,7 @@ class MusicController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
-        return view('front.pesonafm.pages.music');
+        return view('back.a.pages.music.index');
     }
 
     /**

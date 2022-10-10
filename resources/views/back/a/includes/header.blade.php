@@ -66,6 +66,10 @@
                                     <i class="material-icons">event_note</i>
                                     News</a>
                             </li>
+                            <li class="{{ (request()->is('music*')) ? 'active' : '' }}">
+                                <a href="{{ url('/music') }}"> <i class="material-icons">collections</i>
+                                    Music</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
