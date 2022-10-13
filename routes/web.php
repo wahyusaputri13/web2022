@@ -81,7 +81,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
     Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
-    Route::get('/music', [FrontController::class, 'music'])->name('music');
+    Route::get('/front-music', [FrontController::class, 'music'])->name('music.all');
     Route::get('/buaper', [FrontController::class, 'buaper'])->name('buaper');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
     Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
@@ -103,10 +103,11 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
-Route::resource('buaper', BuaperController::class);
+
 
 Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
+    Route::resource('buaper', BuaperController::class);
     Route::resource('music', MusicController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);

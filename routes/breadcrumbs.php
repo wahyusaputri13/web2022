@@ -15,7 +15,7 @@ Breadcrumbs::for('gallery', function ($trail) {
 // Dashboard > Chart Top 10 music
 Breadcrumbs::for('music', function ($trail) {
     $trail->parent('dashboard');
-    $trail->push('music', url('music'));
+    $trail->push('music', url('musicall'));
 });
 
 // Dashboard > News

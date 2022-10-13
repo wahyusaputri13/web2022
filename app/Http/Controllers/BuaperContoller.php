@@ -98,7 +98,7 @@ class GalleryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\Buaper  $buaper
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
