@@ -64,8 +64,8 @@ class FrontController extends Controller
     public function music(Request $request)
     {
         Seo::SeO();
-        $music = Music::orderBy('years', 'descz')->paginate(12);
-       
+        $music = Music::orderBy('years', 'desc')->paginate(12);
+
         return view('front.pesonafm.pages.music', compact('music'));
     }
 
@@ -74,7 +74,7 @@ class FrontController extends Controller
         Seo::SeO();
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
         // if ($request->ajax()) {
-            return view('front.pesonafm.pages.gallery', compact('gallery'));
+        return view('front.pesonafm.pages.gallery', compact('gallery'));
         // }
     }
 
@@ -90,7 +90,7 @@ class FrontController extends Controller
     {
         return view('front.pesonafm.pages.audio');
     }
-    
+
     public function page($id)
     {
         Seo::seO();
