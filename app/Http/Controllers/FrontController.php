@@ -81,8 +81,8 @@ class FrontController extends Controller
     public function buaper(Request $request)
     {
         Seo::SeO();
-        $buaper = Buaper::orderBy('text', '')->paginate(12);
-        $sidepost = Buaper::latest('')->take(5)->get();
+        $buaper = Buaper::orderBy('date', 'desc')->paginate(12);
+        $sidepost = Buaper::latest('date')->take(5)->get();
         return view('front.pesonafm.pages.buaper', compact('buaper'));
     }
 

@@ -60,8 +60,8 @@ class GalleryController extends Controller
             'photo' => 'required|image|max:12048',
             'description' => 'required',
         ]);
-        $name = $request->file('photo')->getClientOriginalName();
-        $path = $request->file('photo')->store('buaper');
+        $name = $request->file('video')->getClientOriginalName();
+        $path = $request->file('video')->store('buaper');
         $data = [
             'name' => $name,
             'path' => $path,
@@ -103,16 +103,16 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->hasFile('photo')) {
+        if ($request->hasFile('video')) {
             $validated = $request->validate([
-                'photo' => 'required|image|max:12048',
+                'video' => 'required|video|max:12048',
                 'description' => 'required',
             ]);
             $gambar = Buaper::where('id', $id)->first();
-            if ($request->file('photo')->getClientOriginalName() != $gambar->name) {
-                Storage::delete($gambar->path);
-                $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('buaper');
+            if ($request->file('video')->getClientOriginalName() != $gambar->name) {
+                Storage::delete($video->path);
+                $name = $request->file('video')->getClientOriginalName();
+                $path = $request->file('video')->store('buaper');
                 $data = [
                     'name' => $name,
                     'path' => $path,
@@ -140,8 +140,8 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $gambar = Buaper::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
+        if (Storage::exists($video->path)) {
+            Storage::delete($video->path);
         }
         $data = Buaper::destroy($id);
         return $data;

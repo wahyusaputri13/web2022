@@ -21,7 +21,7 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                 <div>
                                     <span class="btn btn-success btn-round btn-file">
-                                        <span class="fileinput-new">Select image</span>
+                                        <span class="fileinput-new">Song</span>
                                         <span class="fileinput-exists">Change</span>
                                         <!-- <input type="file" name="photo" /> -->
                                         {{Form::file('photo', null,['class' => 'form-control'])}}

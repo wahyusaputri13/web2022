@@ -29,10 +29,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
-                                        <th>Date</th>
+                                        <th>Song</th>
+                                        <th>Artist</th>
                                         <th class="disabled-sorting text-center">
-                                            Actions</th>
+                                            Years</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>
