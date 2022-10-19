@@ -11,6 +11,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AudioController;
 use App\Http\Controllers\MusicController;
+use App\Http\Controllers\BuaperController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
@@ -82,7 +83,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
     Route::get('/front-music', [FrontController::class, 'music'])->name('music.all');
-    Route::get('/buaper', [FrontController::class, 'buaper'])->name('buaper');
+    Route::get('/buaperall', [FrontController::class, 'buaper'])->name('buaper.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
     Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
     Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
