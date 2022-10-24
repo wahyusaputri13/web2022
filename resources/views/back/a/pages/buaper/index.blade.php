@@ -1,8 +1,8 @@
-
+@extends('back.a.layouts.app')
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        {{ Breadcrumbs::render(buaper') }}
+        {{ Breadcrumbs::render('buaper') }}
         @if ($message = Session::get('success'))
         <div id="elementId" hidden>{{ $message }}</div>
         @endif

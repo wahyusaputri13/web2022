@@ -54,7 +54,9 @@ class MusicController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.music.create');
+        return view('back.a.pages.music.create', [
+            'music' => Music::orderBy('song', 'ASC')->get()
+        ]);
     }
 
     /**
@@ -65,36 +67,11 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('photo')) {
-            $validated = $request->validate([
-                'photo' => 'image|max:12048',
-                'Artis' => 'required',
-                'years' => 'required',
-                'song' => 'required',
-            ]);
-            $name = $request->file('artis')->getClientOriginalName();
-            $path = $request->file('artis')->store('music');
-            $data = [
-                'artis' => $name,
-                'path' => $path,
-                'song' => $request->song,
-                'years' => $request->years,
-                'slug' => SlugService::createSlug(Music::class, 'slug', $request->song),
-            ];
-        } else {
-            $validated = $request->validate([
-                'Song' => 'required',
-                'Years' => 'required',
-                'Artis' => 'required',
-            ]);
-            $data = [
-                'Song' => $request->title,
-                'Years' => $request->date,
-                'upload_by' => auth()->user()->name,
-                'description' => $request->description,
-                'slug' => SlugService::createSlug(Music::class, 'slug', $request->title),
-            ];
-        }
+        $data = [
+            'song' => $request->song,
+            'years' => $request->years,
+            'artist' => $request->artist,
+        ];
         Music::create($data);
         return redirect(route('music.index'))->with(['success' => 'Data added successfully!']);
     }
@@ -131,38 +108,12 @@ class MusicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->hasFile('photo')) {
-            $validated = $request->validate([
-                'photo' => 'required|image|max:12048',
-                'song' => 'required',
-                'artis' => 'required',
-            ]);
-            $gambar = music::where('id', $id)->first();
-            if ($request->file('photo')->getClientOriginalName() != $gambar->photo) {
-                Storage::delete($gambar->path);
-                $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('music');
-                $data = [
-                    'photo' => $name,
-                    'path' => $path,
-                    'song' => $request->song,
-                    'years' => $request->years,
-                    'upload_by' => auth()->user()->name,
-                    'artis' => $request->artis,
-                ];
-            }
-        } else {
-            $validated = $request->validate([
-                'song' => 'required',
-                'artis' => 'required',
-            ]);
+       
             $data = [
                 'song' => $request->song,
                 'years' => $request->years,
-                'upload_by' => auth()->user()->name,
-                'artis' => $request->artis,
+                'artist' => $request->artist,
             ];
-        }
         Music::find($id)->update($data);
         return redirect(route('music.index'))->with(['success' => 'Data has been successfully changed!']);
     }
@@ -175,10 +126,6 @@ class MusicController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = Music::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
-        }
         $data = Music::find($id);
         return $data->delete();
     }

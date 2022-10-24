@@ -8,7 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
-class GalleryController extends Controller
+class BuaperController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -57,7 +57,7 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'photo' => 'required|image|max:12048',
+            'video' => 'required|video|max:30000',
             'description' => 'required',
         ]);
         $name = $request->file('video')->getClientOriginalName();
@@ -103,13 +103,13 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->hasFile('video')) {
+        if ($request->hasFile('photo')) {
             $validated = $request->validate([
-                'video' => 'required|video|max:12048',
+                'video' => 'required|video|max:30000',
                 'description' => 'required',
             ]);
-            $gambar = Buaper::where('id', $id)->first();
-            if ($request->file('video')->getClientOriginalName() != $gambar->name) {
+            $video = Buaper::where('id', $id)->first();
+            if ($request->file('video')->getClientOriginalName() != $video->name) {
                 Storage::delete($video->path);
                 $name = $request->file('video')->getClientOriginalName();
                 $path = $request->file('video')->store('buaper');
@@ -139,7 +139,7 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = Buaper::where('id', $id)->first();
+        $video = Buaper::where('id', $id)->first();
         if (Storage::exists($video->path)) {
             Storage::delete($video->path);
         }

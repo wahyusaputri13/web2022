@@ -5,27 +5,29 @@
         {{ Breadcrumbs::render('music') }}
         <div class="row">
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">collections</i>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">Stacked Form</h4>
+                <div class="table">
+                    
+                    <div class="table-fixed">
+                        <h4 class="table-title">Chart Music</h4>
                         {{Form::open(['route' => 'music.store','method' => 'post', 'files' => 'true', ''])}}
-                        <div class="col text-center">
-                            <!-- <legend>Regular Image</legend> -->
-                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                    <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <div>
-                                    <span class="btn btn-success btn-round btn-file">
-                                        <span class="fileinput-new">Song</span>
-                                        <span class="fileinput-exists">Change</span>
-                                        <!-- <input type="file" name="photo" /> -->
-                                        {{Form::file('photo', null,['class' => 'form-control'])}}
-                                    </span>
+                        <div class="form-group label-floating">
+                        <h4 class="table-hover">song</h4>
+                        <label class="control-label">song</label>
+                        {{Form::text('song', null,['class' => 'form-control'])}}
+                        </div>
+                        <h4 class="table-hover">artist</h4>
+                        <div class="form-group label-floating">
+                        <label class="control-label">artis</label>
+                        {{Form::text('artist', null,['class' => 'form-control'])}}
+                        </div>
+                        <h4 class="table-hover">Years</h4>
+                        <div class="form-group label-floating">
+                        <label class="control-label">Years</label>
+                        {{Form::text('years', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="col text-center">   
+                        <div class="container text-center">        
+                        </div>
                                     <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
                                         data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                 </div>
@@ -40,14 +42,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Description</label>
-                            {{Form::text('description', null,['class' => 'form-control'])}}
-                        </div>
-                        <!-- <div class="form-group label-floating">
-                            <label class="control-label">Photo</label>
-                            {{Form::file('foto', null,['class' => 'form-control'])}}
-                        </div> -->
                         <div class="d-flex text-right">
                             <a href="{{ url('music') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>

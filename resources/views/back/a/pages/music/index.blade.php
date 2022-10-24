@@ -72,7 +72,7 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
-            { data: 'title', name: 'title', className: "text-center" },
+            { data: 'song', name: 'song', className: "text-center" },
             { data: 'tgl', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]

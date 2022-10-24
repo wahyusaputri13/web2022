@@ -10,27 +10,29 @@
                         <i class="material-icons">collections</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Stacked Form</h4>
+                        <h4 class="card-title">Chart Music</h4>
                         {{Form::model($data, ['route' => ['music.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
                         <div class="col text-center">
-                            <!-- <legend>Regular Image</legend> -->
-                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                    @if($data->path)
-                                    <img src="{{ asset('storage') }}/{{ $data->path }}" alt="...">
-                                    @else
-                                    <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
-                                    @endif
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                <div>
-                                    <span class="btn btn-success btn-round btn-file">
-                                        <span class="fileinput-new">Select image</span>
-                                        <span class="fileinput-exists">Change</span>
-                                        <!-- <input type="file" name="photo" /> -->
-                                        {{Form::file('photo', null,['class' => 'form-control'])}}
-                                    </span>
+                        <div class="table-fixed">
+                        <h4 class="table-title">Chart Music</h4>
+                        
+                        <div class="form-group label-floating">
+                        <h4 class="table-hover">song</h4>
+                        <label class="control-label">Song</label>
+                        {{Form::text('Song', null,['class' => 'form-control'])}}
+                        </div>
+                        <h4 class="table-hover">Artist</h4>
+                        <div class="form-group label-floating">
+                        <label class="control-label">Artis</label>
+                        {{Form::text('Artist', null,['class' => 'form-control'])}}
+                        </div>
+                        <h4 class="table-hover">Years</h4>
+                        <div class="form-group label-floating">
+                        <label class="control-label">Years</label>
+                        {{Form::text('Years', null,['class' => 'form-control'])}}
+                        </div>
+                           
                                     <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
                                         data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                 </div>
@@ -45,14 +47,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Description</label>
-                            {{Form::text('description', null,['class' => 'form-control'])}}
-                        </div>
-                        <!-- <div class="form-group label-floating">
-                            <label class="control-label">Photo</label>
-                            {{Form::file('foto', null,['class' => 'form-control'])}}
-                        </div> -->
+                        
                         <div class="d-flex text-right">
                             <a href="{{ url('music') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Update</button>

@@ -70,6 +70,10 @@
                                 <a href="{{ url('/music') }}"> <i class="material-icons">collections</i>
                                     Music</a>
                             </li>
+                            <li class="{{ (request()->is('buaper*')) ? 'active' : '' }}">
+                                <a href="{{ url('/buaper') }}"> <i class="material-icons">collections</i>
+                                    buaper</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

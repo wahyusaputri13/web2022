@@ -23,6 +23,7 @@ use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Buaper;
 use App\Models\Website;
 use App\Models\Music;
 use App\Models\Audio;
@@ -83,7 +84,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
     Route::get('/front-music', [FrontController::class, 'music'])->name('music.all');
-    Route::get('/buaperall', [FrontController::class, 'buaper'])->name('buaper.all');
+    Route::get('/front-buaper', [FrontController::class, 'buaper'])->name('buaper.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
     Route::get('/tentang-kami', [FrontController::class, 'tentangkami'])->name('tentang-kami');
     Route::get('/latar-belakang', [FrontController::class, 'latarbelakang'])->name('latar-belakang');
