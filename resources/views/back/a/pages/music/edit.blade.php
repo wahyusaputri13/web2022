@@ -18,6 +18,12 @@
                         <h4 class="table-title">Chart Music</h4>
                         
                         <div class="form-group label-floating">
+
+                        <h4 class="table-hover">no</h4>
+                        <label class="control-label">no</label>
+                        {{Form::text('no', null,['class' => 'form-control'])}}
+                        </div>
+
                         <h4 class="table-hover">song</h4>
                         <label class="control-label">Song</label>
                         {{Form::text('Song', null,['class' => 'form-control'])}}

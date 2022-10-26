@@ -89,7 +89,13 @@
 
       <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
         <h1 class="text-2xl mt-2 xl:font-extrabold">
-          Contact
+        Contact
+        <div class="flex space-x-4 m-2 sm:space-x-6">
+          <div class="group">
+        <div class="flex justify-center group-hover:scale-125">
+          <a href="https://api.whatsapp.com/send?phone=6282323839996" target="_blank">
+                <img src="{{ asset('assets/front/pesonafm/WA.png') }}" class="scale-125 sm:scale-150">
+</a> 
         </h1>
       </div>
     </div>

@@ -29,6 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Video</th>
                                         <th>Description</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
@@ -71,7 +72,8 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
-            { data: 'description', name: 'description' },
+            { data: 'video' },
+            { data: 'deskripsi' },
             { data: 'action', },
         ]
 

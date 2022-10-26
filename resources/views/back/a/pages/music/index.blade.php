@@ -31,8 +31,9 @@
                                         <th>#</th>
                                         <th>Song</th>
                                         <th>Artist</th>
+                                        <th>Years</th>
                                         <th class="disabled-sorting text-center">
-                                            Years</th>
+                                            Action</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>
@@ -72,8 +73,9 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
-            { data: 'song', name: 'song', className: "text-center" },
-            { data: 'tgl', className: "text-center" },
+            { data: 'song', className: "text-center" },
+            { data: 'artist', className: "text-center" },
+            { data: 'years', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]
 

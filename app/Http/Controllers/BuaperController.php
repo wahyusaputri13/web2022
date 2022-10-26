@@ -57,15 +57,13 @@ class BuaperController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'video' => 'required|video|max:30000',
-            'description' => 'required',
+            'video' => 'required',
+            'deskripsi' => 'required',
         ]);
-        $name = $request->file('video')->getClientOriginalName();
-        $path = $request->file('video')->store('buaper');
+       
         $data = [
-            'name' => $name,
-            'path' => $path,
-            'description' => $request->description,
+            'video' => $request->video,
+            'deskripsi' => $request->deskripsi,
         ];
         Buaper::create($data);
         return redirect(route('buaper.index'))->with(['success' => 'Data added successfully!']);
@@ -103,33 +101,16 @@ class BuaperController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->hasFile('photo')) {
-            $validated = $request->validate([
-                'video' => 'required|video|max:30000',
-                'description' => 'required',
-            ]);
-            $video = Buaper::where('id', $id)->first();
-            if ($request->file('video')->getClientOriginalName() != $video->name) {
-                Storage::delete($video->path);
-                $name = $request->file('video')->getClientOriginalName();
-                $path = $request->file('video')->store('buaper');
-                $data = [
-                    'name' => $name,
-                    'path' => $path,
-                    'description' => $request->description,
-                ];
-            }
-        } else {
-            $validated = $request->validate([
-                'description' => 'required',
-            ]);
-            $data = [
-                'description' => $request->description,
-            ];
-        }
+        $data = 
+        [
+            'video' => $request->video,
+            'deskripsi
+            ' => $request->deskripsi,
+        ];
         Buaper::find($id)->update($data);
         return redirect(route('buaper.index'))->with(['success' => 'Data has been successfully changed!']);
     }
+    
 
     /**
      * Remove the specified resource from storage.
