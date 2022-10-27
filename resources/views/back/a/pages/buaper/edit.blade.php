@@ -7,7 +7,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">collections</i>
+                        <i class="material-icons">video_label</i>
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">Buat Pesona Inspira</h4>

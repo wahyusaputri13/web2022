@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">event_note</i>
+                        <i class="material-icons">library_music</i>
                     </div>
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
@@ -29,6 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Ranking</th>
                                         <th>Song</th>
                                         <th>Artist</th>
                                         <th>Years</th>
@@ -73,6 +74,7 @@
         },
         columns: [
             { data: 'DT_RowIndex' },
+            { data: 'ranking', className: "text-center" },
             { data: 'song', className: "text-center" },
             { data: 'artist', className: "text-center" },
             { data: 'years', className: "text-center" },

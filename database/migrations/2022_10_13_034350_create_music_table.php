@@ -15,6 +15,7 @@ class CreateMusicTable extends Migration
     {
         Schema::create('music', function (Blueprint $table) {
             $table->id();
+            $table->string('ranking')->nullable();
             $table->string('years')->nullable();
             $table->string('song')->nullable();
             $table->string('artist')->nullable();

@@ -68,6 +68,7 @@ class MusicController extends Controller
     public function store(Request $request)
     {
         $data = [
+            'ranking' => $request->ranking,
             'song' => $request->song,
             'years' => $request->years,
             'artist' => $request->artist,
@@ -110,6 +111,7 @@ class MusicController extends Controller
     {
        
             $data = [
+                'ranking' => $request->ranking,
                 'song' => $request->song,
                 'years' => $request->years,
                 'artist' => $request->artist,

@@ -24,8 +24,7 @@
                                     <span class="fileinput-exists">Change</span>
                                     {{Form::file('photo', null,['class' => 'form-control'])}}
                                 </span>
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
-                                    data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+    
                             </div>
                             @if ($errors->any())
                             <div class="alert alert-danger">

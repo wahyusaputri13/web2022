@@ -67,12 +67,12 @@
                                     News</a>
                             </li>
                             <li class="{{ (request()->is('music*')) ? 'active' : '' }}">
-                                <a href="{{ url('/music') }}"> <i class="material-icons">collections</i>
+                                <a href="{{ url('/music') }}"> <i class="material-icons">library_music</i>
                                     Music</a>
                             </li>
                             <li class="{{ (request()->is('buaper*')) ? 'active' : '' }}">
-                                <a href="{{ url('/buaper') }}"> <i class="material-icons">collections</i>
-                                    buaper</a>
+                                <a href="{{ url('/buaper') }}"> <i class="material-icons">video_label</i>
+                                    Buaper</a>
                             </li>
                         </ul>
                     </div>

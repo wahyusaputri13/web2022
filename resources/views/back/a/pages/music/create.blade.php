@@ -11,10 +11,10 @@
                         <h4 class="table-title">Chart Music</h4>
                         {{Form::open(['route' => 'music.store','method' => 'post', 'files' => 'true', ''])}}
                        
-                           <h4 class="table-hover">no</h4>
+                           <h4 class="table-hover">Ranking</h4>
                             <div class="form-group label-floating">
-                            <label class="control-label">no</label>
-                            {{Form::text('no', null,['class' => 'form-control'])}}
+                            <label class="control-label">ranking</label>
+                            {{Form::text('ranking', null,['class' => 'form-control'])}}
                         </div>
                         <h4 class="table-hover">song</h4>
                         <label class="control-label">song</label>

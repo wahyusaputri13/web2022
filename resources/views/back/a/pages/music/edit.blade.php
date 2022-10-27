@@ -7,7 +7,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">collections</i>
+                        <i class="material-icons">library_music</i>
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">Chart Music</h4>
@@ -19,9 +19,9 @@
                         
                         <div class="form-group label-floating">
 
-                        <h4 class="table-hover">no</h4>
-                        <label class="control-label">no</label>
-                        {{Form::text('no', null,['class' => 'form-control'])}}
+                        <h4 class="table-hover">Ranking</h4>
+                        <label class="control-label">ranking</label>
+                        {{Form::text('ranking', null,['class' => 'form-control'])}}
                         </div>
 
                         <h4 class="table-hover">song</h4>

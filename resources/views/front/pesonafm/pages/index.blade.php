@@ -3,7 +3,9 @@
 <div class="container mx-auto py-1">
   <div class="h-screen flex flex-col justify-between">
     <div class="flex justify-between m-2 sm:mx-4">
+    <a href="{{url('/')}}">
       <h1 class="text-3xl font-bold text-center mx-10"> <span class="bg-gradient-to-r from-red-500 to-rose-400 bg-clip-text text-transparent"> 92.1 FM Radio Pesona</span> </h1>
+</a>
       <div class="flex space-x-4 font-medium sm:text-lg">
         <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
         <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Gallery</a>
@@ -92,7 +94,7 @@
         Contact
         <div class="flex space-x-4 m-2 sm:space-x-6">
           <div class="group">
-        <div class="flex justify-center group-hover:scale-125">
+        <div class="flex-col-reverse group-hover:scale-125">
           <a href="https://api.whatsapp.com/send?phone=6282323839996" target="_blank">
                 <img src="{{ asset('assets/front/pesonafm/WA.png') }}" class="scale-125 sm:scale-150">
 </a> 
