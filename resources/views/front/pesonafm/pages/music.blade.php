@@ -1,7 +1,8 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
 
-<h1 class="text-8xl font-bold text-center my-10"> Chart<span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Music</span> </h1>
+<h1 class="text-8xl font-bold text-center my-10"> Chart<span
+        class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Music</span> </h1>
 <!-- ======= Chart Music ======= -->
 <section id="music" class="portfolio">
 
@@ -21,7 +22,6 @@
                 <td> {{$m->song}} </td>
                 <td> {{$m->artist}} </td>
                 <td> {{$m->years}} </td>
-
             </tr>
             @endforeach
         </tbody>
