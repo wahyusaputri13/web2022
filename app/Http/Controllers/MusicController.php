@@ -57,7 +57,7 @@ class MusicController extends Controller
     {
         return view('back.a.pages.music.create', [
             'music' => Music::orderBy('ranking', 'asc')->take(10)->get()
-            
+
         ]);
     }
 
@@ -69,7 +69,7 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         $data = [
             'ranking' => $request->ranking,
             'song' => $request->song,
@@ -80,7 +80,7 @@ class MusicController extends Controller
         return redirect(route('music.index'))->with(['success' => 'Data added successfully!']);
     }
 
-    
+
 
     /**
      * Display the specified resource.
@@ -114,13 +114,13 @@ class MusicController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
-            $data = [
-                'ranking' => $request->ranking,
-                'song' => $request->song,
-                'years' => $request->years,
-                'artist' => $request->artist,
-            ];
+
+        $data = [
+            'ranking' => $request->ranking,
+            'song' => $request->song,
+            'years' => $request->years,
+            'artist' => $request->artist,
+        ];
         Music::find($id)->update($data);
         return redirect(route('music.index'))->with(['success' => 'Data has been successfully changed!']);
     }
