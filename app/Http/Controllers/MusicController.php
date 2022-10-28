@@ -44,6 +44,7 @@ class MusicController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
+
         return view('back.a.pages.music.index');
     }
 
@@ -55,7 +56,8 @@ class MusicController extends Controller
     public function create()
     {
         return view('back.a.pages.music.create', [
-            'music' => Music::orderBy('song', 'ASC')->get()
+            'music' => Music::orderBy('ranking', 'asc')->take(10)->get()
+            
         ]);
     }
 
@@ -67,6 +69,7 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
+       
         $data = [
             'ranking' => $request->ranking,
             'song' => $request->song,
@@ -76,6 +79,8 @@ class MusicController extends Controller
         Music::create($data);
         return redirect(route('music.index'))->with(['success' => 'Data added successfully!']);
     }
+
+    
 
     /**
      * Display the specified resource.

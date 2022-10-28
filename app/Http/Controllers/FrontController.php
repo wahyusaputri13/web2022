@@ -64,8 +64,8 @@ class FrontController extends Controller
     public function music(Request $request)
     {
         Seo::SeO();
-        $music = Music::orderBy('years', 'desc')->paginate(12);
-
+        $music = Music::orderBy('ranking', 'desc')->paginate(12);
+        $sidepost = Music::latest('ranking')->take(10)->get();
         return view('front.pesonafm.pages.music', compact('music'));
     }
 
