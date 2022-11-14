@@ -15,7 +15,11 @@
         <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
       </div>
     </div>
+    <a href="{{url('/')}}">
+            <h1 class="text-8xl font-bold text-center my-10"> Radio LPPL <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Indonesia</span> </h1>
+        </a>
     <div class="flex flex-wrap justify-center flex-row sm:space-x-3 md:space-x-5">
+    <section class="mb-10 bg-indigo-400">
       <div
         class="hp:mb-3 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5">
         <h1 class="text-2xl mt-2 xl:font-extrabold">
@@ -24,18 +28,24 @@
         <button
           class="btn shadow-md shadow-red-500/50 bg-red-500 rounded-lg m-2 btn-playstream group-hover:scale-125 text-md w-14 p-1 ">Play</button>
       </div>
+    </section>
       <a href="{{url('/newsall')}}">
+      <section class="mb-10 bg-green-300">
         <div
           class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5">
           <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">News</h1>
         </div>
+      </section>
       </a>
       <a href="{{url('/photos')}}">
+      <section class="mb-10 bg-red-500">
         <div
           class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
           <h1 class="text-2xl group-hover:scale-125 md:text-3xl xl:font-extrabold">Gallery</h1>
         </div>
+      </section>
       </a>
+      <section class="mb-10 bg-blue-300">
       <div
         class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
         <h1 class="text-2xl mt-2 xl:font-extrabold ">
@@ -79,22 +89,28 @@
           </div>
         </div>
       </div>
+      </section>
       <a href="{{ url('/front-music') }}">
+      <section class="mb-10 bg-blue-200">
         <div
           class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
           <h1 class="text-2xl mt-2 xl:font-extrabold">
             Chart Top 10 Music
           </h1>
         </div>
+      </section>
       </a>
       <a href="{{ url('/front-buaper') }}">
+      <section class="mb-10 bg-orange-400">
         <div
           class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
           <h1 class="text-2xl mt-2 xl:font-extrabold">
             Buaperrr (Buat Pesona Inspira)
           </h1>
         </div>
+      </section>
       </a>
+      <section class="mb-10 bg-green-900">
       <div
         class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
         <h1 class="text-2xl mt-2 xl:font-extrabold">
@@ -107,10 +123,12 @@
                 <img src="{{ asset('assets/front/pesonafm/WA.png') }}" class="scale-125 sm:scale-150">
               </a>
             </div>
+</section>
           </div>
         </div>
       </div>
     </div>
+    
 
     <div class="text-center mb-2">© 2022 DISKOMINFO</div>
   </div>

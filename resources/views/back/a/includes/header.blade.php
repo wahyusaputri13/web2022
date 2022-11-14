@@ -94,18 +94,14 @@
                                 <a href="{{ url('/frontmenu') }}"> <i class="material-icons">menu</i>
                                     Menu</a>
                             </li>
-                            <li class="{{ (request()->is('relatedlink*')) ? 'active' : '' }}">
-                                <a href="{{ url('/relatedlink') }}"><i class="material-icons">link</i>
-                                    Related Link</a>
+                           
                             </li>
                             <li class="{{ (request()->is('settings*')) ? 'active' : '' }}">
                                 <a href="{{ url('/settings') }}">
                                     <i class="material-icons">settings</i>
                                     Settings</a>
                             </li>
-                            <li class="{{ (request()->is('themes*')) ? 'active' : '' }}">
-                                <a href="{{ url('/themes') }}"><i class="material-icons">brush</i>
-                                    Themes</a>
+                           
                             </li>
                             <li class="{{ (request()->is('user*')) ? 'active' : '' }}">
                                 <a href="{{ url('/user') }}">

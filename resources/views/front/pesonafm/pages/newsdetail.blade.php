@@ -27,7 +27,7 @@
 
                     <article class="entry entry-single">
 
-                        <div class="entry-img">
+                    <div class="w-full h-48 overflow-auto touch-auto">
                             <img src="{{ asset('storage/app/') }}/{{ $data->path}}" class="img-fluid" alt="">
                         </div>
 
