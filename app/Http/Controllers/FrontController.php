@@ -56,7 +56,7 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::orderBy('date', 'desc')->paginate(12);
+        $news = News::orderBy('date', 'desc')->paginate(6);
         $sidepost = News::latest('date')->take(5)->get();
         return view('front.pesonafm.pages.news', compact('news', 'sidepost'));
     }
