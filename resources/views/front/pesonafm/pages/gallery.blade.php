@@ -9,14 +9,14 @@
 </a>
       <div class="flex space-x-4 font-medium sm:text-lg">
         <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
-        <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Gallery</a>
+        <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Tips & Trik</a>
         <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-red-500">Contact</a>
         <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
       </div>
     </div>
 <a href="{{url('/')}}">
-<h1 class="text-8xl font-bold text-center my-10"> Gallery <span
-        class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Section</span> </h1>
+<h1 class="text-8xl font-bold text-center my-10"> Tips & <span
+        class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Trik</span> </h1>
 </a>
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="portfolio">
