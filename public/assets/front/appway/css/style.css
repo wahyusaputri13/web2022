@@ -780,6 +780,7 @@ img {
   font-weight:800;
   text-align:center;
   z-index:5;  
+  color: red;
 }
 
 .main-menu .navigation > li > ul > li > ul{

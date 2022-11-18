@@ -31,8 +31,7 @@
 </div>
 <!-- End Banner -->
 
-<!-- Start Blog Area
-    ============================================= -->
+@if($news->count() != 0)
 <div class="blog-area bg-gray left-border default-padding bottom-less">
     <div class="container">
         <div class="heading-left">
@@ -87,7 +86,8 @@
         </div>
     </div>
 </div>
-<!-- End Blog Area -->
+@endif
+@if($gallery->count() != 0)
 <div class="blog-area bg-gray left-border default-padding bottom-less">
     <div class="container">
         <div class="heading-left">
@@ -136,7 +136,7 @@
         </div>
     </div>
 </div>
-</div>
+@endif
 <div id="contact" class="contact-area default-padding">
     <div class="container">
         <div class="contact-items">

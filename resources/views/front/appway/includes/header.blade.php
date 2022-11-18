@@ -74,12 +74,12 @@
                                                 <li><a href="{{ url('page', $sub3->menu_url) }}">{{
                                                         $sub3->menu_name }}</a></li>
                                                 @else
-                                                <li class="dropdown"><a href="#">{{ $sub3->menu_name }} 333</a>
+                                                <li class="dropdown"><a href="#">{{ $sub3->menu_name }}</a>
                                                     <ul>
                                                         @foreach($subMenus3 as $sub4)
                                                         <li><a href="{{ url('page', $sub4->menu_url) }}">{{
                                                                 $sub4->menu_name
-                                                                }} 444</a></li>
+                                                                }}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 </li>
