@@ -8,6 +8,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SubmenuController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AudioController;
 use App\Http\Controllers\MusicController;
@@ -23,6 +24,7 @@ use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Struktur;
 use App\Models\Buaper;
 use App\Models\Website;
 use App\Models\Music;
@@ -83,6 +85,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
     Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
+    Route::get('/struktur', [FrontController::class, 'strukturall'])->name('struktur.all');
     Route::get('/front-music', [FrontController::class, 'music'])->name('music.all');
     Route::get('/front-buaper', [FrontController::class, 'buaper'])->name('buaper.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
@@ -110,6 +113,7 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
 Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('buaper', BuaperController::class);
+    Route::resource('struktur', StrukturController::class);
     Route::resource('music', MusicController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);

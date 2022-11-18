@@ -56,7 +56,7 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::orderBy('date', 'desc')->paginate(6);
+        $news = News::orderBy('date', 'desc')->paginate(9);
         $sidepost = News::latest('date')->take(5)->get();
         return view('front.pesonafm.pages.news', compact('news', 'sidepost'));
     }
@@ -72,17 +72,26 @@ class FrontController extends Controller
     public function galleryall(Request $request)
     {
         Seo::SeO();
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(9);
-        // if ($request->ajax()) {
-        return view('front.pesonafm.pages.gallery', compact('gallery'));
-        // }
+        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(10);
+        $sidepost = Gallery::latest('created_at')->take(5)->get();     
+        return view('front.pesonafm.pages.gallery', compact('gallery', 'sidepost'));
+        
     }
 
     public function buaper(Request $request)
     {
         Seo::SeO();
-        $buaper = Buaper::orderBy('created_at', 'desc')->paginate(12);
-        return view('front.pesonafm.pages.buaper', compact('buaper'));
+        $buaper = Buaper::orderBy('created_at', 'desc')->paginate(9);
+        $sidepost = Buaper::latest('created_at')->take(5)->get(); 
+        return view('front.pesonafm.pages.buaper', compact('buaper', 'sidepost'));
+    }
+
+    public function struktur(Request $request)
+    {
+        Seo::SeO();
+        $struktur = Struktur::orderBy('created_at', 'desc')->paginate(12);
+        // $sidepost = struktur::latest('ranking')->take(10)->get();
+        return view('front.pesonafm.pages.struktur', compact('struktur'));
     }
 
     public function audio(Request $request)

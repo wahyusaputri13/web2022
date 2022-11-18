@@ -47,30 +47,14 @@
             @endforeach
         </div>
     </div>
+    <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            {{ $gallery->links('pagination::tailwind') }}
+          </div>
+        </div>
 </section>
 <!-- End Gallery Section -->
 @endif
 @endsection
 @push('after-script')
-<script>
-    $(function () {
-        $('body').on('click', '.pagination a', function (e) {
-            e.preventDefault();
-            $('#load').append('<img style="position: absolute; left: 0; top: 0; z-index: 10000;" src="https://i.imgur.com/v3KWF05.gif />');
-            var url = $(this).attr('href');
-            window.history.pushState("", "", url);
-            loadPosts(url);
-        });
-
-        function loadPosts(url) {
-            $.ajax({
-                url: url
-            }).done(function (data) {
-                $('.portfolio').html(data);
-            }).fail(function () {
-                console.log("Failed to load data!");
-            });
-        }
-    });
-</script>
 @endpush
