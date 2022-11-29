@@ -1,6 +1,9 @@
 <?php
 
 // Dashboard
+
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+
 Breadcrumbs::for('dashboard', function ($trail) {
     $trail->push('Dashboard', route('dashboard'));
 });
@@ -40,6 +43,12 @@ Breadcrumbs::for('menu', function ($trail) {
 Breadcrumbs::for('buaper', function ($trail) {
     $trail->parent('dashboard');
     $trail->push('buaper', url('buaper'));
+});
+
+// Dashboard > Struktur
+Breadcrumbs::for('struktur', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('struktur', url('struktur'));
 });
 
 // Dashboard > Role
@@ -131,3 +140,4 @@ Breadcrumbs::for('inbox', function ($trail) {
 //     $trail->parent('category', $post->category);
 //     $trail->push($post->title, route('post', $post->id));
 // });
+?>

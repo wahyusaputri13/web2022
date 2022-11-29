@@ -9,6 +9,7 @@ use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Music;
 use App\Models\Buaper;
+use App\Models\Struktur;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;
@@ -88,10 +89,8 @@ class FrontController extends Controller
 
     public function struktur(Request $request)
     {
-        Seo::SeO();
-        $struktur = Struktur::orderBy('created_at', 'desc')->paginate(12);
-        // $sidepost = struktur::latest('ranking')->take(10)->get();
-        return view('front.pesonafm.pages.struktur', compact('struktur'));
+       
+        return view('front.pesonafm.pages.struktur');
     }
 
     public function audio(Request $request)

@@ -28,17 +28,16 @@
         class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">form our
         Blog</span> </h1>
   </a>
-  <!-- ======= News Section ======= -->
-  <section id="news" class="portfolio">
-    <div class="sidebar">
-
-      <h3 class="sidebar-title text-black">Search</h3>
+  <h3 class="sidebar-title text-black">Search</h3>
       <div class="sidebar-item search-form text-black">
         {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
         {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
         <button type="submit"><i class="bi bi-search text-black"></i></button>
         {{Form::close()}}
       </div>
+  <!-- ======= News Section ======= -->
+  <section id="news" class="portfolio">
+    <div class="sidebar">
       <div class="container px-3 py-2 mx-auto lg:pt-24 lg:px-32">
         <div id="body" class="flex flex-wrap m-1 md:m-2">
           @foreach($news as $n)

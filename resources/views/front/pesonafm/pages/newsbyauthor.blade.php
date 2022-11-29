@@ -26,7 +26,7 @@
                     @foreach($data as $author)
                     <article class="entry">
 
-                    <div class="w-full h-48 overflow-auto touch-auto ...">
+                        <div class="entry-img">
                             <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid" alt="">
                         </div>
 

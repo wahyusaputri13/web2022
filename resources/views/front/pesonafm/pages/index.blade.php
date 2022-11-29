@@ -9,7 +9,7 @@
       </a>
       <div class="flex space-x-4 font-medium sm:text-lg">
         <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
-        <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Tips & Trik</a>
+        <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Tips & Trick</a>
         <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-red-500">Contact</a>
         <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
       </div>
@@ -39,7 +39,7 @@
       <a href="{{url('/photos')}}">
         <section class="bg-gradient-to-r from-yellow-500 to-orange-500">
           <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
-            <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold">Tips & Trick</h1>
+            <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-black">Tips & Trick</h1>
           </div>
         </section>
       </a>
@@ -100,8 +100,10 @@
         <section class="bg-gradient-to-r from-pink-400 to-pink-500">
           <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
-              Buaperrr (Buat Pesona Inspira)
+              Buaperrr 
+              <p class="text-2xl mt-2 xl:font-extrabold"> (Buat Pesona Inspira) </p>
             </h1>
+          
           </div>
         </section>
       </a>
@@ -133,10 +135,10 @@
               </div>
             </div>
       </section>
-      <a href="{{ url('/struktur') }}">
+      <a href="{{ url('/strukturall') }}">
         <section class="bg-gradient-to-r from-zinc-300 via-zinc-400 to-zinc-600">
           <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
-            <h1 class="text-3xl mt-2 xl:font-extrabold">
+            <h1 class="text-3xl mt-2 xl:font-extrabold text-black">
               Struktur Organisasi & Redaksi
             </h1>
           </div>
@@ -192,10 +194,7 @@
       },
     };
   </script>
-  <title> belajar tailwindCSS</title>
-  <style type="text/tailwindcss">
-
-  </style>
+  
 </head>
 
 

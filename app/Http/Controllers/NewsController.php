@@ -185,10 +185,4 @@ class NewsController extends Controller
         return $data->delete();
     }
 
-    public function newsSearch() 
-{
-    $news = $data->select('news')->where('id')->orderBy('date', 'DESC')->paginate(5); //Search posts
-
-    return Response::json(View::make('includes.posts', ['posts' => $posts])->render());
-}
 }
