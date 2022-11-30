@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
@@ -183,5 +184,50 @@ class NewsController extends Controller
         }
         $data = News::find($id);
         return $data->delete();
+    }
+
+    public function insert(Request $request)
+    {
+        $data = DB::table('posting')->get();
+        // dd($data);
+        foreach ($data as $dt) {
+            // dd($data);
+            // if ($request->hasFile('photo')) {
+            //     $validated = $request->validate([
+            //         'photo' => 'image|max:12048',
+            //         'title' => 'required',
+            //         'date' => 'required',
+            //         'description' => 'required',
+            //     ]);
+            //     $name = $request->file('photo')->getClientOriginalName();
+            //     $path = $request->file('photo')->store('news');
+            //     $data = [
+            //         'photo' => $name,
+            //         'path' => $path,
+            //         'title' => $request->title,
+            //         'date' => $request->date,
+            //         'upload_by' => auth()->user()->name,
+            //         'description' => $request->description,
+            //         'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
+            //     ];
+            // } else {
+            //     $validated = $request->validate([
+            //         'title' => 'required',
+            //         'date' => 'required',
+            //         'description' => 'required',
+            //     ]);
+            $pk = [
+                'title' => $dt->judul_posting,
+                'date' => $dt->created_time,
+                'upload_by' => auth()->user()->name,
+                'description' => $dt->isi_posting,
+                'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
+            ];
+
+            News::create($pk);
+        }
+        // }
+        // return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
+        return 'selesai';
     }
 }

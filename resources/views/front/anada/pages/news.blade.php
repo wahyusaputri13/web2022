@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-md-12 pagi-area text-center">
                             <nav aria-label="navigation">
-                                {{ $news->links('vendor.pagination.anada') }}
+                                {{ $news->links('vendor.pagination.bootstrap-4') }}
                             </nav>
                         </div>
                     </div>

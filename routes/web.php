@@ -124,6 +124,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
     Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
     Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
+    Route::get('insert', [NewsController::class, 'insert']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
     // get data for front menu parent
