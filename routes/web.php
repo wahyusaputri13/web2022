@@ -79,13 +79,14 @@ Route::get('/', function () {
     }
 })->name('root')->middleware('data_web');
 
+Route::get('/strukturall', [FrontController::class, 'struktur'])->name('struktur.all');
+
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
     Route::get('/news-author/{id}', [FrontController::class, 'newsbyauthor'])->name('news.author');
     Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
     Route::get('/newsall', [FrontController::class, 'newsall'])->name('news.all');
     Route::get('/photos', [FrontController::class, 'galleryall'])->name('photo.all');
-    Route::get('/struktur', [FrontController::class, 'strukturall'])->name('struktur.all');
     Route::get('/front-music', [FrontController::class, 'music'])->name('music.all');
     Route::get('/front-buaper', [FrontController::class, 'buaper'])->name('buaper.all');
     Route::post('/setup', [FrontController::class, 'setup'])->name('setup-first');
@@ -113,9 +114,9 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
 Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('buaper', BuaperController::class);
-    Route::resource('struktur', StrukturController::class);
     Route::resource('music', MusicController::class);
     Route::resource('menu', MenuController::class);
+    Route::resource('struktur', StrukturController::class);
     Route::resource('submenu', SubmenuController::class);
     Route::resource('settings', WebsiteController::class);
     Route::resource('news', NewsController::class);
