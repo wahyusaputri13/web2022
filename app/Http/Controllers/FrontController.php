@@ -51,7 +51,7 @@ class FrontController extends Controller
         $hasil = 'Search result : ' . $cari;
         $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
         $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        return view('front.' . $this->themes->themes_front . '.pages.newsbydetail', compact('data', 'news', 'hasil'));
     }
 
     public function newsall(Request $request)

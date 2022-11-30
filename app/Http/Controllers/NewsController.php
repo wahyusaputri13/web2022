@@ -184,5 +184,4 @@ class NewsController extends Controller
         $data = News::find($id);
         return $data->delete();
     }
-
 }
