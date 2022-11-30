@@ -1,5 +1,6 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
+
 <style>
     .card-img-top {
         width: 100%;
@@ -9,141 +10,68 @@
 </style>
 <div class="container mx-auto py-1">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section class="breadcrumbs">
-        <div class="container">
-
-            <!-- <ol>
-                <li><a href="#">Home</a></li>
-                <li>Blog</li>
-            </ol> -->
-            <h2>{{ $hasil }}</h2>
-
+    <div class="flex justify-between m-1 sm:mx-2">
+        <a href="{{url('/')}}">
+            <h1 class="text-3xl font-bold text-center mx-10"> <span
+                    class="bg-gradient-to-r from-red-500 to-rose-400 bg-clip-text text-transparent"> 92.1 FM Radio
+                    Pesona</span> </h1>
+        </a>
+        <div class="flex space-x-4 font-medium sm:text-lg">
+            <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
+            <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Tips & Trick</a>
+            <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-red-500">Contact</a>
+            <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
         </div>
-    </section>
-    <!-- End Breadcrumbs -->
-
-    <!-- ======= Blog Section ======= -->
-    <section id="blog" class="blog">
-        <div class="container" data-aos="fade-up">
-
-            <div class="row">
-
-            <div class="col-lg-8 entries">
-                    @foreach($data as $author)
-                    <article class="entry">
-
-                    <div class="w-full h-48 overflow-auto touch-auto ...">
-                            <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid" alt="">
-                        </div>
-
-                        <h2 class="entry-title">
-                            <a href="{{ url('/news-detail', $author->id) }}">{{ $author->title }}</a>
-                        </h2>
-
-                        <div class="entry-meta">
-                            <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                        href="{{ url('/news-author', $author->upload_by) }}">{{
-                                        $author->upload_by }}</a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time>{{
-                                            \Carbon\Carbon::parse( $author->date )->format('l') }}, {{
-                                            \Carbon\Carbon::parse( $author->date
-                                            )->toFormattedDateString() }}</time></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="entry-content">
-                            <p>
-                                Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                praesentium.
-                                Aliquam et
-                                laboriosam eius aut nostrum quidem aliquid dicta.
-                                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est
-                                cum
-                                et quod
-                                quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                            </p>
-                            <div class="read-more">
-                                <a href="{{ url('/news-detail', $author->id) }}">Read More</a>
-                            </div>
-                        </div>
-
-                    </article>
-                    <!-- End blog entry -->
-                    @endforeach
-
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            {!! $data->render() !!}
-                        </div>
-                    </div>
-
-                </div><!-- End blog entries list -->
-
-                <div class="col-lg-4">
-
-                    <div class="sidebar">
-
-                        <h3 class="sidebar-title">Search</h3>
-                        <div class="sidebar-item search-form">
-                            {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
-                            {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
-                            <button type="submit"><i class="bi bi-search"></i></button>
-                            {{Form::close()}}
-                        </div>
-                        <!-- End sidebar search formn-->
-
-                        <!-- <h3 class="sidebar-title">Categories</h3>
-                        <div class="sidebar-item categories">
-                            <ul>
-                                <li><a href="#">General <span>(25)</span></a></li>
-                                <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                                <li><a href="#">Travel <span>(5)</span></a></li>
-                                <li><a href="#">Design <span>(22)</span></a></li>
-                                <li><a href="#">Creative <span>(8)</span></a></li>
-                                <li><a href="#">Educaion <span>(14)</span></a></li>
-                            </ul>
-                        </div> -->
-                        <!-- End sidebar categories-->
-
-                        <h3 class="sidebar-title">Recent Posts</h3>
-                        <div class="sidebar-item recent-posts">
-                            @foreach($news as $n)
-                            <div class="post-item clearfix">
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" alt="">
-                                <h4><a href="{{ url('/news-detail', $n->id) }}">{{ $n->title }}</a></h4>
-                                <time datetime="2020-01-01">{{
+    </div>
+    <a href="{{url('/')}}">
+        <h1 class="text-8xl font-bold text-center my-10"> Recent posts <span
+                class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">form our
+                Blog</span> </h1>
+    </a>
+    <h3 class="sidebar-title text-black">Search</h3>
+    <div class="sidebar-item search-form text-black">
+        {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
+        {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
+        <button type="submit"><i class="bi bi-search text-black"></i></button>
+        {{Form::close()}}
+    </div>
+    <!-- ======= News Section ======= -->
+    <section id="news" class="portfolio">
+        <div class="sidebar">
+            <div class="container px-3 py-2 mx-auto lg:pt-24 lg:px-32">
+                <div id="body" class="flex flex-wrap m-1 md:m-2">
+                    @foreach($data as $n)
+                    <div class="flex flex-wrap w-1/3">
+                        <div class="w-full p-1 md:p-2">
+                            <div class="relative overflow-hidden bg-no-repeat  bg-white bg-cover shadow-lg rounded-lg"
+                                style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                                <div class="rounded-lg shadow-lg  max-w-sm">
+                                    @if(file_exists(public_path('storage/'.$n->path)))
+                                    <img src="{{ asset('storage') }}/{{ $n->path}}" class="card-img-top" alt="image">
+                                    @else
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="image">
+                                    @endif
+                                </div>
+                                <span class="post-date text-black">{{ \Carbon\Carbon::parse($n->date)->format('l') }},
+                                    {{
                                     \Carbon\Carbon::parse( $n->date
-                                    )->toFormattedDateString() }}</time>
+                                    )->toFormattedDateString() }}</span>
+                                <h3 class="post-title text-black">{{ $n->title }}
+                                </h3>
+                                <a href="{{ url('/news-detail', $n->slug) }}"
+                                    class="readmore stretched-link mt-auto text-black"><span>Read
+                                        More</span><i class="bi bi-arrow-right"></i></a>
                             </div>
-                            @endforeach
                         </div>
-                        <!-- End sidebar recent posts-->
 
-                        <!-- <h3 class="sidebar-title">Tags</h3>
-                        <div class="sidebar-item tags">
-                            <ul>
-                                <li><a href="#">App</a></li>
-                                <li><a href="#">IT</a></li>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Mac</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Office</a></li>
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">Studio</a></li>
-                                <li><a href="#">Smart</a></li>
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">Marketing</a></li>
-                            </ul>
-                        </div> -->
-                        <!-- End sidebar tags-->
+                    </div>
+                    @endforeach
+                </div>
 
-                    </div><!-- End sidebar -->
-
-                </div><!-- End blog sidebar -->
-
-            </div>
+                <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        {{ $data->links('pagination::tailwind') }}
+                    </div>
                 </div>
 
     </section>
