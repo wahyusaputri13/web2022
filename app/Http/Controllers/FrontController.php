@@ -40,7 +40,7 @@ class FrontController extends Controller
         $hasil = 'All post by : ' . $id;
         $data = News::where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
         $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        return view('front.pesonafm.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsBySearch(Request $request)
@@ -48,9 +48,9 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
+        $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate(5);
         $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        return view('front.pesonafm.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
     public function newsall(Request $request)
@@ -73,16 +73,15 @@ class FrontController extends Controller
     {
         Seo::SeO();
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(10);
-        $sidepost = Gallery::latest('created_at')->take(5)->get();     
+        $sidepost = Gallery::latest('created_at')->take(5)->get();
         return view('front.pesonafm.pages.gallery', compact('gallery', 'sidepost'));
-        
     }
 
     public function buaper(Request $request)
     {
         Seo::SeO();
         $buaper = Buaper::orderBy('created_at', 'desc')->paginate(9);
-        $sidepost = Buaper::latest('created_at')->take(5)->get(); 
+        $sidepost = Buaper::latest('created_at')->take(5)->get();
         return view('front.pesonafm.pages.buaper', compact('buaper', 'sidepost'));
     }
 

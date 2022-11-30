@@ -4,3 +4,4 @@
 {!! SEO::generate() !!}
 <link rel="canonical" hreflang="id" href="{{ url('/') }}">
 <link rel="alternate" hreflang="id-en" href="{{ url('/') }}">
+<meta name="csrf-token" content="{{csrf_token()}}">
