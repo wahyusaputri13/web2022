@@ -22,12 +22,18 @@ class InboxController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        $actionBtn = '
+                        $data->status == '0' ? $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('inbox.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('inbox.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
-                    </div>';
+                        <a href="' . route('inbox.edit', $data->id) . ' " class="btn btn-simple btn-success btn-icon"><i class="material-icons">done_outline</i> Mark As Read</a>
+                    </div>' : $actionBtn = '';
                         return $actionBtn;
+                    }
+                )
+                ->addColumn(
+                    'status',
+                    function ($data) {
+                        $data->status == '0' ? $st = '<span class="label label-danger">Unread</span>' : $st = '<span class="label label-info">Read</span>';
+                        return $st;
                     }
                 )
                 ->addColumn(
@@ -39,7 +45,7 @@ class InboxController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->rawColumns(['action', 'tgl', 'status'])
                 ->make(true);
         }
         return view('back.a.pages.inbox.index');
@@ -83,9 +89,10 @@ class InboxController extends Controller
      * @param  \App\Models\Inbox  $inbox
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inbox $inbox)
+    public function edit($id)
     {
-        //
+        Inbox::find($id)->update(['status' => 1]);
+        return redirect(route('inbox.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**
@@ -95,9 +102,8 @@ class InboxController extends Controller
      * @param  \App\Models\Inbox  $inbox
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inbox $inbox)
+    public function update(Request $request, $id)
     {
-        //
     }
 
     /**

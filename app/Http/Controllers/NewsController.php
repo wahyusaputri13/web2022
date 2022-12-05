@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\File;
+use App\Models\GuestBook;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+
 
 class NewsController extends Controller
 {
@@ -189,45 +193,27 @@ class NewsController extends Controller
     public function insert(Request $request)
     {
         $data = DB::table('posting')->get();
-        // dd($data);
         foreach ($data as $dt) {
-            // dd($data);
-            // if ($request->hasFile('photo')) {
-            //     $validated = $request->validate([
-            //         'photo' => 'image|max:12048',
-            //         'title' => 'required',
-            //         'date' => 'required',
-            //         'description' => 'required',
-            //     ]);
-            //     $name = $request->file('photo')->getClientOriginalName();
-            //     $path = $request->file('photo')->store('news');
-            //     $data = [
-            //         'photo' => $name,
-            //         'path' => $path,
-            //         'title' => $request->title,
-            //         'date' => $request->date,
-            //         'upload_by' => auth()->user()->name,
-            //         'description' => $request->description,
-            //         'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
-            //     ];
-            // } else {
-            //     $validated = $request->validate([
-            //         'title' => 'required',
-            //         'date' => 'required',
-            //         'description' => 'required',
-            //     ]);
+            $file = DB::table('attachment')
+                ->where('id_tabel', $dt->id_posting)
+                ->get();
+            foreach ($file as $f) {
+                $fi = [
+                    'id_news' => $f->id_tabel,
+                    'file_name' => $f->file_name,
+                ];
+                File::create($fi);
+            }
             $pk = [
                 'title' => $dt->judul_posting,
                 'date' => $dt->created_time,
                 'upload_by' => auth()->user()->name,
                 'description' => $dt->isi_posting,
+                'attachment' => $dt->id_posting,
                 'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
             ];
-
             News::create($pk);
         }
-        // }
-        // return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
         return 'selesai';
     }
 }

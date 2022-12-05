@@ -28,8 +28,9 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Message</th>
+                                        <th>Status</th>
                                         <th class="disabled-sorting text-center">
-                                            Actions</th>
+                                            Action</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>
@@ -74,6 +75,7 @@
             { data: 'email', name: 'email', className: "text-center" },
             { data: 'phone', name: 'phone', className: "text-center" },
             { data: 'message', name: 'message', className: "text-center" },
+            { data: 'status', name: 'status', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]
 

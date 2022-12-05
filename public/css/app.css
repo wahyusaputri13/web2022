@@ -1127,13 +1127,13 @@ select {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .my-6 {
   margin-top: 1.5rem;
@@ -1234,6 +1234,21 @@ select {
 }
 .mr-1 {
   margin-right: 0.25rem;
+}
+.mt-11 {
+  margin-top: 2.75rem;
+}
+.mt-7 {
+  margin-top: 1.75rem;
+}
+.mt-96 {
+  margin-top: 24rem;
+}
+.mt-72 {
+  margin-top: 18rem;
+}
+.mb-16 {
+  margin-bottom: 4rem;
 }
 .block {
   display: block;

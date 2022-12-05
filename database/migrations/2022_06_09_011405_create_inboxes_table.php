@@ -21,6 +21,7 @@ class CreateInboxesTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->longText('message');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

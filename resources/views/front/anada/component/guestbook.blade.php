@@ -15,10 +15,10 @@
                                     </button>
                                 </div>
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                <div class="modal fade mt-5" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
+                                    <div class="modal-dialog mt-5">
+                                        <div class="modal-content" style="z-index: -1 !important;">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Add Guest</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -27,7 +27,6 @@
                                             {{Form::open(['url' => 'guest','method' => 'post', 'files'
                                             => 'true', ''])}}
                                             <div class="modal-body">
-
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Nama</label>
                                                     {{Form::text('name', null,['class' => 'form-control'])}}
@@ -56,7 +55,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
+                                                    data-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn"
                                                     style="color: white; background: #3D4D6A;">Save</button>
                                             </div>

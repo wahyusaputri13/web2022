@@ -171,7 +171,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $faker = Faker::create('id_ID');
-        for ($i = 1; $i <= 50; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             GuestBook::create([
                 'name'  => $faker->name(),
                 'date'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
