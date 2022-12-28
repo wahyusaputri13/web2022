@@ -18,7 +18,7 @@
       <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
       <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Tips & Trick</a>
       <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-red-500">Contact</a>
-      <a href="{{ url('/newsall') }}" class="hover:scale-125 text-red-500">Back</a>
+
       <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
     </div>
   </div>
@@ -26,6 +26,8 @@
     <h1 class="text-8xl font-bold text-center my-10"> Recent posts <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">form our
         Blog</span> </h1>
   </a>
+
+  <a class="bg-red-500 px-10 py-2 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/newsall') }}">Back</a>
 
   <section class="max-w-7xl flex flex-col mx-auto justify-center bg-red-300 shadow-xl items-center px-3 py-2 rounded-lg">
 

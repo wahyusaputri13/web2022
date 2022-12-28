@@ -11,7 +11,6 @@
         <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
         <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Tips & Trick</a>
         <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-red-500">Contact</a>
-        <a href="{{ url('/') }}" class="hover:scale-125 text-red-500">Back</a>
         <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
       </div>
     </div>
@@ -19,13 +18,16 @@
 <h1 class="text-8xl font-bold text-center my-10"> Tips & <span
         class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Trick</span> </h1>
 </a>
+
+<a class="bg-red-500 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
+
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="portfolio">
     <div class="container px-3 py-2 mx-auto lg:pt-24 lg:px-32 ">
         <div class="flex flex-wrap m-1 md:m-2">
             @foreach($gallery as $g)
-            <div class="flex flex-wrap w-1/3 ">
-                <div class="w-full p-1 md:p-2">
+            <div class="flex flex-wrap w-1/3 hover:scale-125 focus:outline-none px-6 py-5">
+                <div class="w-full p-3 md:p-2">
                     <div class="relative overflow-hidden bg-no-repeat bg-black bg-cover shadow-lg rounded-lg"
                         style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="light">
                         @if(file_exists(public_path('storage/'.$g->path)))

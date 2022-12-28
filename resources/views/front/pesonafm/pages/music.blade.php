@@ -10,7 +10,6 @@
         <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
         <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Tips & Trick</a>
         <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-red-500">Contact</a>
-        <a href="{{ url('/') }}" class="hover:scale-125 text-red-500">Back</a>
         <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
       
     </div>
@@ -19,6 +18,7 @@
     <h1 class="text-8xl font-bold text-center my-10"> Chart<span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Music</span> </h1>
 </a>
 
+<a class="bg-red-500 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
 <!-- ======= Chart Music ======= -->
 <section id="music" class="portfolio">
     <table class="table-auto mx-auto mt-10 text-blue-500 dark:text-white">
