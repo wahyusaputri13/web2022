@@ -39,7 +39,7 @@
       <a href="{{url('/photos')}}">
         <section class="bg-gradient-to-r from-yellow-500 to-orange-500">
           <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
-            <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-black">Tips & Trick</h1>
+            <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-white">Tips & Trick</h1>
           </div>
         </section>
       </a>
@@ -85,33 +85,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <a href="{{ url('/front-music') }}">
-        <section class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500">
-          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
-            <h1 class="text-4xl mt-2 xl:font-extrabold">
-              Chart Top 10 Music
-            </h1>
-          </div>
-        </section>
-      </a>
-      <a href="{{ url('/front-buaper') }}">
-        <section class="bg-gradient-to-r from-pink-400 to-pink-500">
-          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
-            <h1 class="text-4xl mt-2 xl:font-extrabold">
-              Buaperrr 
-              <p class="text-2xl mt-2 xl:font-extrabold"> (Buat Pesona Inspira) </p>
-            </h1>
-          
-          </div>
-        </section>
-      </a>
-      <section class="bg-gradient-to-r from-green-600 to-green-800">
-        <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
-          <h1 class="text-4xl mt-2 xl:font-extrabold">
-            Contact
-          </h1>
           <div class="flex space-x-4 m-2 sm:space-x-6">
             <div class="group">
               <div class="flex justify-center group-hover:scale-125">
@@ -134,11 +107,33 @@
                 </a>
               </div>
             </div>
+        </div>
       </section>
-      <a href="{{ url('/strukturall') }}">
-        <section class="bg-gradient-to-r from-zinc-300 via-zinc-400 to-zinc-600">
+      <a href="{{ url('/front-music') }}">
+        <section class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500">
           <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
-            <h1 class="text-3xl mt-2 xl:font-extrabold text-black">
+            <h1 class="text-4xl mt-2 xl:font-extrabold">
+              Chart Top 10 Music
+            </h1>
+          </div>
+        </section>
+      </a>
+      <a href="{{ url('/front-buaper') }}">
+        <section class="bg-gradient-to-r from-pink-400 to-pink-500">
+          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            <h1 class="text-4xl mt-2 xl:font-extrabold">
+              Buaperrr 
+              <p class="text-2xl mt-2 xl:font-extrabold"> (Buat Pesona Inspira) </p>
+            </h1>
+          
+          </div>
+        </section>
+      </a>
+      
+      <a href="{{ url('/strukturall') }}">
+        <section class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800">
+          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
               Struktur Organisasi & Redaksi
             </h1>
           </div>

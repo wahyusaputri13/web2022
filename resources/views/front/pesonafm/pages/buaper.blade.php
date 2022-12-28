@@ -11,6 +11,7 @@
         <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
         <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Gallery</a>
         <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-red-500">Contact</a>
+        <a href="{{ url('/') }}" class="hover:scale-125 text-red-500">Back</a>
         <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
       </div>
     </div>
