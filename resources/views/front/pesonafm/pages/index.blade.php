@@ -134,7 +134,7 @@
         <section class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800">
           <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
-              Struktur Organisasi & Redaksi
+            Our Crew
             </h1>
           </div>
         </section>

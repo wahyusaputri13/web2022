@@ -18,7 +18,8 @@
   <h1 class="text-8xl font-bold text-center my-10"> Buat Pesona <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Inspira</span> </h1>
 </a>
 
-<a class="bg-red-500 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
+<a class="bg-red-500 px-10 py-2 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
+
 <!-- ======= Buaper Section ======= -->
 <section id="buaper" class="portfolio">
   <div class="container px-3 py-2 mx-auto lg:pt-24 lg:px-32">

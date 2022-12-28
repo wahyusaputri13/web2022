@@ -18,7 +18,8 @@
     <h1 class="text-8xl font-bold text-center my-10"> Chart<span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Music</span> </h1>
 </a>
 
-<a class="bg-red-500 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
+<a class="bg-red-500 px-10 py-2 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
+
 <!-- ======= Chart Music ======= -->
 <section id="music" class="portfolio">
     <table class="table-auto mx-auto mt-10 text-blue-500 dark:text-white">

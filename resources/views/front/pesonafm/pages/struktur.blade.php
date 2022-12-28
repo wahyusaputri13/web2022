@@ -14,11 +14,12 @@
   </div>
 </div>
 <a href="{{url('/')}}">
-  <h1 class="text-8xl font-bold text-center my-10"> Struktur Organisasi<span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"> & Redaksi</span> </h1>
+  <h1 class="text-8xl font-bold text-center my-10"> Our Crew<span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"></span> </h1>
 </a>
 
 
-<a class="bg-red-500 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
+<a class="bg-red-500 px-10 py-2 w-20 h-30  text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
+
 
 <section class="overflow-hidden text-gray-700 ">
   <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
