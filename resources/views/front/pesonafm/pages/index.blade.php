@@ -2,9 +2,9 @@
 @section('content')
 <div class="container mx-auto py-1">
   <div class="h-screen flex flex-col justify-between">
-    <div class="flex justify-between m-2 sm:mx-4 xl:mt-52">
+    <div class="flex justify-between m-2 sm:mx-4">
       <!-- title website -->
-      <div class="hidden lg:flex justify-center">
+      <div class="hidden xl:flex justify-center">
         <h1 class="text-8xl font-bold text-center my-15 lg:text-6xl"> Radio LPPL
           <span class="bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">Wonosobo
           </span>
@@ -18,7 +18,7 @@
       <div class="flex flex-wrap justify-center flex-row sm:space-x-3 md:space-x-5">
         <section>
           <div
-            class="bg-gradient-to-r from-blue-300 to-blue-500 hp:mb-2 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5 xl:mb-10">
+            class="bg-gradient-to-r from-blue-300 to-blue-500 hp:mb-2 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5  md:hover:-translate-y-5 lg:mb-10 xl:mb-10">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
               Streaming Online
             </h1>
@@ -28,7 +28,7 @@
         </section>
         <section>
           <div
-            class="bg-gradient-to-r from-red-700 to-red-800 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5 hp:mb-2 xl:mb-10">
+            class="bg-gradient-to-r from-red-700 to-red-800 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5 hp:mb-2 lg:mb-10 xl:mb-10">
             <a href="{{url('/newsall')}}">
               <h1 class="text-2xl group-hover:scale-125 md:text-5xl xl:font-extrabold">News</h1>
             </a>
@@ -36,7 +36,7 @@
         </section>
         <section>
           <div
-            class="bg-gradient-to-r from-yellow-500 to-orange-500 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5 hp:mb-2 xl:mb-10">
+            class="bg-gradient-to-r from-yellow-500 to-orange-500 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5 hp:mb-2 lg:mb-10 xl:mb-10">
             <a href="{{url('/photos')}}">
               <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-white">Tips & Trick</h1>
             </a>
@@ -111,7 +111,7 @@
         </section>
         <section>
           <div
-            class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40  md:hover:-translate-y-5 lg:mb-10">
             <a href="{{ url('/front-music') }}">
               <h1 class="text-4xl mt-2 xl:font-extrabold">
                 Chart Top 10 Music
@@ -121,7 +121,7 @@
         </section>
         <section>
           <div
-            class="bg-gradient-to-r from-pink-400 to-pink-500 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            class="bg-gradient-to-r from-pink-400 to-pink-500 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40  md:hover:-translate-y-5 ">
             <a href="{{ url('/front-buaper') }}">
               <h1 class="text-4xl mt-2 xl:font-extrabold">
                 Buaperrr
@@ -132,7 +132,7 @@
         </section>
         <section>
           <div
-            class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-10">
+            class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 md:hover:-translate-y-5">
             <a href="{{ url('/strukturall') }}">
               <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
                 Our Crew
@@ -143,29 +143,25 @@
       </div>
       <!-- end menu box -->
     </div>
-  </div>
-</div>
-<audio id="audio_1">
-  <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">
-</audio>
-@push('after-script')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-  $('.btn-playstream').click(function () {
-    currentvalue = document.getElementById('audio_1').value;
-    if (currentvalue == "on") {
-      document.getElementById('audio_1').pause();
-      document.getElementById("audio_1").value = "off";
-      console.log("off!");
-      $(".btn-playstream").html('Play');
-    } else {
-      document.getElementById('audio_1').play();
-      document.getElementById("audio_1").value = "on";
-      console.log("on!");
-      $(".btn-playstream").html('Pause');
-    }
-  });
-</script>
-@endpush
-@endsection
+
+    @push('after-script')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+      $('.btn-playstream').click(function () {
+        currentvalue = document.getElementById('audio_1').value;
+        if (currentvalue == "on") {
+          document.getElementById('audio_1').pause();
+          document.getElementById("audio_1").value = "off";
+          console.log("off!");
+          $(".btn-playstream").html('Play');
+        } else {
+          document.getElementById('audio_1').play();
+          document.getElementById("audio_1").value = "on";
+          console.log("on!");
+          $(".btn-playstream").html('Pause');
+        }
+      });
+    </script>
+    @endpush
+    @endsection

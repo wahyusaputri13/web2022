@@ -9,7 +9,6 @@
 </head>
 
 <body class="bg-fixed bg-no-repeat bg-cover font-ubuntu text-white semok">
-    @include('sweetalert::alert')
     @include('front.pesonafm.includes.header')
     @yield('content')
     @include('front.pesonafm.includes.footer')
