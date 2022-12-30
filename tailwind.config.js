@@ -21,7 +21,7 @@ module.exports = {
         'ubuntu': ['Ubuntu', 'sans'],
       }, 
        screens: {
-        'hp': '390px',
+        'hp': '360',
         'sm': '640px',
         'md': '768px',
         'lg': '1024px',
