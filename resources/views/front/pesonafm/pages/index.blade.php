@@ -1,21 +1,9 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
+
 <div class="container mx-auto py-1">
   <div class="h-screen flex flex-col justify-between">
-    <!-- header -->
-    <div class="hidden xl:flex justify-between m-2 sm:mx-4">
-      <a href="{{url('/')}}">
-        <h1 class="text-3xl font-bold text-center mx-10"> <span
-            class="bg-gradient-to-r from-red-500 to-rose-400 bg-clip-text text-transparent"> 92.1 FM Radio
-            Pesona</span>
-        </h1>
-      </a>
-      <div class="flex space-x-4 font-medium sm:text-lg">
-        <a href="{{url('/newsall')}}" class="hover:scale-125  text-red-500">News</a>
-        <a href="{{url('/photos')}}" class="hover:scale-125 text-red-500">Tips & Trick</a>
-        <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-red-500">Contact</a>
-        <a href="{{ url('login') }}" class="hover:scale-125 text-red-500">Login</a>
-      </div>
+    <div class="flex justify-between m-2 sm:mx-4">
     </div>
     <!-- title website -->
     <div class="hidden lg:flex justify-center">
@@ -26,12 +14,11 @@
           Tengah
         </p>
       </h1>
-    </div>
-    <!-- box menu -->
-    <div class="justify-center flex flex-wrap flex-row hp:mt-12 sm:mt-16 sm:space-x-3 md:space-x-5 md:mt-16">
-      <section>
-        <div
-          class="bg-gradient-to-r from-blue-300 to-blue-500 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5 hp:mb-2">
+
+    </a>
+    <div class="flex flex-wrap justify-center flex-row  sm:space-x-3 md:space-x-5">
+      <section class="mb-10 bg-gradient-to-r from-blue-300 to-blue-500 ">
+        <div class="hp:mb-3 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5">
           <h1 class="text-4xl mt-2 xl:font-extrabold">
             Streaming Online
           </h1>
@@ -44,14 +31,12 @@
           <div
             class="bg-gradient-to-r from-red-700 to-red-800 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5 hp:mb-2">
             <h1 class="text-2xl group-hover:scale-125 md:text-5xl xl:font-extrabold">News</h1>
-        </a>
-      </section>
-      <section>
-        <a href="{{url('/photos')}}">
-          <div
-            class="bg-gradient-to-r from-yellow-500 to-orange-500 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0 hp:mb-2">
-            <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-white">Tips & Trick
-            </h1>
+        </section>
+      </a>
+      <a href="{{url('/photos')}}">
+        <section class="bg-gradient-to-r from-yellow-500 to-orange-500">
+          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
+            <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-white">Tips & Trick</h1>
           </div>
         </a>
       </section>
@@ -120,44 +105,45 @@
                 </a>
               </div>
             </div>
-          </div>
+        </div>
       </section>
-      <section>
-        <a href="{{ url('/front-music') }}">
-          <div
-            class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-2 hp:mb-2">
+      <a href="{{ url('/front-music') }}">
+        <section class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500">
+          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
               Chart Top 10 Music
             </h1>
           </div>
-        </a>
-      </section>
-      <section>
-        <a href="{{ url('/front-buaper') }}">
-          <div
-            class="bg-gradient-to-r from-pink-400 to-pink-500 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-2 hp:mb-2">
+        </section>
+      </a>
+      <a href="{{ url('/front-buaper') }}">
+        <section class="bg-gradient-to-r from-pink-400 to-pink-500">
+          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
-              Buaperrr
+              Buaperrr 
               <p class="text-2xl mt-2 xl:font-extrabold"> (Buat Pesona Inspira) </p>
             </h1>
-
+          
           </div>
-        </a>
-      </section>
-      <section>
-        <a href="{{ url('/strukturall') }}">
-          <div
-            class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-2">
+        </section>
+      </a>
+      
+      <a href="{{ url('/strukturall') }}">
+        <section class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800">
+          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
-              Our Crew
+            Our Crew
             </h1>
           </div>
-        </a>
-      </section>
+        </section>
     </div>
-    <!-- footer -->
-    <div class="text-center sm:mt-16">© 2022 DISKOMINFO</div>
   </div>
+</div>
+</div>
+
+
+<div class="text-center mb-2">© 2022 DISKOMINFO</div>
+</div>
 </div>
 <audio id="audio_1">
   <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">

@@ -56,7 +56,7 @@ class MusicController extends Controller
     public function create()
     {
         return view('back.a.pages.music.create', [
-            'music' => Music::orderBy('ranking', 'asc')->take(10)->get()
+            'music' => Music::orderBy('ranking', 'asc')->take(11)->get()
 
         ]);
     }

@@ -32,7 +32,7 @@ class FrontController extends Controller
         $data = News::where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
         $news = News::orderBy('date', 'desc')->paginate(5);
-        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news'));
+        return view('front.pesonafm.pages.newsdetail', compact('data', 'news'));
     }
 
     public function newsByAuthor($id)
@@ -65,8 +65,8 @@ class FrontController extends Controller
     public function music(Request $request)
     {
         Seo::SeO();
-        $music = Music::orderBy('ranking', 'asc')->paginate(12);
-        // $sidepost = Music::latest('ranking')->take(10)->get();
+        $music = Music::orderBy('ranking')->paginate(12);
+        // $sidepost = Music::latest('ranking')->take(11)->get();
         return view('front.pesonafm.pages.music', compact('music'));
     }
 
@@ -88,7 +88,6 @@ class FrontController extends Controller
 
     public function struktur(Request $request)
     {
-
         return view('front.pesonafm.pages.struktur');
     }
 
