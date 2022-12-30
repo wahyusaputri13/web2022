@@ -1,149 +1,149 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
-
 <div class="container mx-auto py-1">
   <div class="h-screen flex flex-col justify-between">
-    <div class="flex justify-between m-2 sm:mx-4">
-    </div>
-    <!-- title website -->
-    <div class="hidden lg:flex justify-center">
-      <h1 class="text-8xl font-bold text-center my-15 lg:text-6xl"> Radio LPPL
-        <span class="bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">Wonosobo
-        </span>
-        <p class="text-center bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent"> Jawa
-          Tengah
-        </p>
-      </h1>
-
-    </a>
-    <div class="flex flex-wrap justify-center flex-row  sm:space-x-3 md:space-x-5">
-      <section class="mb-10 bg-gradient-to-r from-blue-300 to-blue-500 ">
-        <div class="hp:mb-3 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5">
-          <h1 class="text-4xl mt-2 xl:font-extrabold">
-            Streaming Online
-          </h1>
-          <button
-            class="btn shadow-md shadow-red-500/50 bg-red-500 rounded-lg m-2 btn-playstream group-hover:scale-125 text-md w-14 p-1 ">Play</button>
-        </div>
-      </section>
-      <section>
-        <a href="{{url('/newsall')}}">
+    <div class="flex justify-between m-2 sm:mx-4 xl:mt-52">
+      <!-- title website -->
+      <div class="hidden lg:flex justify-center">
+        <h1 class="text-8xl font-bold text-center my-15 lg:text-6xl"> Radio LPPL
+          <span class="bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">Wonosobo
+          </span>
+          <p class="text-center bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent"> Jawa
+            Tengah
+          </p>
+        </h1>
+      </div>
+      <!-- end title -->
+      <!-- start menu box -->
+      <div class="flex flex-wrap justify-center flex-row sm:space-x-3 md:space-x-5">
+        <section>
           <div
-            class="bg-gradient-to-r from-red-700 to-red-800 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5 hp:mb-2">
-            <h1 class="text-2xl group-hover:scale-125 md:text-5xl xl:font-extrabold">News</h1>
-        </section>
-      </a>
-      <a href="{{url('/photos')}}">
-        <section class="bg-gradient-to-r from-yellow-500 to-orange-500">
-          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
-            <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-white">Tips & Trick</h1>
-          </div>
-        </a>
-      </section>
-      <section>
-        <div
-          class="bg-purple-400 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0 hp:mb-2">
-          <h1 class="text-4xl mt-2 xl:font-extrabold ">
-            Social Media
-          </h1>
-          <div class="flex space-x-4 m-2 sm:space-x-6">
-            <div class="group">
-              <div class="flex justify-center group-hover:scale-125">
-                <a href="https://www.instagram.com/pesonafmwonosobo" target="_blank">
-                  <img src="{{ asset('assets/front/pesonafm/001-instagram.png') }}" class="scale-125 sm:scale-150">
-                </a>
-              </div>
-            </div>
-            <div class="group">
-              <div class="flex justify-center group-hover:scale-125">
-                <a href="https://www.facebook.com/profile.php?id=100039381652233" target="_blank">
-                  <img src="{{ asset('assets/front/pesonafm/002-facebook.png') }}" class="scale-125 sm:scale-150">
-                </a>
-              </div>
-            </div>
-            <div class="group">
-              <div class="flex justify-center group-hover:scale-125">
-                <a href="https://www.youtube.com/channel/UCklHzjhKAwuLFJJXPorNidQ" target="_blank">
-                  <img src="{{ asset('assets/front/pesonafm/003-youtube.png') }}" class="scale-125 sm:scale-150">
-                </a>
-              </div>
-            </div>
-            <div class="group">
-              <div class="flex justify-center group-hover:scale-125">
-                <a href="https://www.tiktok.com/@pesonafm.official?_t=8V4CnyeOVX8&_r=1" target="_blank">
-                  <img src="{{ asset('assets/front/pesonafm/tiktok.png') }}" class="scale-125 sm:scale-150">
-                </a>
-              </div>
-            </div>
-            <div class="group">
-              <div class="flex justify-center group-hover:scale-125">
-                <a href="https://twitter.com/pesonafmofc?s=21&t=21IEkLnxsotkWbw2ObgEQg" target="_blank">
-                  <img src="{{ asset('assets/front/pesonafm/twitter.png') }}" class="scale-125 sm:scale-150">
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="flex space-x-4 m-2 sm:space-x-6">
-            <div class="group">
-              <div class="flex justify-center group-hover:scale-125">
-                <a href="https://api.whatsapp.com/send?phone=6282323839996" target="_blank">
-                  <img src="{{ asset('assets/front/pesonafm/WA.png') }}" class="scale-125 sm:scale-150">
-                </a>
-              </div>
-            </div>
-            <div class="group">
-              <div class="flex justify-center group-hover:scale-125">
-                <a href="tel://082323839996">
-                  <img src="{{ asset('assets/front/pesonafm/telephone.png') }}" class="scale-125 sm:scale-150">
-                </a>
-              </div>
-            </div>
-            <div class="group">
-              <div class="flex justify-center group-hover:scale-125">
-                <a href="mailto: pesonamedsos@gmail.com">
-                  <img src="{{ asset('assets/front/pesonafm/gmail-2.png') }}" class="scale-125 sm:scale-150">
-                </a>
-              </div>
-            </div>
-        </div>
-      </section>
-      <a href="{{ url('/front-music') }}">
-        <section class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500">
-          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            class="bg-gradient-to-r from-blue-300 to-blue-500 hp:mb-2 text-center shadow-lg rounded-md group grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:ml-3 md:ml-5 md:hover:-translate-y-5 xl:mb-10">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
-              Chart Top 10 Music
+              Streaming Online
             </h1>
+            <button
+              class="btn shadow-md shadow-red-500/50 bg-red-500 rounded-lg m-2 btn-playstream group-hover:scale-125 text-md w-14 p-1 ">Play</button>
           </div>
         </section>
-      </a>
-      <a href="{{ url('/front-buaper') }}">
-        <section class="bg-gradient-to-r from-pink-400 to-pink-500">
-          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
-            <h1 class="text-4xl mt-2 xl:font-extrabold">
-              Buaperrr 
-              <p class="text-2xl mt-2 xl:font-extrabold"> (Buat Pesona Inspira) </p>
-            </h1>
-          
+        <section>
+          <div
+            class="bg-gradient-to-r from-red-700 to-red-800 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5 hp:mb-2 xl:mb-10">
+            <a href="{{url('/newsall')}}">
+              <h1 class="text-2xl group-hover:scale-125 md:text-5xl xl:font-extrabold">News</h1>
+            </a>
           </div>
         </section>
-      </a>
-      
-      <a href="{{ url('/strukturall') }}">
-        <section class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800">
-          <div class="hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
-            <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
-            Our Crew
-            </h1>
+        <section>
+          <div
+            class="bg-gradient-to-r from-yellow-500 to-orange-500 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5 hp:mb-2 xl:mb-10">
+            <a href="{{url('/photos')}}">
+              <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-white">Tips & Trick</h1>
+            </a>
           </div>
         </section>
+        <section>
+          <div
+            class="bg-purple-400 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 md:hover:-translate-y-5 hp:mb-2">
+            <h1 class="text-4xl mt-2 xl:font-extrabold ">
+              Social Media
+            </h1>
+            <div class="flex space-x-4 m-2 sm:space-x-6">
+              <div class="group">
+                <div class="flex justify-center group-hover:scale-125">
+                  <a href="https://www.instagram.com/pesonafmwonosobo" target="_blank">
+                    <img src="{{ asset('assets/front/pesonafm/001-instagram.png') }}" class="scale-125 sm:scale-150">
+                  </a>
+                </div>
+              </div>
+              <div class="group">
+                <div class="flex justify-center group-hover:scale-125">
+                  <a href="https://www.facebook.com/profile.php?id=100039381652233" target="_blank">
+                    <img src="{{ asset('assets/front/pesonafm/002-facebook.png') }}" class="scale-125 sm:scale-150">
+                  </a>
+                </div>
+              </div>
+              <div class="group">
+                <div class="flex justify-center group-hover:scale-125">
+                  <a href="https://www.youtube.com/channel/UCklHzjhKAwuLFJJXPorNidQ" target="_blank">
+                    <img src="{{ asset('assets/front/pesonafm/003-youtube.png') }}" class="scale-125 sm:scale-150">
+                  </a>
+                </div>
+              </div>
+              <div class="group">
+                <div class="flex justify-center group-hover:scale-125">
+                  <a href="https://www.tiktok.com/@pesonafm.official?_t=8V4CnyeOVX8&_r=1" target="_blank">
+                    <img src="{{ asset('assets/front/pesonafm/tiktok.png') }}" class="scale-125 sm:scale-150">
+                  </a>
+                </div>
+              </div>
+              <div class="group">
+                <div class="flex justify-center group-hover:scale-125">
+                  <a href="https://twitter.com/pesonafmofc?s=21&t=21IEkLnxsotkWbw2ObgEQg" target="_blank">
+                    <img src="{{ asset('assets/front/pesonafm/twitter.png') }}" class="scale-125 sm:scale-150">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="flex space-x-4 m-2 sm:space-x-6">
+              <div class="group">
+                <div class="flex justify-center group-hover:scale-125">
+                  <a href="https://api.whatsapp.com/send?phone=6282323839996" target="_blank">
+                    <img src="{{ asset('assets/front/pesonafm/WA.png') }}" class="scale-125 sm:scale-150">
+                  </a>
+                </div>
+              </div>
+              <div class="group">
+                <div class="flex justify-center group-hover:scale-125">
+                  <a href="tel://082323839996">
+                    <img src="{{ asset('assets/front/pesonafm/telephone.png') }}" class="scale-125 sm:scale-150">
+                  </a>
+                </div>
+              </div>
+              <div class="group">
+                <div class="flex justify-center group-hover:scale-125">
+                  <a href="mailto: pesonamedsos@gmail.com">
+                    <img src="{{ asset('assets/front/pesonafm/gmail-2.png') }}" class="scale-125 sm:scale-150">
+                  </a>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section>
+          <div
+            class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            <a href="{{ url('/front-music') }}">
+              <h1 class="text-4xl mt-2 xl:font-extrabold">
+                Chart Top 10 Music
+              </h1>
+            </a>
+          </div>
+        </section>
+        <section>
+          <div
+            class="bg-gradient-to-r from-pink-400 to-pink-500 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            <a href="{{ url('/front-buaper') }}">
+              <h1 class="text-4xl mt-2 xl:font-extrabold">
+                Buaperrr
+                <p class="text-2xl mt-2 xl:font-extrabold"> (Buat Pesona Inspira) </p>
+              </h1>
+            </a>
+          </div>
+        </section>
+        <section>
+          <div
+            class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-2 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-10">
+            <a href="{{ url('/strukturall') }}">
+              <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
+                Our Crew
+              </h1>
+            </a>
+          </div>
+        </section>
+      </div>
+      <!-- end menu box -->
     </div>
   </div>
-</div>
-</div>
-
-
-<div class="text-center mb-2">© 2022 DISKOMINFO</div>
-</div>
 </div>
 <audio id="audio_1">
   <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">
