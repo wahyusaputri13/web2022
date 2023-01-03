@@ -13,7 +13,8 @@
       <div class="flex space-x-4 font-medium sm:text-lg">
         <a href="{{url('/newsall')}}" class="hover:scale-125  text-white">News</a>
         <a href="{{url('/photos')}}" class="hover:scale-125 text-white">Tips & Trick</a>
-        <a href="https://api.whatsapp.com/send?phone=6282323839996" class="hover:scale-125 text-white">Contact</a>
+        <a href="https://api.whatsapp.com/send?phone=6282323839996" target="_blank"
+          class="hover:scale-125 text-white">Contact</a>
       </div>
     </div>
     <div>

@@ -5,15 +5,16 @@
   <div class="h-screen flex flex-col justify-between">
     <div class="flex justify-between m-2 sm:mx-4">
     </div>
-    <a href="{{url('/')}}">
-      <h1 class="text-8xl font-bold text-center my-15"> Radio LPPL <span
-          class="bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">Wonosobo
-        </span>
-        <p class="text-center bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent"> Jawa Tengah
-        </p>
-      </h1>
-
-    </a>
+    <div class="hidden xl:flex justify-center">
+      <a href="{{url('/')}}">
+        <h1 class="text-8xl font-bold text-center my-15"> Radio LPPL <span
+            class="bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">Wonosobo
+          </span>
+          <p class="text-center bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent"> Jawa Tengah
+          </p>
+        </h1>
+      </a>
+    </div>
     <div class="flex flex-wrap justify-center flex-row sm:space-x-3 md:space-x-5">
       <section class="mb-10">
         <div
@@ -33,7 +34,7 @@
         </section>
       </a>
       <a href="{{url('/photos')}}">
-        <section>
+        <section class="mb-10">
           <div
             class="bg-gradient-to-r from-yellow-500 to-orange-500 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
             <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-white">Tips & Trick</h1>
@@ -108,7 +109,7 @@
           </div>
       </section>
       <a href="{{ url('/front-music') }}">
-        <section>
+        <section class="mb-10">
           <div
             class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
@@ -118,7 +119,7 @@
         </section>
       </a>
       <a href="{{ url('/front-buaper') }}">
-        <section>
+        <section class="mb-10">
           <div
             class="bg-gradient-to-r from-pink-400 to-pink-500 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
@@ -131,7 +132,7 @@
       </a>
 
       <a href="{{ url('/strukturall') }}">
-        <section>
+        <section class="mb-10">
           <div
             class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">

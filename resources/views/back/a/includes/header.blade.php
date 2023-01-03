@@ -77,46 +77,6 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a data-toggle="collapse" href="#pagesExamples2">
-                        <i class="material-icons">public</i>
-                        <p>Website
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse" id="pagesExamples2">
-                        <ul class="nav">
-                            <li class="{{ (request()->is('component*')) ? 'active' : '' }}">
-                                <a href="{{ url('/component') }}"><i class="material-icons">apps</i>
-                                    Components</a>
-                            </li>
-                            <li class="{{ (request()->is('frontmenu*')) ? 'active' : '' }}">
-                                <a href="{{ url('/frontmenu') }}"> <i class="material-icons">menu</i>
-                                    Menu</a>
-                            </li>
-                           
-                            </li>
-                            <li class="{{ (request()->is('settings*')) ? 'active' : '' }}">
-                                <a href="{{ url('/settings') }}">
-                                    <i class="material-icons">settings</i>
-                                    Settings</a>
-                            </li>
-                           
-                            </li>
-                            <li class="{{ (request()->is('user*')) ? 'active' : '' }}">
-                                <a href="{{ url('/user') }}">
-                                    <i class="material-icons">person</i>
-                                    Users</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="{{ (request()->is('inbox')) ? 'active' : '' }}">
-                    <a href="{{ url('inbox') }}">
-                        <i class="material-icons">mail</i>
-                        <p>Inbox</p>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
