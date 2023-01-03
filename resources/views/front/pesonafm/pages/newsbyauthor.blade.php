@@ -1,11 +1,6 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
 <div class="container mx-auto py-1">
-    <!-- <a href="{{url('/')}}">
-        <h1 class="text-8xl font-bold text-center my-10"> Recent posts <span
-                class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">form our
-                Blog</span> </h1>
-    </a> -->
     <div class="flex mt-10">
         <div class="basis-1/2 text-right">
             <a href="{{url('/')}}" class="sm:text-4xl font-bold">
@@ -42,32 +37,30 @@
                 <div id="body" class="flex flex-wrap m-1 md:m-2">
                     <div class="grid grid-cols-2 gap-4">
                         @foreach($data as $n)
-                        <div class="flex flex-wrap">
-                            <div class="w-full p-1 md:p-2">
-                                <div class="relative overflow-hidden bg-no-repeat  bg-white bg-cover shadow-lg rounded-lg"
-                                    style="background-position: 50%;" data-mdb-ripple="true"
-                                    data-mdb-ripple-color="light">
-                                    <div class="rounded-lg shadow-lg  max-w-sm">
-                                        @if(file_exists(public_path('storage/'.$n->path)))
-                                        <img src="{{ asset('storage') }}/{{ $n->path}}" class="card-img-top"
-                                            alt="image">
-                                        @else
-                                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="image">
-                                        @endif
+                        <div
+                            class="bottom-2 top-2 flex flex-wrap over:grid-rows-6 mx-4 my-6 bg-gradient-to-r from-gray-100 to-gray-500 content-end rounded-md ">
+                            <a href="{{ url('/news-detail', $n->slug) }}">
+                                <div class="rounded-lg shadow-lg  max-w-sm">
+                                    @if(file_exists(public_path('storage/'.$n->path)))
+                                    <img src="{{ asset('storage') }}/{{ $n->path}}" class=" bg-blend-normal rounded-lg"
+                                        alt="image" />
+                                    @else
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid rounded-lg"
+                                        alt="image" />
+                                    @endif
+                                    <div
+                                        class="bottom-0 left-0 right-0 px-4 py-2 bg-gray-500 opacity-60 rounded-lg space-y-3">
+                                        <p class="text-center text-white z-10" style="top: 50%; left: 50%;">
+                                            {{ \Carbon\Carbon::parse($n->date)->format('l') }},
+                                            {{
+                                            \Carbon\Carbon::parse( $n->date
+                                            )->toFormattedDateString() }}
+                                        </p>
+                                        <h3 class="post-title text-white font-bold">{{ $n->title }}
+                                        </h3>
                                     </div>
-                                    <span class="post-date text-black">{{ \Carbon\Carbon::parse($n->date)->format('l')
-                                        }},
-                                        {{
-                                        \Carbon\Carbon::parse( $n->date
-                                        )->toFormattedDateString() }}</span>
-                                    <h3 class="post-title text-black">{{ $n->title }}
-                                    </h3>
-                                    <a href="{{ url('/news-detail', $n->slug) }}"
-                                        class="readmore stretched-link mt-auto text-black"><span>Read
-                                            More</span><i class="bi bi-arrow-right"></i></a>
                                 </div>
-                            </div>
-
+                            </a>
                         </div>
                         @endforeach
                     </div>

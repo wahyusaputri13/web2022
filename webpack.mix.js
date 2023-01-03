@@ -16,7 +16,6 @@ mix.browserSync("127.0.0.1:8000").js('resources/js/app.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
     ]);
-mix.disableSuccessNotifications();
 if (mix.inProduction()) {
     mix.version();
 }
