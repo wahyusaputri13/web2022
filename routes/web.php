@@ -70,7 +70,7 @@ Route::get('/', function () {
         ];
         Seo::seO();
         Counter::create($data);
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);    
+        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         $news = News::orderBy('date', 'desc')->paginate(9);
         return view('front.pesonafm.pages.index', compact('gallery', 'news'));
     } else {
@@ -106,7 +106,7 @@ Route::group(['middleware' => 'data_web'], function () {
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
     $themes = Website::all()->first();
-    return view($themes->themes_back . '.pages.dashboard');
+    return view('back.a.pages.dashboard');
 })->name('dashboard');
 
 
