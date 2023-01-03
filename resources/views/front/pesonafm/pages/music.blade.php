@@ -17,7 +17,7 @@
         <a class="bg-red-500 px-10 py-2 w-20 h-30  text-white text-center rounded-lg" href="{{ url('/') }}">Back</a>
     </div>
 
-    <section id="music" class="portfolio">
+    <section id="music" class="mb-32">
         <table class="table-auto mx-auto mt-10">
             <thead class="text-xl uppercase bg-black">
                 <tr>
