@@ -60,7 +60,7 @@ class BuaperController extends Controller
             'video' => 'required',
             'deskripsi' => 'required',
         ]);
-       
+
         $data = [
             'video' => $request->video,
             'deskripsi' => $request->deskripsi,
@@ -101,16 +101,14 @@ class BuaperController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = 
-        [
+        $data = [
             'video' => $request->video,
-            'deskripsi
-            ' => $request->deskripsi,
+            'deskripsi' => $request->deskripsi,
         ];
         Buaper::find($id)->update($data);
         return redirect(route('buaper.index'))->with(['success' => 'Data has been successfully changed!']);
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
@@ -120,10 +118,6 @@ class BuaperController extends Controller
      */
     public function destroy($id)
     {
-        $video = Buaper::where('id', $id)->first();
-        if (Storage::exists($video->path)) {
-            Storage::delete($video->path);
-        }
         $data = Buaper::destroy($id);
         return $data;
     }
