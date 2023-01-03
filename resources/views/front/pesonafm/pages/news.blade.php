@@ -28,8 +28,7 @@
   </a>
   <a class="bg-red-500 px-10 py-2 w-20 h-30 text-white text-center rounded-lg"  href="{{ url('/') }}">Back</a>
 
-  
-  <h3 class="sidebar-title text-black after:">Search</h3>
+  <h3 class="sidebar-title text-black after:" style="margin-top: 20px;">Search</h3>
   <div class="sidebar-item search-form text-black">
     {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
     {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
@@ -43,7 +42,7 @@
     <section class="mb-32 text-gray-800">
       <div id="body" class="flex flex-wrap m-1 md:m-2">
         @foreach($news as $n)
-        <div class="bottom-2 top-2 flex flex-wrap w-1/3 mx-4 my-6 bg-gradient-to-r from-gray-100 to-gray-500 content-end rounded-md ">
+        <div class="bottom-2 top-2 flex flex-wrap w-1/3 hover:grid-rows-6 mx-4 my-6 bg-gradient-to-r from-gray-100 to-gray-500 content-end rounded-md ">
           <a href="{{ url('/news-detail', $n->slug) }}">
             <div class="rounded-lg shadow-lg  max-w-sm">
               @if(file_exists(public_path('storage/'.$n->path)))
@@ -78,6 +77,10 @@
 
     </section>
     <!-- End News Section -->
-    @endsection
-    @push('after-script')
-    @endpush
+    
+    </div>
+  </div>  
+
+@endsection
+@push('after-script')
+@endpush
