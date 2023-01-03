@@ -1,4 +1,11 @@
 @extends('front.pesonafm.layouts.app')
+@push('after-style')
+<!-- Fancybox and Jquery CDN
+    This link get github repository -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+@endpush
 @section('content')
 <div class="container mx-auto py-1">
   <div class="flex mt-10">
@@ -27,7 +34,9 @@
               <div class="relative overflow-hidden bg-no-repeat bg-black bg-cover shadow-lg rounded-lg"
                 style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="light">
                 @if(file_exists(public_path('storage/'.$g->path)))
-                <img src="{{ asset('storage') }}/{{ $g->path}}" class="img-fluid" alt="image">
+                <a data-fancybox="gallery" href="{{ asset('storage') }}/{{ $g->path}}">
+                  <img src="{{ asset('storage') }}/{{ $g->path}}" class="img-fluid" alt="image">
+                </a>
                 @else
                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="image">
                 @endif
