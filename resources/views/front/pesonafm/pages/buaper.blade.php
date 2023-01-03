@@ -1,7 +1,8 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
-
-<a class="bg-red-500 px-10 py-2 w-20 h-30  text-white text-center rounded-lg" href="{{ url('/') }}">Back</a>
+<div class="mt-10">
+  <a class="bg-red-500 px-10 py-2 w-20 h-30  text-white text-center rounded-lg" href="{{ url('/') }}">Back</a>
+</div>
 
 <!-- ======= Buaper Section ======= -->
 <section id="buaper" class="portfolio">

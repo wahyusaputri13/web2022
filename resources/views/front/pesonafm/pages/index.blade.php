@@ -15,6 +15,11 @@
         </h1>
       </a>
     </div>
+    <div class="grid">
+      <div class="text-center mb-5 font-bold text-4xl lg:invisible">
+        Radio PesonaFM
+      </div>
+    </div>
     <div class="flex flex-wrap justify-center flex-row sm:space-x-3 md:space-x-5">
       <section class="mb-10">
         <div
@@ -26,21 +31,21 @@
             class="btn shadow-md shadow-red-500/50 bg-red-500 rounded-lg m-2 btn-playstream group-hover:scale-125 text-md w-14 p-1 ">Play</button>
         </div>
       </section>
-      <a href="{{url('/newsall')}}">
-        <section class="mb-10">
+      <section class="mb-10">
+        <a href="{{url('/newsall')}}">
           <div
             class="bg-gradient-to-r from-red-700 to-red-800 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 hover:cursor-pointer md:hover:-translate-y-5">
             <h1 class="text-2xl group-hover:scale-125 md:text-5xl xl:font-extrabold">News</h1>
-        </section>
-      </a>
-      <a href="{{url('/photos')}}">
-        <section class="mb-10">
+        </a>
+      </section>
+      <section class="mb-10">
+        <a href="{{url('/photos')}}">
           <div
             class="bg-gradient-to-r from-yellow-500 to-orange-500 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center group w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 hover:cursor-pointer md:hover:-translate-y-5 lg:mt-0">
             <h1 class="text-2xl group-hover:scale-125 md:text-4xl xl:font-extrabold text-white">Tips & Trick</h1>
           </div>
-        </section>
-      </a>
+        </a>
+      </section>
       <section class="mb-10">
         <div
           class=" bg-purple-400 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
@@ -108,18 +113,18 @@
             </div>
           </div>
       </section>
-      <a href="{{ url('/front-music') }}">
-        <section class="mb-10">
+      <section class="mb-10">
+        <a href="{{ url('/front-music') }}">
           <div
             class="bg-gradient-to-r from-orange-200 via-red-400 to-purple-500 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
               Chart Top 10 Music
             </h1>
           </div>
-        </section>
-      </a>
-      <a href="{{ url('/front-buaper') }}">
-        <section class="mb-10">
+        </a>
+      </section>
+      <section class="mb-10">
+        <a href="{{ url('/front-buaper') }}">
           <div
             class="bg-gradient-to-r from-pink-400 to-pink-500 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-4xl mt-2 xl:font-extrabold">
@@ -128,26 +133,25 @@
             </h1>
 
           </div>
-        </section>
-      </a>
-
-      <a href="{{ url('/strukturall') }}">
-        <section class="mb-10">
+        </a>
+      </section>
+      <section class="mb-10">
+        <a href="{{ url('/strukturall') }}">
           <div
             class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
               Our Crew
             </h1>
           </div>
-        </section>
+        </a>
+      </section>
+    </div>
+    <div class="grid">
+      <div class="mb-5 lg:invisible">
+        <div class="text-center mb-2">© 2022 DISKOMINFO</div>
+      </div>
     </div>
   </div>
-</div>
-</div>
-
-
-<!-- <div class="text-center mb-2">© 2022 DISKOMINFO</div> -->
-</div>
 </div>
 <audio id="audio_1">
   <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">
@@ -171,28 +175,5 @@
     }
   });
 </script>
-<!-- <!DOCTYPE html>
-<html lang="en" class="dark">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          spacing: {
-            13: '3.25rem',
-          },
-        }
-
-      },
-    };
-  </script>
-
-</head> -->
 @endpush
 @endsection

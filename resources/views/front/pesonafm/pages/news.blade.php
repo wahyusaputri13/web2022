@@ -35,7 +35,7 @@
   <div class="container my-24 px-6 mx-auto">
     <section class="mb-32 text-gray-800">
       <div id="body" class="flex flex-wrap m-1 md:m-2">
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-4 xl:grid-cols-3">
           @foreach($news as $n)
           <div
             class="bottom-2 top-2 flex flex-wrap over:grid-rows-6 mx-4 my-6 bg-gradient-to-r from-gray-100 to-gray-500 content-end rounded-md ">
@@ -61,10 +61,10 @@
           </div>
           @endforeach
         </div>
-        <div class="row mt-3">
-          <div class="col-lg-12 d-flex justify-content-center">
-            {{ $news->links('pagination::tailwind') }}
-          </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-lg-12 d-flex justify-content-center">
+          {{ $news->links('pagination::tailwind') }}
         </div>
       </div>
     </section>
