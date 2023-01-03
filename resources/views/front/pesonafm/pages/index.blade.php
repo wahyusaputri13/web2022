@@ -156,15 +156,31 @@
 <audio id="audio_1">
   <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">
 </audio>
-<audio id="audio_2">
+<!-- <audio id="audio_2">
   <source src="{{ asset('assets/greetingvoice.mpeg') }}" type="audio/mpeg">
-</audio>
+</audio> -->
 @push('after-script')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
   $(document).ready(function () {
-    document.getElementById('audio_2').play();
+    // document.getElementById('audio_2').play();
+
+    // var ddd = document.createElement("AUDIO")
+    // document.body.appendChild(audio);
+    // ddd.src = "{{ asset('assets/greetingvoice.mpeg') }}"
+
+    // document.body.addEventListener("mousemove", function () {
+    //   ddd.play()
+    // })
+
+    var source = "{{ asset('assets/greetingvoice.mpeg') }}"
+    var audio = new Audio();
+    // no event listener needed here
+    audio.src = source;
+    audio.autoplay = true;
+
+    console.log('ready!');
   });
 
   $('.btn-playstream').click(function () {
