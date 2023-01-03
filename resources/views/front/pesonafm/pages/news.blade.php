@@ -70,6 +70,7 @@
     </section>
     <!-- End News Section -->
   </div>
+
 </div>
 @endsection
 @push('after-script')
