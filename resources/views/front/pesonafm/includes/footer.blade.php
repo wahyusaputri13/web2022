@@ -1,7 +1,7 @@
 <footer>
     <div class="hidden py-6 px-4 bg-red-500 lg:flex md:items-center md:justify-center">
         <div class="flex mt-4 space-x-6 sm:justify-between md:mt-0">
-            <div class="text-center mb-2">© 2022 DISKOMINFO</div>
+            <div class="text-center">© 2022 DISKOMINFO</div>
             <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd"
@@ -44,8 +44,5 @@
         </div>
     </div>
 </footer>
-<audio id="audio_1">
-    <source src="http://i.klikhost.com:8234/stream" type="audio/mpeg">
-</audio>
 </div>
 </div>
