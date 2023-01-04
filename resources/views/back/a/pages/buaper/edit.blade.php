@@ -23,7 +23,7 @@
                         </div>
                         <div class="d-flex text-right">
                             <a href="{{ url('buaper') }}" class="btn btn-default btn-fill">Cancel</a>
-                            <button type="submit" class="btn btn-success btn-fill">Insert</button>
+                            <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}
                     </div>

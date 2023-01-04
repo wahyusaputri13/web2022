@@ -29,7 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Video</th>
+                                        <th>Link Youtube Video</th>
                                         <th>Description</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>

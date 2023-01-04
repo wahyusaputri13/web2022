@@ -30,8 +30,8 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Ranking</th>
-                                        <th>Song</th>
-                                        <th>Artist</th>
+                                        <th>Song - Artist</th>
+                                        <th>Link Youtube</th>
                                         <th>Years</th>
                                         <th class="disabled-sorting text-center">
                                             Action</th>
