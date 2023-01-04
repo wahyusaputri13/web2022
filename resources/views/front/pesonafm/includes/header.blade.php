@@ -1,10 +1,10 @@
 <nav class="hidden lg:flex items-center justify-between flex-wrap bg-red-500 p-6">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
     <a href="{{url('/')}}">
-      <img src="{{ asset('assets/front/pesonafm/logopesona.jpg') }}" width="50">
+      <img src="{{ asset('assets/front/pesonafm/Radio Pesona 2 white bg (1).jpg') }}" width="50">
     </a>
     <a href="{{url('/')}}">
-      <h1 class="text-3xl font-bold text-center mx-10"> <span class=" from-white "> 92.1 FM Radio Pesona</span>
+      <h1 class="text-3xl font-bold text-center mx-10"> <span class=" from-white "> 92.1 FM Radio Pesona Stasiun Informasi Terbaikmu</span>
       </h1>
     </a>
   </div>

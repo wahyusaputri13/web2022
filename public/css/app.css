@@ -1234,6 +1234,18 @@ video {
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }.bg-transparent{
   background-color: transparent;
+}.bg-rose-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 63 94 / var(--tw-bg-opacity));
+}.bg-rose-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 164 175 / var(--tw-bg-opacity));
+}.bg-rose-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 113 133 / var(--tw-bg-opacity));
+}.bg-red-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }.bg-opacity-25{
   --tw-bg-opacity: 0.25;
 }.bg-gradient-to-r{
@@ -1270,9 +1282,19 @@ video {
   --tw-gradient-from: #fff;
   --tw-gradient-to: rgb(255 255 255 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+<<<<<<< HEAD
 }.from-gray-100{
   --tw-gradient-from: #f3f4f6;
   --tw-gradient-to: rgb(243 244 246 / 0);
+=======
+}.from-emerald-300{
+  --tw-gradient-from: #6ee7b7;
+  --tw-gradient-to: rgb(110 231 183 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}.from-lime-300{
+  --tw-gradient-from: #bef264;
+  --tw-gradient-to: rgb(190 242 100 / 0);
+>>>>>>> 7912421 (perbaiki header footer news  detail  index)
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }.via-red-400{
   --tw-gradient-to: rgb(248 113 113 / 0);
@@ -1280,6 +1302,19 @@ video {
 }.via-zinc-600{
   --tw-gradient-to: rgb(82 82 91 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), #52525b, var(--tw-gradient-to);
+<<<<<<< HEAD
+=======
+}.via-emerald-600{
+  --tw-gradient-to: rgb(5 150 105 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #059669, var(--tw-gradient-to);
+}.via-emerald-500{
+  --tw-gradient-to: rgb(16 185 129 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #10b981, var(--tw-gradient-to);
+}.to-rose-400{
+  --tw-gradient-to: #fb7185;
+}.to-teal-400{
+  --tw-gradient-to: #2dd4bf;
+>>>>>>> 7912421 (perbaiki header footer news  detail  index)
 }.to-teal-500{
   --tw-gradient-to: #14b8a6;
 }.to-blue-500{
@@ -1298,6 +1333,16 @@ video {
   --tw-gradient-to: #2dd4bf;
 }.to-gray-500{
   --tw-gradient-to: #6b7280;
+}.to-red-500{
+  --tw-gradient-to: #ef4444;
+}.to-emerald-800{
+  --tw-gradient-to: #065f46;
+}.to-lime-800{
+  --tw-gradient-to: #3f6212;
+}.to-lime-600{
+  --tw-gradient-to: #65a30d;
+}.to-teal-600{
+  --tw-gradient-to: #0d9488;
 }.bg-cover{
   background-size: cover;
 }.bg-fixed{

@@ -4,11 +4,10 @@
     <div class="flex mt-10">
         <div class="basis-1/2 text-right">
             <a href="{{url('/')}}" class="sm:text-4xl font-bold">
-                <h1 class="font-bold text-right"> Recent posts </h1>
+                <h1 class="font-bold text-right"> Breaking </h1>
         </div>
         <div class="basis-1/2">
-            <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">from our
-                Blog</span>
+            <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">News Pesona</span>
             </a>
         </div>
     </div>

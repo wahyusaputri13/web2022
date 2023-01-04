@@ -8,9 +8,9 @@
     <div class="hidden xl:flex justify-center">
       <a href="{{url('/')}}">
         <h1 class="text-8xl font-bold text-center my-15"> Radio LPPL <span
-            class="bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">Wonosobo
+            class="bg-gradient-to-r from-red-500 to-red-500 bg-clip-text text-transparent">Wonosobo
           </span>
-          <p class="text-center bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent"> Jawa Tengah
+          <p class="text-center bg-gradient-to-r from-red-500 to-red-500 bg-clip-text text-transparent"> Jawa Tengah
           </p>
         </h1>
       </a>
@@ -136,21 +136,21 @@
         </a>
       </section>
       <section class="mb-10">
-        <a href="{{ url('/strukturall') }}">
+        <a href="{{ url('/jadwalall') }}">
           <div
-            class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            class="bg-gradient-to-r from-lime-300 via-emerald-500 to-teal-600 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
-              Our Crew
+              Jadwal Program & Event
             </h1>
           </div>
         </a>
       </section>
       <section class="mb-10">
-        <a href="{{ url('/jadwalall') }}">
+        <a href="{{ url('/strukturall') }}">
           <div
             class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
-              Jadwal Program & Event
+              Our Crew
             </h1>
           </div>
         </a>
