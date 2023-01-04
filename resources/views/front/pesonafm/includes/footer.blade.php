@@ -1,7 +1,3 @@
-<!-- <div class="footer fixed-bottom"> -->
-<!-- <div class="absolute inset-x-0 bottom-0"> -->
-<!-- <footer class="footer fixed-bottom mt-auto"> -->
-<!-- <div class="footer"> -->
 <footer>
     <div class="hidden py-6 px-4 bg-red-500 lg:flex md:items-center md:justify-center">
         <div class="flex mt-4 space-x-6 sm:justify-between md:mt-0">
@@ -49,5 +45,3 @@
     </div>
 </footer>
 </div>
-<!-- </div> -->
-<!-- </div> -->

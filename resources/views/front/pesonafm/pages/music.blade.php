@@ -1,7 +1,8 @@
 @extends('front.pesonafm.layouts.app')
 @section('content')
-<div class="container mx-auto py-1">
-
+<div class="flex flex-col h-screen">
+    <div class="flex-grow">
+        
     <div class="flex mt-10">
         <div class="basis-1/2 text-right">
             <a href="{{url('/')}}" class="sm:text-4xl font-bold">
