@@ -74,7 +74,7 @@ class FrontController extends Controller
     public function galleryall(Request $request)
     {
         Seo::SeO();
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(10);
+        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         $sidepost = Gallery::latest('created_at')->take(5)->get();
         return view('front.pesonafm.pages.gallery', compact('gallery', 'sidepost'));
     }

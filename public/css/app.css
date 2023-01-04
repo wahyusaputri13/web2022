@@ -1059,6 +1059,8 @@ video {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }.grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}.grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }.flex-row{
   flex-direction: row;
 }.flex-col{
@@ -1805,6 +1807,8 @@ video {
   }
 }@media (min-width: 360){.hp\:mb-3{
     margin-bottom: 0.75rem;
+  }.hp\:grid-cols-1{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }@media (min-width: 640px){.sm\:col-span-4{
     grid-column: span 4 / span 4;
@@ -1877,6 +1881,8 @@ video {
     --tw-scale-x: 1.5;
     --tw-scale-y: 1.5;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }.sm\:grid-cols-1{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }.sm\:items-start{
     align-items: flex-start;
   }.sm\:items-center{
@@ -2009,6 +2015,8 @@ video {
     width: auto;
   }.lg\:flex-grow{
     flex-grow: 1;
+  }.lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }.lg\:items-center{
     align-items: center;
   }.lg\:prose-xl{
@@ -2154,6 +2162,10 @@ video {
     display: flex;
   }.xl\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }.xl\:grid-cols-1{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }.xl\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }.xl\:font-extrabold{
     font-weight: 800;
   }

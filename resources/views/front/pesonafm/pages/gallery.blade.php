@@ -8,6 +8,7 @@
 @endpush
 @section('content')
 <div class="container mx-auto py-1">
+
   <div class="flex mt-10">
     <div class="basis-1/2 text-right">
       <a href="{{url('/')}}" class="sm:text-4xl font-bold">
@@ -27,7 +28,7 @@
   <div class="container my-24 px-6 mx-auto">
     <section class="mb-32 text-gray-800">
       <div id="body" class="flex flex-wrap m-1 md:m-2">
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
           @foreach($gallery as $g)
           <div class="flex flex-wrap hover:scale-125 focus:outline-none px-6 py-5">
             <div class="w-full p-3 md:p-2">
@@ -53,15 +54,14 @@
           @endforeach
         </div>
       </div>
-      <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-lg-12 d-flex justify-content-center">
-          {{ $gallery->links('pagination::tailwind') }}
-        </div>
-      </div>
     </section>
-    <!-- End News Section -->
   </div>
-
+  <!-- End News Section -->
+  <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
+    <div class="col-lg-12 d-flex justify-content-center">
+      {{ $gallery->links('pagination::tailwind') }}
+    </div>
+  </div>
 </div>
 @endsection
 @push('after-script')
