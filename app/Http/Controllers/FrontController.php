@@ -10,6 +10,7 @@ use App\Models\Gallery;
 use App\Models\Music;
 use App\Models\Buaper;
 use App\Models\Struktur;
+use App\Models\Jadwal;
 use App\Models\GuestBook;
 use App\Models\Inbox;
 use App\Models\User;
@@ -89,6 +90,11 @@ class FrontController extends Controller
     public function struktur(Request $request)
     {
         return view('front.pesonafm.pages.struktur');
+    }
+
+    public function jadwal(Request $request)
+    {
+        return view('front.pesonafm.pages.jadwal');
     }
 
     public function audio(Request $request)

@@ -81,15 +81,15 @@
                 </a>
               </div>
             </div>
-            <div class="group">
+          </div>
+          <div class="flex space-x-4 m-2 sm:space-x-6">
+          <div class="group">
               <div class="flex justify-center group-hover:scale-125">
                 <a href="https://twitter.com/pesonafmofc?s=21&t=21IEkLnxsotkWbw2ObgEQg" target="_blank">
                   <img src="{{ asset('assets/front/pesonafm/twitter.png') }}" class="scale-125 sm:scale-150">
                 </a>
               </div>
             </div>
-          </div>
-          <div class="flex space-x-4 m-2 sm:space-x-6">
             <div class="group">
               <div class="flex justify-center group-hover:scale-125">
                 <a href="https://api.whatsapp.com/send?phone=6282323839996" target="_blank">
@@ -141,6 +141,16 @@
             class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
             <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
               Our Crew
+            </h1>
+          </div>
+        </a>
+      </section>
+      <section class="mb-10">
+        <a href="{{ url('/jadwalall') }}">
+          <div
+            class="bg-gradient-to-r from-zinc-300 via-zinc-600 to-zinc-800 hp:mb-3 text-center shadow-lg rounded-md grid place-items-center w-60 backdrop-blur-lg bg-slate-500/2 h-40 sm:mt-3 md:mt-5 md:hover:-translate-y-5 xl:mt-0">
+            <h1 class="text-3xl mt-2 xl:font-extrabold text-white ">
+              Jadwal Program & Event
             </h1>
           </div>
         </a>

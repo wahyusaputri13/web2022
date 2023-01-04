@@ -9,6 +9,7 @@ use App\Http\Controllers\SubmenuController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\StrukturController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AudioController;
 use App\Http\Controllers\MusicController;
@@ -24,6 +25,7 @@ use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\Jadwal;
 use App\Models\Struktur;
 use App\Models\Buaper;
 use App\Models\Website;
@@ -80,6 +82,7 @@ Route::get('/', function () {
 })->name('root')->middleware('data_web');
 
 Route::get('/strukturall', [FrontController::class, 'struktur'])->name('struktur.all');
+Route::get('/jadwalall', [FrontController::class, 'jadwal'])->name('jadwal.all');
 
 Route::group(['middleware' => 'data_web'], function () {
     Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
@@ -117,6 +120,7 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('music', MusicController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('struktur', StrukturController::class);
+    Route::resource('jadwal', JadwalController::class);
     Route::resource('submenu', SubmenuController::class);
     Route::resource('settings', WebsiteController::class);
     Route::resource('news', NewsController::class);
