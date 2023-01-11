@@ -72,10 +72,14 @@
                                     <li class="share">
                                         <a href="#"><i class="fas fa-share-alt"></i></a>
                                         <ul class="social-links">
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            {!! Share::page(Request::getHttpHost(), $data->title)
+                                            ->facebook()
+                                            ->twitter()
+                                            ->whatsapp(); !!}
+                                            <!-- <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                             <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> -->
                                         </ul>
                                     </li>
                                 </ul>

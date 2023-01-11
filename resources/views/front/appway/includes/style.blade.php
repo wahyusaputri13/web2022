@@ -14,8 +14,7 @@
   rel="stylesheet">
 
 <!-- Stylesheets -->
-<!-- <link href="{{ asset('assets/front/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet"> -->
-<!-- <link href="{{ asset('assets/front/appway/css/font-awesome-all.css') }}" rel="stylesheet"> -->
+<link href="{{ asset('assets/front/appway/css/font-awesome-all.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/flaticon.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/owl.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/bootstrap.css') }}" rel="stylesheet">
