@@ -45,8 +45,8 @@
                                         </a>
                                         <a href="{{ Share::page(Request::getHttpHost(), $data->title)->twitter() }}"
                                             target="_blank">
+                                            <i class="fab fa-twitter-square"></i>
                                         </a>
-                                        <i class="fab fa-twitter-square"></i>
                                         <i class="fab fa-whatsapp-square"></i>
                                         {!! Share::page(Request::getHttpHost(), $data->title)->twitter() !!}
                                         </li>

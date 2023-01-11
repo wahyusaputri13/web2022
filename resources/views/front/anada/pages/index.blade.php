@@ -136,7 +136,7 @@
         </div>
     </div>
 </div>
-</div>
+
 <div id="contact" class="contact-area default-padding">
     <div class="container">
         <div class="contact-items">
@@ -211,6 +211,17 @@
         </div>
     </div>
 </div>
+
+<!-- Start Google Maps 
+        ============================================= -->
+<div class="maps-area">
+    <div class="google-maps">
+        <iframe
+            src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{ $data_website->longitude }}&hl=en&z=17&amp;output=embed"
+            width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+</div>
+<!-- End Google Maps -->
 @endsection
 @push('after-script')
 @endpush

@@ -8,7 +8,7 @@
         <div class="container">
             <div class="main-box clearfix">
                 <div class="logo-box pull-left">
-                    <figure class="logo"><a href="index.html"><img
+                    <figure class="logo"><a href="/"><img
                                 src="{{ asset('assets/front/appway/images/logo.png') }}" alt=""></a></figure>
                 </div>
                 <div class="menu-area pull-right">
@@ -132,7 +132,7 @@
     <!--sticky Header-->
     <div class="sticky-header">
         <div class="container clearfix">
-            <figure class="logo-box"><a href="index.html"><img
+            <figure class="logo-box"><a href="/"><img
                         src="{{ asset('assets/front/appway/images/small-logo.png') }}" alt=""></a></figure>
             <div class="menu-area">
                 <nav class="main-menu clearfix">
@@ -150,7 +150,7 @@
     <div class="close-btn"><i class="fas fa-times"></i></div>
 
     <nav class="menu-box">
-        <div class="nav-logo"><a href="index.html"><img src="{{ asset('assets/front/appway/images/logo.png') }}" alt=""
+        <div class="nav-logo"><a href="/"><img src="{{ asset('assets/front/appway/images/logo.png') }}" alt=""
                     title=""></a></div>
         <div class="menu-outer">
             <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
