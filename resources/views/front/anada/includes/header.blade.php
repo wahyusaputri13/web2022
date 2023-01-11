@@ -42,11 +42,9 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">
-                    <img src="{{ asset('assets/front/anada/assets/img/logo-light.png') }}" class="logo default"
-                        alt="Logo">
-                    <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo logo-responsive"
-                        alt="Logo">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <h2 class="wow fadeInDown text-white" data-wow-duration="1s">
+                        {{ $data_website->web_name }}</h2>
                 </a>
             </div>
             <!-- End Header Navigation -->
@@ -188,7 +186,13 @@
             <div class="widget">
                 <h4 class="title">Additional Links</h4>
                 <ul>
+                    @if (Route::has('login'))
+                    @auth
+                    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                    @else
                     <li><a href="{{ url('login') }}">Login</a></li>
+                    @endauth
+                    @endif
                 </ul>
             </div>
         </div>

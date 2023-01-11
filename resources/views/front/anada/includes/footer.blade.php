@@ -6,7 +6,6 @@
             <div class="row">
                 <div class="equal-height col-lg-4 col-md-6 item">
                     <div class="f-item about">
-                        <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" alt="Logo">
                         <p class="mt-3">Total Visitors : {{ $counter_web }}</p>
                     </div>
                 </div>
