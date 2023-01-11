@@ -26,9 +26,12 @@
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-            <script src="assets/js/html5/html5shiv.min.js"></script>
-            <script src="assets/js/html5/respond.min.js"></script>
-          <![endif]-->
+  <script src="assets/js/html5/html5shiv.min.js"></script>
+  <script src="assets/js/html5/respond.min.js"></script>
+  <![endif]-->
 
 <!-- ========== Google Fonts ========== -->
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ambil dari template lain fix share icon -->
+<link href="{{ asset('assets/front/arsha/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">

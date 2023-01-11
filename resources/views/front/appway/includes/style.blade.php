@@ -14,7 +14,8 @@
   rel="stylesheet">
 
 <!-- Stylesheets -->
-<link href="{{ asset('assets/front/appway/css/font-awesome-all.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('assets/front/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet"> -->
+<!-- <link href="{{ asset('assets/front/appway/css/font-awesome-all.css') }}" rel="stylesheet"> -->
 <link href="{{ asset('assets/front/appway/css/flaticon.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/owl.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/bootstrap.css') }}" rel="stylesheet">
@@ -23,3 +24,6 @@
 <link href="{{ asset('assets/front/appway/css/imagebg.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/responsive.css') }}" rel="stylesheet">
+
+<!-- ambil dari template lain -->
+<link href="{{ asset('assets/front/arsha/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
