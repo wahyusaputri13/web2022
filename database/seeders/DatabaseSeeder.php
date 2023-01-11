@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // NewsSeeder::class,
-            // GallerySeeder::class,
-            BidangTusiSeeder::class,
+            NewsSeeder::class,
+            GallerySeeder::class,
+            // BidangTusiSeeder::class,
         ]);
 
         $themes = [
@@ -156,10 +156,15 @@ class DatabaseSeeder extends Seeder
                 'slug' => Str::slug('Guest Book', '-'),
             ],
             [
-                'name' => 'Public Complaints',
+                'name' => 'Seputar Wonosobo',
                 'active' => 0,
-                'slug' => Str::slug('Complaints', '-'),
+                'slug' => Str::slug('Seputar Wonosobo', '-'),
             ]
+            // [
+            //     'name' => 'Public Complaints',
+            //     'active' => 0,
+            //     'slug' => Str::slug('Complaints', '-'),
+            // ]
         ];
 
         foreach ($component as $cp) {
