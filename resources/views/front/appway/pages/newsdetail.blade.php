@@ -60,8 +60,8 @@
                             </div>
                             <div class="lower-box clearfix">
                                 <div class="left-content pull-left">
-                                    <figure class="admin-image"><img
-                                            src="{{ asset('assets/front/appway/images/resource/admin-1.png') }}" alt="">
+                                    <figure class="admin-image">
+                                        <img src="https://ui-avatars.com/api/?name={{ $data->upload_by }}">
                                     </figure>
                                     <span class="admin-name">by {{
                                         $data->upload_by }}</span>
@@ -184,12 +184,13 @@
                 <div class="sidebar">
                     <div class="sidebar-search sidebar-widget">
                         <div class="search-form">
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <input type="search" name="search-field" placeholder="Search Now" required="">
-                                    <button type="submit"><i class="fas fa-search"></i></button>
-                                </div>
-                            </form>
+                            {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
+                            <div class="form-group">
+                                {{Form::search('kolomcari', null,['class' => 'form-control',
+                                'placeholder' => 'Title Post'])}}
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                            {{Form::close()}}
                         </div>
                     </div>
                     <!-- <div class="sidebar-categories sidebar-widget">
@@ -207,30 +208,26 @@
                     <div class="sidebar-post sidebar-widget">
                         <h3 class="sidebar-title">Recent News</h3>
                         <div class="widget-content">
+                            @foreach($news as $n)
                             <div class="post">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="{{ asset('assets/front/appway/images/resource/post-1.jpg') }}"
-                                            alt=""></a></figure>
-                                <h5><a href="blog-single.html">Best website traffice Booster with great tools.</a>
+                                <figure class="image">
+                                    <a href="{{ url('/news-detail', $n->slug) }}">
+                                        @if(file_exists(public_path('storage/'.$n->path)))
+                                        <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                            class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
+                                        @else
+                                        <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
+                                        @endif
+                                    </a>
+                                </figure>
+                                <h5><a href="{{ url('/news-detail', $n->slug) }}">{{
+                                        \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
                                 </h5>
-                                <span class="post-date">12 May, 2016</span>
+                                <span class="post-date">{{
+                                    \Carbon\Carbon::parse( $n->date
+                                    )->toFormattedDateString() }}</span>
                             </div>
-                            <div class="post">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="{{ asset('assets/front/appway/images/resource/post-2.jpg') }}"
-                                            alt=""></a></figure>
-                                <h5><a href="blog-single.html">Google take latest step & Catch the black SEO</a>
-                                </h5>
-                                <span class="post-date">11 May, 2016</span>
-                            </div>
-                            <div class="post">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="{{ asset('assets/front/appway/images/resource/post-3.jpg') }}"
-                                            alt=""></a></figure>
-                                <h5><a href="blog-single.html">How to become a best sale marketer in a year!</a>
-                                </h5>
-                                <span class="post-date">10 May, 2016</span>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- <div class="sidebar-tags sidebar-widget">
