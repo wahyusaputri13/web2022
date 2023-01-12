@@ -12,6 +12,7 @@
 
                 <div class="equal-height col-lg-2 col-md-6 item">
                     <div class="f-item link">
+                        @if(is_null($related))
                         <h4 class="widget-title">Useful Links</h4>
                         <ul>
                             @foreach($related as $rr)
@@ -20,6 +21,7 @@
                             </li>
                             @endforeach
                         </ul>
+                        @endif
                     </div>
                 </div>
 

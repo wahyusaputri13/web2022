@@ -22,6 +22,7 @@
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
+                    @if(is_null($related))
                     <h4>Useful Links</h4>
                     <ul>
                         @foreach($related as $rr)
@@ -30,21 +31,8 @@
                             <a target="_blank" href="{{ $rr->url }}">{{ $rr->name }}</a>
                         </li>
                         @endforeach
-                        <!-- <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://kapencar-kertek.wonosobokab.go.id/">Desa Kapencar, Kertek</a>
-                        </li>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://buntu-kejajar.wonosobokab.go.id/">Desa Buntu, Kejajar</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://kadipaten-selomerto.wonosobokab.go.id/">Desa Kadipaten,
-                                Selomerto</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://jonggolsari-leksono.wonosobokab.go.id/">Desa Jonggolsari,
-                                Leksono</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://kelurahanjaraksari.wonosobokab.go.id/">Kelurahan Jaraksari,
-                                Wonosobo</a></li> -->
                     </ul>
+                    @endif
                 </div>
 
 

@@ -17,6 +17,7 @@
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links">
+                    @if(is_null($related))
                     <h4>Useful Links</h4>
                     <ul>
                         @foreach($related as $rr)
@@ -24,6 +25,7 @@
                                 }}</a></li>
                         @endforeach
                     </ul>
+                    @endif
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">

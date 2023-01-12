@@ -93,6 +93,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                         <div class="links-widget footer-widget">
+                            @if(is_null($related))
                             <h4 class="widget-title">Useful Links</h4>
                             <div class="widget-content">
                                 <ul class="list clearfix">
@@ -103,6 +104,7 @@
                                     @endforeach
                                 </ul>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -222,6 +224,7 @@
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
                         <div class="links-widget footer-widget">
+                            @if(is_null($related))
                             <h4 class="widget-title">Useful Links</h4>
                             <div class="widget-content">
                                 <ul class="list clearfix">
@@ -232,6 +235,7 @@
                                     @endforeach
                                 </ul>
                             </div>
+                            @endif
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
