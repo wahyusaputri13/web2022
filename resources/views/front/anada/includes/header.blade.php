@@ -44,7 +44,12 @@
                 </button>
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <h2 class="wow fadeInDown text-white" data-wow-duration="1s">
-                        {{ $data_website->web_name }}</h2>
+                        <img src="{{ asset('') }}{{ $data_website->favicon }}" width="30" class="logo default"
+                            alt="Logo" hidden>
+                        <img src="{{ asset('') }}{{ $data_website->favicon }}" width="30" class="logo logo-responsive"
+                            alt="Logo" hidden>
+                        {{ $data_website->web_name }}
+                    </h2>
                 </a>
             </div>
             <!-- End Header Navigation -->
