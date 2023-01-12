@@ -9,6 +9,7 @@ use App\Models\Website;
 use App\Models\FrontMenu;
 use App\Models\Gallery;
 use App\Models\News;
+use App\Models\Inbox;
 use App\Models\RelatedLink;
 use Illuminate\Support\Facades\DB;
 
@@ -29,6 +30,7 @@ class WebHelper
         $news = News::all()->count();
         $gallery = Gallery::all()->count();
         $counter = Counter::all()->count();
+        $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
         // Sharing is caring
         view()->share('data_website', $data);
@@ -37,6 +39,7 @@ class WebHelper
         view()->share('gallery_all', $gallery);
         view()->share('counter_web', $counter);
         view()->share('related', $related);
+        view()->share('inbox', $inbox);
         return $next($request);
     }
 }
