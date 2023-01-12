@@ -63,8 +63,10 @@
                                     <figure class="admin-image">
                                         <img src="https://ui-avatars.com/api/?name={{ $data->upload_by }}">
                                     </figure>
-                                    <span class="admin-name">by {{
-                                        $data->upload_by }}</span>
+                                    <a href="{{ url('/news-author', $data->upload_by) }}">
+                                        <span class="admin-name">by {{
+                                            $data->upload_by }}</span>
+                                    </a>
                                 </div>
                                 <ul class="right-content pull-right">
                                     <li><a href="#">{{

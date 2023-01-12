@@ -33,7 +33,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                         <div class="about-widget footer-widget">
                             <figure class="footer-logo"><a href="/"><img
-                                        src="{{ asset('assets/front/appway/images/footer-logo-2.png') }}" alt=""></a>
+                                        src="{{ asset('assets/front/appway/images/footer-logo-2.png') }}" alt=""
+                                        hidden></a>
                             </figure>
                             <div class="text">Total Visitors : {{ $counter_web }}</div>
                             <!-- <div class="apps-download">
@@ -74,7 +75,7 @@
                                     <li><i class="fas fa-map-marker-alt"></i>{{ $data_website->address }}</li>
                                     <li><i class="fas fa-phone"></i><a href="tel:+62{{ $data_website->phone }}">{{
                                             $data_website->phone }}</a></li>
-                                    <li><i class="fas fa-envelope"></i><a href="mailto:info@example.com">{{
+                                    <li><i class="fas fa-envelope"></i><a href="mailto:{{ $data_website->email }}">{{
                                             $data_website->email }}</a></li>
                                 </ul>
                             </div>
@@ -185,7 +186,8 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                         <div class="about-widget footer-widget">
                             <figure class="footer-logo"><a href="index.html"><img
-                                        src="{{ asset('assets/front/appway/images/footer-logo.png') }}" alt=""></a>
+                                        src="{{ asset('assets/front/appway/images/footer-logo.png') }}" alt=""
+                                        hidden></a>
                             </figure>
                             <div class="text">Total Visitors : {{ $counter_web }}</div>
                             <ul class="social-links">
@@ -246,7 +248,7 @@
                                     </li>
                                     <li>
                                         <i class="fas fa-envelope"></i>
-                                        <a href="mailto:info@example.com">{{ $data_website->email }}</a>
+                                        <a href="mailto:{{ $data_website->email }}">{{ $data_website->email }}</a>
                                     </li>
                                 </ul>
                             </div>

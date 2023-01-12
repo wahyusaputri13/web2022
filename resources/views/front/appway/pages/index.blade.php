@@ -40,6 +40,9 @@
     <div class="container">
         <div class="sec-title center">
             <h2>Recent Posts</h2>
+            <a href="{{ url('/newsall') }}">
+                <p>Show All</p>
+            </a>
         </div>
         <div class="row">
             @foreach($news as $n)

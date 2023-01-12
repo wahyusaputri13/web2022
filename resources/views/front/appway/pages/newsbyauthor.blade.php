@@ -70,8 +70,10 @@
                                             <img src="https://ui-avatars.com/api/?name={{
                                             $author->upload_by }}">
                                         </figure>
-                                        <span class="admin-name">by {{
-                                            $author->upload_by }}</span>
+                                        <a href="{{ url('/news-author', $author->upload_by) }}">
+                                            <span class="admin-name">by {{
+                                                $author->upload_by }}</span>
+                                        </a>
                                     </div>
                                     <ul class="right-content pull-right">
                                         <li><a href="#">{{
@@ -80,7 +82,7 @@
                                         <li class="share">
                                             <a href="#"><i class="fas fa-share-alt"></i></a>
                                             <ul class="social-links">
-                                                {!! Share::page(Request::getHttpHost(), $hasil)
+                                                {!! Share::page(Request::getHttpHost(), $author->title)
                                                 ->facebook()
                                                 ->twitter()
                                                 ->whatsapp(); !!}
