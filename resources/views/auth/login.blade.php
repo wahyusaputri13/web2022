@@ -41,9 +41,6 @@
                                     <h4 class="card-title">Login</h4>
                                 </div>
                                 <x-jet-validation-errors />
-                                @if (session('status'))
-                                {{ session('status') }}
-                                @endif
                                 <div class="card-content">
                                     <div class="input-group">
                                         <span class="input-group-addon">

@@ -225,7 +225,7 @@ figure{
 img {
   display: inline-block;
   max-width: 100%;
-  height: auto;
+  height: 100%;
   transition-delay: .1s;
   transition-timing-function: ease-in-out;
   transition-duration: .7s;
@@ -854,6 +854,29 @@ img {
   font-size:16px;
   font-weight:900;
   z-index:5;  
+}
+
+.main-menu .navigation .jmbt{
+  background: #4527a4;
+  position: relative;
+  width: 100%;
+  padding: 0px 30px;
+}
+
+.main-menu .navigation .jmbt2{
+  position: relative;
+  display: block;
+  padding: 6px 0px;
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: white;
+  text-align: left;
+}
+
+.main-menu .navigation .jmbt2:hover{
+  color: #FFB700;
 }
 
 .main-menu .navigation > li.dropdown:hover > ul{
@@ -2634,6 +2657,28 @@ div#mCSB_1_container{
 }
 
 #content_block_06 .content-box .subscribe-form .form-group input[type='email']{
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border: 2px solid #dddddd;
+  border-radius: 30px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  padding: 10px 40px;
+}
+
+#content_block_06 .content-box .subscribe-form .form-group input[type='text']{
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border: 2px solid #dddddd;
+  border-radius: 30px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  padding: 10px 40px;
+}
+
+#content_block_06 .content-box .subscribe-form .form-group input[type='number']{
   position: relative;
   width: 100%;
   height: 60px;
