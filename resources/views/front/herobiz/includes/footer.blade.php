@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links">
-                    @if(is_null($related))
+                    @if($related->count() > 0)
                     <h4>Useful Links</h4>
                     <ul>
                         @foreach($related as $rr)
