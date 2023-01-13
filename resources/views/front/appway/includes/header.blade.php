@@ -137,6 +137,9 @@
                 <a href="/">
                     <img src="{{ asset('assets/front/appway/images/small-logo.png') }}" alt="" hidden>
                 </a>
+                <a href="/" class="text-white">
+                    <h4>{{ $data_website->web_name }}</h4>
+                </a>
             </figure>
 
             <div class="menu-area">

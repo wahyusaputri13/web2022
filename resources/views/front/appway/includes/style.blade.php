@@ -26,3 +26,6 @@
 
 <!-- ambil dari template lain -->
 <link href="{{ asset('assets/front/arsha/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+
+<!-- datatable -->
+<link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">

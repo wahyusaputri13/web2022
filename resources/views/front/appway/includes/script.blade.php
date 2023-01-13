@@ -14,3 +14,6 @@
 
 <!-- main-js -->
 <script src="{{ asset('assets/front/appway/js/script.js') }}"></script>
+
+<!-- datatable -->
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
