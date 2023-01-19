@@ -11,7 +11,6 @@ use App\Models\FrontMenu;
 use App\Models\Gallery;
 use App\Models\Inbox;
 use App\Models\News;
-use App\Models\Inbox;
 use App\Models\RelatedLink;
 use Illuminate\Support\Facades\DB;
 
