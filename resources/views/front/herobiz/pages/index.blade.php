@@ -126,7 +126,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Contact Us</h2>
+                <h2>Hubungi Kami</h2>
             </div>
         </div>
         <div class="map">

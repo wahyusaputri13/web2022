@@ -62,7 +62,7 @@
                         </i>
                     </div>
                     <div class="card-content">
-                        <p class="category">Total Visitors</p>
+                        <p class="category">Total Pengunjung</p>
                         <h3 class="card-title">{{ $counter_web }}</h3>
                     </div>
                     <div class="card-footer">

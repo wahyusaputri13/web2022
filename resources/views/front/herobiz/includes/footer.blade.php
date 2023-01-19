@@ -10,7 +10,7 @@
                         <h3>{{ $data_website->web_name }}</h3>
                         <p>
                             {{ $data_website->address }}<br><br>
-                            <strong style="color: white;">Phone:</strong> {{ $data_website->phone }}<br>
+                            <strong style="color: white;">Telpn:</strong> {{ $data_website->phone }}<br>
                             <strong style="color: white;">Email:</strong> {{ $data_website->email }}<br>
                         </p>
                     </div>
@@ -18,7 +18,7 @@
 
                 <div class="col-lg-2 col-md-6 footer-links">
                     @if($related->count() > 0)
-                    <h4>Useful Links</h4>
+                    <h4>Link Terkait</h4>
                     <ul>
                         @foreach($related as $rr)
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ $rr->url }}" target="_blank">{{ $rr->name
@@ -41,7 +41,7 @@
 
                 <div class="col-lg-4 col-md-6 footer-newsletter">
                     <!-- <h4>Our Newsletter</h4> -->
-                    <p class="mt-3">Total Visitors : {{ $counter_web }}</p>
+                    <p class="mt-3">Total Pengunjung : {{ $counter_web }}</p>
                     <!-- <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form> -->

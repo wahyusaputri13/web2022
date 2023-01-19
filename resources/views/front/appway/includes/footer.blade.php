@@ -36,7 +36,7 @@
                                         src="{{ asset('assets/front/appway/images/footer-logo-2.png') }}" alt=""
                                         hidden></a>
                             </figure>
-                            <div class="text">Total Visitors : {{ $counter_web }}</div>
+                            <div class="text">Total Pengunjung : {{ $counter_web }}</div>
                             <!-- <div class="apps-download">
                                 <h3>Download the App</h3>
                                 <div class="download-btn">
@@ -69,7 +69,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                         <div class="contact-widget footer-widget">
-                            <h4 class="widget-title">Contact Us</h4>
+                            <h4 class="widget-title">Hubungi Kami</h4>
                             <div class="widget-content">
                                 <ul class="contact-info clearfix">
                                     <li><i class="fas fa-map-marker-alt"></i>{{ $data_website->address }}</li>
@@ -94,7 +94,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                         <div class="links-widget footer-widget">
                             @if($related->count() > 0)
-                            <h4 class="widget-title">Useful Links 444</h4>
+                            <h4 class="widget-title">Link Terkait</h4>
                             <div class="widget-content">
                                 <ul class="list clearfix">
                                     @foreach($related as $rr)
@@ -191,7 +191,7 @@
                                         src="{{ asset('assets/front/appway/images/footer-logo.png') }}" alt=""
                                         hidden></a>
                             </figure>
-                            <div class="text">Total Visitors : {{ $counter_web }}</div>
+                            <div class="text">Total Pengunjung : {{ $counter_web }}</div>
                             <ul class="social-links">
                                 <li>
                                     <h6>Follow Us :</h6>
@@ -212,7 +212,6 @@
                             <!-- <h4 class="widget-title">Support</h4>
                             <div class="widget-content">
                                 <ul class="list clearfix">
-                                    <li><a href="#">Contact Us</a></li>
                                     <li><a href="#">Submit a Ticket</a></li>
                                     <li><a href="#">Visit Knowledge Base</a></li>
                                     <li><a href="#">Support System</a></li>
@@ -225,7 +224,7 @@
                     <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
                         <div class="links-widget footer-widget">
                             @if($related->count() > 0)
-                            <h4 class="widget-title">Useful Links</h4>
+                            <h4 class="widget-title">Link Terkait</h4>
                             <div class="widget-content">
                                 <ul class="list clearfix">
                                     @foreach($related as $rr)

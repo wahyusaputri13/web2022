@@ -23,14 +23,14 @@
                     <h3>{{ $data_website->web_name }}</h3>
                     <p>
                         {{ $data_website->address }}<br><br>
-                        <strong>Phone:</strong> {{ $data_website->phone }}<br>
+                        <strong>Telpn:</strong> {{ $data_website->phone }}<br>
                         <strong>Email:</strong> {{ $data_website->email }}<br>
                     </p>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
                     @if($related->count() > 0)
-                    <h4>Useful Links</h4>
+                    <h4>Link Terkait</h4>
                     <ul>
                         @foreach($related as $rr)
                         <li>
@@ -66,7 +66,7 @@
                         <a href="{{ $data_website->youtube }}" target="_blank" class="youtube"><i
                                 class="bx bxl-youtube"></i></a>
                     </div>
-                    <p class="mt-3">Total Visitors : {{ $counter_web }}</p>
+                    <p class="mt-3">Total Pengunjung : {{ $counter_web }}</p>
                 </div>
 
             </div>

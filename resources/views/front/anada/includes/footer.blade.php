@@ -6,14 +6,14 @@
             <div class="row">
                 <div class="equal-height col-lg-4 col-md-6 item">
                     <div class="f-item about">
-                        <p class="mt-3">Total Visitors : {{ $counter_web }}</p>
+                        <p class="mt-3">Total Pengunjung : {{ $counter_web }}</p>
                     </div>
                 </div>
 
                 <div class="equal-height col-lg-2 col-md-6 item">
                     <div class="f-item link">
                         @if($related->count() > 0)
-                        <h4 class="widget-title">Useful Links</h4>
+                        <h4 class="widget-title">Link Terkait</h4>
                         <ul>
                             @foreach($related as $rr)
                             <li>
