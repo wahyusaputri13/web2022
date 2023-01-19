@@ -42,12 +42,12 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="#">
                     <h2 class="text-white">
                         <img src="{{ asset('') }}{{ $data_website->favicon }}" width="30" class="logo default"
-                            alt="Logo" hidden>
+                            alt="Logo">
                         <img src="{{ asset('') }}{{ $data_website->favicon }}" width="30" class="logo logo-responsive"
-                            alt="Logo" hidden>
+                            alt="Logo">
                         {{ $data_website->web_name }}
                     </h2>
                 </a>
