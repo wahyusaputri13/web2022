@@ -91,8 +91,8 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('/check', [FrontController::class, 'check']);
     Route::post('kotakmasuk', [FrontController::class, 'inbox']);
     Route::post('guest', [FrontController::class, 'addguest']);
-    Route::resource('guest-book', GuestBookController::class);
-    Route::get('event', [FrontController::class, 'event']);
+    Route::resource('buku-tamu', GuestBookController::class);
+    Route::get('agenda', [FrontController::class, 'event']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
 });
 
