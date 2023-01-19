@@ -38,15 +38,19 @@
             <!-- End Atribute Navigation -->
 
             <!-- Start Header Navigation -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <h2 class="wow fadeInDown text-white" data-wow-duration="1s">
-                        {{ $data_website->web_name }}</h2>
-                </a>
-            </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <h2 class="wow fadeInDown text-white" data-wow-duration="1s">
+                            <img src="{{ asset('') }}{{ $data_website->favicon }}" width="30" class="logo default" alt="Logo" hidden>
+                            <img src="{{ asset('') }}{{ $data_website->favicon }}" width="30" class="logo logo-responsive" alt="Logo"
+                                hidden>
+                            {{ $data_website->web_name }}
+                        </h2>
+                    </a>
+                </div>
             <!-- End Header Navigation -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
