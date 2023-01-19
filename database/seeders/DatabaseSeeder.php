@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             FrontMenuSeeder::class,
 
             // untuk website satpol
-            // BidangTusiSeeder::class,
+            BidangTusiSeeder::class,
         ]);
 
         $themes = [
@@ -165,14 +165,14 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Seputar Wonosobo',
                 'active' => 0,
                 'slug' => Str::slug('Seputar Wonosobo', '-'),
-            ]
+            ],
 
             // untuk website satpol
-            // [
-            //     'name' => 'Public Complaints',
-            //     'active' => 0,
-            //     'slug' => Str::slug('Complaints', '-'),
-            // ]
+            [
+                'name' => 'Public Complaints',
+                'active' => 1,
+                'slug' => Str::slug('Complaints', '-'),
+            ]
         ];
 
         foreach ($component as $cp) {
