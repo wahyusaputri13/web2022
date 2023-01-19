@@ -112,13 +112,11 @@
                         <div class="item">
                             <div class="thumb">
                                 @if(file_exists(public_path('storage/'.$g->path)))
-                                <a href="{{ asset('storage/') }}/{{ $g->path}}" target="_blank">
-                                    <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
-                                </a>
+                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}"><img
+                                        src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"></a>
                                 @else
-                                <a href="{{ asset('img/soulofjava.jpg') }}" target="_blank">
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                </a>
+                                <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
+                                        src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"></a>
                                 @endif
                             </div>
                             <div class="info">
