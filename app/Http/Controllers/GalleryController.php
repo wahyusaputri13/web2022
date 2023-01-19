@@ -114,6 +114,7 @@ class GalleryController extends Controller
             $validated = $request->validate([
                 'photo' => 'required|image|max:12048',
                 'description' => 'required',
+                'upload_date' => 'required',
             ]);
             $gambar = Gallery::where('id', $id)->first();
             if ($request->file('photo')->getClientOriginalName() != $gambar->name) {
@@ -130,6 +131,7 @@ class GalleryController extends Controller
         } else {
             $validated = $request->validate([
                 'description' => 'required',
+                'upload_date' => 'required',
             ]);
             $data = [
                 'description' => $request->description,
