@@ -42,14 +42,9 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <h2 class="text-white">
-                        <img src="{{ asset('assets/front/anada/assets/img') }}" width="30" class="logo default"
-                            alt="Logo">
-                        <img src="{{ asset('assets/front/anada/assets/img') }}" width="30" class="logo logo-responsive"
-                            alt="Logo">
-                        {{ $data_website->web_name }}
-                    </h2>
+                <a class="navbar-brand" href="index.html">
+                    <img src="{{ asset('assets/front/anada/assets/img/logo-light.png') }}" class="logo default" alt="Logo">
+                    <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo logo-responsive" alt="Logo">
                 </a>
             </div>
             <!-- End Header Navigation -->
