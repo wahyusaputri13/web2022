@@ -15,7 +15,7 @@
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
-                            <a href="{{ route('gallery.create') }}" class="btn btn-info btn-round">Add Data <i
+                            <a href="{{ route('gallery.create') }}" class="btn btn-info btn-round">Tambah Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
                             </a>
@@ -29,7 +29,8 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Description</th>
+                                        <th>Deskripsi</th>
+                                        <th>Tanggal Upload</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -72,6 +73,7 @@
         columns: [
             { data: 'DT_RowIndex' },
             { data: 'description', name: 'description' },
+            { data: 'tgl', name: 'upload_date' },
             { data: 'action', },
         ]
 

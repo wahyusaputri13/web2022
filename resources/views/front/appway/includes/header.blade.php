@@ -8,8 +8,9 @@
         <div class="container">
             <div class="main-box clearfix">
                 <div class="logo-box pull-left">
-                    <figure class="logo"><a href="index.html"><img
-                                src="{{ asset('assets/front/appway/images/logo.png') }}" alt=""></a></figure>
+                    <figure class="logo"><a href="/"><img src="{{ asset('assets/front/appway/images/logo.png') }}"
+                                alt="" hidden></a></figure>
+
                 </div>
                 <div class="menu-area pull-right">
                     <!--Mobile Navigation Toggler-->
@@ -77,9 +78,12 @@
                                                 <li class="dropdown"><a href="#">{{ $sub3->menu_name }}</a>
                                                     <ul>
                                                         @foreach($subMenus3 as $sub4)
-                                                        <li><a href="{{ url('page', $sub4->menu_url) }}">{{
+                                                        <li class="jmbt">
+                                                            <a class="jmbt2"
+                                                                href="{{ url('page', $sub4->menu_url) }}">{{
                                                                 $sub4->menu_name
-                                                                }}</a></li>
+                                                                }}</a>
+                                                        </li>
                                                         @endforeach
                                                     </ul>
                                                 </li>
@@ -129,8 +133,15 @@
     <!--sticky Header-->
     <div class="sticky-header">
         <div class="container clearfix">
-            <figure class="logo-box"><a href="index.html"><img
-                        src="{{ asset('assets/front/appway/images/small-logo.png') }}" alt=""></a></figure>
+            <figure class="logo-box">
+                <a href="/">
+                    <img src="{{ asset('assets/front/appway/images/small-logo.png') }}" alt="" hidden>
+                </a>
+                <a href="/" class="text-white">
+                    <h4>{{ $data_website->web_name }}</h4>
+                </a>
+            </figure>
+
             <div class="menu-area">
                 <nav class="main-menu clearfix">
                     <!--Keep This Empty / Menu will come through Javascript-->
@@ -147,7 +158,7 @@
     <div class="close-btn"><i class="fas fa-times"></i></div>
 
     <nav class="menu-box">
-        <div class="nav-logo"><a href="index.html"><img src="{{ asset('assets/front/appway/images/logo.png') }}" alt=""
+        <div class="nav-logo"><a href="/"><img src="{{ asset('assets/front/appway/images/logo.png') }}" alt=""
                     title=""></a></div>
         <div class="menu-outer">
             <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -155,18 +166,17 @@
         <div class="contact-info">
             <h4>Contact Info</h4>
             <ul>
-                <li>Chicago 12, Melborne City, USA</li>
-                <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                <li><a href="mailto:info@example.com">info@example.com</a></li>
+                <li>{{ $data_website->address }}</li>
+                <li><a href="tel:+62{{ $data_website->phone }}">{{ $data_website->phone }}</a></li>
+                <li><a href="mailto:{{ $data_website->email }}">{{ $data_website->email }}</a></li>
             </ul>
         </div>
         <div class="social-links">
-            <ul class="clearfix">
-                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+            <ul class="social-links clearfix">
+                <li><a href="{{ $data_website->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="{{ $data_website->twitter }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="{{ $data_website->youtube }}" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="{{ $data_website->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
     </nav>

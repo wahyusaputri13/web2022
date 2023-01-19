@@ -57,6 +57,23 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
+                    <div class="card-header" data-background-color="purple">
+                        <i class="material-icons">mail</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Inbox</p>
+                        <h3 class="card-title">{{ $inbox }}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <div class="stats">
+                                        <i class="material-icons text-danger">warning</i>
+                                        <a href="#pablo">Get More Space...</a>
+                                    </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
                     <div class="card-header" data-background-color="rose">
                         <i class="material-icons">event_note</i>
                     </div>
@@ -79,7 +96,7 @@
                         </i>
                     </div>
                     <div class="card-content">
-                        <p class="category">Total Visitors</p>
+                        <p class="category">Total Pengunjung</p>
                         <h3 class="card-title">{{ $counter_web }}</h3>
                     </div>
                     <div class="card-footer">

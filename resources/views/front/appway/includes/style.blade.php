@@ -23,3 +23,9 @@
 <link href="{{ asset('assets/front/appway/css/imagebg.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/responsive.css') }}" rel="stylesheet">
+
+<!-- ambil dari template lain -->
+<link href="{{ asset('assets/front/arsha/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+
+<!-- datatable -->
+<link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">

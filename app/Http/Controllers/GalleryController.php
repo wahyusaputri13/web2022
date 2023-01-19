@@ -6,7 +6,6 @@ use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
@@ -32,7 +31,14 @@ class GalleryController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action'])
+                ->addColumn(
+                    'tgl',
+                    function ($data) {
+                        $actionBtn = \Carbon\Carbon::parse($data->upload_date)->toFormattedDateString();
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
         return view('back.a.pages.gallery.index');
@@ -66,6 +72,7 @@ class GalleryController extends Controller
             'name' => $name,
             'path' => $path,
             'description' => $request->description,
+            'upload_date' => $request->upload_date,
         ];
         Gallery::create($data);
         return redirect(route('gallery.index'))->with(['success' => 'Data added successfully!']);
@@ -107,6 +114,7 @@ class GalleryController extends Controller
             $validated = $request->validate([
                 'photo' => 'required|image|max:12048',
                 'description' => 'required',
+                'upload_date' => 'required',
             ]);
             $gambar = Gallery::where('id', $id)->first();
             if ($request->file('photo')->getClientOriginalName() != $gambar->name) {
@@ -117,14 +125,17 @@ class GalleryController extends Controller
                     'name' => $name,
                     'path' => $path,
                     'description' => $request->description,
+                    'upload_date' => $request->upload_date,
                 ];
             }
         } else {
             $validated = $request->validate([
                 'description' => 'required',
+                'upload_date' => 'required',
             ]);
             $data = [
                 'description' => $request->description,
+                'upload_date' => $request->upload_date,
             ];
         }
         Gallery::find($id)->update($data);

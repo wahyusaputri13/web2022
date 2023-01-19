@@ -1,104 +1,157 @@
-@extends('front.anada.layouts.app')
+@extends('front.appway.layouts.app')
 @section('content')
-<div class="blog-area single full-blog right-sidebar full-blog default-padding">
+<!-- preloader -->
+<div class="preloader"></div>
+<!-- preloader -->
+
+<!-- page-title -->
+<section class="page-title" style="background-image: url('/assets/front/appway/images/background/pagetitle-bg.png');">
+
+    <div class="anim-icons">
+        <div class="icon icon-1"><img src="{{ asset('assets/front/appway/images/icons/anim-icon-17.png') }}" alt="">
+        </div>
+        <div class="icon icon-2 rotate-me"><img src="{{ asset('assets/front/appway/images/icons/anim-icon-18.png') }}"
+                alt=""></div>
+        <div class="icon icon-3 rotate-me"><img src="{{ asset('assets/front/appway/images/icons/anim-icon-19.png') }}"
+                alt=""></div>
+        <div class="icon icon-4"></div>
+    </div>
     <div class="container">
-        <div class="blog-items">
-            <div class="row">
-                <div class="blog-content col-md-8 col-lg-8">
-                    <h2>{{ $hasil }}</h2>
+        <div class="content-box clearfix">
+            <!-- <div class="title-box pull-left">
+                <h1>Latest News</h1>
+                <p>Reach out to the world’s most reliable IT services.</p>
+            </div>
+            <ul class="bread-crumb pull-right">
+                <li>Blog Details</li>
+                <li><a href="/">Home</a></li>
+            </ul> -->
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+
+
+<!-- blog-classic -->
+<section class="sidebar-page-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                <h2 class="mb-5">{{ $hasil }}</h2>
+                <div class="blog-content">
                     @foreach($data as $author)
-                    <article class="entry">
-                        <div class="card mb-3">
-                            <div class="entry-img" style="text-align: center;">
-                                @if(file_exists(public_path('storage/'.$author->path)))
-                                <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
-                                @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                @endif
-                            </div>
-                            <h2 class="entry-title" style="text-align: center;">
-                                <a href="{{ url('/news-detail', $author->slug) }}">{{ $author->title
-                                    }}</a>
-                            </h2>
-                            <div class="entry-meta">
-                                <p class="card-text m-2"><small class="text-muted"><i class="bi bi-person"></i><a
-                                            href="{{ url('/news-author', $author->upload_by) }}" class="text-muted"> {{
-                                            $author->upload_by }}</a> <i class="bi bi-clock"></i> <time>{{
-                                            \Carbon\Carbon::parse( $author->date )->format('l') }}, {{
-                                            \Carbon\Carbon::parse( $author->date
-                                            )->toFormattedDateString() }}</time> <i class="bi bi-eye"></i> {{
-                                        views($author)->count(); }}</small></p>
-                            </div>
-                            <div class="entry-content m-2" style="text-align: justify;">
-                                <p>
-                                    {{-- {!! \Illuminate\Support\Str::limit($author->description, 350, $end='...') !!}
-                                    --}}
-                                </p>
-                                <div class="d-flex justify-content-end m-2">
-                                    <a href="{{ url('/news-detail', $author->slug) }}" class="btn btn-primary">Read
-                                        More</a>
+                    <div class="single-blog-content">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="{{ url('/news-detail', $author->slug) }}">
+                                    @if(file_exists(public_path('storage/'.$author->path)))
+                                    <img src="{{ asset('storage/') }}/{{ $author->path}}" alt="{{ $author->title
+                                    }}">
+                                    @else
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
+                                    @endif
+                                </a>
+                            </figure>
+                            <div class="lower-content">
+                                <div class="upper-box">
+                                    <div class="post-date"><i class="fas fa-calendar-alt"></i>{{
+                                        \Carbon\Carbon::parse( $author->date )->format('l') }}, {{
+                                        \Carbon\Carbon::parse( $author->date
+                                        )->toFormattedDateString() }}</div>
+                                    <h3><a href="{{ url('/news-detail', $author->slug) }}">{{ $author->title
+                                            }}</a></h3>
+                                    <div class="text"> {!! \Illuminate\Support\Str::limit($author->description, 350,
+                                        $end='...') !!}
+                                    </div>
+                                </div>
+                                <div class="lower-box clearfix">
+                                    <div class="left-content pull-left">
+                                        <figure class="admin-image">
+                                            <img src="https://ui-avatars.com/api/?name={{
+                                            $author->upload_by }}">
+                                        </figure>
+                                        <a href="{{ url('/news-author', $author->upload_by) }}">
+                                            <span class="admin-name">by {{
+                                                $author->upload_by }}</span>
+                                        </a>
+                                    </div>
+                                    <ul class="right-content pull-right">
+                                        <li><a href="#">{{
+                                                views($author)->count(); }} &nbsp;<i class="far fa-eye"></i></a>
+                                        </li>
+                                        <li class="share">
+                                            <a href="#"><i class="fas fa-share-alt"></i></a>
+                                            <ul class="social-links">
+                                                {!! Share::page(Request::getHttpHost(), $author->title)
+                                                ->facebook()
+                                                ->twitter()
+                                                ->whatsapp(); !!}
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-
-                    </article>
+                    </div>
                     @endforeach
 
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            {{ $data->links('vendor.pagination.anada') }}
-                        </div>
-                    </div>
-
+                    <!-- <div class="pagination-wrapper centred">
+                        <ul class="pagination">
+                            <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#" class="active">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                    </div> -->
                 </div>
-                <div class="sidebar col-md-4 col-lg-4">
-                    <aside>
-                        <div class="sidebar-item search">
-                            <div class="sidebar-info">
-                                {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
-                                {{Form::text('kolomcari', null,['class' => 'form-control mb-3',
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                <div class="sidebar">
+                    <div class="sidebar-search sidebar-widget">
+                        <div class="search-form">
+                            {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
+                            <div class="form-group">
+                                {{Form::search('kolomcari', null,['class' => 'form-control',
                                 'placeholder' => 'Title Post'])}}
                                 <button type="submit"><i class="fas fa-search"></i></button>
-                                {{Form::close()}}
                             </div>
+                            {{Form::close()}}
                         </div>
-                        <div class="sidebar-item recent-post">
-                            <div class="title">
-                                <h4>Recent Post</h4>
+                    </div>
+                    <div class="sidebar-post sidebar-widget">
+                        <h3 class="sidebar-title">Recent News</h3>
+                        <div class="widget-content">
+                            @foreach($news as $n)
+                            <div class="post">
+                                <figure class="image">
+                                    <a href="{{ url('/news-detail', $n->slug) }}">
+                                        @if(file_exists(public_path('storage/'.$n->path)))
+                                        <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                            class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
+                                        @else
+                                        <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
+                                        @endif
+                                    </a>
+                                </figure>
+                                <h5><a href="{{ url('/news-detail', $n->slug) }}">{{
+                                        \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
+                                </h5>
+                                <span class="post-date">{{
+                                    \Carbon\Carbon::parse( $n->date
+                                    )->toFormattedDateString() }}</span>
                             </div>
-                            <ul>
-                                @foreach($news as $n)
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            @if(file_exists(public_path('storage/'.$n->path)))
-                                            <img src="{{ asset('storage/') }}/{{ $n->path}}"
-                                                class="img-fluid rounded-start rounded-end">
-                                            @else
-                                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="{{ url('/news-detail', $n->slug) }}">{{
-                                            \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
-                                        </a>
-                                        <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> {{
-                                                \Carbon\Carbon::parse( $n->date
-                                                )->toFormattedDateString() }}</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            </ul>
+                            @endforeach
                         </div>
-                    </aside>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- blog-classic end -->
 @endsection
 @push('after-script')
 @endpush

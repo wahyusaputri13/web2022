@@ -22,13 +22,6 @@
                         @endif
                         {{Form::model($data, ['route' => ['user.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
-                        @if($data->role_id == 2)
-                        <div>
-                            {{Form::select('bidang_id', $role, null,['class' => 'form-control selectpicker',
-                            'data-style'
-                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
-                        </div>
-                        @endif
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}

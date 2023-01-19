@@ -9,7 +9,7 @@
                     <i class="material-icons">date_range</i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Form Add Event</h4>
+                    <h4 class="card-title">Form Tambah Data</h4>
                     {{Form::open(['route' => 'event.store','method' => 'post', 'files' => 'true', ''])}}
                     <div class="form-group label-floating">
                         <label class="control-label">Event Name</label>

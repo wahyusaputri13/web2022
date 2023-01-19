@@ -143,8 +143,8 @@
     <section id="contact" class="contact">
         <div class="container aos-init aos-animate" data-aos="fade-up">
             <header class="section-header">
-                <h2>Contact</h2>
-                <p>Contact Us</p>
+                <h2>Kontak</h2>
+                <p>Hubungi Kami</p>
             </header>
             <div class="row gy-4">
                 <div class="col-lg-6">

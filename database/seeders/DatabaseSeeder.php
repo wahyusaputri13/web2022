@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Component;
-use App\Models\FrontMenu;
 use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
@@ -24,9 +23,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // NewsSeeder::class,
-            // GallerySeeder::class,
-            BidangTusiSeeder::class,
+            NewsSeeder::class,
+            GallerySeeder::class,
+            FrontMenuSeeder::class,
+
+            // untuk website satpol
+            // BidangTusiSeeder::class,
         ]);
 
         $themes = [
@@ -49,6 +51,14 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'arsha',
                 'image' => 'img/arsha.png'
+            ],
+            [
+                'name' => 'appway',
+                'image' => 'img/appway.png'
+            ],
+            [
+                'name' => 'anada',
+                'image' => 'img/anada.png'
             ]
         ];
 
@@ -69,16 +79,6 @@ class DatabaseSeeder extends Seeder
             Role::create($datum);
         }
 
-        $front_menu = [
-            [
-                'menu_name' => 'Main Menu'
-            ]
-        ];
-
-        foreach ($front_menu as $ddd) {
-            FrontMenu::create($ddd);
-        }
-
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
             'web_name' => 'Web2022',
@@ -95,6 +95,8 @@ class DatabaseSeeder extends Seeder
             'themes_back' => 'back.a',
             'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
         ]);
+
+        // kampung pancasila
         // DB::table('websites')->insert([
         //     'web_name' => 'KAMPUNG PANCASILA WONOSOBO',
         //     'web_description' => '"Semarak Kampung Pancasila Wonosobo penjaga Persatuan dan Kesatuan Bangsa!"',
@@ -150,20 +152,27 @@ class DatabaseSeeder extends Seeder
 
         $component = [
             [
-                'name' => 'Event',
-                'active' => 0,
-                'slug' => Str::slug('Event', '-'),
+                'name' => 'Agenda',
+                'active' => 1,
+                'slug' => Str::slug('Agenda', '-'),
             ],
             [
-                'name' => 'Guest Book',
-                'active' => 0,
-                'slug' => Str::slug('Guest Book', '-'),
+                'name' => 'Buku Tamu',
+                'active' => 1,
+                'slug' => Str::slug('Buku Tamu', '-'),
             ],
             [
-                'name' => 'Public Complaints',
+                'name' => 'Seputar Wonosobo',
                 'active' => 0,
-                'slug' => Str::slug('Complaints', '-'),
+                'slug' => Str::slug('Seputar Wonosobo', '-'),
             ]
+
+            // untuk website satpol
+            // [
+            //     'name' => 'Public Complaints',
+            //     'active' => 0,
+            //     'slug' => Str::slug('Complaints', '-'),
+            // ]
         ];
 
         foreach ($component as $cp) {

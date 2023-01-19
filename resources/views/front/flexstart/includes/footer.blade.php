@@ -15,14 +15,15 @@
                         <a href="{{ $data_website->youtube }}" target="_blank" class="youtube"><i
                                 class="bi bi-youtube"></i></a>
                     </div>
-                    <p class="mt-3">Total Visitors : {{ $counter_web }}</p>
+                    <p class="mt-3">Total Pengunjung : {{ $counter_web }}</p>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>Useful Links</h4>
+                    @if($related->count() > 0)
+                    <h4>Link Terkait</h4>
                     <ul>
                         @foreach($related as $rr)
                         <li>
@@ -30,29 +31,16 @@
                             <a target="_blank" href="{{ $rr->url }}">{{ $rr->name }}</a>
                         </li>
                         @endforeach
-                        <!-- <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://kapencar-kertek.wonosobokab.go.id/">Desa Kapencar, Kertek</a>
-                        </li>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://buntu-kejajar.wonosobokab.go.id/">Desa Buntu, Kejajar</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://kadipaten-selomerto.wonosobokab.go.id/">Desa Kadipaten,
-                                Selomerto</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://jonggolsari-leksono.wonosobokab.go.id/">Desa Jonggolsari,
-                                Leksono</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a target="_blank"
-                                href="https://kelurahanjaraksari.wonosobokab.go.id/">Kelurahan Jaraksari,
-                                Wonosobo</a></li> -->
                     </ul>
+                    @endif
                 </div>
 
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>Contact Us</h4>
+                    <h4>Hubungi Kami</h4>
                     <p>
                         {{ $data_website->address }} <br><br>
-                        <strong>Phone:</strong> {{ $data_website->phone }}<br>
+                        <strong>Telpn:</strong> {{ $data_website->phone }}<br>
                         <strong>Email:</strong> {{ $data_website->email }}<br>
                     </p>
 

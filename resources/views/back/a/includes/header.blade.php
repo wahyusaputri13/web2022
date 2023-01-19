@@ -48,12 +48,6 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="{{ (Str::contains(Request::url(), 'daily')) ? 'active' : '' }}">
-                    <a href="{{ url('admin/daily') }}">
-                        <i class="material-icons">today</i>
-                        <p>Daily Report</p>
-                    </a>
-                </li>
                 @php
                 $components = DB::table('components')
                 ->where('active', '=', 1)
@@ -68,26 +62,18 @@
                     </a>
                 </li>
                 @endif
-                @if($component->id == 3)
-                <li class="{{ (Str::contains(Request::url(), 'complaint')) ? 'active' : '' }}">
-                    <a href="{{ route('complaint.index') }}">
-                        <i class="material-icons">assignment</i>
-                        <p>{{ $component->name }}</p>
-                    </a>
-                </li>
-                @endif
                 @endforeach
                 <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>
-                        <p>Inbox</p>
+                        <p>Kotak Masuk</p>
                     </a>
                 </li>
                 <li class="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamples"
                         aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
                         <i class="material-icons">archive</i>
-                        <p>Posts
+                        <p>Postingan
                             <b class="caret"></b>
                         </p>
                     </a>
@@ -96,12 +82,12 @@
                         <ul class="nav">
                             <li class="{{ (Str::contains(Request::url(), 'gallery')) ? 'active' : '' }}">
                                 <a href="{{ route('gallery.index') }}"> <i class="material-icons">collections</i>
-                                    Gallery</a>
+                                    Galeri</a>
                             </li>
                             <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                                 <a href="{{ route('news.index') }}">
                                     <i class="material-icons">event_note</i>
-                                    News</a>
+                                    Berita</a>
                             </li>
                         </ul>
                     </div>
@@ -121,7 +107,7 @@
                         <ul class="nav">
                             <li class="{{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
                                 <a href="{{ route('component.index') }}"><i class="material-icons">apps</i>
-                                    Components</a>
+                                    Komponen</a>
                             </li>
                             <li class="{{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
                                 <a href="{{ route('frontmenu.index') }}"> <i class="material-icons">menu</i>
@@ -129,16 +115,16 @@
                             </li>
                             <li class="{{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
                                 <a href="{{ route('relatedlink.index') }}"><i class="material-icons">link</i>
-                                    Related Link</a>
+                                    Link Terkait</a>
                             </li>
                             <li class="{{ (Str::contains(Request::url(), 'settings')) ? 'active' : '' }}">
                                 <a href="{{ route('settings.index') }}">
                                     <i class="material-icons">settings</i>
-                                    Settings</a>
+                                    Peraturan</a>
                             </li>
                             <li class="{{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
                                 <a href="{{ route('themes.index') }}"><i class="material-icons">brush</i>
-                                    Themes</a>
+                                    Tema</a>
                             </li>
                             <li class="{{ (Str::contains(Request::url(), 'user')) ? 'active' : '' }}">
                                 <a href="{{ route('user.index') }}">

@@ -42,7 +42,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="index.html">
                     <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo default">
                     <!-- logo saat tampilan hp -->
                     <img src="{{ asset('assets/front/anada/assets/img/logo-light.png') }}" class="logo logo-responsive">

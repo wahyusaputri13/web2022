@@ -24,7 +24,7 @@ class NewsSeeder extends Seeder
                 'slug'  => Str::slug($faker->sentence(5), '-'),
                 'photo'  => $faker->word(),
                 'date'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
-                'description'  => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'description'  => $faker->paragraph(50),
             ]);
         }
     }

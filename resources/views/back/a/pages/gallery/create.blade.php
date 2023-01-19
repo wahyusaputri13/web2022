@@ -10,7 +10,7 @@
                         <i class="material-icons">collections</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Form Add Gallery</h4>
+                        <h4 class="card-title">Form Tambah Data</h4>
                         {{Form::open(['route' => 'gallery.store','method' => 'post', 'files' => 'true', ''])}}
                         <div class="col text-center">
                             <!-- <legend>Regular Image</legend> -->
@@ -40,8 +40,12 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label">Tanggal Upload</label>
+                            {{Form::text('upload_date', null,['class' => 'form-control datepicker'])}}
+                        </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Description</label>
+                            <label class="control-label">Deskripsi</label>
                             {{Form::text('description', null,['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">
@@ -57,4 +61,9 @@
 </div>
 @endsection
 @push('after-script')
+<script type="text/javascript">
+    $(document).ready(function () {
+        demo.initFormExtendedDatetimepickers();
+    });
+</script>
 @endpush

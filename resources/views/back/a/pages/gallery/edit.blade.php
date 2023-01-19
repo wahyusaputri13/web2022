@@ -44,6 +44,10 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label">Tanggal Upload</label>
+                            {{Form::text('upload_date', null,['class' => 'form-control datepicker'])}}
+                        </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Description</label>
                             {{Form::text('description', null,['class' => 'form-control'])}}
@@ -61,4 +65,9 @@
 </div>
 @endsection
 @push('after-script')
+<script type="text/javascript">
+    $(document).ready(function () {
+        demo.initFormExtendedDatetimepickers();
+    });
+</script>
 @endpush

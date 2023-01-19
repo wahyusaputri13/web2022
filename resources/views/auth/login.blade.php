@@ -37,13 +37,10 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="card card-login card-hidden">
-                                <div class="card-header text-center" data-background-color="rose">
+                                <div class="card-header text-center" data-background-color="red">
                                     <h4 class="card-title">Login</h4>
                                 </div>
                                 <x-jet-validation-errors />
-                                @if (session('status'))
-                                {{ session('status') }}
-                                @endif
                                 <div class="card-content">
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -67,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="footer text-center">
-                                    <button class="btn btn-rose btn-simple btn-wd btn-lg">Let's go</button>
+                                    <button class="btn btn-danger btn-simple btn-wd btn-lg">Let's go</button>
                                 </div>
                         </form>
                     </div>

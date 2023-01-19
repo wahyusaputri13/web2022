@@ -39,35 +39,17 @@
                                             <i class="fas fa-eye"></i>{{
                                             views($data)->count(); }}</small>
                                         </li>
-                                        <a href="{{ Share::page(Request::getHttpHost(), $data->title)->facebook()->getRawLinks() }}"
-                                            target="_blank">
-                                            <i class="fab fa-facebook-square"></i>
-                                        </a>
-                                        <a href="{{ Share::page(Request::getHttpHost(), $data->title)->twitter() }}"
-                                            target="_blank">
-                                        </a>
-                                        <i class="fab fa-twitter-square"></i>
-                                        <i class="fab fa-whatsapp-square"></i>
-                                        {!! Share::page(Request::getHttpHost(), $data->title)->twitter() !!}
-                                        </li>
                                         <li>
-                                            {!! Share::currentPage()->facebook() !!}
+                                            {!! Share::page(Request::getHttpHost(), $data->title)
+                                            ->facebook()
+                                            ->twitter()
+                                            ->whatsapp(); !!}
                                         </li>
                                     </ul>
                                 </div>
                                 <h4>{{ $data->title }}</h4>
                                 <p>
                                     {!! $data->description !!}
-                                    <hr>
-                                    @if($file->count() != 0)
-                                <h6 class="text-center">File Attachments</h6>
-                                @foreach($file as $ff)
-                                <a href="{{ asset('storage/news/') }}/{{ $ff->file_name}}" target="_blank">
-                                    {{ $ff->file_name }}
-                                </a>
-                                <br>
-                                @endforeach
-                                @endif
                                 </p>
                             </div>
                         </div>
