@@ -10,7 +10,7 @@
                         <i class="material-icons">collections</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Form Add Gallery</h4>
+                        <h4 class="card-title">Form Tambah Data</h4>
                         {{Form::open(['route' => 'gallery.store','method' => 'post', 'files' => 'true', ''])}}
                         <div class="col text-center">
                             <!-- <legend>Regular Image</legend> -->
