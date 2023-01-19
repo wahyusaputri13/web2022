@@ -29,7 +29,8 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Description</th>
+                                        <th>Deskripsi</th>
+                                        <th>Tanggal Upload</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -72,6 +73,7 @@
         columns: [
             { data: 'DT_RowIndex' },
             { data: 'description', name: 'description' },
+            { data: 'tgl', name: 'upload_date' },
             { data: 'action', },
         ]
 
