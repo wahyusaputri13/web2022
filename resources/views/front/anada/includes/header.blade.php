@@ -42,14 +42,10 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <h2 class="wow fadeInDown text-white" data-wow-duration="1s">
-                        <img src="{{ asset('') }}{{ $data_website->favicon }}" width="30" class="logo default"
-                            alt="Logo" hidden>
-                        <img src="{{ asset('') }}{{ $data_website->favicon }}" width="30" class="logo logo-responsive"
-                            alt="Logo" hidden>
-                        {{ $data_website->web_name }}
-                    </h2>
+                <a class="navbar-brand" href="index.html">
+                    <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo default">
+                    <!-- logo saat tampilan hp -->
+                    <img src="{{ asset('assets/front/anada/assets/img/logo-white.png') }}" class="logo logo-responsive">
                 </a>
             </div>
             <!-- End Header Navigation -->
