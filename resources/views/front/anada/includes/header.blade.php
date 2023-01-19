@@ -45,7 +45,7 @@
                 <a class="navbar-brand" href="index.html">
                     <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo default">
                     <!-- logo saat tampilan hp -->
-                    <img src="{{ asset('assets/front/anada/assets/img/logo-white.png') }}" class="logo logo-responsive">
+                    <img src="{{ asset('assets/front/anada/assets/img/logo-light.png') }}" class="logo logo-responsive">
                 </a>
             </div>
             <!-- End Header Navigation -->
