@@ -43,8 +43,10 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('assets/front/anada/assets/img/logo-light.png') }}" class="logo default" alt="Logo">
-                    <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo logo-responsive" alt="Logo">
+                    <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo default" alt="Logo">
+                    <!-- logo saat tampilan hp -->
+                    <img src="{{ asset('assets/front/anada/assets/img/logo-white.png') }}" class="logo logo-responsive"
+                        alt="Logo">
                 </a>
             </div>
             <!-- End Header Navigation -->
