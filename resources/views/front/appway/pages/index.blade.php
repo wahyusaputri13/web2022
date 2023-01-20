@@ -35,6 +35,7 @@
 </section>
 <!-- banner-section end -->
 
+@if($news->count() != 0)
 <!-- news-section -->
 <section class="news-section">
     <div class="container">
@@ -80,7 +81,9 @@
     </div>
 </section>
 <!-- news-section end -->
+@endif
 
+@if($gallery->count() != 0)
 <!-- gallery-section -->
 <section class="news-section">
     <div class="container">
@@ -126,6 +129,7 @@
     </div>
 </section>
 <!-- gallery-section end -->
+@endif
 
 <!-- subscribe-section -->
 <section class="subscribe-section">
