@@ -72,8 +72,8 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'id', orderable: false, searchable: false },
-            { data: 'menu_parent', name: 'menu_parent' },
+            { data: 'DT_RowIndex', orderable: false, searchable: false },
+            { data: 'orang_tua' },
             { data: 'menu_name', name: 'menu_name' },
             { data: 'menu_url', name: 'menu_url' },
             { data: 'action', },
