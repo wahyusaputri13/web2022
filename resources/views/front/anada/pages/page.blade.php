@@ -30,9 +30,9 @@
                     <div class="card-body">
                         <div class="card-content">
                             @if($data->menu_name == 'Permohonan Informasi Publik')
-                            <x-formpermohonaninformasipublik kelas='form-control' />
+                            <x-formpermohonaninformasipublik />
                             @elseif($data->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                            keberatan
+                            <x-formpengajuankeberataninformasipublik />
                             @else
                             {!! $data->content !!}
                             @endif
