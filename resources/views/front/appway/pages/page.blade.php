@@ -42,7 +42,13 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="card-content">
+                            @if($data->menu_name == 'Permohonan Informasi Publik')
+                            <x-formpermohonaninformasipublik kelas='form-control' />
+                            @elseif($data->menu_name == 'Pengajuan Keberatan Informasi Publik')
+                            keberatan
+                            @else
                             {!! $data->content !!}
+                            @endif
                         </div>
                     </div>
                 </div>
