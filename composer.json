@@ -13,7 +13,6 @@
         "doctrine/dbal": "^3.3",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "itsgoingd/clockwork": "^5.1",
         "jgrossi/corcel": "^6.0",
         "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^9.0",

@@ -56,6 +56,26 @@
                             </a>
                             <div class="main-nav__main-navigation clearfix">
                                 <ul class=" main-nav__navigation-box float-left">
+                                    <li class="dropdown current">
+                                        <a href="index.html">Home</a>
+                                        <ul>
+                                            <li><a href="index3.html">Home 03</a></li>
+                                            <li class="dropdown"><a href="#">Header Versions</a>
+                                                <ul>
+                                                    <li><a href="index.html">Header 01</a></li>
+                                                    <li><a href="index2.html">Header 02</a></li>
+                                                    <li class="dropdown">
+                                                        <a href="index3.html">Header 03</a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="index3.html">Header 03</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     @php
                                     $queryMenu = DB::table('front_menus')
                                     ->where('menu_parent', '=', '1')
@@ -129,8 +149,7 @@
                                                         </a>
                                                         <ul>
                                                             @foreach($subMenus3 as $sub4)
-                                                            {{ $sub4->menu_name }}
-                                                            <li class="dropdown">
+                                                            <li>
                                                                 <a href="{{ url('page', $sub4->menu_url) }}">
                                                                     {{ $sub4->menu_name }}
                                                                 </a>
@@ -161,8 +180,8 @@
                                     @endif
                                     @if ($cp->slug == 'complaints')
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $cp->name }}</a>
-                                        <ul class="dropdown-menu">
+                                        <a href="#">{{ $cp->name }}</a>
+                                        <ul class="dropdown">
                                             <li><a href="https://laporbupati.wonosobokab.go.id/"
                                                     target="_blank">LaporBup</a></li>
                                             <li><a href="tel:112" target="_blank">Call Center 112</a></li>
@@ -171,34 +190,12 @@
                                     @endif
                                     @endforeach
                                     <!-- end looping component -->
-                                    <li class="dropdown current">
-                                        <a href="index.html">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home 01</a></li>
-                                            <li><a href="index2.html">Home 02</a></li>
-                                            <li><a href="index3.html">Home 03</a></li>
-                                            <li class="dropdown"><a href="#">Header Versions</a>
-                                                <ul>
-                                                    <li><a href="index.html">Header 01</a></li>
-                                                    <li><a href="index2.html">Header 02</a></li>
-                                                    <li><a href="index3.html">Header 03</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
                         </div>
                         <div class="main-nav__right main-nav__right-one float-right">
-                            <!-- <div class="main-nav__right__btn-one">
-                                <a href="campaigns.html"><i class="fas fa-heart"></i>Donate</a>
-                            </div>
-                            <div class="main-nav__right__icon-cart-box">
-                                <a href="#">
-                                    <span class="icon-shopping-cart"></span>
-                                </a>
-                            </div> -->
                             <div class="main-nav__right__icon-search-box">
                                 <a href="#" class="main-nav__search search-popup__toggler">
                                     <i class="icon-magnifying-glass"></i>
