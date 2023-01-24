@@ -26,37 +26,11 @@ class DatabaseSeeder extends Seeder
             NewsSeeder::class,
             GallerySeeder::class,
             FrontMenuSeeder::class,
+            ThemesSeeder::class,
 
             // untuk website satpol
             // BidangTusiSeeder::class,
         ]);
-
-        $themes = [
-            [
-                'name' => 'flexstart',
-                'image' => 'img/flexstart.png'
-            ],
-            [
-                'name' => 'herobiz',
-                'image' => 'img/herobiz.png'
-            ],
-            [
-                'name' => 'arsha',
-                'image' => 'img/arsha.png'
-            ],
-            [
-                'name' => 'appway',
-                'image' => 'img/appway.png'
-            ],
-            [
-                'name' => 'anada',
-                'image' => 'img/anada.png'
-            ]
-        ];
-
-        foreach ($themes as $datum) {
-            Themes::create($datum);
-        }
 
         $role = [
             [
