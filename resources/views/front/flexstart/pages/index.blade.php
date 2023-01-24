@@ -146,6 +146,16 @@
                 <h2>Kontak</h2>
                 <p>Hubungi Kami</p>
             </header>
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="map">
+                        <iframe
+                            src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                                                                            $data_website->longitude }}&z=14&output=embed"
+                            frameborder="0" allowfullscreen width="100%"></iframe>
+                    </div>
+                </div>
+            </div>
             <div class="row gy-4">
                 <div class="col-lg-6">
                     <div class="row gy-4">
@@ -231,26 +241,6 @@
                 $(".captcha span").html(data.captcha);
             }
         });
-    });
-
-    $('.btn-playstream').click(function () {
-        currentvalue = document.getElementById('audio_1').value;
-        if (currentvalue == "on") {
-            document.getElementById('audio_1').pause();
-            document.getElementById("audio_1").value = "off";
-            console.log("off!");
-        } else {
-            document.getElementById('audio_1').play();
-            document.getElementById("audio_1").value = "on";
-            console.log("on!");
-        }
-        // function playmusik() {
-        //     var song = new Audio();
-        //     song.src = "http://i.klikhost.com:8234/stream";
-        //     // song.autoplay = true;
-        //     song.play;
-        // }
-        // window.addEventListener("load", playmusik);
     });
 </script>
 @endpush

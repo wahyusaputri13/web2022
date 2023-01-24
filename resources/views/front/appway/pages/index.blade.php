@@ -212,6 +212,19 @@
     </div>
 </section>
 <!-- subscribe-section end -->
+
+<!-- start map -->
+<section>
+    <div class="container">
+        <div class="map">
+            <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                $data_website->longitude }}&z=14&output=embed" frameborder="0" allowfullscreen width="100%"
+                height="300px"></iframe>
+        </div>
+    </div>
+</section>
+<!-- end map -->
+
 <!--Scroll to top-->
 <button class="scroll-top scroll-to-target" data-target="html">
     <span class="fa fa-arrow-up"></span>
