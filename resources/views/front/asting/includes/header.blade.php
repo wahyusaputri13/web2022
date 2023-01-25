@@ -56,26 +56,6 @@
                             </a>
                             <div class="main-nav__main-navigation clearfix">
                                 <ul class=" main-nav__navigation-box float-left">
-                                    <li class="dropdown current">
-                                        <a href="index.html">Home</a>
-                                        <ul>
-                                            <li><a href="index3.html">Home 03</a></li>
-                                            <li class="dropdown"><a href="#">Header Versions</a>
-                                                <ul>
-                                                    <li><a href="index.html">Header 01</a></li>
-                                                    <li><a href="index2.html">Header 02</a></li>
-                                                    <li class="dropdown">
-                                                        <a href="index3.html">Header 03</a>
-                                                        <ul>
-                                                            <li>
-                                                                <a href="index3.html">Header 03</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     @php
                                     $queryMenu = DB::table('front_menus')
                                     ->where('menu_parent', '=', '1')
