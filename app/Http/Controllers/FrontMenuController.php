@@ -20,7 +20,7 @@ class FrontMenuController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = FrontMenu::all()->skip(1);
+            $data = FrontMenu::with('menu_induk')->get()->skip(1);
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -34,7 +34,14 @@ class FrontMenuController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action'])
+                ->addColumn(
+                    'orang_tua',
+                    function ($data) {
+                        $actionBtn = $data->menu_induk->menu_name;
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'orang_tua'])
                 ->make(true);
         }
         return view('back.a.pages.frontmenu.index');
