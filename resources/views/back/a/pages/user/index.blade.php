@@ -29,7 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nsms</th>
+                                        <th>Nama</th>
                                         <th>Email</th>
                                         <th>Telpn</th>
                                         <th>Bidang</th>
@@ -77,7 +77,7 @@
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email' },
             { data: 'user_phone', name: 'user_phone' },
-            { data: 'bidangnya.name', name: 'bidangnya.name' },
+            { data: 'bidangnya.name', name: 'bidangnya.name', defaultContent: ' - ' },
             { data: 'action', },
         ]
 
