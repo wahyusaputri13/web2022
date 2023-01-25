@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DailyReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class DailyReportController extends Controller
@@ -78,9 +79,38 @@ class DailyReportController extends Controller
             't_end' => 'required',
             'location' => 'required',
             'personnel' => 'required',
-            'report' => 'required',
+            'report' => 'required'
         ]);
-        DailyReport::create($validated);
+
+        if ($request->hasFile('photo')) {
+            $validated = $request->validate([
+                'photo' => 'required|image|max:12048',
+            ]);
+            $name = $request->file('photo')->getClientOriginalName();
+            $path = $request->file('photo')->store('gallery');
+            $data = [
+                'pic_name' => $name,
+                'path' => $path,
+                'date' => $request->date,
+                't_start' => $request->t_start,
+                't_end' => $request->t_end,
+                'location' => $request->location,
+                'personnel' => $request->personnel,
+                'report' => $request->report
+            ];
+        } else {
+            $data = [
+                'date' => $request->date,
+                't_start' => $request->t_start,
+                't_end' => $request->t_end,
+                'location' => $request->location,
+                'personnel' => $request->personnel,
+                'report' => $request->report,
+            ];
+        }
+
+        DailyReport::create($data);
+
         return redirect(route('daily.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -124,7 +154,39 @@ class DailyReportController extends Controller
             'personnel' => 'required',
             'report' => 'required',
         ]);
-        DailyReport::find($id)->update($validated);
+
+        if ($request->hasFile('photo')) {
+            $validated = $request->validate([
+                'photo' => 'required|image|max:12048',
+            ]);
+            $gambar = DailyReport::where('id', $id)->first();
+            if ($request->file('photo')->getClientOriginalName() != $gambar->pic_name) {
+                Storage::delete($gambar->path);
+                $name = $request->file('photo')->getClientOriginalName();
+                $path = $request->file('photo')->store('gallery');
+                $data = [
+                    'pic_name' => $name,
+                    'path' => $path,
+                    'date' => $request->date,
+                    't_start' => $request->t_start,
+                    't_end' => $request->t_end,
+                    'location' => $request->location,
+                    'personnel' => $request->personnel,
+                    'report' => $request->report
+                ];
+            }
+        } else {
+            $data = [
+                'date' => $request->date,
+                't_start' => $request->t_start,
+                't_end' => $request->t_end,
+                'location' => $request->location,
+                'personnel' => $request->personnel,
+                'report' => $request->report,
+            ];
+        }
+
+        DailyReport::find($id)->update($data);
         return redirect(route('daily.index'))->with(['success' => 'Data added successfully!']);
     }
 
