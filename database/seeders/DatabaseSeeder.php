@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Component;
 use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
@@ -10,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Role;
 use App\Models\Themes;
 use App\Models\User;
-use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
@@ -140,35 +138,6 @@ class DatabaseSeeder extends Seeder
 
         foreach ($related as $rr) {
             RelatedLink::create($rr);
-        }
-
-        $component = [
-            [
-                'name' => 'Agenda',
-                'active' => 1,
-                'slug' => Str::slug('Agenda', '-'),
-            ],
-            [
-                'name' => 'Buku Tamu',
-                'active' => 1,
-                'slug' => Str::slug('Buku Tamu', '-'),
-            ],
-            [
-                'name' => 'Seputar Wonosobo',
-                'active' => 0,
-                'slug' => Str::slug('Seputar Wonosobo', '-'),
-            ],
-
-            // untuk website satpol
-            [
-                'name' => 'Public Complaints',
-                'active' => 1,
-                'slug' => Str::slug('Complaints', '-'),
-            ]
-        ];
-
-        foreach ($component as $cp) {
-            Component::create($cp);
         }
 
         $faker = Faker::create('id_ID');
