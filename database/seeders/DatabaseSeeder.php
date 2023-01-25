@@ -52,14 +52,6 @@ class DatabaseSeeder extends Seeder
                 'name' => 'arsha',
                 'image' => 'img/arsha.png'
             ],
-            [
-                'name' => 'appway',
-                'image' => 'img/appway.png'
-            ],
-            [
-                'name' => 'anada',
-                'image' => 'img/anada.png'
-            ]
         ];
 
         foreach ($themes as $datum) {

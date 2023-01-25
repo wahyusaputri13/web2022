@@ -29,11 +29,12 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
+                                        <th>Nsms</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
+                                        <th>Telpn</th>
+                                        <th>Bidang</th>
                                         <th class="disabled-sorting text-center">
-                                            Actions</th>
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>
@@ -76,6 +77,7 @@
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email' },
             { data: 'user_phone', name: 'user_phone' },
+            { data: 'bidangnya.name', name: 'bidangnya.name' },
             { data: 'action', },
         ]
 

@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::where('id', '>', '2')->where('id', '!=', auth()->user()->id)->with('role');
+            $data = User::where('id', '>', '2')->where('id', '!=', auth()->user()->id)->with('role', 'bidangnya');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -47,8 +47,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $data = User::find(auth()->user()->id);
         $role = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
-        return view('back.a.pages.user.create', compact('role'));
+        return view('back.a.pages.user.create', compact('role', 'data'));
     }
 
     /**

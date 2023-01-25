@@ -22,6 +22,13 @@
                         @endif
                         {{Form::model($data, ['route' => ['user.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
+                        @if($data->role_id == 2 || $data->role_id == 1)
+                        <div>
+                            {{Form::select('bidang_id', $role, null,['class' => 'form-control selectpicker',
+                            'data-style'
+                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
+                        </div>
+                        @endif
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
@@ -55,7 +62,7 @@
                             {{Form::password('new_confirm_password',['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">
-                            <a href="{{ route('user.index') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <a href="{{ route('user.index') }}" class="btn btn-default btn-fill">Batal</a>
                             <button type="submit" class="btn btn-success btn-fill">Update</button>
                         </div>
                         {{Form::close()}}

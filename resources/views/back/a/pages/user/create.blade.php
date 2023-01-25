@@ -21,6 +21,13 @@
                         </div>
                         @endif
                         {{Form::open(['route' => 'user.store','method' => 'post', 'files' => 'true', ''])}}
+                        @if($data->role_id == 2 || $data->role_id == 1)
+                        <div>
+                            {{Form::select('bidang_id', $role, null,['class' => 'form-control selectpicker',
+                            'data-style'
+                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
+                        </div>
+                        @endif
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
@@ -50,8 +57,8 @@
                             {{Form::password('password_confirmation',['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">
-                            <a href="{{ route('user.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                            <button type="submit" class="btn btn-success btn-fill">Insert</button>
+                            <a href="{{ route('user.index') }}" class="btn btn-default btn-fill">Batal</a>
+                            <button type="submit" class="btn btn-success btn-fill">Tambah</button>
                         </div>
                         {{Form::close()}}
                     </div>
