@@ -54,7 +54,19 @@
                                     \Carbon\Carbon::parse( $data->date
                                     )->toFormattedDateString() }}</div>
                                 <h3>{{ $data->title }}</h3>
-                                <div class="text">{!! $data->description !!}</div>
+                                <div class="text">
+                                    {!! $data->description !!}
+                                    <hr>
+                                    @if($file->count() != 0)
+                                    <h6 class="text-center">File Attachments</h6>
+                                    @foreach($file as $ff)
+                                    <a href="{{ asset('storage/news/') }}/{{ $ff->file_name}}" target="_blank">
+                                        {{ $ff->file_name }}
+                                    </a>
+                                    <br>
+                                    @endforeach
+                                    @endif
+                                </div>
 
 
                             </div>

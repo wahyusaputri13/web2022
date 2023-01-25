@@ -52,6 +52,16 @@
                         </div>
                         <div class="entry-content m-1">
                             {!! $data->description !!}
+                            <hr>
+                            @if($file->count() != 0)
+                            <h6 class="text-center">File Attachments</h6>
+                            @foreach($file as $ff)
+                            <a href="{{ asset('storage/news/') }}/{{ $ff->file_name}}" target="_blank">
+                                {{ $ff->file_name }}
+                            </a>
+                            <br>
+                            @endforeach
+                            @endif
                         </div>
                     </article>
                 </div>
