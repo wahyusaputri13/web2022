@@ -32,9 +32,13 @@ class ThemesSeeder extends Seeder
                 'name' => 'appway',
                 'image' => 'img/appway.png'
             ],
+            // [
+            //     'name' => 'asting',
+            //     'image' => 'img/asting.png'
+            // ],
             [
-                'name' => 'asting',
-                'image' => 'img/asting.png'
+                'name' => 'atorn',
+                'image' => 'img/atorn.png'
             ],
             [
                 'name' => 'anada',
