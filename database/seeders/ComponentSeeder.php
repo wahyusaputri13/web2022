@@ -41,7 +41,7 @@ class ComponentSeeder extends Seeder
             ],
             [
                 'name' => 'Berita',
-                'active' => 0,
+                'active' => 1,
                 'slug' => Str::slug('Berita', '-'),
             ]
         ];

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             NewsSeeder::class,
             GallerySeeder::class,
             FrontMenuSeeder::class,
+            ComponentSeeder::class,
 
             // untuk website satpol
             BidangTusiSeeder::class,
