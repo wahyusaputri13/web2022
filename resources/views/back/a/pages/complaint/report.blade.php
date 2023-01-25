@@ -111,7 +111,8 @@
                                             </div>
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Sub Bidang</label>
-                                                {{Form::text('sub_bidang', $tusi[0]->name, ['value' => '$usr', 'class'
+                                                {{Form::text('sub_bidang', $tusi[0]->name ?? '', ['value' => '$usr',
+                                                'class'
                                                 =>
                                                 'form-control','readonly'])}}
                                             </div>

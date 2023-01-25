@@ -33,7 +33,9 @@ class BidangTusiSeeder extends Seeder
                 'KENAKALAN REMAJA',
                 'LAIN-LAIN'
             ],
-            'SEKRETARIAT ' => []
+            'SEKRETARIAT' => [
+                '-'
+            ]
         );
 
         foreach ($dataArray as $language => $frameworks) {
