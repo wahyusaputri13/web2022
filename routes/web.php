@@ -26,6 +26,7 @@ use App\Models\News;
 use App\Models\Gallery;
 use App\Models\Website;
 use App\Models\Themes;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,9 +66,13 @@ Route::get('/', function () {
         ];
         Seo::seO();
         Counter::create($data);
+
+        $response = Http::withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
+        $response = $response->collect();
+        $berita =   array_slice($response['data']['data'], 0, 3);
         $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
         $news = News::orderBy('date', 'desc')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news'));
+        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
@@ -75,6 +80,7 @@ Route::get('/', function () {
 })->name('root')->middleware('data_web');
 
 Route::group(['middleware' => 'data_web'], function () {
+    Route::get('/detail-berita/{id}', [FrontController::class, 'detailberita'])->name('detail-berita');
     Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
     Route::get('/news-author/{id}', [FrontController::class, 'newsbyauthor'])->name('news.author');
     Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
