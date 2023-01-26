@@ -5,8 +5,8 @@ $abc = App\Models\Component::where('slug', 'seputar-wonosobo')->first()
 <section id="" class="">
     <div class="container" data-aos="">
         <header class="text-center">
-            <h2>Berita</h2>
-            <p>Seputar Wonosobo</p>
+            <h2>Seputar Wonosobo</h2>
+            <!-- <p>Seputar Wonosobo</p> -->
         </header>
         <div class="row mt-4">
             @foreach($message as $art)
