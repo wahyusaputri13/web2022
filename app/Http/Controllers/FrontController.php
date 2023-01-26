@@ -38,6 +38,7 @@ class FrontController extends Controller
 
     public function detailberita($id)
     {
+        Seo::seO();
         $response = Http::withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news/' . $id);
         $response = $response->collect();
         $berita =   $response['data'];
