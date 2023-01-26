@@ -12,7 +12,7 @@
                 <h1>Berita</h1>
                 <ul class="breadcrumb">
                     <li><a href="{{ url('/') }}"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="active">Postingan</li>
+                    <li class="active">Seputar Wonosobo</li>
                 </ul>
             </div>
         </div>
@@ -32,17 +32,8 @@
                             <!-- Start Post Thumb -->
                             <div class="thumb">
                                 <a href="#">
-                                    @if(file_exists(public_path('storage/'.$data->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $data->path}}" class="card-img-top">
-                                    @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                    @endif
-                                    <div class="date">
-                                        <strong>{{
-                                            \Carbon\Carbon::parse( $data->date )->format('l') }}</strong> {{
-                                        \Carbon\Carbon::parse( $data->date
-                                        )->toFormattedDateString() }}
-                                    </div>
+                                    <img src="https://diskominfo.wonosobokab.go.id/{{ $berita['gambar_muka']['path'] }}{{ $berita['gambar_muka']['file_name'] }}"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <!-- Start Post Thumb -->
@@ -51,24 +42,22 @@
                                 <div class="meta">
                                     <ul>
                                         <li>
-                                            <a href="{{ url('/news-author', $data->upload_by) }}">{{
-                                                $data->upload_by }}</a>
+                                            <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <i class="fas fa-eye"></i>{{
-                                            views($data)->count(); }}</small>
+                                            <i class="fas fa-eye"></i>{{ $berita['views'] }}
                                         </li>
                                         <li>
-                                            {!! Share::page(Request::getHttpHost(), $data->title)
+                                            {!! Share::page(Request::getHttpHost(), $berita['judul_posting'])
                                             ->facebook()
                                             ->twitter()
                                             ->whatsapp(); !!}
                                         </li>
                                     </ul>
                                 </div>
-                                <h4>{{ $data->title }}</h4>
+                                <h4>{{ $berita['judul_posting'] }}</h4>
                                 <p>
-                                    {!! $data->description !!}
+                                    {!! $berita['isi_posting'] !!}
                                 </p>
                             </div>
                         </div>

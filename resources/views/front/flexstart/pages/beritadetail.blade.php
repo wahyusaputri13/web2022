@@ -43,7 +43,10 @@
                             </div>
                             <div class="col-xl-3 col-md-3 col-sm-3">
                                 <div class="d-flex justify-content-end">
-                                    {!! Share::currentPage()->facebook()->twitter()->whatsapp(); !!}
+                                    {!! Share::page(Request::getHttpHost(), $berita['judul_posting'])
+                                    ->facebook()
+                                    ->twitter()
+                                    ->whatsapp(); !!}
                                 </div>
                             </div>
                         </div>
