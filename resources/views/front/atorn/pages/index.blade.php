@@ -842,101 +842,63 @@
 <!-- End Partner Slider Area -->
 
 <!-- Blog Area -->
+@if($news->count() != 0)
 <div class="blog-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span>Latest Blog</span>
-            <h2>Top <span>Blog</span> Related To Law, Cases & Consulting</h2>
+            <!-- <span>Latest Blog</span> -->
+            <h2><span>Latest Posts From Our Blog</span></h2>
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-sm-6">
+            @foreach($news as $n)
+            <div class="col-lg-4 col-sm-6 mb-3" style="display: flex">
                 <div class="blog-card">
-                    <a href="blog-details.html">
-                        <img src="{{ asset('assets/front/atorn/assets/img/news&blog/blog1.jpg') }}" alt="Image">
+                    <a href="{{ url('/news-detail', $n->slug) }}">
+                        @if(file_exists(public_path('storage/'.$n->path)))
+                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->photo }}">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                     </a>
+                    @endif
                     <div class="blog-card-text">
-                        <h3><a href="blog-details.html">Law provides comprehensive business</a></h3>
+                        <h3><a href="{{ url('/news-detail', $n->slug) }}">{{ \Illuminate\Support\Str::limit($n->title,
+                                50, $end='...') }}</a></h3>
                         <ul>
                             <li>
                                 <i class="las la-calendar"></i>
-                                22 Sep 2021
+                                {{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
+                                \Carbon\Carbon::parse( $n->date
+                                )->toFormattedDateString() }}
                             </li>
                             <li>
                                 <i class="las la-user-alt"></i>
-                                Thomas Albeny
+                                {{ $n->upload_by }}
                             </li>
                         </ul>
 
-                        <p>At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti
-                            quos dolores et quas molestias excepturi sint occaecati cupiditate.</p>
+                        <p>{{ \Illuminate\Support\Str::limit($n->description,
+                            100, $end='...') }}</p>
 
-                        <a href="blog-details.html" class="read-more">
+                        <a href="{{ url('/news-detail', $n->slug) }}">
                             Read More <i class="las la-angle-double-right"></i>
                         </a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-sm-6">
-                <div class="blog-card">
-                    <a href="blog-details.html">
-                        <img src="{{ asset('assets/front/atorn/assets/img/news&blog/blog2.jpg') }}" alt="Image">
-                    </a>
-                    <div class="blog-card-text">
-                        <h3><a href="blog-details.html">Broken Bonds: rights after a divorce</a></h3>
-                        <ul>
-                            <li>
-                                <i class="las la-calendar"></i>
-                                23 Sep 2021
-                            </li>
-                            <li>
-                                <i class="las la-user-alt"></i>
-                                Rick Barry
-                            </li>
-                        </ul>
-
-                        <p>At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti
-                            quos dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-
-                        <a href="blog-details.html" class="read-more">
-                            Read More <i class="las la-angle-double-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
-                <div class="blog-card">
-                    <a href="blog-details.html">
-                        <img src="{{ asset('assets/front/atorn/assets/img/news&blog/blog3.jpg') }}" alt="Image">
-                    </a>
-                    <div class="blog-card-text">
-                        <h3><a href="blog-details.html">The virtue of justice consists in moderation</a></h3>
-                        <ul>
-                            <li>
-                                <i class="las la-calendar"></i>
-                                24 Sep 2021
-                            </li>
-                            <li>
-                                <i class="las la-user-alt"></i>
-                                Julius Erving
-                            </li>
-                        </ul>
-
-                        <p>At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti
-                            quos dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-
-                        <a href="blog-details.html" class="read-more">
-                            Read More <i class="las la-angle-double-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @if($loop->iteration == 6)
+            @break
+            @endif
+            @endforeach
         </div>
     </div>
 </div>
+@endif
 <!-- End Blog Area -->
+
+<div class="blog-area pt-100 pb-70">
+    <x-seputar-wonosobo :message='$berita' />
+</div>
 
 @endsection
 @push('after-script')

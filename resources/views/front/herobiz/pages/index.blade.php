@@ -124,7 +124,7 @@
 
     </section>
     @endif
-    
+
     <x-seputar-wonosobo :message='$berita' />
 
     <section id="contact" class="contact">
