@@ -131,6 +131,8 @@
 <!-- gallery-section end -->
 @endif
 
+<x-seputar-wonosobo :message='$berita' />
+
 <!-- subscribe-section -->
 <section class="subscribe-section">
     <div class="container">
