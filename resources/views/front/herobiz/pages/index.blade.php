@@ -75,6 +75,7 @@
         </div>
     </section>
     @endif
+
     @if($news->count() != 0)
     <section id="recent-blog-posts" class="recent-blog-posts">
         <div class="container" data-aos="fade-up">
@@ -123,6 +124,9 @@
 
     </section>
     @endif
+    
+    <x-seputar-wonosobo :message='$berita' />
+
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
