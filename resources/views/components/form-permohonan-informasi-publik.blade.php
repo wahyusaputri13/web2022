@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <div class="col-lg-12 right-item">
-            {{Form::open(['url' => 'permohonaninformasi','method' => 'post', 'files' =>
+            {{Form::open(['url' => 'permohonaninformasi','method' => 'POST', 'files' =>
             'true', '', 'class' =>
             'php-email-form'])}}
             <div class="row">

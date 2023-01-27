@@ -38,13 +38,13 @@ class PermohonanInformasiController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'pekerjaan' => $request->pekerjaan,
-            'nomor_hp' => $request->nomor,
-            'email' => $request->email,
-            'tujuan' => $request->tujuan,
-            'rincian' => $request->rincian,
+            'nama' => 'required',
+            'alamat' => 'required',
+            'pekerjaan' => 'required',
+            'nomor_hp' => 'required',
+            'email' => 'required',
+            'tujuan' => 'required',
+            'rincian' => 'required',
             'captcha' => 'required|captcha',
         ]);
 
