@@ -1,7 +1,4 @@
-@php
-$abc = App\Models\Component::where('slug', 'seputar-wonosobo')->first()
-@endphp
-@if($abc->active == '1')
+@if(App\Models\Component::where('slug', 'seputar-wonosobo')->where('active', '1')->first())
 <section id="" class="">
     <div class="container" data-aos="">
         <header class="text-center">

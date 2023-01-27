@@ -1,104 +1,125 @@
 @extends('front.atorn.layouts.app')
 @section('content')
-<div class="blog-area single full-blog right-sidebar full-blog default-padding">
-    <div class="container">
-        <div class="blog-items">
-            <div class="row">
-                <div class="blog-content col-md-8 col-lg-8">
+<!-- Page banner Area -->
+<div class="page-banner bg-1">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="page-content">
                     <h2>{{ $hasil }}</h2>
-                    @foreach($data as $author)
-                    <article class="entry">
-                        <div class="card mb-3">
-                            <div class="entry-img" style="text-align: center;">
-                                @if(file_exists(public_path('storage/'.$author->path)))
-                                <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
-                                @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                @endif
-                            </div>
-                            <h2 class="entry-title" style="text-align: center;">
-                                <a href="{{ url('/news-detail', $author->slug) }}">{{ $author->title
-                                    }}</a>
-                            </h2>
-                            <div class="entry-meta">
-                                <p class="card-text m-2"><small class="text-muted"><i class="bi bi-person"></i><a
-                                            href="{{ url('/news-author', $author->upload_by) }}" class="text-muted"> {{
-                                            $author->upload_by }}</a> <i class="bi bi-clock"></i> <time>{{
-                                            \Carbon\Carbon::parse( $author->date )->format('l') }}, {{
-                                            \Carbon\Carbon::parse( $author->date
-                                            )->toFormattedDateString() }}</time> <i class="bi bi-eye"></i> {{
-                                        views($author)->count(); }}</small></p>
-                            </div>
-                            <div class="entry-content m-2" style="text-align: justify;">
-                                <p>
-                                    {{-- {!! \Illuminate\Support\Str::limit($author->description, 350, $end='...') !!}
-                                    --}}
-                                </p>
-                                <div class="d-flex justify-content-end m-2">
-                                    <a href="{{ url('/news-detail', $author->slug) }}" class="btn btn-primary">Read
-                                        More</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </article>
-                    @endforeach
-
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            {{ $data->links('vendor.pagination.atorn') }}
-                        </div>
-                    </div>
-
-                </div>
-                <div class="sidebar col-md-4 col-lg-4">
-                    <aside>
-                        <div class="sidebar-item search">
-                            <div class="sidebar-info">
-                                {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
-                                {{Form::text('kolomcari', null,['class' => 'form-control mb-3',
-                                'placeholder' => 'Title Post'])}}
-                                <button type="submit"><i class="fas fa-search"></i></button>
-                                {{Form::close()}}
-                            </div>
-                        </div>
-                        <div class="sidebar-item recent-post">
-                            <div class="title">
-                                <h4>Recent Post</h4>
-                            </div>
-                            <ul>
-                                @foreach($news as $n)
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            @if(file_exists(public_path('storage/'.$n->path)))
-                                            <img src="{{ asset('storage/') }}/{{ $n->path}}"
-                                                class="img-fluid rounded-start rounded-end">
-                                            @else
-                                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="{{ url('/news-detail', $n->slug) }}">{{
-                                            \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
-                                        </a>
-                                        <div class="meta-title">
-                                            <span class="post-date"><i class="fas fa-clock"></i> {{
-                                                \Carbon\Carbon::parse( $n->date
-                                                )->toFormattedDateString() }}</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </aside>
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home <i class="las la-angle-right"></i></a></li>
+                        <li>Show Post</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- End Page banner Area -->
+
+<!-- Start Services Details Area -->
+<div class="services-details-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-12">
+                @foreach($data as $author)
+                <div class="services-details">
+                    <div class="img">
+                        @if(file_exists(public_path('storage/'.$author->path)))
+                        <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        @endif
+                    </div>
+                    <div class="services-details-content">
+                        <h3>{{ $author->title }}</h3>
+                        <ul class="blog-list">
+                            <li>
+                                <i class="las la-calendar"></i>
+                                {{
+                                \Carbon\Carbon::parse( $author->date )->format('l') }}</strong> {{
+                                \Carbon\Carbon::parse( $author->date
+                                )->toFormattedDateString() }}
+                            </li>
+                            <li>
+                                <i class="las la-user-tie"></i>
+                                <a href="{{ url('/news-author', $author->upload_by) }}">{{
+                                    $author->upload_by }}</a>
+                            </li>
+                            <li>
+                                <i class="las la-eye"></i>
+                                <a href="#">{{
+                                    views($author)->count(); }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="article-footer">
+                        <div class="article-tags">
+                        </div>
+                        <div class="article-share">
+                            <ul class="social">
+                                <li><span>Share:</span></li>
+                                <li>
+                                    {!! Share::page(Request::getHttpHost(), $author->title)
+                                    ->facebook(); !!}
+                                </li>
+                                <li>
+                                    {!! Share::page(Request::getHttpHost(), $author->title)
+                                    ->twitter(); !!}
+                                </li>
+                                <li>
+                                    {!! Share::page(Request::getHttpHost(), $author->title)
+                                    ->whatsapp(); !!}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-12">
+                <div class="side-bar">
+                    <div class="side-bar-box search-box">
+                        {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
+                        {{Form::text('kolomcari', null,['class' => 'form-control',
+                        'placeholder' => 'Title Post'])}}
+                        <button type="submit"><i class="las la-search"></i></button>
+                        {{Form::close()}}
+                    </div>
+                    <div class="side-bar-box recent-post">
+                        <h3 class="title">Recent Post</h3>
+                        @foreach($news as $n)
+                        <div class="single-recent-post">
+                            <div class="recent-post-img">
+                                <a href="{{ url('/news-detail', $n->slug) }}">
+                                    @if(file_exists(public_path('storage/'.$n->path)))
+                                    <img src="{{ asset('storage/') }}/{{ $n->path}}">
+                                    @else
+                                    <img src="{{ asset('img/soulofjava.jpg') }}">
+                                    @endif
+                                </a>
+                            </div>
+                            <div class="recent-post-content">
+                                <ul>
+                                    <li><a href="{{ url('/news-author', $n->upload_by) }}">By {{
+                                            $n->upload_by }}</a></li>
+                                    <li><a href="#"><i class="fa fa-calendar"></i> {{
+                                            \Carbon\Carbon::parse( $n->date
+                                            )->toFormattedDateString() }}</a></li>
+                                </ul>
+                                <h3><a href="{{ url('/news-detail', $n->slug) }}">{{
+                                        \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a></h3>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Services Details Area Area -->
 @endsection
 @push('after-script')
 @endpush

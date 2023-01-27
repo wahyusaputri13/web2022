@@ -25,34 +25,29 @@
             <div class="col-lg-8 col-md-7 col-sm-12">
                 <div class="services-details">
                     <div class="img">
-                        @if(file_exists(public_path('storage/'.$data->path)))
-                        <img src="{{ asset('storage/') }}/{{ $data->path}}" class="card-img-top">
-                        @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                        @endif
+                        <img src="https://diskominfo.wonosobokab.go.id/{{ $berita['gambar_muka']['path'] }}{{ $berita['gambar_muka']['file_name'] }}"
+                            class="img-fluid">
                     </div>
                     <div class="services-details-content">
-                        <h3>{{ $data->title }}</h3>
+                        <h3>{{ $berita['judul_posting'] }}</h3>
                         <ul class="blog-list">
                             <li>
                                 <i class="las la-calendar"></i>
                                 {{
-                                \Carbon\Carbon::parse( $data->date )->format('l') }}</strong> {{
-                                \Carbon\Carbon::parse( $data->date
+                                \Carbon\Carbon::parse($berita['created_at'])->format('l') }}, {{
+                                \Carbon\Carbon::parse( $berita['created_at']
                                 )->toFormattedDateString() }}
                             </li>
                             <li>
                                 <i class="las la-user-tie"></i>
-                                <a href="{{ url('/news-author', $data->upload_by) }}">{{
-                                    $data->upload_by }}</a>
+                                <a href="#">by Admin</a>
                             </li>
                             <li>
                                 <i class="las la-eye"></i>
-                                <a href="#">{{
-                                    views($data)->count(); }}</a>
+                                <a href="#">{{ $berita['views'] }}</a>
                             </li>
                         </ul>
-                        <p>{!! $data->description !!}</p>
+                        <p>{!! $berita['isi_posting'] !!}</p>
                     </div>
                     <div class="article-footer">
                         <div class="article-tags">
@@ -63,15 +58,15 @@
                             <ul class="social">
                                 <li><span>Share:</span></li>
                                 <li>
-                                    {!! Share::page(Request::getHttpHost(), $data->title)
+                                    {!! Share::page(Request::getHttpHost(), $berita['judul_posting'])
                                     ->facebook(); !!}
                                 </li>
                                 <li>
-                                    {!! Share::page(Request::getHttpHost(), $data->title)
+                                    {!! Share::page(Request::getHttpHost(), $berita['judul_posting'])
                                     ->twitter(); !!}
                                 </li>
                                 <li>
-                                    {!! Share::page(Request::getHttpHost(), $data->title)
+                                    {!! Share::page(Request::getHttpHost(), $berita['judul_posting'])
                                     ->whatsapp(); !!}
                                 </li>
                             </ul>
@@ -103,7 +98,7 @@
                             </div>
                             <div class="recent-post-content">
                                 <ul>
-                                    <li><a href="{{ url('/news-author', $data->upload_by) }}">By {{
+                                    <li><a href="{{ url('/news-author', $n->upload_by) }}">By {{
                                             $n->upload_by }}</a></li>
                                     <li><a href="#"><i class="fa fa-calendar"></i> {{
                                             \Carbon\Carbon::parse( $n->date

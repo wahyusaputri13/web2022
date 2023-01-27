@@ -179,59 +179,76 @@
             <div class="col-lg-6">
                 <div class="section-title">
                     <span>Contact Form</span>
-                    <h2>Get A Flexible Schedule</h2>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control" id="name" required
-                                        placeholder="Full name">
-                                    <i class="las la-user"></i>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control" id="email" required
-                                        placeholder="Email address">
-                                    <i class="las la-envelope"></i>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="email" class="form-control" id="Phone" required
-                                        placeholder="Phone No">
-                                    <i class="las la-phone"></i>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="date" name="email" class="form-control" id="date">
-                                    <i class="las la-calendar"></i>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12 col-md-12">
-                                <div class="form-group">
-                                    <textarea name="message" id="message" class="form-control" cols="30" rows="6"
-                                        required placeholder="Write your message..."></textarea>
-                                    <i class="las la-sms"></i>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12 col-md-12">
-                                <button type="submit" class="default-btn-one">Get An Appointment</button>
+                    {{Form::open(['url' => 'kotakmasuk','method' => 'post', 'files' => 'true', '', 'class' =>
+                    'subscribe-form'])}}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{Form::text('name', null,['class' => 'form-control', 'placeholder' => 'Your Name',
+                                'required'])}}
+                                <i class="las la-user"></i>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{Form::email('email', null,['class' => 'form-control', 'placeholder' => 'Email',
+                                'required'])}}
+                                <i class="las la-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{Form::number('phone', null,['class' => 'form-control',
+                                'placeholder' => 'Phone Number',
+                                'required'])}}
+                                <i class="las la-phone"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group captcha text-center"
+                                style="margin-bottom: 30px; padding: 10px 40px;">
+                                <span>{!! captcha_img() !!}</span>
+                                <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                    &#x21bb;
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                {{Form::number('captcha', null,['class' => 'form-control',
+                                'placeholder' => 'Enter Captcha Result',
+                                'required'])}}
+                                <i class="las la-calculator"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-bottom: 30px; padding: 10px 40px;">
+                                {{Form::textarea('message', null,['class' => 'form-control', 'placeholder' =>
+                                'Message',
+                                'required'])}}
+                                <i class="las la-sms"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="form-group">
+                                <button type="submit" class="default-btn-one">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {{Form::close()}}
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- End Contact Area -->
 
