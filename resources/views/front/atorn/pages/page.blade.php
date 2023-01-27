@@ -19,7 +19,7 @@
                         <li>Pengajuan Keberatan Informasi Publik</li>
                     </ul>
                     @else
-                    <h2>Post Details</h2>
+                    <h2>{{ $data->menu_name }}</h2>
                     <ul>
                         <li><a href="{{ url('/') }}">Home <i class="las la-angle-right"></i></a></li>
                         <li>Page</li>
