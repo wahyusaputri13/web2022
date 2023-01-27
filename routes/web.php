@@ -20,6 +20,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DailyReportController;
 use App\Http\Controllers\MigrasiDataController;
+use App\Http\Controllers\PermohonanInformasiController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -100,6 +101,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
+    Route::post('permohonaninformasi', [PermohonanInformasiController::class, 'store']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {

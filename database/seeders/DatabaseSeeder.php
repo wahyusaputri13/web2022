@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             GallerySeeder::class,
             FrontMenuSeeder::class,
             ThemesSeeder::class,
+            ComCodes::class,
 
             // untuk website satpol
             // BidangTusiSeeder::class,

@@ -1,13 +1,13 @@
 <div>
     <div class="row">
         <div class="col-lg-12 right-item">
-            {{Form::open(['url' => '#','method' => 'post', 'files' =>
+            {{Form::open(['url' => 'permohonaninformasi','method' => 'post', 'files' =>
             'true', '', 'class' =>
             'php-email-form'])}}
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group">
-                        {{Form::text('name', null,['class' => 'form-control',
+                        {{Form::text('nama', null,['class' => 'form-control',
                         'placeholder' => 'Nama',
                         'required'])}}
                         <span class="alert-error"></span>
@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
-                        {{Form::text('name', null,['class' => 'form-control',
+                        {{Form::text('alamat', null,['class' => 'form-control',
                         'placeholder' => 'Alamat',
                         'required'])}}
                         <span class="alert-error"></span>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
-                        {{Form::number('phone', null,['class' => 'form-control',
+                        {{Form::number('nomor_hp', null,['class' => 'form-control',
                         'placeholder' =>
                         'Nomor Handphone',
                         'required'])}}
@@ -44,7 +44,7 @@
             <div class="row mt-2">
                 <div class="col-lg-6">
                     <div class="form-group">
-                        {{Form::text('name', null,['class' => 'form-control',
+                        {{Form::text('pekerjaan', null,['class' => 'form-control',
                         'placeholder' => 'Pekerjaan',
                         'required'])}}
                         <span class="alert-error"></span>
@@ -54,14 +54,14 @@
             <div class="row mt-2">
                 <div class="col-lg-6">
                     <div class="form-group comments">
-                        {{Form::textarea('message', null,['class' => 'form-control',
+                        {{Form::textarea('tujuan', null,['class' => 'form-control',
                         'placeholder' => 'Tujuan Penggunaan Informasi',
                         'required'])}}
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group comments">
-                        {{Form::textarea('message', null,['class' => 'form-control',
+                        {{Form::textarea('rincian', null,['class' => 'form-control',
                         'placeholder' => 'Rincian Informasi Yang Diinginkan',
                         'required'])}}
                     </div>
