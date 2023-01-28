@@ -10,4 +10,9 @@ class PermohonanInformasi extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+
+    public function status()
+    {
+        return $this->belongsTo(ComCodes::class, 'status_st');
+    }
 }

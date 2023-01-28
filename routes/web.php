@@ -25,6 +25,7 @@ use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
+use App\Models\PermohonanInformasi;
 use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
@@ -127,6 +128,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::resource('inbox', InboxController::class);
     Route::resource('daily', DailyReportController::class);
     Route::resource('complaint', ComplaintController::class);
+    Route::resource('permohonaninformasi', PermohonanInformasiController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');

@@ -6,6 +6,7 @@ use App\Models\PermohonanInformasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use Yajra\DataTables\DataTables;
 
 class PermohonanInformasiController extends Controller
 {
@@ -14,9 +15,47 @@ class PermohonanInformasiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $data = PermohonanInformasi::with(['status'])->orderBy('created_at', 'DESC')->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($data) {
+                        $actionBtn = '
+                    <div class="list-icons d-flex justify-content-center text-center">
+                        <a href="' . route('permohonaninformasi.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
+                        <a href="' . route('permohonaninformasi.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                    </div>';
+                        return $actionBtn;
+                    }
+                )
+                ->addColumn(
+                    'tgl',
+                    function ($data) {
+                        $actionBtn = '<center>' .
+                            \Carbon\Carbon::parse($data->created_at)->toFormattedDateString()
+                            . '</center>';
+                        return $actionBtn;
+                    }
+                )
+                ->editColumn('status_st', function ($a) {
+                    if ($a->status->code_cd == 'STATUS_ST_01') {
+                        return '<span class="badge badge-pill badge-secondary">Menunggu persetujuan</span>';
+                    } else if ($a->status->code_cd == 'STATUS_ST_02') {
+                        return '<span class="badge badge-pill badge-success">Disetujui</span>';
+                    } else if ($a->status->code_cd == 'STATUS_ST_03') {
+                        return '<span class="badge badge-pill badge-danger">Ditolak</span>';
+                    } else {
+                        return '<span class="badge badge-pill badge-warning">Dibatalkan</span>';
+                    }
+                })
+                ->rawColumns(['action', 'tgl', 'status_st'])
+                ->make(true);
+        }
+        return view('back.a.pages.permohonaninformasi.index');
     }
 
     /**
