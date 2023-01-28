@@ -48,12 +48,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                @php
-                $components = DB::table('components')
-                ->where('active', '=', 1)
-                ->get();
-                @endphp
-                @foreach($components as $component)
+                @foreach(App\Models\Component::where('active', '1')->get() as $component)
                 @if($component->id == 1)
                 <li class="{{ (Str::contains(Request::url(), 'event')) ? 'active' : '' }}">
                     <a href="{{ route('event.index') }}">
