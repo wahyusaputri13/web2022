@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::where('id', '>', '2')->where('id', '!=', auth()->user()->id)->with('role');
+            $data = User::where('id', '>', '3')->where('id', '!=', auth()->user()->id)->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -66,6 +66,7 @@ class UserController extends Controller
                 'password' => ['required', 'confirmed']
             ]
         );
+
         $data = [
             'name' => $request->name,
             'nip' => $request->nip,
@@ -74,9 +75,11 @@ class UserController extends Controller
             'bidang_id' => $request->bidang_id,
             'user_phone' => $request->user_phone,
             'password' => Hash::make($request->password),
-            'role_id' => '2'
         ];
-        User::create($data);
+
+        $user = User::create($data);
+        $user->assignRole('user');
+
         return redirect(route('user.index'))->with(['success' => 'Data added successfully!']);
     }
 

@@ -167,6 +167,7 @@ return [
         \Torann\GeoIP\GeoIPServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Package Service Providers...
          */

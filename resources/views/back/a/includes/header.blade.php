@@ -87,7 +87,7 @@
                         </ul>
                     </div>
                 </li>
-                @if(Auth::user()->role_id == 1)
+                @role('superadmin')
                 <li
                     class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamples2"
@@ -129,7 +129,7 @@
                         </ul>
                     </div>
                 </li>
-                @endif
+                @endrole
             </ul>
         </div>
     </div>
