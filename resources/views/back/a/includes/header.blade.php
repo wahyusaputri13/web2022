@@ -108,7 +108,7 @@
                         </ul>
                     </div>
                 </li>
-                @role('superadmin')
+                @role('superadmin|admin')
                 <li
                     class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamples2"

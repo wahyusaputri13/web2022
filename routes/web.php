@@ -111,19 +111,21 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
+    Route::group(['middleware' => ['role:superadmin|admin']], function () {
+        Route::resource('settings', WebsiteController::class);
+        Route::resource('user', UserController::class);
+        Route::resource('themes', ThemesController::class);
+        Route::resource('frontmenu', FrontMenuController::class);
+        Route::resource('relatedlink', RelatedLinkController::class);
+        Route::resource('component', ComponentController::class);
+    });
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);
-    Route::resource('settings', WebsiteController::class)->middleware('role:superadmin');
     // Route::get('whatsapp', [WebsiteController::class, 'wa'])->middleware('is_superadmin');
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('role', RoleController::class);
-    Route::resource('user', UserController::class)->middleware('role:superadmin');
-    Route::resource('themes', ThemesController::class)->middleware('role:superadmin');
-    Route::resource('frontmenu', FrontMenuController::class)->middleware('role:superadmin');
-    Route::resource('relatedlink', RelatedLinkController::class)->middleware('role:superadmin');
-    Route::resource('component', ComponentController::class)->middleware('role:superadmin');
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
     Route::resource('daily', DailyReportController::class);

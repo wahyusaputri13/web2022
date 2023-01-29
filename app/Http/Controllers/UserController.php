@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bidang;
-use App\Models\Role;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role as ModelsRole;
 
 class UserController extends Controller
 {
@@ -47,7 +47,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $role = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
+        $role = ModelsRole::all()->pluck('name', 'id');
+        $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         return view('back.a.pages.user.create', compact('role'));
     }
 
@@ -78,7 +79,12 @@ class UserController extends Controller
         ];
 
         $user = User::create($data);
-        $user->assignRole('user');
+        
+        if ($request->role) {
+            $user->assignRole($request->role);
+        } else {
+            $user->assignRole('user');
+        }
 
         return redirect(route('user.index'))->with(['success' => 'Data added successfully!']);
     }
