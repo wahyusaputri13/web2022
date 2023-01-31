@@ -22,6 +22,13 @@
                         @endif
                         {{Form::model($data, ['route' => ['user.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
+                        @role('superadmin')
+                        <div class="form-group label-floating is-focused">
+                            <label class="control-label">Role</label>
+                            {{ Form::select('role', $role, $user_role, ['class' => 'form-control',
+                            'placeholder' => 'Select Role']); }}
+                        </div>
+                        @endrole
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}

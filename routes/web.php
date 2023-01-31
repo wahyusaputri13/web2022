@@ -138,8 +138,9 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
-    // get data for front menu parent
-    Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 });
 
-Route::get('migrate', [MigrasiDataController::class, 'insert']);
+// get data for front menu parent
+Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
+
+Route::get('migrate', [MigrasiDataController::class, 'index']);
