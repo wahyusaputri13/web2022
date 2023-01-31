@@ -16,6 +16,7 @@
     @include('front.flexstart.includes.footer')
     @stack('before-script')
     @include('front.flexstart.includes.script')
+    @include('components.responsive-voice')
     @stack('after-script')
 </body>
 

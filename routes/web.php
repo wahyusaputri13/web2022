@@ -143,4 +143,4 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 
-Route::get('migrate', [MigrasiDataController::class, 'index']);
+Route::get('migrate', [MigrasiDataController::class, 'insert']);
