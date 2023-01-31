@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('galleries', function (Blueprint $table) {
-            $table->date('upload_date')->nullable();
+        Schema::table('news', function (Blueprint $table) {
+            $table->boolean('highlight')->default(false);
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('galleries', function (Blueprint $table) {
-            $table->dropColumn('upload_date');
+        Schema::table('news', function (Blueprint $table) {
+            $table->dropColumn('highlight');
         });
     }
 };
