@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Http;
 
 class FrontController extends Controller
 {
@@ -33,6 +34,16 @@ class FrontController extends Controller
         views($data)->cooldown(5)->record();
         $news = News::orderBy('date', 'desc')->paginate(5);
         return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news'));
+    }
+
+    public function detailberita($id)
+    {
+        Seo::seO();
+        $response = Http::withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news/' . $id);
+        $response = $response->collect();
+        $berita =   $response['data'];
+        $news = News::orderBy('date', 'desc')->paginate(5);
+        return view('front.' . $this->themes->themes_front . '.pages.beritadetail', compact('berita', 'news'));
     }
 
     public function newsByAuthor($id)

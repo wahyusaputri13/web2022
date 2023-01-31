@@ -140,6 +140,10 @@
 </div>
 @endif
 
+<div class="blog-area bg-gray left-border default-padding bottom-less">
+    <x-seputar-wonosobo :message='$berita' />
+</div>
+
 <div id="contact" class="contact-area default-padding">
     <div class="container">
         <div class="contact-items">
