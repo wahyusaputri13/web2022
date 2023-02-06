@@ -3,14 +3,15 @@
         <div class="container">
             <div class="topbar-inner d-flex flex-wrap justify-content-between align-items-center w-100">
                 <ul class="topbar-info-list mb-0 list-unstyled d-inline-flex">
-                    <li><i class="thm-clr fas fa-map-marker-alt"></i>27 Division, mirpur-12, pallbi.</li>
-                    <li><i class="thm-clr far fa-envelope-open"></i>Email: <a href="javascript:void(0);"
-                            title="">bioxin0011@gmail.com</a></li>
+                    <li><i class="thm-clr fas fa-map-marker-alt"></i>{{ $data_website->address }}</li>
+                    <li><i class="thm-clr far fa-envelope-open"></i>Email: <a
+                            href="mailto:{{ $data_website->email }}">{{
+                            $data_website->email }}</a></li>
                 </ul>
                 <ul class="topbar-links mb-0 list-unstyled d-inline-flex">
-                    <li><a href="javascript:void(0);" title="">Careers</a></li>
+                    <!-- <li><a href="javascript:void(0);" title="">Careers</a></li>
                     <li><a href="javascript:void(0);" title="">Help Desk</a></li>
-                    <li><a href="javascript:void(0);" title="">Login</a></li>
+                    <li><a href="javascript:void(0);" title="">Login</a></li> -->
                 </ul>
             </div>
         </div>
@@ -21,33 +22,31 @@
             <div class="logo-info-bar-inner w-100 d-flex flex-wrap justify-content-between align-items-center">
                 <div class="logo-social d-inline-flex flex-wrap justify-content-between align-items-center">
                     <div class="logo">
-                        <h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid"
+                        <!-- <h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid"
                                     src="{{ asset('assets/front/blubuild/images/logo.png') }}" alt="Logo"
                                     srcset="{{ asset('assets/front/blubuild/images/retina-logo.png') }}"></a>
-                        </h1>
+                        </h1> -->
                     </div>
                     <!-- Logo -->
                     <div class="social-links">
-                        <a href="javascript:void(0);" title="Facebook" target="_blank"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="javascript:void(0);" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="javascript:void(0);" title="Skype" target="_blank"><i class="fab fa-skype"></i></a>
-                        <a href="javascript:void(0);" title="Vimeo" target="_blank"><i class="fab fa-vimeo-v"></i></a>
+                        <x-social-media-link fb='fab fa-facebook-f' twitter='fab fa-twitter' insta='fab fa-instagram'
+                            youtube='fab fa-youtube' />
                     </div>
                 </div>
                 <div class="top-info-wrap d-inline-flex flex-wrap justify-content-between align-items-center">
                     <div class="call-us">
                         <i class="thm-clr flaticon-phone-call"></i>
-                        <span>24/7 Phone Services</span>
-                        <strong>555 666 999 00</strong>
+                        <!-- <span>24/7 Phone Services</span> -->
+                        <strong>{{
+                            $data_website->phone }}</strong>
                     </div>
-                    <div class="add-cart">
+                    <!-- <div class="add-cart">
                         <a href="cart.html" title="">
                             <i class="thm-bg fas fa-shopping-basket"></i>
                             Add to Cart
                             <span class="d-block">(Item: 02)</span>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -62,10 +61,10 @@
                         <x-komponen />
                     </ul>
                 </div>
-                <div class="header-right-btns">
+                <!-- <div class="header-right-btns">
                     <a class="get-quote" href="javascript:void(0);" title=""><i class="far fa-comments"></i>Get
                         A Quote<i class="flaticon-arrow-pointing-to-right"></i></a>
-                </div>
+                </div> -->
             </nav>
         </div>
     </div>
@@ -76,10 +75,10 @@
     <div class="container">
         <div class="sticky-menu-inner d-flex flex-wrap align-items-center justify-content-between w-100">
             <div class="logo">
-                <h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid"
+                <!-- <h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid"
                             src="{{ asset('assets/front/blubuild/images/logo.png') }}" alt="Logo"
                             srcset="{{ asset('assets/front/blubuild/images/retina-logo.png') }}"></a>
-                </h1>
+                </h1> -->
             </div>
             <!-- Logo -->
             <nav class="d-inline-flex justify-content-between align-items-center">
@@ -97,24 +96,22 @@
 <div class="rspn-hdr">
     <div class="rspn-mdbr">
         <div class="rspn-scil">
-            <a href="javascript:void(0);" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="javascript:void(0);" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="javascript:void(0);" title="Linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="javascript:void(0);" title="Google Plus" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+            <x-social-media-link fb='fab fa-facebook-f' twitter='fab fa-twitter' insta='fab fa-instagram'
+                youtube='fab fa-youtube' />
         </div>
-        <form class="rspn-srch">
+        <!-- <form class="rspn-srch">
             <input type="text" placeholder="Enter Your Keyword">
             <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+        </form> -->
     </div>
     <div class="lg-mn">
-        <div class="logo"><a href="index.html" title="Home"><img
+        <!-- <div class="logo"><a href="index.html" title="Home"><img
                     src="{{ asset('assets/front/blubuild/images/logo.png') }}" alt="Logo"></a>
-        </div>
+        </div> -->
         <div class="rspn-cnt">
-            <span><i class="thm-clr far fa-envelope-open"></i><a href="javascript:void(0);"
-                    title="">bioxin0011@gmail.com</a></span>
-            <span><i class="thm-clr fas fa-map-marker-alt"></i>27 Division, mirpur-12, pallbi.</span>
+            <span><i class="thm-clr far fa-envelope-open"></i><a href="mailto:{{ $data_website->email }}">{{
+                    $data_website->email }}</a></span>
+            <span><i class="thm-clr fas fa-map-marker-alt"></i>{{ $data_website->address }}</span>
         </div>
         <span class="rspn-mnu-btn"><i class="fa fa-list-ul"></i></span>
     </div>

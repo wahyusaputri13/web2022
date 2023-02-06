@@ -206,6 +206,17 @@
             </div>
         </div>
     </div>
+
+    <!-- start map -->
+    <section>
+        <div class="map">
+            <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                    $data_website->longitude }}&z=14&output=embed" frameborder="0" allowfullscreen width="100%"
+                height="300px"></iframe>
+        </div>
+    </section>
+    <!-- end map -->
+
 </div>
 <!-- End Contact Area -->
 
