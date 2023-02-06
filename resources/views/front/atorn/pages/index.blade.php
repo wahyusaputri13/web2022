@@ -13,9 +13,9 @@
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="slider-content">
-                            <h1>{{ $hl->title }}</h1>
-                            <p>{!! \Illuminate\Support\Str::limit($hl->description,
-                                100, $end='...') !!}</p>
+                            <a href="{{ url('/news-detail', $hl->slug) }}">
+                                <h1>{{ $hl->title }}</h1>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -98,10 +98,6 @@
                                     {{ $n->upload_by }}
                                 </li>
                             </ul>
-
-                            <p>{!! \Illuminate\Support\Str::limit($n->description,
-                                100, $end='...') !!}</p>
-
                             <a href="{{ url('/news-detail', $n->slug) }}">
                                 Read More <i class="las la-angle-double-right"></i>
                             </a>

@@ -180,7 +180,7 @@
                             </li>
                             @endif
                             @endforeach
-                            <x-komponen li='nav-item' />
+                            <x-komponen li='nav-item' a='nav-link' />
                         </ul>
                     </div>
                 </nav>
