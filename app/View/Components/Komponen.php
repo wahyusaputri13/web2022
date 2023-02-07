@@ -7,14 +7,16 @@ use Illuminate\View\Component;
 class Komponen extends Component
 {
     public $li;
+    public $a;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($li = '')
+    public function __construct($li = '', $a = '')
     {
         $this->li = $li;
+        $this->a = $a;
     }
 
     /**

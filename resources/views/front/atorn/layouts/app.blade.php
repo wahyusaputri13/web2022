@@ -16,6 +16,7 @@
     @include('front.atorn.includes.footer')
     @stack('before-script')
     @include('front.atorn.includes.script')
+    @include('components.responsive-voice')
     @stack('after-script')
 </body>
 

@@ -83,7 +83,7 @@ class FrontController extends Controller
     public function page($id)
     {
         Seo::seO();
-        $data = FrontMenu::where('menu_url', $id)->first();
+        $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
     }
 
