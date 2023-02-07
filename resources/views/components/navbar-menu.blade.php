@@ -89,3 +89,15 @@ $subMenus = DB::table('front_menus')
 </li>
 @endif
 @endforeach
+
+<!-- start looping component -->
+@foreach(App\Models\Component::where('active', '1')->get() as $component)
+@if($component->slug != 'seputar-wonosobo')
+<li class="">
+    <a class="" href="{{ url($component->slug) }}">
+        {{ $component->name }}
+    </a>
+</li>
+@endif
+@endforeach
+<!-- end looping component -->

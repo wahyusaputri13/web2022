@@ -56,7 +56,7 @@
                             <div class="proj-thumb overflow-hidden w-100">
                                 @if(file_exists(public_path('storage/'.$n->path)))
                                 <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $n->path}}"><img
-                                        src="{{ asset('storage/') }}/{{ $g->path}}" style="height: 200px;"
+                                        src="{{ asset('storage/') }}/{{ $n->path}}" style="height: 200px;"
                                         class="img-fluid w-100"></a>
                                 @else
                                 <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
@@ -176,8 +176,8 @@
             <div class="sec-title v2 text-center w-100">
                 <div class="sec-title-inner d-inline-block">
                     <span class="thm-clr d-block">Contact Us</span>
-                    <h2 class="mb-0">Al is no longer a futuristic notion, it's here right now</h2>
-                    <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <!-- <h2 class="mb-0">Al is no longer a futuristic notion, it's here right now</h2> -->
+                    <!-- <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
                 </div>
             </div>
             {{Form::open(['url' => 'kotakmasuk','method' => 'post', 'files' => 'true', '', 'class' =>

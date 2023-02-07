@@ -58,7 +58,6 @@
                 <div class="header-left">
                     <ul class="mb-0 list-unstyled d-inline-flex">
                         <x-navbar-menu li="menu-item-has-children" ul="mb-0 list-unstyled" />
-                        <x-komponen />
                     </ul>
                 </div>
                 <!-- <div class="header-right-btns">
@@ -85,7 +84,6 @@
                 <div class="header-left">
                     <ul class="mb-0 list-unstyled d-inline-flex">
                         <x-navbar-menu li="menu-item-has-children" ul="mb-0 list-unstyled" />
-                        <x-komponen />
                     </ul>
                 </div>
             </nav>
@@ -119,7 +117,6 @@
         <span class="rspn-mnu-cls"><i class="fa fa-times"></i></span>
         <ul class="mb-0 list-unstyled w-100">
             <x-navbar-menu li="menu-item-has-children" ul="mb-0 list-unstyled" />
-            <x-komponen />
         </ul>
     </div>
     <!-- Responsive Menu -->
