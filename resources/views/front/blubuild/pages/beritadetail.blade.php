@@ -33,16 +33,12 @@
 
                             <div class="detail-share w-100">
                                 <span>Share:</span>
-                                <a class="facebook-clr" href="javascript:void(0);" title="Facebook" target="_blank"><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="google-clr" href="javascript:void(0);" title="Google Plus" target="_blank"><i
-                                        class="fab fa-google-plus-g"></i></a>
-                                <a class="twitter-clr" href="javascript:void(0);" title="Twitter" target="_blank"><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="skype-clr" href="javascript:void(0);" title="Skype" target="_blank"><i
-                                        class="fab fa-skype"></i></a>
-                                <a class="rss-clr" href="javascript:void(0);" title="Rss" target="_blank"><i
-                                        class="fas fa-rss"></i></a>
+                                {!! Share::page(Request::getHttpHost(), $berita['judul_posting'], [], '', '')
+                                ->facebook(); !!}
+                                {!! Share::page(Request::getHttpHost(), $berita['judul_posting'], [], '', '')
+                                ->twitter(); !!}
+                                {!! Share::page(Request::getHttpHost(), $berita['judul_posting'], [], '', '')
+                                ->whatsapp(); !!}
                                 <a href="#">
                                     <i class="fa fa-solid fa-eye"></i>
                                     {{ $berita['views'] }}</a>
