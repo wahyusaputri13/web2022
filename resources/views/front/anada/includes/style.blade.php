@@ -6,8 +6,6 @@
 <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
 <link rel="icon" type="image/png" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
 @endif
-<!-- ========== Favicon Icon ========== -->
-<link rel="shortcut icon" href="{{ asset('assets/front/anada/assets/img/favicon.png') }}" type="image/x-icon">
 
 <!-- ========== Start Stylesheet ========== -->
 <link href="{{ asset('assets/front/anada/assets/css/bootstrap.min.css') }}" rel="stylesheet" />

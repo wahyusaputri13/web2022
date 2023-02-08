@@ -42,10 +42,10 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('assets/front/anada/assets/img/logo.png') }}" class="logo default">
                     <!-- logo saat tampilan hp -->
-                    <img src="{{ asset('assets/front/anada/assets/img/logo-white.png') }}" class="logo logo-responsive">
+                    <img src="{{ asset('assets/front/anada/assets/img/logo-light.png') }}" class="logo logo-responsive">
                 </a>
             </div>
             <!-- End Header Navigation -->
@@ -127,27 +127,7 @@
                     </li>
                     @endif
                     @endforeach
-                    <!-- start looping component -->
-                    @php
-                    $component = DB::table('components')->where('active', '=', 1)->orderBy('name', 'ASC')->get();
-                    @endphp
-                    @foreach($component as $cp)
-                    @if($cp->slug != 'complaints')
-                    <li>
-                        <a href="{{ url($cp->slug) }}">{{ $cp->name }}</a>
-                    </li>
-                    @endif
-                    @if ($cp->slug == 'complaints')
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $cp->name }}</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="https://laporbupati.wonosobokab.go.id/" target="_blank">LaporBup</a></li>
-                            <li><a href="tel:112" target="_blank">Call Center 112</a></li>
-                        </ul>
-                    </li>
-                    @endif
-                    @endforeach
-                    <!-- end looping component -->
+                    <x-komponen />
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>

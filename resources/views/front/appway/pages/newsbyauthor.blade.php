@@ -18,11 +18,13 @@
     </div>
     <div class="container">
         <div class="content-box clearfix">
-            <!-- <div class="title-box pull-left">
-                <h1>Latest News</h1>
-                <p>Reach out to the world’s most reliable IT services.</p>
+            <div class="title-box pull-left">
+                <a href="{{ url('/') }}">
+                    <h1>{{ $data_website->web_name }}</h1>
+                </a>
+                <!-- <p>Reach out to the world’s most reliable IT services.</p> -->
             </div>
-            <ul class="bread-crumb pull-right">
+            <!-- <ul class="bread-crumb pull-right">
                 <li>Blog Details</li>
                 <li><a href="/">Home</a></li>
             </ul> -->
@@ -60,8 +62,8 @@
                                         )->toFormattedDateString() }}</div>
                                     <h3><a href="{{ url('/news-detail', $author->slug) }}">{{ $author->title
                                             }}</a></h3>
-                                    <div class="text"> {!! \Illuminate\Support\Str::limit($author->description, 350,
-                                        $end='...') !!}
+                                    <div class="text"> {{ \Illuminate\Support\Str::limit($author->description, 350,
+                                        $end='...') }}
                                     </div>
                                 </div>
                                 <div class="lower-box clearfix">

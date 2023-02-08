@@ -17,7 +17,7 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('photo')->default('soulfofjava');
             $table->string('path')->default('img/soulofjava.jpg');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->date('date');
             $table->string('upload_by');

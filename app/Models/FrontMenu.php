@@ -10,4 +10,9 @@ class FrontMenu extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+
+    public function menu_induk()
+    {
+        return $this->belongsTo(FrontMenu::class, 'menu_parent');
+    }
 }

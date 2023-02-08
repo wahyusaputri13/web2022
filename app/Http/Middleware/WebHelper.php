@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Agenda;
 use App\Models\Counter;
 use Closure;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class WebHelper
         //its just a dummy data object.
         $data = Website::first();
         $menu = FrontMenu::all();
+        $agenda = Agenda::all()->count();
         $news = News::all()->count();
         $gallery = Gallery::all()->count();
         $counter = Counter::all()->count();
@@ -40,6 +42,7 @@ class WebHelper
         view()->share('counter_web', $counter);
         view()->share('related', $related);
         view()->share('inbox', $inbox);
+        view()->share('agenda', $agenda);
         return $next($request);
     }
 }

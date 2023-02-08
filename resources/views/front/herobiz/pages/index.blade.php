@@ -75,6 +75,7 @@
         </div>
     </section>
     @endif
+
     @if($news->count() != 0)
     <section id="recent-blog-posts" class="recent-blog-posts">
         <div class="container" data-aos="fade-up">
@@ -102,9 +103,6 @@
                         <h3 class="post-title">
                             {{ $n->title }}
                         </h3>
-                        <p>
-                            {!! \Illuminate\Support\Str::limit($n->description, 75, $end='...') !!}
-                        </p>
                         <a href="{{ url('/news-detail', $n->slug) }}" class="readmore stretched-link"><span>Read
                                 More</span><i class="bi bi-arrow-right"></i></a>
                     </div>
@@ -123,6 +121,9 @@
 
     </section>
     @endif
+
+    <x-seputar-wonosobo :message='$berita' />
+
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">

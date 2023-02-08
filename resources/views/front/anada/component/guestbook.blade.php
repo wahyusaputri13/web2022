@@ -1,5 +1,25 @@
 @extends('front.anada.layouts.app')
 @section('content')
+<!-- Start Breadcrumb 
+        ============================================= -->
+<div class="breadcrumb-area gradient-bg text-light text-center">
+    <!-- Fixed BG -->
+    <div class="fixed-bg" style="background-image: url(assets/img/shape/1.png);"></div>
+    <!-- Fixed BG -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1>Buku Tamu</h1>
+                <ul class="breadcrumb">
+                    <li><a href="{{ url('/') }}"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="active">Buku Tamu</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumb -->
+
 <div class="blog-area full-blog blog-standard full-blog default-padding">
     <div class="container">
         <div class="blog-items">

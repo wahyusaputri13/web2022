@@ -37,6 +37,7 @@
 </section>
 <!-- End Hero -->
 <main id="main">
+
     <!-- ======= Recent Blog Posts Section ======= -->
     @if($news->count() != 0)
     <section id="recent-blog-posts" class="recent-blog-posts">
@@ -83,6 +84,7 @@
     </section>
     @endif
     <!-- End Recent Blog Posts Section -->
+
     @if($gallery->count() != 0)
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="portfolio">
@@ -140,12 +142,25 @@
     </section>
     <!-- End Gallery Section -->
     @endif
+
+    <x-seputar-wonosobo :message='$berita' />
+
     <section id="contact" class="contact">
         <div class="container aos-init aos-animate" data-aos="fade-up">
             <header class="section-header">
                 <h2>Kontak</h2>
                 <p>Hubungi Kami</p>
             </header>
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="map">
+                        <iframe
+                            src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                                                                            $data_website->longitude }}&z=14&output=embed"
+                            frameborder="0" allowfullscreen width="100%"></iframe>
+                    </div>
+                </div>
+            </div>
             <div class="row gy-4">
                 <div class="col-lg-6">
                     <div class="row gy-4">
@@ -219,6 +234,7 @@
             </div>
         </div>
     </section>
+
 </main>
 @endsection
 @push('after-script')
@@ -231,26 +247,6 @@
                 $(".captcha span").html(data.captcha);
             }
         });
-    });
-
-    $('.btn-playstream').click(function () {
-        currentvalue = document.getElementById('audio_1').value;
-        if (currentvalue == "on") {
-            document.getElementById('audio_1').pause();
-            document.getElementById("audio_1").value = "off";
-            console.log("off!");
-        } else {
-            document.getElementById('audio_1').play();
-            document.getElementById("audio_1").value = "on";
-            console.log("on!");
-        }
-        // function playmusik() {
-        //     var song = new Audio();
-        //     song.src = "http://i.klikhost.com:8234/stream";
-        //     // song.autoplay = true;
-        //     song.play;
-        // }
-        // window.addEventListener("load", playmusik);
     });
 </script>
 @endpush
