@@ -48,16 +48,28 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                @foreach(App\Models\Component::where('active', '1')->get() as $component)
-                @if($component->id == 1)
+                @foreach(App\Models\Component::where('active', '1')->where('id', 1)->get() as $component)
                 <li class="{{ (Str::contains(Request::url(), 'event')) ? 'active' : '' }}">
                     <a href="{{ route('event.index') }}">
                         <i class="material-icons">date_range</i>
                         <p>{{ $component->name }}</p>
                     </a>
                 </li>
-                @endif
                 @endforeach
+                @can('satpolpp')
+                <li class="{{ (Str::contains(Request::url(), 'daily')) ? 'active' : '' }}">
+                    <a href="{{ url('admin/daily') }}">
+                        <i class="material-icons">today</i>
+                        <p>Daily Report</p>
+                    </a>
+                </li>
+                <li class="{{ (Str::contains(Request::url(), 'complaint')) ? 'active' : '' }}">
+                    <a href="{{ route('complaint.index') }}">
+                        <i class="material-icons">assignment</i>
+                        <p>Public Complaints</p>
+                    </a>
+                </li>
+                @endcan
                 <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>

@@ -29,6 +29,13 @@
                             Role']); }}
                         </div>
                         @endrole
+                        @can('satpolpp')
+                        <div>
+                            {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
+                            'data-style'
+                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
+                        </div>
+                        @endcan
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}

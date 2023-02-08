@@ -49,7 +49,7 @@ class UserController extends Controller
     {
         $role = ModelsRole::all()->pluck('name', 'id');
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
-        return view('back.a.pages.user.create', compact('role'));
+        return view('back.a.pages.user.create', compact('role', 'bidang'));
     }
 
     /**
