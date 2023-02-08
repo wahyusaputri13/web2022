@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">NIP</label>
-                            {{Form::text('nip', null,['class' => 'form-control'])}}
+                            {{Form::number('nip', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Jabatan / Golongan</label>
