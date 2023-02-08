@@ -120,12 +120,8 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
         Route::resource('component', ComponentController::class);
     });
     Route::resource('gallery', GalleryController::class);
-    Route::resource('menu', MenuController::class);
-    Route::resource('submenu', SubmenuController::class);
-    // Route::get('whatsapp', [WebsiteController::class, 'wa'])->middleware('is_superadmin');
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
-    Route::resource('role', RoleController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
     Route::resource('daily', DailyReportController::class);
