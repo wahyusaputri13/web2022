@@ -30,7 +30,10 @@
 <!-- Theme Dark CSS -->
 <link rel="stylesheet" href="{{ asset('assets/front/atorn/assets/css/theme-dark.css') }}">
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="{{ asset('assets/front/atorn/assets/img/favicon.png') }}">
+<!-- <link rel="icon" type="image/png" href="{{ asset('assets/front/atorn/assets/img/favicon.png') }}"> -->
 
 <!-- datatable -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+<!-- ambil dari template lain -->
+<link href="{{ asset('assets/front/arsha/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">

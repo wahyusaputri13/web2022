@@ -180,34 +180,7 @@
                             </li>
                             @endif
                             @endforeach
-                            <!-- start looping component -->
-                            @php
-                            $component = DB::table('components')->where('active', '=', 1)->orderBy('name',
-                            'ASC')->get();
-                            @endphp
-                            @foreach($component as $cp)
-                            @if($cp->slug != 'complaints')
-                            <li class="nav-item">
-                                <a href="{{ url($cp->slug) }}" class="nav-link">{{
-                                    $cp->name }}</a>
-                            </li>
-                            @endif
-                            @if ($cp->slug == 'complaints')
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">{{ $cp->name }}</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="https://laporbupati.wonosobokab.go.id/"
-                                            target="_blank">LaporBup</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="tel:112" target="_blank">Call Center 112</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            @endif
-                            @endforeach
-                            <!-- end looping component -->
+                            <x-komponen li='nav-item' a='nav-link' />
                         </ul>
                     </div>
                 </nav>

@@ -30,7 +30,7 @@ class MigrasiDataController extends Controller
         $posts = Post::whereNot('post_title', '')->published()->get();
 
         foreach ($posts as $key) {
-            
+
             $data = ([
                 // 'title' => $jk,
                 'title' => $key->post_title,

@@ -21,13 +21,21 @@
                         </div>
                         @endif
                         {{Form::open(['route' => 'user.store','method' => 'post', 'files' => 'true', ''])}}
+                        @role('superadmin')
+                        <div class="form-group label-floating is-focused">
+                            <label class="control-label">Role</label>
+                            {{ Form::select('role', $role, null, ['class' => 'form-control', 'placeholder' =>
+                            'Select
+                            Role']); }}
+                        </div>
+                        @endrole
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">NIP</label>
-                            {{Form::text('nip', null,['class' => 'form-control'])}}
+                            {{Form::number('nip', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Jabatan / Golongan</label>
@@ -35,7 +43,7 @@
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Phone Number</label>
-                            {{Form::text('user_phone', null,['class' => 'form-control'])}}
+                            {{Form::number('user_phone', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Email</label>

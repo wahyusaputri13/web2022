@@ -23,27 +23,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            RoleSeeder::class,
+            UserSeeder::class,
             NewsSeeder::class,
             GallerySeeder::class,
             FrontMenuSeeder::class,
             ThemesSeeder::class,
+            ComCodes::class,
 
             // untuk website satpol
             // BidangTusiSeeder::class,
         ]);
-
-        $role = [
-            [
-                'role' => 'Superadmin'
-            ],
-            [
-                'role' => 'Admin'
-            ]
-        ];
-
-        foreach ($role as $datum) {
-            Role::create($datum);
-        }
 
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
@@ -77,25 +67,6 @@ class DatabaseSeeder extends Seeder
         //     'themes_front' => 'FlexStart',
         //     'themes_back' => 'back.a',
         // ]);
-
-        $user = [
-            [
-                'name' => 'superadmin',
-                'email' => 'superadmin@app.com',
-                'password' => bcrypt('password'),
-                'role_id' => 1
-            ],
-            [
-                'name' => 'admin',
-                'email' => 'admin@app.com',
-                'password' => bcrypt('password'),
-                'role_id' => 2
-            ]
-        ];
-
-        foreach ($user as $datum) {
-            User::create($datum);
-        }
 
         $related = [
             [

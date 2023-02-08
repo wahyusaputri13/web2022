@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bidang;
-use App\Models\Role;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role as ModelsRole;
 
 class UserController extends Controller
 {
@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::where('id', '>', '2')->where('id', '!=', auth()->user()->id)->with('role');
+            $data = User::where('id', '>', '3')->where('id', '!=', auth()->user()->id)->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -47,7 +47,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $role = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
+        $role = ModelsRole::all()->pluck('name', 'id');
+        $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         return view('back.a.pages.user.create', compact('role'));
     }
 
@@ -66,6 +67,7 @@ class UserController extends Controller
                 'password' => ['required', 'confirmed']
             ]
         );
+
         $data = [
             'name' => $request->name,
             'nip' => $request->nip,
@@ -74,9 +76,16 @@ class UserController extends Controller
             'bidang_id' => $request->bidang_id,
             'user_phone' => $request->user_phone,
             'password' => Hash::make($request->password),
-            'role_id' => '2'
         ];
-        User::create($data);
+
+        $user = User::create($data);
+
+        if ($request->role) {
+            $user->assignRole($request->role);
+        } else {
+            $user->assignRole('user');
+        }
+
         return redirect(route('user.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -99,9 +108,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $role = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
+        // $role = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         $data = User::find($id);
-        return view('back.a.pages.user.edit', compact('data', 'role'));
+        $role = ModelsRole::all()->pluck('name', 'id');
+        $user_role = $data->roles->pluck('id');
+        return view('back.a.pages.user.edit', compact('data', 'role', 'user_role'));
     }
 
     /**
@@ -113,17 +124,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $jem = User::find($id);
+        $user = User::find($id);
+
         $request->validate(
             [
                 'name' => ['required', 'string', 'max:255'],
                 'email' => 'required|email|unique:users,email,' . $id . ',id',
-                'bidang_id' => ['required']
+                // 'bidang_id' => ['required']
             ]
         );
+
         if ($request->filled('current_password') || $request->filled('new_password') || $request->filled('new_confirm_password')) {
             $request->validate([
-                'current_password' => ['required', Hash::check($request->password, $jem->password)],
+                'current_password' => ['required', Hash::check($request->password, $user->password)],
                 'new_password' => ['required', 'min:8'],
                 'new_confirm_password' => ['same:new_password'],
             ]);
@@ -131,7 +144,14 @@ class UserController extends Controller
         } else {
             $data = ($request->except('_method', '_token', 'current_password', 'new_password', 'new_confirm_password'));
         }
-        User::find($id)->update($data);
+
+        if ($request->role) {
+            $user->syncRoles($request->role);
+        } else {
+            $user->syncRoles('user');
+        }
+
+        $user->update($data);
         return redirect(route('user.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 

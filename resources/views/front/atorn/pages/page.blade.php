@@ -1,24 +1,37 @@
 @extends('front.atorn.layouts.app')
 @section('content')
-<!-- Start Breadcrumb 
-        ============================================= -->
-<div class="breadcrumb-area gradient-bg text-light text-center">
-    <!-- Fixed BG -->
-    <div class="fixed-bg" style="background-image: url(assets/img/shape/1.png);"></div>
-    <!-- Fixed BG -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <h1>{{ $data->menu_name }}</h1>
-                <ul class="breadcrumb">
-                    <li><a href="{{ url('/') }}"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="active">{{ $data->menu_name }}</li>
-                </ul>
+<!-- Page banner Area -->
+<div class="page-banner bg-1">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="page-content">
+                    @if($data->menu_name == 'Permohonan Informasi Publik')
+                    <h2>Layanan</h2>
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home <i class="las la-angle-right"></i></a></li>
+                        <li>Permohonan Informasi Publik</li>
+                    </ul>
+                    @elseif($data->menu_name == 'Pengajuan Keberatan Informasi Publik')
+                    <h2>Layanan</h2>
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home <i class="las la-angle-right"></i></a></li>
+                        <li>Pengajuan Keberatan Informasi Publik</li>
+                    </ul>
+                    @else
+                    <h2>{{ $data->menu_name }}</h2>
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home <i class="las la-angle-right"></i></a></li>
+                        <li>Page</li>
+                    </ul>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- End Breadcrumb -->
+<!-- End Page banner Area -->
+
 
 <!-- Start Contact Area
     ============================================= -->
@@ -43,7 +56,7 @@
         </div>
     </div>
 </div>
-<!-- End Contact -->
+
 @endsection
 @push('after-script')
 @endpush

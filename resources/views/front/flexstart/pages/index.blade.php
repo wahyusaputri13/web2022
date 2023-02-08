@@ -37,6 +37,7 @@
 </section>
 <!-- End Hero -->
 <main id="main">
+
     <!-- ======= Recent Blog Posts Section ======= -->
     @if($news->count() != 0)
     <section id="recent-blog-posts" class="recent-blog-posts">
@@ -83,6 +84,7 @@
     </section>
     @endif
     <!-- End Recent Blog Posts Section -->
+
     @if($gallery->count() != 0)
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="portfolio">
@@ -140,6 +142,9 @@
     </section>
     <!-- End Gallery Section -->
     @endif
+
+    <x-seputar-wonosobo :message='$berita' />
+
     <section id="contact" class="contact">
         <div class="container aos-init aos-animate" data-aos="fade-up">
             <header class="section-header">
@@ -229,6 +234,7 @@
             </div>
         </div>
     </section>
+
 </main>
 @endsection
 @push('after-script')

@@ -61,8 +61,8 @@
                                         )->toFormattedDateString() }}</div>
                                     <h3><a href="{{ url('/news-detail', $n->slug) }}">{{ $n->title
                                             }}</a></h3>
-                                    <div class="text"> {!! \Illuminate\Support\Str::limit($n->description, 350,
-                                        $end='...') !!}
+                                    <div class="text"> {{ \Illuminate\Support\Str::limit($n->description, 350,
+                                        $end='...') }}
                                     </div>
                                 </div>
                                 <div class="lower-box clearfix">
