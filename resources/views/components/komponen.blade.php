@@ -8,9 +8,9 @@
 </li>
 @endif
 @if($component->slug == 'complaints')
-<li class="dropdown">
-    <a href="#"><span>{{ $component->name }}</span> <i class="bi bi-chevron-down"></i></a>
-    <ul>
+<li class="{{ $li }}">
+    <a class="{{ $a }}" href="#"><span>{{ $component->name }}</span> <i class="{{ $i }}"></i></a>
+    <ul class="{{ $ul }}">
         <li><a href="https://laporbupati.wonosobokab.go.id/" target="_blank">LaporBup</a></li>
         <li><a href="tel:112" target="_blank">Call Center 112</a></li>
     </ul>
