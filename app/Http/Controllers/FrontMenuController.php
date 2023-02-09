@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\FrontMenu;
-use App\Models\FrontSubmenu;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -26,11 +25,15 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
+                        if ($data->id <= 45) {
+                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
+                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>';
+                        } else {
+                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
-                        <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
+                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
                     </div>';
+                        }
                         return $actionBtn;
                     }
                 )

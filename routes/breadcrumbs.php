@@ -112,6 +112,18 @@ Breadcrumbs::for('daily', function ($trail) {
     $trail->parent('dashboard');
     $trail->push('Daily Report', url('daily'));
 });
+
+// Dashboard > Permohonan Informasi
+Breadcrumbs::for('permohonaninformasi', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Permohonan Informasi', url('permohonaninformasi'));
+});
+
+// Dashboard > Bidang
+Breadcrumbs::for('bidang', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Bidang', url('bidang'));
+});
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');

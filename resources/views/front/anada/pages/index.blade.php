@@ -31,6 +31,7 @@
 </div>
 <!-- End Banner -->
 
+@if($news->count() != 0)
 <!-- Start Blog Area
     ============================================= -->
 <div class="blog-area bg-gray left-border default-padding bottom-less">
@@ -88,6 +89,9 @@
     </div>
 </div>
 <!-- End Blog Area -->
+@endif
+
+@if($gallery->count() != 0)
 <div class="blog-area bg-gray left-border default-padding bottom-less">
     <div class="container">
         <div class="heading-left">
@@ -133,6 +137,11 @@
             </div>
         </div>
     </div>
+</div>
+@endif
+
+<div class="blog-area bg-gray left-border default-padding bottom-less">
+    <x-seputar-wonosobo :message='$berita' />
 </div>
 
 <div id="contact" class="contact-area default-padding">

@@ -35,6 +35,7 @@
 </section>
 <!-- banner-section end -->
 
+@if($news->count() != 0)
 <!-- news-section -->
 <section class="news-section">
     <div class="container">
@@ -80,6 +81,57 @@
     </div>
 </section>
 <!-- news-section end -->
+@endif
+
+@if($gallery->count() != 0)
+<!-- gallery-section -->
+<section class="news-section">
+    <div class="container">
+        <div class="sec-title center">
+            <h2>Latest Photos</h2>
+            <a href="{{ url('/photos') }}">
+                <p>Show All</p>
+            </a>
+        </div>
+        <div class="row">
+            @foreach($gallery as $n)
+            <div class="col-lg-4 col-md-6 col-sm-12 news-column">
+                <div class="news-block-one wow flipInY animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            <a href="{{ url('/news-detail', $n->slug) }}">
+                                @if(file_exists(public_path('storage/'.$n->path)))
+                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $n->path}}"><img
+                                        src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid"></a>
+                                @else
+                                <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
+                                        src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>
+                                @endif
+                            </a>
+                        </figure>
+                        <div class="lower-content">
+                            <div class="post-date"><i class="fas fa-calendar-alt"></i>{{
+                                \Carbon\Carbon::parse($n->date)->format('l') }}</strong> {{
+                                \Carbon\Carbon::parse( $n->date
+                                )->toFormattedDateString() }}</div>
+                            <h3>
+                                <a href="{{ url('/news-detail', $n->slug) }}">{{ $n->title }}</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if($loop->iteration == 3)
+            @break
+            @endif
+            @endforeach
+        </div>
+    </div>
+</section>
+<!-- gallery-section end -->
+@endif
+
+<x-seputar-wonosobo :message='$berita' />
 
 <!-- subscribe-section -->
 <section class="subscribe-section">
@@ -162,6 +214,19 @@
     </div>
 </section>
 <!-- subscribe-section end -->
+
+<!-- start map -->
+<section>
+    <div class="container">
+        <div class="map">
+            <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                $data_website->longitude }}&z=14&output=embed" frameborder="0" allowfullscreen width="100%"
+                height="300px"></iframe>
+        </div>
+    </div>
+</section>
+<!-- end map -->
+
 <!--Scroll to top-->
 <button class="scroll-top scroll-to-target" data-target="html">
     <span class="fa fa-arrow-up"></span>
@@ -179,4 +244,6 @@
         });
     });
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 @endpush

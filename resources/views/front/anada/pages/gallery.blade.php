@@ -12,9 +12,8 @@
                     <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                         <div class="portfolio-img">
                             @if(file_exists(public_path('storage/'.$g->path)))
-                            <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}">
-                                <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"
-                                    alt="{{ $g->name}}"></a>
+                            <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}"><img
+                                    src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"></a>
                             @else
                             <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                                     src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>

@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Novay\WordTemplate\Facade as WordTemplate;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
+
 
 class ComplaintController extends Controller
 {
@@ -210,7 +212,10 @@ class ComplaintController extends Controller
      */
     public function destroy($id)
     {
-        $data = Complaint::find($id);
+        $data = Complaint::find($id)->first();
+        if (Storage::exists($data->attachment)) {
+            Storage::delete($data->attachment);
+        }
         return $data->delete();
     }
 

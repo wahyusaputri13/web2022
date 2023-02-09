@@ -22,20 +22,27 @@
                         @endif
                         {{Form::model($data, ['route' => ['user.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
-                        @if($data->role_id == 2 || $data->role_id == 1)
+                        @role('superadmin')
+                        <div class="form-group label-floating is-focused">
+                            <label class="control-label">Role</label>
+                            {{ Form::select('role', $role, $user_role, ['class' => 'form-control',
+                            'placeholder' => 'Select Role']); }}
+                        </div>
+                        @endrole
+                        @can('satpolpp')
                         <div>
-                            {{Form::select('bidang_id', $role, null,['class' => 'form-control selectpicker',
+                            {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
                             'data-style'
                             => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
                         </div>
-                        @endif
+                        @endcan
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">NIP</label>
-                            {{Form::text('nip', null,['class' => 'form-control'])}}
+                            {{Form::number('nip', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Jabatan / Golongan</label>

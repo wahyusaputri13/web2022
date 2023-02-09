@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Agenda;
 use App\Models\Complaint;
 use App\Models\Counter;
 use Closure;
@@ -28,6 +29,7 @@ class WebHelper
         //its just a dummy data object.
         $data = Website::first();
         $menu = FrontMenu::all();
+        $agenda = Agenda::all()->count();
         $news = News::all()->count();
         $public_complaints = Complaint::all()->count();
         $gallery = Gallery::all()->count();
@@ -43,6 +45,7 @@ class WebHelper
         view()->share('counter_web', $counter);
         view()->share('related', $related);
         view()->share('inbox', $inbox);
+        view()->share('agenda', $agenda);
         return $next($request);
     }
 }

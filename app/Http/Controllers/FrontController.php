@@ -6,6 +6,7 @@ use App\Helpers\Seo;
 use App\Models\Agenda;
 use App\Models\File;
 use App\Models\Component;
+use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Gallery;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Http;
 
 class FrontController extends Controller
 {
@@ -34,6 +36,16 @@ class FrontController extends Controller
         $news = News::orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file'));
+    }
+
+    public function detailberita($id)
+    {
+        Seo::seO();
+        $response = Http::withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news/' . $id);
+        $response = $response->collect();
+        $berita =   $response['data'];
+        $news = News::orderBy('date', 'desc')->paginate(5);
+        return view('front.' . $this->themes->themes_front . '.pages.beritadetail', compact('berita', 'news'));
     }
 
     public function newsByAuthor($id)
@@ -73,9 +85,7 @@ class FrontController extends Controller
     public function page($id)
     {
         Seo::seO();
-        $data = DB::table('front_menus')
-            ->where('menu_url', '=', $id)
-            ->get();
+        $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
     }
 

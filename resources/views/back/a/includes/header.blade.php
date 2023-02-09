@@ -48,35 +48,28 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="{{ (Str::contains(Request::url(), 'daily')) ? 'active' : '' }}">
-                    <a href="{{ url('admin/daily') }}">
-                        <i class="material-icons">today</i>
-                        <p>Daily Report</p>
-                    </a>
-                </li>
-                @php
-                $components = DB::table('components')
-                ->where('active', '=', 1)
-                ->get();
-                @endphp
-                @foreach($components as $component)
-                @if($component->id == 1)
+                @foreach(App\Models\Component::where('active', '1')->where('id', 1)->get() as $component)
                 <li class="{{ (Str::contains(Request::url(), 'event')) ? 'active' : '' }}">
                     <a href="{{ route('event.index') }}">
                         <i class="material-icons">date_range</i>
                         <p>{{ $component->name }}</p>
                     </a>
                 </li>
-                @endif
-                @if($component->id == 3)
+                @endforeach
+                @can('satpolpp')
+                <li class="{{ (Str::contains(Request::url(), 'daily')) ? 'active' : '' }}">
+                    <a href="{{ url('admin/daily') }}">
+                        <i class="material-icons">today</i>
+                        <p>Daily Report</p>
+                    </a>
+                </li>
                 <li class="{{ (Str::contains(Request::url(), 'complaint')) ? 'active' : '' }}">
                     <a href="{{ route('complaint.index') }}">
                         <i class="material-icons">assignment</i>
-                        <p>{{ $component->name }}</p>
+                        <p>Public Complaints</p>
                     </a>
                 </li>
-                @endif
-                @endforeach
+                @endcan
                 <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>
@@ -106,17 +99,38 @@
                         </ul>
                     </div>
                 </li>
-                @if(Auth::user()->role_id == 1)
+                <li class="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'active' : '' }}">
+                    <a data-toggle="collapse" href="#pagesExamplesss"
+                        aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
+                        <i class="material-icons">
+                            receipt
+                        </i>
+                        <p>Layanan
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse {{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'in' : '' }}"
+                        id="pagesExamplesss">
+                        <ul class="nav">
+                            <li class="{{ (Str::contains(Request::url(), 'permohonaninformasi')) ? 'active' : '' }}">
+                                <a href="{{ route('permohonaninformasi.index') }}"> <i
+                                        class="material-icons">view_list</i>
+                                    Permohonan Informasi</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                @role('superadmin|admin')
                 <li
-                    class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user'])) ? 'active' : '' }}">
+                    class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamples2"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user'])) ? 'true' : '' }}">
+                        aria-expanded="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'true' : '' }}">
                         <i class="material-icons">public</i>
                         <p>Website
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'whatsapp'])) ? 'in' : '' }}"
+                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'in' : '' }}"
                         id="pagesExamples2">
                         <ul class="nav">
                             <li class="{{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
@@ -140,7 +154,7 @@
                                 <a href="{{ route('themes.index') }}"><i class="material-icons">brush</i>
                                     Tema</a>
                             </li>
-                            <li class="{{ (Str::contains(Request::url(), 'user')) ? 'active' : '' }}">
+                            <li class="{{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
                                 <a href="{{ route('user.index') }}">
                                     <i class="material-icons">person</i>
                                     Users</a>
@@ -148,7 +162,7 @@
                         </ul>
                     </div>
                 </li>
-                @endif
+                @endrole
             </ul>
         </div>
     </div>

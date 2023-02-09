@@ -21,54 +21,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            RoleSeeder::class,
+            UserSeeder::class,
             NewsSeeder::class,
             GallerySeeder::class,
             FrontMenuSeeder::class,
+            ThemesSeeder::class,
+            ComCodes::class,
+            PermissionSeeder::class,
             ComponentSeeder::class,
 
             // untuk website satpol
             BidangTusiSeeder::class,
         ]);
-
-        $themes = [
-            [
-                'name' => 'flexstart',
-                'image' => 'img/flexstart.png'
-            ],
-            [
-                'name' => 'herobiz',
-                'image' => 'img/herobiz.png'
-            ],
-            [
-                'name' => 'appway',
-                'image' => 'img/appway.png'
-            ],
-            [
-                'name' => 'anada',
-                'image' => 'img/anada.png'
-            ],
-            [
-                'name' => 'arsha',
-                'image' => 'img/arsha.png'
-            ],
-        ];
-
-        foreach ($themes as $datum) {
-            Themes::create($datum);
-        }
-
-        $role = [
-            [
-                'role' => 'Superadmin'
-            ],
-            [
-                'role' => 'Admin'
-            ]
-        ];
-
-        foreach ($role as $datum) {
-            Role::create($datum);
-        }
 
         // \App\Models\User::factory(10)->create();
         DB::table('websites')->insert([
@@ -77,10 +42,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'diskominfo@wonosobokab.go.id',
             'address' => 'Wonosobo - The Soul Of Java',
             'phone' => '085643710007',
-            'instagram' => '#',
-            'twitter' => '#',
-            'facebook' => '#',
-            'youtube' => '#',
+            'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
+            'twitter' => 'https://twitter.com/diskominfo_wsb',
+            'facebook' => 'https://www.facebook.com/wonosobohebat/',
+            'youtube' => 'https://www.youtube.com/c/OfficialWonosoboTV',
             'url_stream' => '#',
             'themes_front' => 'flexstart',
             'themes_back' => 'back.a',
@@ -102,25 +67,6 @@ class DatabaseSeeder extends Seeder
         //     'themes_front' => 'FlexStart',
         //     'themes_back' => 'back.a',
         // ]);
-
-        $user = [
-            [
-                'name' => 'superadmin',
-                'email' => 'superadmin@app.com',
-                'password' => bcrypt('password'),
-                'role_id' => 1
-            ],
-            [
-                'name' => 'admin',
-                'email' => 'admin@app.com',
-                'password' => bcrypt('password'),
-                'role_id' => 2
-            ]
-        ];
-
-        foreach ($user as $datum) {
-            User::create($datum);
-        }
 
         $related = [
             [
