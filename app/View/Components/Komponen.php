@@ -8,15 +8,19 @@ class Komponen extends Component
 {
     public $li;
     public $a;
+    public $ul;
+    public $i;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($li = '', $a = '')
+    public function __construct($li = '', $a = '', $ul = '', $i = '')
     {
         $this->li = $li;
         $this->a = $a;
+        $this->ul = $ul;
+        $this->i = $i;
     }
 
     /**

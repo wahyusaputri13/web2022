@@ -88,7 +88,7 @@
                     </li>
                     @endif
                     @endforeach
-                    <x-komponen />
+                    <x-komponen li='dropdown' i='bi bi-chevron-down' />
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>

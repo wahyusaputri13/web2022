@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -65,8 +66,13 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    // public function role()
-    // {
-    //     return $this->hasOne(Role::class, 'id', 'role_id');
-    // }
+    public function bidang()
+    {
+        return $this->belongsTo(Bidang::class);
+    }
+
+    public function bidangnya()
+    {
+        return $this->belongsTo(Bidang::class, 'bidang_id');
+    }
 }

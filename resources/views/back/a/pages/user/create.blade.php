@@ -29,6 +29,13 @@
                             Role']); }}
                         </div>
                         @endrole
+                        @can('satpolpp')
+                        <div>
+                            {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
+                            'data-style'
+                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
+                        </div>
+                        @endcan
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
@@ -58,8 +65,8 @@
                             {{Form::password('password_confirmation',['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">
-                            <a href="{{ route('user.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                            <button type="submit" class="btn btn-success btn-fill">Insert</button>
+                            <a href="{{ route('user.index') }}" class="btn btn-default btn-fill">Batal</a>
+                            <button type="submit" class="btn btn-success btn-fill">Tambah</button>
                         </div>
                         {{Form::close()}}
                     </div>

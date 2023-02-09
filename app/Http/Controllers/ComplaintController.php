@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Novay\WordTemplate\Facade as WordTemplate;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
+
 
 class ComplaintController extends Controller
 {
@@ -210,7 +212,10 @@ class ComplaintController extends Controller
      */
     public function destroy($id)
     {
-        $data = Complaint::find($id);
+        $data = Complaint::find($id)->first();
+        if (Storage::exists($data->attachment)) {
+            Storage::delete($data->attachment);
+        }
         return $data->delete();
     }
 
@@ -263,15 +268,15 @@ class ComplaintController extends Controller
         $log = LogComplaint::find($id);
         $data = Complaint::find($log->complaint_id);
         $petugas = User::find($data->assigned_to);
-        $bidang = Bidang::where('id', $data->bidang_id)->get();
-        $tusi = Tusi::where('id', $data->tusi_id)->get();
+        $bidang = Bidang::where('id', $data->bidang_id)->first();
+        $tusi = Tusi::where('id', $data->tusi_id)->first();
         $lampiran = storage_path('app/public/' . $data->result_pic);
 
-        if ($bidang[0]->name == 'TRANTIB') {
+        if ($bidang->name == 'TRANTIB') {
             $dispo = '() SEKRETARIAT (v) TRANTIB () GAKDA';
-        } else  if ($bidang[0]->name == 'GAKDA') {
+        } elseif ($bidang->name == 'GAKDA') {
             $dispo = '() SEKRETARIAT () TRANTIB (v) GAKDA';
-        } else  if ($bidang[0]->name == 'SEKRETARIAT') {
+        } elseif ($bidang->name == 'SEKRETARIAT') {
             $dispo = '(v) SEKRETARIAT () TRANTIB () GAKDA';
         }
 
@@ -294,15 +299,15 @@ class ComplaintController extends Controller
             'height' => '400'
         ]);
 
-        $nama_file = date('d F Y', strtotime($log->created_at)) . '_' . $bidang[0]->name . '_' . $tusi[0]->name . '.docx';
+        $nama_file = date('d F Y', strtotime($log->created_at)) . '_' . $bidang->name . '_' . $tusi->name . '.docx';
 
         header("Content-Disposition: attachment; filename=" . $nama_file . "");
         $templateProcessor->saveAs('php://output');
 
         // Http::post('http://127.0.0.1:8001/send-message', [
-        Http::post('http://10.0.1.21:8001/send-message', [
-            'number' => '085643710007',
-            'message' => 'From Network Administrator Plekentung',
-        ]);
+        // Http::post('http://10.0.1.21:8001/send-message', [
+        //     'number' => '085643710007',
+        //     'message' => 'From Network Administrator Plekentung',
+        // ]);
     }
 }

@@ -7,6 +7,7 @@
             <h2>Blog</h2>
             <p>Recent posts from our Blog</p>
         </header>
+        <x-cari-news />
         <div class="row mt-3">
             @foreach($news as $n)
             <div class="col-xl-3 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch" data-aos="zoom-in"

@@ -17,6 +17,7 @@ use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DailyReportController;
 use App\Http\Controllers\MigrasiDataController;
@@ -101,6 +102,7 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::post('guest', [FrontController::class, 'addguest']);
     Route::resource('buku-tamu', GuestBookController::class);
     Route::get('agenda', [FrontController::class, 'event']);
+    Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
     Route::post('permohonaninformasi', [PermohonanInformasiController::class, 'store']);
 });
@@ -118,6 +120,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
+        Route::resource('bidang', BidangController::class);
     });
     Route::resource('gallery', GalleryController::class);
     Route::resource('news', NewsController::class);
@@ -132,6 +135,10 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
     Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
     Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
+
+    // pindah data dari database wonsobokab
+    Route::get('insert', [NewsController::class, 'insert']);
+
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
 });

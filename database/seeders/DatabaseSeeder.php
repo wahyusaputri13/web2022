@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Component;
 use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
@@ -10,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Role;
 use App\Models\Themes;
 use App\Models\User;
-use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
@@ -30,9 +28,11 @@ class DatabaseSeeder extends Seeder
             FrontMenuSeeder::class,
             ThemesSeeder::class,
             ComCodes::class,
+            PermissionSeeder::class,
+            ComponentSeeder::class,
 
             // untuk website satpol
-            // BidangTusiSeeder::class,
+            BidangTusiSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
@@ -87,37 +87,8 @@ class DatabaseSeeder extends Seeder
             RelatedLink::create($rr);
         }
 
-        $component = [
-            [
-                'name' => 'Agenda',
-                'active' => 1,
-                'slug' => Str::slug('Agenda', '-'),
-            ],
-            [
-                'name' => 'Buku Tamu',
-                'active' => 1,
-                'slug' => Str::slug('Buku Tamu', '-'),
-            ],
-            [
-                'name' => 'Seputar Wonosobo',
-                'active' => 0,
-                'slug' => Str::slug('Seputar Wonosobo', '-'),
-            ]
-
-            // untuk website satpol
-            // [
-            //     'name' => 'Public Complaints',
-            //     'active' => 0,
-            //     'slug' => Str::slug('Complaints', '-'),
-            // ]
-        ];
-
-        foreach ($component as $cp) {
-            Component::create($cp);
-        }
-
         $faker = Faker::create('id_ID');
-        for ($i = 1; $i <= 50; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             GuestBook::create([
                 'name'  => $faker->name(),
                 'date'  => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),

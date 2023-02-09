@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Seo;
 use App\Models\Agenda;
+use App\Models\File;
 use App\Models\Component;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
@@ -33,7 +34,8 @@ class FrontController extends Controller
         $data = News::where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
         $news = News::orderBy('date', 'desc')->paginate(5);
-        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news'));
+        $file = File::where('id_news', $data->attachment)->get();
+        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file'));
     }
 
     public function detailberita($id)

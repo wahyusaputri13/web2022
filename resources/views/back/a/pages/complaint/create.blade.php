@@ -25,8 +25,8 @@
                                     <!-- <input type="file" name="photo" /> -->
                                     {{Form::file('photo', null,['class' => 'form-control'])}}
                                 </span>
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i
-                                        class="fa fa-times"></i> Remove</a>
+                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
+                                    data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                             </div>
                             @if ($errors->any())
                             <div class="alert alert-danger">
@@ -55,7 +55,7 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group label-floating">
                                 <label class="control-label">Reporter's Phone Number</label>
-                                {{Form::text('phone', null,['class' => 'form-control'])}}
+                                {{Form::number('phone', null,['class' => 'form-control'])}}
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">

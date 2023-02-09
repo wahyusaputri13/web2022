@@ -15,6 +15,10 @@
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
+                            <a href="{{ route('bidang.index') }}" class="btn btn-rose btn-round">Data Bidang <i
+                                    class="material-icons">add_circle_outline</i>
+                                <div class="ripple-container"></div>
+                            </a>
                             <a href="{{ route('user.create') }}" class="btn btn-info btn-round">Tambah Data <i
                                     class="material-icons">add_circle_outline</i>
                                 <div class="ripple-container"></div>
@@ -29,11 +33,13 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
+                                        <th>Nama</th>
                                         <th>Email</th>
                                         <th>Phone</th>
+                                        <th>Bidang</th>
+                                        <th>Role</th>
                                         <th class="disabled-sorting text-center">
-                                            Actions</th>
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>
@@ -76,6 +82,8 @@
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email' },
             { data: 'user_phone', name: 'user_phone' },
+            { data: 'bidang.name', name: 'bidang.name', 'defaultContent': '-', 'class': 'text-center' },
+            { data: 'rrole', name: 'rrole' },
             { data: 'action', },
         ]
 
