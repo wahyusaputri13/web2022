@@ -17,6 +17,7 @@ use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DailyReportController;
 use App\Http\Controllers\MigrasiDataController;
@@ -118,6 +119,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
+        Route::resource('bidang', BidangController::class);
     });
     Route::resource('gallery', GalleryController::class);
     Route::resource('news', NewsController::class);

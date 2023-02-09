@@ -6,6 +6,7 @@ use App\Models\Bidang;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role as ModelsRole;
@@ -20,7 +21,13 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::where('id', '>', '3')->where('id', '!=', auth()->user()->id)->get();
+            if (Auth::user()->getRoleNames()->first() == 'superadmin') {
+                $data = User::with('bidang')->where('id', '!=', auth()->user()->id)->get();
+            } else if (Auth::user()->getRoleNames()->first() == 'admin') {
+                $data = User::with('bidang')->role(['admin', 'user'])->where('id', '!=', auth()->user()->id)->get();
+            } else {
+                $data = User::with('bidang')->role('user')->where('id', '!=', auth()->user()->id)->get();
+            }
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -34,7 +41,13 @@ class UserController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action'])
+                ->addColumn(
+                    'rrole',
+                    function ($data) {
+                        return $data->getRoleNames()->first();
+                    }
+                )
+                ->rawColumns(['action', 'rrole'])
                 ->make(true);
         }
         return view('back.a.pages.user.index');
@@ -108,11 +121,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        // $role = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         $data = User::find($id);
         $role = ModelsRole::all()->pluck('name', 'id');
         $user_role = $data->roles->pluck('id');
-        return view('back.a.pages.user.edit', compact('data', 'role', 'user_role'));
+        $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
+        return view('back.a.pages.user.edit', compact('data', 'role', 'user_role', 'bidang'));
     }
 
     /**

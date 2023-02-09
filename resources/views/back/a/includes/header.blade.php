@@ -122,15 +122,15 @@
                 </li>
                 @role('superadmin|admin')
                 <li
-                    class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user'])) ? 'active' : '' }}">
+                    class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamples2"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user'])) ? 'true' : '' }}">
+                        aria-expanded="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'true' : '' }}">
                         <i class="material-icons">public</i>
                         <p>Website
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'whatsapp'])) ? 'in' : '' }}"
+                    <div class="collapse {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'in' : '' }}"
                         id="pagesExamples2">
                         <ul class="nav">
                             <li class="{{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
@@ -154,7 +154,7 @@
                                 <a href="{{ route('themes.index') }}"><i class="material-icons">brush</i>
                                     Tema</a>
                             </li>
-                            <li class="{{ (Str::contains(Request::url(), 'user')) ? 'active' : '' }}">
+                            <li class="{{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
                                 <a href="{{ route('user.index') }}">
                                     <i class="material-icons">person</i>
                                     Pengguna</a>
