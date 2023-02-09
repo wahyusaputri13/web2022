@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('galleries', function (Blueprint $table) {
-            $table->dropColumn('upload_date');
-        });
+        // Schema::table('galleries', function (Blueprint $table) {
+        //     $table->dropColumn('upload_date');
+        // });
     }
 };
