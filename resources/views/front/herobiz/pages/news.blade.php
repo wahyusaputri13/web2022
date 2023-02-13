@@ -16,6 +16,24 @@
         <header class="section-header">
             <h2>Blog</h2>
             <p>Recent posts from our Blog</p>
+            <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-around">
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('/newsall') }}">Show
+                        All</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
+                        Release</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+                </div>
+            </div>
             <div class="sidebar mt-4">
                 <div class="sidebar-item search-form">
                     {{Form::open(['route' => 'news.search','method' => 'get', ''])}}

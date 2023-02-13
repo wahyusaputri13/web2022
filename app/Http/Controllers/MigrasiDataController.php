@@ -46,6 +46,8 @@ class MigrasiDataController extends Controller
                 $kate = 'KATEGORI_NEWS_1';
             } elseif (strtolower($key->main_category) == 'press release') {
                 $kate = 'KATEGORI_NEWS_2';
+            } elseif (strtolower($key->main_category) == 'notulensi') {
+                $kate = 'KATEGORI_NEWS_3';
             } else {
                 $kate = $key->main_category;
             }

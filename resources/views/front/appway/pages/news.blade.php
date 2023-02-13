@@ -37,6 +37,18 @@
 <!-- blog-classic -->
 <section class="sidebar-page-container">
     <div class="container">
+        <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-12 d-flex justify-content-around">
+                <a class="theme-btn-two" href="{{ url('/newsall') }}">Show
+                    All</a>
+                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
+                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
+                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
+                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
+                    Release</a>
+                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
                 <div class="blog-content">
@@ -127,7 +139,7 @@
                     <div class="sidebar-post sidebar-widget">
                         <h3 class="sidebar-title">Recent News</h3>
                         <div class="widget-content">
-                            @foreach($news as $n)
+                            @foreach($sideposts as $n)
                             <div class="post">
                                 <figure class="image">
                                     <a href="{{ url('/news-detail', $n->slug) }}">
@@ -146,9 +158,6 @@
                                     \Carbon\Carbon::parse( $n->date
                                     )->toFormattedDateString() }}</span>
                             </div>
-                            @if($loop->iteration == 5)
-                            @break
-                            @endif
                             @endforeach
                         </div>
                     </div>

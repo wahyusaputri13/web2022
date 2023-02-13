@@ -97,6 +97,18 @@
                     <h3 class="mb-0">Our Latest News</h3>
                 </div>
             </div>
+            <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-around">
+                    <a class="thm-btn thm-bg" href="{{ url('/newsall') }}">Show
+                        All</a>
+                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
+                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
+                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
+                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
+                        Release</a>
+                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+                </div>
+            </div>
             <div class="blog-wrap w-100">
                 <div class="row post-caro">
                     @foreach($news as $n)
@@ -140,11 +152,6 @@
                 </div>
             </div>
             <!-- Blog Wrap -->
-            <div class="view-all w-100 text-center">
-                <a class="thm-btn thm-bg" href="{{ url('newsall') }}" title="">View All News<i
-                        class="flaticon-arrow-pointing-to-right"></i></a>
-            </div>
-            <!-- View All -->
         </div>
     </div>
 </section>

@@ -40,7 +40,24 @@
             <div class="section-title">
                 <h2>Latest Post</h2>
             </div>
-
+            <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-around">
+                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;"
+                        href="{{ url('/newsall') }}">Show
+                        All</a>
+                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
+                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
+                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
+                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
+                        Release</a>
+                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+                </div>
+            </div>
             <div class="row">
                 @foreach($news as $n)
                 <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
@@ -64,10 +81,6 @@
                 @break
                 @endif
                 @endforeach
-                <div class="d-flex justify-content-end">
-                    <a class="btn rounded-pill" style="background: #47b2e4; color: white;" href="{{ url('/newsall') }}">
-                        Show All</a>
-                </div>
             </div>
         </div>
     </section>

@@ -68,9 +68,19 @@
             <div class="section-title">
                 <!-- <span>Posts</span> -->
                 <h2><span>Latest Post From Our Blog</span></h2>
-                <a href="{{ url('newsall') }}">Show All Posts</a>
             </div>
-
+            <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-around">
+                    <a class="default-btn-one" href="{{ url('/newsall') }}">Show
+                        All</a>
+                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
+                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
+                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
+                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
+                        Release</a>
+                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+                </div>
+            </div>
             <div class="row">
                 @foreach($news as $n)
                 <div class="col-lg-4 col-sm-6 mb-3" style="display: flex">
