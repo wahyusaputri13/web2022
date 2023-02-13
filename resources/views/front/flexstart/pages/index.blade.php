@@ -2,7 +2,6 @@
 @section('content')
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="hero d-flex align-items-center">
-
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -33,7 +32,6 @@
             </div>
         </div>
     </div>
-
 </section>
 <!-- End Hero -->
 <main id="main">
@@ -41,16 +39,25 @@
     <!-- ======= Recent Blog Posts Section ======= -->
     @if($news->count() != 0)
     <section id="recent-blog-posts" class="recent-blog-posts">
-
         <div class="container" data-aos="fade-up">
-
             <header class="section-header">
                 <h2>Blog</h2>
                 <p>Recent posts form our Blog</p>
             </header>
+
             <div class="row" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-12 d-flex justify-content-center">
+                <div class="col-lg-12 d-flex justify-content-around">
                     <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/newsall') }}">Show All</a>
+                    <a class="btn" style="background: #4154f1; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
+                    <a class="btn" style="background: #4154f1; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
+                    <a class="btn" style="background: #4154f1; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
+                    <a class="btn" style="background: #4154f1; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press Release</a>
+                    <a class="btn" style="background: #4154f1; color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
                 </div>
             </div>
             <div class="row mt-4">

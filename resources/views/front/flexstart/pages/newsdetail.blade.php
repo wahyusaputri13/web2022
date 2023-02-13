@@ -103,7 +103,8 @@
                     </div> -->
                     <!-- End blog author bio -->
 
-                </div><!-- End blog entries list -->
+                </div>
+                <!-- End blog entries list -->
 
                 <div class="col-lg-4">
 
@@ -118,18 +119,7 @@
                         </div>
                         <!-- End sidebar search formn-->
 
-                        <!-- <h3 class="sidebar-title">Categories</h3>
-                        <div class="sidebar-item categories">
-                            <ul>
-                                <li><a href="#">General <span>(25)</span></a></li>
-                                <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                                <li><a href="#">Travel <span>(5)</span></a></li>
-                                <li><a href="#">Design <span>(22)</span></a></li>
-                                <li><a href="#">Creative <span>(8)</span></a></li>
-                                <li><a href="#">Educaion <span>(14)</span></a></li>
-                            </ul>
-                        </div> -->
-                        <!-- End sidebar categories-->
+                        <x-category h3='sidebar-title' div='sidebar-item categories' />
 
                         <h3 class="sidebar-title">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">
@@ -148,7 +138,8 @@
                                     )->toFormattedDateString() }}</time>
                             </div>
                             @endforeach
-                        </div><!-- End sidebar recent posts-->
+                        </div>
+                        <!-- End sidebar recent posts-->
 
                         <!-- <h3 class="sidebar-title">Tags</h3>
                         <div class="sidebar-item tags">
@@ -168,14 +159,17 @@
                         </div> -->
                         <!-- End sidebar tags-->
 
-                    </div><!-- End sidebar -->
+                    </div>
+                    <!-- End sidebar -->
 
-                </div><!-- End blog sidebar -->
+                </div>
+                <!-- End blog sidebar -->
 
             </div>
 
         </div>
-    </section><!-- End Blog Single Section -->
+    </section>
+    <!-- End Blog Single Section -->
 
 </main>
 @endsection

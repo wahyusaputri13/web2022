@@ -43,6 +43,10 @@
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div>
                     <div class="form-group label-floating">
+                        <label class="control-label">Kategori</label>
+                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
+                    </div>
+                    <div class="form-group label-floating">
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
