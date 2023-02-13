@@ -61,7 +61,8 @@ class NewsController extends Controller
     public function create()
     {
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        return view('back.a.pages.news.create', compact('highlight'));
+        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        return view('back.a.pages.news.create', compact('highlight', 'categori'));
     }
 
     /**
@@ -79,6 +80,7 @@ class NewsController extends Controller
                 'date' => 'required',
                 'description' => 'required',
                 'highlight' => 'required',
+                'kategori' => 'required',
             ]);
             $name = $request->file('photo')->getClientOriginalName();
             $path = $request->file('photo')->store('news');
@@ -91,6 +93,7 @@ class NewsController extends Controller
                 'upload_by' => auth()->user()->name,
                 'description' => $request->description,
                 'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
+                'kategori' => $request->kategori,
             ];
         } else {
             $validated = $request->validate([
@@ -98,6 +101,7 @@ class NewsController extends Controller
                 'date' => 'required',
                 'description' => 'required',
                 'highlight' => 'required',
+                'kategori' => 'required',
             ]);
             $data = [
                 'title' => $request->title,
@@ -106,6 +110,7 @@ class NewsController extends Controller
                 'description' => $request->description,
                 'highlight' => $request->highlight,
                 'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
+                'kategori' => $request->kategori,
             ];
         }
         News::create($data);
@@ -133,7 +138,8 @@ class NewsController extends Controller
     {
         $data = News::find($id);
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        return view('back.a.pages.news.edit', compact('data', 'highlight'));
+        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
     }
 
     /**
@@ -152,6 +158,7 @@ class NewsController extends Controller
                 'description' => 'required',
                 'highlight' => 'required',
                 'date' => 'required',
+                'kategori' => 'required',
             ]);
             $gambar = News::where('id', $id)->first();
             if ($request->file('photo')->getClientOriginalName() != $gambar->photo) {
@@ -166,6 +173,7 @@ class NewsController extends Controller
                     'highlight' => $request->highlight,
                     'upload_by' => auth()->user()->name,
                     'description' => $request->description,
+                    'kategori' => $request->kategori,
                 ];
             }
         } else {
@@ -174,6 +182,7 @@ class NewsController extends Controller
                 'description' => 'required',
                 'highlight' => 'required',
                 'date' => 'required',
+                'kategori' => 'required',
             ]);
             $data = [
                 'title' => $request->title,
@@ -181,6 +190,7 @@ class NewsController extends Controller
                 'highlight' => $request->highlight,
                 'upload_by' => auth()->user()->name,
                 'description' => $request->description,
+                'kategori' => $request->kategori,
             ];
         }
         News::find($id)->update($data);

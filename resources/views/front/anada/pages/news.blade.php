@@ -4,7 +4,20 @@
     ============================================= -->
 <div class="blog-area full-blog blog-standard full-blog default-padding">
     <div class="container">
-        <div class="blog-items">
+        <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-12 d-flex justify-content-around">
+                <a class="btn-simple" href="{{ url('/newsall') }}">Show
+                    All</a>
+                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
+                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
+                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
+                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
+                    Release</a>
+                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+            </div>
+        </div>
+        <x-cari-news />
+        <div class="blog-items mt-3">
             <div class="row">
                 <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
                     <div class="blog-item-box">

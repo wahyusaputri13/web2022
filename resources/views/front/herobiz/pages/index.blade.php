@@ -83,7 +83,24 @@
                 <h2>Blog</h2>
                 <p>Recent posts form our Blog</p>
             </div>
-            <div class="row">
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-around">
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('/newsall') }}">Show All</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
+                        Release</a>
+                    <a class="btn" style="background-color: var(--color-primary); color: white;"
+                        href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+                </div>
+            </div>
+            <div class="row mt-3">
                 @foreach($news as $n)
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="post-box">
@@ -111,14 +128,8 @@
                 @break
                 @endif
                 @endforeach
-                <div class="d-flex justify-content-end m-2">
-                    <a href="{{ route('news.all') }}" class="btn"
-                        style="background-color: var(--color-primary); color: white;">Show All</a>
-                </div>
             </div>
-
         </div>
-
     </section>
     @endif
 

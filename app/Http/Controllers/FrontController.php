@@ -70,9 +70,17 @@ class FrontController extends Controller
     public function newsall(Request $request)
     {
         Seo::seO();
-        $news = News::orderBy('date', 'desc')->paginate(12);
-        $sidepost = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sidepost'));
+        $news = News::latest('date')->paginate(12);
+        $sideposts = News::latest('date')->take(5)->get();
+        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
+    }
+
+    public function newsByCategory($id)
+    {
+        Seo::seO();
+        $news = News::where('kategori', $id)->latest('date')->paginate(12);
+        $sideposts = News::latest('date')->take(5)->get();
+        return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
     }
 
     public function galleryall(Request $request)

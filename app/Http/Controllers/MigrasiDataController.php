@@ -40,7 +40,19 @@ class MigrasiDataController extends Controller
                 'description' => $key->post_content,
             ]);
 
-            News::create($data);
+            if (strtolower($key->main_category) == 'sambutan') {
+                $kate = 'KATEGORI_NEWS_0';
+            } elseif (strtolower($key->main_category) == 'dokumentasi') {
+                $kate = 'KATEGORI_NEWS_1';
+            } elseif (strtolower($key->main_category) == 'press release') {
+                $kate = 'KATEGORI_NEWS_2';
+            } elseif (strtolower($key->main_category) == 'notulensi') {
+                $kate = 'KATEGORI_NEWS_3';
+            } else {
+                $kate = $key->main_category;
+            }
+
+            News::create($data + ['kategori' => $kate]);
         }
 
         return response()->json('selesai salin data ke database baru', 200);
