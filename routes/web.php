@@ -20,6 +20,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DailyReportController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
 use App\Models\Counter;
@@ -136,6 +137,8 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
     Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
     Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
+    Route::post('storeimg', [FileController::class, 'insert'])->name('store.img');
+    Route::post('plekentung', [FileController::class, 'del'])->name('plekentung');
 
     // pindah data dari database wonsobokab
     Route::get('insert', [NewsController::class, 'insert']);

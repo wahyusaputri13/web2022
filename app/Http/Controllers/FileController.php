@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\file;
+use App\Models\File;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -15,6 +15,27 @@ class FileController extends Controller
     public function index()
     {
         //
+    }
+
+    public function insert(Request $request)
+    {
+
+        $path = storage_path('tmp/uploads');
+
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        $file = $request->file('file');
+
+        $name = uniqid() . '_' . trim($file->getClientOriginalName());
+
+        $file->move($path, $name);
+
+        return response()->json([
+            'name'          => $name,
+            'original_name' => $file->getClientOriginalName(),
+        ]);
     }
 
     /**
