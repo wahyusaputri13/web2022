@@ -137,17 +137,18 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
     Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
     Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
-    Route::post('storeimg', [FileController::class, 'insert'])->name('store.img');
-    Route::post('plekentung', [FileController::class, 'del'])->name('plekentung');
-
+    Route::resource('file_image', FileController::class);
+    
     // pindah data dari database wonsobokab
     Route::get('insert', [NewsController::class, 'insert']);
-
+    
     // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-
+    
 });
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
+
+Route::post('plekentung/{id}', [FileController::class, 'del'])->name('plekentung');
