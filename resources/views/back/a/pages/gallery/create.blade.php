@@ -15,8 +15,7 @@
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">Form Tambah Data</h4>
-                        <!-- Example of a form that Dropzone can take over -->
-                        <form action="{{ route('file_image.store') }}" class="dropzone" id="my-awesome-dropzone"></form>
+
                         {{Form::open(['route' => 'gallery.store','method' => 'post', 'files' => 'true', ''])}}
                         <div class="form-group">
                             <label class="control-label">Tanggal Upload</label>
@@ -26,6 +25,8 @@
                             <label class="control-label">Deskripsi</label>
                             {{Form::text('description', null,['class' => 'form-control'])}}
                         </div>
+                        <!-- Example of a form that Dropzone can take over -->
+                        <div class="dropzone" id="my-awesome-dropzone"></div>
                         <div class="d-flex text-right">
                             <a href="{{ route('gallery.index') }}" class="btn btn-default btn-fill">Cancel</a>
                             <button type="submit" class="btn btn-success btn-fill">Insert</button>
@@ -51,6 +52,7 @@
     var uploadedDocumentMap = {}
     let token = $("meta[name='csrf-token']").attr("content");
     Dropzone.options.myAwesomeDropzone = {
+
         url: `{{ route('file_image.store') }}`,
         // maxFilesize: 2, // MB
         addRemoveLinks: true,
@@ -101,20 +103,17 @@
             });
         },
         init: function () {
-            @if (isset($project) && $project -> document)
+            @if(isset($project) && $project->document)
                 var files =
-                    {!! json_encode($project -> document)!!
+                    {!! json_encode($project->document) !!}
+                for(var i in files) {
+                    var file = files[i]
+                    this.options.addedfile.call(this, file)
+                    file.previewElement.classList.add('dz-complete')
+                    $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+                }
+            @endif
         }
-    for(var i in files) {
-        var file = files[i]
-        this.options.addedfile.call(this, file)
-        file.previewElement.classList.add('dz-complete')
-        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
     }
-    @endif
-    }
-    }
-
-
 </script>
 @endpush

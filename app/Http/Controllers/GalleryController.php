@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -63,18 +64,24 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'photo' => 'required|image|max:12048',
+            'upload_date' => 'required',
             'description' => 'required',
         ]);
-        $name = $request->file('photo')->getClientOriginalName();
-        $path = $request->file('photo')->store('gallery');
         $data = [
-            'name' => $name,
-            'path' => $path,
             'description' => $request->description,
             'upload_date' => $request->upload_date,
         ];
-        Gallery::create($data);
+        $id = Gallery::create($data);
+        foreach ($request->document as $df) {
+            $from = storage_path('tmp/uploads/' . $df);
+            $to = public_path('gallery/' . $df);
+            dd($to);
+            Storage::move($from, $to);
+            File::create([
+                'id_news' => $id->id,
+                'file_name' => 'gallery/' . $df
+            ]);
+        }
         return redirect(route('gallery.index'))->with(['success' => 'Data added successfully!']);
     }
 
