@@ -68,11 +68,9 @@ class GalleryController extends Controller
             'upload_date' => 'required',
             'description' => 'required',
         ]);
-        $data = [
-            'description' => $request->description,
-            'upload_date' => $request->upload_date,
-        ];
-        $id = Gallery::create($data);
+
+        $id = Gallery::create($validated);
+
         foreach ($request->document as $df) {
             File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
             Files::create([
@@ -81,6 +79,7 @@ class GalleryController extends Controller
                 'file_name' => $df
             ]);
         }
+
         return redirect(route('gallery.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -116,35 +115,24 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->hasFile('photo')) {
-            $validated = $request->validate([
-                'photo' => 'required|image|max:12048',
-                'description' => 'required',
-                'upload_date' => 'required',
-            ]);
-            $gambar = Gallery::where('id', $id)->first();
-            if ($request->file('photo')->getClientOriginalName() != $gambar->name) {
-                Storage::delete($gambar->path);
-                $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('gallery');
-                $data = [
-                    'name' => $name,
-                    'path' => $path,
-                    'description' => $request->description,
-                    'upload_date' => $request->upload_date,
-                ];
+        $validated = $request->validate([
+            'upload_date' => 'required',
+            'description' => 'required',
+        ]);
+
+        Gallery::find($id)->update($validated);
+
+        if ($request->document) {
+            foreach ($request->document as $df) {
+                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
+                Files::create([
+                    'id_news' => $id,
+                    'path' => 'gallery/' . $df,
+                    'file_name' => $df
+                ]);
             }
-        } else {
-            $validated = $request->validate([
-                'description' => 'required',
-                'upload_date' => 'required',
-            ]);
-            $data = [
-                'description' => $request->description,
-                'upload_date' => $request->upload_date,
-            ];
         }
-        Gallery::find($id)->update($data);
+
         return redirect(route('gallery.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 

@@ -41,7 +41,7 @@
                     <div class="service-card">
                         @if(file_exists(public_path('storage/'.$n->path)))
                         <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $n->path}}"><img
-                                src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"></a>
+                                src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid"></a>
                         @else
                         <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
                                 src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>

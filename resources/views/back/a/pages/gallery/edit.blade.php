@@ -76,7 +76,7 @@
                 path = uploadedDocumentMap[file.path];
             }
 
-            console.log(file.name);
+            // console.log(file.name);
 
             $('form').find('input[name="document[]"][value="' + name + '"]').remove();
 
@@ -95,7 +95,19 @@
         init: function () {
             myDropzone = this;
             let id_ku = document.getElementById('malika').value;
-
+            
+            this.on("removedfile", function (file) {
+                alert("Delete this file?");
+                $.ajax({
+                    url: '/admin/file_image/' + file.name,
+                    type: "DELETE",
+                    data: {
+                        "_token": token
+                    },
+                    // data: { 'filetodelete': file.name }
+                });
+            });
+           
             $.ajax({
                 url: `/admin/file_image/${id_ku}`,
                 type: 'get',
@@ -110,7 +122,7 @@
                         myDropzone.emit("complete", mockFile);
 
                     });
-
+                  
                 }
             });
 

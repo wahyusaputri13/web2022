@@ -72,7 +72,7 @@ class FileController extends Controller
                 'path'          => config('app.url') . '/storage/' . $d->path
             ];
         }
-        return json_encode($fileList);
+        return json_encode($fileList ?? []);
     }
 
     /**
@@ -115,6 +115,8 @@ class FileController extends Controller
                 'lokasi'          => $loc,
             ]);
         } else {
+            $data = File::where('file_name', $id)->first();
+            $data->delete();
             unlink(storage_path('app/public/gallery/') . $id);
             return response()->json([
                 'lokasi' => 'File terhapus'
