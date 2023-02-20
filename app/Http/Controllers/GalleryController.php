@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\File;
+use App\Models\File as Files;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class GalleryController extends Controller
 {
@@ -73,13 +74,11 @@ class GalleryController extends Controller
         ];
         $id = Gallery::create($data);
         foreach ($request->document as $df) {
-            $from = storage_path('tmp/uploads/' . $df);
-            $to = public_path('gallery/' . $df);
-            dd($to);
-            Storage::move($from, $to);
-            File::create([
+            File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
+            Files::create([
                 'id_news' => $id->id,
-                'file_name' => 'gallery/' . $df
+                'path' => 'gallery/' . $df,
+                'file_name' => $df
             ]);
         }
         return redirect(route('gallery.index'))->with(['success' => 'Data added successfully!']);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -61,9 +62,17 @@ class FileController extends Controller
      * @param  \App\Models\file  $file
      * @return \Illuminate\Http\Response
      */
-    public function show(file $file)
+    public function show($id)
     {
-        //
+        $data = Gallery::with('gambar')->where('id', $id)->first();
+        foreach ($data->gambar as $d) {
+            $fileList[] = [
+                'name'          => $d->file_name,
+                'size'          => Storage::size(($d->path)),
+                'path'          => config('app.url') . '/storage/' . $d->path
+            ];
+        }
+        return json_encode($fileList);
     }
 
     /**
@@ -97,10 +106,19 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
+
         $loc = storage_path('tmp/uploads/') . $id;
-        unlink(storage_path('tmp/uploads/' . $id));
-        return response()->json([
-            'lokasi'          => $loc,
-        ]);
+
+        if (file_exists($loc)) {
+            unlink(storage_path('tmp/uploads/' . $id));
+            return response()->json([
+                'lokasi'          => $loc,
+            ]);
+        } else {
+            unlink(storage_path('app/public/gallery/') . $id);
+            return response()->json([
+                'lokasi' => 'File terhapus'
+            ]);
+        }
     }
 }
