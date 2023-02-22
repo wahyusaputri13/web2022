@@ -18,7 +18,7 @@
 <link href="{{ asset('assets/front/appway/css/flaticon.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/owl.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/appway/css/jquery.fancybox.min.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('assets/front/appway/css/jquery.fancybox.min.css') }}" rel="stylesheet"> -->
 <link href="{{ asset('assets/front/appway/css/animate.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/imagebg.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/style.css') }}" rel="stylesheet">

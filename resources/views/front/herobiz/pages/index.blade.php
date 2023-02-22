@@ -38,27 +38,27 @@
                     <li data-filter=".filter-branding">Branding</li>
                     <li data-filter=".filter-books">Books</li> -->
                 </ul>
-                <div class="row g-0 portfolio-container">
+                <div class="row g-0">
                     @foreach($gallery as $g)
-                    <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
-                        @if(file_exists(public_path('storage/'.$g->path)))
-                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
-                        @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                        @endif
-                        <div class="portfolio-info">
-                            <h4>{{ $g->description }}</h4>
-                            @if(file_exists(public_path('storage/'.$g->path)))
-                            <a href="{{ asset('storage/') }}/{{ $g->path}}" title="{{ $g->description }}"
-                                data-gallery="portfolio-gallery" class="glightbox preview-link"><i
-                                    class="bi bi-zoom-in"></i></a>
+                    <div class="col-lg-3 col-md-4" style="display: flex">
+                        <div class="d-flex justify-content-center">
+                            @foreach($g->gambar as $pic)
+                            @if($loop->iteration == 1)
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                    style="height: 250px;">
+                            </a>
                             @else
-                            <a href="{{ asset('img/soulofjava.jpg') }}" title="{{ $g->description }}"
-                                data-gallery="portfolio-gallery" class="glightbox preview-link"><i
-                                    class="bi bi-zoom-in"></i></a>
+                            <div style="display:none;">
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                    data-caption="{{ $g->description }}">
+                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                                </a>
+                            </div>
                             @endif
-                            <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                    class="bi bi-link-45deg"></i></a> -->
+                            @endforeach
                         </div>
                     </div>
                     @if($loop->iteration == 12)
@@ -102,13 +102,13 @@
             </div>
             <div class="row mt-3">
                 @foreach($news as $n)
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" style="display: flex">
                     <div class="post-box">
                         <div class="post-img">
                             @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" style="height: 250px;">
                             @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" style="height: 250px;">
                             @endif
                         </div>
                         <div class="meta">
@@ -239,4 +239,6 @@
         });
     });
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 @endpush

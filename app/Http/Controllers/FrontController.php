@@ -86,7 +86,7 @@ class FrontController extends Controller
     public function galleryall(Request $request)
     {
         Seo::seO();
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
+        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
         return view('front.' . $this->themes->themes_front . '.pages.gallery', compact('gallery'));
     }
 

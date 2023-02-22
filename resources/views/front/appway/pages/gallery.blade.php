@@ -36,31 +36,41 @@
 <div class="blog-area full-blog blog-standard full-blog default-padding">
     <div class="container">
         <div class="blog-items">
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col text-center">
                     <h2>Gallery</h2>
                 </div>
-                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                    @foreach($gallery as $g)
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-img">
-                            @if(file_exists(public_path('storage/'.$g->path)))
-                            <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}"><img
-                                    src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid" alt="$g->name"></a>
-                            @else
-                            <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
-                                    src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>
-                            @endif
+            </div>
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                @foreach($gallery as $g)
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web" style="display: flex">
+                    <div class="portfolio-img">
+                        @foreach($g->gambar as $pic)
+                        @if($loop->iteration == 1)
+                        <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                            href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                            <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                style="height: 250px;">
+                        </a>
+                        @else
+                        <div style="display:none;">
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                            </a>
                         </div>
+                        @endif
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
-                <div class="col text-center">
-                    {{ $gallery->links('vendor.pagination.appway') }}
-                </div>
+                @endforeach
+            </div>
+            <div class="col text-center">
+                {{ $gallery->links('vendor.pagination.appway') }}
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
 @push('after-script')

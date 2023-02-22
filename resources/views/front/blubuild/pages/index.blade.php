@@ -50,23 +50,32 @@
             </div>
             <div class="proj-wrap w-100">
                 <div class="row justify-content-center">
-                    @foreach($gallery as $n)
-                    <div class="col-md-4 col-sm-6 col-lg-3">
+                    @foreach($gallery as $g)
+                    <div class="col-md-4 col-sm-6 col-lg-3" style="display: flex">
                         <div class="proj-box position-relative w-100">
                             <div class="proj-thumb overflow-hidden w-100">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $n->path}}"><img
-                                        src="{{ asset('storage/') }}/{{ $n->path}}" style="height: 200px;"
-                                        class="img-fluid w-100"></a>
+                                @foreach($g->gambar as $pic)
+                                @if($loop->iteration == 1)
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                    data-caption="{{ $g->description }}">
+                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                        style="height: 250px;">
+                                </a>
                                 @else
-                                <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
-                                        src="{{ asset('img/soulofjava.jpg') }}" style="height: 200px;"
-                                        class="img-fluid w-100" alt="soulofjava"></a>
+                                <div style="display:none;">
+                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                        href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                        data-caption="{{ $g->description }}">
+                                        <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                                    </a>
+                                </div>
                                 @endif
+                                @endforeach
                             </div>
                             <div class="proj-info position-absolute">
                                 <!-- <i class="flaticon-helmet"></i> -->
-                                <h3 class="mb-0"><a href="#">{{ $n->description }}</a></h3>
+                                <h3 class="mb-0"><a href="#">{{ $g->description }}</a></h3>
                             </div>
                         </div>
                     </div>

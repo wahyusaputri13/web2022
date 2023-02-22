@@ -102,28 +102,24 @@
             </div>
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                 @foreach($gallery as $g)
-                <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+                <div class="col-lg-3 col-md-6 portfolio-item filter-web" style="display: flex">
                     <div class="portfolio-img">
-                        @if(file_exists(public_path('storage/'.$g->path)))
-                        <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                        @foreach($g->gambar as $pic)
+                        @if($loop->iteration == 1)
+                        <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                            href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                            <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                style="height: 250px;">
+                        </a>
                         @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        <div style="display:none;">
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                            </a>
+                        </div>
                         @endif
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>{{ $g->description }}</h4>
-                        <!-- <p>Web</p> -->
-                        @if(file_exists(public_path('storage/'.$g->path)))
-                        <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
-                            class="portfolio-lightbox preview-link" title="{{ $g->description }}"><i
-                                class="bx bx-plus"></i></a>
-                        @else
-                        <a href="{{ asset('img/soulofjava.jpg') }}" data-gallery="portfolioGallery"
-                            class="portfolio-lightbox preview-link" title="{{ $g->description }}"><i
-                                class="bx bx-plus"></i></a>
-                        @endif
-                        <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a> -->
+                        @endforeach
                     </div>
                 </div>
                 @if($loop->iteration == 8)
@@ -268,4 +264,6 @@
         // window.addEventListener("load", playmusik);
     });
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 @endpush

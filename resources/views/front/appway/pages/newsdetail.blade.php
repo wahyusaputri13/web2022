@@ -44,7 +44,8 @@
                     <div class="post-details">
                         <figure class="image-box">
                             @if(file_exists(public_path('storage/'.$data->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->title }}">
+                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid"
+                                alt="{{ $data->title }}">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava">
                             @endif

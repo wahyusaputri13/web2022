@@ -19,26 +19,22 @@
         <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
             @foreach($gallery as $g)
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap d-flex justify-content-center">
-                    @if(file_exists(public_path('storage/'.$g->path)))
-                    <img src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid">
+                <div class="d-flex justify-content-center">
+                    @foreach($g->gambar as $pic)
+                    @if($loop->iteration == 1)
+                    <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                        href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                        <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                    </a>
                     @else
-                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                    @endif
-                    <div class="portfolio-info">
-                        <h4>{{ $g->description }}</h4>
-                        <!-- <p>App</p> -->
-                        <div class="portfolio-links">
-                            @if(file_exists(public_path('storage/'.$g->path)))
-                            <a href="{{ asset('storage/') }}/{{ $g->path}}" data-gallery="portfolioGallery"
-                                class="portfokio-lightbox" title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
-                            @else
-                            <a href="{{ asset('img/soulofjava.jpg') }}" data-gallery="portfolioGallery"
-                                class="portfokio-lightbox" title="{{ $g->description }}"><i class="bi bi-plus"></i></a>
-                            @endif
-                            <!-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> -->
-                        </div>
+                    <div style="display:none;">
+                        <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                            href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                            <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                        </a>
                     </div>
+                    @endif
+                    @endforeach
                 </div>
             </div>
             @endforeach
@@ -49,4 +45,6 @@
 <!-- End Gallery Section -->
 @endsection
 @push('after-script')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 @endpush

@@ -53,14 +53,15 @@
             <div class="row">
                 @foreach($news as $n)
                 <!-- Single Item -->
-                <div class="col-lg-4 col-md-6 single-item">
+                <div class="col-lg-4 col-md-6 single-item" style="display: flex">
                     <div class="item">
                         <div class="thumb">
                             <a href="#">
                                 @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
+                                <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid"
+                                    style="height: 250px;">
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" style="height: 250px;">
                                 @endif
                                 <div class="date">
                                     <strong>{{ \Carbon\Carbon::parse($n->date)->format('l') }}</strong> {{
@@ -112,16 +113,27 @@
                 <div class="row">
                     @foreach($gallery as $g)
                     <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
+                    <div class="single-item col-lg-4 col-md-6" style="display: flex">
                         <div class="item">
                             <div class="thumb">
-                                @if(file_exists(public_path('storage/'.$g->path)))
-                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}"><img
-                                        src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"></a>
+                                @foreach($g->gambar as $pic)
+                                @if($loop->iteration == 1)
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                    data-caption="{{ $g->description }}">
+                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                        style="height: 250px;">
+                                </a>
                                 @else
-                                <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
-                                        src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"></a>
+                                <div style="display:none;">
+                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                        href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                        data-caption="{{ $g->description }}">
+                                        <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                                    </a>
+                                </div>
                                 @endif
+                                @endforeach
                             </div>
                             <div class="info">
                                 <h4>{{ $g->description }}</h4>
