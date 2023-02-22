@@ -10,4 +10,9 @@ class Gallery extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+
+    public function gambar()
+    {
+        return $this->hasMany(File::class, 'id_news', 'id');
+    }
 }

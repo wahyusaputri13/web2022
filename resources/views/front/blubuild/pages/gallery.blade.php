@@ -23,27 +23,25 @@
                     @foreach($gallery as $g)
                     <div class="col-md-4 col-sm-6 col-lg-3" style="display: flex;">
                         <div class="shop-box w-100">
-                            <div class="shop-img w-100 position-relative overflow-hidden">
-                                @if(file_exists(public_path('storage/'.$g->path)))
-                                <img class="img-fluid w-100" src="{{ asset('storage/') }}/{{ $g->path}}"
-                                    alt="{{ $g->name }}" style="height: 200px;">
-                                <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}" title="">View
-                                    Photo<i class="fas fa-eye"></i></a>
-                                @else
-                                <img class="img-fluid w-100" src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava"
-                                    style="height: 200px;">
-                                <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}" title="">View
-                                    Photo<i class="fas fa-eye"></i></a>
-                                @endif
+                            @foreach($g->gambar as $pic)
+                            @if($loop->iteration == 1)
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
+                                    style="height: 250px;">
+                            </a>
+                            @else
+                            <div style="display:none;">
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
+                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
+                                    data-caption="{{ $g->description }}">
+                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                                </a>
                             </div>
+                            @endif
+                            @endforeach
                             <div class="shop-info w-100">
-                                <h3 class="mb-0 text-center"><a>{{ $g->name}}</a></h3>
-                                <!-- <div class="shop-info-bottom d-flex flex-wrap justify-content-between w-100">
-                                    <span class="rate"><i class="far fa-star off"></i><i class="far fa-star off"></i><i
-                                            class="far fa-star off"></i><i class="far fa-star off"></i><i
-                                            class="far fa-star off"></i></span>
-                                    <span class="price"><ins>$590.00</ins><del>$569.00</del></span>
-                                </div> -->
+                                <h3 class="mb-0 text-center"><a>{{ $g->description }}</a></h3>
                             </div>
                         </div>
                     </div>

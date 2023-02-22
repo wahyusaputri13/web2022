@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\file;
+use App\Models\File;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -35,7 +37,23 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $path = storage_path('tmp/uploads');
+
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        $file = $request->file('file');
+
+        $name = uniqid() . '_' . trim($file->getClientOriginalName());
+
+        $file->move($path, $name);
+
+        return response()->json([
+            'name'          => $name,
+            'original_name' => $file->getClientOriginalName(),
+            'path' => $path . $name
+        ]);
     }
 
     /**
@@ -44,9 +62,17 @@ class FileController extends Controller
      * @param  \App\Models\file  $file
      * @return \Illuminate\Http\Response
      */
-    public function show(file $file)
+    public function show($id)
     {
-        //
+        $data = Gallery::with('gambar')->where('id', $id)->first();
+        foreach ($data->gambar as $d) {
+            $fileList[] = [
+                'name'          => $d->file_name,
+                'size'          => Storage::size(($d->path)),
+                'path'          => config('app.url') . '/storage/' . $d->path
+            ];
+        }
+        return json_encode($fileList ?? []);
     }
 
     /**
@@ -78,8 +104,23 @@ class FileController extends Controller
      * @param  \App\Models\file  $file
      * @return \Illuminate\Http\Response
      */
-    public function destroy(file $file)
+    public function destroy($id)
     {
-        //
+
+        $loc = storage_path('tmp/uploads/') . $id;
+
+        if (file_exists($loc)) {
+            unlink(storage_path('tmp/uploads/' . $id));
+            return response()->json([
+                'lokasi'          => $loc,
+            ]);
+        } else {
+            $data = File::where('file_name', $id)->first();
+            $data->delete();
+            unlink(storage_path('app/public/gallery/') . $id);
+            return response()->json([
+                'lokasi' => 'File terhapus'
+            ]);
+        }
     }
 }

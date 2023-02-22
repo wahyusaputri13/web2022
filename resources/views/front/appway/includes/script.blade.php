@@ -5,7 +5,7 @@
 <script src="{{ asset('assets/front/appway/js/owl.js') }}"></script>
 <script src="{{ asset('assets/front/appway/js/wow.js') }}"></script>
 <script src="{{ asset('assets/front/appway/js/validation.js') }}"></script>
-<script src="{{ asset('assets/front/appway/js/jquery.fancybox.js') }}"></script>
+<!-- <script src="{{ asset('assets/front/appway/js/jquery.fancybox.js') }}"></script> -->
 <script src="{{ asset('assets/front/appway/js/appear.js') }}"></script>
 <script src="{{ asset('assets/front/appway/js/scrollbar.js') }}"></script>
 <script src="{{ asset('assets/front/appway/js/nav-tool.js') }}"></script>

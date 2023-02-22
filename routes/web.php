@@ -20,6 +20,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DailyReportController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
 use App\Models\Counter;
@@ -73,7 +74,7 @@ Route::get('/', function () {
         $response = Http::withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
         $response = $response->collect();
         $berita =   array_slice($response['data']['data'], 0, 3);
-        $gallery = Gallery::orderBy('created_at', 'desc')->paginate(12);
+        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
         $news = News::orderBy('date', 'desc')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
     } else {
@@ -136,6 +137,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
     Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
     Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
+    Route::resource('file_image', FileController::class);
 
     // pindah data dari database wonsobokab
     Route::get('insert', [NewsController::class, 'insert']);
@@ -148,3 +150,5 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
+
+// Route::get('delete_image/{id?}', [FileController::class, 'destroy']);

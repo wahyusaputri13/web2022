@@ -1180,11 +1180,11 @@ select {
 .mt-auto {
   margin-top: auto;
 }
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
 .mb-5 {
   margin-bottom: 1.25rem;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 .mb-20 {
   margin-bottom: 5rem;

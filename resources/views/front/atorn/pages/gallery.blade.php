@@ -25,13 +25,21 @@
             @foreach($gallery as $g)
             <div class="col-lg-4 col-sm-6" style="display: flex">
                 <div class="attorney-card">
-                    @if(file_exists(public_path('storage/'.$g->path)))
-                    <a data-fancybox="gallery" href="{{ asset('storage/') }}/{{ $g->path}}"><img
-                            src="{{ asset('storage/') }}/{{ $g->path}}" class="img-fluid"></a>
+                    @foreach($g->gambar as $pic)
+                    @if($loop->iteration == 1)
+                    <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                        href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                        <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid" style="height: 250px;">
+                    </a>
                     @else
-                    <a data-fancybox="gallery" href="{{ asset('img/soulofjava.jpg') }}"><img
-                            src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava"></a>
+                    <div style="display:none;">
+                        <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                            href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
+                            <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
+                        </a>
+                    </div>
                     @endif
+                    @endforeach
                     <div class="attorney-card-text">
                         <p>{{ $g->description }}</p>
                         <ul>
