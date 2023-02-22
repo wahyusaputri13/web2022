@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('News', function (Blueprint $table) {
+        Schema::table('news', function (Blueprint $table) {
             $table->string('kategori')->default('KATEGORI_NEWS_4');
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('News', function (Blueprint $table) {
+        Schema::table('news', function (Blueprint $table) {
             $table->dropColumn('kategori');
         });
     }
