@@ -154,6 +154,7 @@ class GalleryController extends Controller
 
         foreach ($gambar->gambar as $file) {
             Storage::delete($file->path);
+            Files::destroy($file->id);
         }
 
         $data = Gallery::destroy($id);
