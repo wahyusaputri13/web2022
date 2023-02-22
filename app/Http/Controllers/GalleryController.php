@@ -150,10 +150,12 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = Gallery::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
+        $gambar = Gallery::with('gambar')->where('id', $id)->first();
+
+        foreach ($gambar->gambar as $file) {
+            Storage::delete($file->path);
         }
+
         $data = Gallery::destroy($id);
         return $data;
     }
