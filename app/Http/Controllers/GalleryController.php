@@ -72,6 +72,12 @@ class GalleryController extends Controller
         $id = Gallery::create($validated);
 
         foreach ($request->document as $df) {
+            $path = storage_path('app/public/gallery');
+
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+            }
+
             File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
             Files::create([
                 'id_news' => $id->id,
