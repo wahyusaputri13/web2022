@@ -70,6 +70,14 @@
                     </a>
                 </li>
                 @endcan
+                @can('puskesmas-sukoharjo-1')
+                <li class="{{ (Str::contains(Request::url(), 'surveilans_malaria')) ? 'active' : '' }}">
+                    <a href="{{ route('surveilans_malaria.index') }}">
+                        <i class="material-icons">book</i>
+                        <p>Surveilans Malaria</p>
+                    </a>
+                </li>
+                @endcan
                 <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>

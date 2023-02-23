@@ -19,10 +19,12 @@ use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DailyReportController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
+use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -124,6 +126,7 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
         Route::resource('component', ComponentController::class);
         Route::resource('bidang', BidangController::class);
     });
+    Route::resource('surveilans_malaria', SurveilansMalariaController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
@@ -150,5 +153,9 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
+
+Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
+Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');
+Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
 
 // Route::get('delete_image/{id?}', [FileController::class, 'destroy']);
