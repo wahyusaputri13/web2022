@@ -124,6 +124,12 @@ Breadcrumbs::for('bidang', function ($trail) {
     $trail->parent('dashboard');
     $trail->push('Bidang', url('bidang'));
 });
+
+// Dashboard > Surveilance Malaria
+Breadcrumbs::for('surveilans_malaria', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Surveilans Malaria', url('surveilans_malaria'));
+});
 // // Home > About
 // Breadcrumbs::for('about', function ($trail) {
 //     $trail->parent('home');

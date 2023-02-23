@@ -117,9 +117,13 @@ class SurveilansMalariaController extends Controller
      * @param  \App\Models\SurveilansMalaria  $surveilansMalaria
      * @return \Illuminate\Http\Response
      */
-    public function edit(SurveilansMalaria $surveilansMalaria)
+    public function edit($id)
     {
-        //
+        $data = SurveilansMalaria::find($id);
+        $kab = get_kab($data->region_prop);
+        $kec = get_kec($data->region_kab);
+        $kel = get_kec($data->region_kec);
+        return view('back.a.pages.surveilans_malaria.edit', compact('data', 'kab', 'kec', 'kel'));
     }
 
     /**
@@ -129,9 +133,24 @@ class SurveilansMalariaController extends Controller
      * @param  \App\Models\SurveilansMalaria  $surveilansMalaria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SurveilansMalaria $surveilansMalaria)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'nik' => 'required',
+            'nama' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+            'no_hp' => 'required',
+            'jenis_kelamin' => 'required',
+            'region_prop' => 'required',
+            'region_kab' => 'required',
+            'region_kec' => 'required',
+            'region_kel' => 'required',
+            'tgl_kembali' => 'required',
+        ]);
+
+        SurveilansMalaria::find($id)->update($validated);
+        return redirect(route('surveilans_malaria.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
     /**

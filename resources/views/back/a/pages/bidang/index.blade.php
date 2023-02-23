@@ -15,8 +15,8 @@
                     <div class="card-content">
                         <!-- <h4 class="card-title">DataTables.net</h4> -->
                         <div class="text-right">
-                            <a href="{{ route('user.index') }}" class="btn btn-rose btn-round">Kembali ke User <i
-                                    class="material-icons">add_circle_outline</i>
+                            <a href="{{ route('user.index') }}" class="btn btn-rose btn-round"><i
+                                    class="material-icons">arrow_back</i> Kembali ke User
                                 <div class="ripple-container"></div>
                             </a>
                             <a href="{{ route('bidang.create') }}" class="btn btn-info btn-round">Tambah Data <i

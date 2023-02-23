@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role as ModelsRole;
 
 class UserController extends Controller
@@ -61,8 +62,9 @@ class UserController extends Controller
     public function create()
     {
         $role = ModelsRole::all()->pluck('name', 'id');
+        $permission = Permission::all()->pluck('name', 'id');
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
-        return view('back.a.pages.user.create', compact('role', 'bidang'));
+        return view('back.a.pages.user.create', compact('role', 'bidang', 'permission'));
     }
 
     /**
@@ -99,6 +101,10 @@ class UserController extends Controller
             $user->assignRole('user');
         }
 
+        if ($request->permission) {
+            $user->givePermissionTo($request->permission);
+        }
+
         return redirect(route('user.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -125,7 +131,9 @@ class UserController extends Controller
         $role = ModelsRole::all()->pluck('name', 'id');
         $user_role = $data->roles->pluck('id');
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
-        return view('back.a.pages.user.edit', compact('data', 'role', 'user_role', 'bidang'));
+        $permission = Permission::all()->pluck('name', 'id');
+        $permis = $data->getAllPermissions();
+        return view('back.a.pages.user.edit', compact('data', 'role', 'user_role', 'bidang', 'permission', 'permis'));
     }
 
     /**
@@ -162,6 +170,10 @@ class UserController extends Controller
             $user->syncRoles($request->role);
         } else {
             $user->syncRoles('user');
+        }
+
+        if ($request->permission) {
+            $user->syncPermissions($request->permission);
         }
 
         $user->update($data);

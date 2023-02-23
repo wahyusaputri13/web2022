@@ -2,11 +2,11 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        {{ Breadcrumbs::render('news') }}
+        {{ Breadcrumbs::render('surveilans_malaria') }}
         <div class="row">
             <div class="card">
                 <div class="card-header card-header-icon" data-background-color="green">
-                    <i class="material-icons">event_note</i>
+                    <i class="material-icons">book</i>
                 </div>
                 <div class="card-content">
                     <h4 class="card-title">Form Tambah Data</h4>
