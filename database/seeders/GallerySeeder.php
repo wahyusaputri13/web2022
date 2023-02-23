@@ -18,7 +18,6 @@ class GallerySeeder extends Seeder
         $faker = Faker::create('id_ID');
         for ($i = 1; $i <= 20; $i++) {
             Gallery::create([
-                'name'  => $faker->word(),
                 'description'  => $faker->sentence(5),
             ]);
         }

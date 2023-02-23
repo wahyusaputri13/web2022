@@ -19,6 +19,10 @@ class PermissionSeeder extends Seeder
             [
                 'name' => 'satpolpp',
                 'guard_name' => 'web'
+            ],
+            [
+                'name' => 'puskesmas-sukoharjo-1',
+                'guard_name' => 'web'
             ]
         ];
 

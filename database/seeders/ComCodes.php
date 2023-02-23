@@ -92,6 +92,8 @@ class ComCodes extends Seeder
             ['code_cd' => 'KATEGORI_NEWS_2', 'code_nm' => 'PRESS RELEASE', 'code_group' => 'KATEGORI_NEWS', 'code_value' => ''],
             ['code_cd' => 'KATEGORI_NEWS_3', 'code_nm' => 'NOTULENSI', 'code_group' => 'KATEGORI_NEWS', 'code_value' => ''],
             ['code_cd' => 'KATEGORI_NEWS_4', 'code_nm' => 'BERITA', 'code_group' => 'KATEGORI_NEWS', 'code_value' => ''],
+            ['code_cd' => 'JENIS_KELAMIN_0', 'code_nm' => 'Laki - Laki', 'code_group' => 'JENIS_KELAMIN', 'code_value' => ''],
+            ['code_cd' => 'JENIS_KELAMIN_1', 'code_nm' => 'Perempuan', 'code_group' => 'JENIS_KELAMIN', 'code_value' => ''],
         ];
 
         foreach ($data as $datum) {
