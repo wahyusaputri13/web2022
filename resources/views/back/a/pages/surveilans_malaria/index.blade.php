@@ -2,7 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        {{ Breadcrumbs::render('news') }}
+        {{ Breadcrumbs::render('surveilans_malaria') }}
         @if ($message = Session::get('success'))
         <div id="elementId" hidden>{{ $message }}</div>
         @endif

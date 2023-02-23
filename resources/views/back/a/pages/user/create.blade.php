@@ -24,9 +24,13 @@
                         @role('superadmin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Role</label>
-                            {{ Form::select('role', $role, null, ['class' => 'form-control', 'placeholder' =>
-                            'Select
-                            Role']); }}
+                            {{ Form::select('role', $role, null, ['class' => 'form-control',
+                            'placeholder' => 'Select Role']); }}
+                        </div>
+                        <div class="form-group label-floating is-focused">
+                            <label class="control-label">Permission</label>
+                            {{ Form::select('permission', $permission, null, ['class' => 'form-control',
+                            'placeholder' => 'Select Permission']); }}
                         </div>
                         @endrole
                         @role(['superadmin', 'admin'])
