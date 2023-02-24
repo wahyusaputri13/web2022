@@ -101,7 +101,7 @@
 
                     <div class="pagination-wrapper centred">
                         <ul class="pagination">
-                            {{ $news->links('vendor.pagination.simple-tailwind') }}
+                            {{ $news->links('vendor.pagination.appway') }}
 
                             <!-- <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
                             <li><a href="#">1</a></li>

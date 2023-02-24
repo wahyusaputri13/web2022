@@ -71,7 +71,7 @@
                 </div>
                 <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-lg-12 d-flex justify-content-center">
-                        {{ $news->links() }}
+                        {{ $news->links('vendor.pagination.herobiz') }}
                     </div>
                 </div>
             </div>

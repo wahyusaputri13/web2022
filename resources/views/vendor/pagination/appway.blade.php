@@ -3,15 +3,16 @@
     <ul class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-        <li class="" aria-disabled="true" aria-label="@lang('pagination.previous')">
-            <a class="page-link" aria-hidden="true">
+        <!-- pojok kiri -->
+        <li aria-disabled="true" aria-label="@lang('pagination.previous')">
+            <a aria-hidden="true">
                 <i class="fas fa-angle-left"></i>
             </a>
         </li>
         @else
-        <li class="">
-            <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev"
-                aria-label="@lang('pagination.previous')">
+        <!-- pojok kiri ketika tidak di first page -->
+        <li>
+            <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">
                 <i class="fas fa-angle-left"></i>
             </a>
         </li>
@@ -28,12 +29,14 @@
         @if (is_array($element))
         @foreach ($element as $page => $url)
         @if ($page == $paginator->currentPage())
-        <li class="page-item active" aria-current="page">
-            <a class="page-link">{{ $page }}</a>
+        <!-- posisi saat ini -->
+        <li aria-current="page">
+            <a class="active">{{ $page }}</a>
         </li>
         @else
-        <li class="page-item">
-            <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+        <!-- button halaman lain -->
+        <li>
+            <a href="{{ $url }}">{{ $page }}</a>
         </li>
         @endif
         @endforeach
@@ -42,15 +45,16 @@
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-        <li class="">
-            <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next"
-                aria-label="@lang('pagination.next')">
+        <!-- pojok kanan ketika tidak di last page -->
+        <li>
+            <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">
                 <i class="fas fa-angle-right"></i>
             </a>
         </li>
         @else
-        <li class="" aria-disabled="true" aria-label="@lang('pagination.next')">
-            <a class="page-link" aria-hidden="true">
+        <!-- pojok kanan -->
+        <li aria-disabled="true" aria-label="@lang('pagination.next')">
+            <a aria-hidden="true">
                 <i class="fas fa-angle-right"></i>
             </a>
         </li>
