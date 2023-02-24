@@ -210,6 +210,11 @@
                             {{Form::close()}}
                         </div>
                     </div>
+
+                    <div class="sidebar-categories sidebar-widget">
+                        <x-category h3='sidebar-title' div='sidebar-item categories' />
+                    </div>
+
                     <!-- <div class="sidebar-categories sidebar-widget">
                         <h3 class="sidebar-title">Categories</h3>
                         <div class="widget-content">

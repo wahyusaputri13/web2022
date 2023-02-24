@@ -63,7 +63,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="portfolio-info">
                         <h3>Search</h3>
-                        <div class="sidebar-item search-form">
+                        <div class="sidebar-item search-form mb-3">
                             {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
                             {{Form::text('kolomcari', null,['class' => 'form-control mb-3',
                             'placeholder' => 'Title Post'])}}
@@ -72,6 +72,9 @@
                             </div>
                             {{Form::close()}}
                         </div>
+
+                        <x-category h3='sidebar-title' div='sidebar-item categories' />
+
                         <h3 class="mt-3">Recent Posts</h3>
                         @foreach($news as $n)
                         <div class="card mb-3" style="max-width: 540px;">

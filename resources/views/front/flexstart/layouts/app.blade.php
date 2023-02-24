@@ -8,7 +8,7 @@
     @stack('after-style')
 </head>
 
-<body>
+<body id="main">
     <a href="#" id="websitename" hidden>{{ $data_website->web_name }}</a>
     @include('sweetalert::alert')
     @include('front.flexstart.includes.header')

@@ -42,19 +42,10 @@
         <div class="sec-title center">
             <h2>Recent Posts</h2>
         </div>
-        <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-around">
-                <a class="theme-btn-two" href="{{ url('/newsall') }}">Show
-                    All</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                    Release</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
-            </div>
-        </div>
-        <div class="row">
+
+        <x-head-category_news btn='theme-btn-two' />
+
+        <div class="row mt-3">
             @foreach($news as $n)
             <div class="col-lg-4 col-md-6 col-sm-12 news-column" style="display: flex">
                 <div class="news-block-one wow flipInY animated" data-wow-delay="00ms" data-wow-duration="1500ms">
@@ -111,14 +102,14 @@
                         <figure class="image-box">
                             @foreach($g->gambar as $pic)
                             @if($loop->iteration == 1)
-                            <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                 href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
                                 <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
                                     style="height: 250px;">
                             </a>
                             @else
                             <div style="display:none;">
-                                <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                     href="{{ asset('storage/') }}/{{ $pic->path }}"
                                     data-caption="{{ $g->description }}">
                                     <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">

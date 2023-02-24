@@ -38,14 +38,14 @@
     <div class="container">
         <div class="heading-left">
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-5 mb-3">
                     <h2>
                         Latest News
                     </h2>
                 </div>
-                <div class="col-lg-6 offset-lg-1">
-                    <a class="btn circle btn-md btn-gradient wow fadeInUp" href="{{ url('/newsall') }}">View All <i
-                            class="fas fa-plus"></i></a>
+
+                <div class="row">
+                    <x-head-category_news btn='btn circle btn-md btn-gradient wow fadeInUp' />
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@
                             <div class="thumb">
                                 @foreach($g->gambar as $pic)
                                 @if($loop->iteration == 1)
-                                <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                     href="{{ asset('storage/') }}/{{ $pic->path }}"
                                     data-caption="{{ $g->description }}">
                                     <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
@@ -126,7 +126,7 @@
                                 </a>
                                 @else
                                 <div style="display:none;">
-                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                         href="{{ asset('storage/') }}/{{ $pic->path }}"
                                         data-caption="{{ $g->description }}">
                                         <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">

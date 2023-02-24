@@ -23,14 +23,8 @@
     <div class="container">
         <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-12 d-flex justify-content-around">
-                <a class="default-btn-one" href="{{ url('/newsall') }}">Show
-                    All</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                    Release</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+                <x-head-category_news btn='default-btn-one' />
+
             </div>
         </div>
         <x-cari-news />

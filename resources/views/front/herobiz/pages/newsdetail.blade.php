@@ -68,12 +68,14 @@
                 <div class="col-lg-4">
                     <div class="sidebar">
                         <h3 class="sidebar-title mb-3">Search</h3>
-                        <div class="sidebar-item search-form">
+                        <div class="sidebar-item search-form mb-3">
                             {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
                             {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
                             <button type="submit"><i class="bi bi-search"></i></button>
                             {{Form::close()}}
                         </div>
+
+                        <x-category h3='sidebar-title' div='sidebar-item categories' />
 
                         <h3 class="sidebar-title mt-3">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">

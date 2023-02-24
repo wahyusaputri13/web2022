@@ -152,6 +152,11 @@
                                 <button type="submit"><i class="fas fa-search"></i></button>
                                 {{Form::close()}}
                             </div>
+                            
+                            <div class="widget2 category_widget brd-rd5 w-100">
+                                <x-category h3='sidebar-title' div='sidebar-item categories' />
+                            </div>
+
                             <!-- <div class="widget2 category_widget brd-rd5 w-100">
                                 <h3>Category</h3>
                                 <ul class="mb-0 list-unstyled w-100">

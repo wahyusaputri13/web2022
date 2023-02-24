@@ -45,21 +45,8 @@
                 <p>Recent posts form our Blog</p>
             </header>
 
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-12 d-flex justify-content-around">
-                    <a class="btn" style="background: #4154f1; color: white;" href="{{ url('/newsall') }}">Show All</a>
-                    <a class="btn" style="background: #4154f1; color: white;"
-                        href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                    <a class="btn" style="background: #4154f1; color: white;"
-                        href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                    <a class="btn" style="background: #4154f1; color: white;"
-                        href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                    <a class="btn" style="background: #4154f1; color: white;"
-                        href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press Release</a>
-                    <a class="btn" style="background: #4154f1; color: white;"
-                        href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
-                </div>
-            </div>
+            <x-head-category_news bc='#4154f1' tc='white' />
+
             <div class="row mt-4">
                 @foreach($news as $n)
                 <div class="col-lg-4 col-md-6 mb-3">
@@ -118,14 +105,14 @@
                     <div class="d-flex justify-content-center">
                         @foreach($g->gambar as $pic)
                         @if($loop->iteration == 1)
-                        <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                        <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                             href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
                             <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
                                 style="height: 250px;">
                         </a>
                         @else
                         <div style="display:none;">
-                            <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                 href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
                                 <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
                             </a>

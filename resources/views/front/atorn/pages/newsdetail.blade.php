@@ -88,6 +88,9 @@
                         <button type="submit"><i class="las la-search"></i></button>
                         {{Form::close()}}
                     </div>
+                    <div class="side-bar-box categories-box">
+                        <x-category h3='sidebar-title' div='sidebar-item categories' />
+                    </div>
                     <div class="side-bar-box recent-post">
                         <h3 class="title">Recent Post</h3>
                         @foreach($news as $n)

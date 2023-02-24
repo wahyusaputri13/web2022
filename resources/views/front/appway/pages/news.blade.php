@@ -37,17 +37,8 @@
 <!-- blog-classic -->
 <section class="sidebar-page-container">
     <div class="container">
-        <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-around">
-                <a class="theme-btn-two" href="{{ url('/newsall') }}">Show
-                    All</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                    Release</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
-            </div>
+        <div class="py-3">
+            <x-head-category_news btn='theme-btn-two' />
         </div>
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">

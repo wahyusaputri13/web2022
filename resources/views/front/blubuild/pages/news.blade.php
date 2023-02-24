@@ -17,17 +17,8 @@
 <section>
     <div class="w-100 pt-100 pb-50 position-relative">
         <div class="container">
-            <div class="row mb-5" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-12 d-flex justify-content-around">
-                    <a class="thm-btn thm-bg" href="{{ url('/newsall') }}">Show
-                        All</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                        Release</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
-                </div>
+            <div class="row mb-5">
+                <x-head-category_news btn='thm-btn thm-bg' />
             </div>
             <div class="blog-wrap w-100">
                 <div class="row justify-content-center">

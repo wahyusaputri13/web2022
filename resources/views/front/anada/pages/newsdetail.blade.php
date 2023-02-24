@@ -97,6 +97,9 @@
                                 {{Form::close()}}
                             </div>
                         </div>
+                        <div class="sidebar-item category">
+                            <x-category h3='sidebar-title' div='sidebar-item categories' />
+                        </div>
                         <div class="sidebar-item recent-post">
                             <div class="title">
                                 <h4>Recent Post</h4>
