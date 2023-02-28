@@ -16,15 +16,11 @@
 
         <div class="row mt-3">
             @foreach($news as $n)
-            <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-3" style="display: flex;">
                 <article class="entry">
 
                     <div class="entry-img">
-                        @if(file_exists(public_path('storage/'.$n->path)))
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->title }}">
-                        @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava">
-                        @endif
+                        <x-carousel :jjj='$n' />
                     </div>
 
                     <h2 class="entry-title">

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
-use App\Models\Gallery;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -64,7 +64,7 @@ class FileController extends Controller
      */
     public function show($id)
     {
-        $data = Gallery::with('gambar')->where('id', $id)->first();
+        $data = News::with('gambar')->where('id', $id)->first();
         foreach ($data->gambar as $d) {
             $fileList[] = [
                 'name'          => $d->file_name,

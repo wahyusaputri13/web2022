@@ -31,9 +31,9 @@ class FrontController extends Controller
     public function newsdetail($slug)
     {
         Seo::seO();
-        $data = News::where('slug', $slug)->first();
+        $data = News::with('gambar')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
-        $news = News::orderBy('date', 'desc')->paginate(5);
+        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file'));
     }
@@ -52,7 +52,7 @@ class FrontController extends Controller
     {
         Seo::seO();
         $hasil = 'All post by : ' . $id;
-        $data = News::where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
+        $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
@@ -62,7 +62,7 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
+        $data = News::with('gambar')->where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
@@ -127,13 +127,13 @@ class FrontController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
             $data = [
-                'role_id' => '1',
                 'email' => $request->email,
                 'name' => $request->name,
                 'password' => bcrypt($request->password),
             ];
             Website::create($request->except('finish', 'name', 'password', 'password_confirmation'));
-            User::create($data);
+            $user = User::create($data);
+            $user->syncRoles('admin');
             return redirect(route('root'));
         }
     }

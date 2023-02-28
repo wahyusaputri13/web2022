@@ -84,28 +84,11 @@
                         <p>Kotak Masuk</p>
                     </a>
                 </li>
-                <li class="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'active' : '' }}">
-                    <a data-toggle="collapse" href="#pagesExamples"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
-                        <i class="material-icons">archive</i>
-                        <p>Postingan
-                            <b class="caret"></b>
-                        </p>
+                <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
+                    <a href="{{ route('news.index') }}">
+                        <i class="material-icons">event_note</i>
+                        <p>Postingan</p>
                     </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'in' : '' }}"
-                        id="pagesExamples">
-                        <ul class="nav">
-                            <li class="{{ (Str::contains(Request::url(), 'gallery')) ? 'active' : '' }}">
-                                <a href="{{ route('gallery.index') }}"> <i class="material-icons">collections</i>
-                                    Galeri</a>
-                            </li>
-                            <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
-                                <a href="{{ route('news.index') }}">
-                                    <i class="material-icons">event_note</i>
-                                    Berita</a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 <li class="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamplesss"

@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\ComCodes;
 use App\Models\News;
-use App\Models\File;
-use App\Models\GuestBook;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
-use Faker\Factory as Faker;
-
+use App\Models\File as Files;
+use File;
 
 class NewsController extends Controller
 {
@@ -73,47 +71,32 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('photo')) {
-            $validated = $request->validate([
-                'photo' => 'image|max:12048',
-                'title' => 'required',
-                'date' => 'required',
-                'description' => 'required',
-                'highlight' => 'required',
-                'kategori' => 'required',
-            ]);
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->store('news');
-            $data = [
-                'photo' => $name,
-                'path' => $path,
-                'title' => $request->title,
-                'date' => $request->date,
-                'highlight' => $request->highlight,
-                'upload_by' => auth()->user()->name,
-                'description' => $request->description,
-                'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
-                'kategori' => $request->kategori,
-            ];
-        } else {
-            $validated = $request->validate([
-                'title' => 'required',
-                'date' => 'required',
-                'description' => 'required',
-                'highlight' => 'required',
-                'kategori' => 'required',
-            ]);
-            $data = [
-                'title' => $request->title,
-                'date' => $request->date,
-                'upload_by' => auth()->user()->name,
-                'description' => $request->description,
-                'highlight' => $request->highlight,
-                'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
-                'kategori' => $request->kategori,
-            ];
+        $validated = $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'description' => 'required',
+            'highlight' => 'required',
+            'kategori' => 'required',
+        ]);
+
+        $id = News::create($validated + ['upload_by' => auth()->user()->id]);
+
+        if ($request->document) {
+            foreach ($request->document as $df) {
+                $path = storage_path('app/public/gallery');
+
+                if (!file_exists($path)) {
+                    mkdir($path, 0777, true);
+                }
+
+                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
+                Files::create([
+                    'id_news' => $id->id,
+                    'path' => 'gallery/' . $df,
+                    'file_name' => $df
+                ]);
+            }
         }
-        News::create($data);
         return redirect(route('news.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -151,49 +134,27 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->hasFile('photo')) {
-            $validated = $request->validate([
-                'photo' => 'required|image|max:12048',
-                'title' => 'required',
-                'description' => 'required',
-                'highlight' => 'required',
-                'date' => 'required',
-                'kategori' => 'required',
-            ]);
-            $gambar = News::where('id', $id)->first();
-            if ($request->file('photo')->getClientOriginalName() != $gambar->photo) {
-                Storage::delete($gambar->path);
-                $name = $request->file('photo')->getClientOriginalName();
-                $path = $request->file('photo')->store('news');
-                $data = [
-                    'photo' => $name,
-                    'path' => $path,
-                    'title' => $request->title,
-                    'date' => $request->date,
-                    'highlight' => $request->highlight,
-                    'upload_by' => auth()->user()->name,
-                    'description' => $request->description,
-                    'kategori' => $request->kategori,
-                ];
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'highlight' => 'required',
+            'date' => 'required',
+            'kategori' => 'required',
+        ]);
+
+        News::find($id)->update($validated + ['upload_by' => auth()->user()->name]);
+
+        if ($request->document) {
+            foreach ($request->document as $df) {
+                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
+                Files::create([
+                    'id_news' => $id,
+                    'path' => 'gallery/' . $df,
+                    'file_name' => $df
+                ]);
             }
-        } else {
-            $validated = $request->validate([
-                'title' => 'required',
-                'description' => 'required',
-                'highlight' => 'required',
-                'date' => 'required',
-                'kategori' => 'required',
-            ]);
-            $data = [
-                'title' => $request->title,
-                'date' => $request->date,
-                'highlight' => $request->highlight,
-                'upload_by' => auth()->user()->name,
-                'description' => $request->description,
-                'kategori' => $request->kategori,
-            ];
         }
-        News::find($id)->update($data);
+
         return redirect(route('news.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 

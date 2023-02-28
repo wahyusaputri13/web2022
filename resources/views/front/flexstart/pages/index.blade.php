@@ -51,12 +51,15 @@
                 @foreach($news as $n)
                 <div class="col-lg-4 col-md-6 mb-3">
                     <div class="post-box">
-                        <div class="post-img">
-                            @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->photo }}">
-                            @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                        <div class="post-img text-center">
+                            @forelse($n->gambar as $gambar)
+                            @if($loop->iteration == 1)
+                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                alt="{{ $gambar->file_name }}">
                             @endif
+                            @empty
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            @endforelse
                         </div>
                         <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                             \Carbon\Carbon::parse( $n->date
