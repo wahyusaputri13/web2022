@@ -91,11 +91,14 @@
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" style="display: flex">
                     <div class="post-box">
                         <div class="post-img">
-                            @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" style="height: 250px;">
-                            @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" style="height: 250px;">
+                            @forelse($n->gambar as $gambar)
+                            @if($loop->iteration == 1)
+                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                alt="{{ $gambar->file_name }}">
                             @endif
+                            @empty
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            @endforelse
                         </div>
                         <div class="meta">
                             <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
