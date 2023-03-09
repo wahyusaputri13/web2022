@@ -70,9 +70,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Bidang::class);
     }
-
-    public function bidangnya()
-    {
-        return $this->belongsTo(Bidang::class, 'bidang_id');
-    }
 }
