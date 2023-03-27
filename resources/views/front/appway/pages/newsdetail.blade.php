@@ -65,8 +65,6 @@
                                     @endforeach
                                     @endif
                                 </div>
-
-
                             </div>
                             <div class="lower-box clearfix">
                                 <div class="left-content pull-left">
@@ -229,12 +227,15 @@
                             <div class="post">
                                 <figure class="image">
                                     <a href="{{ url('/news-detail', $n->slug) }}">
-                                        @if(file_exists(public_path('storage/'.$n->path)))
-                                        <img src="{{ asset('storage/') }}/{{ $n->path}}"
-                                            class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
-                                        @else
-                                        <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
+                                        @forelse($n->gambar as $gambar)
+                                        @if($loop->iteration == 1)
+                                        <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                            alt="{{ $gambar->file_name }}">
                                         @endif
+                                        @empty
+                                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
+                                            alt="soul of java">
+                                        @endforelse
                                     </a>
                                 </figure>
                                 <h5><a href="{{ url('/news-detail', $n->slug) }}">{{
@@ -290,6 +291,7 @@
     </div>
 </section>
 <!-- blog-single end -->
+
 @endsection
 @push('after-script')
 <script src="{{ asset('js/share.js') }}"></script>
