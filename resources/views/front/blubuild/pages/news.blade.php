@@ -26,15 +26,14 @@
                     <div class="col-md-6 col-sm-6 col-lg-4" style="display: flex;">
                         <div class="post-box w-100 text-center">
                             <div class="post-img overflow-hidden w-100">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <a href="{{ url('/news-detail', $n->slug) }}"><img class="img-fluid w-100"
-                                        src="{{ asset('storage/') }}/{{ $n->path}}" alt="{{ $n->photo }}"
-                                        style="height: 250px;"></a>
-                                @else
-                                <a href="{{ url('/news-detail', $n->slug) }}"><img class="img-fluid w-100"
-                                        src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java"
-                                        style="height: 250px;"></a>
+                                @forelse($n->gambar as $gambar)
+                                @if($loop->iteration == 1)
+                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                    alt="{{ $gambar->file_name }}">
                                 @endif
+                                @empty
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                @endforelse
                             </div>
                             <div class="post-info w-100">
                                 <h3 class="mb-0"><a href="{{ url('/news-detail', $n->slug) }}" title="">{{

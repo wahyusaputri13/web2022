@@ -1,6 +1,6 @@
 @extends('front.anada.layouts.app')
 @section('content')
-<!-- Start Banner 
+<!-- Start Banner
     ============================================= -->
 <div class="banner-area text-combo top-pad-90 rectangular-shape bg-light-gradient">
     <div class="item">
@@ -57,12 +57,14 @@
                     <div class="item">
                         <div class="thumb">
                             <a href="#">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid"
-                                    style="height: 250px;">
-                                @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" style="height: 250px;">
+                                @forelse($n->gambar as $gambar)
+                                @if($loop->iteration == 1)
+                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                    alt="{{ $gambar->file_name }}">
                                 @endif
+                                @empty
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                @endforelse
                                 <div class="date">
                                     <strong>{{ \Carbon\Carbon::parse($n->date)->format('l') }}</strong> {{
                                     \Carbon\Carbon::parse( $n->date
@@ -231,7 +233,7 @@
     </div>
 </div>
 
-<!-- Start Google Maps 
+<!-- Start Google Maps
         ============================================= -->
 <div class="maps-area">
     <div class="google-maps">

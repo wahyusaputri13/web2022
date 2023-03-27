@@ -24,11 +24,14 @@
                     <article class="entry">
                         <div class="card mb-3">
                             <div class="entry-img" style="text-align: center;">
-                                @if(file_exists(public_path('storage/'.$author->path)))
-                                <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
-                                @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                @forelse($author->gambar as $gambar)
+                                @if($loop->iteration == 1)
+                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                    alt="{{ $gambar->file_name }}">
                                 @endif
+                                @empty
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                @endforelse
                             </div>
                             <h2 class="entry-title" style="text-align: center;">
                                 <a href="{{ url('/news-detail', $author->slug) }}">{{ $author->title

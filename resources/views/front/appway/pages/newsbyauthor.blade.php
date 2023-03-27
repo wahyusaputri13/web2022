@@ -46,12 +46,14 @@
                         <div class="inner-box">
                             <figure class="image-box">
                                 <a href="{{ url('/news-detail', $author->slug) }}">
-                                    @if(file_exists(public_path('storage/'.$author->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $author->path}}" alt="{{ $author->title
-                                    }}">
-                                    @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
+                                    @forelse($author->gambar as $gambar)
+                                    @if($loop->iteration == 1)
+                                    <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                        alt="{{ $gambar->file_name }}">
                                     @endif
+                                    @empty
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                    @endforelse
                                 </a>
                             </figure>
                             <div class="lower-content">

@@ -23,12 +23,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-lg-8">
                         <div class="post-detail w-100">
-                            @if(file_exists(public_path('storage/'.$data->path)))
-                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid w-100"
-                                alt="{{ $data->name}}">
-                            @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid w-100" alt="soulofjava">
-                            @endif
+                            <x-carousel :jjj='$data' />
                             <!-- <img class="img-fluid w-100" src="assets/images/resources/blog-detail-img.jpg"
                                 alt="Blog Detail Image"> -->
                             <!-- <h2 class="mb-0">Technical Support ( Computer Repair & Help Desk )</h2> -->
@@ -152,7 +147,7 @@
                                 <button type="submit"><i class="fas fa-search"></i></button>
                                 {{Form::close()}}
                             </div>
-                            
+
                             <div class="widget2 category_widget brd-rd5 w-100">
                                 <x-category h3='sidebar-title' div='sidebar-item categories' />
                             </div>

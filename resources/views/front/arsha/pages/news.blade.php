@@ -17,11 +17,14 @@
                 data-aos-delay="100">
                 <div class="card" style="border-radius: 15px">
                     <div>
-                        @if(file_exists(public_path('storage/'.$n->path)))
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" style="border-radius: 15px" class="img-fluid">
-                        @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        @forelse($n->gambar as $gambar)
+                        @if($loop->iteration == 1)
+                        <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                            alt="{{ $gambar->file_name }}">
                         @endif
+                        @empty
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                        @endforelse
                     </div>
                     <span class="m-1" style="color: grey; text-align: center;">{{
                         \Carbon\Carbon::parse($n->date)->format('l') }}, {{

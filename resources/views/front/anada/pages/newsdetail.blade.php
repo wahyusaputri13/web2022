@@ -1,6 +1,6 @@
 @extends('front.anada.layouts.app')
 @section('content')
-<!-- Start Breadcrumb 
+<!-- Start Breadcrumb
         ============================================= -->
 <div class="breadcrumb-area gradient-bg text-light text-center">
     <!-- Fixed BG -->
@@ -32,11 +32,7 @@
                             <!-- Start Post Thumb -->
                             <div class="thumb">
                                 <a href="#">
-                                    @if(file_exists(public_path('storage/'.$data->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $data->path}}" class="card-img-top">
-                                    @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                    @endif
+                                    <x-carousel :jjj='$data' />
                                     <div class="date">
                                         <strong>{{
                                             \Carbon\Carbon::parse( $data->date )->format('l') }}</strong> {{

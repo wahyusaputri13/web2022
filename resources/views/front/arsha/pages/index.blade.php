@@ -41,6 +41,7 @@
                 <h2>Latest Post</h2>
             </div>
 
+            
             <x-head-category_news bc='#47b2e4' tc='white' />
 
             <div class="row mt-3">
@@ -48,11 +49,14 @@
                 <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
                         <div class="post-img">
-                            @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
-                            @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                            @forelse($n->gambar as $gambar)
+                            @if($loop->iteration == 1)
+                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                alt="{{ $gambar->file_name }}">
                             @endif
+                            @empty
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            @endforelse
                         </div>
                         <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->slug) }}">
                                 {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>

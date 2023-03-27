@@ -87,12 +87,15 @@
                 <div class="col-lg-4 col-sm-6 mb-3" style="display: flex">
                     <div class="blog-card">
                         <a href="{{ url('/news-detail', $n->slug) }}">
-                            @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->photo }}">
-                            @else
+                            @forelse($n->gambar as $gambar)
+                            @if($loop->iteration == 1)
+                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                alt="{{ $gambar->file_name }}">
+                            @endif
+                            @empty
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            @endforelse
                         </a>
-                        @endif
                         <div class="blog-card-text">
                             <h3><a href="{{ url('/news-detail', $n->slug) }}">{{
                                     \Illuminate\Support\Str::limit($n->title,
