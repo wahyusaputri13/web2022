@@ -90,7 +90,7 @@
                         <p>Postingan</p>
                     </a>
                 </li>
-                <li class="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'active' : '' }}">
+                <li class="{{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamplesss"
                         aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
                         <i class="material-icons">
