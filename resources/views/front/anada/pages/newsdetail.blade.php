@@ -32,7 +32,7 @@
                             <!-- Start Post Thumb -->
                             <div class="thumb">
                                 <a href="#">
-                                    <x-carousel :jjj='$data' />
+                                    <x-looping-image :foto="$data" />
                                     <div class="date">
                                         <strong>{{
                                             \Carbon\Carbon::parse( $data->date )->format('l') }}</strong> {{
