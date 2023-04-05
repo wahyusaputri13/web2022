@@ -4,38 +4,44 @@
     <div class="w-100 position-relative">
         <div class="feat-wrap position-relative w-100">
             <div class="feat-caro">
-                @foreach(App\Models\News::where('highlight', '1')->orderBy('date', 'DESC')->take(3)->get() as $hl)
+                @foreach(App\Models\News::with('gambar')->where('highlight', '1')->orderBy('date',
+                'DESC')->take(3)->get() as $hl)
+
+                @forelse ($hl->gambar as $item)
+
+                @if($loop->iteration == 1)
                 <div class="feat-item">
-                    @if(file_exists(public_path('storage/'.$hl->path)))
                     <div class="feat-img position-absolute"
-                        style="background-image: url({{ asset('storage/') }}/{{ $hl->path }});">
-                        @else
-                        <div class="feat-img position-absolute"
-                            style="background-image: url({{ asset('img/soulofjava.jpg') }});">
-                            @endif
-                        </div>
-                        <div class="container">
-                            <div class="feat-cap">
-                                <a href="{{ url('/news-detail', $hl->slug) }}">
-                                    <h2 class="mb-0" style="color: white;">{{ $hl->title }}</h2>
-                                </a>
-                                <!-- <p class="mb-0">There are many variations of passages of Lorem Ipsum available, but
-                                    the ma Mority have suffered alteration in some form.</p> -->
-                                <div class="feat-cap-innr">
-                                    <!-- <a class="thm-btn thm-bg" href="about.html" title="">Learn More<i
-                                        class="flaticon-arrow-pointing-to-right"></i></a>
-                                <a class="video-btn" href="https://www.youtube.com/embed/6gUOzbhtVd4" data-fancybox
-                                    title=""><span class="spinner"><i class="flaticon-play"></i></span>Intro Video
-                                    <br> Watch</a> -->
-                                </div>
-                            </div>
+                        style="background-image: url({{ asset('storage/') }}/{{ $item->path }});"></div>
+                    <div class="container">
+                        <div class="feat-cap">
+                            <a href="{{ url('/news-detail', $hl->slug) }}">
+                                <h2 class="mb-0" style="color: white;">{{ $hl->title }}</h2>
+                            </a>
+                            {{ $item->path }}
                         </div>
                     </div>
-                    @endforeach
                 </div>
+                @endif
+
+                @empty
+                <div class="feat-item">
+                    <div class="feat-img position-absolute"
+                        style="background-image: url({{ asset('img/soulofjava.jpg') }});"></div>
+                    <div class="container">
+                        <div class="feat-cap">
+                            <a href="{{ url('/news-detail', $hl->slug) }}">
+                                <h2 class="mb-0" style="color: white;">{{ $hl->title }}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endforelse
+
+                @endforeach
             </div>
-            <!-- Featured Area Wrap -->
         </div>
+    </div>
 </section>
 
 @if($gallery->count() != 0)
@@ -119,7 +125,7 @@
                                     @forelse($n->gambar as $gambar)
                                     @if($loop->iteration == 1)
                                     <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                        alt="{{ $gambar->file_name }}">
+                                        alt="{{ $gambar->file_name }}" width="100%">
                                     @endif
                                     @empty
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
