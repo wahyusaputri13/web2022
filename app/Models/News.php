@@ -22,4 +22,9 @@ class News extends Model implements Viewable
             ]
         ];
     }
+
+    public function gambar()
+    {
+        return $this->hasMany(File::class, 'id_news', 'id');
+    }
 }

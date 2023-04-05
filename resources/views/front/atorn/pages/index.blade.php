@@ -41,14 +41,14 @@
                     <div class="service-card">
                         @foreach($g->gambar as $pic)
                         @if($loop->iteration == 1)
-                        <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                        <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                             href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
                             <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
                                 style="height: 250px;">
                         </a>
                         @else
                         <div style="display:none;">
-                            <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                 href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
                                 <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
                             </a>
@@ -78,29 +78,24 @@
                 <!-- <span>Posts</span> -->
                 <h2><span>Latest Post From Our Blog</span></h2>
             </div>
-            <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-12 d-flex justify-content-around">
-                    <a class="default-btn-one" href="{{ url('/newsall') }}">Show
-                        All</a>
-                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                        Release</a>
-                    <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
-                </div>
+            <div class="row mb-3 text-center">
+                <x-head-category_news btn='default-btn-one' />
             </div>
+
             <div class="row">
                 @foreach($news as $n)
                 <div class="col-lg-4 col-sm-6 mb-3" style="display: flex">
                     <div class="blog-card">
                         <a href="{{ url('/news-detail', $n->slug) }}">
-                            @if(file_exists(public_path('storage/'.$n->path)))
-                            <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid" alt="{{ $n->photo }}">
-                            @else
+                            @forelse($n->gambar as $gambar)
+                            @if($loop->iteration == 1)
+                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                alt="{{ $gambar->file_name }}">
+                            @endif
+                            @empty
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            @endforelse
                         </a>
-                        @endif
                         <div class="blog-card-text">
                             <h3><a href="{{ url('/news-detail', $n->slug) }}">{{
                                     \Illuminate\Support\Str::limit($n->title,

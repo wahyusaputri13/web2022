@@ -37,17 +37,8 @@
 <!-- blog-classic -->
 <section class="sidebar-page-container">
     <div class="container">
-        <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-around">
-                <a class="theme-btn-two" href="{{ url('/newsall') }}">Show
-                    All</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                    Release</a>
-                <a class="theme-btn-two" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
-            </div>
+        <div class="py-3">
+            <x-head-category_news btn='theme-btn-two' />
         </div>
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
@@ -57,12 +48,14 @@
                         <div class="inner-box">
                             <figure class="image-box">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
-                                    @if(file_exists(public_path('storage/'.$n->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $n->path}}" alt="{{ $n->title
-                                    }}">
-                                    @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
+                                    @forelse($n->gambar as $gambar)
+                                    @if($loop->iteration == 1)
+                                    <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                        alt="{{ $gambar->file_name }}">
                                     @endif
+                                    @empty
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                    @endforelse
                                 </a>
                             </figure>
                             <div class="lower-content">
@@ -110,7 +103,7 @@
 
                     <div class="pagination-wrapper centred">
                         <ul class="pagination">
-                            {{ $news->links('vendor.pagination.simple-tailwind') }}
+                            {{ $news->links('vendor.pagination.appway') }}
 
                             <!-- <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
                             <li><a href="#">1</a></li>

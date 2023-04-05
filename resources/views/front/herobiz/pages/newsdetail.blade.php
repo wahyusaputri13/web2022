@@ -17,11 +17,7 @@
                 <div class="col-lg-8 entries">
                     <article class="entry entry-single">
                         <div class="entry-img">
-                            @if(file_exists(public_path('storage/'.$data->path)))
-                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid">
-                            @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                            @endif
+                            <x-carousel :jjj='$data' />
                         </div>
                         <h2 class="entry-title m-1">
                             <a href="#">{{ $data->title }}</a>
@@ -68,12 +64,14 @@
                 <div class="col-lg-4">
                     <div class="sidebar">
                         <h3 class="sidebar-title mb-3">Search</h3>
-                        <div class="sidebar-item search-form">
+                        <div class="sidebar-item search-form mb-3">
                             {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
                             {{Form::text('kolomcari', null,['class' => 'form-control', 'placeholder' => 'Title Post'])}}
                             <button type="submit"><i class="bi bi-search"></i></button>
                             {{Form::close()}}
                         </div>
+
+                        <x-category h3='sidebar-title' div='sidebar-item categories' />
 
                         <h3 class="sidebar-title mt-3">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">

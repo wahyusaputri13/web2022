@@ -1,6 +1,6 @@
 @extends('front.anada.layouts.app')
 @section('content')
-<!-- Start Banner 
+<!-- Start Banner
     ============================================= -->
 <div class="banner-area text-combo top-pad-90 rectangular-shape bg-light-gradient">
     <div class="item">
@@ -38,14 +38,14 @@
     <div class="container">
         <div class="heading-left">
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-5 mb-3">
                     <h2>
                         Latest News
                     </h2>
                 </div>
-                <div class="col-lg-6 offset-lg-1">
-                    <a class="btn circle btn-md btn-gradient wow fadeInUp" href="{{ url('/newsall') }}">View All <i
-                            class="fas fa-plus"></i></a>
+
+                <div class="row">
+                    <x-head-category_news btn='btn circle btn-md btn-gradient wow fadeInUp' />
                 </div>
             </div>
         </div>
@@ -57,12 +57,14 @@
                     <div class="item">
                         <div class="thumb">
                             <a href="#">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid"
-                                    style="height: 250px;">
-                                @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" style="height: 250px;">
+                                @forelse($n->gambar as $gambar)
+                                @if($loop->iteration == 1)
+                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                    alt="{{ $gambar->file_name }}">
                                 @endif
+                                @empty
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                @endforelse
                                 <div class="date">
                                     <strong>{{ \Carbon\Carbon::parse($n->date)->format('l') }}</strong> {{
                                     \Carbon\Carbon::parse( $n->date
@@ -118,7 +120,7 @@
                             <div class="thumb">
                                 @foreach($g->gambar as $pic)
                                 @if($loop->iteration == 1)
-                                <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                     href="{{ asset('storage/') }}/{{ $pic->path }}"
                                     data-caption="{{ $g->description }}">
                                     <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
@@ -126,7 +128,7 @@
                                 </a>
                                 @else
                                 <div style="display:none;">
-                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                         href="{{ asset('storage/') }}/{{ $pic->path }}"
                                         data-caption="{{ $g->description }}">
                                         <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
@@ -231,7 +233,7 @@
     </div>
 </div>
 
-<!-- Start Google Maps 
+<!-- Start Google Maps
         ============================================= -->
 <div class="maps-area">
     <div class="google-maps">

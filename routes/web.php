@@ -53,9 +53,11 @@ Route::group(
 );
 
 Route::get('/', function () {
-    $themes = Website::all()->first();
-    if (Website::all()->count() != 0) {
+    $themes = Website::first();
+    if (Website::exists()) {
+
         $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
+
         $data = [
             'ip' => $geoipInfo->ip,
             'iso_code' => $geoipInfo->iso_code,
@@ -70,14 +72,21 @@ Route::get('/', function () {
             'continent' => $geoipInfo->continent,
             'currency' => $geoipInfo->currency,
         ];
+
         Seo::seO();
         Counter::create($data);
 
-        $response = Http::withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
-        $response = $response->collect();
-        $berita =   array_slice($response['data']['data'], 0, 3);
+        try {
+            $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
+            $response = $response->collect();
+            $berita =   array_slice($response['data']['data'], 0, 3);
+        } catch (\Exception $e) {
+            // hndle the exception
+            $berita = [];
+        }
+
         $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        $news = News::orderBy('date', 'desc')->paginate(9);
+        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
     } else {
         $data = Themes::all();

@@ -25,11 +25,7 @@
             <div class="col-lg-8 col-md-7 col-sm-12">
                 <div class="services-details">
                     <div class="img">
-                        @if(file_exists(public_path('storage/'.$data->path)))
-                        <img src="{{ asset('storage/') }}/{{ $data->path}}" class="card-img-top">
-                        @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                        @endif
+                        <x-carousel :jjj='$data' />
                     </div>
                     <div class="services-details-content">
                         <h3>{{ $data->title }}</h3>
@@ -87,6 +83,9 @@
                         'placeholder' => 'Title Post'])}}
                         <button type="submit"><i class="las la-search"></i></button>
                         {{Form::close()}}
+                    </div>
+                    <div class="side-bar-box categories-box">
+                        <x-category h3='sidebar-title' div='sidebar-item categories' />
                     </div>
                     <div class="side-bar-box recent-post">
                         <h3 class="title">Recent Post</h3>

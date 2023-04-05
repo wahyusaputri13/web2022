@@ -5,16 +5,7 @@
 <div class="blog-area full-blog blog-standard full-blog default-padding">
     <div class="container">
         <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-around">
-                <a class="btn-simple" href="{{ url('/newsall') }}">Show
-                    All</a>
-                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                    Release</a>
-                <a class="btn-simple" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
-            </div>
+            <x-head-category_news btn='btn circle btn-md btn-gradient wow fadeInUp' />
         </div>
         <x-cari-news />
         <div class="blog-items mt-3">
@@ -27,12 +18,15 @@
                             <div class="item">
                                 <div class="thumb">
                                     <a href="#">
-                                        @if(file_exists(public_path('storage/'.$n->path)))
-                                        <img src="{{ asset('storage/') }}/{{ $n->path}}" style="border-radius: 15px"
-                                            class="img-fluid">
-                                        @else
-                                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                        @forelse($n->gambar as $gambar)
+                                        @if($loop->iteration == 1)
+                                        <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                            width="100%" alt="{{ $gambar->file_name }}">
                                         @endif
+                                        @empty
+                                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
+                                            alt="soul of java">
+                                        @endforelse
                                         <div class="date">
                                             <strong>{{ \Carbon\Carbon::parse($n->date)->format('l') }} </strong> {{
                                             \Carbon\Carbon::parse( $n->date

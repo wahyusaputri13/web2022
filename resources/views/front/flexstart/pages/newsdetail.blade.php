@@ -19,13 +19,9 @@
             <div class="row">
                 <div class="col-lg-8 entries">
                     <article class="entry entry-single">
+                        <x-carousel :jjj='$data' />
                         <div class="d-flex justify-content-center">
                             <div class="entry-img">
-                                @if(file_exists(public_path('storage/'.$data->path)))
-                                <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid">
-                                @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                @endif
                             </div>
                         </div>
                         <h2 class="entry-title">
@@ -125,11 +121,14 @@
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}">
-                                @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                @forelse($n->gambar as $gambar)
+                                @if($loop->iteration == 1)
+                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                    alt="{{ $gambar->file_name }}">
                                 @endif
+                                @empty
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                @endforelse
                                 <h4><a href="{{ url('/news-detail', $n->slug) }}">
                                         {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
                                     </a></h4>

@@ -17,7 +17,7 @@ class NewsSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 50; $i++) {
             News::create([
                 'upload_by' => $faker->name,
                 'title'  => $faker->sentence(5),

@@ -1,4 +1,8 @@
 @extends('back.a.layouts.app')
+@push('after-style')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
+    integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
+@endpush
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -11,33 +15,8 @@
                 <div class="card-content">
                     <h4 class="card-title">Form Tambah Data</h4>
                     {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
-                    <div class="col text-center">
-                        <!-- <legend>Regular Image</legend> -->
-                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                            <div class="fileinput-new thumbnail">
-                                <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
-                            </div>
-                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                            <div>
-                                <span class="btn btn-success btn-round btn-file">
-                                    <span class="fileinput-new">Select image</span>
-                                    <span class="fileinput-exists">Change</span>
-                                    {{Form::file('photo', null,['class' => 'form-control'])}}
-                                </span>
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
-                                    data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                            </div>
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
+                    <!-- Example of a form that Dropzone can take over -->
+                    <div class="dropzone" id="my-awesome-dropzone"></div>
                     <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
@@ -70,11 +49,15 @@
 </div>
 @endsection
 @push('after-script')
+<script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
+    integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
     });
 </script>
+
 <!-- ck editor -->
 <!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script>
 <script>
@@ -126,4 +109,72 @@
     tinymce.init(editor_config);
 </script>
 <!-- end tiny mce editor -->
+
+<script>
+    var uploadedDocumentMap = {}
+    let token = $("meta[name='csrf-token']").attr("content");
+    Dropzone.options.myAwesomeDropzone = {
+
+        url: `{{ route('file_image.store') }}`,
+        // maxFilesize: 2, // MB
+        addRemoveLinks: true,
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        success: function (file, response) {
+            $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
+            uploadedDocumentMap[file.name] = response.name
+            uploadedDocumentMap[file.path] = response.path
+        },
+        removedfile: function (file) {
+            file.previewElement.remove()
+            var name = ''
+            var path = ''
+            if (typeof file.file_name !== 'undefined') {
+                name = file.file_name
+            } else {
+                name = uploadedDocumentMap[file.name]
+                path = uploadedDocumentMap[file.path]
+            }
+            $('form').find('input[name="document[]"][value="' + name + '"]').remove();
+
+            // alert(name);
+            console.log(path);
+            console.log(name);
+            $.ajax({
+                url: `/admin/file_image/${name}`,
+                type: "DELETE",
+                cache: false,
+                data: {
+                    "_token": token
+                },
+                success: function (response) {
+                    console.log(response);
+                    //show success message
+                    // Swal.fire({
+                    //     type: 'success',
+                    //     icon: 'success',
+                    //     title: `${response.message}`,
+                    //     showConfirmButton: false,
+                    //     timer: 3000
+                    // });
+
+                    //remove post on table
+                    // $(`#index_${post_id}`).remove();
+                }
+            });
+        },
+        init: function () {
+            @if (isset($project) && $project->document)
+                var files = {!! json_encode($project->document) !!}
+                for(var i in files) {
+                    var file = files[i]
+                    this.options.addedfile.call(this, file)
+                    file.previewElement.classList.add('dz-complete')
+                    $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+                }
+            @endif
+        }
+    }
+</script>
 @endpush

@@ -43,12 +43,7 @@
                 <div class="blog-single-content">
                     <div class="post-details">
                         <figure class="image-box">
-                            @if(file_exists(public_path('storage/'.$data->path)))
-                            <img src="{{ asset('storage/') }}/{{ $data->path}}" class="img-fluid"
-                                alt="{{ $data->title }}">
-                            @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soulofjava">
-                            @endif
+                            <x-carousel :jjj='$data' />
                         </figure>
                         <div class="inner-box">
                             <div class="upper-box">
@@ -70,8 +65,6 @@
                                     @endforeach
                                     @endif
                                 </div>
-
-
                             </div>
                             <div class="lower-box clearfix">
                                 <div class="left-content pull-left">
@@ -210,6 +203,11 @@
                             {{Form::close()}}
                         </div>
                     </div>
+
+                    <div class="sidebar-categories sidebar-widget">
+                        <x-category h3='sidebar-title' div='sidebar-item categories' />
+                    </div>
+
                     <!-- <div class="sidebar-categories sidebar-widget">
                         <h3 class="sidebar-title">Categories</h3>
                         <div class="widget-content">
@@ -229,12 +227,15 @@
                             <div class="post">
                                 <figure class="image">
                                     <a href="{{ url('/news-detail', $n->slug) }}">
-                                        @if(file_exists(public_path('storage/'.$n->path)))
-                                        <img src="{{ asset('storage/') }}/{{ $n->path}}"
-                                            class="img-fluid rounded-start rounded-end" alt="{{ $n->title }}">
-                                        @else
-                                        <img src="{{ asset('img/soulofjava.jpg') }}" alt="soulofjava">
+                                        @forelse($n->gambar as $gambar)
+                                        @if($loop->iteration == 1)
+                                        <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                            alt="{{ $gambar->file_name }}">
                                         @endif
+                                        @empty
+                                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
+                                            alt="soul of java">
+                                        @endforelse
                                     </a>
                                 </figure>
                                 <h5><a href="{{ url('/news-detail', $n->slug) }}">{{
@@ -290,6 +291,7 @@
     </div>
 </section>
 <!-- blog-single end -->
+
 @endsection
 @push('after-script')
 <script src="{{ asset('js/share.js') }}"></script>

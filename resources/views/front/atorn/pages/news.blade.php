@@ -23,14 +23,8 @@
     <div class="container">
         <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-12 d-flex justify-content-around">
-                <a class="default-btn-one" href="{{ url('/newsall') }}">Show
-                    All</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                    Release</a>
-                <a class="default-btn-one" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
+                <x-head-category_news btn='default-btn-one' />
+
             </div>
         </div>
         <x-cari-news />
@@ -39,11 +33,14 @@
             <div class="col-lg-4 col-sm-6" style="display: flex">
                 <div class="blog-card">
                     <a href="{{ url('/news-detail', $n->slug) }}">
-                        @if(file_exists(public_path('storage/'.$n->path)))
-                        <img src="{{ asset('storage/') }}/{{ $n->path}}" style="border-radius: 15px" class="img-fluid">
-                        @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                        @forelse($n->gambar as $gambar)
+                        @if($loop->iteration == 1)
+                        <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                            alt="{{ $gambar->file_name }}">
                         @endif
+                        @empty
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                        @endforelse
                     </a>
                     <div class="blog-card-text">
                         <h3><a href="{{ url('/news-detail', $n->slug) }}">{{ $n->title }}</a></h3>

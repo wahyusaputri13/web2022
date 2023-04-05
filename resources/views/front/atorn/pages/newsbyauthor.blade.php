@@ -26,11 +26,16 @@
                 @foreach($data as $author)
                 <div class="services-details">
                     <div class="img">
-                        @if(file_exists(public_path('storage/'.$author->path)))
-                        <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
-                        @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                        @endif
+                        <a href="{{ url('/news-detail', $author->slug) }}">
+                            @forelse($author->gambar as $gambar)
+                            @if($loop->iteration == 1)
+                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                alt="{{ $gambar->file_name }}">
+                            @endif
+                            @empty
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            @endforelse
+                        </a>
                     </div>
                     <div class="services-details-content">
                         <h3>{{ $author->title }}</h3>

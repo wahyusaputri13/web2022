@@ -34,11 +34,7 @@
                         <div class="col-lg-4">
                             <article class="d-flex flex-column">
                                 <div class="post-img">
-                                    @if(file_exists(public_path('storage/'.$n->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid">
-                                    @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                                    @endif
+                                    <x-carousel :jjj='$n' />
                                 </div>
                                 <h2 class="title">
                                     <a href="#">{{ $n->title }}</a>

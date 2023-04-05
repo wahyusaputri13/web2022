@@ -56,7 +56,7 @@
                             <div class="proj-thumb overflow-hidden w-100">
                                 @foreach($g->gambar as $pic)
                                 @if($loop->iteration == 1)
-                                <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                     href="{{ asset('storage/') }}/{{ $pic->path }}"
                                     data-caption="{{ $g->description }}">
                                     <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
@@ -64,7 +64,7 @@
                                 </a>
                                 @else
                                 <div style="display:none;">
-                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}" 
+                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}"
                                         href="{{ asset('storage/') }}/{{ $pic->path }}"
                                         data-caption="{{ $g->description }}">
                                         <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
@@ -106,17 +106,8 @@
                     <h3 class="mb-0">Our Latest News</h3>
                 </div>
             </div>
-            <div class="row mb-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-12 d-flex justify-content-around">
-                    <a class="thm-btn thm-bg" href="{{ url('/newsall') }}">Show
-                        All</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Berita</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Dokumentasi</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Notulensi</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Press
-                        Release</a>
-                    <a class="thm-btn thm-bg" href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Sambutan</a>
-                </div>
+            <div class="row mb-3 text-center">
+                <x-head-category_news btn='thm-btn thm-bg' />
             </div>
             <div class="blog-wrap w-100">
                 <div class="row post-caro">
@@ -125,14 +116,15 @@
                         <div class="post-box w-100 text-center">
                             <div class="post-img overflow-hidden w-100">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
-                                    @if(file_exists(public_path('storage/'.$n->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $n->path}}" class="img-fluid w-100"
-                                        alt="{{ $n->photo }}" style="height: 200px;">
-                                    @else
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid w-100"
-                                        alt="soul of java" style="height: 200px;">
+                                    @forelse($n->gambar as $gambar)
+                                    @if($loop->iteration == 1)
+                                    <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                        alt="{{ $gambar->file_name }}">
+                                    @endif
+                                    @empty
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                    @endforelse
                                 </a>
-                                @endif
                             </div>
                             <div class="post-info w-100">
                                 <h3 class="mb-0"><a href="{{ url('/news-detail', $n->slug) }}">{{

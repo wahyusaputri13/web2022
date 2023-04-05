@@ -27,11 +27,7 @@
                     <article class="entry">
 
                         <div class="entry-img">
-                            @if(file_exists(public_path('storage/'.$author->path)))
-                            <img src="{{ asset('storage/') }}/{{ $author->path}}" class="img-fluid">
-                            @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
-                            @endif
+                            <x-carousel :jjj='$author' />
                         </div>
 
                         <h2 class="entry-title">

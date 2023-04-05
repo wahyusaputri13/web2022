@@ -11,14 +11,13 @@
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap"
-  rel="stylesheet">
+    rel="stylesheet">
 
 <!-- Stylesheets -->
 <link href="{{ asset('assets/front/appway/css/font-awesome-all.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/flaticon.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/owl.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/front/appway/css/bootstrap.css') }}" rel="stylesheet">
-<!-- <link href="{{ asset('assets/front/appway/css/jquery.fancybox.min.css') }}" rel="stylesheet"> -->
+<link href="{{ asset('assets/front/flexstart/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/animate.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/imagebg.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/front/appway/css/style.css') }}" rel="stylesheet">
