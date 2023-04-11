@@ -24,22 +24,31 @@
                 <p class="text-3xl text-white px-4 py-8 text-center stroke-gray-500 font-bold sm:text-4xl sm:pt-18">
                     {{ $data->title }}
                 </p>
-                <p class="text-center ">
+                <p class="text-center">
                     <img class="max-w-lg h-auto rounded-lg" src="{{ asset('storage/') }}/{{ $data->path}}">
                 </p>
                 <br>
                 <div class="w-full px-3 py-5 inset-5 bg-white opacity-95 text-justify rounded-lg">
-                    <p class="text-xl text-center mb-16 font-thin sm:font-normal sm:font-serif">
-                    <ul>
-                        <li class="d-flex align-items-center text-black">{{
+                    <div class="flex justify-end">
+                        <div class="text-black text-bold">
+                            {{
                             \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
                             \Carbon\Carbon::parse( $data->date
-                            )->toFormattedDateString() }}</li>
-                    </ul>
-                    </p>
-                    <section class="prose lg:prose-xl text-black font-serif">
-                        <p> {!! $data->description !!} </p>
-                    </section>
+                            )->toFormattedDateString() }}
+                        </div>
+                    </div>
+                    <hr>
+                    <article class="prose lg:prose-lg xl:prose-xl text-black font-serif">
+                        {!! $data->description !!}
+                    </article>
+                    <hr>
+                    <div class="flex justify-between ">
+                        <div class="text-black">Dilihat : {{
+                            views($data)->count(); }} kali.</div>
+                        <div class="text-black">
+                            {!! Share::currentPage()->facebook()->twitter()->whatsapp(); !!}
+                        </div>
+                    </div>
                 </div>
             </section>
 
