@@ -6,7 +6,7 @@
 
             <!-- ======= Start Judul ======= -->
             <a href="{{url('/')}}">
-                <h1 class="text-8xl font-bold text-center my-10"><span
+                <h1 class="font-bold text-4xl lg:text-8xl text-center my-10"><span
                         class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Breaking
                         News
                         Pesona</span>
@@ -34,10 +34,11 @@
             </div>
             <!-- ======= End Button Back and Search ======= -->
 
-            <!-- ======= Start News Section ======= -->
             <div class="container my-24 px-6 mx-auto">
+
+                <!-- ======= Start News Section ======= -->
                 <section class="mb-32">
-                    <div id="body" class="flex flex-wrap m-1 md:m-2">
+                    <div class="flex flex-wrap m-1 md:m-2">
                         <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
                             @foreach($news as $n)
                             <div class="flex flex-wrap hover:scale-125 focus:outline-none px-6 py-5">
@@ -72,13 +73,19 @@
                     </div>
                 </section>
                 <!-- End News Section -->
+
                 <div class="row mt-3">
                     <div class="col-lg-12 d-flex justify-content-center">
                         {{ $news->links('pagination::tailwind') }}
                     </div>
                 </div>
             </div>
-            <!-- ======= End News Section ======= -->
+
+            <div class="grid">
+                <div class="mb-5 lg:invisible">
+                    <div class="text-center mb-2">© 2023 DISKOMINFO by Isa Maulana Tantra</div>
+                </div>
+            </div>
 
         </div>
     </div>

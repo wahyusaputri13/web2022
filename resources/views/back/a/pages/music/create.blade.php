@@ -5,40 +5,37 @@
         {{ Breadcrumbs::render('music') }}
         <div class="row">
             <div class="col-md-6">
-                <div class="table">
-                    <div class="table-fixed">
-                        <h4 class="table-title">Chart Music</h4>
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="green">
+                        <i class="material-icons">library_music</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Chart Music</h4>
                         {{Form::open(['route' => 'music.store','method' => 'post', 'files' => 'true', ''])}}
-                        <h4 class="table-hover">Ranking</h4>
                         <div class="form-group label-floating">
-                            <label class="control-label">ranking</label>
+                            <label class="control-label">Ranking</label>
                             {{Form::number('ranking', null,['class' => 'form-control'])}}
                         </div>
-                        <h4 class="table-hover">song</h4>
-                        <label class="control-label">song</label>
-                        {{Form::text('song', null,['class' => 'form-control'])}}
-                    </div>
-                    <h4 class="table-hover">artist</h4>
-                    <div class="form-group label-floating">
-                        <label class="control-label">artis</label>
-                        {{Form::text('artist', null,['class' => 'form-control'])}}
-                    </div>
-                    <h4 class="table-hover">Years</h4>
-                    <div class="form-group label-floating">
-                        <label class="control-label">Years</label>
-                        {{Form::number('years', null,['class' => 'form-control'])}}
-                    </div>
-                    <div class="col text-center">
-                        <div class="container text-center">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Song</label>
+                            {{Form::text('song', null,['class' => 'form-control'])}}
                         </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Artis</label>
+                            {{Form::text('artist', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Years</label>
+                            {{Form::number('years', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="d-flex text-right">
+                            <a href="{{ url('music') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <button type="submit" class="btn btn-success btn-fill">Insert</button>
+                        </div>
+                        {{Form::close()}}
                     </div>
-                </div>
-                <div class="d-flex text-right">
-                    <a href="{{ url('music') }}" class="btn btn-default btn-fill">Cancel</a>
-                    <button type="submit" class="btn btn-success btn-fill">Insert</button>
                 </div>
             </div>
-            {{Form::close()}}
         </div>
     </div>
 </div>

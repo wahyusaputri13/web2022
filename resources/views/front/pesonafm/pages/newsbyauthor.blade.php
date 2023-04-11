@@ -4,17 +4,15 @@
     <div class="flex-grow">
         <div class="container mx-auto py-1">
 
-            <div class="flex mt-10">
-                <div class="basis-1/2 text-right">
-                    <a href="{{url('/')}}" class="sm:text-4xl font-bold">
-                        <h1 class="font-bold text-right"> Breaking </h1>
-                </div>
-                <div class="basis-1/2">
-                    <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">News
+            <!-- ======= Start Judul ======= -->
+            <a href="{{url('/')}}">
+                <h1 class="text-4xl lg:text-8xl font-bold text-center my-10"><span
+                        class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Breaking
+                        News
                         Pesona</span>
-                    </a>
-                </div>
-            </div>
+                </h1>
+            </a>
+            <!-- ======= End Judul ======= -->
 
             <div class="flex justify-between mt-10">
                 <div class="grid place-items-center">
@@ -34,7 +32,7 @@
                 </div>
             </div>
 
-            <!-- ======= News Section ======= -->
+            <!-- ======= Start News Section ======= -->
             <div class="container my-24 px-6 mx-auto">
                 <section class="mb-32">
                     <div id="body" class="flex flex-wrap m-1 md:m-2">
@@ -67,9 +65,9 @@
                                             </div>
                                         </a>
                                     </div>
-                                    @endforeach
                                 </div>
                             </div>
+                            @endforeach
                             <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
                                 <div class="col-lg-12 d-flex justify-content-center">
                                     {{ $data->links('pagination::tailwind') }}
@@ -77,6 +75,13 @@
                             </div>
                 </section>
                 <!-- End News Section -->
+            </div>
+            <!-- ======= End News Section ======= -->
+
+            <div class="grid">
+                <div class="mb-5 lg:invisible">
+                    <div class="text-center mb-2">© 2023 DISKOMINFO by Isa Maulana Tantra</div>
+                </div>
             </div>
         </div>
     </div>

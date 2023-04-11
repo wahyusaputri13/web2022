@@ -11,7 +11,6 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\AudioController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\BuaperController;
 use App\Http\Controllers\RoleController;
@@ -25,14 +24,8 @@ use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
-use App\Models\Jadwal;
-use App\Models\Struktur;
-use App\Models\Buaper;
 use App\Models\Website;
-use App\Models\Music;
-use App\Models\Audio;
 use App\Models\Themes;
-use PhpParser\Node\Stmt\Return_;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,10 +74,10 @@ Route::get('/', function () {
     }
 })->name('root')->middleware('data_web');
 
-Route::get('/strukturall', [FrontController::class, 'struktur'])->name('struktur.all');
-Route::get('/jadwalall', [FrontController::class, 'jadwal'])->name('jadwal.all');
 
 Route::group(['middleware' => 'data_web'], function () {
+    Route::get('/strukturall', [FrontController::class, 'struktur'])->name('struktur.all');
+    Route::get('/jadwalall', [FrontController::class, 'jadwal'])->name('jadwal.all');
     Route::get('/news-detail/{slug}', [FrontController::class, 'newsdetail'])->name('news.detail');
     Route::get('/news-author/{id}', [FrontController::class, 'newsbyauthor'])->name('news.author');
     Route::get('/news-search', [FrontController::class, 'newsbysearch'])->name('news.search');
@@ -134,7 +127,6 @@ Route::group(['middleware' => ['auth', 'data_web']], function () {
     Route::resource('inbox', InboxController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess']);
     Route::get('getAlamat', [WebsiteController::class, 'location']);
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
 
     // get data for front menu parent
     Route::get('/cari', [FrontMenuController::class, 'loadData']);

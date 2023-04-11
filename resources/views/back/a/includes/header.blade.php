@@ -48,18 +48,21 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a data-toggle="collapse" href="#pagesExamples">
+                <li
+                    class="{{ (Str::contains(Request::url(), ['gallery', 'news', 'music', 'buaper'])) ? 'active' : '' }}">
+                    <a data-toggle="collapse" href="#pagesExamples"
+                        aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news', 'music', 'buaper'])) ? 'true' : '' }}">
                         <i class="material-icons">archive</i>
                         <p>Posts
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse" id="pagesExamples">
+                    <div class="collapse {{ (Str::contains(Request::url(), ['gallery', 'news', 'music', 'buaper'])) ? 'in' : '' }}"
+                        id="pagesExamples">
                         <ul class="nav">
                             <li class="{{ (request()->is('gallery*')) ? 'active' : '' }}">
                                 <a href="{{ url('/gallery') }}"> <i class="material-icons">collections</i>
-                                    Gallery</a>
+                                    Tips & Trick</a>
                             </li>
                             <li class="{{ (request()->is('news*')) ? 'active' : '' }}">
                                 <a href="{{ url('/news') }}">

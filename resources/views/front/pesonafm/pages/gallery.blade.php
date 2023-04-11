@@ -13,7 +13,7 @@
 
             <div class="flex mt-10">
                 <div class="basis-1/2 text-right">
-                    <a href="{{url('/')}}" class="sm:text-8xl font-bold">
+                    <a href="{{url('/')}}" class="text-4xl lg:text-8xl font-bold">
                         <h1 class="font-bold text-right"> Tips & </h1>
                 </div>
                 <div class="basis-1/2">
@@ -67,6 +67,12 @@
             <div class="row mt-3" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-lg-12 d-flex justify-content-center">
                     {{ $gallery->links('pagination::tailwind') }}
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="mb-5 lg:invisible">
+                    <div class="text-center mb-2">© 2023 DISKOMINFO by Isa Maulana Tantra</div>
                 </div>
             </div>
 

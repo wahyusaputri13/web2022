@@ -6,11 +6,11 @@
 
             <div class="flex mt-10">
                 <div class="basis-1/2 text-right">
-                    <a href="{{url('/')}}" class="sm:text-8xl font-bold">
-                        <h1 class="font-bold text-right"> Chart</h1>
+                    <a href="{{url('/')}}" class="text-4xl lg:text-8xl font-bold">
+                        <h1 class="font-bold text-right">Chart</h1>
                 </div>
                 <div class="basis-1/2">
-                    <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Music</span>
+                    <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"> Music</span>
                     </a>
                 </div>
             </div>
@@ -41,6 +41,12 @@
                     </tbody>
                 </table>
             </section>
+
+            <div class="grid">
+                <div class="mb-5 lg:invisible">
+                    <div class="text-center mb-2">© 2023 DISKOMINFO by Isa Maulana Tantra</div>
+                </div>
+            </div>
 
         </div>
     </div>

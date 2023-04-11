@@ -14,11 +14,11 @@
                         {{Form::model($data, ['route' => ['buaper.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
                         <div class="form-group label-floating">
-                            <label class="control-label">link youtube</label>
+                            <label class="control-label">Link Youtube</label>
                             {{Form::text('video', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">deskripsi</label>
+                            <label class="control-label">Deskripsi</label>
                             {{Form::text('deskripsi', null,['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">

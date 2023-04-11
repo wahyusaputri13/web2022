@@ -8,17 +8,17 @@ Breadcrumbs::for('dashboard', function ($trail) {
     $trail->push('Dashboard', route('dashboard'));
 });
 
-// Dashboard > Gallery
+// Dashboard > Tips & Trick
 Breadcrumbs::for('gallery', function ($trail) {
     $trail->parent('dashboard');
-    $trail->push('Gallery', url('photos'));
+    $trail->push('Tips & Trick', url('photos'));
 });
 
 
 // Dashboard > Chart Top 10 music
 Breadcrumbs::for('music', function ($trail) {
     $trail->parent('dashboard');
-    $trail->push('music', url('musicall'));
+    $trail->push('Music', url('musicall'));
 });
 
 // Dashboard > News
@@ -42,7 +42,7 @@ Breadcrumbs::for('menu', function ($trail) {
 // Dashboard > Buaper
 Breadcrumbs::for('buaper', function ($trail) {
     $trail->parent('dashboard');
-    $trail->push('buaper', url('buaper'));
+    $trail->push('Buaper', url('buaper'));
 });
 
 // Dashboard > Struktur
@@ -140,4 +140,3 @@ Breadcrumbs::for('inbox', function ($trail) {
 //     $trail->parent('category', $post->category);
 //     $trail->push($post->title, route('post', $post->id));
 // });
-?>

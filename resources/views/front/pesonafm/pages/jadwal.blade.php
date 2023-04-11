@@ -5,7 +5,7 @@
         <div class="container mx-auto py-1">
 
             <a href="{{url('/')}}">
-                <h1 class="text-8xl font-bold text-center my-10"> <span
+                <h1 class="text-4xl lg:text-8xl font-bold text-center my-10"> <span
                         class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Jadwal Program
                         &
                         Event</span> </h1>
@@ -42,7 +42,13 @@
                 <img src="{{ asset('assets/front/pesonafm/page0003.jpg') }}" class="max-w-full h-auto"
                     alt="page0003.jpg">
             </div>
-            
+
+            <div class="grid">
+                <div class="mb-5 lg:invisible">
+                    <div class="text-center mb-2">© 2023 DISKOMINFO by Isa Maulana Tantra</div>
+                </div>
+            </div>
+
         </div>
     </div>
     @endsection

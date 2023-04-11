@@ -3,17 +3,16 @@
 <div class="flex flex-col h-screen">
     <div class="flex-grow">
         <div class="container mx-auto py-1">
-            <div class="flex mt-10">
-                <div class="basis-1/2 text-right">
-                    <a href="{{url('/')}}" class="sm:text-4xl font-bold">
-                        <h1 class="font-bold text-right"> Breaking </h1>
-                </div>
-                <div class="basis-1/2">
-                    <span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">News Pesona
-                    </span>
-                    </a>
-                </div>
-            </div>
+
+            <!-- ======= Start Judul ======= -->
+            <a href="{{url('/')}}">
+                <h1 class="text-4xl lg:text-8xl font-bold text-center my-10"><span
+                        class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Breaking
+                        News
+                        Pesona</span>
+                </h1>
+            </a>
+            <!-- ======= End Judul ======= -->
 
             <div class="mt-10">
                 <a class="bg-red-500 px-10 py-2 w-20 h-30  text-white text-center rounded-lg"
@@ -42,8 +41,14 @@
                         <p> {!! $data->description !!} </p>
                     </section>
                 </div>
-
             </section>
+
+            <div class="grid">
+                <div class="mb-5 lg:invisible">
+                    <div class="text-center mb-2">© 2023 DISKOMINFO by Isa Maulana Tantra</div>
+                </div>
+            </div>
+
         </div>
     </div>
     @endsection
