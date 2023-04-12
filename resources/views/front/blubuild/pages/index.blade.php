@@ -10,7 +10,7 @@
                 <div class="feat-item">
                     @if($hl->gambarmuka)
                     <div class="feat-img position-absolute"
-                        style="background-image: url({{ asset('storage/') }}/{{ $hl->gambarmuka->path }});">
+                        style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
                         @else
                         <div class="feat-img position-absolute"
                             style="background-image: url({{ asset('img/soulofjava.jpg') }});">
