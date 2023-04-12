@@ -18,7 +18,6 @@
                             <a href="{{ url('/news-detail', $hl->slug) }}">
                                 <h2 class="mb-0" style="color: white;">{{ $hl->title }}</h2>
                             </a>
-                            {{ $item->path }}
                         </div>
                     </div>
                 </div>
