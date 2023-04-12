@@ -7,40 +7,29 @@
                 @foreach(App\Models\News::with('gambar')->where('highlight', '1')->orderBy('date',
                 'DESC')->take(3)->get() as $hl)
 
-                @forelse ($hl->gambar as $item)
-
-                @if($loop->iteration == 1)
                 <div class="feat-item">
+                    @if($hl->gambarmuka)
                     <div class="feat-img position-absolute"
-                        style="background-image: url({{ asset('storage/') }}/{{ $item->path }});"></div>
-                    <div class="container">
-                        <div class="feat-cap">
-                            <a href="{{ url('/news-detail', $hl->slug) }}">
-                                <h2 class="mb-0" style="color: white;">{{ $hl->title }}</h2>
-                            </a>
+                        style="background-image: url({{ asset('storage/') }}/{{ $hl->gambarmuka->path }});">
+                        @else
+                        <div class="feat-img position-absolute"
+                            style="background-image: url({{ asset('img/soulofjava.jpg') }});">
+                            @endif
+                        </div>
+                        <div class="container">
+                            <div class="feat-cap">
+                                <a href="{{ url('/news-detail', $hl->slug) }}">
+                                    <h2 class="mb-0" style="color: white;">{{ $hl->title }}</h2>
+                                </a>
+                                <div class="feat-cap-innr">
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endif
-
-                @empty
-                <div class="feat-item">
-                    <div class="feat-img position-absolute"
-                        style="background-image: url({{ asset('img/soulofjava.jpg') }});"></div>
-                    <div class="container">
-                        <div class="feat-cap">
-                            <a href="{{ url('/news-detail', $hl->slug) }}">
-                                <h2 class="mb-0" style="color: white;">{{ $hl->title }}</h2>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                @endforelse
-
-                @endforeach
             </div>
         </div>
-    </div>
 </section>
 
 @if($gallery->count() != 0)

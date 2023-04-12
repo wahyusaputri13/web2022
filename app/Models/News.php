@@ -27,4 +27,9 @@ class News extends Model implements Viewable
     {
         return $this->hasMany(File::class, 'id_news', 'id');
     }
+
+    public function gambarmuka()
+    {
+        return $this->hasOne(File::class, 'id_news', 'id');
+    }
 }
