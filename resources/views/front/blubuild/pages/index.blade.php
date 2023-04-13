@@ -4,7 +4,7 @@
     <div class="w-100 position-relative">
         <div class="feat-wrap position-relative w-100">
             <div class="feat-caro">
-                @foreach(App\Models\News::with('gambar')->where('highlight', '1')->orderBy('date',
+                @foreach(App\Models\News::where('highlight', '1')->orderBy('date',
                 'DESC')->take(3)->get() as $hl)
 
                 <div class="feat-item">
@@ -12,8 +12,7 @@
                     <div class="feat-img position-absolute"
                         style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
                         @else
-                        <div class="feat-img position-absolute"
-                            style="background-image: url({{ asset('img/soulofjava.jpg') }});">
+                        <div class="feat-img position-absolute" style="background-image: url('img/soulofjava.jpg');">
                             @endif
                         </div>
                         <div class="container">

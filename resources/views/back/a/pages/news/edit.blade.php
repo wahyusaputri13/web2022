@@ -17,7 +17,6 @@
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
-                    <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
                     <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
