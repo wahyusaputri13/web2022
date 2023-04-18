@@ -90,6 +90,7 @@
                         <p>Postingan</p>
                     </a>
                 </li>
+                @if (!auth()->user()->getPermissionNames()->first() == 'spbe')
                 <li class="{{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamplesss"
                         aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
@@ -111,6 +112,15 @@
                         </ul>
                     </div>
                 </li>
+                @endif
+                @if (auth()->user()->getPermissionNames()->first() == 'spbe')
+                <li class="{{ (Str::contains(Request::url(), 'download_area')) ? 'active' : '' }}">
+                    <a href="{{ route('download_area.index') }}">
+                        <i class="material-icons">file_download</i>
+                        <p>Download Area</p>
+                    </a>
+                </li>
+                @endif
                 @role('superadmin|admin')
                 <li
                     class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">

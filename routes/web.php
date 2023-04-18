@@ -4,12 +4,9 @@ use App\Helpers\Seo;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\FrontController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\SubmenuController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\FrontMenuController;
@@ -21,6 +18,8 @@ use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\DailyReportController;
+use App\Http\Controllers\DownloadAreaController;
+use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
@@ -29,7 +28,6 @@ use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;
-use App\Models\PermohonanInformasi;
 use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
@@ -150,6 +148,8 @@ Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], functi
     Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
     Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
     Route::resource('file_image', FileController::class);
+    Route::resource('download_area', DownloadAreaController::class);
+    Route::resource('download_area_file', DownloadAreaFileController::class);
 
     // pindah data dari database wonsobokab
     Route::get('insert', [NewsController::class, 'insert']);
@@ -166,5 +166,3 @@ Route::get('migrate', [MigrasiDataController::class, 'insert']);
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
-
-// Route::get('delete_image/{id?}', [FileController::class, 'destroy']);

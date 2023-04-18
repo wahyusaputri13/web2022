@@ -6,9 +6,6 @@ use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Role;
-use App\Models\Themes;
-use App\Models\User;
 use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
