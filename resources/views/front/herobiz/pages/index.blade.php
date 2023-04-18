@@ -1,23 +1,51 @@
 @extends('front.herobiz.layouts.app')
 @section('content')
-<section id="hero-animated" class="hero-animated d-flex align-items-center">
-    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
-        data-aos="zoom-out">
-        @if($data_website->image_hero)
-        <img src="{{ asset('storage') }}/{{ $data_website->image_hero }}" class="img-fluid animated"
-            alt="{{ $data_website->image_hero_name }}">
-        @else
-        <img src="{{ asset('assets/front/herobiz/assets/img/hero-carousel/hero-carousel-3.svg') }}"
-            class="img-fluid animated" alt="hero_image">
-        @endif
-        <h2>Welcome to <span>{{ $data_website->web_name }}</span></h2>
-        <p>{{ $data_website->web_description }}</p>
-        <div class="d-none">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video d-flex align-items-center"><i
-                    class="bi bi-play-circle"></i><span>Watch
-                    Video</span></a>
+<style>
+    img {
+        border-radius: 50%;
+    }
+
+    h2 .white-text {
+        color: white;
+    }
+
+    span .white-text {
+        color: white;
+    }
+</style>
+
+<section id="hero-animated"
+    class="hero-animated d-flex flex-column justify-content-center align-items-center text-center position-relative"
+    style="background-image: url('assets/front/herobiz/assets/img/bg.png'); background-size: cover;
+background-position: center;" data-aos="zoom-out">
+
+    <div class="media d-flex align-items-between mb-10">
+        <div class="avatar avatar-sm avatar-circle mr-3">
+            <img class="img-fluid animated" src="https://diskominfo.kedirikab.go.id/asset/foto_berita/spbe.png"
+                alt="Image Description" style="width:800px">
         </div>
+        <div class="avatar avatar-sm avatar-circle mr-3">
+            <img class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/pemkab.png"
+                alt="Image Description" style="width:800px">
+        </div>
+        <div class="avatar avatar-sm avatar-circle mr-3">
+            <img class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/soull.png"
+                alt="Image Description" style="width:800px">
+        </div>
+        <div class="avatar avatar-sm avatar-circle mr-3">
+            <img class="img-fluid animated" src="https://diskominfo.wonosobokab.go.id/front/assets/images/smartcity.png"
+                alt="Image Description" style="width:800px">
+        </div>
+    </div>
+
+    <h2 class="white-text" style="color: white;">Go Smart Service</h2>
+    <p class="white-text" style="color: white;">{{ $data_website->web_description }}</p>
+
+    <div class="d-none">
+        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="{{ $data_website->heroes_video }}" class="glightbox btn-watch-video d-flex align-items-center"><i
+                class="bi bi-play-circle"></i><span class="white-text" style="color: white;">Watch
+                Video</span></a>
     </div>
 </section>
 <main id="main">
