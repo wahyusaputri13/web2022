@@ -16,6 +16,7 @@
                     <h4 class="card-title">Form Edit Data</h4>
                     {{Form::model($data, ['route' => ['download_area.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
+                    <input type="text" value="{{ $data->id }}" id="malika" hidden>
                     @include('back.a.pages.download_area.form')
                     {{Form::close()}}
                 </div>
@@ -29,17 +30,13 @@
     integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        demo.initFormExtendedDatetimepickers();
-    });
-</script>
-
-<script>
-    var uploadedDocumentMap = {}
+    var uploadedDocumentMap = {};
     let token = $("meta[name='csrf-token']").attr("content");
-    Dropzone.options.myAwesomeDropzone = {
 
-        url: `{{ route('file_image.store') }}`,
+    Dropzone.autoDiscover = false;
+    $(".dropzone").dropzone({
+
+        url: `{{ route('download_area_file.store') }}`,
         // maxFilesize: 2, // MB
         addRemoveLinks: true,
         headers: {
@@ -52,18 +49,21 @@
         },
         removedfile: function (file) {
             file.previewElement.remove()
-            var name = ''
-            var path = ''
+            var name = '';
+            var path = '';
             if (typeof file.file_name !== 'undefined') {
-                name = file.file_name
+                name = file.file_name;
             } else {
-                name = uploadedDocumentMap[file.name]
-                path = uploadedDocumentMap[file.path]
+                name = uploadedDocumentMap[file.name];
+                path = uploadedDocumentMap[file.path];
             }
+
+            // console.log(file.name);
+
             $('form').find('input[name="document[]"][value="' + name + '"]').remove();
 
             $.ajax({
-                url: `/admin/file_image/${name}`,
+                url: `/admin/download_area_file/${name}`,
                 type: "DELETE",
                 cache: false,
                 data: {
@@ -75,6 +75,39 @@
             });
         },
         init: function () {
+            myDropzone = this;
+            let id_ku = document.getElementById('malika').value;
+
+            this.on("removedfile", function (file) {
+                alert("Delete this file?");
+                $.ajax({
+                    url: '/admin/download_area_file/' + file.name,
+                    type: "DELETE",
+                    data: {
+                        "_token": token
+                    },
+                    // data: { 'filetodelete': file.name }
+                });
+            });
+
+            $.ajax({
+                url: `/admin/download_area_file/${id_ku}`,
+                type: 'get',
+                // data: { request: 'fetch' },
+                dataType: 'json',
+                success: function (response) {
+                    $.each(response, function (key, value) {
+                        var mockFile = { name: value.name, size: value.size };
+
+                        myDropzone.emit("addedfile", mockFile);
+                        myDropzone.emit("thumbnail", mockFile, value.path);
+                        myDropzone.emit("complete", mockFile);
+
+                    });
+
+                }
+            });
+
             @if (isset($project) && $project -> document)
                 var files = {!! json_encode($project -> document)!!
         }
@@ -86,6 +119,6 @@
     }
     @endif
         }
-    }
+    });
 </script>
 @endpush

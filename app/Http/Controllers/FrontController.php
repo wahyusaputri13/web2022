@@ -6,6 +6,7 @@ use App\Helpers\Seo;
 use App\Models\Agenda;
 use App\Models\File;
 use App\Models\Component;
+use App\Models\DownloadArea;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -181,6 +182,18 @@ class FrontController extends Controller
                 ->make(true);
         }
         return view('front.' . $this->themes->themes_front . '.component.event');
+    }
+
+    public function downloadarea(Request $request)
+    {
+        Seo::seO();
+        if ($request->ajax()) {
+            $data = DownloadArea::with('files')->orderBy('created_at', 'desc');
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->make(true);
+        }
+        return view('front.' . $this->themes->themes_front . '.component.download-area');
     }
 
     public function inbox(Request $request)

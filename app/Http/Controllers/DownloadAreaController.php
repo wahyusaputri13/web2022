@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\DownloadArea;
+use App\Models\DownloadAreaFile;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use File;
 
 class DownloadAreaController extends Controller
 {
@@ -16,7 +18,7 @@ class DownloadAreaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DownloadArea::orderBy('created_at', 'DESC')->get();
+            $data = DownloadArea::with('usernya', 'files')->orderBy('created_at', 'DESC')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -39,7 +41,36 @@ class DownloadAreaController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->addColumn(
+                    'files',
+                    function ($data) {
+                        // $nama = [];
+
+                        // foreach ($data->files as $value) {
+                        //     $nama[$data->id] = '<li>
+                        //                  <a href="' . $value->file_path . '">' . $value->file_name . '</a>
+                        //             </li>
+                        //                  <li class="divider"></li>';
+                        // }
+
+                        // $return = '<div class="dropdown">
+                        //        <button href="#pablo" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Download
+                        //                                     <b class="caret"></b>
+                        //                                 </button>
+                        //                                 <ul class="dropdown-menu dropdown-menu-left">
+                        //                                     ' . $nama . '
+                        //                                 </ul>
+                        //                                 </div>';
+                        return $data->files[1];
+                    }
+                )
+                // ->addColumn(
+                //     'display',
+                //     function ($data) {
+                //         return $data;
+                //     }
+                // )
+                ->rawColumns(['action', 'tgl', 'files'])
                 ->make(true);
         }
         return view('back.a.pages.download_area.index');
@@ -63,7 +94,30 @@ class DownloadAreaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'judul' => 'required',
+            'sumber' => 'required',
+        ]);
+
+        $id = DownloadArea::create($validated + ['upload_by' => auth()->user()->id]);
+
+        if ($request->document) {
+            foreach ($request->document as $df) {
+                $path = storage_path('app/public/download-area');
+
+                if (!file_exists($path)) {
+                    mkdir($path, 0777, true);
+                }
+
+                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/download-area/') . $df);
+                DownloadAreaFile::create([
+                    'download_area_id' => $id->id,
+                    'file_path' => 'download-area/' . $df,
+                    'file_name' => $df
+                ]);
+            }
+        }
+        return redirect(route('download_area.index'))->with(['success' => 'Data berhasil ditambahkan!']);
     }
 
     /**
@@ -96,9 +150,27 @@ class DownloadAreaController extends Controller
      * @param  \App\Models\DownloadArea  $downloadArea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DownloadArea $downloadArea)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'judul' => 'required',
+            'sumber' => 'required',
+        ]);
+
+        DownloadArea::find($id)->update($validated + ['upload_by' => auth()->user()->id]);
+
+        if ($request->document) {
+            foreach ($request->document as $df) {
+                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/download-area/') . $df);
+                DownloadAreaFile::create([
+                    'download_area_id' => $id,
+                    'file_path' => 'download-area/' . $df,
+                    'file_name' => $df
+                ]);
+            }
+        }
+
+        return redirect(route('download_area.index'))->with(['success' => 'Data berhasil diperbarui!']);
     }
 
     /**

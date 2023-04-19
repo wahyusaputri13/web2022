@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('download_areas', function (Blueprint $table) {
+        Schema::create('download_area_files', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('sumber');
-            $table->unsignedBigInteger('upload_by');
+            $table->unsignedBigInteger('download_area_id');
+            $table->string('file_path');
+            $table->string('file_name');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('download_areas');
+        Schema::dropIfExists('download_area_files');
     }
 };

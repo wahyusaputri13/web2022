@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DownloadArea;
+use App\Models\DownloadAreaFile;
 use Illuminate\Http\Request;
-use App\Models\File;
+use Illuminate\Support\Facades\Storage;
 
 class DownloadAreaFileController extends Controller
 {
@@ -62,7 +64,15 @@ class DownloadAreaFileController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DownloadArea::with('files')->where('id', $id)->first();
+        foreach ($data->files as $d) {
+            $fileList[] = [
+                'name'          => $d->file_name,
+                'size'          => Storage::size(($d->file_path)),
+                'path'          => config('app.url') . '/storage/' . $d->file_path
+            ];
+        }
+        return json_encode($fileList ?? []);
     }
 
     /**
@@ -104,9 +114,9 @@ class DownloadAreaFileController extends Controller
                 'lokasi'          => $loc,
             ]);
         } else {
-            $data = File::where('file_name', $id)->first();
+            $data = DownloadAreaFile::where('file_name', $id)->first();
             $data->delete();
-            unlink(storage_path('app/public/gallery/') . $id);
+            unlink(storage_path('app/public/download-area/') . $id);
             return response()->json([
                 'lokasi' => 'File terhapus'
             ]);

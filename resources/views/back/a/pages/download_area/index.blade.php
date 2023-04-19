@@ -29,7 +29,9 @@
                                         <th>#</th>
                                         <th>Judul</th>
                                         <th>Sumber</th>
-                                        <th>Tanggal</th>
+                                        <th>Tanggal Upload</th>
+                                        <th>File</th>
+                                        <th>Uploader</th>
                                         <th class="disabled-sorting text-center">
                                             Aksi</th>
                                     </tr>
@@ -64,6 +66,8 @@
             { data: 'judul', name: 'judul', className: "text-center" },
             { data: 'sumber', name: 'sumber', className: "text-center" },
             { data: 'tgl', className: "text-center" },
+            { data: 'usernya.name', className: "text-center" },
+            { data: 'files', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]
 
