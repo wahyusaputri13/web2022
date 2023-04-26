@@ -12,7 +12,7 @@ class DownloadArea extends Model
 
     public function files()
     {
-        return $this->hasOne(DownloadAreaFile::class, 'download_area_id', 'id');
+        return $this->hasMany(DownloadAreaFile::class, 'download_area_id', 'id');
     }
 
     public function usernya()

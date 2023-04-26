@@ -18,8 +18,9 @@ class DownloadAreaController extends Controller
      */
     public function index(Request $request)
     {
+        
         if ($request->ajax()) {
-            $data = DownloadArea::with('usernya', 'files')->orderBy('created_at', 'DESC')->get();
+            $data = DownloadArea::with('usernya', 'files')->orderBy('created_at', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -43,13 +44,28 @@ class DownloadAreaController extends Controller
                     }
                 )
                 ->addColumn(
-                    'filenya',
+                    'filesnya',
                     function ($data) {
-                        $actionBtn = '<a href="' . Storage::url($data->files->file_path)  . '">' . $data->files->file_name . '</a>';
-                        return $actionBtn;
+                         $nama = "";
+
+                        foreach ($data->files as $value) {
+                            $nama .= '<li>
+                                         <a target="_blank" href="' . Storage::url($value->file_path) . '">' . $value->file_name . '</a>
+                                    </li>
+                                         <li class="divider"></li>';
+                        }
+
+                        return  '<div class="dropdown">
+                               <button href="#pablo" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Download
+                                                            <b class="caret"></b>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-left">
+                                                            ' . $nama . '
+                                                        </ul>
+                                                        </div>';
                     }
                 )
-                ->rawColumns(['action', 'tgl', 'filenya'])
+                ->rawColumns(['action', 'tgl', 'filesnya'])
                 ->make(true);
         }
         return view('back.a.pages.download_area.index');

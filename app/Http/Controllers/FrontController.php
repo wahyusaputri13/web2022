@@ -202,13 +202,28 @@ class FrontController extends Controller
                     }
                 )
                 ->addColumn(
-                    'filenya',
+                    'filesnya',
                     function ($data) {
-                        $actionBtn = '<a href="' . Storage::url($data->files->file_path)  . '">' . $data->files->file_name . '</a>';
-                        return $actionBtn;
+                        $nama = "";
+
+                        foreach ($data->files as $value) {
+                            $nama .= '<li>
+                                             <a  class="dropdown-item" target="_blank" href="' . Storage::url($value->file_path) . '">' . $value->file_name . '</a>
+                                        </li>
+                                             <li class="divider"></li>';
+                        }
+
+                        return '<div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Download File
+                        </button>
+                        <ul class="dropdown-menu">
+                        ' . $nama . '
+                        </ul>
+                      </div>';
                     }
                 )
-                ->rawColumns(['tgl', 'filenya'])
+                ->rawColumns(['tgl', 'filesnya'])
                 ->make(true);
         }
         return view('front.' . $this->themes->themes_front . '.component.download-area');

@@ -66,7 +66,7 @@
             { data: 'judul', name: 'judul', className: "text-center" },
             { data: 'sumber', name: 'sumber', className: "text-center" },
             { data: 'tgl', className: "text-center" },
-            { data: 'filenya', className: "text-center" },
+            { data: 'filesnya', className: "text-center" },
             { data: 'usernya.name', className: "text-center" },
         ]
 
