@@ -12,16 +12,11 @@ class DownloadArea extends Model
 
     public function files()
     {
-        return $this->hasMany(DownloadAreaFile::class, 'download_area_id', 'id');
+        return $this->hasOne(DownloadAreaFile::class, 'download_area_id', 'id');
     }
 
     public function usernya()
     {
         return $this->belongsTo(User::class, 'upload_by', 'id');
-    }
-
-    public function getDisplayAttribute()
-    {
-        return 'Display Product: ';
     }
 }

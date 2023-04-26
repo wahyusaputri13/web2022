@@ -29,7 +29,9 @@
                                             <th>#</th>
                                             <th>Judul</th>
                                             <th>Sumber</th>
+                                            <th>Tanggal Upload</th>
                                             <th>File</th>
+                                            <th>Uploader</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -63,7 +65,9 @@
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'judul', name: 'judul', className: "text-center" },
             { data: 'sumber', name: 'sumber', className: "text-center" },
-            { data: 'sumber', name: 'sumber', className: "text-center" },
+            { data: 'tgl', className: "text-center" },
+            { data: 'filenya', className: "text-center" },
+            { data: 'usernya.name', className: "text-center" },
         ]
 
     });

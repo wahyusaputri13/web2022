@@ -21,6 +21,7 @@ use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class FrontController extends Controller
 {
@@ -188,9 +189,26 @@ class FrontController extends Controller
     {
         Seo::seO();
         if ($request->ajax()) {
-            $data = DownloadArea::with('files')->orderBy('created_at', 'desc');
+            $data = DownloadArea::with('usernya', 'files')->orderBy('created_at', 'desc');
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->addColumn(
+                    'tgl',
+                    function ($data) {
+                        $actionBtn = '<center>' .
+                            \Carbon\Carbon::parse($data->created_at)->toFormattedDateString()
+                            . '</center>';
+                        return $actionBtn;
+                    }
+                )
+                ->addColumn(
+                    'filenya',
+                    function ($data) {
+                        $actionBtn = '<a href="' . Storage::url($data->files->file_path)  . '">' . $data->files->file_name . '</a>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['tgl', 'filenya'])
                 ->make(true);
         }
         return view('front.' . $this->themes->themes_front . '.component.download-area');

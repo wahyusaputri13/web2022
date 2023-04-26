@@ -7,6 +7,7 @@ use App\Models\DownloadAreaFile;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use File;
+use Illuminate\Support\Facades\Storage;
 
 class DownloadAreaController extends Controller
 {
@@ -42,35 +43,13 @@ class DownloadAreaController extends Controller
                     }
                 )
                 ->addColumn(
-                    'files',
+                    'filenya',
                     function ($data) {
-                        // $nama = [];
-
-                        // foreach ($data->files as $value) {
-                        //     $nama[$data->id] = '<li>
-                        //                  <a href="' . $value->file_path . '">' . $value->file_name . '</a>
-                        //             </li>
-                        //                  <li class="divider"></li>';
-                        // }
-
-                        // $return = '<div class="dropdown">
-                        //        <button href="#pablo" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Download
-                        //                                     <b class="caret"></b>
-                        //                                 </button>
-                        //                                 <ul class="dropdown-menu dropdown-menu-left">
-                        //                                     ' . $nama . '
-                        //                                 </ul>
-                        //                                 </div>';
-                        return $data->files[1];
+                        $actionBtn = '<a href="' . Storage::url($data->files->file_path)  . '">' . $data->files->file_name . '</a>';
+                        return $actionBtn;
                     }
                 )
-                // ->addColumn(
-                //     'display',
-                //     function ($data) {
-                //         return $data;
-                //     }
-                // )
-                ->rawColumns(['action', 'tgl', 'files'])
+                ->rawColumns(['action', 'tgl', 'filenya'])
                 ->make(true);
         }
         return view('back.a.pages.download_area.index');
