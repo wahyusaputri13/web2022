@@ -40,7 +40,7 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'orang_tua',
                     function ($data) {
-                        $actionBtn = $data->menu_induk->menu_name;
+                        $actionBtn = $data->menu_induk->menu_name ?? [];
                         return $actionBtn;
                     }
                 )
