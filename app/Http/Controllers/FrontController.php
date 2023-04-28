@@ -88,11 +88,13 @@ class FrontController extends Controller
 
     public function struktur(Request $request)
     {
+        Seo::seO();
         return view('front.pesonafm.pages.struktur');
     }
 
     public function jadwal(Request $request)
     {
+        Seo::seO();
         return view('front.pesonafm.pages.jadwal');
     }
 

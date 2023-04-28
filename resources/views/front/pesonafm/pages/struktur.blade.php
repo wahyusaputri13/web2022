@@ -19,110 +19,93 @@
                     <div class="flex flex-wrap -m-1 md:-m-2 bg-white rounded-xl">
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-center object-contains h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_e581aa.jpeg')}}"
-                                    alt="toonmecom_e581aa.jpeg">
-                                <p class="text-left font-bold">Ilham Ardha Saputra</p>
-                                <p class="text-left">Direktur Utama</p>
+                                <img class="object-center object-contains h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/ILHAM.png')}}" alt="ILHAM.png">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_a672f3.jpeg')}}"
-                                    alt="toonmecom_a672f3.jpeg">
-                                <p class="text-left font-bold">Tito Suseno</p>
-                                <p class="text-left">Staff Teknis</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/SARI.png')}}" alt="SARI.png">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_b156a2.jpeg')}}"
-                                    alt="toonmecom_b156a2.jpeg">
-                                <p class="text-left font-bold">Nur Khasanah (Meita)</p>
-                                <p class="text-left">Staf Produksi</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/PELANGI.png')}}" alt="PELANGI.png">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_d67b61.jpeg')}}"
-                                    alt="toonmecom_d67b61.jpeg">
-                                <p class="text-left font-bold">Desta Ariyani A</p>
-                                <p class="text-left">Staff Administrasi</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/DESTA.png')}}" alt="DESTA.png">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_f9fc30.jpeg')}}"
-                                    alt="toonmecom_f9fc30.jpeg">
-                                <p class="text-left font-bold">Eka Saputri</p>
-                                <p class="text-left">Staf Penyiar</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/ORIK.jpeg')}}" alt="ORIK.jpeg">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_80dde5.jpeg')}}"
-                                    alt="toonmecom_80dde5.jpeg">
-                                <p class="text-left font-bold">Mita Rosana</p>
-                                <p class="text-left">Pemberitaan/Penyiar</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/NUR_KHASANAH.png')}}"
+                                    alt="NUR_KHASANAH.png">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_12361c.jpg')}}"
-                                    alt="toonmecom_12361c.jpg">
-                                <p class="text-left font-bold">Faza Luthfia</p>
-                                <p class="text-left">Reporter/Penyiar</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/MITA.jpeg')}}" alt="MITA.jpeg">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_03da89.jpeg')}}"
-                                    alt="toonmecom_03da89.jpeg">
-                                <p class="text-left font-bold">Andhika Dede Sundawa</p>
-                                <p class="text-left">Reporter/Penyiar</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/FAZA.png')}}" alt="FAZA.png">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_7967ed.jpg')}}"
-                                    alt="toonmecom_7967ed.jpg">
-                                <p class="text-left font-bold">Ikbal Santosa</p>
-                                <p class="text-left">Reporter/Penyiar</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/TUNJANG.jpeg')}}" alt="TUNJANG.jpeg">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_af84b0.jpeg')}}"
-                                    alt="toonmecom_af84b0.jpeg">
-                                <p class="text-left font-bold">Bukhori</p>
-                                <p class="text-left">Penyiar</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/EKA.png')}}" alt="EKA.png">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_f8bc2c.jpeg')}}"
-                                    alt="toonmecom_f8bc2c.jpeg">
-                                <p class="text-left font-bold">Tunjang Ari Suseno</p>
-                                <p class="text-left">Staf Penyiar</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/IKBAL.png')}}" alt="IKBAL.png">
                             </div>
                         </div>
                         <div class="flex flex-wrap w-1/3">
                             <div class="w-full p-1 md:p-2">
-                                <img class="object-contains object-center h-48 w-96 rounded-lg"
-                                    src="{{ asset('assets/front/pesonafm/toonmecom_f54ea8.jpeg')}}"
-                                    alt="toonmecom_f54ea8.jpeg">
-                                <p class="text-left font-bold">Urip Yulianto</p>
-                                <p class="text-left">Staff Rumah Tangga/Penyiar</p>
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/TITO.png')}}" alt="TITO.png">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap w-1/3">
+                            <div class="w-full p-1 md:p-2">
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/PELE.png')}}" alt="PELE.png">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap w-1/3">
+                            <div class="w-full p-1 md:p-2">
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/PRAMONO.jpeg')}}" alt="PRAMONO.jpeg">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap w-1/3">
+                            <div class="w-full p-1 md:p-2">
+                                <img class="object-contains object-center h-50 w-96 rounded-lg"
+                                    src="{{ asset('assets/front/pesonafm/crew/ANDHIKA.png')}}" alt="ANDHIKA.png">
                             </div>
                         </div>
                     </div>
@@ -130,8 +113,8 @@
             </section>
 
             <div class="flex justify-center group-hover:scale-125 my-10">
-                <img src="{{ asset('assets/front/pesonafm/STRUKTUR OK.png') }}" class="max-w-full h-auto"
-                    alt="STRUKTUR OK.png">
+                <img src="{{ asset('assets/front/pesonafm/STRUKTURPESONAOK.png') }}" class="max-w-full h-auto"
+                    alt="STRUKTUR PESONA FM.png">
             </div>
 
             <div class="grid">
