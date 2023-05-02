@@ -169,7 +169,7 @@
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    {{Form::open(['url' => 'kotakmasuk','method' => 'post', 'files' => 'true', '', 'class' =>
+                    {{Form::open(['url' => 'kotakmasuk','method' => 'post', '', 'class' =>
                     'php-email-form'])}}
                     <div class="row">
                         <div class="form-group col-md-6">
