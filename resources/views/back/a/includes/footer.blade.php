@@ -1,10 +1,10 @@
 <footer class="footer">
-    <div class="container-fluid">
+    <div class="container">
         <p class="copyright pull-right">
             &copy; 2022
             <!-- <script>
-                document.write(new Date().getFullYear())
-            </script> -->
+                        document.write(new Date().getFullYear())
+                    </script> -->
             <a href="https://website.wonosobokab.go.id/">Diskominfo Kab. Wonosobo</a>, Isa Maulana Tantra
         </p>
     </div>
