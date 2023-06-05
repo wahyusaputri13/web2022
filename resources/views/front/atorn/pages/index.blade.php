@@ -4,10 +4,11 @@
 <!-- Hero Slider Area -->
 <div class="hero-slider owl-carousel owl-theme">
     @foreach(App\Models\News::where('highlight', '1')->orderBy('date', 'DESC')->take(3)->get() as $hl)
-    @if(file_exists(public_path('storage/'.$hl->path)))
-    <div class="hero-slider-item" style="background-image: url({{ asset('storage/') }}/{{ $hl->path }});">
+
+    @if($hl->gambarmuka)
+    <div class="hero-slider-item" style="background-image: url('storage/{{ $hl->gambarmuka->path }}');">
         @else
-        <div class="hero-slider-item" style="background-image: url({{ asset('img/soulofjava.jpg') }});">
+        <div class="hero-slider-item" style="background-image: url('img/soulofjava.jpg');">
             @endif
             <div class="d-table">
                 <div class="d-table-cell">

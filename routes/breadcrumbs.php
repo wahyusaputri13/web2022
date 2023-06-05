@@ -14,7 +14,7 @@ Breadcrumbs::for('gallery', function ($trail) {
 // Dashboard > News
 Breadcrumbs::for('news', function ($trail) {
     $trail->parent('dashboard');
-    $trail->push('News', url('news'));
+    $trail->push('Postingan', url('news'));
 });
 
 // Dashboard > Menu

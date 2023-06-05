@@ -29,7 +29,6 @@
 </nav>
 <div class="wrapper wrapper-full-page">
     <div class="full-page login-page" filter-color="black" data-image="{{ asset('assets/back/assets/img/login.jpg') }}">
-        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="content">
             <div class="container">
                 <div class="row">
@@ -72,18 +71,4 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <nav class="pull-left">
-            </nav>
-            <p class="copyright pull-right">
-                &copy; 2022
-                <!-- <script>
-                        document.write(new Date().getFullYear())
-                    </script> -->
-                <a href="https://website.wonosobokab.go.id/">Diskominfo Kab. Wonosobo</a>, Isa Maulana Tantra
-            </p>
-        </div>
-    </footer>
-</div>
-@endsection
+    @endsection
