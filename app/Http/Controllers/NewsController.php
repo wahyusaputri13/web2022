@@ -73,7 +73,7 @@ class NewsController extends Controller
                 'description' => 'required',
             ]);
             $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->uploads($name, storage_path('news'));
+            $path = $request->file('photo')->store('news', 'public');
 
             $data = [
                 'photo' => $name,
