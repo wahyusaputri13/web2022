@@ -167,6 +167,8 @@ return [
         \Torann\GeoIP\GeoIPServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -197,7 +199,7 @@ return [
     */
 
     'aliases' => [
-
+        'Image' => Intervention\Image\Facades\Image::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
