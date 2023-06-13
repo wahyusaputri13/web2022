@@ -74,7 +74,7 @@ class NewsController extends Controller
             ]);
 
             $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->store('celeng');
+            $path = $request->file('photo')->store('news');
 
             $data = [
                 'photo' => $name,
