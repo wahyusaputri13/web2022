@@ -74,8 +74,7 @@ class NewsController extends Controller
             ]);
 
             $name = $request->file('photo')->getClientOriginalName();
-            $lokasi = storage_path('app/public/news');
-            $path = $request->file('photo')->store($lokasi);
+            $path = $request->file('photo')->store(storage_path('asu'));
 
             $data = [
                 'photo' => $name,
