@@ -72,8 +72,10 @@ class NewsController extends Controller
                 'date' => 'required',
                 'description' => 'required',
             ]);
+
             $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->store('news', 'public');
+            $lokasi = storage_path('app/public/news');
+            $path = $request->file('photo')->store($lokasi);
 
             $data = [
                 'photo' => $name,
