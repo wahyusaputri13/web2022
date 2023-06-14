@@ -22,7 +22,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = News::orderBy('date', 'DESC')->get();
+            $data = News::orderBy('date', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
