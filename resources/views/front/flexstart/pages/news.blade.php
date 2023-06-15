@@ -3,7 +3,7 @@
 <!-- ======= Recent Blog Posts Section ======= -->
 <section id="blog" class="blog">
     <div class="container" data-aos="fade-up">
-        <header class="section-header">
+        <header class="section-header mt-5">
             <h2>Blog</h2>
             <p>Recent posts from our Blog</p>
         </header>
