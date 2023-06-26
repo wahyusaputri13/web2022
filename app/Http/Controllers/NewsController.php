@@ -83,16 +83,16 @@ class NewsController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
-                $path = storage_path('app/public/gallery');
+                $path = storage_path('app/public/news');
 
                 if (!file_exists($path)) {
                     mkdir($path, 0777, true);
                 }
 
-                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
+                File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/news/') . $df);
                 Files::create([
                     'id_news' => $id->id,
-                    'path' => 'gallery/' . $df,
+                    'path' => 'news/' . $df,
                     'file_name' => $df
                 ]);
             }

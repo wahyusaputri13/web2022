@@ -18,7 +18,7 @@ class DownloadAreaController extends Controller
      */
     public function index(Request $request)
     {
-        
+
         if ($request->ajax()) {
             $data = DownloadArea::with('usernya', 'files')->orderBy('created_at', 'DESC');
             return DataTables::of($data)
@@ -46,7 +46,7 @@ class DownloadAreaController extends Controller
                 ->addColumn(
                     'filesnya',
                     function ($data) {
-                         $nama = "";
+                        $nama = "";
 
                         foreach ($data->files as $value) {
                             $nama .= '<li>
@@ -174,8 +174,19 @@ class DownloadAreaController extends Controller
      * @param  \App\Models\DownloadArea  $downloadArea
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DownloadArea $downloadArea)
+    public function destroy($id)
     {
-        //
+        $gambar = DownloadArea::with('files')->where('id', $id)->first();
+
+        // delete files
+        foreach ($gambar->files as $value) {
+            Storage::delete($value->file_path);
+        }
+
+        // delete related
+        $gambar->files()->delete();
+
+        $data = DownloadArea::find($id);
+        return $data->delete();
     }
 }
