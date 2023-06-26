@@ -22,7 +22,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = News::orderBy('date', 'DESC')->get();
+            $data = News::orderBy('date', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -76,7 +76,7 @@ class NewsController extends Controller
             'date' => 'required',
             'description' => 'required',
             'highlight' => 'required',
-            'kategori' => 'required',
+            // 'kategori' => 'required',
         ]);
 
         $id = News::create($validated + ['upload_by' => auth()->user()->id]);

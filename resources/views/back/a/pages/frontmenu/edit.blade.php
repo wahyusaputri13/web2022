@@ -15,20 +15,12 @@
                         'true', ''])}}
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Parent</label>
-                            @if($data->id <= 45) {{ Form::select('menu_parent', $root, $data->menu_parent,
-                                ['class' => 'cari form-control', 'disabled' => 'disabled']) }}
-                                @else
-                                {{ Form::select('menu_parent', $root, $data->menu_parent,
-                                ['class' => 'cari form-control']) }}
-                                @endif
+                            {{ Form::select('menu_parent', $root, $data->menu_parent,
+                            ['class' => 'cari form-control']) }}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>
-                            @if($data->id <= 45) {{Form::text('menu_name', null,['class'=> 'form-control',
-                                'id' => 'title', 'disabled' => 'disabled'])}}
-                                @else
-                                {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}
-                                @endif
+                            {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Content</label>
