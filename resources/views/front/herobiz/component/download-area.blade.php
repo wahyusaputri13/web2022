@@ -9,7 +9,7 @@
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li>Page</li>
             </ol>
-            <h2>Download Area</h2>
+            <h2>Download Materi SPBE</h2>
 
         </div>
     </section>

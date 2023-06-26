@@ -84,7 +84,7 @@ Route::get('/', function () {
         }
 
         $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(9);
+        $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
     } else {
         $data = Themes::all();

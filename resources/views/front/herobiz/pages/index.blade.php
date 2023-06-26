@@ -118,15 +118,13 @@ background-position: center;" data-aos="zoom-out">
                 @foreach($news as $n)
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" style="display: flex">
                     <div class="post-box">
-                        <div class="post-img">
-                            @forelse($n->gambar as $gambar)
-                            @if($loop->iteration == 1)
-                            <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                alt="{{ $gambar->file_name }}">
-                            @endif
-                            @empty
+                        <div class="post-img" style="width: 500px; height: 500px;">
+                            @if($n->gambarmuka)
+                            <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}"
+                                class="rounded mx-auto d-block" alt="{{ $n->gambarmuka->file_name }}">
+                            @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
-                            @endforelse
+                            @endif
                         </div>
                         <div class="meta">
                             <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{

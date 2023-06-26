@@ -19,15 +19,14 @@ class FrontMenuController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = FrontMenu::with('menu_induk')->get()->skip(1);
+            $data = FrontMenu::with('menu_induk');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
                     'action',
                     function ($data) {
-                        if ($data->id <= 45) {
-                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>';
+                        if ($data->id == 1) {
+                            $actionBtn = '';
                         } else {
                             $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
