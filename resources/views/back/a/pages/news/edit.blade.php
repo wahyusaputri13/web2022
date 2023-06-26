@@ -18,10 +18,10 @@
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <div class="form-group label-floating">
+                    <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div>
+                    </div> -->
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Kategori</label>
                         {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}

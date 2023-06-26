@@ -17,10 +17,10 @@
                     {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <div class="form-group label-floating">
+                    <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div>
+                    </div> -->
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Kategori</label>
                         {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
@@ -165,15 +165,16 @@
             });
         },
         init: function () {
-            @if (isset($project) && $project->document)
-                var files = {!! json_encode($project->document) !!}
+            @if (isset($project) && $project -> document)
+                var files = {!! json_encode($project -> document)!!
+        }
                 for(var i in files) {
-                    var file = files[i]
-                    this.options.addedfile.call(this, file)
-                    file.previewElement.classList.add('dz-complete')
-                    $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                }
-            @endif
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
         }
     }
 </script>
