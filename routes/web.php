@@ -23,7 +23,7 @@ use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
-use App\Http\Controllers\SSO\SSOController;
+use App\Http\Controllers\SSOController;
 use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
