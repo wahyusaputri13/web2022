@@ -66,10 +66,11 @@
                                 <div class="footer text-center">
                                     <button class="btn btn-danger btn-simple btn-wd btn-lg">Let's go</button>
                                 </div>
-                            </form>
-                                <div class="footer text-center">
-                                    <a href="" class="btn btn-primary btn-simple btn-wd btn-lg">Login With SSO</a>
-                                </div>
+                        </form>
+                        <div class="footer text-center">
+                            <a href="{{ route('sso.login') }}" class="btn btn-primary btn-simple btn-wd btn-lg">Login
+                                With SSO</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -23,6 +23,7 @@ use App\Http\Controllers\DownloadAreaFileController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
+use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ use App\Models\Gallery;
 use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +51,14 @@ Route::group(
         \UniSharp\LaravelFilemanager\Lfm::routes();
     }
 );
+
+Route::any('/register', function () {
+    return Redirect::to(route('login'));
+});
+
+Route::get('sso', [SSOController::class, 'getLogin'])->name('sso.login');
+Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callback');
+Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
     $themes = Website::first();
