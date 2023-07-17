@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('menu', [ApiController::class, 'menu']);
 Route::get('news', [ApiController::class, 'news']);
 Route::get('galleries', [ApiController::class, 'galleries']);
+
