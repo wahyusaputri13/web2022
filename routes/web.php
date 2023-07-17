@@ -24,6 +24,7 @@ use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
+use App\Models\File;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use App\Models\Gallery;

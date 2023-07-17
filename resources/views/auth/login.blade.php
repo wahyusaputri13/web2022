@@ -66,8 +66,6 @@
                                     <button class="btn btn-danger btn-simple btn-wd btn-lg">Let's go</button>
                                 </div>
                         </form>
-                        <a href="{{ route('sso.login') }}">Login with SSO</a>
-
                     </div>
                 </div>
             </div>
