@@ -18,7 +18,7 @@ class PermohonanInformasiController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = PermohonanInformasi::with(['status'])->orderBy('created_at', 'DESC')->get();
+            $data = PermohonanInformasi::with(['status'])->orderBy('created_at', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

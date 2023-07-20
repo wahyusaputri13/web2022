@@ -16,7 +16,7 @@ class SurveilansMalariaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = SurveilansMalaria::with(['kelamin', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan'])->latest()->get();
+            $data = SurveilansMalaria::with(['kelamin', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan'])->latest();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

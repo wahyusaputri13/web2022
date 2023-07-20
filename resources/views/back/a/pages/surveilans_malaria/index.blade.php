@@ -77,7 +77,7 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+            { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'nik', name: 'nik', className: "text-center" },
             { data: 'nama', name: 'nama', className: "text-center" },
             { data: 'lahir', name: 'tanggal_lahir', className: "text-center" },

@@ -16,7 +16,7 @@ class AgendaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Agenda::orderBy('date', 'DESC')->get();
+            $data = Agenda::orderBy('date', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
