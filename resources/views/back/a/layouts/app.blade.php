@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     @auth
     @include('back.a.includes.header')
     @endauth
