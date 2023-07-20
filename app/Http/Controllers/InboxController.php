@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\BalasEmailInbox;
+use App\Jobs\KirimEmailInbox;
 use App\Models\Inbox;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -16,7 +18,7 @@ class InboxController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Inbox::orderBy('created_at', 'DESC')->get();
+            $data = Inbox::orderBy('created_at', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -78,9 +80,8 @@ class InboxController extends Controller
      * @param  \App\Models\Inbox  $inbox
      * @return \Illuminate\Http\Response
      */
-    public function show(Inbox $inbox)
+    public function show($id)
     {
-        //
     }
 
     /**
@@ -91,8 +92,8 @@ class InboxController extends Controller
      */
     public function edit($id)
     {
-        Inbox::find($id)->update(['status' => 1]);
-        return redirect(route('inbox.index'))->with(['success' => 'Data has been successfully changed!']);
+        $data = Inbox::find($id);
+        return view('back.a.pages.inbox.edit', compact('data'));
     }
 
     /**
@@ -104,6 +105,14 @@ class InboxController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'balasan' => 'required',
+        ]);
+
+        $data = Inbox::find($id);
+        $data->update($validated + ['status' => 1]);
+        BalasEmailInbox::dispatch($data);
+        return redirect(route('inbox.index'))->with(['success' => 'Balasan sudah berhasil dikirim!']);
     }
 
     /**
