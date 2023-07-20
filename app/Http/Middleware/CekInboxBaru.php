@@ -27,7 +27,7 @@ class CekInboxBaru
 
         if ($data) {
             Alert::alert('Ada Pesan Baru', 'Silahkan Cek Kotak Masuk', 'Type');
-            // return redirect(route('inbox.index'));
+            return redirect(route('inbox.index'));
         }
 
         return $next($request);
