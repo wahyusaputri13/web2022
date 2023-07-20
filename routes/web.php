@@ -55,7 +55,6 @@ Route::any('/register', function () {
     return Redirect::to(route('login'));
 });
 
-Route::get('kirimemail', [SSOController::class, 'sendemail']);
 Route::get('sso', [SSOController::class, 'getLogin'])->name('sso.login');
 Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callback');
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
@@ -174,5 +173,7 @@ Route::get('migrate', [MigrasiDataController::class, 'insert']);
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
+
+Route::get('template_email', [FrontController::class, 'template_email']);
 
 // Route::get('delete_image/{id?}', [FileController::class, 'destroy']);

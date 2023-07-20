@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Website;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -12,15 +13,16 @@ use Illuminate\Queue\SerializesModels;
 class InboxMail extends Mailable
 {
     use Queueable, SerializesModels;
+    protected $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -31,7 +33,7 @@ class InboxMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Terima Kasih, Pesan anda sedang di tinjau',
+            subject: 'Terima Kasih, sudah menghubungi kami.',
         );
     }
 
@@ -42,8 +44,13 @@ class InboxMail extends Mailable
      */
     public function content()
     {
+        $web = Website::first();
         return new Content(
             view: 'emails.inbox',
+            with: [
+                'namanya' => $this->data,
+                'websitenya' => $web->web_name,
+            ]
         );
     }
 

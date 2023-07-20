@@ -81,11 +81,4 @@ class SSOController extends Controller
         Auth::login($user);
         return redirect(route('dashboard'));
     }
-
-    public function sendemail()
-    {
-        Mail::to("isamaulanatantra@gmail.com")->send(new InboxMail());
-
-        return "Email telah dikirim";
-    }
 }
