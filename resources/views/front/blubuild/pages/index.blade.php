@@ -99,6 +99,9 @@
                     <h3 class="mb-0">Our Latest News</h3>
                 </div>
             </div>
+            <div class="row mb-5">
+                <x-cari-news />
+            </div>
             <div class="row mb-3 text-center">
                 <x-head-category_news btn='thm-btn thm-bg' />
             </div>
