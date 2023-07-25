@@ -53,7 +53,7 @@ background-position: center;" data-aos="zoom-out">
     <section id="recent-blog-posts" class="recent-blog-posts">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
-                <h2>Postingan</h2>
+                <h2>Berita</h2>
                 <p>Terbaru dari kami</p>
             </div>
 
