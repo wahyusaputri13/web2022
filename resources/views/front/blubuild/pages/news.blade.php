@@ -18,6 +18,9 @@
     <div class="w-100 pt-100 pb-50 position-relative">
         <div class="container">
             <div class="row mb-5">
+                <x-cari-news />
+            </div>
+            <div class="row mb-5">
                 <x-head-category_news btn='thm-btn thm-bg' />
             </div>
             <div class="blog-wrap w-100">
