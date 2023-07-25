@@ -1,4 +1,12 @@
 @extends('front.blubuild.layouts.app')
+@push('after-style')
+<style>
+    .paksa {
+        width: 370px !important;
+        height: 220px !important;
+    }
+</style>
+@endpush
 @section('content')
 <section>
     <div class="w-100 position-relative">
@@ -50,13 +58,14 @@
             <div class="blog-wrap w-100">
                 <div class="row post-caro">
                     @foreach($news as $n)
-                    <div class="col-md-6 col-sm-6 col-lg-4" style="display: flex;">
-                        <div class="post-box w-100 text-center">
+                    <div class="col-md-6 col-sm-6 col-lg-4">
+                        <div class="post-box w-100 text-center p-3">
                             <div class="post-img overflow-hidden w-100">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     @if($n->gambarmuka)
-                                    <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
-                                        alt="{{ $n->gambarmuka->file_name }}" width="370" height="220">
+                                    <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}"
+                                        class="img-fluid paksa" alt="{{ $n->gambarmuka->file_name }}" width="370px"
+                                        height="220px">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                                     @endif
