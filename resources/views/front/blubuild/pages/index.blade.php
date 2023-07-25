@@ -5,6 +5,10 @@
         width: 370px !important;
         height: 220px !important;
     }
+
+    .prok {
+        height: 75px !important;
+    }
 </style>
 @endpush
 @section('content')
@@ -64,8 +68,7 @@
                                 <a href="{{ url('/news-detail', $n->slug) }}">
                                     @if($n->gambarmuka)
                                     <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}"
-                                        class="img-fluid paksa" alt="{{ $n->gambarmuka->file_name }}" width="370px"
-                                        height="220px">
+                                        class="img-fluid paksa" alt="{{ $n->gambarmuka->file_name }}">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                                     @endif
