@@ -93,7 +93,7 @@
                 <div class="pagination-wrap">
                     <ul class="pagination">
                         <!-- Pagination -->
-                        {{ $data->links('vendor.pagination.atorn') }}
+                        {{ $data->appends($_GET)->links('vendor.pagination.atorn') }}
                         <!-- <li class="page-item"><a class="page-link" href="javascript:void(0);" title=""><i
                                                 class="fas fa-angle-left"></i></a></li>
                                     <li class="page-item"><a class="page-link" href="javascript:void(0);" title="">1</a></li>
