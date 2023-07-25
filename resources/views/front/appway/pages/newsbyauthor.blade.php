@@ -41,7 +41,7 @@
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
                 <h2 class="mb-5">{{ $hasil }}</h2>
                 <div class="blog-content">
-                    @foreach($data as $author)
+                    @forelse($data as $author)
                     <div class="single-blog-content">
                         <div class="inner-box">
                             <figure class="image-box">
@@ -97,19 +97,25 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <div class="text-center">
+                        Data Tidak Ditemukan
+                    </div>
+                    @endforelse
 
-                    <!-- <div class="pagination-wrapper centred">
+                    <div class="pagination-wrapper centred">
                         <ul class="pagination">
-                            <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#" class="active">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#"><i class="fas fa-angle-right"></i></a></li>
+                            {{ $data->withQueryString()->links('vendor.pagination.appway') }}
+
+                            <!-- <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
+                                                <li><a href="#">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#" class="active">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                                <li><a href="#"><i class="fas fa-angle-right"></i></a></li> -->
                         </ul>
-                    </div> -->
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">

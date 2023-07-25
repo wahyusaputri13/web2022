@@ -25,7 +25,7 @@
             </div>
             <div class="blog-wrap w-100">
                 <div class="row justify-content-center">
-                    @foreach($data as $n)
+                    @forelse($data as $n)
                     <div class="col-md-6 col-sm-6 col-lg-4" style="display: flex;">
                         <div class="post-box w-100 text-center">
                             <div class="post-img overflow-hidden w-100">
@@ -58,7 +58,11 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <div class="text-center">
+                        Data Tidak Ditemukan
+                    </div>
+                    @endforelse
                 </div>
             </div>
             <!-- Blog Wrap -->
@@ -93,7 +97,7 @@
                 <div class="pagination-wrap">
                     <ul class="pagination">
                         <!-- Pagination -->
-                        {{ $data->appends($_GET)->links('vendor.pagination.atorn') }}
+                        {{ $data->withQueryString()->links('vendor.pagination.atorn') }}
                         <!-- <li class="page-item"><a class="page-link" href="javascript:void(0);" title=""><i
                                                 class="fas fa-angle-left"></i></a></li>
                                     <li class="page-item"><a class="page-link" href="javascript:void(0);" title="">1</a></li>

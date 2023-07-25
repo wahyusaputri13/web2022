@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="blog-content col-md-8 col-lg-8">
                     <h2>{{ $hasil }}</h2>
-                    @foreach($data as $author)
+                    @forelse($data as $author)
                     <article class="entry">
                         <div class="card mb-3">
                             <div class="entry-img" style="text-align: center;">
@@ -45,11 +45,15 @@
                         </div>
 
                     </article>
-                    @endforeach
+                    @empty
+                    <div class="text-center">
+                        Data Tidak Ditemukan
+                    </div>
+                    @endforelse
 
                     <div class="row" data-aos="fade-up" data-aos-delay="100">
                         <div class="col-lg-12 d-flex justify-content-center">
-                            {{ $data->links('vendor.pagination.anada') }}
+                            {{ $data->withQueryString()->links('vendor.pagination.anada') }}
                         </div>
                     </div>
 

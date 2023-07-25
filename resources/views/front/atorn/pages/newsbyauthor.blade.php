@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-12">
-                @foreach($data as $author)
+                @forelse($data as $author)
                 <div class="services-details">
                     <div class="img">
                         <a href="{{ url('/news-detail', $author->slug) }}">
@@ -81,7 +81,13 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="text-center">
+                    Data Tidak Ditemukan
+                </div>
+                @endforelse
+                <!-- Pagination -->
+                {{ $data->withQueryString()->links('vendor.pagination.atorn') }}
             </div>
             <div class="col-lg-4 col-md-5 col-sm-12">
                 <div class="side-bar">
