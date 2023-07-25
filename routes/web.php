@@ -88,13 +88,11 @@ Route::get('/', function () {
             $response = $response->collect();
             $berita =   array_slice($response['data']['data'], 0, 3);
         } catch (\Exception $e) {
-            // hndle the exception
             $berita = [];
         }
 
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
+        $news = News::with('gambar', 'gambarmuka')->orderBy('date', 'desc')->paginate(9);
+        return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
