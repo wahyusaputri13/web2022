@@ -38,9 +38,9 @@
             <div class="post-detail-wrap w-100">
                 <div class="row">
                     @if($data->menu_name == 'Permohonan Informasi Publik')
-                    <x-formpermohonaninformasipublik />
+                    <x-form-permohonan-informasi-publik />
                     @elseif($data->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                    <x-formpengajuankeberataninformasipublik />
+                    <x-form-pengajuan-keberatan-informasi-publik />
                     @else
                     {!! $data->content !!}
                     @endif

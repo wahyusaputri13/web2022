@@ -17,7 +17,7 @@ class DailyReportController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DailyReport::orderBy('date', 'DESC')->get();
+            $data = DailyReport::orderBy('date', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

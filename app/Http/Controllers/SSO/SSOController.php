@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\SSO;
 
 use App\Http\Controllers\Controller;
+use App\Mail\InboxMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class SSOController extends Controller
 {

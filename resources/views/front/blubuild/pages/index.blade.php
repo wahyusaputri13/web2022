@@ -1,4 +1,16 @@
 @extends('front.blubuild.layouts.app')
+@push('after-style')
+<style>
+    .paksa {
+        width: 370px !important;
+        height: 220px !important;
+    }
+
+    .prok {
+        height: 75px !important;
+    }
+</style>
+@endpush
 @section('content')
 <section>
     <div class="w-100 position-relative">
@@ -31,64 +43,6 @@
         </div>
 </section>
 
-@if($gallery->count() != 0)
-<section>
-    <div class="w-100 pb-100 position-relative">
-        <div class="container">
-            <div class="sec-title w-100">
-                <div class="sec-title-inner d-inline-block">
-                    <span class="d-block thm-clr">OUR PHOTOS</span>
-                    <h3 class="mb-0">Our Latest Photo</h3>
-                </div>
-            </div>
-            <div class="proj-wrap w-100">
-                <div class="row justify-content-center">
-                    @foreach($gallery as $g)
-                    <div class="col-md-4 col-sm-6 col-lg-3" style="display: flex">
-                        <div class="proj-box position-relative w-100">
-                            <div class="proj-thumb overflow-hidden w-100">
-                                @foreach($g->gambar as $pic)
-                                @if($loop->iteration == 1)
-                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
-                                    data-caption="{{ $g->description }}">
-                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
-                                        style="height: 250px;">
-                                </a>
-                                @else
-                                <div style="display:none;">
-                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                        href="{{ asset('storage/') }}/{{ $pic->path }}"
-                                        data-caption="{{ $g->description }}">
-                                        <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
-                                    </a>
-                                </div>
-                                @endif
-                                @endforeach
-                            </div>
-                            <div class="proj-info position-absolute">
-                                <!-- <i class="flaticon-helmet"></i> -->
-                                <h3 class="mb-0"><a href="#">{{ $g->description }}</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    @if($loop->iteration == 8)
-                    @break
-                    @endif
-                    @endforeach
-                </div>
-            </div>
-            <!-- Projects Wrap -->
-            <div class="view-all mt-20 w-100 text-center">
-                <a class="thm-btn thm-bg" href="{{ url('photos') }}" title="">View All Photo<i
-                        class="flaticon-arrow-pointing-to-right"></i></a>
-            </div>
-            <!-- View All -->
-        </div>
-    </div>
-</section>
-@endif
-
 @if($news->count() != 0)
 <section>
     <div class="w-100 pt-100 pb-100 position-relative">
@@ -99,24 +53,25 @@
                     <h3 class="mb-0">Our Latest News</h3>
                 </div>
             </div>
+            <div class="row mb-5">
+                <x-cari-news />
+            </div>
             <div class="row mb-3 text-center">
                 <x-head-category_news btn='thm-btn thm-bg' />
             </div>
             <div class="blog-wrap w-100">
                 <div class="row post-caro">
                     @foreach($news as $n)
-                    <div class="col-md-6 col-sm-6 col-lg-4" style="display: flex;">
-                        <div class="post-box w-100 text-center">
+                    <div class="col-md-6 col-sm-6 col-lg-4">
+                        <div class="post-box w-100 text-center p-3">
                             <div class="post-img overflow-hidden w-100">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
-                                    @forelse($n->gambar as $gambar)
-                                    @if($loop->iteration == 1)
-                                    <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                        alt="{{ $gambar->file_name }}" width="100%">
-                                    @endif
-                                    @empty
+                                    @if($n->gambarmuka)
+                                    <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}"
+                                        class="img-fluid paksa" alt="{{ $n->gambarmuka->file_name }}">
+                                    @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
-                                    @endforelse
+                                    @endif
                                 </a>
                             </div>
                             <div class="post-info w-100">

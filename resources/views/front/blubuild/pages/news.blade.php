@@ -1,4 +1,11 @@
 @extends('front.blubuild.layouts.app')
+@push('after-style')
+<style>
+    .prok {
+        height: 75px !important;
+    }
+</style>
+@endpush
 @section('content')
 <section>
     <div class="w-100 pt-170 pb-150 dark-layer3 opc7 position-relative">
@@ -17,6 +24,9 @@
 <section>
     <div class="w-100 pt-100 pb-50 position-relative">
         <div class="container">
+            <div class="row mb-5">
+                <x-cari-news />
+            </div>
             <div class="row mb-5">
                 <x-head-category_news btn='thm-btn thm-bg' />
             </div>

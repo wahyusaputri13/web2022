@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Seo;
+use App\Jobs\KirimEmailInbox;
 use App\Models\Agenda;
 use App\Models\File;
 use App\Models\Component;
@@ -62,7 +63,7 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::with('gambar')->where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
+        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
@@ -197,7 +198,12 @@ class FrontController extends Controller
             Alert::error('Failed', 'You Have Enter The Wrong Captcha');
             return redirect()->back()->withInput();
         } else {
+            $data = [
+                'email' => $request->email,
+                'nama' => $request->name,
+            ];
             Inbox::create($request->except('_token', 'captcha'));
+            KirimEmailInbox::dispatch($data);
             Alert::success('Success', 'Your Message Has Been Sent');
             return redirect(url('/'));
         }

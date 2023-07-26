@@ -88,13 +88,11 @@ Route::get('/', function () {
             $response = $response->collect();
             $berita =   array_slice($response['data']['data'], 0, 3);
         } catch (\Exception $e) {
-            // hndle the exception
             $berita = [];
         }
 
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
-        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
+        $news = News::with('gambar', 'gambarmuka')->orderBy('date', 'desc')->paginate(9);
+        return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
@@ -127,12 +125,12 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::post('permohonaninformasi', [PermohonanInformasiController::class, 'store']);
 });
 
-Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
     $themes = Website::all()->first();
     return view($themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
-Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'admin'], function () {
     Route::group(['middleware' => ['role:superadmin|admin']], function () {
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);
@@ -173,5 +171,7 @@ Route::get('migrate', [MigrasiDataController::class, 'insert']);
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
+
+Route::get('template_email', [FrontController::class, 'template_email']);
 
 // Route::get('delete_image/{id?}', [FileController::class, 'destroy']);

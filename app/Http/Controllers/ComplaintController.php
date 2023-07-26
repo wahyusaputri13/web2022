@@ -26,7 +26,7 @@ class ComplaintController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Complaint::orderBy('date', 'DESC')->get();
+            $data = Complaint::orderBy('date', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
