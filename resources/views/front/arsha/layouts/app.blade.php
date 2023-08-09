@@ -13,6 +13,7 @@
     <a href="#" id="websitename" hidden>{{ $data_website->web_name }}</a>
     @include('sweetalert::alert')
     @include('front.arsha.includes.header')
+
     @yield('content')
     @include('front.arsha.includes.footer')
     @stack('before-script')

@@ -12,6 +12,7 @@
     <a href="#" id="websitename" hidden>{{ $data_website->web_name }}</a>
     @include('sweetalert::alert')
     @include('front.flexstart.includes.header')
+
     @yield('content')
     @include('front.flexstart.includes.footer')
     @stack('before-script')
