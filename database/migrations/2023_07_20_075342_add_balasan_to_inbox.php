@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('Inboxes', function (Blueprint $table) {
+        Schema::table('inboxes', function (Blueprint $table) {
             $table->longText('balasan')->nullable()->after('status');
         });
     }
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('Inboxes', function (Blueprint $table) {
+        Schema::table('inboxes', function (Blueprint $table) {
             $table->dropColumn('balasan');
         });
     }
