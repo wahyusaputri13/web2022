@@ -29,18 +29,23 @@
                         'name' => 'kategori[]',
                         'multiple' => 'multiple',
                         ])}}
+                        @error('kategori') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
+                        @error('title') <span class="text-danger">Tidak boleh kosong</span> @enderror
+
                     </div>
                     <div class="form-group">
                         <label class="control-label">Date</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
+                        @error('date') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
+                        @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
