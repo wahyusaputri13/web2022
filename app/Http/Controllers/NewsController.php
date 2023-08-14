@@ -71,8 +71,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
@@ -80,7 +79,10 @@ class NewsController extends Controller
             'kategori' => 'required',
         ]);
 
-        $id = News::create($validated + ['upload_by' => auth()->user()->id]);
+        $id = News::create($request->except(['kategori', '_token']) + ['upload_by' => auth()->user()->id]);
+
+        // tagging postingan
+        $id->tag($request->kategori);
 
         if ($request->document) {
             foreach ($request->document as $df) {
