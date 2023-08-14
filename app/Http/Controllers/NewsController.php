@@ -147,6 +147,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
+        $a = News::existingTags();
+        return $a;
         $data = News::find($id);
         $terpilih = [];
 
