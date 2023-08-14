@@ -10,7 +10,7 @@
                 <li><a href="#">Home</a></li>
                 <li>Blog</li>
             </ol> -->
-            <h2>{{ $hasil }}</h2>
+            <h2 class="mt-3">{{ $hasil }}</h2>
 
         </div>
     </section>

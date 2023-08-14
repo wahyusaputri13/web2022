@@ -59,7 +59,7 @@ class NewsController extends Controller
     public function create()
     {
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
         return view('back.a.pages.news.create', compact('highlight', 'categori'));
     }
 
@@ -71,6 +71,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $validated = $request->validate([
             'title' => 'required',
             'date' => 'required',

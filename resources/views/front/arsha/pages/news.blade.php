@@ -1,4 +1,12 @@
 @extends('front.arsha.layouts.app')
+@push('after-style')
+<style>
+    .ppid {
+        height: 75px !important;
+        line-height: 65px !important;
+    }
+</style>
+@endpush
 @section('content')
 <!-- ======= Recent Blog Posts Section ======= -->
 <section id="recent-blog-posts" class="recent-blog-posts">
