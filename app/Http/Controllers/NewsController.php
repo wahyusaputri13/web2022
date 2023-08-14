@@ -124,8 +124,9 @@ class NewsController extends Controller
     {
         $data = News::find($id);
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
+        $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        $terpilih = ComCodes::where('code_cd', $data->tagNames())->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
     /**
@@ -145,7 +146,10 @@ class NewsController extends Controller
             'kategori' => 'required',
         ]);
 
-        News::find($id)->update($validated + ['upload_by' => auth()->user()->name]);
+        $data = News::find($id);
+        $data->update($validated + ['upload_by' => auth()->user()->name]);
+        // tag ulang postingan
+        $data->retag($request->kategori);
 
         if ($request->document) {
             foreach ($request->document as $df) {
