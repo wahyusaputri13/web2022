@@ -19,11 +19,16 @@
                     <div class="dropzone" id="my-awesome-dropzone"></div>
                     <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
+                        {{Form::select('highlight', $highlight, null, ['class' =>
+                        'form-control'])}}
                     </div>
-                    <div class="form-group label-floating">
+                    <div class="form-group">
                         <label class="control-label">Kategori</label>
-                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
+                        {{Form::select('kategori', $categori, null, ['class' => 'form-control
+                        js-example-basic-multiple',
+                        'name' => 'kategori[]',
+                        'multiple' => 'multiple',
+                        ])}}
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Title</label>
@@ -49,6 +54,11 @@
 </div>
 @endsection
 @push('after-script')
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
     integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
 
@@ -165,15 +175,16 @@
             });
         },
         init: function () {
-            @if (isset($project) && $project->document)
-                var files = {!! json_encode($project->document) !!}
+            @if (isset($project) && $project -> document)
+                var files = {!! json_encode($project -> document)!!
+        }
                 for(var i in files) {
-                    var file = files[i]
-                    this.options.addedfile.call(this, file)
-                    file.previewElement.classList.add('dz-complete')
-                    $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                }
-            @endif
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
         }
     }
 </script>
