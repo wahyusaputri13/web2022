@@ -37,7 +37,9 @@
 =======
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
+                        {{Form::select('highlight', $highlight, null, ['class' =>
+                        'form-control'])}}
+                        
                     </div> -->
                     <div class="form-group jip">
 >>>>>>> 62d9a61 (upgrade composer)
@@ -45,6 +47,7 @@
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="form-group label-floating dip" style="display: none;">
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
@@ -96,6 +99,11 @@
                     <div class="form-group">
                         <label class="control-label">Tanggal</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
+=======
+                    <div class="form-group label-floating">
+                        <label class="control-label">Kategori</label>
+                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
+>>>>>>> 9d9f031 (select2 multiple)
                     </div>
                     @error('date')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
@@ -150,6 +158,7 @@
 <script>
     $(document).ready(function () {
         $('.js-example-basic-multiple').select2();
+<<<<<<< HEAD
 
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
@@ -162,6 +171,8 @@
                 $(".dip").hide();
             }
         });
+=======
+>>>>>>> 9d9f031 (select2 multiple)
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"

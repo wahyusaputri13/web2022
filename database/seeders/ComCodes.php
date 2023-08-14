@@ -63,6 +63,7 @@ class ComCodes extends Seeder
             ['code_cd' => 'KATEGORI_NEWS_4', 'code_nm' => 'BERITA', 'code_group' => 'KATEGORI_NEWS', 'code_value' => ''],
             ['code_cd' => 'JENIS_KELAMIN_0', 'code_nm' => 'Laki - Laki', 'code_group' => 'JENIS_KELAMIN', 'code_value' => ''],
             ['code_cd' => 'JENIS_KELAMIN_1', 'code_nm' => 'Perempuan', 'code_group' => 'JENIS_KELAMIN', 'code_value' => ''],
+<<<<<<< HEAD
             ['code_cd' => 'PROTOKOL DAN KOMUNIKASI PIMPINAN', 'code_nm' => 'PROTOKOL DAN KOMUNIKASI PIMPINAN', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
             ['code_cd' => 'KESEJAHTERAAN RAKYAT', 'code_nm' => 'KESEJAHTERAAN RAKYAT', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
             ['code_cd' => 'HUKUM', 'code_nm' => 'HUKUM', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
@@ -76,6 +77,17 @@ class ComCodes extends Seeder
             ['code_cd' => 'INFORMASI_ST_02', 'code_nm' => 'Informasi Setiap Saat', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
             ['code_cd' => 'INFORMASI_ST_03', 'code_nm' => 'Informasi Serta Merta', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
             ['code_cd' => 'INFORMASI_ST_04', 'code_nm' => 'Informasi Dikecualikan', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
+=======
+            ['code_cd' => 'BAGIAN_NEWS_1', 'code_nm' => 'PROTOKOL DAN KOMUNIKASI PIMPINAN', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'BAGIAN_NEWS_2', 'code_nm' => 'KESEJAHTERAAN RAKYAT', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'BAGIAN_NEWS_3', 'code_nm' => 'HUKUM', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'BAGIAN_NEWS_4', 'code_nm' => 'PEMERINTAHAN', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'BAGIAN_NEWS_5', 'code_nm' => 'UMUM', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'BAGIAN_NEWS_6', 'code_nm' => 'ADMINISTRASI PEMBANGUNAN', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'BAGIAN_NEWS_7', 'code_nm' => 'ORGANISASI', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'BAGIAN_NEWS_8', 'code_nm' => 'PENGADAAN BARANG DAN JASA', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'BAGIAN_NEWS_9', 'code_nm' => 'PEREKONOMIAN DAN SUMBER DAYA ALAM', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+>>>>>>> 9d9f031 (select2 multiple)
         ];
 
         foreach ($data as $datum) {
