@@ -17,12 +17,6 @@
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
-                    <div class="togglebutton" style="margin-bottom: 15px;">
-                        <label>
-                            Data DIP? <input type="checkbox" {{ $data->dip ? 'checked disabled' : '' }} id="hideButton">
-                        </label>
-                    </div>
-                    @if(!$data->dip)
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -52,6 +46,7 @@
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+<<<<<<< HEAD
                     @endif
                     @if($data->dip)
                     <div class="form-group label-floating dip">
@@ -59,6 +54,11 @@
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
+=======
+                    <div class="form-group label-floating">
+                        <label class="control-label">Kategori</label>
+                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
+>>>>>>> ff5bfae (update tagging)
                     </div>
                     @endif
 =======
@@ -123,11 +123,15 @@
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                         @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
 =======
                         {{Form::textarea('description', null,['class' => 'form-control','id'=>'my-editor'])}}
 >>>>>>> d435741 (ganti ckeditor)
+=======
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
+>>>>>>> ff5bfae (update tagging)
                     </div>
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
@@ -147,6 +151,7 @@
 <script>
     $(document).ready(function () {
         $('.js-example-basic-multiple').select2();
+<<<<<<< HEAD
 
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
@@ -175,6 +180,10 @@
     CKEDITOR.config.allowedContent = true;
 </script>
 <!-- end ck editor -->
+=======
+    });
+</script>
+>>>>>>> ff5bfae (update tagging)
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
     integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -200,31 +209,35 @@
     Dropzone.autoDiscover = false;
     $(".dropzone").dropzone({
 
-        url: `{{ route('file_image.store') }}`,
-        // maxFilesize: 2, // MB
-        addRemoveLinks: true,
-        headers: {
-            'X-CSRF-TOKEN': "{{ csrf_token() }}"
-        },
-        success: function (file, response) {
-            $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
-            uploadedDocumentMap[file.name] = response.name
-            uploadedDocumentMap[file.path] = response.path
-        },
-        removedfile: function (file) {
-            file.previewElement.remove()
-            var name = '';
-            var path = '';
-            if (typeof file.file_name !== 'undefined') {
-                name = file.file_name;
-            } else {
-                name = uploadedDocumentMap[file.name];
-                path = uploadedDocumentMap[file.path];
-            }
+            url: `{{ route('file_image.store') }}`,
+            // maxFilesize: 2, // MB
+            addRemoveLinks: true,
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            success: function (file, response) {
+                $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
+                uploadedDocumentMap[file.name] = response.name
+                uploadedDocumentMap[file.path] = response.path
+            },
+            removedfile: function (file) {
+                file.previewElement.remove()
+                var name = '';
+                var path = '';
+                if (typeof file.file_name !== 'undefined') {
+                    name = file.file_name;
+                } else {
+                    name = uploadedDocumentMap[file.name];
+                    path = uploadedDocumentMap[file.path];
+                }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             // console.log(file.name);
+=======
+                // console.log(file.name);
+>>>>>>> ff5bfae (update tagging)
 
 >>>>>>> 121ae8f (tampilkan error ke news)
             $('form').find('input[name="document[]"][value="' + name + '"]').remove();

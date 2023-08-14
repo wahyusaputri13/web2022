@@ -152,12 +152,16 @@ class NewsController extends Controller
 
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+<<<<<<< HEAD
 
         // untuk list yang terpilih
         foreach ($data->tagged as $key => $value) {
             array_push($terpilih, strtoupper($value->tag_name));
         }
 
+=======
+        $terpilih = ComCodes::where('code_cd', $data->tagNames())->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+>>>>>>> ff5bfae (update tagging)
         return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
@@ -205,7 +209,10 @@ class NewsController extends Controller
 >>>>>>> e144481 (href jdih)
 =======
         ]);
-
+        $data = News::find($id);
+        $data->update($validated + ['upload_by' => auth()->user()->name]);
+        // tag ulang postingan
+        $data->retag($request->kategori);
         if ($request->dip_tahun) {
             News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
