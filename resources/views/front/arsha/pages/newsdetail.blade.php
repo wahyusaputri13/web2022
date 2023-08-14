@@ -4,7 +4,7 @@
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
 
-            <ol>
+            <ol class="mt-3">
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li>News</li>
             </ol>
