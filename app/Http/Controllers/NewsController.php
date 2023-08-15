@@ -122,8 +122,6 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $a = News::existingTags();
-        return $a;
         $data = News::find($id);
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
