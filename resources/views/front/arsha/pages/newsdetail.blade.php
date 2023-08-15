@@ -53,6 +53,14 @@
                             <br>
                             @endforeach
                             @endif
+                            <ul>
+                                Tags
+                                @foreach ($data->tagNames() as $item)
+                                <li>
+                                    {{ $item }}
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>
