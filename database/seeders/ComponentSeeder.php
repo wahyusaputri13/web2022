@@ -32,11 +32,19 @@ class ComponentSeeder extends Seeder
                 'active' => 0,
                 'slug' => Str::slug('Seputar Wonosobo', '-'),
             ],
+<<<<<<< HEAD
             // [
             //     'name' => 'Layanan',
             //     'active' => 1,
             //     'slug' => Str::slug('Layanan', '-'),
             // ],
+=======
+            [
+                'name' => 'Layanan',
+                'active' => 1,
+                'slug' => Str::slug('Layanan', '-'),
+            ],
+>>>>>>> e32d2c0 (perbaikan menu)
             // satpolpp
             [
                 'name' => 'Aduan Masyarakat',

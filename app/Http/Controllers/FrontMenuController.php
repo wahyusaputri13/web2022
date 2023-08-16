@@ -26,7 +26,7 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        if ($data->id <= 45) {
+                        if ($data->id <= 42) {
                             $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>';
                         } else {

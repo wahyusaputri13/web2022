@@ -1,8 +1,6 @@
 @extends('front.boxass.layouts.app')
 @section('content')
 
-
-
 <!-- Start Banner
     ============================================= -->
 <div class="banner-area content-double box-nav background-move bg-gray"
@@ -285,54 +283,13 @@
                 <!-- End Contact Form -->
             </div>
 
-            <!-- Address List -->
-            <!-- <div class="address-list text-center col-md-12">
-                <div class="item-box"> -->
-            <!-- Single Item -->
-            <!-- <div class="col-md-4 equal-height single-item">
-                        <div class="item">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <h4>Location</h4>
-                            <p>
-                                22 Baker Street,London, United Kingdom, W1U 3BW
-                            </p>
-                        </div>
-                    </div> -->
-            <!-- End Single Item -->
-            <!-- Single Item -->
-            <!-- <div class="col-md-4 equal-height single-item">
-                        <div class="item">
-                            <i class="fas fa-phone"></i>
-                            <h4>Emergency Case</h4>
-                            <h2>+123 456 7890</h2>
-                        </div>
-                    </div> -->
-            <!-- End Single Item -->
-            <!-- Single Item -->
-            <!-- <div class="col-md-4 equal-height single-item">
-                        <div class="item">
-                            <i class="fas fa-envelope-open"></i>
-                            <h4>Email</h4>
-                            <p>
-                                info@yourdomain.com<br>admin@yourdomain.com
-                            </p>
-                        </div>
-                    </div> -->
-            <!-- End Single Item -->
-            <!-- </div>
-            </div> -->
-            <!-- End Address List -->
-
         </div>
     </div>
 </div>
 <!-- End Contact -->
 
-
-
 <!-- jQuery Frameworks
     ============================================= -->
-
 
 @endsection
 @push('after-script')
