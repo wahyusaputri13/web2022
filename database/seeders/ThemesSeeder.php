@@ -41,6 +41,10 @@ class ThemesSeeder extends Seeder
                 'image' => 'img/atorn.png'
             ],
             [
+                'name' => 'boxass',
+                'image' => 'img/boxass.png'
+            ],
+            [
                 'name' => 'anada',
                 'image' => 'img/anada.png'
             ]

@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    @include('front.blubuild.includes.meta')
+    @include('front.boxass.includes.meta')
     @stack('before-style')
-    @include('front.blubuild.includes.style')
+    @include('front.boxass.includes.style')
     @stack('after-style')
 </head>
 
@@ -12,11 +12,11 @@
     <main>
         <a href="#" id="websitename" hidden>{{ $data_website->web_name }}</a>
         @include('sweetalert::alert')
-        @include('front.blubuild.includes.header')
+        @include('front.boxass.includes.header')
         @yield('content')
-        @include('front.blubuild.includes.footer')
+        @include('front.boxass.includes.footer')
         @stack('before-script')
-        @include('front.blubuild.includes.script')
+        @include('front.boxass.includes.script')
         @include('components.responsive-voice')
         @stack('after-script')
     </main>
