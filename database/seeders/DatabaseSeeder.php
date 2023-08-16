@@ -37,21 +37,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // \App\Models\User::factory(10)->create();
-        DB::table('websites')->insert([
-            'web_name' => 'Web2022',
-            'web_description' => '"Hello World!"',
-            'email' => 'diskominfo@wonosobokab.go.id',
-            'address' => 'Wonosobo - The Soul Of Java',
-            'phone' => '085643710007',
-            'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
-            'twitter' => 'https://twitter.com/diskominfo_wsb',
-            'facebook' => 'https://www.facebook.com/wonosobohebat/',
-            'youtube' => 'https://www.youtube.com/c/OfficialWonosoboTV',
-            'url_stream' => '#',
-            'themes_front' => 'flexstart',
-            'themes_back' => 'back.a',
-            'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
-        ]);
+        // DB::table('websites')->insert([
+        //     'web_name' => 'Web2022',
+        //     'web_description' => '"Hello World!"',
+        //     'email' => 'diskominfo@wonosobokab.go.id',
+        //     'address' => 'Wonosobo - The Soul Of Java',
+        //     'phone' => '085643710007',
+        //     'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
+        //     'twitter' => 'https://twitter.com/diskominfo_wsb',
+        //     'facebook' => 'https://www.facebook.com/wonosobohebat/',
+        //     'youtube' => 'https://www.youtube.com/c/OfficialWonosoboTV',
+        //     'url_stream' => '#',
+        //     'themes_front' => 'flexstart',
+        //     'themes_back' => 'back.a',
+        //     'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
+        // ]);
 
         // kampung pancasila
         // DB::table('websites')->insert([

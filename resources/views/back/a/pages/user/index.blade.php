@@ -37,8 +37,7 @@
                                         <th>#</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Bidang</th>
+                                        <th>Telepon</th>
                                         <th>Role</th>
                                         <th class="disabled-sorting text-center">
                                             Aksi</th>
@@ -84,7 +83,6 @@
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email' },
             { data: 'user_phone', name: 'user_phone' },
-            { data: 'bidang.name', name: 'bidang.name', 'defaultContent': '-', 'class': 'text-center' },
             { data: 'rrole', name: 'rrole' },
             { data: 'action', },
         ]
