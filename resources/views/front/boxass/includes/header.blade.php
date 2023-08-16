@@ -13,11 +13,11 @@
 
                 <div class="container">
                     <!-- Start Atribute Navigation -->
-                    <div class="attr-nav">
+                    <!-- <div class="attr-nav">
                         <ul>
                             <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- End Atribute Navigation -->
 
                     <!-- Start Header Navigation -->
@@ -25,9 +25,9 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="index.html"><img
-                                src="{{ asset('assets/front/boxass/assets/img/logo.png') }}" class="logo"
-                                alt="Logo"></a>
+                        <a class="navbar-brand" href="{{ url('/') }}"><img width="50px"
+                                src="{{ asset('assets/pemda.ico') }}" class="logo" alt="Logo"
+                                style="padding-top: 0 !important;"></a>
                     </div>
                     <!-- End Header Navigation -->
 
