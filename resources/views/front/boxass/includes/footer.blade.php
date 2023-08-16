@@ -80,6 +80,12 @@
                                                                                                 $data_website->longitude }}&z=14&output=embed"
                             frameborder="0" allowfullscreen width="100%" height="100%"></iframe>
                     </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <br>
+                            <h5 class="mb-0">Total Pengunjung {{ $counter_web }}</h5>
+                        </div>
+                    </div>
                     <!-- <div class="f-item link">
                         <h4>Community</h4>
                         <ul>
