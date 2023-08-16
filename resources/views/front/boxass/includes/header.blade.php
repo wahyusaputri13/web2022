@@ -125,7 +125,8 @@
                             </li>
                             @endif
                             @endforeach
-                            <x-komponen li='dropdown' i='bi bi-chevron-down' />
+                            <x-komponen li='dropdown dropdown-right' a="dropdown-toggle smooth-menu"
+                                ul="dropdown-menu" />
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div>

@@ -19,18 +19,23 @@ class ComponentSeeder extends Seeder
         $component = [
             [
                 'name' => 'Agenda',
-                'active' => 1,
+                'active' => 0,
                 'slug' => Str::slug('Agenda', '-'),
             ],
             [
                 'name' => 'Buku Tamu',
-                'active' => 1,
+                'active' => 0,
                 'slug' => Str::slug('Buku Tamu', '-'),
             ],
             [
                 'name' => 'Seputar Wonosobo',
                 'active' => 0,
                 'slug' => Str::slug('Seputar Wonosobo', '-'),
+            ],
+            [
+                'name' => 'Layanan',
+                'active' => 1,
+                'slug' => Str::slug('Layanan', '-'),
             ],
             // satpolpp
             [
@@ -40,7 +45,7 @@ class ComponentSeeder extends Seeder
             ],
             [
                 'name' => 'Berita',
-                'active' => 1,
+                'active' => 0,
                 'slug' => Str::slug('Berita', '-'),
             ],
         ];

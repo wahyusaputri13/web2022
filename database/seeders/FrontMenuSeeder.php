@@ -235,22 +235,22 @@ class FrontMenuSeeder extends Seeder
                 'menu_url' => Str::slug('Neraca', '-')
             ],
             // layanan menu
-            [
-                'menu_parent' => '1',
-                'menu_name' => 'Layanan',
-                'menu_url' => Str::slug('Layanan', '-')
-            ],
+            // [
+            //     'menu_parent' => '1',
+            //     'menu_name' => 'Layanan',
+            //     'menu_url' => Str::slug('Layanan', '-')
+            // ],
             // layanan sub menu
-            [
-                'menu_parent' => '43',
-                'menu_name' => 'Permohonan Informasi Publik',
-                'menu_url' => Str::slug('Permohonan Informasi Publik', '-')
-            ],
-            [
-                'menu_parent' => '43',
-                'menu_name' => 'Pengajuan Keberatan Informasi Publik',
-                'menu_url' => Str::slug('Pengajuan Keberatan Informasi Publik', '-')
-            ],
+            // [
+            //     'menu_parent' => '43',
+            //     'menu_name' => 'Permohonan Informasi Publik',
+            //     'menu_url' => Str::slug('Permohonan Informasi Publik', '-')
+            // ],
+            // [
+            //     'menu_parent' => '43',
+            //     'menu_name' => 'Pengajuan Keberatan Informasi Publik',
+            //     'menu_url' => Str::slug('Pengajuan Keberatan Informasi Publik', '-')
+            // ],
         ];
 
         foreach ($front_menu as $menu) {
