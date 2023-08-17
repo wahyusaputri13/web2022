@@ -44,12 +44,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
                 <div class="site-heading text-center">
-                    <h2>Recent News</h2>
-                    <p>
-                        Learning day desirous informed expenses material returned six the. She enabled invited
-                        exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                        out full gate bed day lose.
-                    </p>
+                    <h2>Postingan Kami</h2>
                 </div>
             </div>
         </div>
@@ -119,6 +114,8 @@
     </div>
 </div>
 <!-- End Blog Area -->
+
+<x-seputar-wonosobo :message='$berita' />
 
 @endsection
 @push('after-script')
