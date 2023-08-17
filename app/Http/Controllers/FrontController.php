@@ -328,4 +328,21 @@ class FrontController extends Controller
         // return response()->json('selesai');
         // return $slice2;
     }
+
+    function kopifromwonosobokab()
+    {
+        $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
+
+        foreach ($data as $item) {
+            $validated =
+                [
+                    'title' => $item->judul_posting,
+                    'description' => $item->isi_posting,
+                    'date' => $item->created_time,
+                    'upload_by' =>  'Admin',
+                ];
+            News::create($validated);
+        }
+        return 'Data selesai di pindah';
+    }
 }
