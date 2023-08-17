@@ -429,7 +429,6 @@ class FrontController extends Controller
     function kopifromwonosobokab()
     {
         $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
-
         foreach ($data as $item) {
             $validated =
                 [
