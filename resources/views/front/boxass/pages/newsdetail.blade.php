@@ -12,7 +12,7 @@
                     <!-- <h1>Blog Single</h1> -->
                     <ul class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="#">page</a></li>
+                        <li><a href="#">postingan</a></li>
                         <li class="active">{{ $data->title }}</li>
                     </ul>
                 </div>

@@ -15,7 +15,7 @@
                     <ul class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="#">postingan</a></li>
-                        <li class="active">Semua Postingan</li>
+                        <li class="active">{{ $hasil }}</li>
                     </ul>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <x-cari-news style='margin-top: 22px; width:100%;' />
             <div class="row" style="margin-top: 25px;">
                 <div class="blog-items">
-                    @foreach($news as $n)
+                    @forelse($data as $n)
                     <!-- Single Item -->
                     <div class="col-lg-4 col-md-4 col-sm-6 equal-height">
                         <div class="item">
@@ -91,16 +91,15 @@
                         </div>
                     </div>
                     <!-- End Single Item -->
-                    @endforeach
+                    @empty
+                    <div class="text-center">
+                        Data Tidak Ditemukan
+                    </div>
+                    @endforelse
                     <div class="col-lg-12 col-md-12 pagi-area">
                         <nav aria-label="navigation">
                             <ul class="pagination">
-                                {{ $news->links('vendor.pagination.boxass') }}
-                                <!-- <li><a href="#">Previous</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">Next</a></li> -->
+                                {{ $data->withQueryString()->links('vendor.pagination.boxass') }}
                             </ul>
                         </nav>
                     </div>
