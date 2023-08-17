@@ -41,8 +41,17 @@
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+<<<<<<< HEAD
                     <div class="form-group label-floating">
                         <label class="control-label">Judul Postingan</label>
+=======
+                    <!-- <div class="form-group label-floating">
+                        <label class="control-label">Kategori</label>
+                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
+                    </div> -->
+                    <div class="form-group label-floating">
+                        <label class="control-label">Title</label>
+>>>>>>> d99ddb5 (hide kategori)
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
                     @error('title')

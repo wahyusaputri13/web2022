@@ -28,6 +28,7 @@
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
+<<<<<<< HEAD
                     </div> -->
                     <div class="form-group label-floating">
                         <label class="control-label">Tag Bagian</label>
@@ -52,6 +53,13 @@
                         'form-control','placeholder' => ''])}}
                     </div>
                     @endif
+=======
+                    </div>
+                    <!-- <div class="form-group label-floating">
+                        <label class="control-label">Kategori</label>
+                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
+                    </div> -->
+>>>>>>> d99ddb5 (hide kategori)
                     <div class="form-group label-floating">
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}

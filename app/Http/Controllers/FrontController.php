@@ -429,17 +429,19 @@ class FrontController extends Controller
     function kopifromwonosobokab()
     {
         $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
-        foreach ($data as $item) {
-            $validated =
-                [
-                    'title' => $item->judul_posting,
-                    'description' => $item->isi_posting,
-                    'date' => $item->created_time,
-                    'upload_by' =>  'Admin',
-                ];
-            News::create($validated);
+        foreach ($data as $index => $item) {
+            print_r($index . "\n");
+            News::create([
+                'title' => $item->judul_posting,
+                'description' => $item->isi_posting,
+                'date' => $item->created_time,
+                'upload_by' =>  'Admin',
+            ]);
         }
+<<<<<<< HEAD
         return 'Data selesai di pindah';
 >>>>>>> 8c63bb0 (query ambil data dari db lama)
+=======
+>>>>>>> d99ddb5 (hide kategori)
     }
 }

@@ -75,6 +75,11 @@ class NewsController extends Controller
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
+<<<<<<< HEAD
+=======
+            'highlight' => 'required',
+            // 'kategori' => 'required',
+>>>>>>> d99ddb5 (hide kategori)
         ]);
 
         if ($request->dip_tahun) {
