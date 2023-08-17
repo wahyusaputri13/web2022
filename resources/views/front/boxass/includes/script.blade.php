@@ -11,3 +11,7 @@
 <script src="{{ asset('assets/front/boxass/assets/js/jquery.backgroundMove.js') }}"></script>
 <script src="{{ asset('assets/front/boxass/assets/js/bootsnav.js') }}"></script>
 <script src="{{ asset('assets/front/boxass/assets/js/main.js') }}"></script>
+
+<!-- DataTables   -->
+<!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
+<script src="https://cdn.datatables.net/v/bs/dt-1.13.6/datatables.min.js"></script>
