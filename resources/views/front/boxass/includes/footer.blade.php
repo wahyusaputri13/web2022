@@ -14,7 +14,7 @@
                         <p>
                             <i>Please write your email and get our amazing updates, news and support</i>
                         </p> -->
-                        <h4>Kontak Kami</h4>
+                        <h3>Kontak Kami</h3>
                         <div class="address">
                             <ul>
                                 <li>
@@ -22,7 +22,7 @@
                                         <i class="fas fa-home"></i>
                                     </div>
                                     <div class="info">
-                                        <h5>Alamat:</h5>
+                                        <h4>Alamat:</h4>
                                         <span>{{ $data_website->address }}</span>
                                     </div>
                                 </li>
@@ -31,7 +31,7 @@
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div class="info">
-                                        <h5>Email:</h5>
+                                        <h4>Email:</h4>
                                         <span>{{ $data_website->email }}</span>
                                     </div>
                                 </li>
@@ -40,7 +40,7 @@
                                         <i class="fas fa-phone"></i>
                                     </div>
                                     <div class="info">
-                                        <h5>Telepon:</h5>
+                                        <h4>Telepon:</h4>
                                         <span>{{ $data_website->phone }}</span>
                                     </div>
                                 </li>
@@ -62,7 +62,7 @@
                 <div class="col-md-2 col-sm-6 equal-height item">
                     <div class="f-item link">
                         @if($related->count() > 0)
-                        <h4>Link Terkait</h4>
+                        <h3>Link Terkait</h3>
                         <ul>
                             @foreach($related as $rr)
                             <li>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-md-6 col-sm-6 equal-height item">
                     <div class="map">
-                        <iframe
+                        <iframe title="lokasi kami"
                             src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
                                                                                                 $data_website->longitude }}&z=14&output=embed"
                             frameborder="0" allowfullscreen width="100%" height="100%"></iframe>
@@ -83,11 +83,11 @@
                     <div class="row">
                         <div class="col text-center">
                             <br>
-                            <h5 class="mb-0">Total Pengunjung {{ $counter_web }}</h5>
+                            <h4 class="mb-0">Total Pengunjung {{ $counter_web }}</h4>
                         </div>
                     </div>
                     <!-- <div class="f-item link">
-                        <h4>Community</h4>
+                        <h3>Community</h3>
                         <ul>
                             <li>
                                 <a href="#">Career</a>
@@ -129,16 +129,20 @@
                     <div class="col-lg-6 col-md-6 col-sm-5 text-right social">
                         <ul>
                             <li>
-                                <a href="{{ $data_website->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                <a aria-label="Facebook" href="{{ $data_website->facebook }}"><i
+                                        class="fab fa-facebook-f"></i></a>
                             </li>
                             <li>
-                                <a href="{{ $data_website->twitter }}"><i class="fab fa-twitter"></i></a>
+                                <a aria-label="Twitter" href="{{ $data_website->twitter }}"><i
+                                        class="fab fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="{{ $data_website->instagram }}"><i class="fab fa-instagram"></i></a>
+                                <a aria-label="Instagram" href="{{ $data_website->instagram }}"><i
+                                        class="fab fa-instagram"></i></a>
                             </li>
                             <li>
-                                <a href="{{ $data_website->youtube }}"><i class="fab fa-youtube"></i></a>
+                                <a aria-label="Youtube" href="{{ $data_website->youtube }}"><i
+                                        class="fab fa-youtube"></i></a>
                             </li>
                         </ul>
                     </div>

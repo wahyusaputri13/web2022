@@ -55,26 +55,36 @@
         </div>
         <div class="row">
             <div class="blog-items">
+                @foreach($berita as $art)
                 <!-- Single Item -->
                 <div class="col-md-4 single-item">
                     <div class="item">
                         <div class="thumb">
-                            <a href="#"><img src="{{ asset('assets/front/boxass/assets/img/800x600.png') }}"
-                                    alt="Thumb"></a>
+                            <a href="https://diskominfo.wonosobokab.go.id/detail/{{ $art['slug'] }}" target="_blank"
+                                class="thumb">
+                                <img src="https://diskominfo.wonosobokab.go.id/{{ $art['gambar_muka']['path'] }}{{ $art['gambar_muka']['file_name'] }}"
+                                    alt="Image-HasTech">
+                            </a>
                         </div>
                         <div class="info">
                             <div class="content">
                                 <div class="date">
-                                    15 Aug, 2019
+                                    {{ \Carbon\Carbon::parse($art['created_at'])->format('l') }}, {{
+                                    \Carbon\Carbon::parse( $art['created_at']
+                                    )->toFormattedDateString() }}
                                 </div>
-                                <h4>
-                                    <a href="#">Direct wicket little of talked lasted formed</a>
-                                </h4>
+                                <h2>
+                                    <a target="_blank"
+                                        href="https://diskominfo.wonosobokab.go.id/detail/{{ $art['slug'] }}">{{
+                                        substr($art['judul_posting'],0,35) }}..</a>
+                                </h2>
                                 <p>
-                                    Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                    west quit had met till.
+                                    {!!
+                                    substr($art['isi_posting'],0,150) !!}..
                                 </p>
-                                <a href="#">Read More <i class="fas fa-angle-right"></i></a>
+                                <a target="_blank"
+                                    href="https://diskominfo.wonosobokab.go.id/detail/{{ $art['slug'] }}">Baca Lebih
+                                    lanjut <i class="fas fa-angle-right"></i></a>
                             </div>
                             <div class="meta">
                                 <ul>
@@ -82,19 +92,19 @@
                                         <a href="#">
                                             <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
                                                 alt="Author">
-                                            <span>Author</span>
+                                            <span>Admin</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class="fas fa-comments"></i>
-                                            <span>05</span>
+                                            <span>0</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fas fa-share-alt"></i>
-                                            <span>37</span>
+                                            <i class="fas fa-eye"></i>
+                                            <span>{{ $art['views'] }}</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -103,188 +113,12 @@
                     </div>
                 </div>
                 <!-- Single Item -->
-                <!-- Single Item -->
-                <div class="col-md-4 single-item">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="#"><img src="{{ asset('assets/front/boxass/assets/img/800x600.png') }}"
-                                    alt="Thumb"></a>
-                        </div>
-                        <div class="info">
-                            <div class="content">
-                                <div class="date">
-                                    27 Nov, 2019
-                                </div>
-                                <h4>
-                                    <a href="#">Supported neglected met therefore unwilling</a>
-                                </h4>
-                                <p>
-                                    Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                    west quit had met till.
-                                </p>
-                                <a href="#">Read More <i class="fas fa-angle-right"></i></a>
-                            </div>
-                            <div class="meta">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
-                                                alt="Author">
-                                            <span>Author</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-comments"></i>
-                                            <span>17</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-share-alt"></i>
-                                            <span>22</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Item -->
-                <!-- Single Item -->
-                <div class="col-md-4 single-item">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="#"><img src="{{ asset('assets/front/boxass/assets/img/800x600.png') }}"
-                                    alt="Thumb"></a>
-                        </div>
-                        <div class="info">
-                            <div class="content">
-                                <div class="date">
-                                    18 Sep, 2019
-                                </div>
-                                <h4>
-                                    <a href="#">Concerns greatest margaret absolute entrance</a>
-                                </h4>
-                                <p>
-                                    Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                    west quit had met till.
-                                </p>
-                                <a href="#">Read More <i class="fas fa-angle-right"></i></a>
-                            </div>
-                            <div class="meta">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
-                                                alt="Author">
-                                            <span>Author</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-comments"></i>
-                                            <span>25</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-share-alt"></i>
-                                            <span>50</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Item -->
+                @endforeach
             </div>
         </div>
     </div>
 </div>
 <!-- End Blog Area -->
-
-<!-- Start Contact
-    ============================================= -->
-<div id="contact" class="contact-area bg-gray default-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
-                <div class="site-heading text-center">
-                    <h2>Contact Us</h2>
-                    <p>
-                        Learning day desirous informed expenses material returned six the. She enabled invited
-                        exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                        out full gate bed day lose.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="contact-items">
-
-                <!-- End Thumb -->
-                <div class="col-md-4 thumb">
-                    <img src="{{ asset('assets/front/boxass/assets/img/illustrations/5.png') }}" alt="Thumb">
-                </div>
-                <!-- End Thumb -->
-
-                <!-- Contact Form -->
-                <div class="col-md-7 col-md-offset-1 contact-form">
-                    <form action="assets/mail/contact.php" method="POST" class="contact-form">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="form-group">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="email" name="email" placeholder="Email*"
-                                        type="email">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments"
-                                        placeholder="Tell Us About Project *"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <button type="submit" name="submit" id="submit">
-                                    Send Message <i class="fa fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Alert Message -->
-                        <div class="col-md-12 alert-notification">
-                            <div id="message" class="alert-msg"></div>
-                        </div>
-                    </form>
-                    <!-- <h3>For any question contact our 24/7 <br>call center <span>+123 456 7890</span></h3> -->
-                </div>
-                <!-- End Contact Form -->
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- End Contact -->
 
 @endsection
 @push('after-script')
