@@ -1,6 +1,5 @@
 @extends('front.boxass.layouts.app')
 @section('content')
-
 <!-- Start Banner
     ============================================= -->
 <div class="banner-area content-double box-nav background-move bg-gray"
@@ -37,7 +36,6 @@
     </div>
 </div>
 <!-- End Banner -->
-
 
 <!-- Start Blog Area
     ============================================= -->
@@ -287,9 +285,6 @@
     </div>
 </div>
 <!-- End Contact -->
-
-<!-- jQuery Frameworks
-    ============================================= -->
 
 @endsection
 @push('after-script')
