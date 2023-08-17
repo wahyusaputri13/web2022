@@ -76,7 +76,7 @@ class NewsController extends Controller
             'date' => 'required',
             'description' => 'required',
             'highlight' => 'required',
-            'kategori' => 'required',
+            // 'kategori' => 'required',
         ]);
 
         $id = News::create($validated + ['upload_by' => auth()->user()->id]);
