@@ -167,8 +167,12 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
+<<<<<<< HEAD
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
+=======
+Route::get('/kopifromwonosobokab', [FrontController::class, 'kopifromwonosobokab']);
+>>>>>>> 8c63bb0 (query ambil data dari db lama)
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
 
