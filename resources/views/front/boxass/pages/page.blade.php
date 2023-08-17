@@ -5,7 +5,7 @@
     <!-- Start Breadcrumb
         ============================================= -->
     <div class="breadcrumb-area shadow dark bg-fixed text-center padding-xl text-light"
-        style="background-image: url(assets/img/2440x1578.png);">
+        style="background-image: url(assets/front/boxass/assets/img/2440x1578.png);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
