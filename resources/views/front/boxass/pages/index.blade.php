@@ -50,36 +50,37 @@
         </div>
         <div class="row">
             <div class="blog-items">
-                @foreach($berita as $art)
                 <!-- Single Item -->
+                @foreach($news as $n)
                 <div class="col-md-4 single-item">
                     <div class="item">
                         <div class="thumb">
-                            <a href="https://diskominfo.wonosobokab.go.id/detail/{{ $art['slug'] }}" target="_blank"
-                                class="thumb">
-                                <img src="https://diskominfo.wonosobokab.go.id/{{ $art['gambar_muka']['path'] }}{{ $art['gambar_muka']['file_name'] }}"
-                                    alt="Image-HasTech">
+                            <a href="#">
+                                @forelse($n->gambar as $gambar)
+                                @if($loop->iteration == 1)
+                                <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
+                                    alt="{{ $gambar->file_name }}">
+                                @endif
+                                @empty
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                @endforelse
                             </a>
                         </div>
                         <div class="info">
                             <div class="content">
                                 <div class="date">
-                                    {{ \Carbon\Carbon::parse($art['created_at'])->format('l') }}, {{
-                                    \Carbon\Carbon::parse( $art['created_at']
+                                    {{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
+                                    \Carbon\Carbon::parse( $n->date
                                     )->toFormattedDateString() }}
                                 </div>
-                                <h2>
-                                    <a target="_blank"
-                                        href="https://diskominfo.wonosobokab.go.id/detail/{{ $art['slug'] }}">{{
-                                        substr($art['judul_posting'],0,35) }}..</a>
-                                </h2>
+                                <h4>
+                                    <a href="#">{{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a>
+                                </h4>
                                 <p>
-                                    {!!
-                                    substr($art['isi_posting'],0,150) !!}..
+                                    {{ \Illuminate\Support\Str::limit($n->description, 50, $end='...') }}
                                 </p>
-                                <a target="_blank"
-                                    href="https://diskominfo.wonosobokab.go.id/detail/{{ $art['slug'] }}">Baca Lebih
-                                    lanjut <i class="fas fa-angle-right"></i></a>
+                                <a href="{{ url('/news-detail', $n->slug) }}">Baca Lebih lanjut<i
+                                        class="fas fa-angle-right"></i></a>
                             </div>
                             <div class="meta">
                                 <ul>
@@ -87,19 +88,19 @@
                                         <a href="#">
                                             <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
                                                 alt="Author">
-                                            <span>Admin</span>
+                                            <span>Author</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class="fas fa-comments"></i>
-                                            <span>0</span>
+                                            <span>05</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class="fas fa-eye"></i>
-                                            <span>{{ $art['views'] }}</span>
+                                            <span>37</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -107,8 +108,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- Single Item -->
+                @if($loop->iteration == 3)
+                @break
+                @endif
                 @endforeach
+                <!-- Single Item -->
             </div>
         </div>
     </div>
