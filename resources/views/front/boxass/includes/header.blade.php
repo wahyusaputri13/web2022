@@ -125,8 +125,7 @@
                             </li>
                             @endif
                             @endforeach
-                            <x-komponen li='dropdown dropdown-right' a="dropdown-toggle smooth-menu"
-                                ul="dropdown-menu" />
+                            <x-komponen li='dropdown dropdown-right' a="smooth-menu" ul="dropdown-menu" />
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div>
