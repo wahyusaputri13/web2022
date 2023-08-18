@@ -37,6 +37,7 @@
 </div>
 <!-- End Banner -->
 
+@if($news->count() != 0)
 <!-- Start Blog Area
     ============================================= -->
 <div id="blog" class="blog-area default-padding bottom-less">
@@ -118,6 +119,7 @@
     </div>
 </div>
 <!-- End Blog Area -->
+@endif
 
 <x-seputar-wonosobo :message='$berita' />
 
