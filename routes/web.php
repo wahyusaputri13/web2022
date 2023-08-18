@@ -166,7 +166,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
-Route::get('/kopifromwonosobokab', [FrontController::class, 'kopifromwonosobokab']);
+Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
 

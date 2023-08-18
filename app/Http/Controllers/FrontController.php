@@ -329,17 +329,39 @@ class FrontController extends Controller
         // return $slice2;
     }
 
-    function kopifromwonosobokab()
+    function copydatapostingfromwonosobokab()
     {
         $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
         foreach ($data as $index => $item) {
             print_r($index . "\n");
-            News::create([
+            $idnya = News::create([
                 'title' => $item->judul_posting,
                 'description' => $item->isi_posting,
                 'date' => $item->created_time,
                 'upload_by' =>  'Admin',
-            ]);
+            ])->id;
+            print_r($idnya);
+            $this->copydatafilefromwonosobokab($item->id_posting, $idnya);
         }
+    }
+
+    function copydatafilefromwonosobokab($a, $b)
+    {
+        $isa = [];
+        $data = DB::table('attachment')->select('file_name')->where('id_tabel', '=', $a)->get();
+        // $this->db->select('file_name');
+        // $this->db->where('id_tabel', $id);
+        // $query = $this->db->get('attachment');
+        foreach ($data as $ratna) {
+            array_push($isa, $ratna->file_name);
+            $fff = [
+                'id_news' => $b,
+                'file_name' => $ratna->file_name,
+                'path' => 'gallery/' . $ratna->file_name,
+            ];
+            DB::table('files')->insert($fff);
+            // $this->db->insert('files', $fff);
+        }
+        return json_encode($isa);
     }
 }
