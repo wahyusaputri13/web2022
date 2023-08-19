@@ -349,9 +349,6 @@ class FrontController extends Controller
     {
         $isa = [];
         $data = DB::table('attachment')->select('file_name')->where('id_tabel', '=', $a)->get();
-        // $this->db->select('file_name');
-        // $this->db->where('id_tabel', $id);
-        // $query = $this->db->get('attachment');
         foreach ($data as $ratna) {
             array_push($isa, $ratna->file_name);
             $fff = [
@@ -360,7 +357,6 @@ class FrontController extends Controller
                 'path' => 'gallery/' . $ratna->file_name,
             ];
             DB::table('files')->insert($fff);
-            // $this->db->insert('files', $fff);
         }
         return json_encode($isa);
     }
