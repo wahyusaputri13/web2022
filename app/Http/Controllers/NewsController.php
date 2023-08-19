@@ -174,9 +174,12 @@ class NewsController extends Controller
         return $data->delete();
     }
 
-    public function insert(Request $request)
+    // pindah dari wonosobokab
+    public function insert()
     {
-        $data = DB::table('posting')->get();
+        // set_time_limit(0);
+        $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
+        return $data;
         foreach ($data as $dt) {
             $file = DB::table('attachment')
                 ->where('id_tabel', $dt->id_posting)
@@ -185,6 +188,7 @@ class NewsController extends Controller
                 $fi = [
                     'id_news' => $f->id_tabel,
                     'file_name' => $f->file_name,
+                    'path' => 'gallery/' . $f->file_name,
                 ];
                 File::create($fi);
             }
