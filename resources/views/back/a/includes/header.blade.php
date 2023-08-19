@@ -78,12 +78,12 @@
                     </a>
                 </li>
                 @endcan
-                <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
+                <!-- <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>
                         <p>Kotak Masuk</p>
                     </a>
-                </li>
+                </li> -->
                 <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                     <a href="{{ route('news.index') }}">
                         <i class="material-icons">event_note</i>

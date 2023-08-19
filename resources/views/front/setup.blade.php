@@ -286,7 +286,7 @@
         </div>
     </div>
     <footer class="footer">
-        <p class="copyright pull-right">
+        <p class="copyright text-center">
             &copy;
             <!-- <script>
                 document.write(new Date().getFullYear())
