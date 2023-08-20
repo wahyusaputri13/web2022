@@ -124,7 +124,8 @@
                     <div class="col-lg-6 col-md-6 col-sm-7">
                         <p>&copy; Copyright 2023. Diskominfo
                             Kab.
-                            Wonosobo by <a href="#">Isa Maulana Tantra</a></p>
+                            Wonosobo by <a href="https://soulofjava.github.io/myportofolio/" target="_blank">Isa Maulana
+                                Tantra</a></p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-5 text-right social">
                         <ul>

@@ -89,9 +89,21 @@
 
                                             @if(count($subMenus3) == 0)
                                             <li>
+                                                @if ($sub3->menu_name == 'Permohonan Informasi Publik')
+                                                <a href="https://website.wonosobokab.go.id/category/detail/Permohonan-Informasi-Publik"
+                                                    target="_blank">{{
+                                                    $sub3->menu_name }}
+                                                </a>
+                                                @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi Publik')
+                                                <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
+                                                    target="_blank">{{
+                                                    $sub3->menu_name }}
+                                                </a>
+                                                @else
                                                 <a href="{{ url('page', $sub3->menu_url) }}">{{
                                                     $sub3->menu_name }}
                                                 </a>
+                                                @endif
                                             </li>
                                             @else
                                             <li class="dropdown dropdown-right">
