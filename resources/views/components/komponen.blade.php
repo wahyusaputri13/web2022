@@ -7,23 +7,6 @@
     </a>
 </li>
 @endif
-@if($component->slug == 'layanan')
-<li class="{{ $li }}">
-    <a class="{{ $a }}" href="#"><span>{{ $component->name }}</span> <i class="{{ $i }}"></i></a>
-    <ul class="{{ $ul }}">
-        <li>
-            <a href="https://website.wonosobokab.go.id/category/detail/Permohonan-Informasi-Publik"
-                target="_blank">Permohonan Informasi Publik
-            </a>
-        </li>
-        <li>
-            <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo "
-                target="_blank">Pengajuan Keberatan Informasi Publik
-            </a>
-        </li>
-    </ul>
-</li>
-@endif
 @if($component->slug == 'complaints')
 <li class="{{ $li }}">
     <a class="{{ $a }}" href="#"><span>{{ $component->name }}</span> <i class="{{ $i }}"></i></a>
