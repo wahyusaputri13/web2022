@@ -85,62 +85,6 @@
 <!-- news-section end -->
 @endif
 
-@if($gallery->count() != 0)
-<!-- gallery-section -->
-<section class="news-section">
-    <div class="container">
-        <div class="sec-title center">
-            <h2>Latest Photos</h2>
-            <a href="{{ url('/photos') }}">
-                <p>Show All</p>
-            </a>
-        </div>
-        <div class="row">
-            @foreach($gallery as $g)
-            <div class="col-lg-4 col-md-6 col-sm-12 news-column" style="display: flex">
-                <div class="news-block-one wow flipInY animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <div class="inner-box">
-                        <figure class="image-box">
-                            @foreach($g->gambar as $pic)
-                            @if($loop->iteration == 1)
-                            <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                href="{{ asset('storage/') }}/{{ $pic->path }}" data-caption="{{ $g->description }}">
-                                <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
-                                    style="height: 250px;">
-                            </a>
-                            @else
-                            <div style="display:none;">
-                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
-                                    data-caption="{{ $g->description }}">
-                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
-                                </a>
-                            </div>
-                            @endif
-                            @endforeach
-                        </figure>
-                        <div class="lower-content">
-                            <div class="post-date"><i class="fas fa-calendar-alt"></i>{{
-                                \Carbon\Carbon::parse($g->upload_date)->format('l') }}</strong> {{
-                                \Carbon\Carbon::parse( $g->upload_date
-                                )->toFormattedDateString() }}</div>
-                            <h3>
-                                <a href="#">{{ $g->description }}</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @if($loop->iteration == 3)
-            @break
-            @endif
-            @endforeach
-        </div>
-    </div>
-</section>
-<!-- gallery-section end -->
-@endif
-
 <x-seputar-wonosobo :message='$berita' />
 
 <!-- subscribe-section -->

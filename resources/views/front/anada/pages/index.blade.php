@@ -94,66 +94,6 @@
 <!-- End Blog Area -->
 @endif
 
-@if($gallery->count() != 0)
-<div class="blog-area bg-gray left-border default-padding bottom-less">
-    <div class="container">
-        <div class="heading-left">
-            <div class="row">
-                <div class="col-lg-5">
-                    <h2>
-                        Latest Gallery
-                    </h2>
-                </div>
-                <div class="col-lg-6 offset-lg-1">
-                    <a class="btn circle btn-md btn-gradient wow fadeInUp" href="{{ url('/photos') }}">View All <i
-                            class="fas fa-plus"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="team-items text-center">
-                <div class="row">
-                    @foreach($gallery as $g)
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6" style="display: flex">
-                        <div class="item">
-                            <div class="thumb">
-                                @foreach($g->gambar as $pic)
-                                @if($loop->iteration == 1)
-                                <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                    href="{{ asset('storage/') }}/{{ $pic->path }}"
-                                    data-caption="{{ $g->description }}">
-                                    <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid"
-                                        style="height: 250px;">
-                                </a>
-                                @else
-                                <div style="display:none;">
-                                    <a data-fancybox="gallery-group-{{ $pic->id_news }}"
-                                        href="{{ asset('storage/') }}/{{ $pic->path }}"
-                                        data-caption="{{ $g->description }}">
-                                        <img src="{{ asset('storage/') }}/{{ $pic->path }}" class="img-fluid">
-                                    </a>
-                                </div>
-                                @endif
-                                @endforeach
-                            </div>
-                            <div class="info">
-                                <h4>{{ $g->description }}</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    @if($loop->iteration == 3)
-                    @break
-                    @endif
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endif
-
 <div class="blog-area bg-gray left-border default-padding bottom-less">
     <x-seputar-wonosobo :message='$berita' />
 </div>
