@@ -15,8 +15,6 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('photo')->default('soulofjava');
-            $table->string('path')->default('img/soulofjava.jpg');
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->date('date');
