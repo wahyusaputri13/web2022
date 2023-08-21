@@ -76,8 +76,12 @@ class NewsController extends Controller
             'date' => 'required',
             'description' => 'required',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'highlight' => 'required',
+=======
+            // 'highlight' => 'required',
+>>>>>>> 121ae8f (tampilkan error ke news)
             // 'kategori' => 'required',
 >>>>>>> d99ddb5 (hide kategori)
         ]);
@@ -154,8 +158,15 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+<<<<<<< HEAD
             'date' => 'required',
             'description' => 'required',
+=======
+            'description' => 'required',
+            'date' => 'required',
+            // 'highlight' => 'required',
+            // 'kategori' => 'required',
+>>>>>>> 121ae8f (tampilkan error ke news)
         ]);
 
         $data = News::find($id);

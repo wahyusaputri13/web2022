@@ -24,6 +24,7 @@
                     </div>
                     @if(!$data->dip)
                     <div class="dropzone" id="my-awesome-dropzone"></div>
+<<<<<<< HEAD
                     @endif
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
@@ -55,6 +56,12 @@
                     @endif
 =======
                     </div>
+=======
+                    <!-- <div class="form-group label-floating">
+                        <label class="control-label">Highlight</label>
+                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
+                    </div> -->
+>>>>>>> 121ae8f (tampilkan error ke news)
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Kategori</label>
                         {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
@@ -66,16 +73,25 @@
                         @error('title') <span class="text-danger">Tidak boleh kosong</span> @enderror
 
                     </div>
+                    @error('title')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="form-group">
                         <label class="control-label">Date</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
                         @error('date') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
+                    @error('date')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                         @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
+                    @error('description')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Ubah</button>
@@ -154,6 +170,11 @@
                 path = uploadedDocumentMap[file.path];
             }
 
+<<<<<<< HEAD
+=======
+            // console.log(file.name);
+
+>>>>>>> 121ae8f (tampilkan error ke news)
             $('form').find('input[name="document[]"][value="' + name + '"]').remove();
 
             $.ajax({
@@ -203,6 +224,7 @@
             });
 
             @if (isset($project) && $project -> document)
+<<<<<<< HEAD
                 var files = {!! json_encode($project -> document) !!}
                     for(var i in files) {
                         var file = files[i]
@@ -214,4 +236,60 @@
             }
     });
 </script>
+=======
+                var files = {!! json_encode($project -> document)!!
+        }
+                    for(var i in files) {
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
+            }
+    });
+</script>
+<script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+<script>
+    var editor_config = {
+        path_absolute: "/",
+        selector: 'textarea.my-editor',
+        relative_urls: false,
+        height: '500px',
+        plugins: [
+            "advlist autolink autosave lists link image charmap print preview hr anchor pagebreak",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table directionality",
+            "emoticons template paste textpattern"
+        ],
+        toolbar: "restoredraft insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+        file_picker_callback: function (callback, value, meta) {
+            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+            var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+
+            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
+            if (meta.filetype == 'image') {
+                cmsURL = cmsURL + "&type=Images";
+            } else {
+                cmsURL = cmsURL + "&type=Files";
+            }
+
+            tinyMCE.activeEditor.windowManager.openUrl({
+                url: cmsURL,
+                title: 'Filemanager',
+                width: x * 0.8,
+                height: y * 0.8,
+                resizable: "yes",
+                close_previous: "no",
+                onMessage: (api, message) => {
+                    callback(message.content);
+                }
+            });
+        }
+    };
+
+    tinymce.init(editor_config);
+</script>
+>>>>>>> 121ae8f (tampilkan error ke news)
 @endpush

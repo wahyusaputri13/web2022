@@ -22,6 +22,7 @@
                     </div>
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
+<<<<<<< HEAD
                     <div class="form-group">
                         <label class="control-label">Tag Bagian</label>
                         {{Form::select('tag', $categori, null, ['class' => 'form-control
@@ -45,6 +46,12 @@
                     <div class="form-group label-floating">
                         <label class="control-label">Judul Postingan</label>
 =======
+=======
+                    <!-- <div class="form-group label-floating">
+                        <label class="control-label">Highlight</label>
+                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
+                    </div> -->
+>>>>>>> 121ae8f (tampilkan error ke news)
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Kategori</label>
                         {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
@@ -64,9 +71,15 @@
                     @error('date')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+<<<<<<< HEAD
                     <div class="form-group label">
                         <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
+=======
+                    <div class="form-group label-floating">
+                        <label class="control-label">Description</label>
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
+>>>>>>> 121ae8f (tampilkan error ke news)
                     </div>
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
