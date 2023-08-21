@@ -19,7 +19,7 @@ class CreateFrontMenusTable extends Migration
             $table->string('menu_name');
             $table->string('menu_url')->nullable();
             $table->longText('content')->nullable();
-            $table->string('type')->nullable();
+            $table->boolean('active')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

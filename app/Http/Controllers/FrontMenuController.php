@@ -44,7 +44,18 @@ class FrontMenuController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'orang_tua'])
+                ->addColumn(
+                    'tampil',
+                    function ($data) {
+                        if ($data->active == 1) {
+                            $actionBtn = 'Tampil';
+                        } else {
+                            $actionBtn = 'Tidak Tampil';
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'orang_tua', 'tampil'])
                 ->make(true);
         }
         return view('back.a.pages.frontmenu.index');

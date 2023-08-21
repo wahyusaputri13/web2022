@@ -30,10 +30,10 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Menu Parent</th>
-                                        <th>Menu Name</th>
-                                        <th>Menu URL</th>
+                                        <th>Nama Menu</th>
+                                        <th>Tampil</th>
                                         <th class="disabled-sorting text-center">
-                                            Actions</th>
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <!-- <tfoot>
@@ -75,7 +75,7 @@
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'orang_tua' },
             { data: 'menu_name', name: 'menu_name' },
-            { data: 'menu_url', name: 'menu_url' },
+            { data: 'tampil' },
             { data: 'action', },
         ]
 

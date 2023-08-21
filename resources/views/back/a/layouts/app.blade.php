@@ -9,6 +9,7 @@
     @stack('before-style')
     @include('back.a.includes.style')
     @stack('after-style')
+    @vite([])
 </head>
 
 <body>
@@ -21,7 +22,6 @@
     @stack('before-script')
     @include('back.a.includes.script')
     @stack('after-script')
-
 </body>
 
 </html>
