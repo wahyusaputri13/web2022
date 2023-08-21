@@ -7,6 +7,7 @@
     @include('front.boxass.includes.style')
     @stack('after-style')
     @vite([])
+    @livewireStyles
 </head>
 
 <body>
@@ -19,6 +20,7 @@
     @include('front.boxass.includes.script')
     @include('components.responsive-voice')
     @stack('after-script')
+    @livewireScripts
 </body>
 
 </html>

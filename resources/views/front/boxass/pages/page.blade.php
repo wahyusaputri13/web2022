@@ -28,10 +28,8 @@
                 <div class="blog-items">
                     <div class="col-lg-12 col-md-12">
                         <div class="item">
-                            @if($data->menu_name == 'Permohonan Informasi Publik')
-                            <x-form-permohonan-informasi-publik />
-                            @elseif($data->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                            <x-form-pengajuan-keberatan-informasi-publik />
+                            @if($data->menu_name == 'Daftar Informasi Publik')
+                            <livewire:dip />
                             @else
                             {!! $data->content !!}
                             @endif
@@ -45,5 +43,3 @@
 
 </main>
 @endsection
-@push('after-script')
-@endpush
