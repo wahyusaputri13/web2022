@@ -4,8 +4,7 @@
 
     <!-- Start Breadcrumb
         ============================================= -->
-    <div class="breadcrumb-area shadow dark bg-fixed text-center padding-xl text-light"
-        style="background-image: url(assets/front/boxass/assets/img/2440x1578.png);">
+    <div class="breadcrumb-area shadow bg-fixed text-center padding-xl text-light" style="background-color: #F4F7FB;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -13,7 +12,7 @@
                     <ul class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="#">page</a></li>
-                        <li class="active">Agenda</li>
+                        <li><a href="#">Agenda</a></li>
                     </ul>
                 </div>
             </div>
