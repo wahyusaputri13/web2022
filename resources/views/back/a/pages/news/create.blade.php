@@ -17,10 +17,10 @@
                     {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <div class="form-group label-floating">
+                    <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div>
+                    </div> -->
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Kategori</label>
                         {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
@@ -29,14 +29,23 @@
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
+                    @error('title')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="form-group">
                         <label class="control-label">Date</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
                     </div>
+                    @error('date')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
                     </div>
+                    @error('description')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
                         <button type="submit" class="btn btn-success btn-fill">Insert</button>
@@ -165,15 +174,16 @@
             });
         },
         init: function () {
-            @if (isset($project) && $project->document)
-                var files = {!! json_encode($project->document) !!}
+            @if (isset($project) && $project -> document)
+                var files = {!! json_encode($project -> document)!!
+        }
                 for(var i in files) {
-                    var file = files[i]
-                    this.options.addedfile.call(this, file)
-                    file.previewElement.classList.add('dz-complete')
-                    $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                }
-            @endif
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
         }
     }
 </script>

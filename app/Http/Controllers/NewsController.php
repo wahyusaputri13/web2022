@@ -75,7 +75,7 @@ class NewsController extends Controller
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
-            'highlight' => 'required',
+            // 'highlight' => 'required',
             // 'kategori' => 'required',
         ]);
 
@@ -137,9 +137,9 @@ class NewsController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'highlight' => 'required',
             'date' => 'required',
-            'kategori' => 'required',
+            // 'highlight' => 'required',
+            // 'kategori' => 'required',
         ]);
 
         News::find($id)->update($validated + ['upload_by' => auth()->user()->name]);

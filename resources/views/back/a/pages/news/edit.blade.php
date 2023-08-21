@@ -18,10 +18,10 @@
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <div class="form-group label-floating">
+                    <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div>
+                    </div> -->
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Kategori</label>
                         {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
@@ -30,14 +30,23 @@
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
+                    @error('title')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="form-group">
                         <label class="control-label">Date</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
                     </div>
+                    @error('date')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
                     </div>
+                    @error('description')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
                         <button type="submit" class="btn btn-success btn-fill">Update</button>
@@ -58,92 +67,93 @@
     });
 
     var uploadedDocumentMap = {};
-        let token = $("meta[name='csrf-token']").attr("content");
+    let token = $("meta[name='csrf-token']").attr("content");
 
-        Dropzone.autoDiscover = false;
-        $(".dropzone").dropzone({
+    Dropzone.autoDiscover = false;
+    $(".dropzone").dropzone({
 
-            url: `{{ route('file_image.store') }}`,
-            // maxFilesize: 2, // MB
-            addRemoveLinks: true,
-            headers: {
-                'X-CSRF-TOKEN': "{{ csrf_token() }}"
-            },
-            success: function (file, response) {
-                $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
-                uploadedDocumentMap[file.name] = response.name
-                uploadedDocumentMap[file.path] = response.path
-            },
-            removedfile: function (file) {
-                file.previewElement.remove()
-                var name = '';
-                var path = '';
-                if (typeof file.file_name !== 'undefined') {
-                    name = file.file_name;
-                } else {
-                    name = uploadedDocumentMap[file.name];
-                    path = uploadedDocumentMap[file.path];
+        url: `{{ route('file_image.store') }}`,
+        // maxFilesize: 2, // MB
+        addRemoveLinks: true,
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        success: function (file, response) {
+            $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
+            uploadedDocumentMap[file.name] = response.name
+            uploadedDocumentMap[file.path] = response.path
+        },
+        removedfile: function (file) {
+            file.previewElement.remove()
+            var name = '';
+            var path = '';
+            if (typeof file.file_name !== 'undefined') {
+                name = file.file_name;
+            } else {
+                name = uploadedDocumentMap[file.name];
+                path = uploadedDocumentMap[file.path];
+            }
+
+            // console.log(file.name);
+
+            $('form').find('input[name="document[]"][value="' + name + '"]').remove();
+
+            $.ajax({
+                url: `/admin/file_image/${name}`,
+                type: "DELETE",
+                cache: false,
+                data: {
+                    "_token": token
+                },
+                success: function (response) {
+                    console.log(response);
                 }
+            });
+        },
+        init: function () {
+            myDropzone = this;
+            let id_ku = document.getElementById('malika').value;
 
-                // console.log(file.name);
-
-                $('form').find('input[name="document[]"][value="' + name + '"]').remove();
-
+            this.on("removedfile", function (file) {
+                alert("Delete this file?");
                 $.ajax({
-                    url: `/admin/file_image/${name}`,
+                    url: '/admin/file_image/' + file.name,
                     type: "DELETE",
-                    cache: false,
                     data: {
                         "_token": token
                     },
-                    success: function (response) {
-                        console.log(response);
-                    }
+                    // data: { 'filetodelete': file.name }
                 });
-            },
-            init: function () {
-                myDropzone = this;
-                let id_ku = document.getElementById('malika').value;
+            });
 
-                this.on("removedfile", function (file) {
-                    alert("Delete this file?");
-                    $.ajax({
-                        url: '/admin/file_image/' + file.name,
-                        type: "DELETE",
-                        data: {
-                            "_token": token
-                        },
-                        // data: { 'filetodelete': file.name }
+            $.ajax({
+                url: `/admin/file_image/${id_ku}`,
+                type: 'get',
+                // data: { request: 'fetch' },
+                dataType: 'json',
+                success: function (response) {
+                    $.each(response, function (key, value) {
+                        var mockFile = { name: value.name, size: value.size };
+
+                        myDropzone.emit("addedfile", mockFile);
+                        myDropzone.emit("thumbnail", mockFile, value.path);
+                        myDropzone.emit("complete", mockFile);
+
                     });
-                });
 
-                $.ajax({
-                    url: `/admin/file_image/${id_ku}`,
-                    type: 'get',
-                    // data: { request: 'fetch' },
-                    dataType: 'json',
-                    success: function (response) {
-                        $.each(response, function (key, value) {
-                            var mockFile = { name: value.name, size: value.size };
+                }
+            });
 
-                            myDropzone.emit("addedfile", mockFile);
-                            myDropzone.emit("thumbnail", mockFile, value.path);
-                            myDropzone.emit("complete", mockFile);
-
-                        });
-
-                    }
-                });
-
-                @if (isset($project) && $project->document)
-                    var files = {!! json_encode($project->document) !!}
+            @if (isset($project) && $project -> document)
+                var files = {!! json_encode($project -> document)!!
+        }
                     for(var i in files) {
-                        var file = files[i]
-                        this.options.addedfile.call(this, file)
-                        file.previewElement.classList.add('dz-complete')
-                        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                    }
-                @endif
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
             }
     });
 </script>
