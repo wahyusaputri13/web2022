@@ -9,7 +9,6 @@ use Closure;
 use Illuminate\Http\Request;
 use App\Models\Website;
 use App\Models\FrontMenu;
-use App\Models\Gallery;
 use App\Models\Inbox;
 use App\Models\News;
 use App\Models\RelatedLink;
