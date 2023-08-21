@@ -46,6 +46,7 @@ class FrontMenuController extends Controller
                     }
                 )
                 ->addColumn(
+<<<<<<< HEAD
                     'aksi',
                     function ($data) {
                         if ($data->id <= 45) {
@@ -71,11 +72,23 @@ class FrontMenuController extends Controller
                                 </label>
                                 </div>';
                             }
+=======
+                    'tampil',
+                    function ($data) {
+                        if ($data->active == 1) {
+                            $actionBtn = 'Tampil';
+                        } else {
+                            $actionBtn = 'Tidak Tampil';
+>>>>>>> f854342 (ubah tabel)
                         }
                         return $actionBtn;
                     }
                 )
+<<<<<<< HEAD
                 ->rawColumns(['action', 'orang_tua', 'aksi'])
+=======
+                ->rawColumns(['action', 'orang_tua', 'tampil'])
+>>>>>>> f854342 (ubah tabel)
                 ->make(true);
         }
 

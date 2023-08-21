@@ -68,7 +68,11 @@
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'orang_tua' },
             { data: 'menu_name', name: 'menu_name' },
+<<<<<<< HEAD
             { data: 'aksi' },
+=======
+            { data: 'tampil' },
+>>>>>>> f854342 (ubah tabel)
             { data: 'action', },
         ]
 

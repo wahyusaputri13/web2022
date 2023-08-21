@@ -22,7 +22,6 @@
     @stack('before-script')
     @include('back.a.includes.script')
     @stack('after-script')
-
 </body>
 
 </html>
