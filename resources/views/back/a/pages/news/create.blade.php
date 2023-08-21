@@ -53,8 +53,8 @@
                     </div> -->
 >>>>>>> 121ae8f (tampilkan error ke news)
                     <!-- <div class="form-group label-floating">
-                        <label class="control-label">Kategori</label>
-                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
+                        <label class="control-label">Jenis Informasi Publik</label>
+                        {{Form::select('jip', get_code_group('INFORMASI_ST'), null, ['class' => 'form-control'])}}
                     </div> -->
                     <div class="form-group label-floating">
                         <label class="control-label">Title</label>

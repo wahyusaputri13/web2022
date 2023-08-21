@@ -15,8 +15,13 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->text('title', 4294967295)->nullable();
             $table->text('slug', 4294967295)->nullable();
+=======
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+>>>>>>> d43339c (hapus migrasi)
             $table->date('date');
             $table->string('upload_by');
             $table->text('description', 4294967295);
