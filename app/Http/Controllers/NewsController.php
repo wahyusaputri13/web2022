@@ -177,9 +177,9 @@ class NewsController extends Controller
     // pindah dari wonosobokab
     public function insert()
     {
-        // set_time_limit(0);
-        $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
-        return $data;
+        set_time_limit(0);
+        $tables = DB::select('SHOW TABLES');
+        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
         foreach ($data as $dt) {
             $file = DB::table('attachment')
                 ->where('id_tabel', $dt->id_posting)
@@ -190,7 +190,7 @@ class NewsController extends Controller
                     'file_name' => $f->file_name,
                     'path' => 'gallery/' . $f->file_name,
                 ];
-                File::create($fi);
+                Files::insert($fi);
             }
             $pk = [
                 'title' => $dt->judul_posting,
@@ -200,7 +200,7 @@ class NewsController extends Controller
                 'attachment' => $dt->id_posting,
                 'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
             ];
-            News::create($pk);
+            News::insert($pk);
         }
         return 'selesai';
     }
