@@ -9,7 +9,6 @@ use Closure;
 use Illuminate\Http\Request;
 use App\Models\Website;
 use App\Models\FrontMenu;
-use App\Models\Gallery;
 use App\Models\Inbox;
 use App\Models\News;
 use App\Models\RelatedLink;
@@ -32,7 +31,6 @@ class WebHelper
         $agenda = Agenda::all()->count();
         $news = News::all()->count();
         $public_complaints = Complaint::all()->count();
-        $gallery = Gallery::all()->count();
         $counter = Counter::all()->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
@@ -47,7 +45,6 @@ class WebHelper
         view()->share('nav_menu', $menu);
         view()->share('news_all', $news);
         view()->share('public_complaints', $public_complaints);
-        view()->share('gallery_all', $gallery);
         view()->share('counter_web', $counter);
         view()->share('related', $related);
         view()->share('inbox', $inbox);
