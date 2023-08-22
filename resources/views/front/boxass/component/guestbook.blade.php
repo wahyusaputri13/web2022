@@ -1,4 +1,8 @@
 @extends('front.boxass.layouts.app')
+@push('after-style')
+<!-- datatable -->
+<link href="https://cdn.datatables.net/v/bs/dt-1.13.6/datatables.min.css" rel="stylesheet">
+@endpush
 @section('content')
 <main id="main">
 
@@ -109,6 +113,10 @@
 </main>
 @endsection
 @push('after-script')
+<!-- DataTables   -->
+<!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
+<script src="https://cdn.datatables.net/v/bs/dt-1.13.6/datatables.min.js"></script>
+
 <script type="text/javascript">
     $('#datatables').DataTable({
         "pagingType": "full_numbers",

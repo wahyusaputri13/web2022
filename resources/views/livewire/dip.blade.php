@@ -1,3 +1,5 @@
+@push('after-style')
+@endpush
 <div>
     <div class="row">
         <div class="col">
@@ -18,12 +20,13 @@
     @if ($a)
     <div class="col">
         <div class="form-group text-center">
-            Jenis Informasi Publik
+            <h3>
+                Jenis Informasi Publik
+            </h3>
             {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
             'form-control','placeholder' => 'Semua Data','wire:model' => 'cari'])}}
         </div>
-        <table id="datatables" class="table table-striped table-no-bordered table-hover devan" cellspacing="0"
-            width="100%" style="width:100%">
+        <table id="datatables" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th>No</th>
@@ -32,13 +35,20 @@
                         Aksi</th>
                 </tr>
                 @foreach ($data as $item)
+            </thead>
+            <tbody>
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->menu_name }}</td>
                     <td class="text-center"><a href="" class="btn btn-primary">TAMPIL</a></td>
                 </tr>
-                @endforeach
-            </thead>
+            </tbody>
+            @endforeach
+            <!-- <div class="text-center">
+                    <h3>
+                        Tidak Ada Data
+                    </h3>
+                </div> -->
         </table>
     </div>
     @endif
@@ -48,3 +58,13 @@
     </div>
     @endif
 </div>
+@push('after-script')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datatables').DataTable();
+    });
+</script>
+@endpush
