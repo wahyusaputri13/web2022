@@ -102,6 +102,10 @@
                                                                             <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
                                                                                 target="_blank">{{ $sub3->menu_name }}
                                                                             </a>
+                                                                        @elseif ($sub3->menu_name == 'JDIH Wonosobo')
+                                                                            <a href="https://jdih.wonosobokab.go.id/"
+                                                                                target="_blank">{{ $sub3->menu_name }}
+                                                                            </a>
                                                                         @else
                                                                             <a
                                                                                 href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name }}
@@ -138,19 +142,22 @@
                     </div><!-- /.navbar-collapse -->
                 </div>
 
-                 <!-- Start Side Menu -->
-                 <div class="side">
+                <!-- Start Side Menu -->
+                <div class="side">
                     <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-      
+
                     <div class="widget">
                         <h4 class="title">Pencarian</h4>
-                        {{Form::open(['route' => 'news.search','method' => 'get', '','class' => 'w-100'])}}
-                        {{Form::text('kolomcari', null,['class' => 'form-control text-center',
-                        'placeholder' => 'Masukkan Pencarian'])}}
-                        <button type="submit" class="btn btn-primary" style="margin-top: 22px; width: 100%">Cari Data</button>
-                        {{Form::close()}}
+                        {{ Form::open(['route' => 'news.search', 'method' => 'get', '', 'class' => 'w-100']) }}
+                        {{ Form::text('kolomcari', null, [
+                            'class' => 'form-control text-center',
+                            'placeholder' => 'Masukkan Pencarian',
+                        ]) }}
+                        <button type="submit" class="btn btn-primary" style="margin-top: 22px; width: 100%">Cari
+                            Data</button>
+                        {{ Form::close() }}
                     </div>
-             
+
                 </div>
                 <!-- End Side Menu -->
 

@@ -91,7 +91,7 @@ Route::get('/', function () {
             $berita = [];
         }
 
-        $news = News::with('gambar', 'gambarmuka')->orderBy('date', 'desc')->paginate(9);
+        $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
         return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
         // return view('front.index', compact('news', 'berita'));
     } else {

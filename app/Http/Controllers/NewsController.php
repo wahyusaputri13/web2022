@@ -174,6 +174,7 @@ class NewsController extends Controller
         ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $data = News::find($id);
         $data->slug = null;
 
@@ -188,6 +189,9 @@ class NewsController extends Controller
 =======
         News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->name]);
 >>>>>>> 3c71dcd (berita tambah kategori ppid)
+=======
+        News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
+>>>>>>> e144481 (href jdih)
 
         if ($request->document) {
             foreach ($request->document as $df) {
