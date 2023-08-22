@@ -31,6 +31,9 @@
                                 @endif
                         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 01c1e7b (front menu tambah kategori)
                         @error('menu_name')
                         <div class="error text-danger">Tidak Boleh Kosong</div>
                         @enderror
@@ -42,8 +45,11 @@
                         @error('kategori')
                         <div class="error text-danger">Tidak Boleh Kosong</div>
                         @enderror
+<<<<<<< HEAD
 =======
 >>>>>>> d435741 (ganti ckeditor)
+=======
+>>>>>>> 01c1e7b (front menu tambah kategori)
                         <div class="form-group label">
                             <label class="control-label">Content</label>
                             {{Form::textarea('content', null,['class' => 'form-control','id'=>'my-editor'])}}
