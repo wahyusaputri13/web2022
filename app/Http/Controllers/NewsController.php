@@ -142,7 +142,7 @@ class NewsController extends Controller
             // 'kategori' => 'required',
         ]);
 
-        News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->name]);
+        News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
 
         if ($request->document) {
             foreach ($request->document as $df) {
