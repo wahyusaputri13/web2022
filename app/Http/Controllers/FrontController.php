@@ -36,7 +36,14 @@ class FrontController extends Controller
         views($data)->cooldown(5)->record();
         $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file'));
+
+        $prev = $data->id - 1;
+        $prev_data = News::with('gambar', 'uploader')->where('id', $prev)->first();
+
+        $next = $data->id + 1;
+        $next_data = News::with('gambar', 'uploader')->where('id', $next)->first();
+
+        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
     }
 
     public function detailberita($id)
