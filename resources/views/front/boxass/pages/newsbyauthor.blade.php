@@ -56,10 +56,6 @@
                                         <a href="#">{{ \Illuminate\Support\Str::limit($n->title, 50,
                                             $end='...') }}</a>
                                     </h4>
-                                    <p>
-                                        {{ \Illuminate\Support\Str::limit($n->description, 50,
-                                        $end='...') }}
-                                    </p>
                                     <a href="{{ url('/news-detail', $n->slug) }}">lebih detail <i
                                             class="fas fa-angle-right"></i></a>
                                 </div>
@@ -67,9 +63,9 @@
                                     <ul>
                                         <li>
                                             <a href="#">
-                                                <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
+                                                <img src="https://ui-avatars.com/api/?name= {{ $n->uploader->name }}"
                                                     alt="Author">
-                                                <span>Author</span>
+                                                <span> {{ $n->uploader->name }}</span>
                                             </a>
                                         </li>
                                         <li>
@@ -80,8 +76,9 @@
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fas fa-share-alt"></i>
-                                                <span>37</span>
+                                                <i class="fas fa-eye"></i>
+                                                <span>{{
+                                                    views($n)->count(); }}</span>
                                             </a>
                                         </li>
                                     </ul>
