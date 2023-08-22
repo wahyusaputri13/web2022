@@ -135,6 +135,7 @@
 
 <!-- ck editor -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 <script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
 <script>
     var konten = document.getElementById("my-editor");
@@ -151,16 +152,20 @@
 =======
 <!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script> -->
 <!-- <script>
+=======
+<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
+<script>
+    var konten = document.getElementById("my-editor");
+>>>>>>> 457edc0 (ganti versi ckeditor)
     var options = {
         filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
         filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
         filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
         filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
+    CKEDITOR.replace(konten, options);
+    CKEDITOR.config.allowedContent = true;
 </script>
-<script>
-    CKEDITOR.create('my-editor', options);
-</script> -->
 <!-- end ck editor -->
 
 <!-- tiny mce editor -->
