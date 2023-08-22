@@ -26,7 +26,7 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        if ($data->id <= 42) {
+                        if ($data->id <= 45) {
                             $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>';
                         } else {
@@ -46,6 +46,7 @@ class FrontMenuController extends Controller
                     }
                 )
                 ->addColumn(
+<<<<<<< HEAD
 <<<<<<< HEAD
                     'aksi',
                     function ($data) {
@@ -74,21 +75,51 @@ class FrontMenuController extends Controller
                             }
 =======
                     'tampil',
+=======
+                    'aksi',
+>>>>>>> c174a02 (fix bug hapus berita)
                     function ($data) {
-                        if ($data->active == 1) {
-                            $actionBtn = 'Tampil';
+                        if ($data->id <= 45) {
+                            $actionBtn = '<div class="togglebutton">
+                            <label>
+                                <input type="checkbox" disabled checked>
+                                <span class="toggle"></span>
+                            </label>
+                        </div>';
                         } else {
+<<<<<<< HEAD
                             $actionBtn = 'Tidak Tampil';
 >>>>>>> f854342 (ubah tabel)
+=======
+                            if ($data->active == 1) {
+                                $actionBtn = '<div class="togglebutton">
+                                <label>
+                                <input type="checkbox" checked onclick="centang('  . $data->id . ')">
+                                <span class="toggle"></span>
+                                </label>
+                                </div>';
+                            } else {
+                                $actionBtn = '<div class="togglebutton">
+                                <label>
+                                <input type="checkbox" onclick="centang('  . $data->id . ')">
+                                <span class="toggle"></span>
+                                </label>
+                                </div>';
+                            }
+>>>>>>> c174a02 (fix bug hapus berita)
                         }
                         return $actionBtn;
                     }
                 )
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ->rawColumns(['action', 'orang_tua', 'aksi'])
 =======
                 ->rawColumns(['action', 'orang_tua', 'tampil'])
 >>>>>>> f854342 (ubah tabel)
+=======
+                ->rawColumns(['action', 'orang_tua', 'aksi'])
+>>>>>>> c174a02 (fix bug hapus berita)
                 ->make(true);
         }
 
