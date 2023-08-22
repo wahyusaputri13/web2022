@@ -30,6 +30,17 @@
                                 {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}
                                 @endif
                         </div>
+                        @error('menu_name')
+                        <div class="error text-danger">Tidak Boleh Kosong</div>
+                        @enderror
+                        <div class="form-group label-floating">
+                            <label class="control-label">Jenis Informasi Publik</label>
+                            {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
+                            'form-control','placeholder' => ''])}}
+                        </div>
+                        @error('kategori')
+                        <div class="error text-danger">Tidak Boleh Kosong</div>
+                        @enderror
                         <div class="form-group label">
                             <label class="control-label">Content</label>
                             {{Form::textarea('content', null,['class' => 'form-control','id'=>'my-editor'])}}
