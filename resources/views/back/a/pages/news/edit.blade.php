@@ -22,10 +22,14 @@
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Kategori</label>
-                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
-                    </div> -->
+                    <div class="form-group label-floating">
+                        <label class="control-label">Jenis Informasi Publik</label>
+                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
+                        'form-control','placeholder' => ''])}}
+                    </div>
+                    @error('kategori')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="form-group label-floating">
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
