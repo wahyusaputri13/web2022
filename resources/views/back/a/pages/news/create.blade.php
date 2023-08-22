@@ -21,10 +21,11 @@
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
-                    <!-- <div class="form-group label-floating">
+                    <div class="form-group label-floating">
                         <label class="control-label">Jenis Informasi Publik</label>
-                        {{Form::select('jip', get_code_group('INFORMASI_ST'), null, ['class' => 'form-control'])}}
-                    </div> -->
+                        {{Form::select('jip', get_code_group('INFORMASI_ST'), null, ['class' =>
+                        'form-control','placeholder' => ''])}}
+                    </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
@@ -39,9 +40,9 @@
                     @error('date')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
-                    <div class="form-group label-floating">
+                    <div class="form-group label">
                         <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
@@ -68,16 +69,25 @@
 </script>
 
 <!-- ck editor -->
-<!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script>
+<!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script> -->
+<!-- <script>
+    var options = {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+</script>
 <script>
-    CKEDITOR.replace('my-editor');
+    CKEDITOR.create('my-editor', options);
 </script> -->
 <!-- end ck editor -->
+
 <!-- tiny mce editor -->
 <!-- <script src="{{ asset('assets/back/assets/tinymce/js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script> -->
-<script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
-    referrerpolicy="origin"></script>
-<script>
+<!-- <script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script> -->
+<!-- <script>
     var editor_config = {
         path_absolute: "/",
         selector: 'textarea.my-editor',
@@ -116,7 +126,7 @@
     };
 
     tinymce.init(editor_config);
-</script>
+</script> -->
 <!-- end tiny mce editor -->
 
 <script>
