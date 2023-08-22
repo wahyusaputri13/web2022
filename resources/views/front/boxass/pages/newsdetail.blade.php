@@ -70,8 +70,11 @@
                                     <a href="#">Fashion</a>
                                 </div>
                                 <div class="post-pagi-area">
-                                    <a href="#"><i class="fas fa-arrow-left"></i> Previus Post</a>
-                                    <a href="#">Next Post <i class="fas fa-arrow-right"></i></a>
+                                    <a href="{{ ($prev_data == []) ? '#' : url('/news-detail', $prev_data->slug) }}">
+                                        <i class="fas fa-arrow-left"></i>
+                                        Previus Post</a>
+                                    <a href="{{  ($next_data == []) ? '#' : url('/news-detail', $next_data->slug) }}">
+                                        Next Post <i class="fas fa-arrow-right"></i></a>
                                 </div>
                                 <div class="comments-area">
                                     <div class="comments-title">
