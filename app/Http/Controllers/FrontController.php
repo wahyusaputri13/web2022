@@ -32,7 +32,7 @@ class FrontController extends Controller
     public function newsdetail($slug)
     {
         Seo::seO();
-        $data = News::with('gambar')->where('slug', $slug)->first();
+        $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
         $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();

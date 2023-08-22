@@ -84,9 +84,9 @@
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <img src="https://ui-avatars.com/api/?name={{ $n->upload_by }}"
+                                            <img src="https://ui-avatars.com/api/?name= {{ $n->uploader->name }}"
                                                 alt="Author">
-                                            <span>{{ $n->upload_by }}</span>
+                                            <span> {{ $n->uploader->name }}</span>
                                         </a>
                                     </li>
                                     <li>

@@ -11,7 +11,7 @@
                     <!-- <h1>Blog Single</h1> -->
                     <ul class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="#">postingan</a></li>
+                        <li><a href="{{ url('newsall') }}">postingan</a></li>
                         <li><a href="#">{{ $data->title }}</a></li>
                     </ul>
                 </div>
@@ -28,15 +28,21 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="item">
                             <div class="thumb">
-                                <img src="assets/img/1500x700.png" alt="Thumb">
+                                @if(count($data->gambar))
+                                <x-looping-image :foto="$data" />
+                                @else
+                                <img src="{{ asset('img/soulofjava.jpg') }}" alt="soul of java">
+                                @endif
                             </div>
+
                             <div class="info">
                                 <div class="meta">
                                     <ul>
                                         <li>
                                             <a href="#">
-                                                <img src="assets/img/100x100.png" alt="Author">
-                                                <span>Author</span>
+                                                <img src="https://ui-avatars.com/api/?name= {{ $data->uploader->name }}"
+                                                    alt="Author">
+                                                <span> {{ $data->uploader->name }}</span>
                                             </a>
                                         </li>
                                         <li>
@@ -47,8 +53,9 @@
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="fas fa-share-alt"></i>
-                                                <span>37</span>
+                                                <i class="fas fa-eye"></i>
+                                                <span>{{
+                                                    views($data)->count(); }}</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -72,7 +79,8 @@
                                         <div class="comments-list">
                                             <div class="commen-item">
                                                 <div class="avatar">
-                                                    <img src="assets/img/100x100.png" alt="Author">
+                                                    <img src="https://ui-avatars.com/api/?name=Jonathom Doe"
+                                                        alt="Author">
                                                 </div>
                                                 <div class="content">
                                                     <h5>Jonathom Doe</h5>
@@ -90,7 +98,7 @@
                                             </div>
                                             <div class="commen-item reply">
                                                 <div class="avatar">
-                                                    <img src="assets/img/100x100.png" alt="Author">
+                                                    <img src="https://ui-avatars.com/api/?name=Spark Lee" alt="Author">
                                                 </div>
                                                 <div class="content">
                                                     <h5>Spark Lee</h5>
@@ -154,5 +162,3 @@
 
 </main>
 @endsection
-@push('after-script')
-@endpush

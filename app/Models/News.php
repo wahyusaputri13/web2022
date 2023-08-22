@@ -32,4 +32,9 @@ class News extends Model implements Viewable
     {
         return $this->hasOne(File::class, 'id_news', 'id');
     }
+
+    public function uploader()
+    {
+        return $this->hasOne(User::class, 'id', 'upload_by');
+    }
 }
