@@ -86,6 +86,7 @@ class NewsController extends Controller
 >>>>>>> d99ddb5 (hide kategori)
         ]);
 
+<<<<<<< HEAD
         if ($request->dip_tahun) {
             $id = News::create($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
@@ -94,6 +95,9 @@ class NewsController extends Controller
 
         // tagging postingan
         $id->tag($request->tag);
+=======
+        $id = News::create($validated + ['kategori' => $request->jip ?? null, 'upload_by' => auth()->user()->id]);
+>>>>>>> 3c71dcd (berita tambah kategori ppid)
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -169,6 +173,7 @@ class NewsController extends Controller
 >>>>>>> 121ae8f (tampilkan error ke news)
         ]);
 
+<<<<<<< HEAD
         $data = News::find($id);
         $data->slug = null;
 
@@ -180,6 +185,9 @@ class NewsController extends Controller
 
         // tag ulang postingan
         $data->retag($request->tag);
+=======
+        News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->name]);
+>>>>>>> 3c71dcd (berita tambah kategori ppid)
 
         if ($request->document) {
             foreach ($request->document as $df) {
