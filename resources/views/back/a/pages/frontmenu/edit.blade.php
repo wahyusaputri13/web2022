@@ -30,6 +30,7 @@
                                 {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}
                                 @endif
                         </div>
+<<<<<<< HEAD
                         @error('menu_name')
                         <div class="error text-danger">Tidak Boleh Kosong</div>
                         @enderror
@@ -41,6 +42,8 @@
                         @error('kategori')
                         <div class="error text-danger">Tidak Boleh Kosong</div>
                         @enderror
+=======
+>>>>>>> d435741 (ganti ckeditor)
                         <div class="form-group label">
                             <label class="control-label">Content</label>
                             {{Form::textarea('content', null,['class' => 'form-control','id'=>'my-editor'])}}
