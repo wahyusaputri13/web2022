@@ -33,10 +33,10 @@ class Dip extends Component
 
     public function updatedCari()
     {
-        if ($this->data == []) {
+        if ($this->cari === "") {
             $this->data = FrontMenu::whereNotNull('kategori')->get();
+        } else {
+            $this->data = FrontMenu::where('kategori', $this->cari)->get();
         }
-
-        $this->data = FrontMenu::where('kategori', $this->cari)->get();
     }
 }
