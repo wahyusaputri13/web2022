@@ -75,7 +75,7 @@
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'orang_tua' },
             { data: 'menu_name', name: 'menu_name' },
-            { data: 'tampil' },
+            { data: 'aksi' },
             { data: 'action', },
         ]
 

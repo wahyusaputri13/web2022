@@ -25,7 +25,7 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        if ($data->id <= 42) {
+                        if ($data->id <= 45) {
                             $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>';
                         } else {
@@ -45,17 +45,36 @@ class FrontMenuController extends Controller
                     }
                 )
                 ->addColumn(
-                    'tampil',
+                    'aksi',
                     function ($data) {
-                        if ($data->active == 1) {
-                            $actionBtn = 'Tampil';
+                        if ($data->id <= 45) {
+                            $actionBtn = '<div class="togglebutton">
+                            <label>
+                                <input type="checkbox" disabled checked>
+                                <span class="toggle"></span>
+                            </label>
+                        </div>';
                         } else {
-                            $actionBtn = 'Tidak Tampil';
+                            if ($data->active == 1) {
+                                $actionBtn = '<div class="togglebutton">
+                                <label>
+                                <input type="checkbox" checked onclick="centang('  . $data->id . ')">
+                                <span class="toggle"></span>
+                                </label>
+                                </div>';
+                            } else {
+                                $actionBtn = '<div class="togglebutton">
+                                <label>
+                                <input type="checkbox" onclick="centang('  . $data->id . ')">
+                                <span class="toggle"></span>
+                                </label>
+                                </div>';
+                            }
                         }
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'orang_tua', 'tampil'])
+                ->rawColumns(['action', 'orang_tua', 'aksi'])
                 ->make(true);
         }
         return view('back.a.pages.frontmenu.index');

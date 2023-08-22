@@ -166,11 +166,19 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = News::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
+        $gambar = News::with('gambar')->where('id', $id)->get();
+        foreach ($gambar as $key) {
+            foreach ($key->gambar as $value) {
+                if (Storage::exists($value->path)) {
+                    Storage::delete($value->path);
+                }
+            }
         }
+
         $data = News::find($id);
+        // delete related   
+        $data->gambar()->delete();
+
         return $data->delete();
     }
 
