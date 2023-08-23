@@ -99,13 +99,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @foreach ($lists ?? [] as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->menu_name }}</td>
                         <td>{{ $item->kategori }}</td>
                         <td class="text-center">
-                            <a href="{{ url('page', $item->menu_url) }}" class="btn btn-primary">TAMPIL</a>
+                            <a target="_blank" href="{{ url('page', $item->menu_url) }}"
+                                class="btn btn-primary">TAMPIL</a>
                         </td>
                     </tr>
                     @endforeach

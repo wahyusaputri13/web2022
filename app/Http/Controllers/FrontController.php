@@ -155,12 +155,17 @@ class FrontController extends Controller
     {
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
+<<<<<<< HEAD
 
         if (!$data) {
             $data = News::where('id', $id)->first();
         }
 
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+=======
+        $lists = FrontMenu::whereNotNull('kategori')->get();
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists'));
+>>>>>>> 8ef379c (perbaikan parsing data)
     }
 
     public function component($id)

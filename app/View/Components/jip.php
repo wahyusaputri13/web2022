@@ -26,11 +26,15 @@ class jip extends Component
     public function render(): View|Closure|string
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return view('components.jip');
 =======
         return view('components.jip', [
             'data' => FrontMenu::whereNotNull('kategori')->get()
         ]);
 >>>>>>> 882b159 (perbaikan dip)
+=======
+        return view('components.jip');
+>>>>>>> 8ef379c (perbaikan parsing data)
     }
 }
