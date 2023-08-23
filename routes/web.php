@@ -132,10 +132,12 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'admin'], function () {
+    Route::group(['middleware' => ['role:superadmin']], function () {
+        Route::resource('themes', ThemesController::class);
+    });
     Route::group(['middleware' => ['role:superadmin|admin']], function () {
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);
-        Route::resource('themes', ThemesController::class);
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);

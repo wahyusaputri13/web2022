@@ -18,12 +18,15 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('telescope:prune')->daily();
+<<<<<<< HEAD
         // $schedule->call(function () {
 
         //     //Pengecekan apakah cronjob berhasil atau tidak
         //     //Mencatat info log 
         //     Log::info('Cronjob berhasil dijalankan');
         // })->everyTenSeconds();
+=======
+>>>>>>> f1e503c (hidden themes)
     }
 
     /**
