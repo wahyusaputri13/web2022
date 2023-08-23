@@ -29,7 +29,7 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="item">
                             @if($data->menu_name == 'Daftar Informasi Publik')
-                            <livewire:dip />
+                            <x-jip />
                             @else
                             {!! $data->content !!}
                             @endif
