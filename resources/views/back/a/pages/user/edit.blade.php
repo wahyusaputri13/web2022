@@ -22,25 +22,27 @@
                         @endif
                         {{Form::model($data, ['route' => ['user.update', $data->id],'method' => 'put', 'files' =>
                         'true', ''])}}
-                        @role('superadmin')
+                        @role('admin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Role</label>
                             {{ Form::select('role', $role, $user_role, ['class' => 'form-control',
                             'placeholder' => 'Select Role']); }}
                         </div>
+                        @endrole
+                        @role('superadmin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Permission</label>
                             {{ Form::select('permission', $permission, $permis, ['class' => 'form-control',
                             'placeholder' => 'Select Permission']); }}
                         </div>
                         @endrole
-                        @role(['superadmin', 'admin'])
+                        @can ('satpolpp')
                         <div>
                             {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
                             'data-style'
                             => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
                         </div>
-                        @endrole
+                        @endcan
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}

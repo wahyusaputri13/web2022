@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $role = ModelsRole::all()->pluck('name', 'id');
+        $role = ModelsRole::all()->pluck('name', 'id')->skip(1);
         $permission = Permission::all()->pluck('name', 'id');
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         return view('back.a.pages.user.create', compact('role', 'bidang', 'permission'));
