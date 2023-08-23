@@ -29,7 +29,7 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="item">
                             @if($data->menu_name == 'Daftar Informasi Publik')
-                            <x-jip />
+                            <x-jip :lists="$lists" />
                             @else
                             {!! $data->content !!}
                             @endif

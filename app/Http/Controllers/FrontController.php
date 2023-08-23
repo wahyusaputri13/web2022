@@ -102,7 +102,8 @@ class FrontController extends Controller
     {
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+        $lists = FrontMenu::whereNotNull('kategori')->get();
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists'));
     }
 
     public function component($id)

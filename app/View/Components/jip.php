@@ -22,8 +22,6 @@ class jip extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.jip', [
-            'data' => FrontMenu::whereNotNull('kategori')->get()
-        ]);
+        return view('components.jip');
     }
 }
