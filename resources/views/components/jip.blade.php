@@ -86,12 +86,13 @@
         <div id="tab1" class="tab-pane fade in active" style="margin-left: 22px; margin-right: 22px;">
             <div class="form-group text-center" style="padding-top: 22px;">
                 {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-                'form-control','placeholder' => 'Semua Data'])}}
+                'form-control','placeholder' => 'Semua Data','id'=>'filterSelect'])}}
             </div>
             <table id="datatables" class="display" style="width:100%" wire:ignore>
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Nama</th>
                         <th>Nama</th>
                         <th class="disabled-sorting text-center">
                             Aksi</th>
@@ -102,6 +103,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->menu_name }}</td>
+                        <td>{{ $item->kategori }}</td>
                         <td class="text-center">
                             <a href="{{ url('page', $item->menu_url) }}" class="btn btn-primary">TAMPIL</a>
                         </td>
@@ -158,10 +160,24 @@
 =======
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</head>
 <script type="text/javascript">
     $(document).ready(function () {
+<<<<<<< HEAD
         $('#datatables').DataTable();
 >>>>>>> 882b159 (perbaikan dip)
+=======
+        var dataTable = $('#datatables').DataTable({
+            columnDefs: [
+                { targets: [2], visible: false } // Hide the Category column (index 1)
+            ]
+        });
+
+        $('#filterSelect').on('change', function () {
+            var selectedValue = $(this).val();
+            dataTable.column(2).search(selectedValue).draw();
+        });
+>>>>>>> 2bff8c8 (perbaikan filter)
     });
 </script>
 @endpush
