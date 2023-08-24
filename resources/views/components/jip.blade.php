@@ -110,6 +110,18 @@
                         </td>
                     </tr>
                     @endforeach
+                    @foreach ($lists2 ?? [] as $item2)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item2->title }}</td>
+                        <td>{{ $item2->kategori }}</td>
+                        <td class="text-center">
+                            <a target="_blank" href="{{ url('news-detail', $item->slug) }}"
+                                class="btn btn-primary">TAMPIL</a>
+                        </td>
+                    </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

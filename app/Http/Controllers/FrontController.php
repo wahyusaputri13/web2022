@@ -172,9 +172,14 @@ class FrontController extends Controller
 >>>>>>> 8ef379c (perbaikan parsing data)
 =======
         $lists = FrontMenu::whereNotNull('kategori')->get();
+        $lists2 = News::whereNotNull('kategori')->get();
         $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
+<<<<<<< HEAD
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'dip'));
 >>>>>>> ac31215 (perbaiki migrasi)
+=======
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'lists2', 'dip'));
+>>>>>>> 6f0fa3e (client side)
     }
 
     public function component($id)
