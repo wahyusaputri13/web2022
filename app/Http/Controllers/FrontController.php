@@ -108,8 +108,9 @@ class FrontController extends Controller
         }
 
         $lists = FrontMenu::whereNotNull('kategori')->get();
+        $lists2 = News::whereNotNull('kategori')->get();
         $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'dip'));
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'lists2', 'dip'));
     }
 
     public function component($id)
