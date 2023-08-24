@@ -85,7 +85,6 @@
                 $(".dropzone").show();
                 $(".jip").show();
                 $(".dip").hide();
-
             }
         });
     });

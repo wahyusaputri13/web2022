@@ -71,7 +71,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $val = $request->validate([
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
@@ -80,7 +80,7 @@ class NewsController extends Controller
         if ($request->dip_tahun) {
             $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            $id = News::create($request->except(['_token']) + ['upload_by' => auth()->user()->id]);
+            $id = News::create($val + ['upload_by' => auth()->user()->id]);
         }
 
         if ($request->document) {
@@ -140,11 +140,13 @@ class NewsController extends Controller
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
-            // 'highlight' => 'required',
-            // 'kategori' => 'required',
         ]);
 
-        News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
+        if ($request->dip_tahun) {
+            News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
+        }
 
         if ($request->document) {
             foreach ($request->document as $df) {
