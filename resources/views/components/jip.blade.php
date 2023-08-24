@@ -113,10 +113,38 @@
                 </tbody>
             </table>
         </div>
+<<<<<<< HEAD
         <div id="tab2" class="tab-pane fade">
             <h3>Tab 2 Content</h3>
             <p>This is the content of Tab 2.</p>
 >>>>>>> 882b159 (perbaikan dip)
+=======
+        <div id="tab2" class="tab-pane fade" style="margin-left: 22px; margin-right: 22px;">
+            <div>
+                <table id="datatables2" class="display" style="width:100%" wire:ignore>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tahun</th>
+                            <th class="disabled-sorting text-center">
+                                Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($dip ?? [] as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->dip_tahun }}</td>
+                            <td class="text-center">
+                                <a target="_blank" href="{{ url('page', $item->id) }}" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+>>>>>>> ac31215 (perbaiki migrasi)
         </div>
     </div>
 </div>
@@ -178,7 +206,12 @@
             var selectedValue = $(this).val();
             dataTable.column(2).search(selectedValue).draw();
         });
+<<<<<<< HEAD
 >>>>>>> 2bff8c8 (perbaikan filter)
+=======
+
+        var dataTable2 = $('#datatables2').DataTable();
+>>>>>>> ac31215 (perbaiki migrasi)
     });
 </script>
 @endpush

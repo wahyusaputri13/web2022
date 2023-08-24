@@ -52,18 +52,31 @@
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 121ae8f (tampilkan error ke news)
                     <!-- <div class="form-group label-floating">
 =======
                     <div class="form-group label-floating">
 >>>>>>> d191887 (asdas)
+=======
+                    <div class="form-group label-floating jip">
+>>>>>>> ac31215 (perbaiki migrasi)
                         <label class="control-label">Jenis Informasi Publik</label>
-                        {{Form::select('jip', get_code_group('INFORMASI_ST'), null, ['class' =>
+                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
+                        'form-control','placeholder' => ''])}}
+                    </div>
+                    <div class="form-group label-floating dip" style="display: none;">
+                        <label class="control-label">Tahun Daftar Informasi Publik</label>
+                        {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
                     <div class="form-group label-floating">
+<<<<<<< HEAD
                         <label class="control-label">Title</label>
 >>>>>>> d99ddb5 (hide kategori)
+=======
+                        <label class="control-label">judul Postingan</label>
+>>>>>>> ac31215 (perbaiki migrasi)
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
                     @error('title')
@@ -88,13 +101,18 @@
 >>>>>>> 121ae8f (tampilkan error ke news)
 =======
                     <div class="form-group label">
-                        <label class="control-label">Description</label>
+                        <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
 >>>>>>> d191887 (asdas)
                     </div>
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+                    <div class="togglebutton">
+                        <label>
+                            Data DIP? <input type="checkbox" id="hideButton">
+                        </label>
+                    </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Simpan</button>
@@ -130,6 +148,19 @@
 <script type="text/javascript">
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
+
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".dropzone").hide();
+                $(".jip").hide();
+                $(".dip").show();
+            } else {
+                $(".dropzone").show();
+                $(".jip").show();
+                $(".dip").hide();
+
+            }
+        });
     });
 </script>
 

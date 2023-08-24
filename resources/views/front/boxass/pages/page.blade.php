@@ -12,7 +12,7 @@
                     <ul class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="#">page</a></li>
-                        <li><a href="#">{{ $data->menu_name }}</a></li>
+                        <li><a href="#">{{ $data->menu_name ?? $data->title }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -29,7 +29,9 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="item">
                             @if($data->menu_name == 'Daftar Informasi Publik')
-                            <x-jip :lists="$lists" />
+                            <x-jip :lists="$lists" :dip="$dip" />
+                            @elseif($data->title)
+                            {!! $data->description !!}
                             @else
                             {!! $data->content !!}
                             @endif

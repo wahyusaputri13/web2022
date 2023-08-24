@@ -156,16 +156,25 @@ class FrontController extends Controller
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ac31215 (perbaiki migrasi)
 
         if (!$data) {
             $data = News::where('id', $id)->first();
         }
 
+<<<<<<< HEAD
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
 =======
         $lists = FrontMenu::whereNotNull('kategori')->get();
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists'));
 >>>>>>> 8ef379c (perbaikan parsing data)
+=======
+        $lists = FrontMenu::whereNotNull('kategori')->get();
+        $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'dip'));
+>>>>>>> ac31215 (perbaiki migrasi)
     }
 
     public function component($id)

@@ -77,6 +77,7 @@ class NewsController extends Controller
             'description' => 'required',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'highlight' => 'required',
 =======
@@ -98,6 +99,15 @@ class NewsController extends Controller
 =======
         $id = News::create($validated + ['kategori' => $request->jip ?? null, 'upload_by' => auth()->user()->id]);
 >>>>>>> 3c71dcd (berita tambah kategori ppid)
+=======
+        ]);
+
+        if ($request->dip_tahun) {
+            $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            $id = News::create($request->except(['_token']) + ['upload_by' => auth()->user()->id]);
+        }
+>>>>>>> ac31215 (perbaiki migrasi)
 
         if ($request->document) {
             foreach ($request->document as $df) {
