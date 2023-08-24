@@ -11,41 +11,16 @@
                 {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                 'form-control','placeholder' => 'Semua Data','id'=>'filterSelect'])}}
             </div>
-            <table id="datatables" class="display" style="width:100%" wire:ignore>
+            <table id="dataTable" class="display" style="width:100%" wire:ignore>
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Nama</th>
+                        <th>Kategori</th>
                         <th class="disabled-sorting text-center">
                             Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach ($lists ?? [] as $item)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->menu_name }}</td>
-                        <td>{{ $item->kategori }}</td>
-                        <td class="text-center">
-                            <a target="_blank" href="{{ url('page', $item->menu_url) }}"
-                                class="btn btn-primary">TAMPIL</a>
-                        </td>
-                    </tr>
-                    @endforeach
-                    @foreach ($lists2 ?? [] as $item2)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item2->title }}</td>
-                        <td>{{ $item2->kategori }}</td>
-                        <td class="text-center">
-                            <a target="_blank" href="{{ url('news-detail', $item->slug) }}"
-                                class="btn btn-primary">TAMPIL</a>
-                        </td>
-                    </tr>
-                    @endforeach
-
-                </tbody>
             </table>
         </div>
         <div id="tab2" class="tab-pane fade" style="margin-left: 22px; margin-right: 22px;">
@@ -59,18 +34,6 @@
                                 Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach ($dip ?? [] as $item)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->dip_tahun }}</td>
-                            <td class="text-center">
-                                <a target="_blank" href="{{ url('page', $item->id) }}" class="btn btn-primary">LIHAT
-                                    DATA</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
                 </table>
             </div>
         </div>
@@ -82,7 +45,16 @@
 </head>
 <script type="text/javascript">
     $(document).ready(function () {
-        var dataTable = $('#datatables').DataTable({
+        var dataTable = $('#dataTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('datappid') }}",
+            columns: [
+                { data: 'DT_RowIndex', orderable: false, searchable: false },
+                { data: 'menu_name', name: 'menu_name', className: "text-center", defaultContent: 'N/A' },
+                { data: 'kategori', name: 'kategori', className: "text-center" },
+                { data: 'action', className: "text-center" },
+            ],
             columnDefs: [
                 { targets: [2], visible: false } // Hide the Category column (index 1)
             ]
@@ -93,7 +65,16 @@
             dataTable.column(2).search(selectedValue).draw();
         });
 
-        var dataTable2 = $('#datatables2').DataTable();
+        $('#datatables2').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('datappid2') }}",
+            columns: [
+                { data: 'DT_RowIndex', orderable: false, searchable: false },
+                { data: 'dip_tahun', name: 'dip_tahun', className: "text-center" },
+                { data: 'action', className: "text-center" },
+            ]
+        });
     });
 </script>
 @endpush

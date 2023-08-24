@@ -170,6 +170,8 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
+Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
+Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
 

@@ -29,6 +29,59 @@ class FrontController extends Controller
         $this->themes = Website::all()->first();
     }
 
+    public function datappid()
+    {
+        $data1 = FrontMenu::whereNotNull('kategori')->get();
+        $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->get();
+        $combinedData = $data1->concat($data2);
+        // return $combinedData;
+        return DataTables::of($combinedData)
+            ->addIndexColumn()
+            ->addColumn(
+                'action',
+                function ($combinedData) {
+                    if ($combinedData->slug) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                    } else {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                    }
+
+
+                    return $actionBtn;
+                }
+            )
+            ->rawColumns(['action'])
+            ->make(true);
+        // }
+    }
+
+    public function datappid2(Request $request)
+    {
+        if ($request->ajax()) {
+            $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
+            return DataTables::of($dip)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($dip) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
     public function newsdetail($slug)
     {
         Seo::seO();
@@ -107,10 +160,7 @@ class FrontController extends Controller
             $data = News::where('id', $id)->first();
         }
 
-        $lists = FrontMenu::whereNotNull('kategori')->get();
-        $lists2 = News::whereNotNull('kategori')->get();
-        $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'lists2', 'dip'));
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
     }
 
     public function component($id)
