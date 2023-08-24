@@ -6,6 +6,9 @@
         @if ($message = Session::get('success'))
         <div id="elementId" hidden>{{ $message }}</div>
         @endif
+        @if ($message = Session::get('message'))
+        <div id="elementId" hidden>{{ $message }}</div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <div class="card">

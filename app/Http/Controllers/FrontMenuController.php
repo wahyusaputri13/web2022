@@ -157,7 +157,15 @@ class FrontMenuController extends Controller
      */
     public function destroy($id)
     {
-        $data = FrontMenu::destroy($id);
+        $data = FrontMenu::find($id);
+
+        if ($data->anaknya()->count() > 0) {
+            // Prevent deletion because there are associated children
+            return back()->with('message', 'Cannot delete parent with associated children.');
+        } else {
+            $data = FrontMenu::destroy($id);
+        }
+
         return $data;
     }
 
