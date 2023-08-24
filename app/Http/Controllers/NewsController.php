@@ -71,7 +71,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $val = $request->validate([
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
@@ -105,7 +105,7 @@ class NewsController extends Controller
         if ($request->dip_tahun) {
             $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            $id = News::create($request->except(['_token']) + ['upload_by' => auth()->user()->id]);
+            $id = News::create($val + ['upload_by' => auth()->user()->id]);
         }
 >>>>>>> ac31215 (perbaiki migrasi)
 
@@ -178,6 +178,7 @@ class NewsController extends Controller
 =======
             'description' => 'required',
             'date' => 'required',
+<<<<<<< HEAD
             // 'highlight' => 'required',
             // 'kategori' => 'required',
 >>>>>>> 121ae8f (tampilkan error ke news)
@@ -202,6 +203,15 @@ class NewsController extends Controller
 =======
         News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
 >>>>>>> e144481 (href jdih)
+=======
+        ]);
+
+        if ($request->dip_tahun) {
+            News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
+        }
+>>>>>>> be6c8e1 (perbaikan update news)
 
         if ($request->document) {
             foreach ($request->document as $df) {
