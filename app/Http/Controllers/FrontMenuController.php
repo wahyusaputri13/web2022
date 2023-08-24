@@ -177,4 +177,24 @@ class FrontMenuController extends Controller
         }
         return response()->json($data);
     }
+
+    public function changeAccess(Request $request)
+    {
+        $comp = FrontMenu::find($request->id);
+        if ($comp->active == 1) {
+            DB::table('front_menus')
+                ->where('id', $comp->id)
+                ->update(['active' => 0]);
+        } else {
+            DB::table('front_menus')
+                ->where('id', $comp->id)
+                ->update(['active' => 1]);
+        }
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data has been successfully changed!'
+            ]
+        );
+    }
 }

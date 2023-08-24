@@ -102,8 +102,14 @@ class FrontController extends Controller
     {
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
+
+        if (!$data) {
+            $data = News::where('id', $id)->first();
+        }
+
         $lists = FrontMenu::whereNotNull('kategori')->get();
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists'));
+        $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'dip'));
     }
 
     public function component($id)

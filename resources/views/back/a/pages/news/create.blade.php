@@ -21,32 +21,42 @@
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
-                    <div class="form-group label-floating">
+                    <div class="form-group label-floating jip">
                         <label class="control-label">Jenis Informasi Publik</label>
-                        {{Form::select('jip', get_code_group('INFORMASI_ST'), null, ['class' =>
+                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
+                        'form-control','placeholder' => ''])}}
+                    </div>
+                    <div class="form-group label-floating dip" style="display: none;">
+                        <label class="control-label">Tahun Daftar Informasi Publik</label>
+                        {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
                     <div class="form-group label-floating">
-                        <label class="control-label">Title</label>
+                        <label class="control-label">judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
                     @error('title')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
                     <div class="form-group">
-                        <label class="control-label">Date</label>
+                        <label class="control-label">Tanggal</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
                     </div>
                     @error('date')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
                     <div class="form-group label">
-                        <label class="control-label">Description</label>
+                        <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+                    <div class="togglebutton">
+                        <label>
+                            Data DIP? <input type="checkbox" id="hideButton">
+                        </label>
+                    </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
                         <button type="submit" class="btn btn-success btn-fill">Insert</button>
@@ -65,6 +75,19 @@
 <script type="text/javascript">
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
+
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".dropzone").hide();
+                $(".jip").hide();
+                $(".dip").show();
+            } else {
+                $(".dropzone").show();
+                $(".jip").show();
+                $(".dip").hide();
+
+            }
+        });
     });
 </script>
 

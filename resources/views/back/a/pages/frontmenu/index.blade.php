@@ -36,13 +36,6 @@
                                             Aksi</th>
                                     </tr>
                                 </thead>
-                                <!-- <tfoot>
-                                                                        <tr>
-                                                                                <th>#</th>
-                                                                                <th>Name</th>
-                                                                                <th class="text-right">Actions</th>
-                                                                        </tr>
-                                                                </tfoot> -->
                             </table>
                         </div>
                     </div>
@@ -82,6 +75,42 @@
     });
         // var table = $('#datatables').DataTable();
         // $('.card .material-datatables label').addClass('form-group');
+</script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function centang(submenu) {
+        // e.preventDefault();
+        // const { pathname } = window.location;
+        // const paths = pathname.split("/").filter(entry => entry !== "");
+        // const lastPath = parseInt(paths[paths.length - 1]);
+        var url = "{{ route('centangfm') }}";
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: {
+                id: submenu
+                // roleId: lastPath
+            },
+            success: function (response) {
+                if (response.success) {
+                    // alert(response.message) //Message come from controller
+                    demo.showNotification('top', 'center', response.message)
+                    location.reload();
+                } else {
+                    alert("Error")
+                }
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+    };
 </script>
 <script>
     $(document).ready(function () {

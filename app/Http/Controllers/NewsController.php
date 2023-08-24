@@ -71,15 +71,17 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
-            // 'highlight' => 'required',
-            // 'kategori' => 'required',
         ]);
 
-        $id = News::create($validated + ['kategori' => $request->jip ?? null, 'upload_by' => auth()->user()->id]);
+        if ($request->dip_tahun) {
+            $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            $id = News::create($request->except(['_token']) + ['upload_by' => auth()->user()->id]);
+        }
 
         if ($request->document) {
             foreach ($request->document as $df) {

@@ -15,12 +15,16 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('slug')->nullable();
+            $table->text('title', 4294967295)->nullable();
+            $table->text('slug', 4294967295)->nullable();
             $table->date('date');
             $table->string('upload_by');
             $table->text('description', 4294967295);
             $table->bigInteger('attachment')->nullable();
+            $table->boolean('highlight')->default(false);
+            $table->string('kategori')->nullable();
+            $table->boolean('dip')->default(false);
+            $table->string('dip_tahun')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
