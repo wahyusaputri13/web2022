@@ -165,6 +165,7 @@ class FrontController extends Controller
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
 =======
         $lists = FrontMenu::whereNotNull('kategori')->get();
@@ -180,6 +181,9 @@ class FrontController extends Controller
 =======
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'lists2', 'dip'));
 >>>>>>> 6f0fa3e (client side)
+=======
+        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
+>>>>>>> 69780ad (perbaikan logika)
     }
 
     public function component($id)
