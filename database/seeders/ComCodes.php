@@ -38,6 +38,10 @@ class ComCodes extends Seeder
             ['code_cd' => 'ORGANISASI', 'code_nm' => 'ORGANISASI', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
             ['code_cd' => 'PENGADAAN BARANG DAN JASA', 'code_nm' => 'PENGADAAN BARANG DAN JASA', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
             ['code_cd' => 'PEREKONOMIAN DAN SUMBER DAYA ALAM', 'code_nm' => 'PEREKONOMIAN DAN SUMBER DAYA ALAM', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
+            ['code_cd' => 'INFORMASI_ST_01', 'code_nm' => 'Informasi Berkala', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
+            ['code_cd' => 'INFORMASI_ST_02', 'code_nm' => 'Informasi Setiap Saat', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
+            ['code_cd' => 'INFORMASI_ST_03', 'code_nm' => 'Informasi Serta Merta', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
+            ['code_cd' => 'INFORMASI_ST_04', 'code_nm' => 'Informasi Dikecualikan', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
         ];
 
         foreach ($data as $datum) {
