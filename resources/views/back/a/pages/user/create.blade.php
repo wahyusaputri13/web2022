@@ -10,7 +10,7 @@
                         <i class="material-icons">person</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Form Create User</h4>
+                        <h4 class="card-title">Form Tambah Pengguna</h4>
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -21,25 +21,27 @@
                         </div>
                         @endif
                         {{Form::open(['route' => 'user.store','method' => 'post', 'files' => 'true', ''])}}
-                        @role('superadmin')
+                        @role('admin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Role</label>
                             {{ Form::select('role', $role, null, ['class' => 'form-control',
                             'placeholder' => 'Select Role']); }}
                         </div>
+                        @endrole
+                        @role('superadmin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Permission</label>
                             {{ Form::select('permission', $permission, null, ['class' => 'form-control',
                             'placeholder' => 'Select Permission']); }}
                         </div>
                         @endrole
-                        @role(['superadmin', 'admin'])
+                        @can ('satpolpp')
                         <div>
                             {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
                             'data-style'
                             => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
                         </div>
-                        @endrole
+                        @endcan
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}

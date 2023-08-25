@@ -66,8 +66,24 @@
                                     @endphp
 
                                     @if(count($subMenus3) == 0)
-                                    <li><a href="{{ url('page', $sub3->menu_url) }}">{{
-                                            $sub3->menu_name }}</a></li>
+                                    <li>
+                                        @if ($sub3->menu_name == 'Permohonan Informasi Publik')
+                                        <a href="https://website.wonosobokab.go.id/category/detail/Permohonan-Informasi-Publik"
+                                            target="_blank">{{
+                                            $sub3->menu_name }}
+                                        </a>
+                                        @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi Publik')
+                                        <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
+                                            target="_blank">{{ $sub3->menu_name }}
+                                        </a>
+                                        @elseif ($sub3->menu_name == 'JDIH Wonosobo')
+                                        <a href="https://jdih.wonosobokab.go.id/" target="_blank">{{ $sub3->menu_name }}
+                                        </a>
+                                        @else
+                                        <a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name }}
+                                        </a>
+                                        @endif
+                                    </li>
                                     @else
                                     <li class="dropdown"><a href="#"><span>{{ $sub3->menu_name }}</span>
                                             <i class="bi bi-chevron-right"></i></a>

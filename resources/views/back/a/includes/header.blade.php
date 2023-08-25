@@ -78,18 +78,19 @@
                     </a>
                 </li>
                 @endcan
-                <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
+                <!-- <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>
                         <p>Kotak Masuk</p>
                     </a>
-                </li>
+                </li> -->
                 <li class="{{ (Str::contains(Request::url(), 'news')) ? 'active' : '' }}">
                     <a href="{{ route('news.index') }}">
                         <i class="material-icons">event_note</i>
                         <p>Postingan</p>
                     </a>
                 </li>
+                @role('superadmin')
                 <li class="{{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#pagesExamplesss"
                         aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
@@ -111,6 +112,7 @@
                         </ul>
                     </div>
                 </li>
+                @endrole
                 @role('superadmin|admin')
                 <li
                     class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">
@@ -141,10 +143,12 @@
                                     <i class="material-icons">settings</i>
                                     Peraturan</a>
                             </li>
+                            @role('superadmin')
                             <li class="{{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
                                 <a href="{{ route('themes.index') }}"><i class="material-icons">brush</i>
                                     Tema</a>
                             </li>
+                            @endrole
                             <li class="{{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
                                 <a href="{{ route('user.index') }}">
                                     <i class="material-icons">person</i>
