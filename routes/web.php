@@ -171,13 +171,18 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 =======
 Route::get('/kopifromwonosobokab', [FrontController::class, 'kopifromwonosobokab']);
 >>>>>>> 8c63bb0 (query ambil data dari db lama)
 =======
+=======
+>>>>>>> c0266f7 (INSERT POSTINGAN BELUM)
 Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
+=======
+>>>>>>> 3601b96 (INSERT POSTINGAN BELUM)
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 >>>>>>> 69780ad (perbaikan logika)

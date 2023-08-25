@@ -3,9 +3,15 @@
 namespace App\View\Components;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use App\Models\FrontMenu;
 >>>>>>> 882b159 (perbaikan dip)
+=======
+use App\Models\FrontMenu;
+=======
+>>>>>>> 3601b96 (INSERT POSTINGAN BELUM)
+>>>>>>> c0266f7 (INSERT POSTINGAN BELUM)
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;

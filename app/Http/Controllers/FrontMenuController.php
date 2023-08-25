@@ -208,17 +208,26 @@ class FrontMenuController extends Controller
         if ($data->anaknya()->count() > 0) {
             // Prevent deletion because there are associated children
 <<<<<<< HEAD
+<<<<<<< HEAD
             return response()->json('error', 406);
         } else {
             $data = FrontMenu::destroy($id);
             return $data;
         }
 =======
+=======
+>>>>>>> c0266f7 (INSERT POSTINGAN BELUM)
             return back()->with('message', 'Cannot delete parent with associated children.');
         } else {
             $data = FrontMenu::destroy($id);
         }
 
+=======
+            return redirect(route('frontmenu.index'))->with(['success' => 'Cannot delete parent with associated children.']);
+        } else {
+            $data = FrontMenu::destroy($id);
+        }
+>>>>>>> 3601b96 (INSERT POSTINGAN BELUM)
         return $data;
 >>>>>>> 9225098 (kurang notifikasi gagal delete)
     }

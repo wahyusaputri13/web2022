@@ -77,6 +77,7 @@ class ComCodes extends Seeder
             ['code_cd' => 'INFORMASI_ST_02', 'code_nm' => 'Informasi Setiap Saat', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
             ['code_cd' => 'INFORMASI_ST_03', 'code_nm' => 'Informasi Serta Merta', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
             ['code_cd' => 'INFORMASI_ST_04', 'code_nm' => 'Informasi Dikecualikan', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
+<<<<<<< HEAD
 =======
             ['code_cd' => 'BAGIAN_NEWS_1', 'code_nm' => 'PROTOKOL DAN KOMUNIKASI PIMPINAN', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
             ['code_cd' => 'BAGIAN_NEWS_2', 'code_nm' => 'KESEJAHTERAAN RAKYAT', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
@@ -88,6 +89,8 @@ class ComCodes extends Seeder
             ['code_cd' => 'BAGIAN_NEWS_8', 'code_nm' => 'PENGADAAN BARANG DAN JASA', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
             ['code_cd' => 'BAGIAN_NEWS_9', 'code_nm' => 'PEREKONOMIAN DAN SUMBER DAYA ALAM', 'code_group' => 'BAGIAN_NEWS', 'code_value' => ''],
 >>>>>>> 9d9f031 (select2 multiple)
+=======
+>>>>>>> c0266f7 (INSERT POSTINGAN BELUM)
         ];
 
         foreach ($data as $datum) {
