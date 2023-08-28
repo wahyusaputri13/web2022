@@ -91,6 +91,14 @@
                         'success'
                     )
                     $('#datatables').DataTable().ajax.reload();
+                },
+                error: function () {
+                    swal(
+                        'Gagal!',
+                        'Tidak dapat menghapus menu Parent.',
+                        'error'
+                    )
+                    $('#datatables').DataTable().ajax.reload();
                 }
             })
         })

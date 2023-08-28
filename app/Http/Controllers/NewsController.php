@@ -30,8 +30,8 @@ class NewsController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Ubah</a>
+                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Hapus</a>
                     </div>';
                         return $actionBtn;
                     }
@@ -75,14 +75,16 @@ class NewsController extends Controller
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
-            'highlight' => 'required',
-            'kategori' => 'required',
         ]);
 
-        $id = News::create($request->except(['kategori', '_token']) + ['upload_by' => auth()->user()->id]);
+        if ($request->dip_tahun) {
+            $id = News::create($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
+        }
 
         // tagging postingan
-        $id->tag($request->kategori);
+        $id->tag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -138,18 +140,23 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'highlight' => 'required',
             'date' => 'required',
             'kategori' => 'required',
         ]);
 
         $data = News::find($id);
-        $data->update($validated + ['upload_by' => auth()->user()->name]);
+
+        if ($request->dip_tahun) {
+            $id = $data->update($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            $id = $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
+        }
+
         // tag ulang postingan
-        $data->retag($request->kategori);
+        $data->retag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {

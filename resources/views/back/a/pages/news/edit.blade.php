@@ -18,17 +18,27 @@
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    <div class="form-group label-floating">
+                    <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div>
+                    </div> -->
                     <div class="form-group label-floating">
-                        <label class="control-label">Kategori</label>
-                        {{Form::select('kategori[]', $categori, $terpilih, ['class' => 'form-control
+                        <label class="control-label">Tag Bagian</label>
+                        {{Form::select('tag[]', $categori, $terpilih, ['class' => 'form-control
                         js-example-basic-multiple',
                         'multiple' => 'multiple',
                         ])}}
-                        @error('kategori') <span class="text-danger">Tidak boleh kosong</span> @enderror
+                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
+                    </div>
+                    <div class="form-group label-floating jip">
+                        <label class="control-label">Jenis Informasi Publik</label>
+                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
+                        'form-control','placeholder' => ''])}}
+                    </div>
+                    <div class="form-group label-floating dip" style="display: none;">
+                        <label class="control-label">Tahun Daftar Informasi Publik</label>
+                        {{Form::number('dip_tahun', null, ['class' =>
+                        'form-control','placeholder' => ''])}}
                     </div>
                     <div class="form-group label-floating">
                         <label class="control-label">Title</label>
@@ -46,9 +56,14 @@
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
                         @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
+                    <div class="togglebutton">
+                        <label>
+                            Data DIP? <input type="checkbox" id="hideButton">
+                        </label>
+                    </div>
                     <div class="d-flex text-right">
-                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                        <button type="submit" class="btn btn-success btn-fill">Update</button>
+                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
+                        <button type="submit" class="btn btn-success btn-fill">Ubah</button>
                     </div>
                     {{Form::close()}}
                 </div>
@@ -61,6 +76,18 @@
 <script>
     $(document).ready(function () {
         $('.js-example-basic-multiple').select2();
+
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".dropzone").hide();
+                $(".jip").hide();
+                $(".dip").show();
+            } else {
+                $(".dropzone").show();
+                $(".jip").show();
+                $(".dip").hide();
+            }
+        });
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"

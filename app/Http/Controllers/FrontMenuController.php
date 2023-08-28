@@ -8,6 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FrontMenuController extends Controller
 {
@@ -77,6 +78,7 @@ class FrontMenuController extends Controller
                 ->rawColumns(['action', 'orang_tua', 'aksi'])
                 ->make(true);
         }
+
         return view('back.a.pages.frontmenu.index');
     }
 
@@ -161,11 +163,11 @@ class FrontMenuController extends Controller
 
         if ($data->anaknya()->count() > 0) {
             // Prevent deletion because there are associated children
-            return redirect(route('frontmenu.index'))->with(['success' => 'Cannot delete parent with associated children.']);
+            return response()->json('error', 406);
         } else {
             $data = FrontMenu::destroy($id);
+            return $data;
         }
-        return $data;
     }
 
     public function checkSlug(Request $request)
