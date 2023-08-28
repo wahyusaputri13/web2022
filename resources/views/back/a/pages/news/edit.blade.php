@@ -17,29 +17,36 @@
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
+                    @if(!$data->dip)
                     <div class="dropzone" id="my-awesome-dropzone"></div>
+                    @endif
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
                     <div class="form-group label-floating">
                         <label class="control-label">Tag Bagian</label>
-                        {{Form::select('tag[]', $categori, $terpilih, ['class' => 'form-control
+                        {{Form::select('tag[]', $categori, $terpilih,['class' =>
+                        'form-control
                         js-example-basic-multiple',
                         'multiple' => 'multiple',
                         ])}}
                         @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
+                    @if(!$data->dip)
                     <div class="form-group label-floating jip">
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
-                    <div class="form-group label-floating dip" style="display: none;">
+                    @endif
+                    @if($data->dip)
+                    <div class="form-group label-floating dip">
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+                    @endif
                     <div class="form-group label-floating">
                         <label class="control-label">Title</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
@@ -58,7 +65,7 @@
                     </div>
                     <div class="togglebutton">
                         <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
+                            Data DIP? <input type="checkbox" {{ $data->dip ? 'checked disabled' : '' }} id="hideButton">
                         </label>
                     </div>
                     <div class="d-flex text-right">
