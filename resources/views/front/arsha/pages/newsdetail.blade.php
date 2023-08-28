@@ -1,6 +1,6 @@
 @extends('front.arsha.layouts.app')
 @section('content')
-<main id="main">
+<main id="main" style="margin-top: 200px;">
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
 
