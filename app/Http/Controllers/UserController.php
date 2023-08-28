@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bidang;
-use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +60,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $role = ModelsRole::all()->pluck('name', 'id');
+        $role = ModelsRole::all()->pluck('name', 'id')->skip(1);
         $permission = Permission::all()->pluck('name', 'id');
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         return view('back.a.pages.user.create', compact('role', 'bidang', 'permission'));
