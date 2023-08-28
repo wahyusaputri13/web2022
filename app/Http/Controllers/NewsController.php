@@ -104,6 +104,7 @@ class NewsController extends Controller
 
         if ($request->dip_tahun) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             $id = News::create($val + ['upload_by' => auth()->user()->id]);
@@ -113,6 +114,9 @@ class NewsController extends Controller
 =======
 =======
             $id = News::create($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+=======
+            $id = News::create($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+>>>>>>> 24d2376 (perbaikan postingan)
         } else {
             $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
         }
@@ -168,15 +172,21 @@ class NewsController extends Controller
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f13f9af (perbaikan postingan)
 
         // untuk list yang terpilih
         foreach ($data->tagged as $key => $value) {
             array_push($terpilih, strtoupper($value->tag_name));
         }
 
+<<<<<<< HEAD
 =======
         $terpilih = ComCodes::where('code_cd', $data->tagNames())->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
 >>>>>>> ff5bfae (update tagging)
+=======
+>>>>>>> f13f9af (perbaikan postingan)
         return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
@@ -191,6 +201,7 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+<<<<<<< HEAD
 <<<<<<< HEAD
             'date' => 'required',
             'description' => 'required',
@@ -223,11 +234,19 @@ class NewsController extends Controller
         News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
 >>>>>>> e144481 (href jdih)
 =======
+=======
+            'date' => 'required',
+<<<<<<< HEAD
+=======
+            'description' => 'required',
+>>>>>>> 24d2376 (perbaikan postingan)
+>>>>>>> f13f9af (perbaikan postingan)
         ]);
         $data = News::find($id);
+        $data->slug = null;
 
         if ($request->dip_tahun) {
-            $id = $data->update($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $id = $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             $id = $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
         }
