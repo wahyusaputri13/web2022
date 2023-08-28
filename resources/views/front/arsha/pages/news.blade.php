@@ -9,7 +9,7 @@
 @endpush
 @section('content')
 <!-- ======= Recent Blog Posts Section ======= -->
-<section id="recent-blog-posts" class="recent-blog-posts">
+<section id="recent-blog-posts" class="recent-blog-posts" style="margin-top: 200px;">
     <div class="container mt-5" data-aos="fade-up">
         <header class="section-header" style="text-align: center;">
             <h2>Blog</h2>

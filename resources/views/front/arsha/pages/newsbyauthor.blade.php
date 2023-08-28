@@ -1,6 +1,6 @@
 @extends('front.arsha.layouts.app')
 @section('content')
-<main id="main">
+<main id="main" style="margin-top: 200px;">
 
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
@@ -89,8 +89,8 @@
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex justify-content-center p-1">
-                                    @if(file_exists(public_path('storage/'.$n->path)))
-                                    <img src="{{ asset('storage/') }}/{{ $n->path}}"
+                                    @if($n->gambarmuka)
+                                    <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
                                         class="img-fluid rounded-start rounded-end">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
