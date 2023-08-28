@@ -20,14 +20,20 @@
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 62d9a61 (upgrade composer)
+=======
+>>>>>>> c7dc4a1 (ganti ckeditor)
                     @endif
+=======
+>>>>>>> f2a97bb (ganti ckeditor)
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
 <<<<<<< HEAD
                     </div> -->
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="form-group label-floating">
                         <label class="control-label">Tag Bagian</label>
@@ -40,6 +46,8 @@
                     </div>
 =======
 >>>>>>> 62d9a61 (upgrade composer)
+=======
+>>>>>>> c7dc4a1 (ganti ckeditor)
                     @if(!$data->dip)
                     <div class="form-group label-floating jip">
                         <label class="control-label">Jenis Informasi Publik</label>
@@ -58,7 +66,29 @@
                     <div class="form-group label-floating">
                         <label class="control-label">Kategori</label>
                         {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
+<<<<<<< HEAD
 >>>>>>> ff5bfae (update tagging)
+=======
+=======
+                    <div class="form-group label-floating">
+                        <label class="control-label">Tag Bagian</label>
+                        {{Form::select('tag[]', $categori, $terpilih, ['class' => 'form-control
+                        js-example-basic-multiple',
+                        'multiple' => 'multiple',
+                        ])}}
+                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
+                    </div>
+                    <div class="form-group label-floating jip">
+                        <label class="control-label">Jenis Informasi Publik</label>
+                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
+                        'form-control','placeholder' => ''])}}
+                    </div>
+                    <div class="form-group label-floating dip" style="display: none;">
+                        <label class="control-label">Tahun Daftar Informasi Publik</label>
+                        {{Form::number('dip_tahun', null, ['class' =>
+                        'form-control','placeholder' => ''])}}
+>>>>>>> f2a97bb (ganti ckeditor)
+>>>>>>> c7dc4a1 (ganti ckeditor)
                     </div>
                     @endif
 =======
@@ -133,9 +163,17 @@
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
 >>>>>>> ff5bfae (update tagging)
                     </div>
+<<<<<<< HEAD
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+=======
+                    <div class="togglebutton">
+                        <label>
+                            Data DIP? <input type="checkbox" id="hideButton">
+                        </label>
+                    </div>
+>>>>>>> f2a97bb (ganti ckeditor)
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Ubah</button>
@@ -152,6 +190,9 @@
     $(document).ready(function () {
         $('.js-example-basic-multiple').select2();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c7dc4a1 (ganti ckeditor)
 
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {

@@ -209,6 +209,7 @@ class FrontMenuController extends Controller
             // Prevent deletion because there are associated children
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             return response()->json('error', 406);
         } else {
             $data = FrontMenu::destroy($id);
@@ -217,6 +218,8 @@ class FrontMenuController extends Controller
 =======
 =======
 >>>>>>> c0266f7 (INSERT POSTINGAN BELUM)
+=======
+>>>>>>> c7dc4a1 (ganti ckeditor)
             return back()->with('message', 'Cannot delete parent with associated children.');
         } else {
             $data = FrontMenu::destroy($id);
@@ -224,12 +227,22 @@ class FrontMenuController extends Controller
 
 =======
             return redirect(route('frontmenu.index'))->with(['success' => 'Cannot delete parent with associated children.']);
+=======
+            return response()->json('error', 406);
+>>>>>>> f2a97bb (ganti ckeditor)
         } else {
             $data = FrontMenu::destroy($id);
+            return $data;
         }
+<<<<<<< HEAD
 >>>>>>> 3601b96 (INSERT POSTINGAN BELUM)
         return $data;
+<<<<<<< HEAD
 >>>>>>> 9225098 (kurang notifikasi gagal delete)
+=======
+=======
+>>>>>>> f2a97bb (ganti ckeditor)
+>>>>>>> c7dc4a1 (ganti ckeditor)
     }
 
     public function checkSlug(Request $request)

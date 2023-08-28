@@ -103,11 +103,24 @@ class NewsController extends Controller
         ]);
 
         if ($request->dip_tahun) {
+<<<<<<< HEAD
             $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             $id = News::create($val + ['upload_by' => auth()->user()->id]);
         }
+<<<<<<< HEAD
 >>>>>>> ac31215 (perbaiki migrasi)
+=======
+=======
+            $id = News::create($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
+        }
+
+        // tagging postingan
+        $id->tag($request->tag);
+>>>>>>> f2a97bb (ganti ckeditor)
+>>>>>>> c7dc4a1 (ganti ckeditor)
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -212,15 +225,28 @@ class NewsController extends Controller
 =======
         ]);
         $data = News::find($id);
-        $data->update($validated + ['upload_by' => auth()->user()->name]);
+
+        if ($request->dip_tahun) {
+            $id = $data->update($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            $id = $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
+        }
+
         // tag ulang postingan
+<<<<<<< HEAD
         $data->retag($request->kategori);
         if ($request->dip_tahun) {
             News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
         }
+<<<<<<< HEAD
 >>>>>>> be6c8e1 (perbaikan update news)
+=======
+=======
+        $data->retag($request->tag);
+>>>>>>> f2a97bb (ganti ckeditor)
+>>>>>>> c7dc4a1 (ganti ckeditor)
 
         if ($request->document) {
             foreach ($request->document as $df) {

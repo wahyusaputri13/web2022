@@ -24,6 +24,7 @@
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div class="form-group">
                         <label class="control-label">Tag Bagian</label>
                         {{Form::select('tag', $categori, null, ['class' => 'form-control
@@ -35,6 +36,8 @@
                     </div>
                     <div class="form-group label-floating jip">
 =======
+=======
+>>>>>>> c7dc4a1 (ganti ckeditor)
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' =>
@@ -42,11 +45,27 @@
                         
                     </div> -->
                     <div class="form-group jip">
+<<<<<<< HEAD
 >>>>>>> 62d9a61 (upgrade composer)
+=======
+=======
+                    <div class="form-group">
+                        <label class="control-label">Tag Bagian</label>
+                        {{Form::select('tag', $categori, null, ['class' => 'form-control
+                        js-example-basic-multiple',
+                        'name' => 'tag[]',
+                        'multiple' => 'multiple',
+                        ])}}
+                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
+                    </div>
+                    <div class="form-group label-floating jip">
+>>>>>>> f2a97bb (ganti ckeditor)
+>>>>>>> c7dc4a1 (ganti ckeditor)
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="form-group label-floating dip" style="display: none;">
@@ -100,6 +119,8 @@
                         <label class="control-label">Tanggal</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
 =======
+=======
+>>>>>>> c7dc4a1 (ganti ckeditor)
                     <div class="form-group label-floating">
                         <label class="control-label">Kategori</label>
                         {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
@@ -116,18 +137,39 @@
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
+=======
+                    <div class="form-group label-floating dip" style="display: none;">
+                        <label class="control-label">Tahun Daftar Informasi Publik</label>
+                        {{Form::number('dip_tahun', null, ['class' =>
+                        'form-control','placeholder' => ''])}}
                     </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Judul Postingan</label>
+                        {{Form::text('title', null,['class' => 'form-control'])}}
+>>>>>>> f2a97bb (ganti ckeditor)
+                    </div>
+                    @error('title')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
                     <div class="form-group">
+<<<<<<< HEAD
                         <label class="control-label">Judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
                     @error('title')
+=======
+                        <label class="control-label">Tanggal</label>
+                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
+                    </div>
+                    @error('date')
+>>>>>>> f2a97bb (ganti ckeditor)
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
 >>>>>>> 62d9a61 (upgrade composer)
                     <div class="form-group label">
                         <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
+<<<<<<< HEAD
 =======
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
@@ -138,6 +180,19 @@
                         <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
 >>>>>>> d191887 (asdas)
+=======
+<<<<<<< HEAD
+=======
+                    </div>
+                    @error('description')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
+                    <div class="togglebutton">
+                        <label>
+                            Data DIP? <input type="checkbox" id="hideButton">
+                        </label>
+>>>>>>> f2a97bb (ganti ckeditor)
+>>>>>>> c7dc4a1 (ganti ckeditor)
                     </div>
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
@@ -159,6 +214,9 @@
     $(document).ready(function () {
         $('.js-example-basic-multiple').select2();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c7dc4a1 (ganti ckeditor)
 
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
@@ -171,8 +229,11 @@
                 $(".dip").hide();
             }
         });
+<<<<<<< HEAD
 =======
 >>>>>>> 9d9f031 (select2 multiple)
+=======
+>>>>>>> c7dc4a1 (ganti ckeditor)
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
@@ -207,6 +268,7 @@
         filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
         filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
         filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+<<<<<<< HEAD
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;
@@ -276,7 +338,17 @@
     tinymce.init(editor_config);
 </script> -->
 <!-- end tiny mce editor -->
+<<<<<<< HEAD
 >>>>>>> d191887 (asdas)
+=======
+=======
+    };
+    CKEDITOR.replace(konten, options);
+    CKEDITOR.config.allowedContent = true;
+</script>
+<!-- end ck editor -->
+>>>>>>> f2a97bb (ganti ckeditor)
+>>>>>>> c7dc4a1 (ganti ckeditor)
 
 <script>
     var uploadedDocumentMap = {}
