@@ -78,7 +78,7 @@ class NewsController extends Controller
         ]);
 
         if ($request->dip_tahun) {
-            $id = News::create($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $id = News::create($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
         }
@@ -125,9 +125,16 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
+        $terpilih = [];
+
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        $terpilih = ComCodes::where('code_cd', $data->tagNames())->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+
+        // untuk list yang terpilih
+        foreach ($data->tagged as $key => $value) {
+            array_push($terpilih, strtoupper($value->tag_name));
+        }
+
         return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
@@ -142,15 +149,15 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
             'date' => 'required',
-            'kategori' => 'required',
+            'description' => 'required',
         ]);
 
         $data = News::find($id);
+        $data->slug = null;
 
         if ($request->dip_tahun) {
-            $id = $data->update($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $id = $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             $id = $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
         }
