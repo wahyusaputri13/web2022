@@ -17,6 +17,11 @@
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
+                    <div class="togglebutton" style="margin-bottom: 15px;">
+                        <label>
+                            Data DIP? <input type="checkbox" {{ $data->dip ? 'checked disabled' : '' }} id="hideButton">
+                        </label>
+                    </div>
                     @if(!$data->dip)
                     <div class="dropzone" id="my-awesome-dropzone"></div>
                     @endif
@@ -62,11 +67,6 @@
                         <label class="control-label">Description</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
                         @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
-                    </div>
-                    <div class="togglebutton">
-                        <label>
-                            Data DIP? <input type="checkbox" {{ $data->dip ? 'checked disabled' : '' }} id="hideButton">
-                        </label>
                     </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
