@@ -17,23 +17,34 @@
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
+                    <div class="togglebutton" style="margin-bottom: 15px;">
+                        <label>
+                            Data DIP? <input type="checkbox" {{ $data->dip ? 'checked disabled' : '' }} id="hideButton">
+                        </label>
+                    </div>
+                    @if(!$data->dip)
                     <div class="dropzone" id="my-awesome-dropzone"></div>
+                    @endif
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
+                    @if(!$data->dip)
                     <div class="form-group label-floating jip">
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
-                    <div class="form-group label-floating dip" style="display: none;">
+                    @endif
+                    @if($data->dip)
+                    <div class="form-group label-floating dip">
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+                    @endif
                     <div class="form-group label-floating">
-                        <label class="control-label">judul Postingan</label>
+                        <label class="control-label">Judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                     </div>
                     @error('title')
@@ -53,11 +64,6 @@
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
-                    <div class="togglebutton">
-                        <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
-                        </label>
-                    </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
                         <button type="submit" class="btn btn-success btn-fill">Update</button>

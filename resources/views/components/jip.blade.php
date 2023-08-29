@@ -30,6 +30,7 @@
                         <tr>
                             <th>No</th>
                             <th>Tahun</th>
+                            <th>Judul</th>
                             <th class="disabled-sorting text-center">
                                 Aksi</th>
                         </tr>
@@ -72,6 +73,7 @@
             columns: [
                 { data: 'DT_RowIndex', orderable: false, searchable: false },
                 { data: 'dip_tahun', name: 'dip_tahun', className: "text-center" },
+                { data: 'title', name: 'title', className: "text-center" },
                 { data: 'action', className: "text-center" },
             ]
         });
