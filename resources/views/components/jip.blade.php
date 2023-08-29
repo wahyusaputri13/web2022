@@ -184,6 +184,7 @@
                                                     <tr>
                                                         <th>No</th>
                                                         <th>Tahun</th>
+                                                        <th>Judul</th>
                                                         <th class="disabled-sorting text-center">
                                                             Aksi</th>
                                                     </tr>
@@ -259,13 +260,19 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 62d9a61 (upgrade composer)
 =======
 >>>>>>> c0266f7 (INSERT POSTINGAN BELUM)
+=======
+>>>>>>> 91b566d (tampilkan kolom pada tabel)
                 { data: 'title', name: 'title', className: "text-center" },
 =======
 >>>>>>> 3601b96 (INSERT POSTINGAN BELUM)
+=======
+                { data: 'title', name: 'title', className: "text-center" },
+>>>>>>> 9f6f2b9 (tampilkan kolom pada tabel)
                 { data: 'action', className: "text-center" },
             ]
         });
