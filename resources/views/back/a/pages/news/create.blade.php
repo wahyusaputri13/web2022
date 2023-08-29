@@ -187,6 +187,7 @@
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+<<<<<<< HEAD
                     <div class="togglebutton">
                         <label>
                             Data DIP? <input type="checkbox" id="hideButton">
@@ -198,6 +199,8 @@
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
 
+=======
+>>>>>>> 3f2ac31 (perbaikan view news)
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Simpan</button>

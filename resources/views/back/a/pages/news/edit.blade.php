@@ -17,6 +17,11 @@
                     {{Form::model($data, ['route' => ['news.update', $data->id],'method' => 'put', 'files' =>
                     'true', ''])}}
                     <input type="text" value="{{ $data->id }}" id="malika" hidden>
+                    <div class="togglebutton" style="margin-bottom: 15px;">
+                        <label>
+                            Data DIP? <input type="checkbox" {{ $data->dip ? 'checked disabled' : '' }} id="hideButton">
+                        </label>
+                    </div>
                     @if(!$data->dip)
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 <<<<<<< HEAD
@@ -175,6 +180,7 @@
 >>>>>>> ff5bfae (update tagging)
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
@@ -185,6 +191,8 @@
                         </label>
                     </div>
 >>>>>>> f2a97bb (ganti ckeditor)
+=======
+>>>>>>> 3f2ac31 (perbaikan view news)
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Ubah</button>
