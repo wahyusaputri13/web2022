@@ -15,6 +15,11 @@
                 <div class="card-content">
                     <h4 class="card-title">Form Tambah Data</h4>
                     {{Form::open(['route' => 'news.store','method' => 'post', 'files' => 'true', ''])}}
+                    <div class="togglebutton" style="margin-bottom: 15px;">
+                        <label>
+                            Data DIP? <input type="checkbox" id="hideButton">
+                        </label>
+                    </div>
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
                     <div class="form-group">
@@ -57,11 +62,6 @@
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
-                    <div class="togglebutton">
-                        <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
-                        </label>
-                    </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Simpan</button>
