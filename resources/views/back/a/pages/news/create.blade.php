@@ -23,6 +23,7 @@
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div class="form-group">
                         <label class="control-label">Tag Bagian</label>
                         {{Form::select('tag', $categori, null, ['class' => 'form-control
@@ -33,10 +34,18 @@
                         @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
                     <div class="form-group label-floating jip">
+=======
+                    <!-- <div class="form-group label-floating">
+                        <label class="control-label">Highlight</label>
+                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
+                    </div> -->
+                    <div class="form-group jip">
+>>>>>>> 62d9a61 (upgrade composer)
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+<<<<<<< HEAD
                     <div class="form-group label-floating dip" style="display: none;">
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
@@ -82,6 +91,8 @@
                     @error('title')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
+=======
+>>>>>>> 62d9a61 (upgrade composer)
                     <div class="form-group">
                         <label class="control-label">Tanggal</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
@@ -91,6 +102,21 @@
                     @enderror
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                    <div class="form-group dip" style="display: none;">
+                        <label class="control-label">Tahun Daftar Informasi Publik</label>
+                        {{Form::number('dip_tahun', null, ['class' =>
+                        'form-control','placeholder' => ''])}}
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Judul Postingan</label>
+                        {{Form::text('title', null,['class' => 'form-control'])}}
+                    </div>
+                    @error('title')
+                    <div class="error text-danger">Tidak Boleh Kosong</div>
+                    @enderror
+>>>>>>> 62d9a61 (upgrade composer)
                     <div class="form-group label">
                         <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
@@ -108,11 +134,7 @@
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
-                    <div class="togglebutton">
-                        <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
-                        </label>
-                    </div>
+
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Simpan</button>

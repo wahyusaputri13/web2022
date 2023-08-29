@@ -25,12 +25,16 @@
                     @if(!$data->dip)
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 62d9a61 (upgrade composer)
                     @endif
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
 <<<<<<< HEAD
                     </div> -->
+<<<<<<< HEAD
                     <div class="form-group label-floating">
                         <label class="control-label">Tag Bagian</label>
                         {{Form::select('tag[]', $categori, $terpilih,['class' =>
@@ -40,6 +44,8 @@
                         ])}}
                         @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
+=======
+>>>>>>> 62d9a61 (upgrade composer)
                     @if(!$data->dip)
                     <div class="form-group label-floating jip">
                         <label class="control-label">Jenis Informasi Publik</label>
@@ -49,6 +55,7 @@
                     @endif
                     @if($data->dip)
                     <div class="form-group label-floating dip">
+<<<<<<< HEAD
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
@@ -85,13 +92,19 @@
 >>>>>>> 3c71dcd (berita tambah kategori ppid)
 =======
                     <div class="form-group label-floating dip" style="display: none;">
+=======
+>>>>>>> 62d9a61 (upgrade composer)
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
                     </div>
+<<<<<<< HEAD
 >>>>>>> be6c8e1 (perbaikan update news)
+=======
+                    @endif
+>>>>>>> 62d9a61 (upgrade composer)
                     <div class="form-group label-floating">
-                        <label class="control-label">judul Postingan</label>
+                        <label class="control-label">Judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
                         @error('title') <span class="text-danger">Tidak boleh kosong</span> @enderror
 
@@ -119,11 +132,6 @@
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
-                    <div class="togglebutton">
-                        <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
-                        </label>
-                    </div>
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Ubah</button>
