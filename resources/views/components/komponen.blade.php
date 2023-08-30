@@ -1,6 +1,7 @@
 <!-- start looping component -->
 @foreach(App\Models\Component::where('active', '1')->orderBy('name', 'ASC')->get() as $component)
 <<<<<<< HEAD
+<<<<<<< HEAD
 @if($component->slug != 'seputar-wonosobo' and $component->slug != 'complaints')
 <li>
     <a href="{{ url($component->slug) }}">
@@ -9,6 +10,16 @@
 <li class="{{ $li }}">
     <a class="{{ $a }}" href="{{ url($component->slug) }}">
 >>>>>>> e32d2c0 (perbaikan menu)
+=======
+@if($component->slug != 'seputar-wonosobo' and $component->slug != 'complaints' and $component->slug != 'layanan')
+<li class="{{ $li }}">
+    <a class="{{ $a }}" href="{{ url($component->slug) }}">
+=======
+@if($component->slug != 'seputar-wonosobo' and $component->slug != 'complaints')
+<li>
+    <a href="{{ url($component->slug) }}">
+>>>>>>> c77bbe9 (perbaiki menu navbar tidak bisa klik)
+>>>>>>> 99cc702 (perbaiki menu navbar tidak bisa klik)
         {{ $component->name }}
     </a>
 </li>

@@ -179,7 +179,7 @@
                                     <div class="card-body">
                                         <div class="card-content">
                                             <table id="datatables2" class="table is-striped" cellspacing="0"
-                                                width="100%" style="width:100%">
+                                                width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
