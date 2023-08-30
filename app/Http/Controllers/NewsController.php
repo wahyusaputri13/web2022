@@ -157,9 +157,9 @@ class NewsController extends Controller
         $data->slug = null;
 
         if ($request->dip_tahun) {
-            $id = $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            $id = $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
+            $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
         }
 
         // tag ulang postingan
