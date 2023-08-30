@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('telescope:prune')->daily();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         // $schedule->call(function () {
 
         //     //Pengecekan apakah cronjob berhasil atau tidak
@@ -30,6 +31,8 @@ class Kernel extends ConsoleKernel
 >>>>>>> f1e503c (hidden themes)
 =======
 =======
+>>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
+=======
         $schedule->call(function () {
 
             //Pengecekan apakah cronjob berhasil atau tidak
@@ -37,7 +40,18 @@ class Kernel extends ConsoleKernel
             Log::info('Cronjob berhasil dijalankan');
         })->everyTenSeconds();
 >>>>>>> 0a6ee61 (contoh nge log)
+<<<<<<< HEAD
 >>>>>>> 052d733 (contoh nge log)
+=======
+=======
+        // $schedule->call(function () {
+
+        //     //Pengecekan apakah cronjob berhasil atau tidak
+        //     //Mencatat info log 
+        //     Log::info('Cronjob berhasil dijalankan');
+        // })->everyTenSeconds();
+>>>>>>> 5dcee73 (CKEDITOR EDIT PAGE)
+>>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
     }
 
     /**

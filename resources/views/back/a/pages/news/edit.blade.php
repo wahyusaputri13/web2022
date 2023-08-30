@@ -170,6 +170,7 @@
                         <label class="control-label">Description</label>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                         @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
 =======
@@ -178,6 +179,13 @@
 =======
                         {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
 >>>>>>> ff5bfae (update tagging)
+=======
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
+=======
+                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
+                        @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
+>>>>>>> 5dcee73 (CKEDITOR EDIT PAGE)
+>>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
                     </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -240,10 +248,13 @@
     CKEDITOR.config.allowedContent = true;
 </script>
 <!-- end ck editor -->
+<<<<<<< HEAD
 =======
     });
 </script>
 >>>>>>> ff5bfae (update tagging)
+=======
+>>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
     integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -350,6 +361,7 @@
 
             @if (isset($project) && $project -> document)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 var files = {!! json_encode($project -> document) !!}
                     for(var i in files) {
                         var file = files[i]
@@ -364,16 +376,20 @@
 =======
                 var files = {!! json_encode($project -> document)!!
         }
+=======
+                var files = {!! json_encode($project -> document) !!}
+>>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
                     for(var i in files) {
-        var file = files[i]
-        this.options.addedfile.call(this, file)
-        file.previewElement.classList.add('dz-complete')
-        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-    }
-    @endif
+                        var file = files[i]
+                        this.options.addedfile.call(this, file)
+                        file.previewElement.classList.add('dz-complete')
+                        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+                    }
+            @endif
             }
     });
 </script>
+<<<<<<< HEAD
 <!-- ck editor -->
 <script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
 <script>
@@ -391,5 +407,10 @@
 >>>>>>> 121ae8f (tampilkan error ke news)
 =======
 <!-- end ck editor -->
+<<<<<<< HEAD
 >>>>>>> d435741 (ganti ckeditor)
+=======
+=======
+>>>>>>> 5dcee73 (CKEDITOR EDIT PAGE)
+>>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
 @endpush
