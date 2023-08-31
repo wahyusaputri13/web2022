@@ -32,25 +32,11 @@ class ComponentSeeder extends Seeder
                 'active' => 0,
                 'slug' => Str::slug('Seputar Wonosobo', '-'),
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> be20e13 (view)
             // [
             //     'name' => 'Layanan',
             //     'active' => 1,
             //     'slug' => Str::slug('Layanan', '-'),
             // ],
-<<<<<<< HEAD
-=======
-            [
-                'name' => 'Layanan',
-                'active' => 1,
-                'slug' => Str::slug('Layanan', '-'),
-            ],
->>>>>>> e32d2c0 (perbaikan menu)
-=======
->>>>>>> be20e13 (view)
             // satpolpp
             [
                 'name' => 'Aduan Masyarakat',
@@ -58,7 +44,7 @@ class ComponentSeeder extends Seeder
                 'slug' => Str::slug('Complaints', '-'),
             ],
             [
-                'name' => 'Berita',
+                'name' => 'Postingan',
                 'active' => 0,
                 'slug' => Str::slug('Berita', '-'),
             ],

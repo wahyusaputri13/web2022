@@ -22,9 +22,6 @@
                     </div>
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <div class="form-group">
                         <label class="control-label">Tag Bagian</label>
                         {{Form::select('tag', $categori, null, ['class' => 'form-control
@@ -35,63 +32,6 @@
                         @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
                     <div class="form-group label-floating jip">
-=======
-=======
->>>>>>> c7dc4a1 (ganti ckeditor)
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' =>
-                        'form-control'])}}
-                        
-                    </div> -->
-                    <div class="form-group jip">
-<<<<<<< HEAD
->>>>>>> 62d9a61 (upgrade composer)
-=======
-=======
-                    <div class="form-group">
-                        <label class="control-label">Tag Bagian</label>
-                        {{Form::select('tag', $categori, null, ['class' => 'form-control
-                        js-example-basic-multiple',
-                        'name' => 'tag[]',
-                        'multiple' => 'multiple',
-                        ])}}
-                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
-                    </div>
-                    <div class="form-group label-floating jip">
->>>>>>> f2a97bb (ganti ckeditor)
->>>>>>> c7dc4a1 (ganti ckeditor)
-                        <label class="control-label">Jenis Informasi Publik</label>
-                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <div class="form-group label-floating dip" style="display: none;">
-                        <label class="control-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-<<<<<<< HEAD
-                    <div class="form-group label-floating">
-                        <label class="control-label">Judul Postingan</label>
-=======
-=======
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div> -->
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 121ae8f (tampilkan error ke news)
-                    <!-- <div class="form-group label-floating">
-=======
-                    <div class="form-group label-floating">
->>>>>>> d191887 (asdas)
-=======
-                    <div class="form-group label-floating jip">
->>>>>>> ac31215 (perbaiki migrasi)
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => ''])}}
@@ -102,105 +42,26 @@
                         'form-control','placeholder' => ''])}}
                     </div>
                     <div class="form-group label-floating">
-<<<<<<< HEAD
-                        <label class="control-label">Title</label>
->>>>>>> d99ddb5 (hide kategori)
-=======
-                        <label class="control-label">judul Postingan</label>
->>>>>>> ac31215 (perbaiki migrasi)
-                        {{Form::text('title', null,['class' => 'form-control'])}}
-                    </div>
-                    @error('title')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-=======
->>>>>>> 62d9a61 (upgrade composer)
-                    <div class="form-group">
-                        <label class="control-label">Tanggal</label>
-                        {{Form::text('date', null,['class' => 'form-control datepicker'])}}
-=======
-=======
->>>>>>> c7dc4a1 (ganti ckeditor)
-                    <div class="form-group label-floating">
-                        <label class="control-label">Kategori</label>
-                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
->>>>>>> 9d9f031 (select2 multiple)
-                    </div>
-                    @error('date')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    <div class="form-group dip" style="display: none;">
-                        <label class="control-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-=======
-                    <div class="form-group label-floating dip" style="display: none;">
-                        <label class="control-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-                    <div class="form-group label-floating">
                         <label class="control-label">Judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
->>>>>>> f2a97bb (ganti ckeditor)
                     </div>
                     @error('title')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
                     <div class="form-group">
-<<<<<<< HEAD
-                        <label class="control-label">Judul Postingan</label>
-                        {{Form::text('title', null,['class' => 'form-control'])}}
-                    </div>
-                    @error('title')
-=======
                         <label class="control-label">Tanggal</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
                     </div>
                     @error('date')
->>>>>>> f2a97bb (ganti ckeditor)
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
->>>>>>> 62d9a61 (upgrade composer)
                     <div class="form-group label">
                         <label class="control-label">Deskripsi</label>
                         {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
-<<<<<<< HEAD
-=======
-                    <div class="form-group label-floating">
-                        <label class="control-label">Description</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
->>>>>>> 121ae8f (tampilkan error ke news)
-=======
-                    <div class="form-group label">
-                        <label class="control-label">Deskripsi</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
->>>>>>> d191887 (asdas)
-=======
-<<<<<<< HEAD
-=======
                     </div>
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
-<<<<<<< HEAD
-                    <div class="togglebutton">
-                        <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
-                        </label>
->>>>>>> f2a97bb (ganti ckeditor)
->>>>>>> c7dc4a1 (ganti ckeditor)
-                    </div>
-                    @error('description')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
-
-=======
->>>>>>> 3f2ac31 (perbaikan view news)
                     <div class="d-flex text-right">
                         <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
                         <button type="submit" class="btn btn-success btn-fill">Simpan</button>
@@ -216,10 +77,6 @@
 <script>
     $(document).ready(function () {
         $('.js-example-basic-multiple').select2();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c7dc4a1 (ganti ckeditor)
 
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
@@ -232,11 +89,6 @@
                 $(".dip").hide();
             }
         });
-<<<<<<< HEAD
-=======
->>>>>>> 9d9f031 (select2 multiple)
-=======
->>>>>>> c7dc4a1 (ganti ckeditor)
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
@@ -245,24 +97,10 @@
 <script type="text/javascript">
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
-
-        $("#hideButton").click(function () {
-            if ($(this).is(":checked")) {
-                $(".dropzone").hide();
-                $(".jip").hide();
-                $(".dip").show();
-            } else {
-                $(".dropzone").show();
-                $(".jip").show();
-                $(".dip").hide();
-            }
-        });
     });
 </script>
 
 <!-- ck editor -->
-<<<<<<< HEAD
-<<<<<<< HEAD
 <script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
 <script>
     var konten = document.getElementById("my-editor");
@@ -271,87 +109,11 @@
         filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
         filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
         filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-<<<<<<< HEAD
     };
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;
 </script>
 <!-- end ck editor -->
-=======
-<!-- <script src="{{ asset('assets/back/assets/ckeditor/ckeditor.js') }}"></script> -->
-<!-- <script>
-=======
-<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
-<script>
-    var konten = document.getElementById("my-editor");
->>>>>>> 457edc0 (ganti versi ckeditor)
-    var options = {
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-    };
-    CKEDITOR.replace(konten, options);
-    CKEDITOR.config.allowedContent = true;
-</script>
-<!-- end ck editor -->
-
-<!-- tiny mce editor -->
-<!-- <script src="{{ asset('assets/back/assets/tinymce/js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script> -->
-<!-- <script src="https://cdn.tiny.cloud/1/ntnf44xuwietuzyond0qbg8p2e6eqo90pzbi04o4j1jzeiqk/tinymce/5/tinymce.min.js"
-    referrerpolicy="origin"></script> -->
-<!-- <script>
-    var editor_config = {
-        path_absolute: "/",
-        selector: 'textarea.my-editor',
-        relative_urls: false,
-        height: '500px',
-        plugins: [
-            "advlist autolink autosave lists link image charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen",
-            "insertdatetime media nonbreaking save table directionality",
-            "emoticons template paste textpattern"
-        ],
-        toolbar: "restoredraft insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
-        file_picker_callback: function (callback, value, meta) {
-            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-            var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-
-            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
-            if (meta.filetype == 'image') {
-                cmsURL = cmsURL + "&type=Images";
-            } else {
-                cmsURL = cmsURL + "&type=Files";
-            }
-
-            tinyMCE.activeEditor.windowManager.openUrl({
-                url: cmsURL,
-                title: 'Filemanager',
-                width: x * 0.8,
-                height: y * 0.8,
-                resizable: "yes",
-                close_previous: "no",
-                onMessage: (api, message) => {
-                    callback(message.content);
-                }
-            });
-        }
-    };
-
-    tinymce.init(editor_config);
-</script> -->
-<!-- end tiny mce editor -->
-<<<<<<< HEAD
->>>>>>> d191887 (asdas)
-=======
-=======
-    };
-    CKEDITOR.replace(konten, options);
-    CKEDITOR.config.allowedContent = true;
-</script>
-<!-- end ck editor -->
->>>>>>> f2a97bb (ganti ckeditor)
->>>>>>> c7dc4a1 (ganti ckeditor)
 
 <script>
     var uploadedDocumentMap = {}

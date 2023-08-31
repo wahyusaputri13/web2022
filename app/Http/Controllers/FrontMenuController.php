@@ -8,7 +8,6 @@ use Yajra\DataTables\Facades\DataTables;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class FrontMenuController extends Controller
 {
@@ -46,8 +45,6 @@ class FrontMenuController extends Controller
                     }
                 )
                 ->addColumn(
-<<<<<<< HEAD
-<<<<<<< HEAD
                     'aksi',
                     function ($data) {
                         if ($data->id <= 45) {
@@ -73,56 +70,13 @@ class FrontMenuController extends Controller
                                 </label>
                                 </div>';
                             }
-=======
-                    'tampil',
-=======
-                    'aksi',
->>>>>>> c174a02 (fix bug hapus berita)
-                    function ($data) {
-                        if ($data->id <= 45) {
-                            $actionBtn = '<div class="togglebutton">
-                            <label>
-                                <input type="checkbox" disabled checked>
-                                <span class="toggle"></span>
-                            </label>
-                        </div>';
-                        } else {
-<<<<<<< HEAD
-                            $actionBtn = 'Tidak Tampil';
->>>>>>> f854342 (ubah tabel)
-=======
-                            if ($data->active == 1) {
-                                $actionBtn = '<div class="togglebutton">
-                                <label>
-                                <input type="checkbox" checked onclick="centang('  . $data->id . ')">
-                                <span class="toggle"></span>
-                                </label>
-                                </div>';
-                            } else {
-                                $actionBtn = '<div class="togglebutton">
-                                <label>
-                                <input type="checkbox" onclick="centang('  . $data->id . ')">
-                                <span class="toggle"></span>
-                                </label>
-                                </div>';
-                            }
->>>>>>> c174a02 (fix bug hapus berita)
                         }
                         return $actionBtn;
                     }
                 )
-<<<<<<< HEAD
-<<<<<<< HEAD
                 ->rawColumns(['action', 'orang_tua', 'aksi'])
-=======
-                ->rawColumns(['action', 'orang_tua', 'tampil'])
->>>>>>> f854342 (ubah tabel)
-=======
-                ->rawColumns(['action', 'orang_tua', 'aksi'])
->>>>>>> c174a02 (fix bug hapus berita)
                 ->make(true);
         }
-
         return view('back.a.pages.frontmenu.index');
     }
 
@@ -207,42 +161,12 @@ class FrontMenuController extends Controller
 
         if ($data->anaknya()->count() > 0) {
             // Prevent deletion because there are associated children
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            return response()->json('error', 406);
-        } else {
-            $data = FrontMenu::destroy($id);
-            return $data;
-        }
-=======
-=======
->>>>>>> c0266f7 (INSERT POSTINGAN BELUM)
-=======
->>>>>>> c7dc4a1 (ganti ckeditor)
             return back()->with('message', 'Cannot delete parent with associated children.');
         } else {
             $data = FrontMenu::destroy($id);
         }
 
-=======
-            return redirect(route('frontmenu.index'))->with(['success' => 'Cannot delete parent with associated children.']);
-=======
-            return response()->json('error', 406);
->>>>>>> f2a97bb (ganti ckeditor)
-        } else {
-            $data = FrontMenu::destroy($id);
-            return $data;
-        }
-<<<<<<< HEAD
->>>>>>> 3601b96 (INSERT POSTINGAN BELUM)
         return $data;
-<<<<<<< HEAD
->>>>>>> 9225098 (kurang notifikasi gagal delete)
-=======
-=======
->>>>>>> f2a97bb (ganti ckeditor)
->>>>>>> c7dc4a1 (ganti ckeditor)
     }
 
     public function checkSlug(Request $request)

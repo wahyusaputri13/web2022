@@ -30,8 +30,8 @@ class NewsController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Ubah</a>
-                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Hapus</a>
+                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
+                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
                     </div>';
                         return $actionBtn;
                     }
@@ -71,60 +71,17 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $val = $request->validate([
+        $request->validate([
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            'highlight' => 'required',
-=======
-            // 'highlight' => 'required',
->>>>>>> 121ae8f (tampilkan error ke news)
-            // 'kategori' => 'required',
->>>>>>> d99ddb5 (hide kategori)
         ]);
 
-<<<<<<< HEAD
         if ($request->dip_tahun) {
             $id = News::create($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
         }
-
-        // tagging postingan
-        $id->tag($request->tag);
-=======
-        $id = News::create($validated + ['kategori' => $request->jip ?? null, 'upload_by' => auth()->user()->id]);
->>>>>>> 3c71dcd (berita tambah kategori ppid)
-=======
-        ]);
-
-        if ($request->dip_tahun) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
-        } else {
-            $id = News::create($val + ['upload_by' => auth()->user()->id]);
-        }
-<<<<<<< HEAD
->>>>>>> ac31215 (perbaiki migrasi)
-=======
-=======
-            $id = News::create($request->except(['_token', 'document', 'tag']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
-=======
-            $id = News::create($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
->>>>>>> 24d2376 (perbaikan postingan)
-        } else {
-            $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
-        }
-
-        // tagging postingan
-        $id->tag($request->tag);
->>>>>>> f2a97bb (ganti ckeditor)
->>>>>>> c7dc4a1 (ganti ckeditor)
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -164,30 +121,10 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $a = News::existingTags();
-        return $a;
         $data = News::find($id);
-        $terpilih = [];
-
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f13f9af (perbaikan postingan)
-
-        // untuk list yang terpilih
-        foreach ($data->tagged as $key => $value) {
-            array_push($terpilih, strtoupper($value->tag_name));
-        }
-
-<<<<<<< HEAD
-=======
-        $terpilih = ComCodes::where('code_cd', $data->tagNames())->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
->>>>>>> ff5bfae (update tagging)
-=======
->>>>>>> f13f9af (perbaikan postingan)
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
+        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
     }
 
     /**
@@ -199,73 +136,17 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required',
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'date' => 'required',
-            'description' => 'required',
-=======
             'description' => 'required',
             'date' => 'required',
-<<<<<<< HEAD
-            // 'highlight' => 'required',
-            // 'kategori' => 'required',
->>>>>>> 121ae8f (tampilkan error ke news)
         ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $data = News::find($id);
-        $data->slug = null;
-
-        if ($request->dip_tahun) {
-            $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
-        } else {
-            $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
-        }
-
-        // tag ulang postingan
-        $data->retag($request->tag);
-=======
-        News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->name]);
->>>>>>> 3c71dcd (berita tambah kategori ppid)
-=======
-        News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
->>>>>>> e144481 (href jdih)
-=======
-=======
-            'date' => 'required',
-<<<<<<< HEAD
-=======
-            'description' => 'required',
->>>>>>> 24d2376 (perbaikan postingan)
->>>>>>> f13f9af (perbaikan postingan)
-        ]);
-        $data = News::find($id);
-        $data->slug = null;
-
-        if ($request->dip_tahun) {
-            $id = $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
-        } else {
-            $id = $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
-        }
-
-        // tag ulang postingan
-<<<<<<< HEAD
-        $data->retag($request->kategori);
         if ($request->dip_tahun) {
             News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
         }
-<<<<<<< HEAD
->>>>>>> be6c8e1 (perbaikan update news)
-=======
-=======
-        $data->retag($request->tag);
->>>>>>> f2a97bb (ganti ckeditor)
->>>>>>> c7dc4a1 (ganti ckeditor)
 
         if ($request->document) {
             foreach ($request->document as $df) {

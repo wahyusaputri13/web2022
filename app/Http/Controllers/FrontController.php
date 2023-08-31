@@ -155,35 +155,12 @@ class FrontController extends Controller
     {
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ac31215 (perbaiki migrasi)
 
         if (!$data) {
             $data = News::where('id', $id)->first();
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
-=======
-        $lists = FrontMenu::whereNotNull('kategori')->get();
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists'));
->>>>>>> 8ef379c (perbaikan parsing data)
-=======
-        $lists = FrontMenu::whereNotNull('kategori')->get();
-        $lists2 = News::whereNotNull('kategori')->get();
-        $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
-<<<<<<< HEAD
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'dip'));
->>>>>>> ac31215 (perbaiki migrasi)
-=======
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data', 'lists', 'lists2', 'dip'));
->>>>>>> 6f0fa3e (client side)
-=======
-        return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
->>>>>>> 69780ad (perbaikan logika)
     }
 
     public function component($id)
@@ -417,7 +394,6 @@ class FrontController extends Controller
         // return $slice2;
     }
 
-<<<<<<< HEAD
     function copydatapostingfromwonosobokab()
     {
         $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
@@ -448,23 +424,5 @@ class FrontController extends Controller
             DB::table('files')->insert($fff);
         }
         return json_encode($isa);
-=======
-    function kopifromwonosobokab()
-    {
-        $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
-        foreach ($data as $index => $item) {
-            print_r($index . "\n");
-            News::create([
-                'title' => $item->judul_posting,
-                'description' => $item->isi_posting,
-                'date' => $item->created_time,
-                'upload_by' =>  'Admin',
-            ]);
-        }
-<<<<<<< HEAD
-        return 'Data selesai di pindah';
->>>>>>> 8c63bb0 (query ambil data dari db lama)
-=======
->>>>>>> d99ddb5 (hide kategori)
     }
 }

@@ -141,7 +141,7 @@
                             <li class="{{ (Str::contains(Request::url(), 'settings')) ? 'active' : '' }}">
                                 <a href="{{ route('settings.index') }}">
                                     <i class="material-icons">settings</i>
-                                    Peraturan</a>
+                                    Pengaturan Web</a>
                             </li>
                             @role('superadmin')
                             <li class="{{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">

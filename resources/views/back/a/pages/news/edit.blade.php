@@ -24,73 +24,11 @@
                     </div>
                     @if(!$data->dip)
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 62d9a61 (upgrade composer)
-=======
->>>>>>> c7dc4a1 (ganti ckeditor)
-=======
->>>>>>> f13f9af (perbaikan postingan)
                     @endif
-=======
->>>>>>> f2a97bb (ganti ckeditor)
-=======
-                    @endif
->>>>>>> 24d2376 (perbaikan postingan)
                     <!-- <div class="form-group label-floating">
                         <label class="control-label">Highlight</label>
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-<<<<<<< HEAD
                     </div> -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <div class="form-group label-floating">
-                        <label class="control-label">Tag Bagian</label>
-                        {{Form::select('tag[]', $categori, $terpilih,['class' =>
-                        'form-control
-                        js-example-basic-multiple',
-                        'multiple' => 'multiple',
-                        ])}}
-                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
-                    </div>
-=======
->>>>>>> 62d9a61 (upgrade composer)
-=======
->>>>>>> c7dc4a1 (ganti ckeditor)
-                    @if(!$data->dip)
-                    <div class="form-group label-floating jip">
-                        <label class="control-label">Jenis Informasi Publik</label>
-                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-<<<<<<< HEAD
-                    @endif
-                    @if($data->dip)
-                    <div class="form-group label-floating dip">
-<<<<<<< HEAD
-                        <label class="control-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-=======
-                    <div class="form-group label-floating">
-                        <label class="control-label">Kategori</label>
-                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
-<<<<<<< HEAD
->>>>>>> ff5bfae (update tagging)
-=======
-=======
-                    <div class="form-group label-floating">
-                        <label class="control-label">Tag Bagian</label>
-                        {{Form::select('tag[]', $categori, $terpilih,['class' =>
-                        'form-control
-                        js-example-basic-multiple',
-                        'multiple' => 'multiple',
-                        ])}}
-                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
-                    </div>
                     @if(!$data->dip)
                     <div class="form-group label-floating jip">
                         <label class="control-label">Jenis Informasi Publik</label>
@@ -103,57 +41,11 @@
                         <label class="control-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>
                         'form-control','placeholder' => ''])}}
->>>>>>> f2a97bb (ganti ckeditor)
->>>>>>> c7dc4a1 (ganti ckeditor)
                     </div>
                     @endif
-=======
-                    </div>
-=======
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Highlight</label>
-                        {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
-                    </div> -->
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 121ae8f (tampilkan error ke news)
-                    <!-- <div class="form-group label-floating">
-                        <label class="control-label">Kategori</label>
-                        {{Form::select('kategori', $categori, null, ['class' => 'form-control'])}}
-                    </div> -->
->>>>>>> d99ddb5 (hide kategori)
-=======
-                    <div class="form-group label-floating">
-=======
-                    <div class="form-group label-floating jip">
->>>>>>> be6c8e1 (perbaikan update news)
-                        <label class="control-label">Jenis Informasi Publik</label>
-                        {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-<<<<<<< HEAD
-                    @error('kategori')
-                    <div class="error text-danger">Tidak Boleh Kosong</div>
-                    @enderror
->>>>>>> 3c71dcd (berita tambah kategori ppid)
-=======
-                    <div class="form-group label-floating dip" style="display: none;">
-=======
->>>>>>> 62d9a61 (upgrade composer)
-                        <label class="control-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-<<<<<<< HEAD
->>>>>>> be6c8e1 (perbaikan update news)
-=======
-                    @endif
->>>>>>> 62d9a61 (upgrade composer)
                     <div class="form-group label-floating">
                         <label class="control-label">Judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control'])}}
-                        @error('title') <span class="text-danger">Tidak boleh kosong</span> @enderror
-
                     </div>
                     @error('title')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
@@ -161,49 +53,20 @@
                     <div class="form-group">
                         <label class="control-label">Tanggal</label>
                         {{Form::text('date', null,['class' => 'form-control datepicker'])}}
-                        @error('date') <span class="text-danger">Tidak boleh kosong</span> @enderror
                     </div>
                     @error('date')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
                     <div class="form-group label-floating">
                         <label class="control-label">Description</label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
-                        @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
-=======
                         {{Form::textarea('description', null,['class' => 'form-control','id'=>'my-editor'])}}
->>>>>>> d435741 (ganti ckeditor)
-=======
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
->>>>>>> ff5bfae (update tagging)
-=======
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control'])}}
-=======
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
-                        @error('description') <span class="text-danger">Tidak boleh kosong</span> @enderror
->>>>>>> 5dcee73 (CKEDITOR EDIT PAGE)
->>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
                     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
                     @error('description')
                     <div class="error text-danger">Tidak Boleh Kosong</div>
                     @enderror
-=======
-                    <div class="togglebutton">
-                        <label>
-                            Data DIP? <input type="checkbox" {{ $data->dip ? 'checked disabled' : '' }} id="hideButton">
-                        </label>
-                    </div>
->>>>>>> f2a97bb (ganti ckeditor)
-=======
->>>>>>> 3f2ac31 (perbaikan view news)
                     <div class="d-flex text-right">
-                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Kembali</a>
-                        <button type="submit" class="btn btn-success btn-fill">Ubah</button>
+                        <a href="{{ route('news.index') }}" class="btn btn-default btn-fill">Cancel</a>
+                        <button type="submit" class="btn btn-success btn-fill">Update</button>
                     </div>
                     {{Form::close()}}
                 </div>
@@ -213,48 +76,6 @@
 </div>
 @endsection
 @push('after-script')
-<script>
-    $(document).ready(function () {
-        $('.js-example-basic-multiple').select2();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c7dc4a1 (ganti ckeditor)
-
-        $("#hideButton").click(function () {
-            if ($(this).is(":checked")) {
-                $(".dropzone").hide();
-                $(".jip").hide();
-                $(".dip").show();
-            } else {
-                $(".dropzone").show();
-                $(".jip").show();
-                $(".dip").hide();
-            }
-        });
-    });
-</script>
-<!-- ck editor -->
-<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
-<script>
-    var konten = document.getElementById("my-editor");
-    var options = {
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-    };
-    CKEDITOR.replace(konten, options);
-    CKEDITOR.config.allowedContent = true;
-</script>
-<!-- end ck editor -->
-<<<<<<< HEAD
-=======
-    });
-</script>
->>>>>>> ff5bfae (update tagging)
-=======
->>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
 <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
     integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -280,37 +101,30 @@
     Dropzone.autoDiscover = false;
     $(".dropzone").dropzone({
 
-            url: `{{ route('file_image.store') }}`,
-            // maxFilesize: 2, // MB
-            addRemoveLinks: true,
-            headers: {
-                'X-CSRF-TOKEN': "{{ csrf_token() }}"
-            },
-            success: function (file, response) {
-                $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
-                uploadedDocumentMap[file.name] = response.name
-                uploadedDocumentMap[file.path] = response.path
-            },
-            removedfile: function (file) {
-                file.previewElement.remove()
-                var name = '';
-                var path = '';
-                if (typeof file.file_name !== 'undefined') {
-                    name = file.file_name;
-                } else {
-                    name = uploadedDocumentMap[file.name];
-                    path = uploadedDocumentMap[file.path];
-                }
+        url: `{{ route('file_image.store') }}`,
+        // maxFilesize: 2, // MB
+        addRemoveLinks: true,
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        success: function (file, response) {
+            $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
+            uploadedDocumentMap[file.name] = response.name
+            uploadedDocumentMap[file.path] = response.path
+        },
+        removedfile: function (file) {
+            file.previewElement.remove()
+            var name = '';
+            var path = '';
+            if (typeof file.file_name !== 'undefined') {
+                name = file.file_name;
+            } else {
+                name = uploadedDocumentMap[file.name];
+                path = uploadedDocumentMap[file.path];
+            }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
             // console.log(file.name);
-=======
-                // console.log(file.name);
->>>>>>> ff5bfae (update tagging)
 
->>>>>>> 121ae8f (tampilkan error ke news)
             $('form').find('input[name="document[]"][value="' + name + '"]').remove();
 
             $.ajax({
@@ -360,36 +174,18 @@
             });
 
             @if (isset($project) && $project -> document)
-<<<<<<< HEAD
-<<<<<<< HEAD
-                var files = {!! json_encode($project -> document) !!}
-                    for(var i in files) {
-                        var file = files[i]
-                        this.options.addedfile.call(this, file)
-                        file.previewElement.classList.add('dz-complete')
-                        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                    }
-            @endif
-            }
-    });
-</script>
-=======
                 var files = {!! json_encode($project -> document)!!
         }
-=======
-                var files = {!! json_encode($project -> document) !!}
->>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
                     for(var i in files) {
-                        var file = files[i]
-                        this.options.addedfile.call(this, file)
-                        file.previewElement.classList.add('dz-complete')
-                        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                    }
-            @endif
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
             }
     });
 </script>
-<<<<<<< HEAD
 <!-- ck editor -->
 <script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
 <script>
@@ -403,14 +199,5 @@
     CKEDITOR.replace(konten, options);
     CKEDITOR.config.allowedContent = true;
 </script>
-<<<<<<< HEAD
->>>>>>> 121ae8f (tampilkan error ke news)
-=======
 <!-- end ck editor -->
-<<<<<<< HEAD
->>>>>>> d435741 (ganti ckeditor)
-=======
-=======
->>>>>>> 5dcee73 (CKEDITOR EDIT PAGE)
->>>>>>> 8cfd830 (CKEDITOR EDIT PAGE)
 @endpush
