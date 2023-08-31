@@ -30,6 +30,19 @@
                         {{Form::select('highlight', $highlight, null, ['class' => 'form-control'])}}
                     </div> -->
                     @if(!$data->dip)
+
+                    @can('ppidsetda')
+                    <div class="form-group label-floating">
+                        <label class="control-label">Tag Bagian</label>
+                        {{Form::select('tag[]', $categori, $terpilih,['class' =>
+                        'form-control
+                        js-example-basic-multiple',
+                        'multiple' => 'multiple',
+                        ])}}
+                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
+                    </div>
+                    @endcan
+
                     <div class="form-group label-floating jip">
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>

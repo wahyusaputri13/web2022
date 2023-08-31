@@ -21,6 +21,10 @@ class PermissionSeeder extends Seeder
                 'guard_name' => 'web'
             ],
             [
+                'name' => 'ppidsetda',
+                'guard_name' => 'web'
+            ],
+            [
                 'name' => 'puskesmas-sukoharjo-1',
                 'guard_name' => 'web'
             ]

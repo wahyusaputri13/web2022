@@ -21,14 +21,12 @@
                         </div>
                         @endif
                         {{Form::open(['route' => 'user.store','method' => 'post', 'files' => 'true', ''])}}
-                        @role('admin')
+                        @role('superadmin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Role</label>
                             {{ Form::select('role', $role, null, ['class' => 'form-control',
                             'placeholder' => 'Select Role']); }}
                         </div>
-                        @endrole
-                        @role('superadmin')
                         <div class="form-group label-floating is-focused">
                             <label class="control-label">Permission</label>
                             {{ Form::select('permission', $permission, null, ['class' => 'form-control',
@@ -41,11 +39,6 @@
                             'data-style'
                             => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
                         </div>
-                        @endcan
-                        <div class="form-group label-floating">
-                            <label class="control-label">Name</label>
-                            {{Form::text('name', null,['class' => 'form-control'])}}
-                        </div>
                         <div class="form-group label-floating">
                             <label class="control-label">NIP</label>
                             {{Form::number('nip', null,['class' => 'form-control'])}}
@@ -54,8 +47,13 @@
                             <label class="control-label">Jabatan / Golongan</label>
                             {{Form::text('jabatan', null,['class' => 'form-control'])}}
                         </div>
+                        @endcan
                         <div class="form-group label-floating">
-                            <label class="control-label">Phone Number</label>
+                            <label class="control-label">Nama</label>
+                            {{Form::text('name', null,['class' => 'form-control'])}}
+                        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Nomor Telp</label>
                             {{Form::number('user_phone', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
@@ -63,11 +61,11 @@
                             {{Form::email('email', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Password</label>
+                            <label class="control-label">Sandi</label>
                             {{Form::password('password',['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
-                            <label class="control-label">Confirm Password</label>
+                            <label class="control-label">Konfirmasi Sandi</label>
                             {{Form::password('password_confirmation',['class' => 'form-control'])}}
                         </div>
                         <div class="d-flex text-right">

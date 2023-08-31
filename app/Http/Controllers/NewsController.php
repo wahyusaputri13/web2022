@@ -83,6 +83,9 @@ class NewsController extends Controller
             $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
         }
 
+        // tagging postingan
+        $id->tag($request->tag);
+
         if ($request->document) {
             foreach ($request->document as $df) {
                 $path = storage_path('app/public/gallery');
@@ -122,9 +125,17 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
+        $terpilih = [];
+
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
+
+        // untuk list yang terpilih
+        foreach ($data->tagged as $key => $value) {
+            array_push($terpilih, strtoupper($value->tag_name));
+        }
+
+        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
     /**
