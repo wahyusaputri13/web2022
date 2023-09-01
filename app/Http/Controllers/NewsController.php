@@ -127,8 +127,8 @@ class NewsController extends Controller
         $data = News::find($id);
         $terpilih = [];
 
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        $highlight = ComCodes::where('code_group', 'HIGHLIGHT_NEWS')->pluck('code_nm');
+        $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
 
         // untuk list yang terpilih
         foreach ($data->tagged as $key => $value) {
@@ -147,17 +147,23 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
         ]);
 
+        $data = News::find($id);
+        $data->slug = null;
+
         if ($request->dip_tahun) {
-            News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
+            $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
         }
+
+        // tag ulang postingan
+        $data->retag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {

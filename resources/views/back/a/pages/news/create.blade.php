@@ -22,7 +22,7 @@
                     </div>
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
-                    {{ Auth::user()->getDirectPermissions() }}
+                    
                     @can('ppidsetda')
                     <div class="form-group">
                         <label class="control-label">Tag Bagian</label>

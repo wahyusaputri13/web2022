@@ -94,6 +94,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         demo.initFormExtendedDatetimepickers();
+        $('.js-example-basic-multiple').select2();
 
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
