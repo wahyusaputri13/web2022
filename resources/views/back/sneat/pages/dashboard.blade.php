@@ -65,7 +65,7 @@
             <ul class="menu-inner py-1">
                 <!-- Dashboard -->
                 <li class="menu-item active">
-                    <a href="index.html" class="menu-link">
+                    <a href="{{ url('dashboard') }}" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-home-circle"></i>
                         <div data-i18n="Analytics">Dashboard</div>
                     </a>
@@ -407,20 +407,18 @@
 
                     <ul class="navbar-nav flex-row align-items-center ms-auto">
                         <!-- Place this tag where you want the button to render. -->
-                        <li class="nav-item lh-1 me-3">
-                            <a class="github-button"
-                                href="https://github.com/themeselection/sneat-html-admin-template-free"
-                                data-icon="octicon-star" data-size="large" data-show-count="true"
-                                aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-                        </li>
-
                         <!-- User -->
                         <li class="nav-item navbar-dropdown dropdown-user dropdown">
                             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                 data-bs-toggle="dropdown">
                                 <div class="avatar avatar-online">
-                                    <img src="{{ asset('assets/back/sneat/assets/img/avatars/1.png') }}" alt
+                                    @if(auth()->user()->profile_photo_path)
+                                    <img src="{{ asset('storage') }}/{{ auth()->user()->profile_photo_path }}"
                                         class="w-px-40 h-auto rounded-circle" />
+                                    @else
+                                    <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}"
+                                        class="w-px-40 h-auto rounded-circle">
+                                    @endif
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
@@ -429,13 +427,18 @@
                                         <div class="d-flex">
                                             <div class="flex-shrink-0 me-3">
                                                 <div class="avatar avatar-online">
-                                                    <img src="{{ asset('assets/back/sneat/assets/img/avatars/1.png') }}"
-                                                        alt class="w-px-40 h-auto rounded-circle" />
+                                                    @if(auth()->user()->profile_photo_path)
+                                                    <img src="{{ asset('storage') }}/{{ auth()->user()->profile_photo_path }}"
+                                                        class="w-px-40 h-auto rounded-circle" />
+                                                    @else
+                                                    <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}"
+                                                        class="w-px-40 h-auto rounded-circle">
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <span class="fw-semibold d-block">John Doe</span>
-                                                <small class="text-muted">Admin</small>
+                                                <span class="fw-semibold d-block">{{ auth()->user()->name }}</span>
+                                                <small class="text-muted">{{ auth()->user()->email }}</small>
                                             </div>
                                         </div>
                                     </a>
@@ -469,7 +472,7 @@
                                     <div class="dropdown-divider"></div>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="auth-login-basic.html">
+                                    <a id="btn-logout" class="dropdown-item">
                                         <i class="bx bx-power-off me-2"></i>
                                         <span class="align-middle">Log Out</span>
                                     </a>
@@ -1016,21 +1019,9 @@
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
-                            , made with ❤️ by
+                            Diskominfo Wonosobo, made with ❤️ by
                             <a href="https://soulofjava.github.io/myportofolio/" target="_blank"
                                 class="footer-link fw-bolder">Isa Maulana Tantra</a>
-                        </div>
-                        <div>
-                            <a href="https://themeselection.com/license/" class="footer-link me-4"
-                                target="_blank">License</a>
-                            <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
-                                Themes</a>
-
-                            <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                                target="_blank" class="footer-link me-4">Documentation</a>
-
-                            <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                                target="_blank" class="footer-link me-4">Support</a>
                         </div>
                     </div>
                 </footer>

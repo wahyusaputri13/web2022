@@ -33,10 +33,6 @@
 </head>
 
 <body>
-    @include('sweetalert::alert')
-    @auth
-    @include('back.sneat.includes.header')
-    @endauth
     @yield('content')
     @include('back.sneat.includes.footer')
     @stack('before-script')

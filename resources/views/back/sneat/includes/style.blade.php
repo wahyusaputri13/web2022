@@ -1,5 +1,10 @@
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="{{ asset('assets/back/sneat/assets/img/favicon/favicon.ico') }}" />
+@if($data_website->favicon == 'assets/pemda.ico')
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('') }}{{ $data_website->favicon }}" />
+<link rel="icon" type="image/png" href="{{ asset('') }}{{ $data_website->favicon }}" />
+@else
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
+<link rel="icon" type="image/png" href="{{ asset('storage') }}/{{ $data_website->favicon }}" />
+@endif
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,6 +28,8 @@
     href="{{ asset('assets/back/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+
+<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />
 
 <!-- Page CSS -->
 <!-- Page -->
