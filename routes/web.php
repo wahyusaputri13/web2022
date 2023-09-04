@@ -126,7 +126,7 @@ Route::group(['middleware' => 'data_web'], function () {
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
     $themes = Website::all()->first();
-    return view($themes->themes_back . '.pages.dashboard');
+    return view('back.' . $themes->themes_back . '.pages.dashboard');
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'admin'], function () {
