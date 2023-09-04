@@ -15,9 +15,8 @@ class CreateGalleriesTable extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('path')->default('img/soulofjava.jpg');
             $table->text('description');
+            $table->date('upload_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

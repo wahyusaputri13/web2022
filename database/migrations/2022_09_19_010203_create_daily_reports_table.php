@@ -21,6 +21,8 @@ class CreateDailyReportsTable extends Migration
             $table->string('location');
             $table->longText('personnel');
             $table->longText('report');
+            $table->string('path')->nullable();
+            $table->string('pic_name')->nullable();
             $table->timestamps();
         });
     }

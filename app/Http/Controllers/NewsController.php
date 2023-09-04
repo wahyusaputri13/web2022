@@ -137,12 +137,13 @@ class NewsController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            // 'highlight' => 'required',
             'date' => 'required',
-            // 'kategori' => 'required',
         ]);
 
-        News::find($id)->update($validated + ['upload_by' => auth()->user()->name]);
+        $data = News::find($id);
+        $data->slug = null;
+
+        $data->update($validated + ['upload_by' => auth()->user()->name]);
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -166,17 +167,28 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = News::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
+        $gambar = News::with('gambar')->where('id', $id)->get();
+        foreach ($gambar as $key) {
+            foreach ($key->gambar as $value) {
+                if (Storage::exists($value->path)) {
+                    Storage::delete($value->path);
+                }
+            }
         }
+
         $data = News::find($id);
+        // delete related   
+        $data->gambar()->delete();
+
         return $data->delete();
     }
 
-    public function insert(Request $request)
+    // pindah dari wonosobokab
+    public function insert()
     {
-        $data = DB::table('posting')->get();
+        set_time_limit(0);
+        $tables = DB::select('SHOW TABLES');
+        $data = DB::table('postingan')->where('domain', 'arpusda.wonosobokab.go.id')->get();
         foreach ($data as $dt) {
             $file = DB::table('attachment')
                 ->where('id_tabel', $dt->id_posting)
@@ -185,8 +197,9 @@ class NewsController extends Controller
                 $fi = [
                     'id_news' => $f->id_tabel,
                     'file_name' => $f->file_name,
+                    'path' => 'gallery/' . $f->file_name,
                 ];
-                File::create($fi);
+                Files::insert($fi);
             }
             $pk = [
                 'title' => $dt->judul_posting,
@@ -196,7 +209,7 @@ class NewsController extends Controller
                 'attachment' => $dt->id_posting,
                 'slug' => SlugService::createSlug(News::class, 'slug', $dt->judul_posting),
             ];
-            News::create($pk);
+            News::insert($pk);
         }
         return 'selesai';
     }

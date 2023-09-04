@@ -68,14 +68,16 @@ class FrontMenuController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(
+        $request->validate(
             [
                 'menu_name' => 'required',
             ],
         );
+
         FrontMenu::create($request->except('_token') + [
             'menu_url' => Str::slug($request->menu_name)
         ]);
+
         return redirect(route('frontmenu.index'))->with(['success' => 'Data added successfully!']);
     }
 
@@ -113,8 +115,9 @@ class FrontMenuController extends Controller
     public function update(Request $request, $id)
     {
         FrontMenu::find($id)->update(
-            $request->except(['_token']),
+            $request->except(['_token']) + ['menu_url' => Str::slug($request->menu_name)]
         );
+
         return redirect(route('frontmenu.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 
@@ -126,7 +129,15 @@ class FrontMenuController extends Controller
      */
     public function destroy($id)
     {
-        $data = FrontMenu::destroy($id);
+        $data = FrontMenu::find($id);
+
+        if ($data->anaknya()->count() > 0) {
+            // Prevent deletion because there are associated children
+            return back()->with('message', 'Cannot delete parent with associated children.');
+        } else {
+            $data = FrontMenu::destroy($id);
+        }
+
         return $data;
     }
 
