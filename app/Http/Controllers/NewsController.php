@@ -10,10 +10,16 @@ use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
+use App\Models\Website;
 use File;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,8 +36,8 @@ class NewsController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-sm text-primary btn-icon"><i class="bx bxs-edit"></i></a>
+                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-sm text-primary btn-icon delete-data-table"><i class="bx bxs-trash"></i></a>
                     </div>';
                         return $actionBtn;
                     }
@@ -48,7 +54,7 @@ class NewsController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
-        return view('back.a.pages.news.index');
+        return view('back.' . $this->themes->themes_back . '.pages.news.index');
     }
 
     /**
@@ -60,7 +66,7 @@ class NewsController extends Controller
     {
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.create', compact('highlight', 'categori'));
+        return view('back.' . $this->themes->themes_back . '.pages.news.create', compact('highlight', 'categori'));
     }
 
     /**
@@ -135,7 +141,7 @@ class NewsController extends Controller
             array_push($terpilih, strtoupper($value->tag_name));
         }
 
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
+        return view('back.' . $this->themes->themes_back . '.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
     /**

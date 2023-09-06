@@ -8,15 +8,22 @@
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js') }} -->
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/jquery/jquery.js') }}"></script>
+<script src="{{ asset('assets/back/sneat/assets/vendor/libs/highlight/highlight.js') }}"></script>
+<script src="{{ asset('assets/back/sneat/assets/vendor/libs/clipboard/clipboard.js') }}"></script>
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('assets/back/sneat/assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-
+<script src="{{ asset('assets/back/sneat/assets/vendor/js/helpers.js') }}"></script>
+<script src="{{ asset('assets/back/sneat/assets/vendor/libs/hammer/hammer.js') }}"></script>
 <script src="{{ asset('assets/back/sneat/assets/vendor/js/menu.js') }}"></script>
+<!-- <script src="{{ asset('assets/back/sneat/assets/js/config.js') }}"></script> -->
 <!-- endbuild -->
 
 <!-- Vendors JS -->
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+
+<!-- BS table js -->
+<script src="{{ asset('assets/back/sneat/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
 
 <!-- Sweet Alert 2 plugin -->
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
@@ -28,15 +35,15 @@
 <script src="{{ asset('assets/back/sneat/assets/js/main.js') }}"></script>
 
 <!-- Page JS -->
+<!-- <script src="{{ asset('assets/back/sneat/assets/js/docs.js') }}"></script> -->
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <script src="{{ asset('assets/back/sneat/assets/js/extended-ui-sweetalert2.js') }}"></script>
 
-<script>
+<!-- <script src="{{ asset('assets/back/sneat/assets/js/docs-tables-datatables.js') }}"></script> -->
 
-</script>
 <script>
     ajaxRequest = document.querySelector('#btn-logout');
 

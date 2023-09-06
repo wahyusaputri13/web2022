@@ -15,6 +15,7 @@
 
 <!-- Icons. Uncomment required icon fonts -->
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/fonts/boxicons.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/fonts/fontawesome.css') }}" />
 
 <!-- Core CSS -->
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/css/core.css') }}"
@@ -26,11 +27,21 @@
 <!-- Vendors CSS -->
 <link rel="stylesheet"
     href="{{ asset('assets/back/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-
+<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/highlight/highlight.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />
 
 <!-- Page CSS -->
 <!-- Page -->
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/css/pages/page-auth.css') }}" />
+
+<!-- Datatable css -->
+<link rel="stylesheet"
+    href="{{ asset('assets/back/sneat/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
+<link rel="stylesheet"
+    href="{{ asset('assets/back/sneat/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
+<link rel="stylesheet"
+    href="{{ asset('assets/back/sneat/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
+<link rel="stylesheet"
+    href="{{ asset('assets/back/sneat/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">

@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    @include('back.sneat.includes.header')
     @yield('content')
     @include('back.sneat.includes.footer')
     @stack('before-script')
