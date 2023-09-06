@@ -84,4 +84,51 @@
             }
         });
     };
+
+    // btn hapus
+    $(document).on('click', '.delete-data-table', function (a) {
+        a.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you realy want to delete this records? This process cannot be undone.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Delete!',
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.value) {
+                a.preventDefault();
+                var url = $(this).attr('href');
+                console.log(url);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: url,
+                    method: 'delete',
+                    success: function () {
+                        Swal.fire(
+                            'Deleted!',
+                            'Data has been deleted.',
+                            'success'
+                        )
+                        $('#datatables').DataTable().ajax.reload();
+                    },
+                    error: function () {
+                        Swal.fire(
+                            'Gagal!',
+                            'Tidak dapat menghapus menu Parent.',
+                            'error'
+                        )
+                        $('#datatables').DataTable().ajax.reload();
+                    }
+                })
+            }
+        })
+    });
 </script>
