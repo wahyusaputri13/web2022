@@ -15,7 +15,6 @@
                     <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> {{ $data_website->email
                         }}
                     </h6>
-                    <h6><span class="mr-2"><i class="fa fa-map-marker"></i></span> Find our Location</h6>
                 </div>
                 <div class="col-lg-3">
                     <div class="social-links">

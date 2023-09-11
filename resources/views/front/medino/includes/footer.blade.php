@@ -18,18 +18,17 @@
                 </div>
                 <div class="col-xl-5 offset-xl-1 col-lg-6">
                     <div class="single-widget-home mb-5 mb-lg-0">
-                        <h3 class="mb-4">newsletter</h3>
-                        <p class="mb-4">You can trust us. we only send promo offers, not a single.</p>
-                        <form action="#">
-                            <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''"
-                                onblur="this.placeholder = 'Your email here'" required>
-                            <button type="submit" class="template-btn">subscribe now</button>
-                        </form>
+                        <div class="map">
+                            <iframe
+                                src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                                                                                                $data_website->longitude }}&z=14&output=embed"
+                                frameborder="0" allowfullscreen width="100%"></iframe>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-3 offset-xl-1 col-lg-3">
                     <div class="single-widge-home">
-                        <h3 class="mb-4">instagram feed</h3>
+                        <!-- <h3 class="mb-4">instagram feed</h3>
                         <div class="feed">
                             <img src="{{ asset('assets/front/medino/images/feed1.jpg') }}" alt="feed">
                             <img src="{{ asset('assets/front/medino/images/feed2.jpg') }}" alt="feed">
@@ -39,7 +38,7 @@
                             <img src="{{ asset('assets/front/medino/images/feed6.jpg') }}" alt="feed">
                             <img src="{{ asset('assets/front/medino/images/feed7.jpg') }}" alt="feed">
                             <img src="{{ asset('assets/front/medino/images/feed8.jpg') }}" alt="feed">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

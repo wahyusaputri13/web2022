@@ -166,7 +166,12 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single-news">
                     <div class="news-img">
-                        <img src="{{ asset('assets/front/medino/images/news1.jpg') }}" alt="" class="img-fluid">
+                        @if($n->gambarmuka)
+                        <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                            alt="{{ $n->gambarmuka->file_name }}">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                        @endif
                     </div>
                     <div class="news-text">
                         <div class="news-date">
