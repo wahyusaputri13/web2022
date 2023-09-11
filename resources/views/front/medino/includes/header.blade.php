@@ -42,13 +42,6 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li><a href="doctors.html">doctors</a></li>
-                        <li class="menu-has-children"><a href="">Pages</a>
-                            <ul>
-                                <li><a href="about.html">about us</a></li>
-                                <li><a href="elements.html">elements</a></li>
-                            </ul>
-                        </li>
                         @php
                         $queryMenu = DB::table('front_menus')
                         ->where('menu_parent', '=', '1')
@@ -147,6 +140,7 @@
                         </li>
                         @endif
                         @endforeach
+                        <x-komponen li='menu-has-children' />
                     </ul>
                 </nav>
                 <!-- #nav-menu-container -->

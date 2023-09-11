@@ -17,3 +17,6 @@
 <link rel="stylesheet" href="{{ asset('assets/front/medino/css/jquery.datetimepicker.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/front/medino/css/linearicons.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/front/medino/css/style.css') }}">
+
+<!-- datatable -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">

@@ -7,3 +7,6 @@
 <script src="{{ asset('assets/front/medino/js/vendor/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('assets/front/medino/js/vendor/superfish.min.js') }}"></script>
 <script src="{{ asset('assets/front/medino/js/main.js') }}"></script>
+<!-- DataTables   -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>

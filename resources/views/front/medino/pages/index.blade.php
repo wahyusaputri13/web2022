@@ -194,4 +194,5 @@
 </section>
 @endif
 <!-- News Area Starts -->
+<x-seputar-wonosobo :message='$berita' />
 @endsection
