@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Component;
+use App\Models\Website;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class ComponentController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +49,7 @@ class ComponentController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.a.pages.component.index');
+        return view('back.' . $this->themes->themes_back . '.pages.component.index');
     }
 
     /**

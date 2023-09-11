@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\RelatedLink;
+use App\Models\Website;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class RelatedLinkController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +38,7 @@ class RelatedLinkController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.a.pages.related.index');
+        return view('back.' . $this->themes->themes_back . '.pages.related.index');
     }
 
     /**

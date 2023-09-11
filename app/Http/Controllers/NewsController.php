@@ -10,10 +10,16 @@ use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
+use App\Models\Website;
 use File;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +54,7 @@ class NewsController extends Controller
                 ->rawColumns(['action', 'tgl'])
                 ->make(true);
         }
-        return view('back.a.pages.news.index');
+        return view('back.' . $this->themes->themes_back . '.pages.news.index');
     }
 
     /**

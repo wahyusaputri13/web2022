@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FrontMenu;
+use App\Models\Website;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -11,6 +12,10 @@ use Illuminate\Support\Str;
 
 class FrontMenuController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -77,7 +82,7 @@ class FrontMenuController extends Controller
                 ->rawColumns(['action', 'orang_tua', 'aksi'])
                 ->make(true);
         }
-        return view('back.a.pages.frontmenu.index');
+        return view('back.' . $this->themes->themes_back . '.pages.frontmenu.index');
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Models\Bidang;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Website;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +15,10 @@ use Spatie\Permission\Models\Role as ModelsRole;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->themes = Website::all()->first();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +56,7 @@ class UserController extends Controller
                 ->rawColumns(['action', 'rrole'])
                 ->make(true);
         }
-        return view('back.a.pages.user.index');
+        return view('back.' . $this->themes->themes_back . '.pages.user.index');
     }
 
     /**
