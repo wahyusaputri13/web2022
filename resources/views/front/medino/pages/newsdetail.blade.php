@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>{{ $data->title }}</h1>
-                <a href="{{ url('/') }}">Home</a> <span>|</span> <a href="{{ url('newsall') }}">Semua
+                <a href="{{ url('/') }}">Beranda</a> <span>|</span> <a href="{{ url('newsall') }}">Semua
                     Postingan</a> |</span> <a href="{{ url('newsall') }}">Detail Postingan</a>
             </div>
         </div>
