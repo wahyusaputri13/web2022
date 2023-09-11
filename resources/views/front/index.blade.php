@@ -2,665 +2,679 @@
 <html lang="en">
 
 <head>
-    <!-- ========== Meta Tags ========== -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Boxass - Startup Landing Page Template">
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- ========== Page Title ========== -->
-    <title>Boxass - Startup Landing Page Template</title>
+    <!-- Page Title -->
+    <title>Medino</title>
 
-    <!-- ========== Favicon Icon ========== -->
-    <link rel="shortcut icon" href="{{ asset('assets/front/boxass/assets/img/favicon.png') }}" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('assets/front/medino/images/logo/favicon.png') }}" type="image/x-icon">
 
-    <!-- ========== Start Stylesheet ========== -->
-    <link href="{{ asset('assets/front/boxass/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/boxass/assets/css/font-awesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/boxass/assets/css/flaticon-set.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/boxass/assets/css/magnific-popup.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/boxass/assets/css/owl.carousel.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/boxass/assets/css/owl.theme.default.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/boxass/assets/css/animate.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/boxass/assets/css/bootsnav.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/front/boxass/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/front/boxass/assets/css/responsive.css') }}" rel="stylesheet" />
-    <!-- ========== End Stylesheet ========== -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5/html5shiv.min.js"></script>
-      <script src="assets/js/html5/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- ========== Google Fonts ========== -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet">
-
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/animate-3.7.0.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/font-awesome-4.7.0.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/bootstrap-4.1.3.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/owl-carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/jquery.datetimepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/linearicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front/medino/css/style.css') }}">
+    @vite([])
 </head>
 
 <body>
+    <!-- Preloader Starts -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Preloader End -->
 
-    <!-- Preloader Start -->
-    <div class="se-pre-con"></div>
-    <!-- Preloader Ends -->
-
-    <!-- Header
-    ============================================= -->
-    <header id="home">
-        <div class="container">
-            <div class="row">
-                <!-- Start Navigation -->
-                <nav id="mainNav"
-                    class="navbar navbar-default navbar-fixed white bootsnav on no-full nav-box no-background">
-
-                    <div class="container">
-                        <!-- Start Atribute Navigation -->
-                        <!-- <div class="attr-nav">
-                            <ul>
-                                <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
-                            </ul>
-                        </div> -->
-                        <!-- End Atribute Navigation -->
-
-                        <!-- Start Header Navigation -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target="#navbar-menu">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <a class="navbar-brand" href="index.html"><img
-                                    src="{{ asset('assets/front/boxass/assets/img/logo.png') }}" class="logo"
-                                    alt="Logo"></a>
-                        </div>
-                        <!-- End Header Navigation -->
-
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="navbar-menu">
-                            <ul class="nav navbar-nav navbar-right" data-in="#" data-out="#">
-                                <li class="dropdown dropdown-right">
-                                    <a href="#home" class="dropdown-toggle smooth-menu" data-toggle="dropdown">Home</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="index.html">Home Version One</a></li>
-                                        <li><a href="index-2.html">Home Version Two</a></li>
-                                        <li><a href="index-3.html">Home Version Three</a></li>
-                                        <li><a href="index-4.html">Home Version Four</a></li>
-                                        <li><a href="index-5.html">Home Version Five</a></li>
-                                        <li><a href="index-6.html">Home Version Six</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="smooth-menu" href="#about">About</a>
-                                </li>
-                                <li>
-                                    <a class="smooth-menu" href="#features">Features</a>
-                                </li>
-                                <li>
-                                    <a class="smooth-menu" href="#process">Work Process</a>
-                                </li>
-                                <li>
-                                    <a class="smooth-menu" href="#pricing">Pricing</a>
-                                </li>
-                                <li>
-                                    <a class="smooth-menu" href="#team">Team</a>
-                                </li>
-                                <li>
-                                    <a class="smooth-menu" href="#blog">Blog</a>
-                                </li>
-                                <li>
-                                    <a class="smooth-menu" href="#contact">contact</a>
-                                </li>
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
+    <!-- Header Area Starts -->
+    <header class="header-area">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 d-md-flex">
+                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-mobile"></i></span> call us now! +1 305 708
+                            2563</h6>
+                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> medical@example.com
+                        </h6>
+                        <h6><span class="mr-2"><i class="fa fa-map-marker"></i></span> Find our Location</h6>
                     </div>
-
-                    <!-- Start Side Menu -->
-                    <div class="side">
-                        <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                        <div class="widget address">
-                            <h4 class="title">Office Location</h4>
+                    <div class="col-lg-3">
+                        <div class="social-links">
                             <ul>
-                                <li>
-                                    <i class="fas fa-phone"></i>
-                                    +123 456 7890
-                                </li>
-                                <li>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    California, TX 70240
-                                </li>
-                                <li>
-                                    <i class="fas fa-envelope-open"></i>
-                                    info@yourdomain.com
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="widget">
-                            <h4 class="title">Custom Pages</h4>
-                            <ul class="link">
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">Register</a></li>
-                                <li><a href="#">Profile</a></li>
-                            </ul>
-                        </div>
-                        <div class="widget">
-                            <h4 class="title">Additional Links</h4>
-                            <ul class="link">
-                                <li><a href="#">Compnay History</a></li>
-                                <li><a href="#">Management</a></li>
-                                <li><a href="#">Leadership</a></li>
-                                <li><a href="#">Shortcode Central</a></li>
-                                <li><a href="#">Career</a></li>
-                            </ul>
-                        </div>
-                        <div class="widget social">
-                            <h4 class="title">Connect With Us</h4>
-                            <ul class="link">
-                                <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li class="pinterest"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
                             </ul>
                         </div>
                     </div>
-                    <!-- End Side Menu -->
-                </nav>
-                <!-- End Navigation -->
-                <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div id="header" id="home">
+            <div class="container">
+                <div class="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                        <a href="index.html"><img src="{{ asset('assets/front/medino/images/logo/logo.png') }}" alt=""
+                                title="" /></a>
+                    </div>
+                    <nav id="nav-menu-container">
+                        <ul class="nav-menu">
+                            <li><a href="doctors.html">doctors</a></li>
+                            <li class="menu-has-children"><a href="">Pages</a>
+                                <ul>
+                                    <li><a href="about.html">about us</a></li>
+                                    <li><a href="elements.html">elements</a></li>
+                                </ul>
+                            </li>
+                            @php
+                            $queryMenu = DB::table('front_menus')
+                            ->where('menu_parent', '=', '1')
+                            ->where('deleted_at', '=', null)
+                            ->orderBy('id', 'ASC')
+                            ->get();
+                            @endphp
+                            @foreach ($queryMenu as $menu)
+                            @php
+                            $menuId = $menu->id;
+                            $subMenus = DB::table('front_menus')
+                            ->where('menu_parent', '=', $menuId)
+                            ->where('deleted_at', '=', null)
+                            ->orderBy('menu_parent', 'ASC')
+                            ->get();
+                            @endphp
+                            @if (count($subMenus) == 0)
+                            <li>
+                                <a href="{{ url('/page', $menu->menu_url) }}">{{ $menu->menu_name }}
+                                </a>
+                            </li>
+                            @else
+                            <li class="menu-has-children">
+                                <a href="#">{{ $menu->menu_name }}
+                                </a>
+                                <ul>
+                                    @foreach ($subMenus as $sm)
+                                    @php
+                                    $menuId2 = $sm->id;
+                                    $subMenus2 = DB::table('front_menus')
+                                    ->where('menu_parent', '=', $menuId2)
+                                    ->where('deleted_at', '=', null)
+                                    ->orderBy('menu_parent', 'ASC')
+                                    ->get();
+                                    @endphp
+                                    @if (count($subMenus2) == 0)
+                                    <li>
+                                        <a href="{{ url('page', $sm->menu_url) }}">{{ $sm->menu_name }}
+                                        </a>
+                                    </li>
+                                    @else
+                                    <li class="menu-has-children">
+                                        <a href="#">{{ $sm->menu_name
+                                            }}
+                                        </a>
+                                        <ul>
+                                            @foreach ($subMenus2 as $sub3)
+                                            @php
+                                            $menuId3 = $sub3->id;
+                                            $subMenus3 = DB::table('front_menus')
+                                            ->where('menu_parent', '=', $menuId3)
+                                            ->where('deleted_at', '=', null)
+                                            ->orderBy('menu_parent', 'ASC')
+                                            ->get();
+                                            @endphp
 
+                                            @if (count($subMenus3) == 0)
+                                            <li>
+                                                @if ($sub3->menu_name == 'Permohonan Informasi Publik')
+                                                <a href="https://website.wonosobokab.go.id/category/detail/Permohonan-Informasi-Publik"
+                                                    target="_blank">{{ $sub3->menu_name }}
+                                                </a>
+                                                @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi Publik')
+                                                <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
+                                                    target="_blank">{{ $sub3->menu_name }}
+                                                </a>
+                                                @elseif ($sub3->menu_name == 'JDIH Wonosobo')
+                                                <a href="https://jdih.wonosobokab.go.id/" target="_blank">{{
+                                                    $sub3->menu_name }}
+                                                </a>
+                                                @else
+                                                <a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name }}
+                                                </a>
+                                                @endif
+                                            </li>
+                                            @else
+                                            <li class="menu-has-children">
+                                                <a href="#">{{ $sub3->menu_name }}
+                                                </a>
+                                                <ul>
+                                                    @foreach ($subMenus3 as $sub4)
+                                                    <li>
+                                                        <a href="{{ url('page', $sub4->menu_url) }}">{{ $sub4->menu_name
+                                                            }}</a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                            @endif
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                    @endif
+                                    @endforeach
+                                </ul>
+                            </li>
+                            @endif
+                            @endforeach
+                        </ul>
+                    </nav><!-- #nav-menu-container -->
+                </div>
             </div>
         </div>
     </header>
-    <!-- End Header -->
+    <!-- Header Area End -->
 
-    <!-- Start Banner
-    ============================================= -->
-    <div class="banner-area content-double box-nav background-move bg-gray"
-        style="background-image: url(assets/img/bg-2.png);">
+    <!-- Banner Area Starts -->
+    <section class="banner-area">
         <div class="container">
             <div class="row">
-                <div class="double-items">
-                    <div class="col-md-6 left-info simple-video">
-                        <div class="content" data-animation="animated fadeInUpBig">
-                            <h1>
-                                We're building <span>software</span> to help
-                            </h1>
-                            <p>
-                                Celebrated delightful an especially increasing instrument am. Indulgence contrasted
-                                sufficient to unpleasant in in insensible favourable.
-                            </p>
-                            <a class="btn btn-theme border btn-md" href="#">Get Started</a>
-                            <a class="btn-animation popup-youtube" href="https://www.youtube.com/watch?v=owhuBrGIOsE">
-                                <i class="fa fa-play"></i> Watch Video
-                            </a>
-                        </div>
+                <div class="col-lg-5">
+                    <h4>Caring for better life</h4>
+                    <h1>Leading the way in medical excellence</h1>
+                    <p>Earth greater grass for good. Place for divide evening yielding them that. Creeping beginning
+                        over gathered brought.</p>
+                    <a href="" class="template-btn mt-3">take appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+
+    <!-- Feature Area Starts -->
+    <section class="feature-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding">
+                        <img src="{{ asset('assets/front/medino/images/feature1.png') }}" alt="">
+                        <h3>advance technology</h3>
+                        <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing
+                            tree appear</p>
                     </div>
-                    <div class="col-md-6 right-info">
-                        <div class="thumb animated">
-                            <img src="{{ asset('assets/front/boxass/assets/img/illustrations/1.png') }}" alt="Thumb">
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding mt-4 mt-md-0">
+                        <img src="{{ asset('assets/front/medino/images/feature2.png') }}" alt="">
+                        <h3>comfortable place</h3>
+                        <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing
+                            tree appear</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding mt-4 mt-lg-0">
+                        <img src="{{ asset('assets/front/medino/images/feature3.png') }}" alt="">
+                        <h3>quality equipment</h3>
+                        <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing
+                            tree appear</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding mt-4 mt-lg-0">
+                        <img src="{{ asset('assets/front/medino/images/feature4.png') }}" alt="">
+                        <h3>friendly staff</h3>
+                        <p class="pt-3">Creeping for female light years that lesser can't evening heaven isn't bearing
+                            tree appear</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Feature Area End -->
+
+    <!-- Welcome Area Starts -->
+    <section class="welcome-area section-padding3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 align-self-center">
+                    <div class="welcome-img">
+                        <img src="{{ asset('assets/front/medino/images/welcome.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="welcome-text mt-5 mt-lg-0">
+                        <h2>Welcome to our clinic</h2>
+                        <p class="pt-3">Subdue whales void god which living don't midst lesser yielding over lights
+                            whose. Cattle greater brought sixth fly den dry good tree isn't seed stars were.</p>
+                        <p>Subdue whales void god which living don't midst lesser yielding over lights whose. Cattle
+                            greater brought sixth fly den dry good tree isn't seed stars were the boring.</p>
+                        <a href="#" class="template-btn mt-3">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Welcome Area End -->
+
+    <!-- Department Area Starts -->
+    <section class="department-area section-padding4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Popular department</h2>
+                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree
+                            word link available in the service for subdue fruit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="department-slider owl-carousel">
+                        <div class="single-slide">
+                            <div class="slide-img">
+                                <img src="{{ asset('assets/front/medino/images/department1.jpg') }}" alt=""
+                                    class="img-fluid">
+                                <div class="hover-state">
+                                    <a href="#"><i class="fa fa-stethoscope"></i></a>
+                                </div>
+                            </div>
+                            <div class="single-department item-padding text-center">
+                                <h3>cardiac clinic</h3>
+                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply
+                                    female midst upon</p>
+                            </div>
+                        </div>
+                        <div class="single-slide">
+                            <div class="slide-img">
+                                <img src="{{ asset('assets/front/medino/images/department2.jpg') }}" alt=""
+                                    class="img-fluid">
+                                <div class="hover-state">
+                                    <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
+                                </div>
+                            </div>
+                            <div class="single-department item-padding text-center">
+                                <h3>plastic surgery</h3>
+                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply
+                                    female midst upon</p>
+                            </div>
+                        </div>
+                        <div class="single-slide">
+                            <div class="slide-img">
+                                <img src="{{ asset('assets/front/medino/images/department3.jpg') }}" alt=""
+                                    class="img-fluid">
+                                <div class="hover-state">
+                                    <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
+                                </div>
+                            </div>
+                            <div class="single-department item-padding text-center">
+                                <h3>dental clinic</h3>
+                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply
+                                    female midst upon</p>
+                            </div>
+                        </div>
+                        <div class="single-slide">
+                            <div class="slide-img">
+                                <img src="{{ asset('assets/front/medino/images/department1.jpg') }}" alt=""
+                                    class="img-fluid">
+                                <div class="hover-state">
+                                    <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
+                                </div>
+                            </div>
+                            <div class="single-department item-padding text-center">
+                                <h3>cardiac clinic</h3>
+                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply
+                                    female midst upon</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Banner -->
+    </section>
+    <!-- Department Area Starts -->
 
-    <!-- Start Blog Area
-    ============================================= -->
-    <div id="blog" class="blog-area default-padding bottom-less">
+    <!-- Patient Area Starts -->
+    <section class="patient-area section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
-                    <div class="site-heading text-center">
-                        <h2>Recent News</h2>
-                        <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited
-                            exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                            out full gate bed day lose.
-                        </p>
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Patient are saying</h2>
+                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree
+                            word link available in the service for subdue fruit.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="blog-items">
-                    <!-- Single Item -->
-                    <div class="col-md-4 single-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#"><img src="{{ asset('assets/front/boxass/assets/img/800x600.png') }}"
-                                        alt="Thumb"></a>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="date">
-                                        15 Aug, 2019
-                                    </div>
-                                    <h4>
-                                        <a href="#">Direct wicket little of talked lasted formed</a>
-                                    </h4>
-                                    <p>
-                                        Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                        west quit had met till.
-                                    </p>
-                                    <a href="#">Read More <i class="fas fa-angle-right"></i></a>
-                                </div>
-                                <div class="meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
-                                                    alt="Author">
-                                                <span>Author</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-comments"></i>
-                                                <span>05</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-share-alt"></i>
-                                                <span>37</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-5">
+                    <div class="single-patient mb-4">
+                        <img src="{{ asset('assets/front/medino/images/patient1.png') }}" alt="">
+                        <h3>daren jhonson</h3>
+                        <h5>hp specialist</h5>
+                        <p class="pt-3">Elementum libero hac leo integer. Risus hac road parturient feugiat. Litora
+                            cursus hendrerit bib elit Tempus inceptos posuere metus.</p>
                     </div>
-                    <!-- Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-4 single-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#"><img src="{{ asset('assets/front/boxass/assets/img/800x600.png') }}"
-                                        alt="Thumb"></a>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="date">
-                                        27 Nov, 2019
-                                    </div>
-                                    <h4>
-                                        <a href="#">Supported neglected met therefore unwilling</a>
-                                    </h4>
-                                    <p>
-                                        Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                        west quit had met till.
-                                    </p>
-                                    <a href="#">Read More <i class="fas fa-angle-right"></i></a>
-                                </div>
-                                <div class="meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
-                                                    alt="Author">
-                                                <span>Author</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-comments"></i>
-                                                <span>17</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-share-alt"></i>
-                                                <span>22</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-4 single-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#"><img src="{{ asset('assets/front/boxass/assets/img/800x600.png') }}"
-                                        alt="Thumb"></a>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="date">
-                                        18 Sep, 2019
-                                    </div>
-                                    <h4>
-                                        <a href="#">Concerns greatest margaret absolute entrance</a>
-                                    </h4>
-                                    <p>
-                                        Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                        west quit had met till.
-                                    </p>
-                                    <a href="#">Read More <i class="fas fa-angle-right"></i></a>
-                                </div>
-                                <div class="meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <img src="{{ asset('assets/front/boxass/assets/img/100x100.png') }}"
-                                                    alt="Author">
-                                                <span>Author</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-comments"></i>
-                                                <span>25</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-share-alt"></i>
-                                                <span>50</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Item -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Blog Area -->
-
-    <!-- Start Contact
-    ============================================= -->
-    <div id="contact" class="contact-area bg-gray default-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
-                    <div class="site-heading text-center">
-                        <h2>Contact Us</h2>
-                        <p>
-                            Learning day desirous informed expenses material returned six the. She enabled invited
-                            exposed him another. Reasonably conviction solicitude me mr at discretion reasonable. Age
-                            out full gate bed day lose.
-                        </p>
+                    <div class="single-patient">
+                        <img src="{{ asset('assets/front/medino/images/patient2.png') }}" alt="">
+                        <h3>black heiden</h3>
+                        <h5>hp specialist</h5>
+                        <p class="pt-3">Elementum libero hac leo integer. Risus hac road parturient feugiat. Litora
+                            cursus hendrerit bib elit Tempus inceptos posuere metus.</p>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="contact-items">
-
-                    <!-- End Thumb -->
-                    <div class="col-md-4 thumb">
-                        <img src="{{ asset('assets/front/boxass/assets/img/illustrations/5.png') }}" alt="Thumb">
-                    </div>
-                    <!-- End Thumb -->
-
-                    <!-- Contact Form -->
-                    <div class="col-md-7 col-md-offset-1 contact-form">
-                        <form action="assets/front/boxass/assets/mail/contact.php" method="POST" class="contact-form">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="form-group">
-                                        <input class="form-control" id="name" name="name" placeholder="Name"
-                                            type="text">
-                                        <span class="alert-error"></span>
-                                    </div>
-                                </div>
+                <div class="col-lg-5 offset-lg-1 align-self-center">
+                    <div class="appointment-form text-center mt-5 mt-lg-0">
+                        <h3 class="mb-5">appointment now</h3>
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Your Name'" required>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input class="form-control" id="email" name="email" placeholder="Email*"
-                                            type="email">
-                                        <span class="alert-error"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input class="form-control" id="phone" name="phone" placeholder="Phone"
-                                            type="text">
-                                        <span class="alert-error"></span>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Your Email'" required>
                             </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="form-group comments">
-                                        <textarea class="form-control" id="comments" name="comments"
-                                            placeholder="Tell Us About Project *"></textarea>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <input type="text" id="datepicker" placeholder="Date" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Date'" required>
                             </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <button type="submit" name="submit" id="submit">
-                                        Send Message <i class="fa fa-paper-plane"></i>
-                                    </button>
-                                </div>
+                            <div class="form-group">
+                                <textarea name="message" cols="20" rows="7" placeholder="Message"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'"
+                                    required></textarea>
                             </div>
-                            <!-- Alert Message -->
-                            <div class="col-md-12 alert-notification">
-                                <div id="message" class="alert-msg"></div>
-                            </div>
+                            <a href="#" class="template-btn">appointment now</a>
                         </form>
-                        <h3>For any question contact our 24/7 <br>call center <span>+123 456 7890</span></h3>
-                    </div>
-                    <!-- End Contact Form -->
-                </div>
-
-                <!-- Address List -->
-                <div class="address-list text-center col-md-12">
-                    <div class="item-box">
-                        <!-- Single Item -->
-                        <div class="col-md-4 equal-height single-item">
-                            <div class="item">
-                                <i class="fas fa-map-marked-alt"></i>
-                                <h4>Location</h4>
-                                <p>
-                                    22 Baker Street,London, United Kingdom, W1U 3BW
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="col-md-4 equal-height single-item">
-                            <div class="item">
-                                <i class="fas fa-phone"></i>
-                                <h4>Emergency Case</h4>
-                                <h2>+123 456 7890</h2>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-                        <!-- Single Item -->
-                        <div class="col-md-4 equal-height single-item">
-                            <div class="item">
-                                <i class="fas fa-envelope-open"></i>
-                                <h4>Email</h4>
-                                <p>
-                                    info@yourdomain.com<br>admin@yourdomain.com
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
                     </div>
                 </div>
-                <!-- End Address List -->
-
             </div>
         </div>
-    </div>
-    <!-- End Contact -->
+    </section>
+    <!-- Patient Area Starts -->
 
-    <!-- Start Footer
-    ============================================= -->
-    <footer class="default-padding bg-light">
+    <!-- Specialist Area Starts -->
+    <section class="specialist-area section-padding">
         <div class="container">
             <div class="row">
-                <div class="f-items">
-                    <div class="col-md-4 col-sm-6 equal-height item">
-                        <div class="f-item">
-                            <img src="{{ asset('assets/front/boxass/assets/img/logo.png') }}" alt="Logo">
-                            <p>
-                                Excellence decisively nay man yet impression for contrasted remarkably. There spoke
-                                happy for you are out. Fertile how old address.
-                            </p>
-                            <p>
-                                <i>Please write your email and get our amazing updates, news and support</i>
-                            </p>
-                            <div class="newsletter">
-                                <form action="#">
-                                    <div class="input-group stylish-input-group">
-                                        <input type="email" name="email" class="form-control"
-                                            placeholder="Enter your e-mail here">
-                                        <button type="submit">
-                                            <i class="fa fa-paper-plane"></i>
-                                        </button>
-                                    </div>
-                                </form>
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Our specialish</h2>
+                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree
+                            word link available in the service for subdue fruit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-doctor mb-4 mb-lg-0">
+                        <div class="doctor-img">
+                            <img src="{{ asset('assets/front/medino/images/doctor1.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="content-area">
+                            <div class="doctor-name text-center">
+                                <h3>ethel davis</h3>
+                                <h6>sr. faculty data science</h6>
+                            </div>
+                            <div class="doctor-text text-center">
+                                <p>If you are looking at blank cassettes on the web, you may be very confused at the.
+                                </p>
+                                <ul class="doctor-icon">
+                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6 equal-height item">
-                        <div class="f-item link">
-                            <h4>Quick LInk</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#">About us</a>
-                                </li>
-                                <li>
-                                    <a href="#">Compnay History</a>
-                                </li>
-                                <li>
-                                    <a href="#">Management </a>
-                                </li>
-                                <li>
-                                    <a href="#">Features</a>
-                                </li>
-                                <li>
-                                    <a href="#">Blog Page</a>
-                                </li>
-                            </ul>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-doctor mb-4 mb-lg-0">
+                        <div class="doctor-img">
+                            <img src="{{ asset('assets/front/medino/images/doctor2.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="content-area">
+                            <div class="doctor-name text-center">
+                                <h3>dand mories</h3>
+                                <h6>sr. faculty plastic surgery</h6>
+                            </div>
+                            <div class="doctor-text text-center">
+                                <p>If you are looking at blank cassettes on the web, you may be very confused at the.
+                                </p>
+                                <ul class="doctor-icon">
+                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6 equal-height item">
-                        <div class="f-item link">
-                            <h4>Community</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">Career</a>
-                                </li>
-                                <li>
-                                    <a href="#">Leadership</a>
-                                </li>
-                                <li>
-                                    <a href="#">Strategy</a>
-                                </li>
-                                <li>
-                                    <a href="#">Services</a>
-                                </li>
-                                <li>
-                                    <a href="#">History</a>
-                                </li>
-                                <li>
-                                    <a href="#">Jobs</a>
-                                </li>
-                            </ul>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-doctor mb-4 mb-sm-0">
+                        <div class="doctor-img">
+                            <img src="{{ asset('assets/front/medino/images/doctor3.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="content-area">
+                            <div class="doctor-name text-center">
+                                <h3>align board</h3>
+                                <h6>sr. faculty data science</h6>
+                            </div>
+                            <div class="doctor-text text-center">
+                                <p>If you are looking at blank cassettes on the web, you may be very confused at the.
+                                </p>
+                                <ul class="doctor-icon">
+                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 equal-height item">
-                        <div class="f-item twitter-widget">
-                            <h4>Contact Info</h4>
-                            <p>
-                                Queenslad Victoria Building. 60 california street california USA, 20, floor
-                            </p>
-                            <div class="address">
-                                <ul>
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fas fa-home"></i>
-                                        </div>
-                                        <div class="info">
-                                            <h5>Website:</h5>
-                                            <span>www.validtheme.com</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fas fa-envelope"></i>
-                                        </div>
-                                        <div class="info">
-                                            <h5>Email:</h5>
-                                            <span>support@validtheme.com</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fas fa-phone"></i>
-                                        </div>
-                                        <div class="info">
-                                            <h5>Phone:</h5>
-                                            <span>+44-20-7328-4499</span>
-                                        </div>
-                                    </li>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-doctor">
+                        <div class="doctor-img">
+                            <img src="{{ asset('assets/front/medino/images/doctor4.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="content-area">
+                            <div class="doctor-name text-center">
+                                <h3>jeson limit</h3>
+                                <h6>sr. faculty plastic surgery</h6>
+                            </div>
+                            <div class="doctor-text text-center">
+                                <p>If you are looking at blank cassettes on the web, you may be very confused at the.
+                                </p>
+                                <ul class="doctor-icon">
+                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Start Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="col-lg-6 col-md-6 col-sm-7">
-                            <p>&copy; Copyright 2018. All Rights Reserved by <a href="#">validthemes</a></p>
+        </div>
+    </section>
+    <!-- Specialist Area Starts -->
+
+    <!-- Hotline Area Starts -->
+    <section class="hotline-area text-center section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Emergency hotline</h2>
+                    <span>(+01) – 256 567 550</span>
+                    <p class="pt-3">We provide 24/7 customer support. Please feel free to contact us <br>for emergency
+                        case.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hotline Area End -->
+
+    <!-- News Area Starts -->
+    <section class="news-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Recent medical news</h2>
+                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree
+                            word link available in the service for subdue fruit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-news">
+                        <div class="news-img">
+                            <img src="{{ asset('assets/front/medino/images/news1.jpg') }}" alt="" class="img-fluid">
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-5 text-right social">
+                        <div class="news-text">
+                            <div class="news-date">
+                                22 July 2018
+                            </div>
+                            <h3><a href="blog-details.html">chip to model coeliac disease</a></h3>
+                            <p>Elementum libero hac leo integer. Risus hac part duriw feugiat litora cursus hendrerit
+                                bibendum per person on elit.Tempus inceptos posuere me.</p>
+                            <a href="blog-details.html" class="news-btn">read more <i
+                                    class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-news mt-5 mt-md-0">
+                        <div class="news-img">
+                            <img src="{{ asset('assets/front/medino/images/news2.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="news-text">
+                            <div class="news-date">
+                                22 Oct 2018
+                            </div>
+                            <h3><a href="blog-details.html">Galectins An Ancient FaSi Future</a></h3>
+                            <p>Elementum libero hac leo integer. Risus hac part duriw feugiat litora cursus hendrerit
+                                bibendum per person on elit.Tempus inceptos posuere me.</p>
+                            <a href="blog-details.html" class="news-btn">read more <i
+                                    class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-news mt-5 mt-lg-0">
+                        <div class="news-img">
+                            <img src="{{ asset('assets/front/medino/images/news3.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="news-text">
+                            <div class="news-date">
+                                22 Sep 2018
+                            </div>
+                            <h3><a href="blog-details.html">Getting the Most Out of the CLARI</a></h3>
+                            <p>Elementum libero hac leo integer. Risus hac part duriw feugiat litora cursus hendrerit
+                                bibendum per person on elit.Tempus inceptos posuere me.</p>
+                            <a href="blog-details.html" class="news-btn">read more <i
+                                    class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- News Area Starts -->
+
+    <!-- Footer Area Starts -->
+    <footer class="footer-area section-padding">
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3">
+                        <div class="single-widget-home mb-5 mb-lg-0">
+                            <h3 class="mb-4">top products</h3>
                             <ul>
-                                <li>
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                                </li>
+                                <li class="mb-2"><a href="#">managed website</a></li>
+                                <li class="mb-2"><a href="#">managed reputation</a></li>
+                                <li class="mb-2"><a href="#">power tools</a></li>
+                                <li><a href="#">marketing service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 offset-xl-1 col-lg-6">
+                        <div class="single-widget-home mb-5 mb-lg-0">
+                            <h3 class="mb-4">newsletter</h3>
+                            <p class="mb-4">You can trust us. we only send promo offers, not a single.</p>
+                            <form action="#">
+                                <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Your email here'" required>
+                                <button type="submit" class="template-btn">subscribe now</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 offset-xl-1 col-lg-3">
+                        <div class="single-widge-home">
+                            <h3 class="mb-4">instagram feed</h3>
+                            <div class="feed">
+                                <img src="{{ asset('assets/front/medino/images/feed1.jpg') }}" alt="feed">
+                                <img src="{{ asset('assets/front/medino/images/feed2.jpg') }}" alt="feed">
+                                <img src="{{ asset('assets/front/medino/images/feed3.jpg') }}" alt="feed">
+                                <img src="{{ asset('assets/front/medino/images/feed4.jpg') }}" alt="feed">
+                                <img src="{{ asset('assets/front/medino/images/feed5.jpg') }}" alt="feed">
+                                <img src="{{ asset('assets/front/medino/images/feed6.jpg') }}" alt="feed">
+                                <img src="{{ asset('assets/front/medino/images/feed7.jpg') }}" alt="feed">
+                                <img src="{{ asset('assets/front/medino/images/feed8.jpg') }}" alt="feed">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <span>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                            template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                                href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="social-icons">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- End Footer Bottom -->
         </div>
     </footer>
-    <!-- End Footer -->
+    <!-- Footer Area End -->
 
-    <!-- jQuery Frameworks
-    ============================================= -->
-    <script src="{{ asset('assets/front/boxass/assets/js/jquery-1.12.4.min.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/equal-height.min.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/jquery.appear.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/modernizr.custom.13711.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/count-to.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/jquery.backgroundMove.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/bootsnav.js') }}"></script>
-    <script src="{{ asset('assets/front/boxass/assets/js/main.js') }}"></script>
+
+    <!-- Javascript -->
+    <script src="{{ asset('assets/front/medino/js/vendor/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('assets/front/medino/js/vendor/bootstrap-4.1.3.min.js') }}"></script>
+    <script src="{{ asset('assets/front/medino/js/vendor/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/front/medino/js/vendor/owl-carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/front/medino/js/vendor/jquery.datetimepicker.full.min.js') }}"></script>
+    <script src="{{ asset('assets/front/medino/js/vendor/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/front/medino/js/vendor/superfish.min.js') }}"></script>
+    <script src="{{ asset('assets/front/medino/js/main.js') }}"></script>
 
 </body>
 
