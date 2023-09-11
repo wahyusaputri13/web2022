@@ -93,7 +93,7 @@ class FrontMenuController extends Controller
     public function create()
     {
         $root = FrontMenu::pluck('menu_name', 'id');
-        return view('back.a.pages.frontmenu.create', compact('root'));
+        return view('back.' . $this->themes->themes_back . '.pages.frontmenu.create', compact('root'));
     }
 
     /**
@@ -136,7 +136,7 @@ class FrontMenuController extends Controller
     {
         $data = FrontMenu::find($id);
         $root = FrontMenu::pluck('menu_name', 'id');
-        return view('back.a.pages.frontmenu.edit', compact('data', 'root'));
+        return view('back.' . $this->themes->themes_back . '.pages.frontmenu.edit', compact('data', 'root'));
     }
 
     /**

@@ -58,7 +58,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.agenda.create');
+        return view('back.' . $this->themes->themes_back . '.pages.agenda.create');
     }
 
     /**
@@ -99,7 +99,7 @@ class AgendaController extends Controller
     public function edit(Agenda $agenda, $id)
     {
         $data = Agenda::find($id);
-        return view('back.a.pages.agenda.edit', compact('data'));
+        return view('back.' . $this->themes->themes_back . '.pages.agenda.edit', compact('data'));
     }
 
     /**

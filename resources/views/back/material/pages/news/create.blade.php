@@ -105,7 +105,7 @@
 </script>
 
 <!-- ck editor -->
-<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('assets/back/material/ckeditor/ckeditor.js')}}"></script>
 <script>
     var konten = document.getElementById("my-editor");
     var options = {

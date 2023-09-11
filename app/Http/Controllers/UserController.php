@@ -69,7 +69,7 @@ class UserController extends Controller
         $role = ModelsRole::all()->pluck('name', 'id')->skip(1);
         $permission = Permission::all()->pluck('name', 'id');
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
-        return view('back.a.pages.user.create', compact('role', 'bidang', 'permission'));
+        return view('back.' . $this->themes->themes_back . '.pages.user.create', compact('role', 'bidang', 'permission'));
     }
 
     /**
@@ -138,7 +138,7 @@ class UserController extends Controller
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         $permission = Permission::all()->pluck('name', 'id');
         $permis = $data->getAllPermissions();
-        return view('back.a.pages.user.edit', compact('data', 'role', 'user_role', 'bidang', 'permission', 'permis'));
+        return view('back.' . $this->themes->themes_back . '.pages.user.edit', compact('data', 'role', 'user_role', 'bidang', 'permission', 'permis'));
     }
 
     /**

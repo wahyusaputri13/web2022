@@ -48,7 +48,7 @@ class RelatedLinkController extends Controller
      */
     public function create()
     {
-        return view('back.a.pages.related.create');
+        return view('back.' . $this->themes->themes_back . '.pages.related.create');
     }
 
     /**
@@ -87,7 +87,7 @@ class RelatedLinkController extends Controller
     public function edit($id)
     {
         $data = RelatedLink::find($id);
-        return view('back.a.pages.related.edit', compact('data'));
+        return view('back.' . $this->themes->themes_back . '.pages.related.edit', compact('data'));
     }
 
     /**

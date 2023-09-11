@@ -66,7 +66,7 @@ class NewsController extends Controller
     {
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.create', compact('highlight', 'categori'));
+        return view('back.' . $this->themes->themes_back . '.pages.news.create', compact('highlight', 'categori'));
     }
 
     /**
@@ -130,7 +130,7 @@ class NewsController extends Controller
         $data = News::find($id);
         $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
         $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
+        return view('back.' . $this->themes->themes_back . '.pages.news.edit', compact('data', 'highlight', 'categori'));
     }
 
     /**

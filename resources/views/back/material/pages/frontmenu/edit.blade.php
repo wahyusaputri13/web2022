@@ -30,30 +30,26 @@
                                 {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}
                                 @endif
                         </div>
-                        <<<<<<< HEAD <<<<<<< HEAD=======>>>>>>> 01c1e7b (front menu tambah kategori)
-                            @error('menu_name')
-                            <div class="error text-danger">Tidak Boleh Kosong</div>
-                            @enderror
-                            <div class="form-group label-floating">
-                                <label class="control-label">Jenis Informasi Publik</label>
-                                {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-                                'form-control','placeholder' => ''])}}
-                            </div>
-                            @error('kategori')
-                            <div class="error text-danger">Tidak Boleh Kosong</div>
-                            @enderror
-                            <<<<<<< HEAD=======>>>>>>> d435741 (ganti ckeditor)
-                                =======
-                                >>>>>>> 01c1e7b (front menu tambah kategori)
-                                <div class="form-group label">
-                                    <label class="control-label">Content</label>
-                                    {{Form::textarea('content', null,['class' => 'form-control','id'=>'my-editor'])}}
-                                </div>
-                                <div class="d-flex text-right">
-                                    <a href="{{ route('frontmenu.index') }}" class="btn btn-default btn-fill">Cancel</a>
-                                    <button type="submit" class="btn btn-success btn-fill">Update</button>
-                                </div>
-                                {{Form::close()}}
+                        @error('menu_name')
+                        <div class="error text-danger">Tidak Boleh Kosong</div>
+                        @enderror
+                        <div class="form-group label-floating">
+                            <label class="control-label">Jenis Informasi Publik</label>
+                            {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
+                            'form-control','placeholder' => ''])}}
+                        </div>
+                        @error('kategori')
+                        <div class="error text-danger">Tidak Boleh Kosong</div>
+                        @enderror
+                        <div class="form-group label">
+                            <label class="control-label">Content</label>
+                            {{Form::textarea('content', null,['class' => 'form-control','id'=>'my-editor'])}}
+                        </div>
+                        <div class="d-flex text-right">
+                            <a href="{{ route('frontmenu.index') }}" class="btn btn-default btn-fill">Cancel</a>
+                            <button type="submit" class="btn btn-success btn-fill">Update</button>
+                        </div>
+                        {{Form::close()}}
                     </div>
                 </div>
             </div>
@@ -86,7 +82,7 @@
     });
 </script>
 <!-- ck editor -->
-<script src="{{asset('assets/back/assets/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('assets/back/material/ckeditor/ckeditor.js')}}"></script>
 <script>
     var konten = document.getElementById("my-editor");
     var options = {
