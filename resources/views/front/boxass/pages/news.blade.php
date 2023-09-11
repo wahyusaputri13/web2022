@@ -91,11 +91,6 @@
                         <nav aria-label="navigation">
                             <ul class="pagination">
                                 {{ $news->links('vendor.pagination.boxass') }}
-                                <!-- <li><a href="#">Previous</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">Next</a></li> -->
                             </ul>
                         </nav>
                     </div>
