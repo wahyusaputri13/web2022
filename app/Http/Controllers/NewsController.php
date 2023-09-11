@@ -35,9 +35,9 @@ class NewsController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                    <div class="text-center">
+                        <a href="' . route('news.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
+                        <a href="' . route('news.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
                         return $actionBtn;
                     }
@@ -46,7 +46,7 @@ class NewsController extends Controller
                     'tgl',
                     function ($data) {
                         $actionBtn = '<center>' .
-                            \Carbon\Carbon::parse($data->date)->toFormattedDateString()
+                            \Carbon\Carbon::parse($data->date)->isoFormat('dddd, D MMMM Y')
                             . '</center>';
                         return $actionBtn;
                     }

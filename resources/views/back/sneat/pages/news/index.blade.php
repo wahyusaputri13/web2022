@@ -61,7 +61,10 @@
                 buttons: [
                     {
                         text: '<i class="bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Tambah Postingan</span>',
-                        className: 'create-new btn btn-primary'
+                        className: 'create-new btn btn-primary',
+                        action: function (e, dt, button, config) {
+                            window.location = `{{ route('news.create') }}`;
+                        }
                     }
                 ],
             });
