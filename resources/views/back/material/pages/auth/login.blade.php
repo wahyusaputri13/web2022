@@ -28,7 +28,8 @@
     </div>
 </nav>
 <div class="wrapper wrapper-full-page">
-    <div class="full-page login-page" filter-color="black" data-image="{{ asset('assets/back/assets/img/login.jpg') }}">
+    <div class="full-page login-page" filter-color="black"
+        data-image="{{ asset('assets/back/material/img/login.jpg') }}">
         <div class="content">
             <div class="container">
                 <div class="row">
