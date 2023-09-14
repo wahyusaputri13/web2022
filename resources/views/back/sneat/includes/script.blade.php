@@ -13,9 +13,11 @@
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('assets/back/sneat/assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-<script src="{{ asset('assets/back/sneat/assets/vendor/js/helpers.js') }}"></script>
+<!-- <script src="{{ asset('assets/back/sneat/assets/vendor/js/helpers.js') }}"></script> -->
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/hammer/hammer.js') }}"></script>
 <script src="{{ asset('assets/back/sneat/assets/vendor/js/menu.js') }}"></script>
+<script src="{{ asset('assets/back/sneat/assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
+<script src="{{ asset('assets/back/sneat/assets/vendor/libs/pickr/pickr.js') }}"></script>
 <!-- <script src="{{ asset('assets/back/sneat/assets/js/config.js') }}"></script> -->
 <!-- endbuild -->
 
@@ -36,6 +38,8 @@
 
 <!-- Page JS -->
 <!-- <script src="{{ asset('assets/back/sneat/assets/js/docs.js') }}"></script> -->
+<script src="{{ asset('assets/back/sneat/assets/js/forms-pickers.js') }}"></script>
+<script src="{{ asset('assets/back/sneat/assets/vendor/libs/select2/select2.js') }}"></script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
