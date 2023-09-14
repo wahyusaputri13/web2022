@@ -1,4 +1,8 @@
 @extends('back.sneat.layouts.app')
+@push('after-style')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
+    integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
+@endpush
 @section('content')
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -47,30 +51,32 @@
                 @endcan
 
                 <div class="row">
-                    <div class="form-group label-floating jip col-6">
+                    <div class="form-group jip col-6">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
-                        'form-control select2','placeholder' => ''])}}
+                        'form-control select2','placeholder' => 'Silahkan Pilih'])}}
                     </div>
 
                     <div class="form-group col-6">
                         <label for="defaultFormControlInput" class="form-label">Tanggal</label>
-                        {{Form::text('date', null,['class' => 'form-control flatpickr-date'])}}
+                        {{Form::text('date', null, ['class' => 'form-control flatpickr-date',
+                        'placeholder' => 'Silahkan Pilih Tanggal'])}}
                     </div>
                     @error('date')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
                         Tidak Boleh Kosong
                     </div>
                     @enderror
+
+                    <div class="form-group col-6 dip" style="display: none;">
+                        <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
+                        {{Form::number('dip_tahun', null, ['class' =>
+                        'form-control','placeholder' => 'Masukkan Tahun'])}}
+                    </div>
                 </div>
 
                 <div class="row">
-                    <div class="form-group label-floating dip" style="display: none;">
-                        <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => ''])}}
-                    </div>
-                    <div class="form-group label-floating">
+                    <div class="form-group">
                         <label for="defaultFormControlInput" class="form-label">Judul Postingan</label>
                         {{Form::text('title', null,['class' => 'form-control',
                         'placeholder'=>'Masukkan Judul Postingan'])}}
@@ -102,17 +108,125 @@
             </div>
         </div>
     </div>
-    <!-- / Content -->
+</div>
+<!-- / Content -->
 
-    @endsection
-    @push('after-script')
-    <script>
-        $(".select2").select2();
+@endsection
+@push('after-script')
+<script>
+    $(document).ready(function () {
 
-        var flatpickrDate = document.querySelector(".flatpickr-date");
-
-        flatpickrDate.flatpickr({
-            monthSelectorType: "static"
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".dropzone").hide();
+                $(".jip").hide();
+                $(".dip").show();
+            } else {
+                $(".dropzone").show();
+                $(".jip").show();
+                $(".dip").hide();
+            }
         });
-    </script>
-    @endpush
+
+    });
+
+    $(".select2").select2();
+
+    var flatpickrDate = document.querySelector(".flatpickr-date");
+
+    flatpickrDate.flatpickr({
+        monthSelectorType: "static",
+        todayHighlight: true,
+    });
+</script>
+
+<!-- Start DropZone -->
+<script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"
+    integrity="sha256-IXyEnLo8FpsoOLrRzJlVYymqpY29qqsMHUD2Ah/ttwQ=" crossorigin="anonymous"></script>
+
+<script>
+    var uploadedDocumentMap = {}
+    let token = $("meta[name='csrf-token']").attr("content");
+    Dropzone.options.myAwesomeDropzone = {
+
+        url: `{{ route('file_image.store') }}`,
+        acceptedFiles: 'image/*',
+        // maxFilesize: 2, // MB
+        addRemoveLinks: true,
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        success: function (file, response) {
+            $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
+            uploadedDocumentMap[file.name] = response.name
+            uploadedDocumentMap[file.path] = response.path
+        },
+        removedfile: function (file) {
+            file.previewElement.remove()
+            var name = ''
+            var path = ''
+            if (typeof file.file_name !== 'undefined') {
+                name = file.file_name
+            } else {
+                name = uploadedDocumentMap[file.name]
+                path = uploadedDocumentMap[file.path]
+            }
+            $('form').find('input[name="document[]"][value="' + name + '"]').remove();
+
+            // alert(name);
+            console.log(path);
+            console.log(name);
+            $.ajax({
+                url: `/admin/file_image/${name}`,
+                type: "DELETE",
+                cache: false,
+                data: {
+                    "_token": token
+                },
+                success: function (response) {
+                    console.log(response);
+                    //show success message
+                    // Swal.fire({
+                    //     type: 'success',
+                    //     icon: 'success',
+                    //     title: `${response.message}`,
+                    //     showConfirmButton: false,
+                    //     timer: 3000
+                    // });
+
+                    //remove post on table
+                    // $(`#index_${post_id}`).remove();
+                }
+            });
+        },
+        init: function () {
+            @if (isset($project) && $project -> document)
+                var files = {!! json_encode($project -> document)!!
+        }
+                for(var i in files) {
+        var file = files[i]
+        this.options.addedfile.call(this, file)
+        file.previewElement.classList.add('dz-complete')
+        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+    }
+    @endif
+        }
+    }
+</script>
+<!-- End DropZone -->
+
+<!-- ck editor -->
+<script src="{{asset('assets/back/material/ckeditor/ckeditor.js')}}"></script>
+<script>
+    var konten = document.getElementById("my-editor");
+    var options = {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+    CKEDITOR.replace(konten, options);
+    CKEDITOR.config.allowedContent = true;
+</script>
+<!-- end ck editor -->
+@endpush

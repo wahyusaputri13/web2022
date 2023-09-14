@@ -173,8 +173,8 @@
                         @foreach($news as $n)
                         <div class="media post_item">
                             @if($n->gambarmuka)
-                            <img src="{{ asset('storage/') }}/{{ $gambar->path }}" width="100px" height="60px"
-                                alt="{{ $gambar->file_name }}">
+                            <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path }}" width="100px" height="60px"
+                                alt="{{ $n->gambarmuka->file_name }}">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" width="100px" height="60px" alt="soul of java">
                             @endif
