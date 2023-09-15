@@ -68,9 +68,10 @@ background-position: center;" data-aos="zoom-out">
                             @if($n->gambarmuka)
                             <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-thumbnail"
                                 alt="{{ $n->gambarmuka->file_name }}"
-                                style=" flex-shrink: 0; min-width: 100%; min-height: 100%">
+                                style="flex-shrink: 0; min-width: 100%; min-height: 100%">
                             @else
-                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                            <img src="{{ asset('img/soulofjava.jpg') }}" class="img-thumbnail" alt="soul of java"
+                                style="flex-shrink: 0; min-width: 100%; min-height: 100%">
                             @endif
                         </div>
                         <div class="meta">
