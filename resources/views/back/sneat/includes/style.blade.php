@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/css/theme-default.css') }}"
     class="template-customizer-theme-css" />
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/css/demo.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/css/docs.css') }}" />
 
 <!-- Vendors CSS -->
 <link rel="stylesheet"
@@ -32,13 +33,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/flatpickr/flatpickr.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/select2/select2.css') }}" />
+
 <!-- <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.css') }}" /> -->
-<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/pickr/pickr-themes.css') }}" />
+<!-- <link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/pickr/pickr-themes.css') }}" /> -->
 <!-- <link rel="stylesheet"
     href="{{ asset('assets/back/sneat/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.css') }}" /> -->
 <!-- <link rel="stylesheet"
     href="{{ asset('assets/back/sneat/assets/vendor/libs/jquery-timepicker/jquery-timepicker.css') }}" /> -->
-<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/vendor/libs/select2/select2.css') }}" />
 
 <!-- Page CSS -->
 <!-- Page -->
@@ -53,6 +55,3 @@
     href="{{ asset('assets/back/sneat/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
 <link rel="stylesheet"
     href="{{ asset('assets/back/sneat/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
-
-
-

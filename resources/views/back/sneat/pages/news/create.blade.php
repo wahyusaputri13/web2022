@@ -25,8 +25,8 @@
 
                 <div class="row">
                     <div class="togglebutton" style="margin-bottom: 15px;">
-                        <label>
-                            Data DIP? <input type="checkbox" id="hideButton">
+                        <label class="form-check-label">
+                            Data DIP? <input type="checkbox" id="hideButton" class="form-check-input">
                         </label>
                     </div>
                 </div>

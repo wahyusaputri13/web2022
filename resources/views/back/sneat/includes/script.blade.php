@@ -18,12 +18,13 @@
 <script src="{{ asset('assets/back/sneat/assets/vendor/js/menu.js') }}"></script>
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
 <!-- <script src="{{ asset('assets/back/sneat/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script> -->
-<script src="{{ asset('assets/back/sneat/assets/vendor/libs/pickr/pickr.js') }}"></script>
+<!-- <script src="{{ asset('assets/back/sneat/assets/vendor/libs/pickr/pickr.js') }}"></script> -->
 <!-- <script src="{{ asset('assets/back/sneat/assets/js/config.js') }}"></script> -->
 <!-- endbuild -->
 
 <!-- Vendors JS -->
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+<script src="{{ asset('assets/back/sneat/assets/vendor/libs/select2/select2.js') }}"></script>
 
 <!-- BS table js -->
 <script src="{{ asset('assets/back/sneat/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
@@ -40,7 +41,6 @@
 <!-- Page JS -->
 <!-- <script src="{{ asset('assets/back/sneat/assets/js/docs.js') }}"></script> -->
 <!-- <script src="{{ asset('assets/back/sneat/assets/js/forms-pickers.js') }}"></script> -->
-<script src="{{ asset('assets/back/sneat/assets/vendor/libs/select2/select2.js') }}"></script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
