@@ -63,10 +63,12 @@ background-position: center;" data-aos="zoom-out">
                 @foreach($news as $n)
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" style="display: flex">
                     <div class="post-box">
-                        <div class="post-img" style="width: 500px; height: 500px;">
+                        <div class="post-img"
+                            style="width: 500px; height: 500px; justify-content: center; align-items: center; display: flex; overflow: hidden;">
                             @if($n->gambarmuka)
-                            <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}"
-                                class="rounded mx-auto d-block" alt="{{ $n->gambarmuka->file_name }}">
+                            <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-thumbnail"
+                                alt="{{ $n->gambarmuka->file_name }}"
+                                style=" flex-shrink: 0; min-width: 100%; min-height: 100%">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                             @endif

@@ -177,5 +177,3 @@ Route::get('migrate', [MigrasiDataController::class, 'insert']);
 Route::get('kabupaten', [ComRegionController::class, 'kabupaten'])->name('kabupaten');
 Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecamatan');
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
-
-// dummy saja
