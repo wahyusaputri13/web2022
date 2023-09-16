@@ -76,6 +76,48 @@
                     </a>
                 </li>
 
+                @role('superadmin|admin')
+                <li
+                    class="menu-item {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle"
+                        aria-expanded="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'true' : '' }}">
+                        <i class="menu-icon tf-icons bx bx-layout"></i>
+                        <div data-i18n="Layouts">Website</div>
+                    </a>
+
+                    <ul class="menu-sub">
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('component.index') }}">
+                                <div data-i18n="Without menu">Komponen</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('frontmenu.index') }}">
+                                Menu
+                            </a>
+                        </li>
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('relatedlink.index') }}">
+                                Link Terkait</a>
+                        </li>
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'settings')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('settings.index') }}">
+                                Pengaturan Web</a>
+                        </li>
+                        @role('superadmin')
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('themes.index') }}">
+                                Tema</a>
+                        </li>
+                        @endrole
+                        <li class="menu-item {{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('user.index') }}">
+                                Users</a>
+                        </li>
+                    </ul>
+                </li>
+                @endrole
+
                 <!-- Layouts -->
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -112,32 +154,6 @@
                     </ul>
                 </li>
 
-                <li class="menu-header small text-uppercase">
-                    <span class="menu-header-text">Pages</span>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                        <div data-i18n="Account Settings">Account Settings</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="pages-account-settings-account.html" class="menu-link">
-                                <div data-i18n="Account">Account</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="pages-account-settings-notifications.html" class="menu-link">
-                                <div data-i18n="Notifications">Notifications</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="pages-account-settings-connections.html" class="menu-link">
-                                <div data-i18n="Connections">Connections</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </aside>
         <!-- / Menu -->
