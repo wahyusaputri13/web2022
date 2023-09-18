@@ -23,25 +23,27 @@
 
                     <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Nama Link Terkait</label>
-                        {{Form::text('name', null, ['class' => 'form-control',
+                        {{Form::text('name', null, ['class' => 'form-control'. ($errors->has('name') ? ' is-invalid' :
+                        null),
                         'placeholder' => 'Masukkan Nama Link Terkait'])}}
+                        @error('name')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                    @error('name')
-                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
-                    </div>
-                    @enderror
 
                     <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">URL Link Terkait</label>
                         {{Form::text('url', null, ['class' =>
-                        'form-control','placeholder' => 'Masukkan URL Link Terkait'])}}
+                        'form-control' . ($errors->has('url') ? ' is-invalid' : null),
+                        'placeholder' => 'Masukkan URL Link Terkait'])}}
+                        @error('url')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                    @error('url')
-                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
-                    </div>
-                    @enderror
 
                 </div>
 
