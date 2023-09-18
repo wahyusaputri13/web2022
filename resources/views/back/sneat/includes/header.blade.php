@@ -111,7 +111,7 @@
                         @endrole
                         <li class="menu-item {{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('user.index') }}">
-                                Users</a>
+                                Pengguna</a>
                         </li>
                     </ul>
                 </li>
