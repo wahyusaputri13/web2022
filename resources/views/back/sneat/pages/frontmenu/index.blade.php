@@ -15,6 +15,9 @@
     </nav>
     <div class="card">
         <div class="card-body">
+            @if ($message = Session::get('success'))
+            <div id="elementId" hidden>{{ $message }}</div>
+            @endif
             <div class="card-datatable table-responsive pt-0">
                 <table id="datatables" class="datatables-basic table border-top table-hover">
                     <thead>
@@ -35,6 +38,18 @@
 @endsection
 @push('after-script')
 <script type="text/javascript">
+    $(document).ready(function () {
+        if ($('#elementId').length > 0) {
+            const pesan = document.getElementById('elementId').innerText;
+            console.log(pesan);
+            Swal.fire(
+                'OK!',
+                'Data berhasil disimpan.',
+                'success'
+            )
+        }
+    });
+
     $(function () {
         'use strict';
 

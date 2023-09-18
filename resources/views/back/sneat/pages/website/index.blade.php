@@ -16,47 +16,11 @@
     <div class="card">
         <div class="card-body">
             <div class="card-content">
+                @if ($message = Session::get('success'))
+                <div id="elementId" hidden>{{ $message }}</div>
+                @endif
                 {{Form::model($data, ['route' => ['settings.update', $data->id],'method' => 'put', 'files' =>
                 'true', ''])}}
-
-                <div class="row">
-                    <div class="form-group col-md-6 col-sm-12 text-center">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Gambar Halaman Depan</h5>
-                                @if($data->image_hero)
-                                <img class="img-fluid d-flex mx-auto my-4"
-                                    src="{{ asset('storage') }}/{{ $data->image_hero }}" width="500px">
-                                @else
-                                <img class="img-fluid d-flex mx-auto my-4"
-                                    src="{{ asset('assets/back/material/img/image_placeholder.jpg') }}" width="500px">
-                                @endif
-                                <p class="card-text">Bear claw sesame snaps gummies chocolate.</p>
-                                <a href="javascript:void(0);" class="card-link">Card link</a>
-                                <a href="javascript:void(0);" class="card-link">Another link</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-md-6 col-sm-12 text-center">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Gambar Icon Website</h5>
-                                @if($data->favicon == 'assets/pemda.ico')
-                                <img src="{{ asset('') }}{{ $data->favicon }}" alt="...">
-                                @elseif($data->favicon)
-                                <img src="{{ asset('storage') }}/{{ $data->favicon }}" alt="...">
-                                @else
-                                <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}" alt="...">
-                                @endif
-                                <p class="card-text">Bear claw sesame snaps gummies chocolate.</p>
-                                <a href="javascript:void(0);" class="card-link">Card link</a>
-                                <a href="javascript:void(0);" class="card-link">Another link</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
 
                 <div class="row">
 
@@ -174,7 +138,7 @@
 
                 <div class="row">
                     <div class="col text-center">
-                        <legend>Maps</legend>
+                        <label for="defaultFormControlInput" class="form-label">Peta</label>
                         <div id="map" style="height: 500px;"></div>
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group label-floating">
@@ -200,80 +164,6 @@
     </div>
 </div>
 <!-- / Content -->
-<div class="content">
-    <div class="container-fluid">
-        @if ($message = Session::get('success'))
-        <div id="elementId" hidden>{{ $message }}</div>
-        @endif
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header card-header-icon" data-background-color="green">
-                        <i class="material-icons">settings</i>
-                    </div>
-                    <div class="card-content">
-                        <!-- <h4 class="card-title">Stacked Form</h4> -->
-
-                        <div class="row">
-                            <div class="col"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 text-center">
-                                <legend>Hero Image</legend>
-                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail">
-                                        @if($data->image_hero)
-                                        <img src="{{ asset('storage') }}/{{ $data->image_hero }}" alt="...">
-                                        @else
-                                        <img src="{{ asset('assets/back/material/img/image_placeholder.jpg') }}"
-                                            alt="...">
-                                        @endif
-                                    </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                    <div>
-                                        <span class="btn btn-success btn-round btn-file">
-                                            <span class="fileinput-new">Select image</span>
-                                            <span class="fileinput-exists">Change</span>
-                                            {{Form::file('image_hero', null,['class' => 'form-control'])}}
-                                        </span>
-                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
-                                            data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 text-center">
-                                <legend>Favicon Image</legend>
-                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail">
-                                        @if($data->favicon == 'assets/pemda.ico')
-                                        <img src="{{ asset('') }}{{ $data->favicon }}" alt="...">
-                                        @elseif($data->favicon)
-                                        <img src="{{ asset('storage') }}/{{ $data->favicon }}" alt="...">
-                                        @else
-                                        <img src="{{ asset('assets/back/assets/img/image_placeholder.jpg') }}"
-                                            alt="...">
-                                        @endif
-                                    </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                    <div>
-                                        <span class="btn btn-success btn-round btn-file">
-                                            <span class="fileinput-new">Select image</span>
-                                            <span class="fileinput-exists">Change</span>
-                                            {{Form::file('favicon', null,['class' => 'form-control'])}}
-                                        </span>
-                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
-                                            data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 @push('after-script')
 <!-- Start Load Script LeafletJS -->
@@ -287,7 +177,11 @@
         if ($('#elementId').length > 0) {
             const pesan = document.getElementById('elementId').innerText;
             console.log(pesan);
-            demo.showNotification('top', 'center', pesan)
+            Swal.fire(
+                'OK!',
+                'Data berhasil diubah.',
+                'success'
+            )
         }
 
         $.getJSON('getAlamat', function (data) {
