@@ -147,6 +147,12 @@ class NewsController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $df) {
+                $path = storage_path('app/public/news');
+
+                if (!file_exists($path)) {
+                    mkdir($path, 0777, true);
+                }
+
                 File::move(storage_path('tmp/uploads/') . $df, storage_path('app/public/gallery/') . $df);
                 Files::create([
                     'id_news' => $id,
@@ -177,7 +183,7 @@ class NewsController extends Controller
         }
 
         $data = News::find($id);
-        // delete related   
+        // delete related
         $data->gambar()->delete();
 
         return $data->delete();
