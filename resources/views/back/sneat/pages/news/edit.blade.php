@@ -1,5 +1,6 @@
 @extends('back.sneat.layouts.app')
 @push('after-style')
+<link rel="stylesheet" href="{{ asset('assets/back/sneat/assets/css/docs.css') }}" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css"
     integrity="sha256-6X2vamB3vs1zAJefAme/aHhUeJl13mYKs3VKpIGmcV4=" crossorigin="anonymous">
 <style>
