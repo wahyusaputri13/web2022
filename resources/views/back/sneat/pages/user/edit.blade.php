@@ -84,22 +84,33 @@
                     @enderror
 
                     <div class="form-group col-sm-12 col-md-6">
-                        <label for="defaultFormControlInput" class="form-label">Sandi</label>
-                        {{Form::password('password', ['class' =>
+                        <label for="defaultFormControlInput" class="form-label">Sandi Lama</label>
+                        {{Form::password('current_password', ['class' =>
                         'form-control','placeholder' => '********'])}}
                     </div>
-                    @error('password')
+                    @error('current_password')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
                         Tidak Boleh Kosong
                     </div>
                     @enderror
 
                     <div class="form-group col-sm-12 col-md-6">
-                        <label for="defaultFormControlInput" class="form-label">Konfirmasi Sandi</label>
-                        {{Form::password('password_confirmation', ['class' =>
+                        <label for="defaultFormControlInput" class="form-label">Sandi Baru</label>
+                        {{Form::password('new_password', ['class' =>
                         'form-control','placeholder' => '********'])}}
                     </div>
-                    @error('password_confirmation')
+                    @error('new_password')
+                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                        Tidak Boleh Kosong
+                    </div>
+                    @enderror
+
+                    <div class="form-group col-sm-12 col-md-6">
+                        <label for="defaultFormControlInput" class="form-label">Konfirmasi Sandi Baru</label>
+                        {{Form::password('new_confirm_password', ['class' =>
+                        'form-control','placeholder' => '********'])}}
+                    </div>
+                    @error('new_confirm_password')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
                         Tidak Boleh Kosong
                     </div>
