@@ -71,7 +71,6 @@
     </div>
 </div>
 <!-- / Content -->
-
 @endsection
 @push('after-script')
 <script>
