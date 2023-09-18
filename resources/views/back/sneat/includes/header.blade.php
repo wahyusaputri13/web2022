@@ -79,21 +79,20 @@
                 @role('superadmin|admin')
                 <li
                     class="menu-item {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active open' : '' }}">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'true' : '' }}">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>
-                        <div data-i18n="Layouts">Website</div>
+                        <div data-i18n="Website">Website</div>
                     </a>
 
                     <ul class="menu-sub">
                         <li class="menu-item {{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('component.index') }}">
-                                <div data-i18n="Without menu">Komponen</div>
+                                <div data-i18n="Komponen">Komponen</div>
                             </a>
                         </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('frontmenu.index') }}">
-                                Menu
+                                <div data-i18n="Menu">Menu</div>
                             </a>
                         </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">

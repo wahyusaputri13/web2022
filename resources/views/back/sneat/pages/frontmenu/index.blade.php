@@ -20,8 +20,9 @@
                     <thead>
                         <tr>
                             <th style="text-align: center;">id</th>
-                            <th style="text-align: center;">Judul</th>
-                            <th style="text-align: center;">Tanggal Posting</th>
+                            <th style="text-align: center;">Menu Parent</th>
+                            <th style="text-align: center;">Nama Menu</th>
+                            <th style="text-align: center;">Tampil</th>
                             <th style="text-align: center;">Aksi</th>
                         </tr>
                     </thead>
@@ -49,9 +50,10 @@
                 serverSide: true,
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'title', name: 'title' },
-                    { data: 'tgl' },
-                    { data: 'action' },
+                    { data: 'orang_tua' },
+                    { data: 'menu_name', name: 'menu_name' },
+                    { data: 'aksi' },
+                    { data: 'action', },
                 ],
                 bSort: false,
                 dom:
@@ -60,15 +62,53 @@
                 lengthMenu: [7, 10, 25, 50, 75, 100],
                 buttons: [
                     {
-                        text: '<i class="bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Tambah Postingan</span>',
+                        text: '<i class="bx bx-plus me-1"></i> <span class="d-none d-lg-inline-block">Tambah Menu</span>',
                         className: 'create-new btn btn-primary',
                         action: function (e, dt, button, config) {
-                            window.location = `{{ route('news.create') }}`;
+                            window.location = `{{ route('frontmenu.create') }}`;
                         }
                     }
                 ],
             });
         }
     });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function centang(submenu) {
+        // e.preventDefault();
+        // const { pathname } = window.location;
+        // const paths = pathname.split("/").filter(entry => entry !== "");
+        // const lastPath = parseInt(paths[paths.length - 1]);
+        var url = "{{ route('centangfm') }}";
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: {
+                id: submenu
+                // roleId: lastPath
+            },
+            success: function (response) {
+                if (response.success) {
+                    Swal.fire(
+                        'OK!',
+                        'Data berhasil diubah.',
+                        'success'
+                    )
+                    // location.reload();
+                } else {
+                    alert("Error")
+                }
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+    };
 </script>
 @endpush
