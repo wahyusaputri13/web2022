@@ -148,9 +148,17 @@ class FrontMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'menu_parent' => 'required',
+                'menu_name' => 'required',
+            ],
+        );
+
         FrontMenu::find($id)->update(
             $request->except(['_token']),
         );
+
         return redirect(route('frontmenu.index'))->with(['success' => 'Data has been successfully changed!']);
     }
 

@@ -29,29 +29,35 @@
                             Pilih']) }}
                             @else
                             {{ Form::select('menu_parent', $root, $data->menu_parent,
-                            ['class' => 'cari form-control','placeholder' => 'Silahkan Pilih']) }}
+                            ['class' => 'cari form-control'. ($errors->has('menu_parent')
+                            ? '
+                            is-invalid' :
+                            null),'placeholder' => 'Silahkan Pilih']) }}
                             @endif
+                            @error('menu_parent')
+                            <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                                {{ $message }}
+                            </div>
+                            @enderror
                     </div>
-                    @error('menu_parent')
-                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
-                    </div>
-                    @enderror
 
                     <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Nama Sub Menu</label>
                         @if($data->id <= 45) {{Form::text('menu_name', null,['class'=> 'form-control',
                             'id' => 'title', 'disabled' => 'disabled','placeholder' => 'Masukkan Nama Sub Menu'])}}
                             @else
-                            {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title','placeholder' =>
+                            {{Form::text('menu_name', null,['class' => 'form-control'. ($errors->has('menu_name')
+                            ? '
+                            is-invalid' :
+                            null), 'id' => 'title','placeholder' =>
                             'Masukkan Nama Sub Menu'])}}
                             @endif
+                            @error('menu_name')
+                            <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                                {{ $message }}
+                            </div>
+                            @enderror
                     </div>
-                    @error('menu_name')
-                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
-                    </div>
-                    @enderror
 
                     <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
@@ -62,12 +68,12 @@
                     <div class="form-group jip col-12">
                         <label for="defaultFormControlInput" class="form-label">Konten / Isi</label>
                         {{Form::textarea('content', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
+                        @error('content')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                    @error('content')
-                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
-                    </div>
-                    @enderror
 
                 </div>
 
