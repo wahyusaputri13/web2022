@@ -8,7 +8,7 @@
                 <a href="#">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Postingan</a>
+                <a href="#">Link Terkait</a>
             </li>
             <li class="breadcrumb-item active">Data</li>
         </ol>

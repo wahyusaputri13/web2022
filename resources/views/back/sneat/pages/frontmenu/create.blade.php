@@ -21,7 +21,7 @@
 
                 <div class="row">
 
-                    <div class="form-group jip col-6">
+                    <div class="form-group jip col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Menu</label>
                         {{Form::select('menu_parent', $root, null, ['class' =>
                         'form-control select2','placeholder' => 'Silahkan Pilih'])}}
@@ -32,7 +32,7 @@
                     </div>
                     @enderror
 
-                    <div class="form-group col-6">
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Nama Sub Menu</label>
                         {{Form::text('menu_name', null, ['class' => 'form-control',
                         'placeholder' => 'Masukkan Nama Sub Menu'])}}
@@ -43,7 +43,7 @@
                     </div>
                     @enderror
 
-                    <div class="form-group col-6">
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => 'Silahkan Pilih'])}}

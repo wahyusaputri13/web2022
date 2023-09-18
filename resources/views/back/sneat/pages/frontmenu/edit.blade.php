@@ -22,7 +22,7 @@
 
                 <div class="row">
 
-                    <div class="form-group jip col-6">
+                    <div class="form-group jip col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Menu</label>
                         @if($data->id <= 45) {{ Form::select('menu_parent', $root, $data->menu_parent,
                             ['class' => 'cari form-control', 'disabled' => 'disabled','placeholder' => 'Silahkan
@@ -38,7 +38,7 @@
                     </div>
                     @enderror
 
-                    <div class="form-group col-6">
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Nama Sub Menu</label>
                         @if($data->id <= 45) {{Form::text('menu_name', null,['class'=> 'form-control',
                             'id' => 'title', 'disabled' => 'disabled','placeholder' => 'Masukkan Nama Sub Menu'])}}
@@ -53,7 +53,7 @@
                     </div>
                     @enderror
 
-                    <div class="form-group col-6">
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => 'Silahkan Pilih'])}}

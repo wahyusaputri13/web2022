@@ -21,7 +21,7 @@
 
                 <div class="row">
 
-                    <div class="form-group col-6">
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Nama Link Terkait</label>
                         {{Form::text('name', null, ['class' => 'form-control',
                         'placeholder' => 'Masukkan Nama Link Terkait'])}}
@@ -32,7 +32,7 @@
                     </div>
                     @enderror
 
-                    <div class="form-group col-6">
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">URL Link Terkait</label>
                         {{Form::text('url', null, ['class' =>
                         'form-control','placeholder' => 'Masukkan URL Link Terkait'])}}
