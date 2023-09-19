@@ -1,4 +1,4 @@
-@extends('back.sneat.layouts.app')
+@extends('back.layouts.app')
 @section('content')
 
 <!-- Content -->

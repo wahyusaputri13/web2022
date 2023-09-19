@@ -22,24 +22,24 @@
 >
 
 <head>
-    @include('back.sneat.includes.meta')
+    @include('back.includes.meta')
 
     <title>{{ $data_website->web_name }}</title>
 
     @stack('before-style')
-    @include('back.sneat.includes.style')
+    @include('back.includes.style')
     @stack('after-style')
     @vite([])
 </head>
 
 <body>
     @auth
-    @include('back.sneat.includes.header')
+    @include('back.includes.header')
     @endauth
     @yield('content')
-    @include('back.sneat.includes.footer')
+    @include('back.includes.footer')
     @stack('before-script')
-    @include('back.sneat.includes.script')
+    @include('back.includes.script')
     @stack('after-script')
 </body>
 

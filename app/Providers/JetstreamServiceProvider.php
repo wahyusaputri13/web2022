@@ -31,7 +31,7 @@ class JetstreamServiceProvider extends ServiceProvider
 
         Fortify::loginView(function () {
             $themes = Website::all()->first();
-            return view('back.' . $themes->themes_back . '.pages.auth.login');
+            return view('back.pages.auth.login');
         });
 
         $this->configurePermissions();
