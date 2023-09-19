@@ -34,7 +34,7 @@ class CreateWebsitesTable extends Migration
             $table->string('latitude')->nullable()->default('-7.356823979078527');
             $table->string('longitude')->nullable()->default('109.90581334769975');
             $table->string('themes_front')->default('medino');
-            $table->string('themes_back')->default('material');
+            $table->string('themes_back')->default('sneat');
             $table->timestamps();
         });
     }

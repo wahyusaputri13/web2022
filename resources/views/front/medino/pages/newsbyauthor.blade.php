@@ -21,7 +21,7 @@
 
                 <x-cari-news />
 
-                @forelse($data as $author)
+                @foreach($data ?? [] as $author)
                 <article class="row blog_item mt-3">
                     <div class="col-md-3">
                         <div class="blog_info text-right">

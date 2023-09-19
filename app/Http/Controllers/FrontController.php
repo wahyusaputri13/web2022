@@ -118,6 +118,34 @@ class FrontController extends Controller
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
 
+    public function globalSearch(Request $request)
+    {
+        Seo::seO();
+        $cari = $request->kolomcari;
+        $hasil = 'Search result : ' . $cari;
+        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
+        $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
+        $combinedData = $data->concat($data2);
+
+        if ($request->ajax()) {
+            return DataTables::of($combinedData)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($combinedData) {
+
+
+
+                        return 'a';
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('front.' . $this->themes->themes_front . '.pages.globalsearch', compact('hasil', 'combinedData'));
+    }
+
     public function newsBySearch(Request $request)
     {
         Seo::seO();
