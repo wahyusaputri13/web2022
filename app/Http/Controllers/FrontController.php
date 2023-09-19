@@ -51,8 +51,6 @@ class FrontController extends Controller
                                     DATA</a>
                             </td>';
                     }
-
-
                     return $actionBtn;
                 }
             )
@@ -126,6 +124,7 @@ class FrontController extends Controller
         $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
         $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
         $combinedData = $data->concat($data2);
+        // return $combinedData;
 
         if ($request->ajax()) {
             return DataTables::of($combinedData)
@@ -133,10 +132,18 @@ class FrontController extends Controller
                 ->addColumn(
                     'action',
                     function ($combinedData) {
-
-
-
-                        return 'a';
+                        if ($combinedData->menu_url) {
+                            $actionBtn = '<td class="text-center">
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-primary">LIHAT
+                            DATA</a>
+                            </td>';
+                        } else {
+                            $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                        }
+                        return $actionBtn;
                     }
                 )
                 ->rawColumns(['action'])

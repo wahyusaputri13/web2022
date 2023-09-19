@@ -22,7 +22,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
+                            <th>Halaman</th>
                             <th>Kategori</th>
                             <th class="disabled-sorting text-center">
                                 Aksi</th>
@@ -47,10 +47,10 @@
         var dataTable = $('#dataTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('global.search') }}",
+            // ajax: "{{ route('global.search') }}",
             columns: [
                 { data: 'DT_RowIndex', orderable: false, searchable: false },
-                { data: 'menu_name', name: 'menu_name', className: "text-center", defaultContent: 'N/A' },
+                { data: 'title', name: 'title', className: "text-center", defaultContent: 'N/A' },
                 { data: 'kategori', name: 'kategori', className: "text-center" },
                 { data: 'action', className: "text-center" },
             ],
