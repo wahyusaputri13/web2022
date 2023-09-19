@@ -37,21 +37,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // \App\Models\User::factory(10)->create();
-        // DB::table('websites')->insert([
-        //     'web_name' => 'Web2022',
-        //     'web_description' => '"Hello World!"',
-        //     'email' => 'diskominfo@wonosobokab.go.id',
-        //     'address' => 'Wonosobo - The Soul Of Java',
-        //     'phone' => '085643710007',
-        //     'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
-        //     'twitter' => 'https://twitter.com/diskominfo_wsb',
-        //     'facebook' => 'https://www.facebook.com/wonosobohebat/',
-        //     'youtube' => 'https://www.youtube.com/c/OfficialWonosoboTV',
-        //     'url_stream' => '#',
-        //     'themes_front' => 'flexstart',
-        //     'themes_back' => 'back.a',
-        //     'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
-        // ]);
+        DB::table('websites')->insert([
+            'web_name' => 'Website Resmi Kabupaten Wonosobo',
+            'web_description' => '"Hello World!"',
+            'email' => 'pemkab@wonosobokab.go.id',
+            'address' => 'JL. Soekarno-Hatta, No. 2-4, Kel. Wonosobo Timur, Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311',
+            'phone' => '(0286) 321345',
+            'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
+            'twitter' => 'https://twitter.com/wonosobohebat',
+            'facebook' => 'https://www.facebook.com/wonosobohebat',
+            'youtube' => 'https://www.youtube.com/channel/UC4tNqFlp_od17EE9HfBQQ3A',
+            'url_stream' => '#',
+            'themes_front' => 'flexstart',
+            'themes_back' => 'back.a',
+            'open_hours' => "Senin - Kamis (07:00 - 16:00) Jum'at (07:00 - 11:00)",
+        ]);
 
         // kampung pancasila
         // DB::table('websites')->insert([
