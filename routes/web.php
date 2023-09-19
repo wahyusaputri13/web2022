@@ -26,8 +26,6 @@ use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
-use App\Models\Website;
-use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -58,43 +56,37 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
-    $themes = Website::first();
-    if (Website::exists()) {
 
-        $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
+    $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
 
-        $data = [
-            'ip' => $geoipInfo->ip,
-            'iso_code' => $geoipInfo->iso_code,
-            'country' => $geoipInfo->country,
-            'city' => $geoipInfo->city,
-            'state' => $geoipInfo->state,
-            'state_name' => $geoipInfo->state_name,
-            'postal_code' => $geoipInfo->postal_code,
-            'lat' => $geoipInfo->lat,
-            'lon' => $geoipInfo->lon,
-            'timezone' => $geoipInfo->timezone,
-            'continent' => $geoipInfo->continent,
-            'currency' => $geoipInfo->currency,
-        ];
+    $data = [
+        'ip' => $geoipInfo->ip,
+        'iso_code' => $geoipInfo->iso_code,
+        'country' => $geoipInfo->country,
+        'city' => $geoipInfo->city,
+        'state' => $geoipInfo->state,
+        'state_name' => $geoipInfo->state_name,
+        'postal_code' => $geoipInfo->postal_code,
+        'lat' => $geoipInfo->lat,
+        'lon' => $geoipInfo->lon,
+        'timezone' => $geoipInfo->timezone,
+        'continent' => $geoipInfo->continent,
+        'currency' => $geoipInfo->currency,
+    ];
 
-        Seo::seO();
-        Counter::create($data);
+    Seo::seO();
+    Counter::create($data);
 
-        try {
-            $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
-            $response = $response->collect();
-            $berita =   array_slice($response['data']['data'], 0, 3);
-        } catch (\Exception $e) {
-            $berita = [];
-        }
-
-        $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
-        return view('front.index', compact('news', 'berita'));
-    } else {
-        $data = Themes::all();
-        return view('front.setup', compact('data'));
+    try {
+        $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
+        $response = $response->collect();
+        $berita =   array_slice($response['data']['data'], 0, 3);
+    } catch (\Exception $e) {
+        $berita = [];
     }
+
+    $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
+    return view('front.pages.index', compact('news', 'berita'));
 })->name('root')->middleware('data_web');
 
 Route::group(['middleware' => 'data_web'], function () {

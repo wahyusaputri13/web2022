@@ -1,34 +1,14 @@
-<!-- Javascript -->
-<script src="{{ asset('assets/front/medino/js/vendor/jquery-2.2.4.min.js') }}"></script>
-<script src="{{ asset('assets/front/medino/js/vendor/bootstrap-4.1.3.min.js') }}"></script>
-<script src="{{ asset('assets/front/medino/js/vendor/wow.min.js') }}"></script>
-<script src="{{ asset('assets/front/medino/js/vendor/owl-carousel.min.js') }}"></script>
-<script src="{{ asset('assets/front/medino/js/vendor/jquery.datetimepicker.full.min.js') }}"></script>
-<script src="{{ asset('assets/front/medino/js/vendor/jquery.nice-select.min.js') }}"></script>
-<script src="{{ asset('assets/front/medino/js/vendor/superfish.min.js') }}"></script>
-<script src="{{ asset('assets/front/medino/js/main.js') }}"></script>
-<!-- DataTables   -->
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
-<script>
-    document.addEventListener("keydown", function (event) {
-        // Check if the 'T' key (key code 84) is pressed
-        if (event.keyCode === 67) {
-            var aku = $('#exampleModal').modal('show');
-            if ($('#exampleModal').modal('show')) {
-                $('#exampleModal').modal('hide')
-            } else {
-                $('#exampleModal').modal('show')
-                // $('#exampleModal').on('shown.bs.modal', function () {
-                //     $('#textareaID1').focus();
-                // })
-            }
-        }
-    });
+<!-- Vendor JS Files -->
+<script src="{{ asset('assets/front/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/front/assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset('assets/front/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset('assets/front/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/front/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('assets/front/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ asset('assets/front/assets/vendor/php-email-form/validate.js') }}"></script>
 
-    $(document).ready(function () {
-        $("#exampleModal").on('shown.bs.modal', function () {
-            $(this).find('#textareaID1').focus();
-        });
-    });
-</script>
+<!-- Template Main JS File -->
+<script src="{{ asset('assets/front/assets/js/main.js') }}"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

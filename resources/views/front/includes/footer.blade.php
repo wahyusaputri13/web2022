@@ -1,77 +1,99 @@
-<!-- Footer Area Starts -->
-<footer class="footer-area section-padding">
-    <div class="footer-widget">
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+
+    <div class="footer-content position-relative">
         <div class="container">
             <div class="row">
-                <div class="col-xl-2 col-lg-3">
-                    <div class="single-widget-home mb-5 mb-lg-0">
-                        @if($related->count() > 0)
-                        <h3 class="mb-4">Link Terkait</h3>
-                        <ul>
-                            @foreach($related as $rr)
-                            <li class="mb-2"><a href="{{ $rr->url }}" target="_blank">{{ $rr->name
-                                    }}</a></li>
-                            @endforeach
-                        </ul>
-                        @endif
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-lg-6">
-                    <div class="single-widget-home mb-5 mb-lg-0">
-                        <div class="map">
-                            <iframe
-                                src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
-                                                                                                $data_website->longitude }}&z=14&output=embed"
-                                frameborder="0" allowfullscreen width="100%"></iframe>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-info">
+                        <h3>UpConstruction</h3>
+                        <p>
+                            A108 Adam Street <br>
+                            NY 535022, USA<br><br>
+                            <strong>Phone:</strong> +1 5589 55488 55<br>
+                            <strong>Email:</strong> info@example.com<br>
+                        </p>
+                        <div class="social-links d-flex mt-3">
+                            <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                    class="bi bi-instagram"></i></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                    class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 offset-xl-1 col-lg-3">
-                    <div class="single-widge-home">
-                        <!-- <h3 class="mb-4">instagram feed</h3>
-                        <div class="feed">
-                            <img src="{{ asset('assets/front/medino/images/feed1.jpg') }}" alt="feed">
-                            <img src="{{ asset('assets/front/medino/images/feed2.jpg') }}" alt="feed">
-                            <img src="{{ asset('assets/front/medino/images/feed3.jpg') }}" alt="feed">
-                            <img src="{{ asset('assets/front/medino/images/feed4.jpg') }}" alt="feed">
-                            <img src="{{ asset('assets/front/medino/images/feed5.jpg') }}" alt="feed">
-                            <img src="{{ asset('assets/front/medino/images/feed6.jpg') }}" alt="feed">
-                            <img src="{{ asset('assets/front/medino/images/feed7.jpg') }}" alt="feed">
-                            <img src="{{ asset('assets/front/medino/images/feed8.jpg') }}" alt="feed">
-                        </div> -->
-                    </div>
-                </div>
+                </div><!-- End footer info column-->
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div><!-- End footer links column-->
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Product Management</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                    </ul>
+                </div><!-- End footer links column-->
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Hic solutasetp</h4>
+                    <ul>
+                        <li><a href="#">Molestiae accusamus iure</a></li>
+                        <li><a href="#">Excepturi dignissimos</a></li>
+                        <li><a href="#">Suscipit distinctio</a></li>
+                        <li><a href="#">Dilecta</a></li>
+                        <li><a href="#">Sit quas consectetur</a></li>
+                    </ul>
+                </div><!-- End footer links column-->
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Nobis illum</h4>
+                    <ul>
+                        <li><a href="#">Ipsam</a></li>
+                        <li><a href="#">Laudantium dolorum</a></li>
+                        <li><a href="#">Dinera</a></li>
+                        <li><a href="#">Trodelas</a></li>
+                        <li><a href="#">Flexo</a></li>
+                    </ul>
+                </div><!-- End footer links column-->
+
             </div>
         </div>
     </div>
-    <div class="footer-copyright">
+
+    <div class="footer-legal text-center position-relative">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-6">
-                    <span>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> Diskominfo Wonosobo | by <a
-                            href="https://soulofjava.github.io/myportofolio/" target="_blank">Isa Maulana Tantra</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </span>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="social-icons">
-                        <ul>
-                            <li><a target="_blank" href=" {{ $data_website->facebook }}"><i
-                                        class="fa fa-facebook"></i></a></li>
-                            <li><a target="_blank" href=" {{ $data_website->twitter }}"><i
-                                        class="fa fa-twitter"></i></a></li>
-                            <li><a target="_blank" href=" {{ $data_website->instagram }}"><i
-                                        class="fa fa-instagram"></i></a></li>
-                            <li><a target="_blank" href=" {{ $data_website->youtube }}"><i
-                                        class="fa fa-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="copyright">
+                &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
+                    href="https://themewagon.com">ThemeWagon</a>
             </div>
         </div>
     </div>
+
 </footer>
-<!-- Footer Area End -->
+<!-- End Footer -->
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>

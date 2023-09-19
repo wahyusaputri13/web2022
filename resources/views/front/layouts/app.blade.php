@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    @include('front.medino.includes.meta')
+    @include('front.includes.meta')
     @stack('before-style')
-    @include('front.medino.includes.style')
+    @include('front.includes.style')
     @stack('after-style')
     @vite([])
 </head>
@@ -12,11 +12,11 @@
 <body>
     <a href="#" id="websitename" hidden>{{ $data_website->web_name }}</a>
     @include('sweetalert::alert')
-    @include('front.medino.includes.header')
+    @include('front.includes.header')
     @yield('content')
-    @include('front.medino.includes.footer')
+    @include('front.includes.footer')
     @stack('before-script')
-    @include('front.medino.includes.script')
+    @include('front.includes.script')
     @include('components.responsive-voice')
     @stack('after-script')
     <!-- Modal -->

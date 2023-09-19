@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bidang;
-use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Website;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
@@ -15,10 +13,6 @@ use Spatie\Permission\Models\Role as ModelsRole;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->themes = Website::all()->first();
-    }
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +50,7 @@ class UserController extends Controller
                 ->rawColumns(['action', 'rrole'])
                 ->make(true);
         }
-        return view('back.' . $this->themes->themes_back . '.pages.user.index');
+        return view('back.pages.user.index');
     }
 
     /**
@@ -69,7 +63,7 @@ class UserController extends Controller
         $role = ModelsRole::all()->pluck('name', 'id')->skip(1);
         $permission = Permission::all()->pluck('name', 'id');
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
-        return view('back.' . $this->themes->themes_back . '.pages.user.create', compact('role', 'bidang', 'permission'));
+        return view('back.pages.user.create', compact('role', 'bidang', 'permission'));
     }
 
     /**
@@ -138,7 +132,7 @@ class UserController extends Controller
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         $permission = Permission::all()->pluck('name', 'id');
         $permis = $data->getAllPermissions();
-        return view('back.' . $this->themes->themes_back . '.pages.user.edit', compact('data', 'role', 'user_role', 'bidang', 'permission', 'permis'));
+        return view('back.pages.user.edit', compact('data', 'role', 'user_role', 'bidang', 'permission', 'permis'));
     }
 
     /**
