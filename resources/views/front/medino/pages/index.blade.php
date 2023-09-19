@@ -168,9 +168,10 @@
                     <div class="news-img">
                         @if($n->gambarmuka)
                         <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
-                            alt="{{ $n->gambarmuka->file_name }}">
+                            alt="{{ $n->gambarmuka->file_name }}" style="height: 350px;">
                         @else
-                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java"
+                            style="height: 350px;">
                         @endif
                     </div>
                     <div class="news-text">
