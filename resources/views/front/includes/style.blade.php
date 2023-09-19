@@ -1,6 +1,6 @@
 <!-- Favicons -->
-<link href="{{ asset('assets/front/assets/img/favicon.png') }}" rel="icon">
-<link href="{{ asset('assets/front/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+<link href="{{ asset('assets/pemda.ico') }}" rel="icon">
+<link href="{{ asset('assets/pemda.ico') }}" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
