@@ -24,10 +24,8 @@ use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
-use App\Models\File;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
-use App\Models\Gallery;
 use App\Models\Website;
 use App\Models\Themes;
 use Illuminate\Support\Facades\Http;
@@ -92,8 +90,7 @@ Route::get('/', function () {
         }
 
         $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
-        // return view('front.index', compact('news', 'berita'));
+        return view('front.index', compact('news', 'berita'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
