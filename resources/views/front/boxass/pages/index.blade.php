@@ -84,9 +84,9 @@
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <img src="https://ui-avatars.com/api/?name={{ $n->uploader->name }}"
+                                            <img src="https://ui-avatars.com/api/?name={{ $n->uploader->name ?? 'Admin' }}"
                                                 alt="Author">
-                                            <span> {{ $n->uploader->name }}</span>
+                                            <span> {{ $n->uploader->name ?? 'Admin' }}</span>
                                         </a>
                                     </li>
                                     <li>
@@ -98,8 +98,9 @@
                                     <li>
                                         <a href="#">
                                             <i class="fas fa-eye"></i>
-                                            <span>{{
-                                                views($n)->count(); }}</span>
+                                            <span>
+                                                {{ views($n)->count(); }}
+                                            </span>
                                         </a>
                                     </li>
                                 </ul>
