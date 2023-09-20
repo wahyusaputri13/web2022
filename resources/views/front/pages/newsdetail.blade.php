@@ -28,7 +28,7 @@
                     <article class="blog-details">
 
                         <div class="post-img">
-                            <img src="{{ asset('assets/front/assets/img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
+                            <x-carousel :jjj='$data' />
                         </div>
 
                         <h2 class="title">{{ $data->title }}</h2>
@@ -280,11 +280,12 @@
                     <div class="sidebar">
 
                         <div class="sidebar-item search-form">
-                            <h3 class="sidebar-title">Search</h3>
-                            <form action="" class="mt-3">
-                                <input type="text">
-                                <button type="submit"><i class="bi bi-search"></i></button>
-                            </form>
+                            <h3 class="sidebar-title">Cari</h3>
+                            {{Form::open(['route' => 'news.search','method' => 'get', '','class' => 'mt-3'])}}
+                            {{Form::text('kolomcari', null,['class' => 'form-control',
+                            'placeholder' => 'Judul Postingan'])}}
+                            <button type="submit"><i class="bi bi-search"></i></button>
+                            {{Form::close()}}
                         </div>
                         <!-- End sidebar search formn-->
 
@@ -307,7 +308,12 @@
                             <div class="mt-3">
                                 @foreach($news as $n)
                                 <div class="post-item mt-3">
-                                    <img src="{{ asset('assets/front/assets/img/blog/blog-recent-1.jpg') }}" alt="">
+                                    @if($n->gambarmuka)
+                                    <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                                        alt="{{ $n->gambarmuka->file_name }}">
+                                    @else
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                    @endif
                                     <div>
                                         <h4><a href="{{ url('/news-detail', $n->slug) }}">{{
                                                 \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a></h4>

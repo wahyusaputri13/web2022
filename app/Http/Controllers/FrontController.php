@@ -426,8 +426,13 @@ class FrontController extends Controller
 
     function copydatapostingfromwonosobokab()
     {
+        ini_set('max_execution_time', 0);
+        // $data = DB::table('postings')->where('id_posting', '7367')->get();
         $data = DB::table('postings')->get();
+
         foreach ($data as $index => $item) {
+            $indra = explode(',', $item->slide_post);
+            // return $indra;
             // print_r($index . "\n");
             $idnya = News::create([
                 'title' => $item->title_posting,
@@ -437,15 +442,17 @@ class FrontController extends Controller
                 'date' =>  $item->date_created,
             ])->id;
             // print_r($idnya);
-            // $this->copydatafilefromwonosobokab($item->id_posting, $idnya);
+            foreach ($indra as $in => $it) {
+                $this->copydatafilefromwonosobokab($it, $idnya);
+            }
         }
-        print_r('Selesai!');
+        // print_r('Selesai!');
     }
 
     function copydatafilefromwonosobokab($a, $b)
     {
         $isa = [];
-        $data = DB::table('attachment')->select('file_name')->where('id_tabel', '=', $a)->get();
+        $data = DB::table('images')->select('file_name')->where('id_images', '=', $a)->get();
         foreach ($data as $ratna) {
             array_push($isa, $ratna->file_name);
             $fff = [

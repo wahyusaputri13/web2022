@@ -32,9 +32,8 @@ class DatabaseSeeder extends Seeder
             'twitter' => 'https://twitter.com/wonosobohebat',
             'facebook' => 'https://www.facebook.com/wonosobohebat',
             'youtube' => 'https://www.youtube.com/channel/UC4tNqFlp_od17EE9HfBQQ3A',
-            'url_stream' => '#',
-            'themes_front' => 'flexstart',
-            'themes_back' => 'back.a',
+            'latitude' => '-7.358664418685239',
+            'longitude' => '109.9047188187568',
             'open_hours' => "Senin - Kamis (07:00 - 16:00) Jum'at (07:00 - 11:00)",
         ]);
 

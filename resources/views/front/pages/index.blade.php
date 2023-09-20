@@ -6,41 +6,41 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero">
 
-        <div class="info d-flex align-items-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <h2 data-aos="fade-down">Welcome to <span>UpConstruction</span></h2>
-                        <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation
-                            ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get
-                            Started</a>
+        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            @foreach(App\Models\News::where('highlight', '1')->orderBy('date',
+            'DESC')->take(3)->get() as $hl)
+
+            @if ($loop->first)
+            <div class="carousel-item active" style="background-image: url('storage/{{ $hl->gambarmuka->path }}')">
+                <div class="info d-flex align-items-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 text-center">
+                                <h2 data-aos="fade-down">{{ $hl->title }}</h2>
+                                <p data-aos="fade-up"></p>
+                                <a data-aos="fade-up" data-aos-delay="200" href="{{ url('/news-detail', $hl->slug) }}"
+                                    class="btn-get-started">Read More</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-
-            <div class="carousel-item active"
-                style="background-image: url(assets/front/assets/img/hero-carousel/hero-carousel-1.jpg)">
+            @else
+            <div class="carousel-item" style="background-image: url('storage/{{ $hl->gambarmuka->path }}')">
+                <div class="info d-flex align-items-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 text-center">
+                                <h2 data-aos="fade-down">{{ $hl->title }}</h2>
+                                <p data-aos="fade-up"></p>
+                                <a data-aos="fade-up" data-aos-delay="200" href="{{ url('/news-detail', $hl->slug) }}"
+                                    class="btn-get-started">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item"
-                style="background-image: url(assets/front/assets/img/hero-carousel/hero-carousel-2.jpg)">
-            </div>
-            <div class="carousel-item"
-                style="background-image: url(assets/front/assets/img/hero-carousel/hero-carousel-3.jpg)">
-            </div>
-            <div class="carousel-item"
-                style="background-image: url(assets/front/assets/img/hero-carousel/hero-carousel-4.jpg)">
-            </div>
-            <div class="carousel-item"
-                style="background-image: url(assets/front/assets/img/hero-carousel/hero-carousel-5.jpg)">
-            </div>
+            @endif
 
             <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
@@ -49,10 +49,12 @@
             <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
                 <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
             </a>
-
+            @endforeach
         </div>
 
-    </section><!-- End Hero Section -->
+    </section>
+    <!-- End Hero Section -->
+
     <!-- ======= Get Started Section ======= -->
     <section id="get-started" class="get-started section-bg">
         <div class="container">
@@ -114,7 +116,8 @@
             </div>
 
         </div>
-    </section><!-- End Get Started Section -->
+    </section>
+    <!-- End Get Started Section -->
 
     <!-- ======= Constructions Section ======= -->
     <section id="constructions" class="constructions">
@@ -219,7 +222,8 @@
             </div>
 
         </div>
-    </section><!-- End Constructions Section -->
+    </section>
+    <!-- End Constructions Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
@@ -321,7 +325,8 @@
             </div>
 
         </div>
-    </section><!-- End Services Section -->
+    </section>
+    <!-- End Services Section -->
 
     <!-- ======= Alt Services Section ======= -->
     <section id="alt-services" class="alt-services">
@@ -381,7 +386,8 @@
             </div>
 
         </div>
-    </section><!-- End Alt Services Section -->
+    </section>
+    <!-- End Alt Services Section -->
 
     <!-- ======= Features Section ======= -->
     <section id="features" class="features section-bg">
@@ -533,7 +539,8 @@
             </div>
 
         </div>
-    </section><!-- End Features Section -->
+    </section>
+    <!-- End Features Section -->
 
     <!-- ======= Our Projects Section ======= -->
     <section id="projects" class="projects">
@@ -756,7 +763,8 @@
             </div>
 
         </div>
-    </section><!-- End Our Projects Section -->
+    </section>
+    <!-- End Our Projects Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
@@ -897,7 +905,8 @@
             </div>
 
         </div>
-    </section><!-- End Testimonials Section -->
+    </section>
+    <!-- End Testimonials Section -->
 
     <!-- ======= Recent Blog Posts Section ======= -->
     <section id="recent-blog-posts" class="recent-blog-posts">
@@ -914,7 +923,12 @@
                 <div class="post-item position-relative h-100">
 
                     <div class="post-img position-relative overflow-hidden">
-                        <img src="{{ asset('assets/front/assets/img/blog/blog-1.jpg') }}" class="img-fluid" alt="">
+                        @if($n->gambarmuka)
+                        <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                            alt="{{ $n->gambarmuka->file_name }}">
+                        @else
+                        <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                        @endif
                         <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                             \Carbon\Carbon::parse( $n->date
                             )->toFormattedDateString() }}</span>
@@ -952,6 +966,18 @@
         </div>
     </section>
     <!-- End Recent Blog Posts Section -->
+
+    <!-- start map -->
+    <section>
+        <div class="container">
+            <div class="map">
+                <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                $data_website->longitude }}&z=14&output=embed" frameborder="0" allowfullscreen width="100%"
+                    height="300px"></iframe>
+            </div>
+        </div>
+    </section>
+    <!-- end map -->
 
 </main>
 <!-- End #main -->
