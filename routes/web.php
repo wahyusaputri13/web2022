@@ -85,7 +85,7 @@ Route::get('/', function () {
         $berita = [];
     }
 
-    $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(9);
+    $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(3);
     return view('front.pages.index', compact('news', 'berita'));
 })->name('root')->middleware('data_web');
 
@@ -158,7 +158,7 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 
 // get data for front menu parent
 Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
-Route::get('/copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
+Route::get('copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
 
