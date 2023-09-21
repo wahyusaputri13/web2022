@@ -1,78 +1,91 @@
-@extends('front.medino.layouts.app')
+@extends('front.layouts.app')
 @section('content')
-<!-- Banner Area Starts -->
-<section class="banner-area other-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Postingan</h1>
-                <a href="{{ url('/') }}">Beranda</a> <span>|</span> <a href="#">Postingan</a>
-            </div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+            <h2>All Posts</h2>
+            <ol>
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li>Blog</li>
+            </ol>
+
         </div>
     </div>
-</section>
-<!-- Banner Area End -->
+    <!-- End Breadcrumbs -->
 
-<!--================Blog Area =================-->
-<section class="blog_area mt-3">
-    <div class="container">
-        <div class="row">
-            <div class="col">
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                <x-cari-news />
+            <x-cari-news />
 
-                @foreach($news as $n)
-                <article class="row blog_item mt-3">
-                    <div class="col-md-3">
-                        <div class="blog_info text-right">
-                            <!-- <div class="post_tag">
-                                    <a href="#">Food,</a>
-                                    <a class="active" href="#">Technology,</a>
-                                    <a href="#">Politics,</a>
-                                    <a href="#">Lifestyle</a>
-                                </div> -->
-                            <ul class="blog_meta list">
-                                <li><a href="#">{{ $n->uploader->name }}<i class="fa fa-user-o"></i></a>
-                                </li>
-                                <li><a href="#">{{ \Carbon\Carbon::parse($n->date)->isoFormat('dddd, D MMMM
-                                        Y')
-                                        }}<i class="fa fa-calendar-o"></i></a></li>
-                                <li><a href="#">{{
-                                        views($n)->count(); }} Views<i class="fa fa-eye"></i></a></li>
-                                <!-- <li><a href="#">06 Comments<i class="fa fa-comment-o"></i></a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="blog_post">
-                            @if($n->gambarmuka)
-                            <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
-                                alt="{{ $n->gambarmuka->file_name }}">
+            <div class="row gy-4 posts-list mt-2">
+
+                @foreach($news ?? [] as $author)
+                <div class="col-xl-4 col-md-6">
+                    <div class="post-item position-relative h-100">
+
+                        <div class="post-img position-relative overflow-hidden">
+                            @if($author->gambarmuka)
+                            <img src="{{ asset('storage/') }}/{{  $author->gambarmuka->path }}" class="img-fluid"
+                                alt="{{ $author->gambarmuka->file_name }}">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                             @endif
-                            <div class="blog_details">
-                                <a href="{{ url('/news-detail', $n->slug) }}">
-                                    <h4>{{ \Illuminate\Support\Str::limit($n->title, 50,
-                                        $end='...') }}</h4>
-                                </a>
-                                <p>{!! \Illuminate\Support\Str::limit(strip_tags($n->description), 100,
-                                    $end='...') !!}</p>
-                                <a href="{{ url('/news-detail', $n->slug) }}" class="template-btn">Baca
-                                    Lebih
-                                    Lanjut</a>
-                            </div>
+                            <span class="post-date">{{ \Carbon\Carbon::parse($author->date)->isoFormat('dddd, D MMMM
+                                Y')
+                                }}</span>
                         </div>
+
+                        <div class="post-content d-flex flex-column">
+
+                            <h3 class="post-title">{{ \Illuminate\Support\Str::limit($author->title, 50,
+                                $end='...') }}</h3>
+
+                            <div class="meta d-flex align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-person"></i> <span class="ps-2">{{ $author->uploader->name ??
+                                        'Admin' }}</span>
+                                </div>
+                                <span class="px-3 text-black-50">/</span>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-eye"></i> <span class="ps-2">{{
+                                        views($author)->count(); }} Views</span>
+                                </div>
+                            </div>
+
+                            <p>
+                                {!! \Illuminate\Support\Str::limit($author->description, 100,
+                                $end='...') !!}
+                            </p>
+
+                            <hr>
+
+                            <a href="{{ url('/news-detail', $author->slug) }}"
+                                class="readmore stretched-link"><span>Read More</span><i
+                                    class="bi bi-arrow-right"></i></a>
+
+                        </div>
+
                     </div>
-                </article>
+                </div>
+                <!-- End post list item -->
                 @endforeach
 
-                {{ $news->onEachSide(5)->links('vendor.pagination.medino') }}
+                {!! $news->withQueryString()->links('vendor.pagination.boxass') !!}
+                <!-- End blog pagination -->
             </div>
+            <!-- End blog posts list -->
+
         </div>
-    </div>
-</section>
-<!--================Blog Area =================-->
+    </section>
+    <!-- End Blog Section -->
+
+</main>
+<!-- End #main -->
 @endsection
 @push('after-script')
 @endpush

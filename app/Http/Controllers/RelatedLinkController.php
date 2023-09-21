@@ -9,10 +9,6 @@ use Yajra\DataTables\Facades\DataTables;
 
 class RelatedLinkController extends Controller
 {
-    public function __construct()
-    {
-        $this->themes = Website::all()->first();
-    }
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +34,7 @@ class RelatedLinkController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('back.' . $this->themes->themes_back . '.pages.related.index');
+        return view('back.pages.related.index');
     }
 
     /**
@@ -48,7 +44,7 @@ class RelatedLinkController extends Controller
      */
     public function create()
     {
-        return view('back.' . $this->themes->themes_back . '.pages.related.create');
+        return view('back.pages.related.create');
     }
 
     /**
@@ -87,7 +83,7 @@ class RelatedLinkController extends Controller
     public function edit($id)
     {
         $data = RelatedLink::find($id);
-        return view('back.' . $this->themes->themes_back . '.pages.related.edit', compact('data'));
+        return view('back.pages.related.edit', compact('data'));
     }
 
     /**

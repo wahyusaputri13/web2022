@@ -1,4 +1,4 @@
-@extends('back.sneat.layouts.app')
+@extends('back.layouts.app')
 @section('content')
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -21,51 +21,64 @@
                 'true', ''])}}
 
                 <div class="row">
+                    <div class="togglebutton" style="margin-bottom: 15px;">
+                        <label class="form-check-label">
+                            Hanya Link? <input type="checkbox" id="hideButton" class="form-check-input" {{ $data->link ?
+                            'checked' : '' }}>
+                        </label>
+                    </div>
+                </div>
 
-                    <div class="form-group jip col-sm-12 col-md-6">
+                <div class="row">
+
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Menu</label>
-                        @if($data->id <= 45) {{ Form::select('menu_parent', $root, $data->menu_parent,
-                            ['class' => 'cari form-control', 'disabled' => 'disabled','placeholder' => 'Silahkan
-                            Pilih']) }}
-                            @else
-                            {{ Form::select('menu_parent', $root, $data->menu_parent,
-                            ['class' => 'cari form-control'. ($errors->has('menu_parent')
-                            ? '
-                            is-invalid' :
-                            null),'placeholder' => 'Silahkan Pilih']) }}
-                            @endif
-                            @error('menu_parent')
-                            <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                        {{ Form::select('menu_parent', $root, $data->menu_parent,
+                        ['class' => 'select2 form-control'. ($errors->has('menu_parent')
+                        ? '
+                        is-invalid' :
+                        null),'placeholder' => 'Silahkan Pilih']) }}
+                        @error('menu_parent')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
 
                     <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Nama Sub Menu</label>
-                        @if($data->id <= 45) {{Form::text('menu_name', null,['class'=> 'form-control',
-                            'id' => 'title', 'disabled' => 'disabled','placeholder' => 'Masukkan Nama Sub Menu'])}}
-                            @else
-                            {{Form::text('menu_name', null,['class' => 'form-control'. ($errors->has('menu_name')
-                            ? '
-                            is-invalid' :
-                            null), 'id' => 'title','placeholder' =>
-                            'Masukkan Nama Sub Menu'])}}
-                            @endif
-                            @error('menu_name')
-                            <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                        {{Form::text('menu_name', null,['class' => 'form-control'. ($errors->has('menu_name')
+                        ? '
+                        is-invalid' :
+                        null), 'id' => 'title','placeholder' =>
+                        'Masukkan Nama Sub Menu'])}}
+                        @error('menu_name')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
 
-                    <div class="form-group col-sm-12 col-md-6">
+                    <div class="form-group url col-sm-12 col-md-6" style="display: none;">
+                        <label for="defaultFormControlInput" class="form-label">URL Menu</label>
+                        {{Form::text('menu_url', null, ['class' => 'form-control'. ($errors->has('menu_url') ? '
+                        is-invalid' :
+                        null),
+                        'placeholder' => 'Masukkan URL Menu'])}}
+                        @error('menu_url')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group jip col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control','placeholder' => 'Silahkan Pilih'])}}
                     </div>
 
-                    <div class="form-group jip col-12">
+                    <div class="form-group konten col-12">
                         <label for="defaultFormControlInput" class="form-label">Konten / Isi</label>
                         {{Form::textarea('content', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                         @error('content')
@@ -91,6 +104,22 @@
 @endsection
 @push('after-script')
 <script>
+    $(document).ready(function () {
+
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".konten").hide();
+                $(".jip").hide();
+                $(".url").show();
+            } else {
+                $(".konten").show();
+                $(".jip").show();
+                $(".url").hide();
+            }
+        });
+
+    });
+
     $(".select2").select2();
 </script>
 

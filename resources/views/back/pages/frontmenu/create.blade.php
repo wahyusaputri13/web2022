@@ -1,4 +1,4 @@
-@extends('back.sneat.layouts.app')
+@extends('back.layouts.app')
 @section('content')
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -20,8 +20,16 @@
                 {{Form::open(['route' => 'frontmenu.store','method' => 'post', 'files' => 'true', ''])}}
 
                 <div class="row">
+                    <div class="togglebutton" style="margin-bottom: 15px;">
+                        <label class="form-check-label">
+                            Hanya Link? <input type="checkbox" id="hideButton" class="form-check-input">
+                        </label>
+                    </div>
+                </div>
 
-                    <div class="form-group jip col-sm-12 col-md-6">
+                <div class="row">
+
+                    <div class="form-group col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Menu</label>
                         {{Form::select('menu_parent', $root, null, ['class' =>
                         'form-control select2'. ($errors->has('menu_parent') ? ' is-invalid' :
@@ -46,14 +54,27 @@
                         @enderror
                     </div>
 
-                    <div class="form-group col-sm-12 col-md-6">
+                    <div class="form-group url col-sm-12 col-md-6" style="display: none;">
+                        <label for="defaultFormControlInput" class="form-label">URL Menu</label>
+                        {{Form::text('link', null, ['class' => 'form-control'. ($errors->has('link') ? '
+                        is-invalid' :
+                        null),
+                        'placeholder' => 'Masukkan URL Menu'])}}
+                        @error('link')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group jip col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control'. ($errors->has('name') ? ' is-invalid' :
                         null),'placeholder' => 'Silahkan Pilih'])}}
                     </div>
 
-                    <div class="form-group jip col-12">
+                    <div class="form-group konten col-12">
                         <label for="defaultFormControlInput" class="form-label">Konten / Isi</label>
                         {{Form::textarea('content', null,['class' => 'my-editor form-control'. ($errors->has('content')
                         ? '
@@ -81,6 +102,21 @@
 @endsection
 @push('after-script')
 <script>
+    $(document).ready(function () {
+
+        $("#hideButton").click(function () {
+            if ($(this).is(":checked")) {
+                $(".konten").hide();
+                $(".jip").hide();
+                $(".url").show();
+            } else {
+                $(".konten").show();
+                $(".jip").show();
+                $(".url").hide();
+            }
+        });
+
+    });
 
     $(".select2").select2();
 

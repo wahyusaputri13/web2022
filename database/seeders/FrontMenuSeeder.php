@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\FrontMenu;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
@@ -17,247 +18,335 @@ class FrontMenuSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('front_menus')->truncate();
+
         $front_menu = [
-            // root menu
             [
                 'menu_name' => 'Main Menu'
             ],
-            // menu profil
+
             [
                 'menu_parent' => '1',
-                'menu_name' => 'Profil',
-                'menu_url' => Str::slug('Profil', '-')
+                'menu_name' => 'Tentang Kami',
+                'menu_url' => Str::slug('Tentang Kami', '-')
             ],
             [
                 'menu_parent' => '2',
-                'menu_name' => 'Profil OPD',
-                'kategori' => 'INFORMASI_ST_02',
-                'menu_url' => Str::slug('Profil OPD', '-')
+                'menu_name' => 'Fasilitas Publik',
+                'menu_url' => Str::slug('Fasilitas Publik', '-')
             ],
             [
-                'menu_parent' => '2',
-                'menu_name' => 'Profil Pimpinan OPD',
-                'menu_url' => Str::slug('Profil Pimpinan OPD', '-')
+                'menu_parent' => '3',
+                'menu_name' => 'Ruang Publik',
+                'menu_url' => Str::slug('Ruang Publik', '-')
             ],
             [
+                'menu_parent' => '3',
+                'menu_name' => 'Layanan Umum',
+                'menu_url' => Str::slug('Layanan Umum', '-')
+            ],
+            [
+                'menu_parent' => '3',
+                'menu_name' => 'Layanan Kesehatan',
+                'menu_url' => Str::slug('Layanan Kesehatan', '-')
+            ],
+            [
+                'menu_parent' => '3',
+                'menu_name' => 'Layanan Perbankan',
+                'menu_url' => Str::slug('Layanan Perbankan', '-')
+            ],
+            [
+                'menu_parent' => '3',
+                'menu_name' => 'Layanan Transparansi',
+                'menu_url' => Str::slug('Layanan Transparansi', '-')
+            ],
+            [
+                'menu_parent' => '3',
+                'menu_name' => 'Tempat Ibadah',
+                'menu_url' => Str::slug('Tempat Ibadah', '-')
+            ],
+            [
+                'menu_parent' => '3',
+                'menu_name' => 'Radio',
+                'menu_url' => Str::slug('Radio', '-')
+            ],
+            [
+                'menu_parent' => '3',
+                'menu_name' => 'Jelajah Wonosobo',
+                'menu_url' => Str::slug('Jelajah Wonosobo', '-')
+            ],
+
+            [
                 'menu_parent' => '2',
+                'menu_name' => 'Layanan Publik Online',
+                'menu_url' => Str::slug('Layanan Publik Online', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'Harga Kebutuhan Pokok',
+                'menu_url' => Str::slug('Harga Kebutuhan Pokok', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'Lalu Lintas Wonosobo',
+                'menu_url' => Str::slug('Lalu Lintas Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'Open Data Desa',
+                'menu_url' => Str::slug('Open Data Desa', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'Cek Status Perizinan',
+                'menu_url' => Str::slug('Cek Status Perizinan', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'Pelayanan Dinda Cantik',
+                'menu_url' => Str::slug('Pelayanan Dinda Cantik', '-')
+            ],
+            [
+                'menu_parent' => '12',
+                'menu_name' => 'e-Lapak',
+                'menu_url' => Str::slug('e-Lapak', '-')
+            ],
+
+            [
+                'menu_parent' => '2',
+                'menu_name' => 'Potensi Daerah',
+                'menu_url' => Str::slug('Potensi Daerah', '-')
+            ],
+            [
+                'menu_parent' => '19',
+                'menu_name' => 'Potensi Investasi Kabupaten Wonosobo',
+                'menu_url' => Str::slug('Potensi Investasi Kabupaten Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '19',
+                'menu_name' => 'Daftar Investasi',
+                'menu_url' => Str::slug('Daftar Investasi', '-')
+            ],
+            [
+                'menu_parent' => '21',
+                'menu_name' => 'Penyertaan Modal',
+                'menu_url' => Str::slug('Penyertaan Modal', '-')
+            ],
+            [
+                'menu_parent' => '21',
+                'menu_name' => 'Investasi Usaha',
+                'menu_url' => Str::slug('Investasi Usaha', '-')
+            ],
+
+            [
+                'menu_parent' => '2',
+                'menu_name' => 'Selayang Pandang',
+                'menu_url' => Str::slug('Selayang Pandang', '-')
+            ],
+            [
+                'menu_parent' => '24',
+                'menu_name' => 'Sejarah Singkat Kabupaten Wonosobo',
+                'menu_url' => Str::slug('Sejarah Singkat Kabupaten Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '24',
+                'menu_name' => 'Arti Lambang Daerah',
+                'menu_url' => Str::slug('Arti Lambang Daerah', '-')
+            ],
+            [
+                'menu_parent' => '24',
+                'menu_name' => 'Peta Pengembangan Wilayah',
+                'menu_url' => Str::slug('Peta Pengembangan Wilayah', '-')
+            ],
+            [
+                'menu_parent' => '24',
+                'menu_name' => 'Geografis Kabupaten Wonosobo',
+                'menu_url' => Str::slug('Geografis Kabupaten Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '24',
                 'menu_name' => 'Visi Misi',
-                'kategori' => 'INFORMASI_ST_01',
                 'menu_url' => Str::slug('Visi Misi', '-')
             ],
+
             [
                 'menu_parent' => '2',
-                'menu_name' => 'Tupoksi',
-                'kategori' => 'INFORMASI_ST_01',
-                'menu_url' => Str::slug('Tupoksi', '-')
-            ],
-            [
-                'menu_parent' => '2',
-                'menu_name' => 'Personil',
-                'menu_url' => Str::slug('Personil', '-')
+                'menu_name' => 'Geopark Dieng',
+                'menu_url' => Str::slug('Geopark Dieng', '-')
             ],
             [
                 'menu_parent' => '2',
-                'menu_name' => 'Struktur',
-                'menu_url' => Str::slug('Struktur', '-')
+                'menu_name' => 'Agenda Badan Publik',
+                'menu_url' => Str::slug('Agenda Badan Publik', '-')
             ],
-            // submenu profil pimpinan opd
+
             [
-                'menu_parent' => '4',
-                'menu_name' => 'Profil Pimpinan',
-                'kategori' => 'INFORMASI_ST_01',
-                'menu_url' => Str::slug('Profil Pimpinan', '-')
-            ],
-            [
-                'menu_parent' => '4',
-                'menu_name' => 'LHKPN Pimpinan',
-                'menu_url' => Str::slug('LHKPN Pimpinan', '-')
+                'menu_parent' => '1',
+                'menu_name' => 'Kepemerintahan',
+                'menu_url' => Str::slug('Kepemerintahan', '-')
             ],
             [
-                'menu_parent' => '4',
-                'menu_name' => 'Agenda Pimpinan',
-                'kategori' => 'INFORMASI_ST_01',
-                'menu_url' => Str::slug('Agenda Pimpinan', '-')
+                'menu_parent' => '32',
+                'menu_name' => 'Profil Bupati dan Wakil Bupati',
+                'menu_url' => Str::slug('Profil Bupati dan Wakil Bupati', '-')
             ],
-            // menu ppid
+            [
+                'menu_parent' => '33',
+                'menu_name' => 'Bupati',
+                'menu_url' => Str::slug('Bupati', '-')
+            ],
+            [
+                'menu_parent' => '33',
+                'menu_name' => 'Wakil Bupati',
+                'menu_url' => Str::slug('Wakil Bupati', '-')
+            ],
+            [
+                'menu_parent' => '32',
+                'menu_name' => 'Forkopimda Wonosobo',
+                'menu_url' => Str::slug('Forkopimda Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '32',
+                'menu_name' => 'DPRD',
+                'menu_url' => Str::slug('DPRD', '-')
+            ],
+            [
+                'menu_parent' => '37',
+                'menu_name' => 'Profil Pimpinan DPRD Kab Wonosobo 2020-2024',
+                'menu_url' => Str::slug('Profil Pimpinan DPRD Kab Wonosobo 2020-2024', '-')
+            ],
+            [
+                'menu_parent' => '32',
+                'menu_name' => 'STAF AHLI BUPATI',
+                'menu_url' => Str::slug('STAF AHLI BUPATI', '-')
+            ],
+            [
+                'menu_parent' => '32',
+                'menu_name' => 'OPD',
+                'menu_url' => Str::slug('OPD', '-')
+            ],
+            [
+                'menu_parent' => '40',
+                'menu_name' => 'Sekretariat Daerah Wonosobo',
+                'menu_url' => Str::slug('Sekretariat Daerah Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '40',
+                'menu_name' => 'Perangkat Daerah Wonosobo',
+                'menu_url' => Str::slug('Perangkat Daerah Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '40',
+                'menu_name' => 'Camat se-Kab. Wonosobo',
+                'menu_url' => Str::slug('Camat se-Kab. Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '40',
+                'menu_name' => 'Tupoksi OPD',
+                'menu_url' => Str::slug('Tupoksi OPD', '-')
+            ],
+            [
+                'menu_parent' => '32',
+                'menu_name' => 'Produk Hukum',
+                'menu_url' => Str::slug('Produk Hukum', '-')
+            ],
+            [
+                'menu_parent' => '45',
+                'menu_name' => 'JDIH Wonosobo',
+                'menu_url' => Str::slug('JDIH Wonosobo', '-')
+            ],
+            [
+                'menu_parent' => '45',
+                'menu_name' => 'Kerjasama Daerah',
+                'menu_url' => Str::slug('Kerjasama Daerah', '-')
+            ],
+            [
+                'menu_parent' => '1',
+                'menu_name' => 'Berita',
+                'menu_url' => Str::slug('Berita', '-')
+            ],
+            [
+                'menu_parent' => '1',
+                'menu_name' => 'Transparansi Anggaran',
+                'menu_url' => Str::slug('Transparansi Anggaran', '-')
+            ],
+            [
+                'menu_parent' => '1',
+                'menu_name' => 'Info',
+                'menu_url' => Str::slug('Info', '-')
+            ],
             [
                 'menu_parent' => '1',
                 'menu_name' => 'PPID',
                 'menu_url' => Str::slug('PPID', '-')
             ],
+
             [
-                'menu_parent' => '12',
+                'menu_parent' => '51',
                 'menu_name' => 'Profil PPID',
                 'menu_url' => Str::slug('Profil PPID', '-')
             ],
             [
-                'menu_parent' => '12',
-                'menu_name' => 'Daftar Informasi Publik',
-                'menu_url' => Str::slug('Daftar Informasi Publik', '-')
+                'menu_parent' => '52',
+                'menu_name' => 'Profil PPID',
+                'menu_url' => Str::slug('Profil PPID', '-')
             ],
             [
-                'menu_parent' => '12',
-                'menu_name' => 'SK PPID',
-                'kategori' => 'INFORMASI_ST_02',
-                'menu_url' => Str::slug('SK PPID', '-')
+                'menu_parent' => '52',
+                'menu_name' => 'Profil',
+                'menu_url' => Str::slug('Profil', '-')
             ],
             [
-                'menu_parent' => '12',
-                'menu_name' => 'Produk Hukum',
-                'menu_url' => Str::slug('Produk Hukum', '-')
-            ],
-            [
-                'menu_parent' => '12',
-                'menu_name' => 'Gallery PPID',
-                'menu_url' => Str::slug('Gallery PPID', '-')
-            ],
-            [
-                'menu_parent' => '12',
-                'menu_name' => 'SOP PPID',
-                'menu_url' => Str::slug('SOP PPID', '-')
-            ],
-            [
-                'menu_parent' => '12',
-                'menu_name' => 'Alur Permohonan Informasi',
-                'menu_url' => Str::slug('Alur Permohonan Informasi', '-')
-            ],
-            // profil ppid
-            [
-                'menu_parent' => '13',
-                'menu_name' => 'Profil Singkat',
-                'kategori' => 'INFORMASI_ST_01',
-                'menu_url' => Str::slug('Profil Singkat', '-')
-            ],
-            [
-                'menu_parent' => '13',
-                'menu_name' => 'Tugas PPID',
-                'menu_url' => Str::slug('Tugas PPID', '-')
-            ],
-            [
-                'menu_parent' => '13',
+                'menu_parent' => '52',
                 'menu_name' => 'Maklumat PPID',
                 'menu_url' => Str::slug('Maklumat PPID', '-')
             ],
             [
-                'menu_parent' => '13',
-                'menu_name' => 'Struktur PPID',
-                'menu_url' => Str::slug('Struktur PPID', '-')
-            ],
-            // submenu produk hukum
-            [
-                'menu_parent' => '16',
-                'menu_name' => 'JDIH Wonosobo',
-                'menu_url' => Str::slug('JDIH Wonosobo', '-')
+                'menu_parent' => '52',
+                'menu_name' => 'Visi Misi',
+                'menu_url' => Str::slug('Visi Misi', '-')
             ],
             [
-                'menu_parent' => '16',
-                'menu_name' => 'SK DIP',
-                'menu_url' => Str::slug('SK DIP', '-')
+                'menu_parent' => '52',
+                'menu_name' => 'Tugas Pokok dan Fungsi',
+                'menu_url' => Str::slug('Tugas Pokok dan Fungsi', '-')
             ],
             [
-                'menu_parent' => '16',
-                'menu_name' => 'SK DIK',
-                'menu_url' => Str::slug('SK DIK', '-')
-            ],
-            // submenu sop ppid
-            [
-                'menu_parent' => '18',
-                'menu_name' => 'SOP Pelayanan Informasi Publik',
-                'menu_url' => Str::slug('SOP Pelayanan Informasi Publik', '-')
+                'menu_parent' => '52',
+                'menu_name' => 'Bagan Struktur',
+                'menu_url' => Str::slug('Bagan Struktur', '-')
             ],
             [
-                'menu_parent' => '18',
-                'menu_name' => 'SOP Penanganan Keberatan',
-                'menu_url' => Str::slug('SOP Penanganan Keberatan', '-')
-            ],
-            // menu transparansi
-            [
-                'menu_parent' => '1',
-                'menu_name' => 'Transparansi',
-                'menu_url' => Str::slug('Transparansi', '-')
+                'menu_parent' => '52',
+                'menu_name' => 'Dasar Hukum Pembentukan',
+                'menu_url' => Str::slug('Dasar Hukum Pembentukan', '-')
             ],
             [
-                'menu_parent' => '29',
-                'menu_name' => 'LHKASN',
-                'menu_url' => Str::slug('LHKASN', '-')
+                'menu_parent' => '52',
+                'menu_name' => 'Daftar PPID Pelaksana',
+                'menu_url' => Str::slug('Daftar PPID Pelaksana', '-')
             ],
             [
-                'menu_parent' => '29',
-                'menu_name' => 'Perjanjian Kinerja',
-                'menu_url' => Str::slug('Perjanjian Kinerja', '-')
+                'menu_parent' => '51',
+                'menu_name' => 'Daftar Informasi Publik',
+                'menu_url' => Str::slug('Daftar Informasi Publik', '-')
             ],
             [
-                'menu_parent' => '29',
-                'menu_name' => 'CaLK',
-                'menu_url' => Str::slug('CaLK', '-')
+                'menu_parent' => '51',
+                'menu_name' => 'Regulasi PPID',
+                'menu_url' => Str::slug('Regulasi PPID', '-')
             ],
             [
-                'menu_parent' => '29',
-                'menu_name' => 'Laporan Aset',
-                'menu_url' => Str::slug('Laporan Aset', '-')
+                'menu_parent' => '62',
+                'menu_name' => 'Regulasi Informasi Publik',
+                'menu_url' => Str::slug('Regulasi Informasi Publik', '-')
             ],
             [
-                'menu_parent' => '29',
-                'menu_name' => 'Renja',
-                'menu_url' => Str::slug('Renja', '-')
+                'menu_parent' => '51',
+                'menu_name' => 'Pelayanan Informasi',
+                'menu_url' => Str::slug('Pelayanan Informasi', '-')
             ],
-            [
-                'menu_parent' => '29',
-                'menu_name' => 'Renstra',
-                'menu_url' => Str::slug('Renstra', '-')
-            ],
-            [
-                'menu_parent' => '29',
-                'menu_name' => 'POBL',
-                'menu_url' => Str::slug('POBL', '-')
-            ],
-            [
-                'menu_parent' => '29',
-                'menu_name' => 'Program Kegiatan',
-                'menu_url' => Str::slug('Program Kegiatan', '-')
-            ],
-            [
-                'menu_parent' => '29',
-                'menu_name' => 'Realisasi Anggaran',
-                'menu_url' => Str::slug('Realisasi Anggaran', '-')
-            ],
-            [
-                'menu_parent' => '29',
-                'menu_name' => 'LKjIP',
-                'menu_url' => Str::slug('LKjIP', '-')
-            ],
-            [
-                'menu_parent' => '29',
-                'menu_name' => 'DPA',
-                'menu_url' => Str::slug('DPA', '-')
-            ],
-            [
-                'menu_parent' => '29',
-                'menu_name' => 'RKA',
-                'menu_url' => Str::slug('RKA', '-')
-            ],
-            [
-                'menu_parent' => '29',
-                'menu_name' => 'Neraca',
-                'menu_url' => Str::slug('Neraca', '-')
-            ],
-            // layanan menu
-            [
-                'menu_parent' => '12',
-                'menu_name' => 'Layanan',
-                'menu_url' => Str::slug('Layanan', '-')
-            ],
-            // layanan sub menu
-            [
-                'menu_parent' => '43',
-                'menu_name' => 'Permohonan Informasi Publik',
-                'menu_url' => Str::slug('Permohonan Informasi Publik', '-')
-            ],
-            [
-                'menu_parent' => '43',
-                'menu_name' => 'Pengajuan Keberatan Informasi Publik',
-                'menu_url' => Str::slug('Pengajuan Keberatan Informasi Publik', '-')
-            ],
+
         ];
 
         foreach ($front_menu as $menu) {

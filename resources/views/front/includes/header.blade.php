@@ -12,31 +12,121 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                            class="bi bi-chevron-down dropdown-indicator"></i></a>
+                @php
+                $queryMenu = DB::table('front_menus')
+                ->where('menu_parent', '=', '1')
+                ->where('deleted_at', '=', null)
+                ->orderBy('id', 'ASC')
+                ->get();
+                @endphp
+                @foreach ($queryMenu as $menu)
+                @php
+                $menuId = $menu->id;
+                $subMenus = DB::table('front_menus')
+                ->where('menu_parent', '=', $menuId)
+                ->where('deleted_at', '=', null)
+                ->orderBy('menu_parent', 'ASC')
+                ->get();
+                @endphp
+                @if (count($subMenus) == 0)
+                <li>
+                    @if ($menu->link)
+                    <a target="_blank" href="{{ $menu->menu_url }}">
+                        {{ $menu->menu_name }}
+                    </a>
+                    @else
+                    <a href="{{ url('/page', $menu->menu_url) }}">
+                        {{ $menu->menu_name }}
+                    </a>
+                    @endif
+                </li>
+                @else
+                <li class="dropdown">
+                    <a href="#">
+                        {{ $menu->menu_name }}
+                        <i class="bi bi-chevron-down dropdown-indicator"></i>
+                    </a>
                     <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                    class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        @foreach ($subMenus as $sm)
+                        @php
+                        $menuId2 = $sm->id;
+                        $subMenus2 = DB::table('front_menus')
+                        ->where('menu_parent', '=', $menuId2)
+                        ->where('deleted_at', '=', null)
+                        ->orderBy('menu_parent', 'ASC')
+                        ->get();
+                        @endphp
+                        @if (count($subMenus2) == 0)
+                        <li>
+                            <a href="{{ url('page', $sm->menu_url) }}">
+                                {{ $sm->menu_name }}
+                            </a>
+                        </li>
+                        @else
+                        <li class="dropdown">
+                            <a href="#">
+                                {{ $sm->menu_name }}
+                                <i class="bi bi-chevron-down dropdown-indicator"></i>
+                            </a>
                             <ul>
-                                <li><a href="#">Deep Dropdown 1</a></li>
-                                <li><a href="#">Deep Dropdown 2</a></li>
-                                <li><a href="#">Deep Dropdown 3</a></li>
-                                <li><a href="#">Deep Dropdown 4</a></li>
-                                <li><a href="#">Deep Dropdown 5</a></li>
+                                @foreach ($subMenus2 as $sub3)
+                                @php
+                                $menuId3 = $sub3->id;
+                                $subMenus3 = DB::table('front_menus')
+                                ->where('menu_parent', '=', $menuId3)
+                                ->where('deleted_at', '=', null)
+                                ->orderBy('menu_parent', 'ASC')
+                                ->get();
+                                @endphp
+
+                                @if (count($subMenus3) == 0)
+                                <li>
+                                    @if ($sub3->menu_name == 'Permohonan Informasi Publik')
+                                    <a href="https://website.wonosobokab.go.id/category/detail/Permohonan-Informasi-Publik"
+                                        target="_blank">
+                                        {{ $sub3->menu_name }}
+                                    </a>
+                                    @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi Publik')
+                                    <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
+                                        target="_blank">
+                                        {{ $sub3->menu_name }}
+                                    </a>
+                                    @elseif ($sub3->menu_name == 'JDIH Wonosobo')
+                                    <a href="https://jdih.wonosobokab.go.id/" target="_blank">
+                                        {{ $sub3->menu_name }}
+                                    </a>
+                                    @else
+                                    <a href="{{ url('page', $sub3->menu_url) }}">
+                                        {{ $sub3->menu_name }}
+                                    </a>
+                                    @endif
+                                </li>
+                                @else
+                                <li class="dropdown">
+                                    <a href="#">
+                                        {{ $sub3->menu_name }}
+                                        <i class="bi bi-chevron-down dropdown-indicator"></i>
+                                    </a>
+                                    <ul>
+                                        @foreach ($subMenus3 as $sub4)
+                                        <li>
+                                            <a href="{{ url('page', $sub4->menu_url) }}">
+                                                {{ $sub4->menu_name }}
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                @endif
+                                @endforeach
                             </ul>
                         </li>
-                        <li><a href="#">Dropdown 2</a></li>
-                        <li><a href="#">Dropdown 3</a></li>
-                        <li><a href="#">Dropdown 4</a></li>
+                        @endif
+                        @endforeach
                     </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                @endif
+                @endforeach
             </ul>
         </nav><!-- .navbar -->
 

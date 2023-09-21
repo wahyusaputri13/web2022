@@ -8,10 +8,11 @@
 
         <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             @foreach(App\Models\News::where('highlight', '1')->orderBy('date',
-            'DESC')->take(3)->get() as $hl)
+            'DESC')->take(10)->get() as $hl)
 
             @if ($loop->first)
-            <div class="carousel-item active" style="background-image: url('storage/{{ $hl->gambarmuka->path }}')">
+            <div class="carousel-item active"
+                style="background-image: url('storage/{{ $hl->gambarmuka->path ?? null }}')">
                 <div class="info d-flex align-items-center">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -26,7 +27,7 @@
                 </div>
             </div>
             @else
-            <div class="carousel-item" style="background-image: url('storage/{{ $hl->gambarmuka->path }}')">
+            <div class="carousel-item" style="background-image: url('storage/{{ $hl->gambarmuka->path ?? null }}')">
                 <div class="info d-flex align-items-center">
                     <div class="container">
                         <div class="row justify-content-center">

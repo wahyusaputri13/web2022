@@ -12,10 +12,6 @@ use Illuminate\Support\Str;
 
 class FrontMenuController extends Controller
 {
-    public function __construct()
-    {
-        $this->themes = Website::all()->first();
-    }
     /**
      * Display a listing of the resource.
      *
@@ -30,15 +26,10 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'action',
                     function ($data) {
-                        if ($data->id <= 45) {
-                            $actionBtn = '<div class="text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>';
-                        } else {
-                            $actionBtn = '<div class="text-center">
+                        $actionBtn = '<div class="text-center">
                         <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
                     </div>';
-                        }
                         return $actionBtn;
                     }
                 )
@@ -52,26 +43,19 @@ class FrontMenuController extends Controller
                 ->addColumn(
                     'aksi',
                     function ($data) {
-                        if ($data->id <= 45) {
+
+                        if ($data->active == 1) {
                             $actionBtn = '<center><div class="togglebutton">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" disabled checked>
-                        </label>
-                    </div></center>';
-                        } else {
-                            if ($data->active == 1) {
-                                $actionBtn = '<center><div class="togglebutton">
                                 <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" checked onclick="centang('  . $data->id . ')">
                                 </label>
                                 </div></center>';
-                            } else {
-                                $actionBtn = '<center><div class="togglebutton">
+                        } else {
+                            $actionBtn = '<center><div class="togglebutton">
                                 <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" onclick="centang('  . $data->id . ')">
                                 </label>
                                 </div></center>';
-                            }
                         }
                         return $actionBtn;
                     }
@@ -79,7 +63,7 @@ class FrontMenuController extends Controller
                 ->rawColumns(['action', 'orang_tua', 'aksi'])
                 ->make(true);
         }
-        return view('back.' . $this->themes->themes_back . '.pages.frontmenu.index');
+        return view('back.pages.frontmenu.index');
     }
 
     /**
@@ -90,7 +74,7 @@ class FrontMenuController extends Controller
     public function create()
     {
         $root = FrontMenu::pluck('menu_name', 'id');
-        return view('back.' . $this->themes->themes_back . '.pages.frontmenu.create', compact('root'));
+        return view('back.pages.frontmenu.create', compact('root'));
     }
 
     /**
@@ -136,7 +120,7 @@ class FrontMenuController extends Controller
     {
         $data = FrontMenu::find($id);
         $root = FrontMenu::pluck('menu_name', 'id');
-        return view('back.' . $this->themes->themes_back . '.pages.frontmenu.edit', compact('data', 'root'));
+        return view('back.pages.frontmenu.edit', compact('data', 'root'));
     }
 
     /**
