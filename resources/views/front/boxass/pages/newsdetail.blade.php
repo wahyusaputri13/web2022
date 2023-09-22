@@ -40,9 +40,9 @@
                                     <ul>
                                         <li>
                                             <a href="#">
-                                                <img src="https://ui-avatars.com/api/?name= {{ $data->uploader->name }}"
+                                                <img src="https://ui-avatars.com/api/?name= {{ $data->uploader->name ?? 'Admin' }}"
                                                     alt="Author">
-                                                <span> {{ $data->uploader->name }}</span>
+                                                <span> {{ $data->uploader->name ?? 'Admin' }}</span>
                                             </a>
                                         </li>
                                         <li>
