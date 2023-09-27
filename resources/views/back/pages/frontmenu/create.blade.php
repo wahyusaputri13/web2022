@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label class="form-check-label">
-                            Hanya Link? <input type="checkbox" id="hideButton" class="form-check-input">
+                            Hanya Link? <input type="checkbox" id="hideButton" name="acb" class="form-check-input">
                         </label>
                     </div>
                 </div>

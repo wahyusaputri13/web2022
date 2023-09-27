@@ -23,6 +23,7 @@
                 <div class="row">
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label class="form-check-label">
+                            <input type="text" value="{{ $data->link }}" id="bbb" hidden>
                             Hanya Link? <input type="checkbox" id="hideButton" class="form-check-input" {{ $data->link ?
                             'checked' : '' }}>
                         </label>
@@ -105,6 +106,13 @@
 @push('after-script')
 <script>
     $(document).ready(function () {
+        let a = document.getElementById('bbb').value;
+        console.log(a);
+        if (a == 1) {
+            $(".konten").hide();
+            $(".jip").hide();
+            $(".url").show();
+        }
 
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
