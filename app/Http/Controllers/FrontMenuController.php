@@ -89,7 +89,7 @@ class FrontMenuController extends Controller
             $data = [
                 'menu_parent' => $request->menu_parent,
                 'menu_name' => $request->menu_name,
-                'menu_url' => $request->link,
+                'menu_url' => $request->menu_url,
                 'link' => 1
             ];
         } else {
@@ -140,11 +140,14 @@ class FrontMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $o = FrontMenu::find($id);
+
         if ($request->acb) {
+            $o->content = null;
             $data = [
                 'menu_parent' => $request->menu_parent,
                 'menu_name' => $request->menu_name,
-                'menu_url' => $request->link,
+                'menu_url' => $request->menu_url,
                 'link' => 1
             ];
         } else {
@@ -157,7 +160,7 @@ class FrontMenuController extends Controller
             ];
         }
 
-        FrontMenu::find($id)->update($data);
+        $o->update($data);
 
         return redirect(route('frontmenu.index'))->with(['success' => 'Data has been successfully changed!']);
     }

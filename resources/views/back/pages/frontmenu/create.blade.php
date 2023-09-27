@@ -56,11 +56,11 @@
 
                     <div class="form-group url col-sm-12 col-md-6" style="display: none;">
                         <label for="defaultFormControlInput" class="form-label">URL Menu</label>
-                        {{Form::text('link', null, ['class' => 'form-control'. ($errors->has('link') ? '
+                        {{Form::text('menu_url', null, ['class' => 'form-control'. ($errors->has('menu_url') ? '
                         is-invalid' :
                         null),
                         'placeholder' => 'Masukkan URL Menu'])}}
-                        @error('link')
+                        @error('menu_url')
                         <div id="defaultFormControlHelp" class="form-text" style="color: red;">
                             {{ $message }}
                         </div>

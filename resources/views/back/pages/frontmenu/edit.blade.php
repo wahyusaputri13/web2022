@@ -24,7 +24,8 @@
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label class="form-check-label">
                             <input type="text" value="{{ $data->link }}" id="bbb" hidden>
-                            Hanya Link? <input type="checkbox" id="hideButton" class="form-check-input" {{ $data->link ?
+                            Hanya Link? <input type="checkbox" id="hideButton" name="acb" class="form-check-input" {{
+                                $data->link ?
                             'checked' : '' }}>
                         </label>
                     </div>
