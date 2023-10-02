@@ -91,9 +91,9 @@
                 <div class="row">
                     <div class="form-group label">
                         <label for="defaultFormControlInput" class="form-label">Deskripsi</label>
-                        {{Form::textarea('description', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
+                        {{Form::textarea('content', null,['class' => 'my-editor form-control','id'=>'my-editor'])}}
                     </div>
-                    @error('description')
+                    @error('content')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
                         Tidak Boleh Kosong
                     </div>

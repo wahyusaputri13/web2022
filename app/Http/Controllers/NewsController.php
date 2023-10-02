@@ -75,7 +75,7 @@ class NewsController extends Controller
         $val = $request->validate([
             'title' => 'required',
             'date' => 'required',
-            'description' => 'required',
+            'content' => 'required',
         ]);
 
         if ($request->dip_tahun) {
@@ -139,7 +139,7 @@ class NewsController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'content' => 'required',
             'date' => 'required',
         ]);
 
