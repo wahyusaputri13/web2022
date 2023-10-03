@@ -40,6 +40,15 @@
                         @endforeach
                     </ul>
                 </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+
+                </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+
+                </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Total Pengunjung = {{ $counter_web }}</h4>
+                </div>
                 <!-- End footer links column-->
 
             </div>

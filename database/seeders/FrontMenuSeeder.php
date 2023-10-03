@@ -274,7 +274,8 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '1',
                 'menu_name' => 'Berita',
-                'menu_url' => Str::slug('Berita', '-')
+                'link' => 1,
+                'menu_url' => '/newsall'
             ],
             [
                 'menu_parent' => '1',
