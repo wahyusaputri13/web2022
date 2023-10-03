@@ -36,20 +36,6 @@
                     <div class="dropzone" id="my-awesome-dropzone"></div>
                 </div>
 
-                @can('ppidsetda')
-                <div class="row">
-                    <div class="form-group">
-                        <label for="defaultFormControlInput" class="form-label">Tag Bagian</label>
-                        {{Form::select('tag', $categori, null, ['class' => 'form-control
-                        js-example-basic-multiple',
-                        'name' => 'tag[]',
-                        'multiple' => 'multiple',
-                        ])}}
-                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
-                    </div>
-                </div>
-                @endcan
-
                 <div class="row">
                     <div class="form-group jip col-sm-12 col-md-6">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
@@ -63,7 +49,7 @@
                         'placeholder' => 'Silahkan Pilih Tanggal'])}}
                         @error('date')
                         <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                            Tidak Boleh Kosong
+                            {{ $message }}
                         </div>
                         @enderror
                     </div>
@@ -83,7 +69,7 @@
                     </div>
                     @error('title')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
                 </div>
@@ -95,7 +81,7 @@
                     </div>
                     @error('content')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
                 </div>

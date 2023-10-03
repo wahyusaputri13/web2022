@@ -18,6 +18,7 @@
             <h4 class="card-title">Form Tambah Data</h4>
             <div class="card-content">
                 {{Form::open(['route' => 'user.store','method' => 'post', 'files' => 'true', ''])}}
+                
                 @role('superadmin')
                 <div class="form-group label-floating is-focused">
                     <label class="control-label">Role</label>
@@ -30,21 +31,7 @@
                     'placeholder' => 'Select Permission']); }}
                 </div>
                 @endrole
-                @can ('satpolpp')
-                <div>
-                    {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
-                    'data-style'
-                    => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label">NIP</label>
-                    {{Form::number('nip', null,['class' => 'form-control'])}}
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label">Jabatan / Golongan</label>
-                    {{Form::text('jabatan', null,['class' => 'form-control'])}}
-                </div>
-                @endcan
+
                 <div class="row">
 
                     <div class="form-group col-sm-12 col-md-6">
@@ -54,7 +41,7 @@
                     </div>
                     @error('name')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -65,7 +52,7 @@
                     </div>
                     @error('user_phone')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -76,7 +63,7 @@
                     </div>
                     @error('email')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -87,7 +74,7 @@
                     </div>
                     @error('password')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -98,7 +85,7 @@
                     </div>
                     @error('password_confirmation')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 

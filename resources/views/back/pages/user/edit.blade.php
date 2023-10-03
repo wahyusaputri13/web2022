@@ -32,22 +32,6 @@
                 </div>
                 @endrole
 
-                @can ('satpolpp')
-                <div>
-                    {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
-                    'data-style'
-                    => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label">NIP</label>
-                    {{Form::number('nip', null,['class' => 'form-control'])}}
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label">Jabatan / Golongan</label>
-                    {{Form::text('jabatan', null,['class' => 'form-control'])}}
-                </div>
-                @endcan
-
                 <div class="row">
 
                     <div class="form-group col-sm-12 col-md-6">
@@ -57,7 +41,7 @@
                     </div>
                     @error('name')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -68,7 +52,7 @@
                     </div>
                     @error('user_phone')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -79,7 +63,7 @@
                     </div>
                     @error('email')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -90,7 +74,7 @@
                     </div>
                     @error('current_password')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -101,7 +85,7 @@
                     </div>
                     @error('new_password')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
@@ -112,7 +96,7 @@
                     </div>
                     @error('new_confirm_password')
                     <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
+                        {{ $message }}
                     </div>
                     @enderror
 
