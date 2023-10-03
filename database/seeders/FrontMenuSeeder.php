@@ -172,7 +172,8 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '2',
                 'menu_name' => 'Geopark Dieng',
-                'menu_url' => Str::slug('Geopark Dieng', '-')
+                'menu_url' => 'https://geoparkdieng.com/',
+                'link' => '1',
             ],
             [
                 'menu_parent' => '2',
@@ -253,12 +254,14 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '45',
                 'menu_name' => 'JDIH Wonosobo',
-                'menu_url' => Str::slug('JDIH Wonosobo', '-')
+                'menu_url' => 'https://jdih.wonosobokab.go.id/',
+                'link' => 1
             ],
             [
                 'menu_parent' => '45',
                 'menu_name' => 'Kerjasama Daerah',
-                'menu_url' => Str::slug('Kerjasama Daerah', '-')
+                'link' => 1,
+                'menu_url' => 'https://asiksobo.wonosobokab.go.id/'
             ],
             [
                 'menu_parent' => '1',

@@ -61,12 +61,12 @@
                         <label for="defaultFormControlInput" class="form-label">Tanggal</label>
                         {{Form::text('date', null, ['class' => 'form-control flatpickr-date',
                         'placeholder' => 'Silahkan Pilih Tanggal'])}}
+                        @error('date')
+                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                            Tidak Boleh Kosong
+                        </div>
+                        @enderror
                     </div>
-                    @error('date')
-                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
-                        Tidak Boleh Kosong
-                    </div>
-                    @enderror
 
                     <div class="form-group col-sm-12 col-md-6 dip" style="display: none;">
                         <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
@@ -98,6 +98,44 @@
                         Tidak Boleh Kosong
                     </div>
                     @enderror
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <div class="form-check form-switch">
+                                {{Form::checkbox('komentar', null, null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault','value'=>1])}}
+                                <label class="form-check-label" for="flexSwitchCheckDefault">
+                                    Komentar
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <div class="form-check form-switch">
+                                {{Form::checkbox('terbit', null,null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault','value'=>1])}}
+                                <label class="form-check-label" for="flexSwitchCheckDefault">
+                                    Publish
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <div class="form-check form-switch">
+                                {{Form::checkbox('highlight', null, null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault','value'=>1])}}
+                                <label class="form-check-label" for="flexSwitchCheckDefault">
+                                    Highlight
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-3">
@@ -133,10 +171,14 @@
     $(".select2").select2();
 
     var flatpickrDate = document.querySelector(".flatpickr-date");
+    var flatpickrDate2 = document.querySelector(".flatpickr-date2");
 
     flatpickrDate.flatpickr({
         monthSelectorType: "static",
-        todayHighlight: true,
+    });
+
+    flatpickrDate2.flatpickr({
+        monthSelectorType: "static",
     });
 </script>
 

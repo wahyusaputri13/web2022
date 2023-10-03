@@ -58,9 +58,15 @@
                         @endphp
                         @if (count($subMenus2) == 0)
                         <li>
+                            @if($sm->link)
+                            <a target="_blank" href="{{ $sm->menu_url }}">
+                                {{ $sm->menu_name }}
+                            </a>
+                            @else
                             <a href="{{ url('page', $sm->menu_url) }}">
                                 {{ $sm->menu_name }}
                             </a>
+                            @endif
                         </li>
                         @else
                         <li class="dropdown">
@@ -81,18 +87,8 @@
 
                                 @if (count($subMenus3) == 0)
                                 <li>
-                                    @if ($sub3->menu_name == 'Permohonan Informasi Publik')
-                                    <a href="https://website.wonosobokab.go.id/category/detail/Permohonan-Informasi-Publik"
-                                        target="_blank">
-                                        {{ $sub3->menu_name }}
-                                    </a>
-                                    @elseif ($sub3->menu_name == 'Pengajuan Keberatan Informasi Publik')
-                                    <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
-                                        target="_blank">
-                                        {{ $sub3->menu_name }}
-                                    </a>
-                                    @elseif ($sub3->menu_name == 'JDIH Wonosobo')
-                                    <a href="https://jdih.wonosobokab.go.id/" target="_blank">
+                                    @if ($sub3->link)
+                                    <a href="{{ $sub3->menu_url }}" target="_blank">
                                         {{ $sub3->menu_name }}
                                     </a>
                                     @else

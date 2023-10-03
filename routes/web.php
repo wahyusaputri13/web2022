@@ -26,6 +26,7 @@ use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -85,7 +86,7 @@ Route::get('/', function () {
         $berita = [];
     }
 
-    $news = News::with('gambar', 'gambarmuka', 'uploader')->orderBy('date', 'desc')->paginate(3);
+    $news = News::with('gambar', 'gambarmuka', 'uploader')->where('terbit', 1)->orderBy('date', 'desc')->paginate(3);
     return view('front.pages.index', compact('news', 'berita'));
 })->name('root')->middleware('data_web');
 
@@ -169,5 +170,6 @@ Route::get('kecamatan', [ComRegionController::class, 'kecamatan'])->name('kecama
 Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelurahan');
 
 Route::get('template_email', [FrontController::class, 'template_email']);
+Route::post('komentar', [FrontController::class, 'komentar'])->name('komentar');
 
 // Route::get('delete_image/{id?}', [FileController::class, 'destroy']);

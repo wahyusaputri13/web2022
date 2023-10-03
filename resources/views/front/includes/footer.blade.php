@@ -49,7 +49,7 @@
     <div class="footer-legal text-center position-relative">
         <div class="container">
             <div class="copyright">
-                &copy; <strong><span>2023 DISKOMINFO WONOSOBO</span></strong>.
+                &copy; <strong><span>2023 PEMERINTAH KABUPATEN WONOSOBO</span></strong>.
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

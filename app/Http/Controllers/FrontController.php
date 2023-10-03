@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Seo;
 use App\Jobs\KirimEmailInbox;
 use App\Models\Agenda;
+use App\Models\Comment;
 use App\Models\File;
 use App\Models\Component;
 use App\Models\FrontMenu;
@@ -24,6 +25,25 @@ use Illuminate\Support\Facades\Http;
 
 class FrontController extends Controller
 {
+    public function komentar(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'comments' => 'required',
+        ]);
+
+        Comment::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'comments' => $request->comments,
+            'news_id' => $request->id,
+        ]);
+
+        return back();
+    }
+
     public function datappid()
     {
         $data1 = FrontMenu::whereNotNull('kategori')->get();

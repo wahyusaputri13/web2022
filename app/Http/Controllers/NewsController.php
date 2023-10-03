@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
-use App\Models\Website;
 use File;
 
 class NewsController extends Controller
@@ -72,7 +71,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $val = $request->validate([
+        $request->validate([
             'title' => 'required',
             'date' => 'required',
             'content' => 'required',
@@ -81,7 +80,15 @@ class NewsController extends Controller
         if ($request->dip_tahun) {
             $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            $id = News::create($val + ['upload_by' => auth()->user()->id]);
+            $id = News::create([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => ($request->terbit) ? 1 : 0,
+                'komentar' => ($request->komentar) ? 1 : 0,
+                'highlight' => ($request->highlight) ? 1 : 0,
+                'upload_by' => auth()->user()->id
+            ]);
         }
 
         if ($request->document) {
@@ -137,7 +144,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'content' => 'required',
             'date' => 'required',
@@ -146,7 +153,16 @@ class NewsController extends Controller
         if ($request->dip_tahun) {
             News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
+            News::find($id)->update([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => ($request->terbit) ? 1 : 0,
+                'komentar' => ($request->komentar) ? 1 : 0,
+                'highlight' => ($request->highlight) ? 1 : 0,
+                'kategori' => $request->kategori ?? null,
+                'upload_by' => auth()->user()->id
+            ]);
         }
 
         if ($request->document) {
