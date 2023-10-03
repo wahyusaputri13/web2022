@@ -85,11 +85,6 @@
                     </a>
 
                     <ul class="menu-sub">
-                        <li class="menu-item {{ (Str::contains(Request::url(), 'component')) ? 'active' : '' }}">
-                            <a class="menu-link" href="{{ route('component.index') }}">
-                                <div data-i18n="Komponen">Komponen</div>
-                            </a>
-                        </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('frontmenu.index') }}">
                                 <div data-i18n="Menu">Menu</div>
