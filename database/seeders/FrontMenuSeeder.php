@@ -73,7 +73,8 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '3',
                 'menu_name' => 'Jelajah Wonosobo',
-                'menu_url' => Str::slug('Jelajah Wonosobo', '-')
+                'link' => 1,
+                'menu_url' => 'https://www.jelajahwonosobo.com/'
             ],
 
             [
@@ -84,32 +85,38 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '12',
                 'menu_name' => 'Harga Kebutuhan Pokok',
-                'menu_url' => Str::slug('Harga Kebutuhan Pokok', '-')
+                'link' => 1,
+                'menu_url' => 'https://dashboard.wonosobokab.go.id/dashboard/disdagkopukm'
             ],
             [
                 'menu_parent' => '12',
                 'menu_name' => 'Lalu Lintas Wonosobo',
-                'menu_url' => Str::slug('Lalu Lintas Wonosobo', '-')
+                'link' => 1,
+                'menu_url' => 'https://lalulintas.wonosobokab.go.id/'
             ],
             [
                 'menu_parent' => '12',
                 'menu_name' => 'Open Data Desa',
-                'menu_url' => Str::slug('Open Data Desa', '-')
+                'link' => 1,
+                'menu_url' => 'https://datadesa.wonosobokab.go.id/'
             ],
             [
                 'menu_parent' => '12',
                 'menu_name' => 'Cek Status Perizinan',
-                'menu_url' => Str::slug('Cek Status Perizinan', '-')
+                'link' => 1,
+                'menu_url' => 'https://dpmptsp.wonosobokab.go.id/postings/detail/53/CEK_STATUS_IZIN_ONLINE.HTML'
             ],
             [
                 'menu_parent' => '12',
                 'menu_name' => 'Pelayanan Dinda Cantik',
-                'menu_url' => Str::slug('Pelayanan Dinda Cantik', '-')
+                'link' => 1,
+                'menu_url' => 'https://bppkad.wonosobokab.go.id/index.php/185-pelayanan-online'
             ],
             [
                 'menu_parent' => '12',
                 'menu_name' => 'e-Lapak',
-                'menu_url' => Str::slug('e-Lapak', '-')
+                'link' => 1,
+                'menu_url' => 'https://e-lapak.wonosobokab.go.id/'
             ],
 
             [
@@ -178,7 +185,8 @@ class FrontMenuSeeder extends Seeder
             [
                 'menu_parent' => '2',
                 'menu_name' => 'Agenda Badan Publik',
-                'menu_url' => Str::slug('Agenda Badan Publik', '-')
+                'link' => 1,
+                'menu_url' => 'https://panda.wonosobokab.go.id/red'
             ],
 
             [

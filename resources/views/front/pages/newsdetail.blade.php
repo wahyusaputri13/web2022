@@ -34,17 +34,38 @@
                         <h2 class="title">{{ $data->title }}</h2>
 
                         <div class="meta-top">
-                            <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{
-                                        $data->uploader->name }}</a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time
-                                            datetime="2020-01-01">{{
-                                            \Carbon\Carbon::parse($data->date)->format('l') }}, {{
-                                            \Carbon\Carbon::parse( $data->date
-                                            )->toFormattedDateString() }}</time></a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="#">{{
-                                        views($data)->count(); }} Views</a></li>
-                            </ul>
+                            <div class="row">
+                                <div class="col">
+                                    <ul>
+                                        <li class="flex align-items-center">
+                                            <i class="bi bi-person"></i>
+                                            <a href="#">
+                                                {{ $data->uploader->name }}
+                                            </a>
+                                        </li>
+                                        <li class="flex align-items-center">
+                                            <i class="bi bi-clock"></i>
+                                            <a href="#">
+                                                <time datetime="2020-01-01">
+                                                    {{ \Carbon\Carbon::parse($data->date)->format('l') }},
+                                                    {{ \Carbon\Carbon::parse( $data->date)->toFormattedDateString() }}
+                                                </time>
+                                            </a>
+                                        </li>
+                                        <li class="flex align-items-center">
+                                            <i class="bi bi-eye"></i>
+                                            <a href="#">
+                                                {{ views($data)->count(); }} Views
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-row-reverse">
+                                        {!! Share::currentPage()->facebook()->twitter()->whatsapp(); !!}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- End meta top -->
 
@@ -102,15 +123,16 @@
                         @foreach(App\Models\Comment::where('news_id', $data->id)->get() as $com)
                         <div id="comment-1" class="comment">
                             <div class="d-flex">
-                                <div class="comment-img"><img src="https://ui-avatars.com/api/?name={{ $com->name }}"
-                                        alt=""></div>
+                                <div class="comment-img">
+                                    <img src="https://ui-avatars.com/api/?name={{ $com->name }}" alt="">
+                                </div>
                                 <div>
                                     <h5>
                                         <a href="">{{ $com->name }}</a>
                                     </h5>
-                                    <time datetime="2020-01-01">{{
-                                        \Carbon\Carbon::parse( $com->created_at
-                                        )->toFormattedDateString() }}</time>
+                                    <time datetime="2020-01-01">
+                                        {{ \Carbon\Carbon::parse($com->created_at)->toFormattedDateString() }}
+                                    </time>
                                     <p>
                                         {{ $com->comments }}
                                     </p>
@@ -124,26 +146,41 @@
                             <h4>Leave a Reply</h4>
                             <p>Your email address will not be published. Required fields are marked * </p>
                             {{Form::open(['route' => 'komentar','method' => 'post', ''])}}
-
-                            <input type="hidden" name="id" value="{{ $data->id }}">
+                            {{Form::hidden('id', $data->id)}}
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                                    {{Form::text('name', null, ['class' => 'form-control',
+                                    'placeholder' => 'Your Name*'])}}
+                                    @error('name')
+                                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                                    {{Form::text('email', null, ['class' => 'form-control',
+                                    'placeholder' => 'Your Email*'])}}
+                                    @error('email')
+                                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col form-group">
-                                    <textarea name="comments" class="form-control"
-                                        placeholder="Your Comment*"></textarea>
+                                    {{Form::textarea('comments', null, ['class' => 'form-control',
+                                    'placeholder' => 'Your Comment*'])}}
+                                    @error('comments')
+                                    <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Post Comment</button>
 
                             {{Form::close()}}
-
 
                         </div>
 
@@ -193,11 +230,14 @@
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                                     @endif
                                     <div>
-                                        <h4><a href="{{ url('/news-detail', $n->slug) }}">{{
-                                                \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}</a></h4>
-                                        <time datetime="2020-01-01">{{
-                                            \Carbon\Carbon::parse( $n->date
-                                            )->toFormattedDateString() }}</time>
+                                        <h4>
+                                            <a href="{{ url('/news-detail', $n->slug) }}">
+                                                {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                                            </a>
+                                        </h4>
+                                        <time datetime="2020-01-01">
+                                            {{ \Carbon\Carbon::parse( $n->date)->toFormattedDateString() }}
+                                        </time>
                                     </div>
                                 </div>
                                 <!-- End recent post item-->

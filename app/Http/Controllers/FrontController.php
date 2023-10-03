@@ -27,7 +27,6 @@ class FrontController extends Controller
 {
     public function komentar(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -41,7 +40,7 @@ class FrontController extends Controller
             'news_id' => $request->id,
         ]);
 
-        return back();
+        return redirect()->back()->withInput();
     }
 
     public function datappid()

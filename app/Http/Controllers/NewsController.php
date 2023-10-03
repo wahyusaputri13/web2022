@@ -26,6 +26,16 @@ class NewsController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
+                    'link',
+                    function ($data) {
+                        $actionBtn = '
+                    <div class="text-center">
+                        <a target="_blank" href="' . url('news-detail', $data->slug) . ' " >' . $data->title . ' </a>
+                    </div>';
+                        return $actionBtn;
+                    }
+                )
+                ->addColumn(
                     'action',
                     function ($data) {
                         $actionBtn = '
@@ -45,7 +55,7 @@ class NewsController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'tgl'])
+                ->rawColumns(['action', 'tgl', 'link'])
                 ->make(true);
         }
         return view('back.pages.news.index');
@@ -197,7 +207,7 @@ class NewsController extends Controller
         }
 
         $data = News::find($id);
-        // delete related   
+        // delete related
         $data->gambar()->delete();
 
         return $data->delete();
