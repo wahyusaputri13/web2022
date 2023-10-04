@@ -79,7 +79,7 @@ class NewsController extends Controller
                 'path' => $path,
                 'title' => $request->title,
                 'date' => $request->date,
-                'upload_by' => auth()->user()->name,
+                'upload_by' => auth()->user()->id,
                 'description' => $request->description,
                 'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
             ];
@@ -92,7 +92,7 @@ class NewsController extends Controller
             $data = [
                 'title' => $request->title,
                 'date' => $request->date,
-                'upload_by' => auth()->user()->name,
+                'upload_by' => auth()->user()->id,
                 'description' => $request->description,
                 'slug' => SlugService::createSlug(News::class, 'slug', $request->title),
             ];
@@ -149,7 +149,7 @@ class NewsController extends Controller
                     'path' => $path,
                     'title' => $request->title,
                     'date' => $request->date,
-                    'upload_by' => auth()->user()->name,
+                    'upload_by' => auth()->user()->id,
                     'description' => $request->description,
                 ];
             }
@@ -161,7 +161,7 @@ class NewsController extends Controller
             $data = [
                 'title' => $request->title,
                 'date' => $request->date,
-                'upload_by' => auth()->user()->name,
+                'upload_by' => auth()->user()->id,
                 'description' => $request->description,
             ];
         }
