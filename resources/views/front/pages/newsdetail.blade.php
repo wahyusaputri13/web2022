@@ -178,6 +178,26 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <div class="col-sm-12 col-md-12 captcha text-center mb-3">
+                                        <span>{!! captcha_img() !!}</span>
+                                        <!-- <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                            &#x21bb;
+                                        </button> -->
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 mb-3">
+                                        {{Form::number('captcha', null,['class' => 'form-control',
+                                        'placeholder' => 'Enter Captcha Result',
+                                        'required'])}}
+                                        @error('captcha')
+                                        <div id="defaultFormControlHelp" class="form-text" style="color: red;">
+                                            Captcha Salah
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-primary">Post Comment</button>
 
                             {{Form::close()}}
@@ -279,4 +299,15 @@
 <!-- End #main -->
 @endsection
 @push('after-script')
+<script>
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+</script>
 @endpush

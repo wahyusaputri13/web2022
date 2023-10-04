@@ -26,7 +26,6 @@ use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -152,9 +151,6 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
 
     // pindah data dari database wonsobokab
     Route::get('insert', [NewsController::class, 'insert']);
-
-    // Route::get('/menu/checkSlug', [FrontMenuController::class, 'checkSlug']);
-
 });
 
 // get data for front menu parent
@@ -171,5 +167,3 @@ Route::get('kelurahan', [ComRegionController::class, 'kelurahan'])->name('kelura
 
 Route::get('template_email', [FrontController::class, 'template_email']);
 Route::post('komentar', [FrontController::class, 'komentar'])->name('komentar');
-
-// Route::get('delete_image/{id?}', [FileController::class, 'destroy']);

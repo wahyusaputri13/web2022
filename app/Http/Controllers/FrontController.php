@@ -27,20 +27,26 @@ class FrontController extends Controller
 {
     public function komentar(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
             'comments' => 'required',
+            'captcha' => 'required|captcha',
         ]);
 
-        Comment::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'comments' => $request->comments,
-            'news_id' => $request->id,
-        ]);
-
-        return redirect()->back()->withInput();
+        if ($validator->fails()) {
+            Alert::error('Failed', 'Gagal Menyimpan Komentar');
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            Comment::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'comments' => $request->comments,
+                'news_id' => $request->id,
+            ]);
+            Alert::success('Success', 'Komentar Berhasil Disimpan');
+            return redirect()->back();
+        }
     }
 
     public function datappid()
@@ -48,7 +54,6 @@ class FrontController extends Controller
         $data1 = FrontMenu::whereNotNull('kategori')->get();
         $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->get();
         $combinedData = $data1->concat($data2);
-        // return $combinedData;
         return DataTables::of($combinedData)
             ->addIndexColumn()
             ->addColumn(
@@ -70,7 +75,6 @@ class FrontController extends Controller
             )
             ->rawColumns(['action'])
             ->make(true);
-        // }
     }
 
     public function datappid2(Request $request)
@@ -102,13 +106,7 @@ class FrontController extends Controller
         $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
 
-        $prev = $data->id - 1;
-        $prev_data = News::with('gambar', 'uploader')->where('id', $prev)->first();
-
-        $next = $data->id + 1;
-        $next_data = News::with('gambar', 'uploader')->where('id', $next)->first();
-
-        return view('front.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
+        return view('front.pages.newsdetail', compact('data', 'news', 'file'));
     }
 
     public function detailberita($id)
@@ -224,7 +222,6 @@ class FrontController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                // 'web_name' => 'required',
                 'themes_front' => 'required',
                 'name' => 'required',
                 'email' => 'required|unique:users',
@@ -238,7 +235,6 @@ class FrontController extends Controller
         );
 
         if ($validator->fails()) {
-            // Alert::error('Failed', 'Passwords Do Not Match');
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
             $data = [
@@ -321,27 +317,6 @@ class FrontController extends Controller
             Alert::success('Success', 'Your Message Has Been Sent');
             return redirect(url('/'));
         }
-    }
-
-    // kampung pancasila
-    public function tentangkami()
-    {
-        return view('front.kampungpancasila.tentang-kami');
-    }
-
-    public function latarbelakang()
-    {
-        return view('front.kampungpancasila.latar-belakang');
-    }
-
-    public function tujuan()
-    {
-        return view('front.kampungpancasila.tujuan');
-    }
-
-    public function kampungpancasila()
-    {
-        return view('front.kampungpancasila.kampung-pancasila');
     }
 
     // sql ppid setda
