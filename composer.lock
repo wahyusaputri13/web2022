@@ -2430,16 +2430,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.25.2",
+            "version": "v10.26.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "6014dd456b414b305fb0b408404efdcec18e64bc"
+                "reference": "6e5440f7c518f26b4495e5d7e4796ec239e26df9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/6014dd456b414b305fb0b408404efdcec18e64bc",
-                "reference": "6014dd456b414b305fb0b408404efdcec18e64bc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6e5440f7c518f26b4495e5d7e4796ec239e26df9",
+                "reference": "6e5440f7c518f26b4495e5d7e4796ec239e26df9",
                 "shasum": ""
             },
             "require": {
@@ -2626,7 +2626,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-09-28T14:08:59+00:00"
+            "time": "2023-10-03T14:24:20+00:00"
         },
         {
             "name": "laravel/jetstream",
@@ -2700,16 +2700,16 @@
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.1.10",
+            "version": "v0.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "37ed55f6950d921a87d5beeab16d03f8de26b060"
+                "reference": "cce65a90e64712909ea1adc033e1d88de8455ffd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/37ed55f6950d921a87d5beeab16d03f8de26b060",
-                "reference": "37ed55f6950d921a87d5beeab16d03f8de26b060",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/cce65a90e64712909ea1adc033e1d88de8455ffd",
+                "reference": "cce65a90e64712909ea1adc033e1d88de8455ffd",
                 "shasum": ""
             },
             "require": {
@@ -2751,9 +2751,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.1.10"
+                "source": "https://github.com/laravel/prompts/tree/v0.1.11"
             },
-            "time": "2023-09-29T07:26:07+00:00"
+            "time": "2023-10-03T01:07:35+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -8224,16 +8224,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v10.9.0",
+            "version": "v10.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "5fd89966fd779cce69a30f6262207242b55db523"
+                "reference": "b4943a3ee422e0a390d85a4cb01dee9360137b61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/5fd89966fd779cce69a30f6262207242b55db523",
-                "reference": "5fd89966fd779cce69a30f6262207242b55db523",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/b4943a3ee422e0a390d85a4cb01dee9360137b61",
+                "reference": "b4943a3ee422e0a390d85a4cb01dee9360137b61",
                 "shasum": ""
             },
             "require": {
@@ -8296,7 +8296,7 @@
             ],
             "support": {
                 "issues": "https://github.com/yajra/laravel-datatables/issues",
-                "source": "https://github.com/yajra/laravel-datatables/tree/v10.9.0"
+                "source": "https://github.com/yajra/laravel-datatables/tree/v10.10.0"
             },
             "funding": [
                 {
@@ -8304,7 +8304,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-09-29T07:34:10+00:00"
+            "time": "2023-10-04T02:26:02+00:00"
         }
     ],
     "packages-dev": [
@@ -9131,16 +9131,16 @@
         },
         {
             "name": "laravel-lang/lang",
-            "version": "13.2.4",
+            "version": "13.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "4e6c027f03bf65a015fe07f0cfb8c8a6ea76410d"
+                "reference": "774e63475ab955c5e858b554faff5d96a6631681"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/4e6c027f03bf65a015fe07f0cfb8c8a6ea76410d",
-                "reference": "4e6c027f03bf65a015fe07f0cfb8c8a6ea76410d",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/774e63475ab955c5e858b554faff5d96a6631681",
+                "reference": "774e63475ab955c5e858b554faff5d96a6631681",
                 "shasum": ""
             },
             "require": {
@@ -9193,7 +9193,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-10-02T15:39:38+00:00"
+            "time": "2023-10-04T02:11:02+00:00"
         },
         {
             "name": "laravel-lang/publisher",
@@ -11636,5 +11636,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
