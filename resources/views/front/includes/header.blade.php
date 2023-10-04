@@ -12,23 +12,12 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
-                @php
-                $queryMenu = DB::table('front_menus')
-                ->where('menu_parent', '=', '1')
-                ->where('deleted_at', '=', null)
-                ->orderBy('id', 'ASC')
-                ->get();
-                @endphp
-                @foreach ($queryMenu as $menu)
-                @php
-                $menuId = $menu->id;
-                $subMenus = DB::table('front_menus')
-                ->where('menu_parent', '=', $menuId)
-                ->where('deleted_at', '=', null)
-                ->orderBy('menu_parent', 'ASC')
-                ->get();
-                @endphp
-                @if (count($subMenus) == 0)
+                @foreach (App\Models\FrontMenu::where('menu_parent', '1')->where('deleted_at', null)->orderBy('id',
+                'ASC')->get() as $menu)
+
+                @if (App\Models\FrontMenu::where('menu_parent', $menu->id)->where('deleted_at',
+                null)->orderBy('menu_parent',
+                'ASC')->count() == 0)
                 <li>
                     @if ($menu->link)
                     <a target="_blank" href="{{ $menu->menu_url }}">
@@ -47,16 +36,13 @@
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
-                        @foreach ($subMenus as $sm)
-                        @php
-                        $menuId2 = $sm->id;
-                        $subMenus2 = DB::table('front_menus')
-                        ->where('menu_parent', '=', $menuId2)
-                        ->where('deleted_at', '=', null)
-                        ->orderBy('menu_parent', 'ASC')
-                        ->get();
-                        @endphp
-                        @if (count($subMenus2) == 0)
+                        @foreach (App\Models\FrontMenu::where('menu_parent', $menu->id)->where('deleted_at',
+                        null)->orderBy('menu_parent',
+                        'ASC')->get() as $sm)
+
+                        @if (App\Models\FrontMenu::where('menu_parent', $sm->id)->where('deleted_at',
+                        null)->orderBy('menu_parent',
+                        'ASC')->count() == 0)
                         <li>
                             @if($sm->link)
                             <a target="_blank" href="{{ $sm->menu_url }}">
@@ -75,17 +61,13 @@
                                 <i class="bi bi-chevron-down dropdown-indicator"></i>
                             </a>
                             <ul>
-                                @foreach ($subMenus2 as $sub3)
-                                @php
-                                $menuId3 = $sub3->id;
-                                $subMenus3 = DB::table('front_menus')
-                                ->where('menu_parent', '=', $menuId3)
-                                ->where('deleted_at', '=', null)
-                                ->orderBy('menu_parent', 'ASC')
-                                ->get();
-                                @endphp
+                                @foreach (App\Models\FrontMenu::where('menu_parent', $sm->id)->where('deleted_at',
+                                null)->orderBy('menu_parent',
+                                'ASC')->get() as $sub3)
 
-                                @if (count($subMenus3) == 0)
+                                @if (App\Models\FrontMenu::where('menu_parent', $sub3->id)->where('deleted_at',
+                                null)->orderBy('menu_parent',
+                                'ASC')->count() == 0)
                                 <li>
                                     @if ($sub3->link)
                                     <a href="{{ $sub3->menu_url }}" target="_blank">
@@ -104,11 +86,20 @@
                                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                                     </a>
                                     <ul>
-                                        @foreach ($subMenus3 as $sub4)
+                                        @foreach (App\Models\FrontMenu::where('menu_parent',
+                                        $sub3->id)->where('deleted_at',
+                                        null)->orderBy('menu_parent',
+                                        'ASC')->get() as $sub4)
                                         <li>
+                                            @if ($sub4->link)
+                                            <a href="{{ $sub4->menu_url }}" target="_blank">
+                                                {{ $sub4->menu_name }}
+                                            </a>
+                                            @else
                                             <a href="{{ url('page', $sub4->menu_url) }}">
                                                 {{ $sub4->menu_name }}
                                             </a>
+                                            @endif
                                         </li>
                                         @endforeach
                                     </ul>
@@ -124,7 +115,8 @@
                 @endif
                 @endforeach
             </ul>
-        </nav><!-- .navbar -->
-
+        </nav>
+        <!-- .navbar -->
     </div>
-</header><!-- End Header -->
+</header>
+<!-- End Header -->

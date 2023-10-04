@@ -288,75 +288,369 @@ class FrontMenuSeeder extends Seeder
                 'menu_url' => Str::slug('Info', '-')
             ],
             [
+                'menu_parent' => '50',
+                'menu_name' => 'Prosedur Siaga Bencana',
+                'menu_url' => Str::slug('Prosedur Siaga Bencana', '-')
+            ],
+            [
+                'menu_parent' => '51',
+                'menu_name' => 'Prosedur Peringatan Dini dan Evakuasi',
+                'menu_url' => Str::slug('Prosedur Peringatan Dini dan Evakuasi', '-')
+            ],
+            [
+                'menu_parent' => '51',
+                'menu_name' => 'Buku Saku Siaga Bencana',
+                'menu_url' => Str::slug('Buku Saku Siaga Bencana', '-')
+            ],
+            [
+                'menu_parent' => '51',
+                'menu_name' => 'Informasi Kejadian Bencana',
+                'menu_url' => Str::slug('Informasi Kejadian Bencana', '-')
+            ],
+            [
+                'menu_parent' => '51',
+                'menu_name' => 'Daftar Kejadian Bencana',
+                'menu_url' => Str::slug('Daftar Kejadian Bencana', '-')
+            ],
+            [
+                'menu_parent' => '51',
+                'menu_name' => 'Pantauan Bencana',
+                'menu_url' => Str::slug('Pantauan Bencana', '-')
+            ],
+            [
+                'menu_parent' => '50',
+                'menu_name' => 'Pengumuman',
+                'menu_url' => Str::slug('Pengumuman', '-')
+            ],
+            [
+                'menu_parent' => '50',
+                'menu_name' => 'Lowongan Kerja',
+                'menu_url' => Str::slug('Lowongan Kerja', '-')
+            ],
+            [
+                'menu_parent' => '58',
+                'menu_name' => 'CASN',
+                'link' => 1,
+                'menu_url' => 'https://casn.wonosobokab.go.id/'
+            ],
+            [
+                'menu_parent' => '58',
+                'menu_name' => 'Selter JPTP',
+                'link' => 1,
+                'menu_url' => 'https://selter-jptp.wonosobokab.go.id/'
+            ],
+            [
+                'menu_parent' => '50',
+                'menu_name' => 'Informasi Gangguan',
+                'menu_url' => Str::slug('Informasi Gangguan', '-')
+            ],
+            [
+                'menu_parent' => '50',
+                'menu_name' => 'Informasi Hoax',
+                'menu_url' => Str::slug('Informasi Hoax', '-')
+            ],
+            [
+                'menu_parent' => '50',
+                'menu_name' => 'Pengaduan Masyarakat',
+                'menu_url' => Str::slug('Pengaduan Masyarakat', '-')
+            ],
+            [
+                'menu_parent' => '50',
+                'menu_name' => 'Hasil Penanganan Pengaduan',
+                'menu_url' => Str::slug('Hasil Penanganan Pengaduan', '-')
+            ],
+            [
+                'menu_parent' => '50',
+                'menu_name' => 'Kajian dan Penelitian',
+                'menu_url' => Str::slug('Kajian dan Penelitian', '-')
+            ],
+            [
+                'menu_parent' => '50',
+                'menu_name' => 'Pengawasan Internal',
+                'menu_url' => Str::slug('Pengawasan Internal', '-')
+            ],
+            [
                 'menu_parent' => '1',
                 'menu_name' => 'PPID',
                 'menu_url' => Str::slug('PPID', '-')
             ],
 
             [
-                'menu_parent' => '51',
+                'menu_parent' => '67',
                 'menu_name' => 'Profil PPID',
                 'menu_url' => Str::slug('Profil PPID', '-')
             ],
+
             [
-                'menu_parent' => '52',
-                'menu_name' => 'Profil PPID',
-                'menu_url' => Str::slug('Profil PPID', '-')
-            ],
-            [
-                'menu_parent' => '52',
+                'menu_parent' => '68',
                 'menu_name' => 'Profil',
                 'menu_url' => Str::slug('Profil', '-')
             ],
             [
-                'menu_parent' => '52',
+                'menu_parent' => '68',
                 'menu_name' => 'Maklumat PPID',
                 'menu_url' => Str::slug('Maklumat PPID', '-')
             ],
             [
-                'menu_parent' => '52',
+                'menu_parent' => '68',
                 'menu_name' => 'Visi Misi',
                 'menu_url' => Str::slug('Visi Misi', '-')
             ],
             [
-                'menu_parent' => '52',
+                'menu_parent' => '68',
                 'menu_name' => 'Tugas Pokok dan Fungsi',
                 'menu_url' => Str::slug('Tugas Pokok dan Fungsi', '-')
             ],
             [
-                'menu_parent' => '52',
+                'menu_parent' => '68',
                 'menu_name' => 'Bagan Struktur',
                 'menu_url' => Str::slug('Bagan Struktur', '-')
             ],
             [
-                'menu_parent' => '52',
+                'menu_parent' => '68',
                 'menu_name' => 'Dasar Hukum Pembentukan',
                 'menu_url' => Str::slug('Dasar Hukum Pembentukan', '-')
             ],
             [
-                'menu_parent' => '52',
+                'menu_parent' => '68',
                 'menu_name' => 'Daftar PPID Pelaksana',
                 'menu_url' => Str::slug('Daftar PPID Pelaksana', '-')
             ],
             [
-                'menu_parent' => '51',
+                'menu_parent' => '67',
+                'menu_name' => 'Daftar Informasi',
+                'menu_url' => Str::slug('Daftar Informasi', '-')
+            ],
+            [
+                'menu_parent' => '76',
                 'menu_name' => 'Daftar Informasi Publik',
                 'menu_url' => Str::slug('Daftar Informasi Publik', '-')
             ],
             [
-                'menu_parent' => '51',
+                'menu_parent' => '76',
+                'menu_name' => 'Daftar Informasi yang Dikecualikan',
+                'menu_url' => Str::slug('Daftar Informasi yang Dikecualikan', '-')
+            ],
+            [
+                'menu_parent' => '67',
                 'menu_name' => 'Regulasi PPID',
                 'menu_url' => Str::slug('Regulasi PPID', '-')
             ],
             [
-                'menu_parent' => '62',
+                'menu_parent' => '79',
                 'menu_name' => 'Regulasi Informasi Publik',
                 'menu_url' => Str::slug('Regulasi Informasi Publik', '-')
             ],
             [
-                'menu_parent' => '51',
+                'menu_parent' => '67',
                 'menu_name' => 'Pelayanan Informasi',
                 'menu_url' => Str::slug('Pelayanan Informasi', '-')
+            ],
+            [
+                'menu_parent' => '81',
+                'menu_name' => 'Standar Pelayanan',
+                'menu_url' => Str::slug('Standar Pelayanan', '-')
+            ],
+            [
+                'menu_parent' => '82',
+                'menu_name' => 'Prosedur Layanan Informasi Publik',
+                'menu_url' => Str::slug('Prosedur Layanan Informasi Publik', '-')
+            ],
+            [
+                'menu_parent' => '82',
+                'menu_name' => 'Prosedur Pengajuan Keberatan Informasi Publik',
+                'menu_url' => Str::slug('Prosedur Pengajuan Keberatan Informasi Publik', '-')
+            ],
+            [
+                'menu_parent' => '81',
+                'menu_name' => 'Standar Operasional Prosedur',
+                'menu_url' => Str::slug('Standar Operasional Prosedur', '-')
+            ],
+            [
+                'menu_parent' => '81',
+                'menu_name' => 'Permohonan Informasi Publik',
+                'menu_url' => Str::slug('Permohonan Informasi Publik', '-')
+            ],
+            [
+                'menu_parent' => '81',
+                'menu_name' => 'Layanan Informasi Non Elektronik',
+                'menu_url' => Str::slug('Layanan Informasi Non Elektronik', '-')
+            ],
+            [
+                'menu_parent' => '81',
+                'menu_name' => 'Laporan Layanan Informasi',
+                'menu_url' => Str::slug('Laporan Layanan Informasi', '-')
+            ],
+            [
+                'menu_parent' => '49',
+                'menu_name' => 'Rencana',
+                'menu_url' => Str::slug('Rencana', '-')
+            ],
+            [
+                'menu_parent' => '49',
+                'menu_name' => 'Anggaran Kegiatan',
+                'menu_url' => Str::slug('Anggaran Kegiatan', '-')
+            ],
+            [
+                'menu_parent' => '49',
+                'menu_name' => 'Laporan',
+                'menu_url' => Str::slug('Laporan', '-')
+            ],
+            [
+                'menu_parent' => '89',
+                'menu_name' => 'RPJMD',
+                'menu_url' => Str::slug('RPJMD', '-')
+            ],
+            [
+                'menu_parent' => '89',
+                'menu_name' => 'RKPD',
+                'menu_url' => Str::slug('RKPD', '-')
+            ],
+            [
+                'menu_parent' => '89',
+                'menu_name' => 'KUA PPAS',
+                'menu_url' => Str::slug('KUA PPAS', '-')
+            ],
+            [
+                'menu_parent' => '89',
+                'menu_name' => 'PK',
+                'menu_url' => Str::slug('PK', '-')
+            ],
+            [
+                'menu_parent' => '89',
+                'menu_name' => 'Program dan Kegiatan',
+                'menu_url' => Str::slug('Program dan Kegiatan', '-')
+            ],
+            [
+                'menu_parent' => '89',
+                'menu_name' => 'RUP',
+                'menu_url' => Str::slug('RUP', '-')
+            ],
+            [
+                'menu_parent' => '89',
+                'menu_name' => 'PBJ',
+                'menu_url' => Str::slug('PBJ', '-')
+            ],
+            [
+                'menu_parent' => '89',
+                'menu_name' => 'Kebijakan',
+                'menu_url' => Str::slug('Kebijakan', '-')
+            ],
+            [
+                'menu_parent' => '98',
+                'menu_name' => 'LPSE',
+                'link' => 1,
+                'menu_url' => 'http://lpse.wonosobokab.go.id/eproc4/lelang',
+            ],
+            [
+                'menu_parent' => '98',
+                'menu_name' => 'Info Pengadaan',
+                'menu_url' => Str::slug('Info Pengadaan', '-')
+            ],
+            [
+                'menu_parent' => '90',
+                'menu_name' => 'RAPERDA APBD',
+                'menu_url' => Str::slug('RAPERDA APBD', '-')
+            ],
+            [
+                'menu_parent' => '90',
+                'menu_name' => 'APBD',
+                'menu_url' => Str::slug('APBD', '-')
+            ],
+            [
+                'menu_parent' => '90',
+                'menu_name' => 'APBD Perubahan',
+                'menu_url' => Str::slug('APBD Perubahan', '-')
+            ],
+            [
+                'menu_parent' => '90',
+                'menu_name' => 'RKA',
+                'menu_url' => Str::slug('RKA', '-')
+            ],
+            [
+                'menu_parent' => '90',
+                'menu_name' => 'DPA',
+                'menu_url' => Str::slug('DPA', '-')
+            ],
+            [
+                'menu_parent' => '90',
+                'menu_name' => 'KAK-TOR',
+                'menu_url' => Str::slug('KAK-TOR', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LKJIP',
+                'menu_url' => Str::slug('LKJIP', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LKPJ',
+                'menu_url' => Str::slug('LKPJ', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LPPD',
+                'menu_url' => Str::slug('LPPD', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LRPBPD',
+                'menu_url' => Str::slug('LRPBPD', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LAK',
+                'menu_url' => Str::slug('LAK', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LRA',
+                'menu_url' => Str::slug('LRA', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'NERACA',
+                'menu_url' => Str::slug('NERACA', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'CALK',
+                'menu_url' => Str::slug('CALK', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'ASET & INVENTARIS',
+                'menu_url' => Str::slug('ASET & INVENTARIS', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LKPD dan OPINI BPK',
+                'menu_url' => Str::slug('LKPD dan OPINI BPK', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'BUMD',
+                'menu_url' => Str::slug('BUMD', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LELANG LPSE',
+                'menu_url' => Str::slug('LELANG LPSE', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'LHKPN',
+                'menu_url' => Str::slug('LHKPN', '-')
+            ],
+            [
+                'menu_parent' => '91',
+                'menu_name' => 'Bantuan Keuangan',
+                'menu_url' => Str::slug('Bantuan Keuangan', '-')
+            ],
+            [
+                'menu_parent' => '121',
+                'menu_name' => 'CSR',
+                'menu_url' => Str::slug('CSR', '-')
             ],
 
         ];
