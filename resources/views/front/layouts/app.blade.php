@@ -21,21 +21,21 @@
     @stack('after-script')
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pencarian</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pencarian Global</h1>
                 </div>
                 <div class="modal-body">
                     {{Form::open(['route' => 'global.search','method' => 'get', ''])}}
                     {{Form::text('kolomcari', null,['class' => 'form-control mb-3 text-center',
-                    'placeholder' => 'Masukkan Judul Postingan / 2021-12-31','id'=>'textareaID1'])}}
-                    <button type="submit" class="btn btn-block btn-primary mt-1">Cari Postingan <i
+                    'placeholder' => 'Kata Pencarian','id'=>'textareaID1'])}}
+                    <button type="submit" class="btn w-100 btn-primary mt-1">Cari Data <i
                             class="bi bi-search"></i></button>
                     {{Form::close()}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>

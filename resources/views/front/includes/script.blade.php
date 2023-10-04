@@ -15,3 +15,27 @@
 
 <!-- accessibility widget -->
 <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+
+<!-- tombol C ditekan -->
+<script>
+    document.addEventListener("keydown", function (event) {
+        // Check if the 'T' key (key code 84) is pressed
+        if (event.keyCode === 67) {
+            var aku = $('#exampleModal').modal('show');
+            if ($('#exampleModal').modal('show')) {
+                $('#exampleModal').modal('hide')
+            } else {
+                $('#exampleModal').modal('show')
+                // $('#exampleModal').on('shown.bs.modal', function () {
+                //     $('#textareaID1').focus();
+                // })
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        $("#exampleModal").on('shown.bs.modal', function () {
+            $(this).find('#textareaID1').focus();
+        });
+    });
+</script>
