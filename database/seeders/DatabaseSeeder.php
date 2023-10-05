@@ -112,8 +112,8 @@ class DatabaseSeeder extends Seeder
 
         $user = [
             [
-                'name' => 'superadmin',
-                'email' => 'superadmin@app.com',
+                'name' => 'malika',
+                'email' => 'malika@app.com',
                 'password' => bcrypt('password'),
                 'role_id' => 1
             ],

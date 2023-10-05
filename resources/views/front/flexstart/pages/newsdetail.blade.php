@@ -36,8 +36,8 @@
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                                href="{{ url('/news-author', $data->upload_by) }}">{{
-                                                $data->upload_by }}</a></li>
+                                                href="{{ url('/news-author', $data->uploader->name ?? 'Admin') }}">{{
+                                                $data->uploader->name ?? 'Admin' }}</a></li>
                                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                                 href="#"><time>{{
                                                     \Carbon\Carbon::parse( $data->date )->format('l') }}, {{

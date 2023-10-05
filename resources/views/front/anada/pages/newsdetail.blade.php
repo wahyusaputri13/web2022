@@ -32,8 +32,8 @@
                                 <div class="meta">
                                     <ul>
                                         <li>
-                                            <a href="{{ url('/news-author', $data->upload_by) }}">{{
-                                                $data->upload_by }}</a>
+                                            <a href="{{ url('/news-author', $data->uploader->name ?? 'Admin') }}">{{
+                                                $data->uploader->name ?? 'Admin' }}</a>
                                         </li>
                                         <li>
                                             <i class="fas fa-eye"></i>{{

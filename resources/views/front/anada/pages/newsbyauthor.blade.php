@@ -22,8 +22,10 @@
                             </h2>
                             <div class="entry-meta">
                                 <p class="card-text m-2"><small class="text-muted"><i class="bi bi-person"></i><a
-                                            href="{{ url('/news-author', $author->upload_by) }}" class="text-muted"> {{
-                                            $author->upload_by }}</a> <i class="bi bi-clock"></i> <time>{{
+                                            href="{{ url('/news-author', $author->uploader->name ?? 'Admin') }}"
+                                            class="text-muted"> {{
+                                            $author->uploader->name ?? 'Admin' }}</a> <i class="bi bi-clock"></i>
+                                        <time>{{
                                             \Carbon\Carbon::parse( $author->date )->format('l') }}, {{
                                             \Carbon\Carbon::parse( $author->date
                                             )->toFormattedDateString() }}</time> <i class="bi bi-eye"></i> {{

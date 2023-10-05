@@ -30,8 +30,9 @@
                             <li class="d-flex align-items-center">
                                 <div class="col">
                                     <i class="bi bi-person"></i>
-                                    <a href="{{ url('/news-author', $data->upload_by) }}" style="margin-right: 5px;">
-                                        {{ $data->upload_by }}
+                                    <a href="{{ url('/news-author', $data->uploader->name ?? 'Admin') }}"
+                                        style="margin-right: 5px;">
+                                        {{ $data->uploader->name ?? 'Admin' }}
                                     </a>
                                     <i class="bi bi-clock"></i>
                                     <a style="margin-right: 5px;">

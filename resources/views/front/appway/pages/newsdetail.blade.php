@@ -61,11 +61,12 @@
                             <div class="lower-box clearfix">
                                 <div class="left-content pull-left">
                                     <figure class="admin-image">
-                                        <img src="https://ui-avatars.com/api/?name={{ $data->upload_by }}">
+                                        <img
+                                            src="https://ui-avatars.com/api/?name={{ $data->uploader->name ?? 'Admin' }}">
                                     </figure>
-                                    <a href="{{ url('/news-author', $data->upload_by) }}">
+                                    <a href="{{ url('/news-author', $data->uploader->name ?? 'Admin') }}">
                                         <span class="admin-name">by {{
-                                            $data->upload_by }}</span>
+                                            $data->uploader->name ?? 'Admin' }}</span>
                                     </a>
                                 </div>
                                 <ul class="right-content pull-right">
