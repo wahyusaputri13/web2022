@@ -115,6 +115,13 @@
                 @endif
                 @endforeach
             </ul>
+            <ul>
+                <li style="color: rgba(255, 255, 255, 0.6);">
+                    <a id="carikan">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </li>
+            </ul>
         </nav>
         <!-- .navbar -->
     </div>

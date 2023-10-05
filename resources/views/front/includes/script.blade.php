@@ -21,7 +21,8 @@
     document.addEventListener("keydown", function (event) {
         // Check if the 'T' key (key code 84) is pressed
         if (event.keyCode === 67) {
-            var aku = $('#exampleModal').modal('show');
+            $('#exampleModal').modal('show');
+
             if ($('#exampleModal').modal('show')) {
                 $('#exampleModal').modal('hide')
             } else {
@@ -38,4 +39,12 @@
             $(this).find('#textareaID1').focus();
         });
     });
+
+    let carikan = document.getElementById("carikan");
+
+    function handleClick() {
+        $('#exampleModal').modal('show');
+    }
+
+    carikan.onclick = handleClick;
 </script>
