@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'youtube' => '#',
             'url_stream' => '#',
             'themes_front' => 'flexstart',
-            'themes_back' => 'back.a',
+            'themes_back' => 'sneat',
             'open_hours' => "Senin - Jum'at (07:00 - 16:00 WIB) Jum'at (07:00 - 11:00 WIB)",
         ]);
 
