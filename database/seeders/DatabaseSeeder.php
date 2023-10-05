@@ -5,11 +5,8 @@ namespace Database\Seeders;
 use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use App\Models\Role;
-use App\Models\Themes;
-use App\Models\User;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,65 +20,50 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
-            // NewsSeeder::class,
-            // GallerySeeder::class,
             FrontMenuSeeder::class,
             ThemesSeeder::class,
             ComCodes::class,
             PermissionSeeder::class,
             ComponentSeeder::class,
-            // RegionSeeder::class,
-
-            // untuk website satpol
-            BidangTusiSeeder::class,
         ]);
 
-        // \App\Models\User::factory(10)->create();
-        // DB::table('websites')->insert([
-        //     'web_name' => 'Web2022',
-        //     'web_description' => '"Hello World!"',
-        //     'email' => 'diskominfo@wonosobokab.go.id',
-        //     'address' => 'Wonosobo - The Soul Of Java',
-        //     'phone' => '085643710007',
-        //     'instagram' => 'https://www.instagram.com/diskominfo_wonosobo/?hl=id',
-        //     'twitter' => 'https://twitter.com/diskominfo_wsb',
-        //     'facebook' => 'https://www.facebook.com/wonosobohebat/',
-        //     'youtube' => 'https://www.youtube.com/c/OfficialWonosoboTV',
-        //     'url_stream' => '#',
-        //     'themes_front' => 'flexstart',
-        //     'themes_back' => 'back.a',
-        //     'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
-        // ]);
-
-        // kampung pancasila
-        // DB::table('websites')->insert([
-        //     'web_name' => 'KAMPUNG PANCASILA WONOSOBO',
-        //     'web_description' => '"Semarak Kampung Pancasila Wonosobo penjaga Persatuan dan Kesatuan Bangsa!"',
-        //     'email' => 'superadmin@app.com',
-        //     'address' => 'Kodim 0707 Jl. Pemuda No.11, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311',
-        //     'phone' => '(0286) 321019',
-        //     'instagram' => '#',
-        //     'twitter' => '#',
-        //     'facebook' => '#',
-        //     'youtube' => '#',
-        //     'url_stream' => '#',
-        //     'themes_front' => 'FlexStart',
-        //     'themes_back' => 'back.a',
-        // ]);
+        DB::table('websites')->insert([
+            'web_name' => 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu',
+            'web_description' => '"Hello World!"',
+            'email' => 'dpmptsp.wsb@gmail.com',
+            'address' => 'Jl. Kartini No. 11, Kab. Wonosobo',
+            'phone' => '(0286) 321059',
+            'instagram' => 'https://www.instagram.com/dpmptsp_wonosobo/?hl=id',
+            'twitter' => '#',
+            'facebook' => '#',
+            'youtube' => '#',
+            'url_stream' => '#',
+            'themes_front' => 'flexstart',
+            'themes_back' => 'back.a',
+            'open_hours' => "Senin - Jum'at (07:00 - 16:00 WIB) Jum'at (07:00 - 11:00 WIB)",
+        ]);
 
         $related = [
             [
-                'name' => 'Website Pemkab Wonosobo',
-                'url' => 'https://website.wonosobokab.go.id/',
+                'name' => 'Web OSS RBA',
+                'url' => 'https://oss.go.id/',
             ],
             [
-                'name' => 'Dashboard Smartcity',
-                'url' => 'https://smartcity.wonosobokab.go.id/',
+                'name' => 'Web Site Resmi PEMDA Wonosobo',
+                'url' => 'https://wonosobokab.go.id/',
             ],
             [
-                'name' => 'Website Diskominfo Wonosobo',
-                'url' => 'https://diskominnfo.wonosobokab.go.id/',
-            ]
+                'name' => 'Web Site JDIH Kabupaten Wonosobo',
+                'url' => 'https://jdih.wonosobokab.go.id/',
+            ],
+            [
+                'name' => 'Web Site BKPM Pusat',
+                'url' => 'https://www.bkpm.go.id/',
+            ],
+            [
+                'name' => 'Web DPMPTSP Jateng',
+                'url' => 'https://dpmptsp.jatengprov.go.id/',
+            ],
         ];
 
         foreach ($related as $rr) {
