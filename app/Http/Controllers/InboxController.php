@@ -16,7 +16,7 @@ class InboxController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Inbox::orderBy('created_at', 'DESC')->get();
+            $data = Inbox::orderBy('created_at', 'DESC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
