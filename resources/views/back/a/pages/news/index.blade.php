@@ -71,15 +71,15 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex' },
+            { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'title', name: 'title', className: "text-center" },
             { data: 'tgl', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
+    // var table = $('#datatables').DataTable();
+    // $('.card .material-datatables label').addClass('form-group');
 </script>
 <script>
     $(document).ready(function () {

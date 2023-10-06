@@ -2,17 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Component;
-use App\Models\FrontMenu;
-use App\Models\GuestBook;
-use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Role;
-use App\Models\Themes;
 use App\Models\User;
-use Illuminate\Support\Str;
-use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,23 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call([
-        // GallerySeeder::class,
-        // ]);
-
-        $role = [
-            [
-                'role' => 'Superadmin'
-            ],
-            [
-                'role' => 'Admin'
-            ]
-        ];
-
-        foreach ($role as $datum) {
-            Role::create($datum);
-        }
-
         DB::table('websites')->insert([
             'web_name' => 'PesonaFM',
             'web_description' => '92.1 FM Radio Pesona Stasiun Terbaikmu',
