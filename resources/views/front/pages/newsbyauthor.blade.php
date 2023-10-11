@@ -8,8 +8,8 @@
 
             <h2>{{ $hasil }}</h2>
             <ol>
-                <li><a href="{{ url('/') }}">Home</a></li>
-                <li>Blog</li>
+                <li><a href="{{ url('/') }}">Beranda</a></li>
+                <li>Postingan</li>
             </ol>
 
         </div>
@@ -30,8 +30,13 @@
 
                         <div class="post-img position-relative overflow-hidden">
                             @if($author->gambarmuka)
+                            @if(Str::contains($author->gambarmuka, 'https'))
                             <img src="{{  $author->gambarmuka->path }}" class="img-fluid"
                                 alt="{{ $author->gambarmuka->file_name }}">
+                            @else
+                            <img src="{{ asset('storage/') }}/{{  $author->gambarmuka->path }}" class="img-fluid"
+                                alt="{{ $author->gambarmuka->file_name }}">
+                            @endif
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                             @endif

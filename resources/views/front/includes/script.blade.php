@@ -20,7 +20,7 @@
 <script>
     document.addEventListener("keydown", function (event) {
         // Check if the 'T' key (key code 84) is pressed
-        if (event.keyCode === 67) {
+        if (event.keyCode === 192) {
             $('#exampleModal').modal('show');
 
             if ($('#exampleModal').modal('show')) {

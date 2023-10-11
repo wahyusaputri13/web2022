@@ -1,24 +1,29 @@
-@extends('front.medino.layouts.app')
+@extends('front.layouts.app')
 @section('content')
-<!-- Banner Area Starts -->
-<section class="banner-area other-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>{{ $hasil }}</h1>
-                <a href="{{ url('/') }}">Beranda</a> <span>|</span> <a href="#">Postingan</a>
-            </div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+            <h2>{{ $hasil }}</h2>
+            <ol>
+                <li><a href="{{ url('/') }}">Beranda</a></li>
+                <li>Postingan</li>
+            </ol>
+
         </div>
     </div>
-</section>
-<!-- Banner Area End -->
+    <!-- End Breadcrumbs -->
 
-<!--================Blog Area =================-->
-<section class="blog_area mt-3">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <table id="dataTable" class="display" style="width:100%" wire:ignore>
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <x-cari-news />
+
+            <div class="row gy-4 posts-list mt-2">
+                <table id="dataTable" class="display">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -29,12 +34,17 @@
                         </tr>
                     </thead>
                 </table>
-
+                <!-- End blog pagination -->
             </div>
+            <!-- End blog posts list -->
+
         </div>
-    </div>
-</section>
-<!--================Blog Area =================-->
+    </section>
+    <!-- End Blog Section -->
+
+</main>
+<!-- End #main -->
+
 @endsection
 @push('after-script')
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"

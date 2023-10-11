@@ -9,7 +9,7 @@
 
             <h2>Blog Details</h2>
             <ol>
-                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ url('/') }}">Beranda</a></li>
                 <li>Blog Details</li>
             </ol>
 
@@ -244,15 +244,22 @@
                                 @foreach($news as $n)
                                 <div class="post-item mt-3">
                                     @if($n->gambarmuka)
+                                    @if(Str::contains($n->gambarmuka, 'https'))
                                     <img src="{{  $n->gambarmuka->path }}" class="img-fluid"
                                         alt="{{ $n->gambarmuka->file_name }}">
                                     @else
+                                    <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                                        alt="{{ $n->gambarmuka->file_name }}">
+                                    @endif
+                                    @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                                     @endif
+
                                     <div>
                                         <h4>
                                             <a href="{{ url('/news-detail', $n->slug) }}">
-                                                {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
+                                                {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...')
+                                                }}
                                             </a>
                                         </h4>
                                         <time datetime="2020-01-01">

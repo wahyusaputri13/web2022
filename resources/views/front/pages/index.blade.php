@@ -11,47 +11,67 @@
             'DESC')->take(10)->get() as $hl)
 
             @if ($loop->first)
-            <div class="carousel-item active"
-                style="background-image: url('{{ $hl->gambarmuka->path ?? null }}')">
-                <div class="info d-flex align-items-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 text-center">
-                                <h2 data-aos="fade-down">{{ $hl->title }}</h2>
-                                <p data-aos="fade-up"></p>
-                                <a data-aos="fade-up" data-aos-delay="200" href="{{ url('/news-detail', $hl->slug) }}"
-                                    class="btn-get-started">Read More</a>
+            @if($hl->gambarmuka)
+            @if(Str::contains($hl->gambarmuka, 'https'))
+            <div class="carousel-item active" style="background-image: url('{{ $hl->gambarmuka->path }}')">
+                @else
+                <div class="carousel-item active" style="background-image: url('storage/{{ $hl->gambarmuka->path }}')">
+                    @endif
+                    @else
+                    <div class="carousel-item active"
+                        style="background-image: url('{{ asset('img/soulofjava.jpg') }}')">
+                        @endif
+                        <div class="info d-flex align-items-center">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6 text-center">
+                                        <h2 data-aos="fade-down">{{ $hl->title }}</h2>
+                                        <p data-aos="fade-up"></p>
+                                        <a data-aos="fade-up" data-aos-delay="200"
+                                            href="{{ url('/news-detail', $hl->slug) }}" class="btn-get-started">Read
+                                            More</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            @else
-            <div class="carousel-item" style="background-image: url('{{ $hl->gambarmuka->path ?? null }}')">
-                <div class="info d-flex align-items-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 text-center">
-                                <h2 data-aos="fade-down">{{ $hl->title }}</h2>
-                                <p data-aos="fade-up"></p>
-                                <a data-aos="fade-up" data-aos-delay="200" href="{{ url('/news-detail', $hl->slug) }}"
-                                    class="btn-get-started">Read More</a>
+                    @else
+                    @if($hl->gambarmuka)
+                    @if(Str::contains($hl->gambarmuka, 'https'))
+                    <div class="carousel-item" style="background-image: url('{{ $hl->gambarmuka->path }}')">
+                        @else
+                        <div class="carousel-item" style="background-image: url('storage/{{ $hl->gambarmuka->path }}')">
+                            @endif
+                            @else
+                            <div class="carousel-item"
+                                style="background-image: url('{{ asset('img/soulofjava.jpg') }}')">
+                                @endif
+                                <div class="info d-flex align-items-center">
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6 text-center">
+                                                <h2 data-aos="fade-down">{{ $hl->title }}</h2>
+                                                <p data-aos="fade-up"></p>
+                                                <a data-aos="fade-up" data-aos-delay="200"
+                                                    href="{{ url('/news-detail', $hl->slug) }}"
+                                                    class="btn-get-started">Read
+                                                    More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            @endif
+
+                            <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                            </a>
+
+                            <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+                                <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                            </a>
+                            @endforeach
                         </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-
-            <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-            </a>
-
-            <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-            </a>
-            @endforeach
-        </div>
 
     </section>
     <!-- End Hero Section -->
@@ -925,8 +945,12 @@
 
                     <div class="post-img position-relative overflow-hidden">
                         @if($n->gambarmuka)
-                        <img src="{{  $n->gambarmuka->path }}" class="img-fluid"
+                        @if(Str::contains($n->gambarmuka, 'https'))
+                        <img src="{{  $n->gambarmuka->path }}" class="img-fluid" alt="{{ $n->gambarmuka->file_name }}">
+                        @else
+                        <img src="{{ asset('storage') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
                             alt="{{ $n->gambarmuka->file_name }}">
+                        @endif
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                         @endif

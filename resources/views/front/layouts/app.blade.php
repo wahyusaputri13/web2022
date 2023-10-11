@@ -30,7 +30,7 @@
                     {{Form::open(['route' => 'global.search','method' => 'get', ''])}}
                     {{Form::text('kolomcari', null,['class' => 'form-control mb-3 text-center',
                     'placeholder' => 'Kata Pencarian','id'=>'textareaID1'])}}
-                    <button type="submit" class="btn w-100 btn-primary mt-1">Cari Data <i
+                    <button type="submit" class="btn w-100 btn-warning mt-1">Cari Data <i
                             class="bi bi-search"></i></button>
                     {{Form::close()}}
                 </div>

@@ -132,7 +132,7 @@ class FrontController extends Controller
     {
         Seo::seO();
         $cari = $request->kolomcari;
-        $hasil = 'Search result : ' . $cari;
+        $hasil = 'Hasil Pencarian : ' . $cari;
         $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->get();
         $data2 = DB::table('front_menus')->select('id', 'menu_url', 'kategori', DB::raw('menu_name as title'))->where('menu_name', 'like', '%' . $cari . '%')->get();
         $combinedData = $data->concat($data2);
@@ -146,12 +146,12 @@ class FrontController extends Controller
                     function ($combinedData) {
                         if ($combinedData->menu_url) {
                             $actionBtn = '<td class="text-center">
-                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-primary">LIHAT
+                            <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-sm btn-warning">LIHAT
                             DATA</a>
                             </td>';
                         } else {
                             $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $combinedData->slug) . '" class="btn btn-sm btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                         }
@@ -169,7 +169,7 @@ class FrontController extends Controller
     {
         Seo::seO();
         $cari = $request->kolomcari;
-        $hasil = 'Search result : ' . $cari;
+        $hasil = 'Hasil Pencarian : ' . $cari;
         $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
         $news = News::latest('date')->take(5)->get();
         return view('front.pages.newsbyauthor', compact('data', 'news', 'hasil'));
@@ -458,7 +458,7 @@ class FrontController extends Controller
                 'file_name' => $ratna->file_name,
                 'path' => 'https://website.wonosobokab.go.id/upload/img/' . $ratna->file_name,
             ];
-            DB::table('files')->insert($fff);
+            File::create($fff);
         }
         return json_encode($isa);
     }
