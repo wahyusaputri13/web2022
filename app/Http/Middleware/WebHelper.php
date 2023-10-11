@@ -30,7 +30,6 @@ class WebHelper
         $menu = FrontMenu::all();
         $agenda = Agenda::all()->count();
         $news = News::all()->count();
-        $public_complaints = Complaint::all()->count();
         $counter = Counter::all()->count();
         $inbox = Inbox::all()->count();
         $related = RelatedLink::all();
@@ -44,7 +43,6 @@ class WebHelper
         view()->share('data_website', $data);
         view()->share('nav_menu', $menu);
         view()->share('news_all', $news);
-        view()->share('public_complaints', $public_complaints);
         view()->share('counter_web', $counter);
         view()->share('related', $related);
         view()->share('inbox', $inbox);

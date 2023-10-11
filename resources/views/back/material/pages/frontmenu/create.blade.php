@@ -26,6 +26,9 @@
                             {{ Form::select('menu_parent', $root, null,
                             ['class' => 'cari form-control']) }}
                         </div>
+                        @error('menu_parent')
+                        <div class="error text-danger">Tidak Boleh Kosong</div>
+                        @enderror
                         <div class="form-group label-floating">
                             <label class="control-label">Menu Name</label>
                             {{Form::text('menu_name', null,['class' => 'form-control', 'id' => 'title'])}}

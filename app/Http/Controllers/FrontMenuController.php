@@ -31,12 +31,12 @@ class FrontMenuController extends Controller
                     'action',
                     function ($data) {
                         if ($data->id <= 45) {
-                            $actionBtn = '<div class="text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>';
+                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
+                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>';
                         } else {
-                            $actionBtn = '<div class="text-center">
-                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="bx bx-edit"></i> </a>
-                          <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="bx bxs-trash"></i> </a>
+                            $actionBtn = '<div class="list-icons d-flex justify-content-center text-center">
+                        <a href="' . route('frontmenu.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> edit</a>
+                           <a href="' . route('frontmenu.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> delete</a>
                     </div>';
                         }
                         return $actionBtn;
@@ -53,24 +53,27 @@ class FrontMenuController extends Controller
                     'aksi',
                     function ($data) {
                         if ($data->id <= 45) {
-                            $actionBtn = '<center><div class="togglebutton">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" disabled checked>
-                        </label>
-                    </div></center>';
+                            $actionBtn = '<div class="togglebutton">
+                            <label>
+                                <input type="checkbox" disabled checked>
+                                <span class="toggle"></span>
+                            </label>
+                        </div>';
                         } else {
                             if ($data->active == 1) {
-                                $actionBtn = '<center><div class="togglebutton">
-                                <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" checked onclick="centang('  . $data->id . ')">
+                                $actionBtn = '<div class="togglebutton">
+                                <label>
+                                <input type="checkbox" checked onclick="centang('  . $data->id . ')">
+                                <span class="toggle"></span>
                                 </label>
-                                </div></center>';
+                                </div>';
                             } else {
-                                $actionBtn = '<center><div class="togglebutton">
-                                <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" onclick="centang('  . $data->id . ')">
+                                $actionBtn = '<div class="togglebutton">
+                                <label>
+                                <input type="checkbox" onclick="centang('  . $data->id . ')">
+                                <span class="toggle"></span>
                                 </label>
-                                </div></center>';
+                                </div>';
                             }
                         }
                         return $actionBtn;
@@ -148,13 +151,6 @@ class FrontMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(
-            [
-                'menu_parent' => 'required',
-                'menu_name' => 'required',
-            ],
-        );
-
         FrontMenu::find($id)->update(
             $request->except(['_token']),
         );
