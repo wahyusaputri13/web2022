@@ -23,18 +23,6 @@
                     <!-- Example of a form that Dropzone can take over -->
                     <div class="dropzone" id="my-awesome-dropzone"></div>
 
-                    @can('ppidsetda')
-                    <div class="form-group">
-                        <label class="control-label">Tag Bagian</label>
-                        {{Form::select('tag', $categori, null, ['class' => 'form-control
-                        js-example-basic-multiple',
-                        'name' => 'tag[]',
-                        'multiple' => 'multiple',
-                        ])}}
-                        @error('tag') <span class="text-danger">Tidak boleh kosong</span> @enderror
-                    </div>
-                    @endcan
-
                     <div class="form-group label-floating jip">
                         <label class="control-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
