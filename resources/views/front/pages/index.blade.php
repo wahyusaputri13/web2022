@@ -12,7 +12,7 @@
 
             @if ($loop->first)
             <div class="carousel-item active"
-                style="background-image: url('storage/{{ $hl->gambarmuka->path ?? null }}')">
+                style="background-image: url('{{ $hl->gambarmuka->path ?? null }}')">
                 <div class="info d-flex align-items-center">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             @else
-            <div class="carousel-item" style="background-image: url('storage/{{ $hl->gambarmuka->path ?? null }}')">
+            <div class="carousel-item" style="background-image: url('{{ $hl->gambarmuka->path ?? null }}')">
                 <div class="info d-flex align-items-center">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -925,7 +925,7 @@
 
                     <div class="post-img position-relative overflow-hidden">
                         @if($n->gambarmuka)
-                        <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                        <img src="{{  $n->gambarmuka->path }}" class="img-fluid"
                             alt="{{ $n->gambarmuka->file_name }}">
                         @else
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">

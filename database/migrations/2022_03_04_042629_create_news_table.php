@@ -18,9 +18,9 @@ class CreateNewsTable extends Migration
             $table->text('title', 4294967295)->nullable();
             $table->text('slug', 4294967295)->nullable();
             $table->date('date')->nullable();
-            $table->string('upload_by')->nullable();
-            $table->text('content', 4294967295)->nullable();
-            $table->bigInteger('attachment')->nullable();
+            $table->integer('upload_by')->default(2);
+            $table->longText('content', 4294967295)->nullable();
+            $table->string('attachment')->nullable();
             $table->boolean('highlight')->default(false);
             $table->string('kategori')->nullable();
             $table->boolean('dip')->default(false);

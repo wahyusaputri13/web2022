@@ -422,22 +422,26 @@ class FrontController extends Controller
     {
         ini_set('max_execution_time', 0);
         // $data = DB::table('postings')->where('id_posting', '7367')->get();
-        $data = DB::table('postings')->get();
+        // $data = DB::table('postings')->get();
+        $data = News::all();
 
         foreach ($data as $index => $item) {
-            $indra = explode(',', $item->slide_post);
+            $indra = explode(',', $item->attachment);
             // return $indra;
             // print_r($index . "\n");
-            $idnya = News::create([
-                'title' => $item->title_posting,
-                'content' => $item->content_posting,
-                'slug' => $item->link_posting,
-                'upload_by' =>  2,
-                'date' =>  $item->date_created,
-            ])->id;
-            // print_r($idnya);
+            // $idnya = News::create([
+            //     'title' => $item->title_posting,
+            //     'content' => $item->content_posting,
+            //     'slug' => $item->link_posting,
+            //     'upload_by' =>  2,
+            //     'date' =>  $item->date_created,
+            //     'highlight' =>  $item->headline,
+            //     'komentar' =>  $item->published,
+            //     'terbit' =>  $item->published,
+            // ])->id;
+            // print_r($item->id);
             foreach ($indra as $in => $it) {
-                $this->copydatafilefromwonosobokab($it, $idnya);
+                $this->copydatafilefromwonosobokab($it, $item->id);
             }
         }
         // print_r('Selesai!');
@@ -452,7 +456,7 @@ class FrontController extends Controller
             $fff = [
                 'id_news' => $b,
                 'file_name' => $ratna->file_name,
-                'path' => 'gallery/' . $ratna->file_name,
+                'path' => 'https://website.wonosobokab.go.id/upload/img/' . $ratna->file_name,
             ];
             DB::table('files')->insert($fff);
         }

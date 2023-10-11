@@ -30,7 +30,7 @@
 
                         <div class="post-img position-relative overflow-hidden">
                             @if($author->gambarmuka)
-                            <img src="{{ asset('storage/') }}/{{  $author->gambarmuka->path }}" class="img-fluid"
+                            <img src="{{  $author->gambarmuka->path }}" class="img-fluid"
                                 alt="{{ $author->gambarmuka->file_name }}">
                             @else
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
