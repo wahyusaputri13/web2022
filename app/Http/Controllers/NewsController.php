@@ -11,7 +11,6 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use File;
-use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
@@ -165,9 +164,10 @@ class NewsController extends Controller
         if ($request->datadip) {
             News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            News::find($id)->update([
+           $isa =  News::find($id);
+           $isa->slug =  null;
+           $isa->update([
                 'title' => $request->title,
-                'slug' => Str::slug($request->title, '-'),
                 'date' => $request->date,
                 'content' => $request->content,
                 'terbit' => ($request->terbit) ? 1 : 0,
