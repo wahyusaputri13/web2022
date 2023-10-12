@@ -992,17 +992,7 @@
     </section>
     <!-- End Recent Blog Posts Section -->
 
-    <!-- start map -->
-    <section>
-        <div class="container">
-            <div class="map">
-                <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
-                $data_website->longitude }}&z=14&output=embed" frameborder="0" allowfullscreen width="100%"
-                    height="300px"></iframe>
-            </div>
-        </div>
-    </section>
-    <!-- end map -->
+
 
 </main>
 <!-- End #main -->

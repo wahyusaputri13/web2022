@@ -40,15 +40,18 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-3 footer-links">
-
-                </div>
-                <div class="col-lg-2 col-md-3 footer-links">
-
-                </div>
-                <div class="col-lg-2 col-md-3 footer-links">
+                <div class="col-lg-6 col-md-6 footer-links">
                     <h4>Total Pengunjung = {{ $counter_web }}</h4>
+                        <!-- start map -->
+                                <div class="map">
+                                    <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                                    $data_website->longitude }}&z=14&output=embed" frameborder="0" allowfullscreen width="100%"
+                                        height="300px"></iframe>
+                                </div>
+                        <!-- end map -->
                 </div>
+             
+               
                 <!-- End footer links column-->
 
             </div>

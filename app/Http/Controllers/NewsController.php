@@ -11,6 +11,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use App\Models\File as Files;
 use File;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
@@ -29,7 +30,7 @@ class NewsController extends Controller
                     'link',
                     function ($data) {
                         $actionBtn = '
-                    <div class="text-center">
+                    <div>
                         <a target="_blank" href="' . url('news-detail', $data->slug) . ' " >' . $data->title . ' </a>
                     </div>';
                         return $actionBtn;
@@ -93,6 +94,7 @@ class NewsController extends Controller
             $id = News::create([
                 'title' => $request->title,
                 'date' => $request->date,
+                'kategori' => 'INFORMASI_ST_02',
                 'content' => $request->content,
                 'terbit' => ($request->terbit) ? 1 : 0,
                 'komentar' => ($request->komentar) ? 1 : 0,
@@ -160,17 +162,20 @@ class NewsController extends Controller
             'date' => 'required',
         ]);
 
-        if ($request->dip_tahun) {
+        if ($request->datadip) {
             News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             News::find($id)->update([
                 'title' => $request->title,
+                'slug' => Str::slug($request->title, '-'),
                 'date' => $request->date,
                 'content' => $request->content,
                 'terbit' => ($request->terbit) ? 1 : 0,
                 'komentar' => ($request->komentar) ? 1 : 0,
                 'highlight' => ($request->highlight) ? 1 : 0,
-                'kategori' => $request->kategori ?? null,
+                'kategori' => 'INFORMASI_ST_02',
+                'dip' => false,
+                'dip_tahun' => null,
                 'upload_by' => auth()->user()->id
             ]);
         }

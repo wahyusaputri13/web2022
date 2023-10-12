@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label>
-                            Data DIP? <input type="checkbox" id="hideButton" {{ $data->dip ? 'checked disabled' : '' }}>
+                            Data DIP? <input name="datadip" type="checkbox" id="hideButton" {{ $data->dip ? 'checked' : '' }}>
                         </label>
                     </div>
                 </div>
@@ -43,13 +43,19 @@
                 <div class="dropzone" id="my-awesome-dropzone"></div>
 
                 <div class="row">
-                    <div class="form-group jip col-6">
+                    <div class="form-group jip col-sm-12 col-md-6"  style="display: none;">
+
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control select2','placeholder' => 'Silahkan Pilih'])}}
                     </div>
-
-                    <div class="form-group col-6">
+                    
+                    <div class="form-group col-6 dip" style="display: none;">
+                        <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
+                        {{Form::number('dip_tahun', null, ['class' =>
+                        'form-control','placeholder' => 'Masukkan Tahun'])}}
+                    </div>
+                    <div class="form-group col-12">
                         <label for="defaultFormControlInput" class="form-label">Tanggal</label>
                         {{Form::text('date', null, ['class' => 'form-control flatpickr-date',
                         'placeholder' => 'Silahkan Pilih Tanggal'])}}
@@ -60,11 +66,6 @@
                         @enderror
                     </div>
 
-                    <div class="form-group col-6 dip" style="display: none;">
-                        <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
-                        {{Form::number('dip_tahun', null, ['class' =>
-                        'form-control','placeholder' => 'Masukkan Tahun'])}}
-                    </div>
                 </div>
 
                 <div class="row">
@@ -149,11 +150,11 @@
         $("#hideButton").click(function () {
             if ($(this).is(":checked")) {
                 $(".dropzone").hide();
-                $(".jip").hide();
+                $(".jip").show();
                 $(".dip").show();
             } else {
                 $(".dropzone").show();
-                $(".jip").show();
+                $(".jip").hide();
                 $(".dip").hide();
             }
         });
