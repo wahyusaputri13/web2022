@@ -50,9 +50,9 @@ class FrontController extends Controller
 
     public function datappid()
     {
-        $data1 = FrontMenu::whereNotNull('kategori')->get();
-        $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->whereNull('deleted_at')->get();
-        $combinedData = $data1->concat($data2);
+        $data1 = FrontMenu::select('menu_url', 'kategori', 'menu_name')->whereNotNull('kategori');
+        $data2 = News::select('slug', 'kategori', 'title as menu_name')->whereNotNull('kategori');
+        $combinedData = $data1->unionAll($data2);
         return DataTables::of($combinedData)
             ->addIndexColumn()
             ->addColumn(

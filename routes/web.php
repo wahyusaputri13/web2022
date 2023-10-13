@@ -15,18 +15,14 @@ use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BidangController;
-use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\ComRegionController;
-use App\Http\Controllers\DailyReportController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSO\SSOController;
-use App\Http\Controllers\SurveilansMalariaController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
 /*
@@ -56,7 +52,6 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
-
     $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
 
     $data = [
@@ -77,16 +72,8 @@ Route::get('/', function () {
     Seo::seO();
     Counter::create($data);
 
-    try {
-        $response = Http::connectTimeout(2)->withoutVerifying()->get('https://diskominfo.wonosobokab.go.id/api/news');
-        $response = $response->collect();
-        $berita =   array_slice($response['data']['data'], 0, 3);
-    } catch (\Exception $e) {
-        $berita = [];
-    }
-
     $news = News::with('gambar', 'gambarmuka', 'uploader')->where('terbit', 1)->orderBy('date', 'desc')->paginate(3);
-    return view('front.pages.index', compact('news', 'berita'));
+    return view('front.pages.index', compact('news'));
 })->name('root')->middleware('data_web');
 
 Route::group(['middleware' => 'data_web'], function () {
@@ -113,7 +100,6 @@ Route::group(['middleware' => 'data_web'], function () {
     Route::get('agenda', [FrontController::class, 'event']);
     Route::get('berita', [FrontController::class, 'newsall']);
     Route::get('/reload-captcha', [FrontController::class, 'reloadCaptcha']);
-    Route::post('permohonaninformasi', [PermohonanInformasiController::class, 'store']);
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
@@ -132,21 +118,15 @@ Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'ad
         Route::resource('component', ComponentController::class);
         Route::resource('bidang', BidangController::class);
     });
-    Route::resource('surveilans_malaria', SurveilansMalariaController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
-    Route::resource('daily', DailyReportController::class);
-    Route::resource('complaint', ComplaintController::class);
     Route::resource('permohonaninformasi', PermohonanInformasiController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);
-    Route::post('frameworks', [ComplaintController::class, 'getFrameworks'])->name('frameworks');
-    Route::post('upstate/{id}', [ComplaintController::class, 'finish']);
-    Route::get('phpword/{id}', [ComplaintController::class, 'phpword']);
     Route::resource('file_image', FileController::class);
 
     // pindah data dari database wonsobokab

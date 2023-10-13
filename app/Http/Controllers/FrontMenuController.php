@@ -185,19 +185,13 @@ class FrontMenuController extends Controller
         return $data;
     }
 
-    public function checkSlug(Request $request)
-    {
-        $slug = SlugService::createSlug(FrontMenu::class, 'menu_url', $request->menu);
-        return response()->json(['slug' => $slug]);
-    }
-
     public function loadData(Request $request)
     {
         if ($request->has('q')) {
             $cari = $request->q;
-            $data = DB::table('front_menus')->select('id', 'menu_name')->where('menu_name', 'LIKE', '%' . $cari . '%')->get();
+            $data = FrontMenu::select('id', 'menu_name')->where('menu_name', 'LIKE', '%' . $cari . '%')->get();
         } else {
-            $data = FrontMenu::orderBy('id', 'ASC')->limit(10)->get();
+            $data = FrontMenu::all();
         }
         return response()->json($data);
     }
