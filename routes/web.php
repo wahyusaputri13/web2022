@@ -158,6 +158,7 @@ Route::get('/cari', [FrontMenuController::class, 'loadData'])->name('carimenu');
 Route::get('copydatapostingfromwonosobokab', [FrontController::class, 'copydatapostingfromwonosobokab']);
 Route::get('/datappid', [FrontController::class, 'datappid'])->name('datappid');
 Route::get('/datappid2', [FrontController::class, 'datappid2'])->name('datappid2');
+Route::get('/dikecualikan', [FrontController::class, 'dikecualikan'])->name('dikecualikan');
 
 Route::get('migrate', [MigrasiDataController::class, 'insert']);
 

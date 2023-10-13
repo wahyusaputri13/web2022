@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="togglebutton" style="margin-bottom: 15px;">
                         <label class="form-check-label">
-                            Data DIP? <input type="checkbox" id="hideButton" class="form-check-input">
+                            Data DIP? <input type="checkbox" id="hideButton" name="datadip" class="form-check-input">
                         </label>
                     </div>
                 </div>
@@ -37,12 +37,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="form-group jip col-sm-12 col-md-6"  style="display: none;">
+                    <div class="form-group jip col-sm-12 col-md-6" style="display: none;">
                         <label for="defaultFormControlInput" class="form-label">Jenis Informasi Publik</label>
                         {{Form::select('kategori', get_code_group('INFORMASI_ST'), null, ['class' =>
                         'form-control select2','placeholder' => 'Silahkan Pilih'])}}
                     </div>
-                    
+
                     <div class="form-group col-sm-12 col-md-6 dip" style="display: none;">
                         <label for="defaultFormControlInput" class="form-label">Tahun Daftar Informasi Publik</label>
                         {{Form::number('dip_tahun', null, ['class' =>

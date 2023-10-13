@@ -15,13 +15,17 @@
                             <strong>Email:</strong> {{ $data_website->email }}<br>
                         </p>
                         <div class="social-links d-flex mt-3">
-                            <a href="#" class="d-flex align-items-center justify-content-center"><i
+                            <a target="_blank" href="{{ $data_website->twitter }}"
+                                class="d-flex align-items-center justify-content-center"><i
                                     class="bi bi-twitter"></i></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><i
+                            <a target="_blank" href="{{ $data_website->facebook }}"
+                                class="d-flex align-items-center justify-content-center"><i
                                     class="bi bi-facebook"></i></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><i
+                            <a target="_blank" href="{{ $data_website->instagram }}"
+                                class="d-flex align-items-center justify-content-center"><i
                                     class="bi bi-instagram"></i></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><i
+                            <a target="_blank" href="{{ $data_website->youtube }}"
+                                class="d-flex align-items-center justify-content-center"><i
                                     class="bi bi-youtube"></i></a>
                         </div>
                     </div>
@@ -41,17 +45,19 @@
                     </ul>
                 </div>
                 <div class="col-lg-6 col-md-6 footer-links">
-                    <h4>Total Pengunjung = {{ $counter_web }}</h4>
-                        <!-- start map -->
-                                <div class="map">
-                                    <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
-                                    $data_website->longitude }}&z=14&output=embed" frameborder="0" allowfullscreen width="100%"
-                                        height="300px"></iframe>
-                                </div>
-                        <!-- end map -->
+                    <div class="d-flex justify-content-end">
+                        <h4>Total Pengunjung = {{ $counter_web }}</h4>
+                    </div>
+                    <!-- start map -->
+                    <div class="map">
+                        <iframe src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{
+                                    $data_website->longitude }}&z=14&output=embed" frameborder="0" allowfullscreen
+                            width="100%" height="300px"></iframe>
+                    </div>
+                    <!-- end map -->
                 </div>
-             
-               
+
+
                 <!-- End footer links column-->
 
             </div>

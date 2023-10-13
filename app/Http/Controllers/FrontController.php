@@ -18,7 +18,6 @@ use App\Models\User;
 use App\Models\Website;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
@@ -52,7 +51,7 @@ class FrontController extends Controller
     public function datappid()
     {
         $data1 = FrontMenu::whereNotNull('kategori')->get();
-        $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->get();
+        $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->whereNull('deleted_at')->get();
         $combinedData = $data1->concat($data2);
         return DataTables::of($combinedData)
             ->addIndexColumn()
@@ -61,12 +60,12 @@ class FrontController extends Controller
                 function ($combinedData) {
                     if ($combinedData->slug) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                     } else {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                     }
@@ -77,17 +76,38 @@ class FrontController extends Controller
             ->make(true);
     }
 
-    public function datappid2(Request $request)
+    public function dikecualikan(Request $request)
     {
         if ($request->ajax()) {
-            $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
+            $dip = News::where('kategori', 'INFORMASI_ST_04')->latest();
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
                     'action',
                     function ($dip) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-primary">LIHAT
+                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-warning">LIHAT
+                                    DATA</a>
+                            </td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
+    public function datappid2(Request $request)
+    {
+        if ($request->ajax()) {
+            $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC');
+            return DataTables::of($dip)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($dip) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                         return $actionBtn;
@@ -103,7 +123,7 @@ class FrontController extends Controller
         Seo::seO();
         $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
-        $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
+        $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
 
         return view('front.pages.newsdetail', compact('data', 'news', 'file'));
@@ -317,105 +337,6 @@ class FrontController extends Controller
             Alert::success('Success', 'Your Message Has Been Sent');
             return redirect(url('/'));
         }
-    }
-
-    // sql ppid setda
-    public function loadsql()
-    {
-        set_time_limit(0);
-
-        // insert data dari table ppid_post ke tabel news
-        $variable = DB::table('ppid_posts')->get();
-        foreach ($variable as $us) {
-            $isi = str_replace("wp-image", "img-fluid ", $us->post_content);
-
-            $validated =
-                [
-                    'photo' => 'soulofjava',
-                    'path' => 'img/soulofjava.jpg',
-                    'date' => $us->post_date,
-                    'description' => $isi,
-                    'title' => $us->post_title,
-                    'upload_by' => 'Admin',
-                ];
-            News::create($validated);
-        }
-
-        // hapus data kolom content yang kosong
-        $users = DB::table('news')
-            ->where('description', '=', '')
-            ->get();
-        foreach ($users as $us) {
-            News::destroy($us->id);
-        }
-
-        // hapus data kolom title yang kosong
-        $users = DB::table('news')
-            ->where('title', '=', '')
-            ->get();
-        foreach ($users as $us) {
-            News::destroy($us->id);
-        }
-
-        // cek duplikasi dan hapus
-        $users = News::all();
-        $usersUnique = $users->unique('title');
-        $usersDupes = $users->diff($usersUnique);
-        foreach ($usersDupes as $dp) {
-            News::destroy($dp->id);
-        }
-
-        // // hitung data
-        // $data = News::all()->count();
-        // return response()->json($data);
-
-        return response()->json('Selesai');
-    }
-
-    public function check()
-    {
-        // ubah deskripsi yang ada pdf 1
-        // $data = News::where('description', 'like', '%[vc_row][vc_column][v_pfbk_flip_book%')->get();
-        // $width = '"100%"';
-        // $height = '"750"';
-        // foreach ($data as $dt) {
-        //     $pdfa = str_replace("[vc_row][vc_column][v_pfbk_flip_book", "<embed", $dt->description);
-        //     $slice = Str::after($pdfa, '.pdf"');
-        //     $pdfb = str_replace($slice, " width=" . $width . " height=" . $height . ">", $pdfa);
-        //     News::find($dt->id)->update([
-        //         'description' => $pdfb
-        //     ]);
-        // }
-
-        // ubah deskripsi yang ada pdf 2
-        // $data = News::where('description', 'like', '%[pfbk_pdf_flipbook%')->get();
-        // $width = '"100%"';
-        // $height = '"750"';
-        // foreach ($data as $dt) {
-        //     $pdfa = str_replace("[pfbk_pdf_flipbook", "<embed", $dt->description);
-        //     $slice = Str::after($pdfa, '.pdf"');
-        //     $pdfb = str_replace($slice, " width=" . $width . " height=" . $height . ">", $pdfa);
-        //     News::find($dt->id)->update([
-        //         'description' => $pdfb
-        //     ]);
-        // }
-
-        // $id = 5602;
-        // $data = News::find($id);
-        // $slice = Str::after($data->description, 'src="');
-        // $slice2 = Str::before($slice, '"');
-        // $pdfb = str_replace("][/vc_column][/vc_row]", "width=" . $width . " height=" . $height . ">", $data->description);
-        // $data = News::where('description', 'like', '%.pdf%')->get();
-        $data = News::all();
-        // News::find($b->id)->update([
-        // $data = News::where('description', 'like', '%.pdf%')->count();
-        foreach ($data as $dt) {
-            $slice = Str::after($dt->description, 'src="');
-            $slice2 = Str::before($slice, '"');
-            echo $slice2;
-        }
-        // return response()->json('selesai');
-        // return $slice2;
     }
 
     function copydatapostingfromwonosobokab()

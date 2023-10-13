@@ -25,6 +25,8 @@
 
                 @if($data->menu_name == 'Daftar Informasi Publik')
                 <x-jip />
+                @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
+                <x-dip />
                 @elseif($data->title)
                 {!! $data->description !!}
                 @else

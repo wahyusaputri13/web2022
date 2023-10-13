@@ -87,8 +87,8 @@ class NewsController extends Controller
             'content' => 'required',
         ]);
 
-        if ($request->dip_tahun) {
-            $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        if ($request->datadip) {
+            $id = News::create($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
             $id = News::create([
                 'title' => $request->title,
@@ -162,11 +162,11 @@ class NewsController extends Controller
         ]);
 
         if ($request->datadip) {
-            News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            News::find($id)->update($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-           $isa =  News::find($id);
-           $isa->slug =  null;
-           $isa->update([
+            $isa =  News::find($id);
+            $isa->slug =  null;
+            $isa->update([
                 'title' => $request->title,
                 'date' => $request->date,
                 'content' => $request->content,
