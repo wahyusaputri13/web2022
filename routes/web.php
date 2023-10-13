@@ -1,5 +1,6 @@
 <?php
 
+use App\Charts\TotalBerita;
 use App\Helpers\Seo;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CredentialController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\SSO\SSOController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 /*
@@ -103,7 +105,26 @@ Route::group(['middleware' => 'data_web'], function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
-    return view('back.pages.dashboard');
+    $tango = ['1', '2', '3'];
+    $tahun = News::whereYear('date', '>=', date("Y") - 5)->select(DB::raw('YEAR(date) as tahun'))
+        ->groupBy('tahun')
+        ->orderBy('tahun', 'ASC')
+        ->pluck('tahun');
+
+    $postsByYear = News::whereYear('date', '>=', date("Y") - 5)->select(DB::raw('YEAR(date) as tahun'), DB::raw('COUNT(*) as total'))
+        ->groupBy('tahun')
+        ->orderBy('tahun', 'ASC')
+        ->pluck('total');
+
+    $colors = $tahun->map(function ($item) {
+        return '#' . substr(md5(mt_rand()), 0, 6);
+    });
+
+    $chart = new TotalBerita;
+    $chart->labels($tahun);
+    $chart->dataset('Total Postingan', 'bar', $postsByYear)->backgroundColor($colors);
+
+    return view('back.pages.dashboard', compact('chart', 'tango'));
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'admin'], function () {
