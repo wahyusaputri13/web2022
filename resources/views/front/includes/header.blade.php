@@ -12,11 +12,10 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
-                @foreach (App\Models\FrontMenu::where('menu_parent', '1')->where('deleted_at', null)->orderBy('id',
+                @foreach (App\Models\FrontMenu::where('menu_parent', '1')->where('active',1)->orderBy('id',
                 'ASC')->get() as $menu)
 
-                @if (App\Models\FrontMenu::where('menu_parent', $menu->id)->where('deleted_at',
-                null)->orderBy('menu_parent',
+                @if (App\Models\FrontMenu::where('menu_parent', $menu->id)->where('active',1)->orderBy('menu_parent',
                 'ASC')->count() == 0)
                 <li>
                     @if ($menu->link)
@@ -36,12 +35,10 @@
                         <i class="bi bi-chevron-down dropdown-indicator"></i>
                     </a>
                     <ul>
-                        @foreach (App\Models\FrontMenu::where('menu_parent', $menu->id)->where('deleted_at',
-                        null)->orderBy('menu_parent',
+                        @foreach (App\Models\FrontMenu::where('menu_parent', $menu->id)->where('active',1)->orderBy('menu_parent',
                         'ASC')->get() as $sm)
 
-                        @if (App\Models\FrontMenu::where('menu_parent', $sm->id)->where('deleted_at',
-                        null)->orderBy('menu_parent',
+                        @if (App\Models\FrontMenu::where('menu_parent', $sm->id)->where('active',1)->orderBy('menu_parent',
                         'ASC')->count() == 0)
                         <li>
                             @if($sm->link)
@@ -61,12 +58,10 @@
                                 <i class="bi bi-chevron-down dropdown-indicator"></i>
                             </a>
                             <ul>
-                                @foreach (App\Models\FrontMenu::where('menu_parent', $sm->id)->where('deleted_at',
-                                null)->orderBy('menu_parent',
+                                @foreach (App\Models\FrontMenu::where('menu_parent', $sm->id)->where('active',1)->orderBy('menu_parent',
                                 'ASC')->get() as $sub3)
 
-                                @if (App\Models\FrontMenu::where('menu_parent', $sub3->id)->where('deleted_at',
-                                null)->orderBy('menu_parent',
+                                @if (App\Models\FrontMenu::where('menu_parent', $sub3->id)->where('active',1)->orderBy('menu_parent',
                                 'ASC')->count() == 0)
                                 <li>
                                     @if ($sub3->link)
@@ -87,8 +82,7 @@
                                     </a>
                                     <ul>
                                         @foreach (App\Models\FrontMenu::where('menu_parent',
-                                        $sub3->id)->where('deleted_at',
-                                        null)->orderBy('menu_parent',
+                                        $sub3->id)->where('active',1)->orderBy('menu_parent',
                                         'ASC')->get() as $sub4)
                                         <li>
                                             @if ($sub4->link)
