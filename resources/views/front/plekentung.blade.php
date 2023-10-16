@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    ini contoh html
+    <h1>ini contoh html</h1>
 </body>
 
 </html>
