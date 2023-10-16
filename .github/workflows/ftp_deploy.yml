@@ -32,6 +32,6 @@ jobs:
         path: /    
         remote_path: /
         remote_host: 103.155.105.18
-        remote_port: 22
+        remote_port: 1318
         remote_user: kesbangpol
         remote_key: ${{ secrets.DEPLOY_KEY }}
