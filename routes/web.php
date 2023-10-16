@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
-
+use Illuminate\Support\Str;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,6 +54,18 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
+    // $data = News::all();
+    // $new = str_replace('../../', 'https://website.wonosobokab.go.id/', $data->content) . '<br>';
+    // $data->update(['content' => $new]);
+    // return $data->content;
+    // foreach ($data as $key => $value) {
+    //     if (Str::contains($value->content, '../../')) {
+    //         $new = str_replace('../../', 'https://website.wonosobokab.go.id/', $value->content) . '<br>';
+    //         // echo $value->id;
+    //         News::find($value->id)->update(['content' => $new]);
+    //     };
+    // }
+    // return 'selesai';
     $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
 
     $data = [
