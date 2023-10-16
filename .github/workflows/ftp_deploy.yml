@@ -32,6 +32,6 @@ jobs:
         path: /    
         remote_path: /
         remote_host: https://devkesbangpol.wonosobokab.go.id
-        remote_post: 22
+        remote_port: 22
         remote_user: kesbangpol
         remote_key: ${{ secrets.DEPLOY_KEY }}
