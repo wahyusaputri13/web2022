@@ -30,7 +30,8 @@ jobs:
       with:
         switches: -avzr --delete --exclude=".git" --exclude=".github"
         path: /    
-        remote_path: ${{ secrets.FTP_DIR }}
-        remote_host: ${{ secrets.FTP_HOST }}
-        remote_user: ${{ secrets.FTP_USER }}
+        remote_path: /
+        remote_host: https://devkesbangpol.wonosobokab.go.id
+        remote_post: 22
+        remote_user: kesbangpol
         remote_key: ${{ secrets.DEPLOY_KEY }}
