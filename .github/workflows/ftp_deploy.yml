@@ -30,7 +30,7 @@ jobs:
       with:
         switches: -avzr --delete --exclude=".git" --exclude=".github"
         path: /    
-        remote_path: ${{ secret.FTP_DIR }}
-        remote_host: ${{ secret.FTP_HOST }}
-        remote_user: ${{ secret.FTP_USER }}
-        remote_key: ${{ secret.DEPLOY_KEY }}
+        remote_path: ${{ secrets.FTP_DIR }}
+        remote_host: ${{ secrets.FTP_HOST }}
+        remote_user: ${{ secrets.FTP_USER }}
+        remote_key: ${{ secrets.DEPLOY_KEY }}
