@@ -15,12 +15,11 @@ use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ComRegionController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MigrasiDataController;
-use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SSO\SSOController;
+use App\Http\Controllers\TestimonialController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -117,7 +116,6 @@ Route::group(['middleware' => 'data_web'], function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/dashboard', function () {
-    $tango = ['1', '2', '3'];
     $tahun = News::whereYear('date', '>=', date("Y") - 5)->select(DB::raw('YEAR(date) as tahun'))
         ->groupBy('tahun')
         ->orderBy('tahun', 'ASC')
@@ -136,27 +134,24 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web', 'cek_inbox'])->get('/
     $chart->labels($tahun);
     $chart->dataset('Total Postingan', 'bar', $postsByYear)->backgroundColor($colors);
 
-    return view('back.pages.dashboard', compact('chart', 'tango'));
+    return view('back.pages.dashboard', compact('chart'));
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web', 'cek_inbox'], 'prefix' => 'admin'], function () {
     Route::group(['middleware' => ['role:superadmin']], function () {
         Route::resource('themes', ThemesController::class);
-    });
-    Route::group(['middleware' => ['role:superadmin|admin']], function () {
         Route::resource('settings', WebsiteController::class);
         Route::resource('user', UserController::class);
         Route::resource('frontmenu', FrontMenuController::class);
         Route::resource('relatedlink', RelatedLinkController::class);
         Route::resource('component', ComponentController::class);
-        Route::resource('bidang', BidangController::class);
+        Route::resource('testimoni', TestimonialController::class);
     });
     Route::resource('gallery', GalleryController::class);
     Route::resource('news', NewsController::class);
     Route::resource('myprofile', CredentialController::class);
     Route::resource('event', AgendaController::class);
     Route::resource('inbox', InboxController::class);
-    Route::resource('permohonaninformasi', PermohonanInformasiController::class);
     Route::post('sendCentang', [ComponentController::class, 'changeAccess'])->name('centang');
     Route::post('sendCentangFM', [FrontMenuController::class, 'changeAccess'])->name('centangfm');
     Route::get('getAlamat', [WebsiteController::class, 'location']);

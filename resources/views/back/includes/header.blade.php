@@ -76,37 +76,35 @@
                     </a>
                 </li>
 
-                @role('superadmin|admin')
+                @role('superadmin')
                 <li
-                    class="menu-item {{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active open' : '' }}">
+                    class="menu-item {{ (Str::contains(Request::url(), ['frontmenu', 'relatedlink', 'settings', 'user', 'testimoni'])) ? 'active open' : '' }}">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>
                         <div data-i18n="Website">Website</div>
                     </a>
 
                     <ul class="menu-sub">
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('relatedlink.index') }}">
+                                Link Terkait</a>
+                        </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'frontmenu')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('frontmenu.index') }}">
                                 <div data-i18n="Menu">Menu</div>
                             </a>
                         </li>
-                        <li class="menu-item {{ (Str::contains(Request::url(), 'relatedlink')) ? 'active' : '' }}">
-                            <a class="menu-link" href="{{ route('relatedlink.index') }}">
-                                Link Terkait</a>
-                        </li>
                         <li class="menu-item {{ (Str::contains(Request::url(), 'settings')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('settings.index') }}">
                                 Pengaturan Web</a>
                         </li>
-                        @role('superadmin')
-                        <li class="menu-item {{ (Str::contains(Request::url(), 'themes')) ? 'active' : '' }}">
-                            <a class="menu-link" href="{{ route('themes.index') }}">
-                                Tema</a>
-                        </li>
-                        @endrole
-                        <li class="menu-item {{ (Str::contains(Request::url(), ['user', 'bidang'])) ? 'active' : '' }}">
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'user')) ? 'active' : '' }}">
                             <a class="menu-link" href="{{ route('user.index') }}">
                                 Pengguna</a>
+                        </li>
+                        <li class="menu-item {{ (Str::contains(Request::url(), 'testimoni')) ? 'active' : '' }}">
+                            <a class="menu-link" href="{{ route('testimoni.index') }}">
+                                Testimoni</a>
                         </li>
                     </ul>
                 </li>
