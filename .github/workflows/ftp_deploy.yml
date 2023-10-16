@@ -2,7 +2,7 @@ name: Laravel
 
 on:
   push:
-    branches: [ "website" ]
+    branches: [ "kesbangpol" ]
   pull_request:
     branches: [ "master" ]
 
