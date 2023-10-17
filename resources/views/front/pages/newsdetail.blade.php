@@ -74,7 +74,7 @@
                         </div>
                         <!-- End post content -->
 
-                        <div class="meta-bottom">
+                        <!-- <div class="meta-bottom">
                             <i class="bi bi-folder"></i>
                             <ul class="cats">
                                 <li><a href="#">Business</a></li>
@@ -86,13 +86,13 @@
                                 <li><a href="#">Tips</a></li>
                                 <li><a href="#">Marketing</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- End meta bottom -->
 
                     </article>
                     <!-- End blog post -->
 
-                    <div class="post-author d-flex align-items-center">
+                    <!-- <div class="post-author d-flex align-items-center">
                         <img src="{{ asset('assets/front/assets/img/blog/blog-author.jpg') }}"
                             class="rounded-circle flex-shrink-0" alt="">
                         <div>
@@ -109,7 +109,7 @@
                                 voluptas.
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- End post author -->
 
                     @if($data->komentar)
@@ -224,7 +224,7 @@
                         </div>
                         <!-- End sidebar search formn-->
 
-                        <div class="sidebar-item categories">
+                        <!-- <div class="sidebar-item categories">
                             <h3 class="sidebar-title">Categories</h3>
                             <ul class="mt-3">
                                 <li><a href="#">General <span>(25)</span></a></li>
@@ -234,7 +234,7 @@
                                 <li><a href="#">Creative <span>(8)</span></a></li>
                                 <li><a href="#">Educaion <span>(14)</span></a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- End sidebar categories-->
 
                         <div class="sidebar-item recent-posts">
@@ -274,7 +274,7 @@
                         </div>
                         <!-- End sidebar recent posts-->
 
-                        <div class="sidebar-item tags">
+                        <!-- <div class="sidebar-item tags">
                             <h3 class="sidebar-title">Tags</h3>
                             <ul class="mt-3">
                                 <li><a href="#">App</a></li>
@@ -289,7 +289,7 @@
                                 <li><a href="#">Tips</a></li>
                                 <li><a href="#">Marketing</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- End sidebar tags-->
 
                     </div>

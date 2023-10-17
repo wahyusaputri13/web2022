@@ -32,7 +32,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
+                        <th>Judul Postingan</th>
                         <th>Kategori</th>
                         <th class="disabled-sorting text-center">
                             Aksi</th>

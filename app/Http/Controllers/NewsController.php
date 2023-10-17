@@ -88,16 +88,29 @@ class NewsController extends Controller
         ]);
 
         if ($request->datadip) {
-            $id = News::create($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            $id = News::create([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => $request->kategori,
+                'dip' => true,
+                'dip_tahun' => $request->dip_tahun,
+                'upload_by' => auth()->user()->id
+            ]);
         } else {
             $id = News::create([
                 'title' => $request->title,
                 'date' => $request->date,
-                'kategori' => 'INFORMASI_ST_02',
                 'content' => $request->content,
-                'terbit' => ($request->terbit) ? 1 : 0,
-                'komentar' => ($request->komentar) ? 1 : 0,
-                'highlight' => ($request->highlight) ? 1 : 0,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => 'INFORMASI_ST_02',
+                'dip' => false,
+                'dip_tahun' => null,
                 'upload_by' => auth()->user()->id
             ]);
         }
@@ -162,7 +175,18 @@ class NewsController extends Controller
         ]);
 
         if ($request->datadip) {
-            News::find($id)->update($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+            News::find($id)->update([
+                'title' => $request->title,
+                'date' => $request->date,
+                'content' => $request->content,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
+                'kategori' => $request->kategori,
+                'dip' => true,
+                'dip_tahun' => $request->dip_tahun,
+                'upload_by' => auth()->user()->id
+            ]);
         } else {
             $isa =  News::find($id);
             $isa->slug =  null;
@@ -170,9 +194,9 @@ class NewsController extends Controller
                 'title' => $request->title,
                 'date' => $request->date,
                 'content' => $request->content,
-                'terbit' => ($request->terbit) ? 1 : 0,
-                'komentar' => ($request->komentar) ? 1 : 0,
-                'highlight' => ($request->highlight) ? 1 : 0,
+                'terbit' => $request->terbit ?? 0,
+                'komentar' => $request->komentar ?? 0,
+                'highlight' => $request->highlight ?? 0,
                 'kategori' => 'INFORMASI_ST_02',
                 'dip' => false,
                 'dip_tahun' => null,

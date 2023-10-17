@@ -8,6 +8,7 @@ use App\Models\Agenda;
 use App\Models\Comment;
 use App\Models\File;
 use App\Models\Component;
+use App\Models\DataPPID;
 use App\Models\FrontMenu;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -50,22 +51,20 @@ class FrontController extends Controller
 
     public function datappid()
     {
-        $data1 = FrontMenu::select('menu_url', 'kategori', 'menu_name')->whereNotNull('kategori');
-        $data2 = News::select('slug', 'kategori', 'title as menu_name')->whereNotNull('kategori');
-        $combinedData = $data1->unionAll($data2);
+        $combinedData = DataPPID::select('*');
         return DataTables::of($combinedData)
             ->addIndexColumn()
             ->addColumn(
                 'action',
                 function ($combinedData) {
-                    if ($combinedData->slug) {
+                    if ($combinedData->tipe == 'news') {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-warning">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                     } else {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-warning">LIHAT
+                                <a target="_blank" href="' . url('page', $combinedData->menu_url) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                     }

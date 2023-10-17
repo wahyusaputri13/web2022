@@ -90,8 +90,8 @@
                     <div class="col col-sm-12 col-md-4">
                         <div class="form-group">
                             <div class="form-check form-switch">
-                                {{Form::checkbox('komentar', null, null,['class' => 'form-check-input',
-                                'id'=>'flexSwitchCheckDefault','value'=>1])}}
+                                {{Form::checkbox('komentar', '1', null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault'])}}
                                 <label class="form-check-label" for="flexSwitchCheckDefault">
                                     Komentar
                                 </label>
@@ -102,8 +102,8 @@
                     <div class="col col-sm-12 col-md-4">
                         <div class="form-group">
                             <div class="form-check form-switch">
-                                {{Form::checkbox('terbit', null,null,['class' => 'form-check-input',
-                                'id'=>'flexSwitchCheckDefault','value'=>1])}}
+                                {{Form::checkbox('terbit', '1',null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault'])}}
                                 <label class="form-check-label" for="flexSwitchCheckDefault">
                                     Publish
                                 </label>
@@ -114,8 +114,8 @@
                     <div class="col col-sm-12 col-md-4">
                         <div class="form-group">
                             <div class="form-check form-switch">
-                                {{Form::checkbox('highlight', null, null,['class' => 'form-check-input',
-                                'id'=>'flexSwitchCheckDefault','value'=>1])}}
+                                {{Form::checkbox('highlight', '1', null,['class' => 'form-check-input',
+                                'id'=>'flexSwitchCheckDefault'])}}
                                 <label class="form-check-label" for="flexSwitchCheckDefault">
                                     Highlight
                                 </label>
