@@ -24,7 +24,7 @@
                         <tr>
                             <th style="text-align: center;">id</th>
                             <th style="text-align: center;">Nama</th>
-                            <th style="text-align: center;">Pesan</th>
+                            <th style="text-align: center;">Jabatan</th>
                             <th style="text-align: center;">Aksi</th>
                         </tr>
                     </thead>
@@ -65,7 +65,7 @@
                 columns: [
                     { data: 'DT_RowIndex', orderable: false, searchable: false },
                     { data: 'nama', name: 'nama' },
-                    { data: 'pesan' },
+                    { data: 'jabatan' },
                     { data: 'action' },
                 ],
                 bSort: false,

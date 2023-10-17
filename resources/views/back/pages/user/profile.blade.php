@@ -26,7 +26,7 @@
                 @role('superadmin')
                 <div class="form-group label-floating is-focused">
                     <label class="control-label">Role</label>
-                    {{ Form::select('role', $role, null, ['class' => 'form-control',
+                    {{ Form::select('role', $role, $user_role, ['class' => 'form-control',
                     'placeholder' => 'Select Role']); }}
                 </div>
                 <div class="form-group label-floating is-focused">

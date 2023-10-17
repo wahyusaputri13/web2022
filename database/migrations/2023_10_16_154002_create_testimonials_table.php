@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nama')->nullable();
             $table->string('pesan')->nullable();
             $table->string('nama_foto')->nullable();
-            $table->string('lokaasi_foto')->nullable();
-            $table->boolean('active')->default(true);
+            $table->string('lokasi_foto')->nullable();
+            $table->string('jabatan')->nullable();
             $table->timestamps();
         });
     }
