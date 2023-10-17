@@ -85,7 +85,7 @@ class FrontController extends Controller
                     'action',
                     function ($dip) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-warning">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $dip->slug) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                         return $actionBtn;
@@ -99,14 +99,14 @@ class FrontController extends Controller
     public function datappid2(Request $request)
     {
         if ($request->ajax()) {
-            $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC');
+            $dip = News::whereNot('kategori', 'INFORMASI_ST_04')->where('dip', true)->orderBy('dip_tahun', 'DESC');
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
                     'action',
                     function ($dip) {
                         $actionBtn = '<td class="text-center">
-                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-warning">LIHAT
+                                <a target="_blank" href="' . url('news-detail', $dip->slug) . '" class="btn btn-warning">LIHAT
                                     DATA</a>
                             </td>';
                         return $actionBtn;
