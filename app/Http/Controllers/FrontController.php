@@ -29,14 +29,74 @@ class FrontController extends Controller
         $this->themes = Website::all()->first();
     }
 
+    public function datappid()
+    {
+        $data1 = FrontMenu::whereNotNull('kategori')->get();
+        $data2 = DB::table('news')->select('id', 'slug', 'kategori', DB::raw('title as menu_name'))->whereNotNull('kategori')->get();
+        $combinedData = $data1->concat($data2);
+        // return $combinedData;
+        return DataTables::of($combinedData)
+            ->addIndexColumn()
+            ->addColumn(
+                'action',
+                function ($combinedData) {
+                    if ($combinedData->slug) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('news-detail', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                    } else {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('page', $combinedData->menu_url ?? $combinedData->slug) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                    }
+
+
+                    return $actionBtn;
+                }
+            )
+            ->rawColumns(['action'])
+            ->make(true);
+        // }
+    }
+
+    public function datappid2(Request $request)
+    {
+        if ($request->ajax()) {
+            $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC')->get();
+            return DataTables::of($dip)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($dip) {
+                        $actionBtn = '<td class="text-center">
+                                <a target="_blank" href="' . url('page', $dip->id) . '" class="btn btn-primary">LIHAT
+                                    DATA</a>
+                            </td>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
     public function newsdetail($slug)
     {
         Seo::seO();
-        $data = News::with('gambar')->where('slug', $slug)->first();
+        $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
         views($data)->cooldown(5)->record();
         $news = News::with('gambar')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file'));
+
+        $prev = $data->id - 1;
+        $prev_data = News::with('gambar', 'uploader')->where('id', $prev)->first();
+
+        $next = $data->id + 1;
+        $next_data = News::with('gambar', 'uploader')->where('id', $next)->first();
+
+        return view('front.' . $this->themes->themes_front . '.pages.newsdetail', compact('data', 'news', 'file', 'prev_data', 'next_data'));
     }
 
     public function detailberita($id)
@@ -63,7 +123,7 @@ class FrontController extends Controller
         Seo::seO();
         $cari = $request->kolomcari;
         $hasil = 'Search result : ' . $cari;
-        $data = News::with('gambar')->where('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
+        $data = News::with('gambar')->whereDate('date', 'like', '%' . $cari . '%')->orWhere('title', 'like', '%' . $cari . '%')->orderBy("date", "desc")->paginate();
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
     }
@@ -95,6 +155,11 @@ class FrontController extends Controller
     {
         Seo::seO();
         $data = FrontMenu::where('menu_url', $id)->with('menu_induk')->first();
+
+        if (!$data) {
+            $data = News::where('id', $id)->first();
+        }
+
         return view('front.' . $this->themes->themes_front . '.pages.page', compact('data'));
     }
 
@@ -327,5 +392,37 @@ class FrontController extends Controller
         }
         // return response()->json('selesai');
         // return $slice2;
+    }
+
+    function copydatapostingfromwonosobokab()
+    {
+        $data = DB::table('posting')->where('domain', '=', 'arpusda.wonosobokab.go.id')->get();
+        foreach ($data as $index => $item) {
+            print_r($index . "\n");
+            $idnya = News::create([
+                'title' => $item->judul_posting,
+                'description' => $item->isi_posting,
+                'date' => $item->created_time,
+                'upload_by' =>  'Admin',
+            ])->id;
+            print_r($idnya);
+            $this->copydatafilefromwonosobokab($item->id_posting, $idnya);
+        }
+    }
+
+    function copydatafilefromwonosobokab($a, $b)
+    {
+        $isa = [];
+        $data = DB::table('attachment')->select('file_name')->where('id_tabel', '=', $a)->get();
+        foreach ($data as $ratna) {
+            array_push($isa, $ratna->file_name);
+            $fff = [
+                'id_news' => $b,
+                'file_name' => $ratna->file_name,
+                'path' => 'gallery/' . $ratna->file_name,
+            ];
+            DB::table('files')->insert($fff);
+        }
+        return json_encode($isa);
     }
 }

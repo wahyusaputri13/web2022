@@ -23,11 +23,11 @@ class UserController extends Controller
     {
         if ($request->ajax()) {
             if (Auth::user()->getRoleNames()->first() == 'superadmin') {
-                $data = User::with('bidang')->where('id', '!=', auth()->user()->id);
+                $data = User::where('id', '!=', auth()->user()->id);
             } else if (Auth::user()->getRoleNames()->first() == 'admin') {
-                $data = User::with('bidang')->role(['admin', 'user'])->where('id', '!=', auth()->user()->id);
+                $data = User::role(['admin', 'user'])->where('id', '!=', auth()->user()->id);
             } else {
-                $data = User::with('bidang')->role('user')->where('id', '!=', auth()->user()->id);
+                $data = User::role('user')->where('id', '!=', auth()->user()->id);
             }
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $role = ModelsRole::all()->pluck('name', 'id');
+        $role = ModelsRole::all()->pluck('name', 'id')->skip(1);
         $permission = Permission::all()->pluck('name', 'id');
         $bidang = Bidang::orderBy('name', 'asc')->pluck('name', 'id');
         return view('back.a.pages.user.create', compact('role', 'bidang', 'permission'));

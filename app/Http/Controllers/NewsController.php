@@ -71,15 +71,20 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'date' => 'required',
             'description' => 'required',
-            'highlight' => 'required',
-            'kategori' => 'required',
         ]);
 
-        $id = News::create($validated + ['upload_by' => auth()->user()->id]);
+        if ($request->dip_tahun) {
+            $id = News::create($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
+        }
+
+        // tagging postingan
+        $id->tag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -120,9 +125,17 @@ class NewsController extends Controller
     public function edit($id)
     {
         $data = News::find($id);
-        $highlight = ComCodes::where('code_group', 'highlight_news')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'kategori_news')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
-        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori'));
+        $terpilih = [];
+
+        $highlight = ComCodes::where('code_group', 'HIGHLIGHT_NEWS')->pluck('code_nm');
+        $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+
+        // untuk list yang terpilih
+        foreach ($data->tagged as $key => $value) {
+            array_push($terpilih, strtoupper($value->tag_name));
+        }
+
+        return view('back.' . $this->themes->themes_back . '.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
     /**
@@ -134,7 +147,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'description' => 'required',
             'highlight' => 'required',
@@ -142,7 +155,17 @@ class NewsController extends Controller
             'kategori' => 'required',
         ]);
 
-        News::find($id)->update($validated + ['upload_by' => auth()->user()->name]);
+        $data = News::find($id);
+        $data->slug = null;
+
+        if ($request->dip_tahun) {
+            $data->update($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        } else {
+            $data->update($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
+        }
+
+        // tag ulang postingan
+        $data->retag($request->tag);
 
         if ($request->document) {
             foreach ($request->document as $df) {
@@ -166,11 +189,19 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $gambar = News::where('id', $id)->first();
-        if (Storage::exists($gambar->path)) {
-            Storage::delete($gambar->path);
+        $gambar = News::with('gambar')->where('id', $id)->get();
+        foreach ($gambar as $key) {
+            foreach ($key->gambar as $value) {
+                if (Storage::exists($value->path)) {
+                    Storage::delete($value->path);
+                }
+            }
         }
+
         $data = News::find($id);
+        // delete related
+        $data->gambar()->delete();
+
         return $data->delete();
     }
 

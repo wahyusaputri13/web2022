@@ -44,7 +44,37 @@ class FrontMenuController extends Controller
                         return $actionBtn;
                     }
                 )
-                ->rawColumns(['action', 'orang_tua'])
+                ->addColumn(
+                    'aksi',
+                    function ($data) {
+                        if ($data->id <= 45) {
+                            $actionBtn = '<div class="togglebutton">
+                            <label>
+                                <input type="checkbox" disabled checked>
+                                <span class="toggle"></span>
+                            </label>
+                        </div>';
+                        } else {
+                            if ($data->active == 1) {
+                                $actionBtn = '<div class="togglebutton">
+                                <label>
+                                <input type="checkbox" checked onclick="centang('  . $data->id . ')">
+                                <span class="toggle"></span>
+                                </label>
+                                </div>';
+                            } else {
+                                $actionBtn = '<div class="togglebutton">
+                                <label>
+                                <input type="checkbox" onclick="centang('  . $data->id . ')">
+                                <span class="toggle"></span>
+                                </label>
+                                </div>';
+                            }
+                        }
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action', 'orang_tua', 'aksi'])
                 ->make(true);
         }
         return view('back.a.pages.frontmenu.index');
@@ -127,7 +157,15 @@ class FrontMenuController extends Controller
      */
     public function destroy($id)
     {
-        $data = FrontMenu::destroy($id);
+        $data = FrontMenu::find($id);
+
+        if ($data->anaknya()->count() > 0) {
+            // Prevent deletion because there are associated children
+            return back()->with('message', 'Cannot delete parent with associated children.');
+        } else {
+            $data = FrontMenu::destroy($id);
+        }
+
         return $data;
     }
 
@@ -146,5 +184,25 @@ class FrontMenuController extends Controller
             $data = FrontMenu::orderBy('id', 'ASC')->limit(10)->get();
         }
         return response()->json($data);
+    }
+
+    public function changeAccess(Request $request)
+    {
+        $comp = FrontMenu::find($request->id);
+        if ($comp->active == 1) {
+            DB::table('front_menus')
+                ->where('id', $comp->id)
+                ->update(['active' => 0]);
+        } else {
+            DB::table('front_menus')
+                ->where('id', $comp->id)
+                ->update(['active' => 1]);
+        }
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data has been successfully changed!'
+            ]
+        );
     }
 }
