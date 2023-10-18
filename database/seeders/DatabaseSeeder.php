@@ -23,17 +23,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
-            // NewsSeeder::class,
-            // GallerySeeder::class,
             FrontMenuSeeder::class,
             ThemesSeeder::class,
             ComCodes::class,
             PermissionSeeder::class,
             ComponentSeeder::class,
-            // RegionSeeder::class,
-
-            // untuk website satpol
-            BidangTusiSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
@@ -52,22 +46,6 @@ class DatabaseSeeder extends Seeder
             'themes_back' => 'back.a',
             'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
         ]);
-
-        // kampung pancasila
-        // DB::table('websites')->insert([
-        //     'web_name' => 'KAMPUNG PANCASILA WONOSOBO',
-        //     'web_description' => '"Semarak Kampung Pancasila Wonosobo penjaga Persatuan dan Kesatuan Bangsa!"',
-        //     'email' => 'superadmin@app.com',
-        //     'address' => 'Kodim 0707 Jl. Pemuda No.11, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311',
-        //     'phone' => '(0286) 321019',
-        //     'instagram' => '#',
-        //     'twitter' => '#',
-        //     'facebook' => '#',
-        //     'youtube' => '#',
-        //     'url_stream' => '#',
-        //     'themes_front' => 'FlexStart',
-        //     'themes_back' => 'back.a',
-        // ]);
 
         $related = [
             [

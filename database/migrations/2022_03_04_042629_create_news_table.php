@@ -17,12 +17,14 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('photo')->default('soulofjava');
             $table->string('path')->default('img/soulofjava.jpg');
-            $table->string('title')->nullable();
-            $table->string('slug')->nullable();
+            $table->text('title', 4294967295)->change();
+            $table->text('slug', 4294967295)->change();
             $table->date('date');
             $table->string('upload_by');
             $table->text('description', 4294967295);
             $table->bigInteger('attachment')->nullable();
+            $table->string('kategori')->default('KATEGORI_NEWS_4');
+            $table->boolean('highlight')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

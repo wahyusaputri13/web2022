@@ -92,9 +92,8 @@ Route::get('/', function () {
             $berita = [];
         }
 
-        $gallery = Gallery::with('gambar')->orderBy('upload_date', 'desc')->paginate(12);
         $news = News::with('gambar')->orderBy('date', 'desc')->paginate(9);
-        return view('front.' . $themes->themes_front . '.pages.index', compact('gallery', 'news', 'berita'));
+        return view('front.' . $themes->themes_front . '.pages.index', compact('news', 'berita'));
     } else {
         $data = Themes::all();
         return view('front.setup', compact('data'));
