@@ -77,11 +77,7 @@ class NewsController extends Controller
             'description' => 'required',
         ]);
 
-        if ($request->dip_tahun) {
-            $id = News::create($request->except(['_token', 'document', 'tag', 'kategori']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
-        } else {
-            $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
-        }
+        $id = News::create($request->except(['_token', 'document', 'tag']) + ['upload_by' => auth()->user()->id]);
 
         // tagging postingan
         $id->tag($request->tag);
@@ -128,14 +124,14 @@ class NewsController extends Controller
         $terpilih = [];
 
         $highlight = ComCodes::where('code_group', 'HIGHLIGHT_NEWS')->pluck('code_nm');
-        $categori = ComCodes::where('code_group', 'BAGIAN_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
+        $categori = ComCodes::where('code_group', 'KATEGORI_NEWS')->orderBy('code_nm', 'ASC')->pluck('code_nm', 'code_cd');
 
         // untuk list yang terpilih
         foreach ($data->tagged as $key => $value) {
             array_push($terpilih, strtoupper($value->tag_name));
         }
 
-        return view('back.' . $this->themes->themes_back . '.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
+        return view('back.a.pages.news.edit', compact('data', 'highlight', 'categori', 'terpilih'));
     }
 
     /**

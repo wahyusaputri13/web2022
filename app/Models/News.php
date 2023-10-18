@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Cviebrock\EloquentSluggable\Sluggable;
+use \Conner\Tagging\Taggable;
 
 class News extends Model implements Viewable
 {
-    use HasFactory, SoftDeletes, InteractsWithViews, Sluggable;
+    use HasFactory, SoftDeletes, InteractsWithViews, Sluggable, Taggable;
     protected $guarded = [];
 
     public function sluggable(): array
