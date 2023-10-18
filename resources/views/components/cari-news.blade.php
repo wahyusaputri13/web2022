@@ -1,12 +1,12 @@
-<div class="row">
-    <div class="col">
-        {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
-        {{Form::text('kolomcari', null,['class' => 'form-control mb-3',
-        'placeholder' => 'Masukkan Judul Postingan'])}}
-        <div class="d-grid">
-            <button type="submit" class="btn mt-1 fw-bold" style="background-color: #ff5e15; color: white;">Cari
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {{Form::open(['route' => 'news.search','method' => 'get', ''])}}
+            {{Form::text('kolomcari', null,['class' => 'form-control mb-3',
+            'placeholder' => 'Masukkan Judul Postingan'])}}
+            <button type="submit" class="btn btn-block" style="background-color: #ff5e15; color: white;">Cari
                 Postingan <i class="bi bi-search"></i></button>
+            {{Form::close()}}
         </div>
-        {{Form::close()}}
     </div>
 </div>
