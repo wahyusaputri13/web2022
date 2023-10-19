@@ -4,10 +4,6 @@
     <div class="flex-grow">
         <div class="container mx-auto py-1">
             <div class="h-screen flex flex-col justify-between">
-                <div class="flex justify-between m-2 sm:mx-4">
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4623751537139602"
-                        data-ad-slot="3106864972" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                </div>
                 <div class="hidden xl:flex justify-center">
                     <a href="{{url('/')}}">
                         <h1 class="text-8xl font-bold text-center my-15"> Radio LPPL <span

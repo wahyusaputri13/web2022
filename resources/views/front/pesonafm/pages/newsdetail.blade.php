@@ -58,6 +58,8 @@
                 </div>
             </div>
 
+            <x-ayo-promo />
+
         </div>
     </div>
     @endsection

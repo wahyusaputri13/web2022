@@ -6,11 +6,6 @@
     @stack('before-style')
     @include('front.pesonafm.includes.style')
     @stack('after-style')
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4623751537139602"
-        crossorigin="anonymous"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
 </head>
 
 <body class="bg-fixed bg-no-repeat bg-cover font-ubuntu text-white semok">
