@@ -17,13 +17,9 @@
 <section>
     <div class="w-100 pt-100 pb-50 position-relative">
         <div class="container">
-            <div class="row mb-5">
-                <x-cari-news />
-            </div>
-            <div class="row mb-5">
-                <x-head-category_news btn='thm-btn thm-bg' />
-            </div>
-            <div class="blog-wrap w-100">
+            <x-cari-news />
+            <x-head-category_news btn='thm-btn thm-bg' />
+            <div class="blog-wrap w-100 mt-3">
                 <div class="row justify-content-center">
                     @foreach($data as $n)
                     <div class="col-md-6 col-sm-6 col-lg-4" style="display: flex;">
@@ -32,10 +28,11 @@
                                 @forelse($n->gambar as $gambar)
                                 @if($loop->iteration == 1)
                                 <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                    alt="{{ $gambar->file_name }}">
+                                    style="height: 246px; width: 370px;" alt="{{ $gambar->file_name }}">
                                 @endif
                                 @empty
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
+                                    style="height: 246px; width: 370px;" alt="soul of java">
                                 @endforelse
                             </div>
                             <div class="post-info w-100">
