@@ -24,6 +24,4 @@
             });
 
     @endfor
-
-    document.getElementById('.ayopromo').complete == !0
 </script>
