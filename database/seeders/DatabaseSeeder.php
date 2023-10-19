@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             FrontMenuSeeder::class,
             ComCodes::class,
+            ViewSeeder::class,
         ]);
 
         DB::table('websites')->insert([
