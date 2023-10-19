@@ -112,10 +112,10 @@ class FrontController extends Controller
     public function newsByAuthor($id)
     {
         Seo::seO();
-        $hasil = 'All post by : ' . $id;
-        $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
-        $news = News::latest('date')->take(5)->get();
-        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
+        $usere = User::find($id);
+        $hasil = 'All post by : ' . $usere->name;
+        $data = News::with('gambar', 'uploader')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
+        return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'hasil'));
     }
 
     public function newsBySearch(Request $request)

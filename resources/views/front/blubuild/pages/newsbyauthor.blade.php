@@ -45,7 +45,7 @@
                                 <!-- <p class="mb-0">There are many variations of passages of Lorem Ipsum available.</p> -->
                                 <div class="post-info-bottom d-flex flex-wrap w-100">
                                     <span class="d-inline-block"><i class="far fa-user"></i><a
-                                            href="{{ url('/news-author', $n->upload_by) }}">{{ $n->upload_by
+                                            href="{{ url('/news-author', $n->upload_by) }}">{{ $n->uploader->name
                                             }}</a></span>
                                     <ul class="post-meta mb-0 list-unstyled d-inline-flex">
                                         <li><i class="far fa-calendar-alt"></i>{{
