@@ -99,7 +99,7 @@ class FrontController extends Controller
     public function datappid2(Request $request)
     {
         if ($request->ajax()) {
-            $dip = News::where('dip', true)->orderBy('dip_tahun', 'DESC');
+            $dip = News::whereNull('kategori')->where('dip', true)->orderBy('dip_tahun', 'DESC');
             return DataTables::of($dip)
                 ->addIndexColumn()
                 ->addColumn(
