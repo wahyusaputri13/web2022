@@ -31,7 +31,6 @@
         </div>
 </section>
 
-@if($news->count() != 0)
 <section>
     <div class="w-100 pt-100 pb-100 position-relative">
         <div class="container">
@@ -41,27 +40,22 @@
                     <h3 class="mb-0">Our Latest News</h3>
                 </div>
             </div>
-            <div class="row mb-3">
-                <x-cari-news />
-            </div>
-            <div class="row mb-3 text-center">
-                <x-head-category_news btn='thm-btn thm-bg' />
-            </div>
-            <div class="blog-wrap w-100">
+            <x-cari-news />
+            <x-head-category_news btn='thm-btn thm-bg' />
+            <div class="blog-wrap w-100 mt-3">
                 <div class="row post-caro">
-                    @foreach($news as $n)
+                    @foreach($news ?? [] as $n)
                     <div class="col-md-6 col-sm-6 col-lg-4" style="display: flex;">
                         <div class="post-box w-100 text-center">
                             <div class="post-img overflow-hidden w-100">
                                 <a href="{{ url('/news-detail', $n->slug) }}">
-                                    @forelse($n->gambar as $gambar)
-                                    @if($loop->iteration == 1)
-                                    <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                                        alt="{{ $gambar->file_name }}" width="100%">
+                                    @if($n->gambarmuka)
+                                    <img src="{{ asset('storage/') }}/{{  $n->gambarmuka->path }}" class="img-fluid"
+                                        alt="{{ $n->gambarmuka->file_name }}" style="height: 246px; width: 370px;">
+                                    @else
+                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java"
+                                        style="height: 246px; width: 370px;">
                                     @endif
-                                    @empty
-                                    <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
-                                    @endforelse
                                 </a>
                             </div>
                             <div class="post-info w-100">
@@ -72,7 +66,7 @@
                                 </p> -->
                                 <div class="post-info-bottom d-flex flex-wrap w-100">
                                     <span class="d-inline-block"><i class="far fa-user"></i><a
-                                            href="javascript:void(0);">{{ $n->upload_by }}</a></span>
+                                            href="javascript:void(0);">{{ $n->uploader->name }}</a></span>
                                     <ul class="post-meta mb-0 list-unstyled d-inline-flex">
                                         <li><i class="far fa-calendar-alt"></i>{{
                                             \Carbon\Carbon::parse($n->date)->format('l') }}, {{
@@ -90,11 +84,9 @@
                     @endforeach
                 </div>
             </div>
-            <!-- Blog Wrap -->
         </div>
     </div>
 </section>
-@endif
 
 <section>
     <div class="w-100 pt-100 pb-100 position-relative">

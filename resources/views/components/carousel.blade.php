@@ -1,15 +1,13 @@
-<div id="carouselExample" class="carousel slide">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         @forelse($jjj->gambar as $gambar)
         @if($loop->iteration == 1)
         <div class="carousel-item active">
-            <img src="{{ asset('storage') }}/{{  $gambar->path }}" class="d-block w-100"
-                alt="{{ $gambar->file_name }}">
+            <img src="{{ asset('storage') }}/{{  $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
         </div>
         @else
         <div class="carousel-item">
-            <img src="{{ asset('storage') }}/{{  $gambar->path }}" class="d-block w-100"
-                alt="{{ $gambar->file_name }}">
+            <img src="{{ asset('storage') }}/{{  $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
         </div>
         @endif
         @empty
@@ -18,12 +16,12 @@
         </div>
         @endforelse
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
