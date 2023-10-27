@@ -56,28 +56,6 @@
                     </a>
                 </li>
                 @endforeach
-                @can('satpolpp')
-                <li class="{{ (Str::contains(Request::url(), 'daily')) ? 'active' : '' }}">
-                    <a href="{{ url('admin/daily') }}">
-                        <i class="material-icons">today</i>
-                        <p>Daily Report</p>
-                    </a>
-                </li>
-                <li class="{{ (Str::contains(Request::url(), 'complaint')) ? 'active' : '' }}">
-                    <a href="{{ route('complaint.index') }}">
-                        <i class="material-icons">assignment</i>
-                        <p>Public Complaints</p>
-                    </a>
-                </li>
-                @endcan
-                @can('puskesmas-sukoharjo-1')
-                <li class="{{ (Str::contains(Request::url(), 'surveilans_malaria')) ? 'active' : '' }}">
-                    <a href="{{ route('surveilans_malaria.index') }}">
-                        <i class="material-icons">book</i>
-                        <p>Surveilans Malaria</p>
-                    </a>
-                </li>
-                @endcan
                 <!-- <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>

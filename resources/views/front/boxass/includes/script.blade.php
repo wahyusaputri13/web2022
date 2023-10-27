@@ -11,4 +11,5 @@
 <script src="{{ asset('assets/front/boxass/assets/js/jquery.backgroundMove.js') }}"></script>
 <script src="{{ asset('assets/front/boxass/assets/js/bootsnav.js') }}"></script>
 <script src="{{ asset('assets/front/boxass/assets/js/main.js') }}"></script>
-
+<!-- accessibility widget -->
+<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
