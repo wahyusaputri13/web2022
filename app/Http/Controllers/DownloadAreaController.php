@@ -20,7 +20,7 @@ class DownloadAreaController extends Controller
     {
 
         if ($request->ajax()) {
-            $data = DownloadArea::with('usernya', 'files')->orderBy('created_at', 'DESC');
+            $data = DownloadArea::with('usernya', 'files')->latest();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

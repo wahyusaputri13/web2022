@@ -72,7 +72,7 @@
             searchPlaceholder: "Search records",
         },
         columns: [
-            { data: 'DT_RowIndex' },
+            { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'tgl', className: "text-center" },
             { data: 'title', name: 'title', className: "text-center" },
             { data: 'location', name: 'location', className: "text-center" },
@@ -80,8 +80,8 @@
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
+    // var table = $('#datatables').DataTable();
+    // $('.card .material-datatables label').addClass('form-group');
 </script>
 <script>
     $(document).ready(function () {

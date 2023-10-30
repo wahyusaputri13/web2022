@@ -78,7 +78,7 @@ background-position: center;" data-aos="zoom-out">
                             <span class="post-date">{{ \Carbon\Carbon::parse($n->date)->format('l') }}, {{
                                 \Carbon\Carbon::parse( $n->date
                                 )->toFormattedDateString() }}</span>
-                            <span class="post-author"> / {{ $n->upload_by }}</span>
+                            <span class="post-author"> / {{ $n->uploader->name }}</span>
                         </div>
                         <h3 class="post-title">
                             {{ $n->title }}

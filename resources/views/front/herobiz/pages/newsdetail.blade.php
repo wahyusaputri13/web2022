@@ -27,7 +27,7 @@
                                 <div class="col">
                                     <i class="bi bi-person"></i>
                                     <a href="{{ url('/news-author', $data->upload_by) }}" style="margin-right: 5px;">
-                                        {{ $data->upload_by }}
+                                        {{ $data->uploader->name }}
                                     </a>
                                     <i class="bi bi-clock"></i>
                                     <a style="margin-right: 5px;">
@@ -71,13 +71,12 @@
                             {{Form::close()}}
                         </div>
 
-
                         <h3 class="sidebar-title mt-3">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">
                             @foreach($news as $n)
                             <div class="post-item clearfix mt-3">
-                                @if(file_exists(public_path('storage/'.$n->path)))
-                                <img src="{{ asset('storage/') }}/{{ $n->path}}">
+                                @if($n->gambarmuka)
+                                <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}">
                                 @else
                                 <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                 @endif

@@ -23,11 +23,11 @@ class UserController extends Controller
     {
         if ($request->ajax()) {
             if (Auth::user()->getRoleNames()->first() == 'superadmin') {
-                $data = User::where('id', '!=', auth()->user()->id)->get();
+                $data = User::where('id', '!=', auth()->user()->id);
             } else if (Auth::user()->getRoleNames()->first() == 'admin') {
-                $data = User::role(['admin', 'user'])->where('id', '!=', auth()->user()->id)->get();
+                $data = User::role(['admin', 'user'])->where('id', '!=', auth()->user()->id);
             } else {
-                $data = User::role('user')->where('id', '!=', auth()->user()->id)->get();
+                $data = User::role('user')->where('id', '!=', auth()->user()->id);
             }
             return DataTables::of($data)
                 ->addIndexColumn()

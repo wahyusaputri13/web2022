@@ -41,7 +41,7 @@
                                 </h2>
                                 <div class="meta-top">
                                     <i class="bi bi-person"></i>
-                                    <a href="#">{{ $n->upload_by }}</a><br>
+                                    <a href="#">{{ $n->uploader->name }}</a><br>
                                     <i class="bi bi-clock"></i>
                                     <a href="#">
                                         {{
