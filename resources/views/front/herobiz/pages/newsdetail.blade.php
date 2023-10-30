@@ -76,9 +76,11 @@
                             @foreach($news as $n)
                             <div class="post-item clearfix mt-3">
                                 @if($n->gambarmuka)
-                                <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}">
+                                <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
+                                    style="max-width: 80px; max-height: 60;">
                                 @else
-                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
+                                <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid"
+                                    style="max-width: 80px; max-height: 60;">
                                 @endif
                                 <h4><a href="{{ url('/news-detail', $n->slug) }}">
                                         {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
