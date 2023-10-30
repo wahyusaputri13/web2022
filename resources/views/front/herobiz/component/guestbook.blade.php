@@ -76,19 +76,20 @@
                                     </div>
                                 </div>
                                 <!-- End Modal -->
-                                <table id="datatables" class="table is-striped" cellspacing="0" width="100%"
-                                    style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Tanggal</th>
-                                            <th>Nama</th>
-                                            <th>Instansi</th>
-                                            <th>Keperluan</th>
-                                            <th>Jumlah Tamu</th>
-                                        </tr>
-                                    </thead>
-                                </table>
+                                <div class="table-responsive">
+                                    <table id="datatables" class="table is-striped overflow-auto" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Tanggal</th>
+                                                <th>Nama</th>
+                                                <th>Instansi</th>
+                                                <th>Keperluan</th>
+                                                <th>Jumlah Tamu</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -125,7 +126,7 @@
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
+    // var table = $('#datatables').DataTable();
+    // $('.card .material-datatables label').addClass('form-group');
 </script>
 @endpush
