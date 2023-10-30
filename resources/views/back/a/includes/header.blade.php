@@ -56,28 +56,6 @@
                     </a>
                 </li>
                 @endforeach
-                @can('satpolpp')
-                <li class="{{ (Str::contains(Request::url(), 'daily')) ? 'active' : '' }}">
-                    <a href="{{ url('admin/daily') }}">
-                        <i class="material-icons">today</i>
-                        <p>Daily Report</p>
-                    </a>
-                </li>
-                <li class="{{ (Str::contains(Request::url(), 'complaint')) ? 'active' : '' }}">
-                    <a href="{{ route('complaint.index') }}">
-                        <i class="material-icons">assignment</i>
-                        <p>Public Complaints</p>
-                    </a>
-                </li>
-                @endcan
-                @can('puskesmas-sukoharjo-1')
-                <li class="{{ (Str::contains(Request::url(), 'surveilans_malaria')) ? 'active' : '' }}">
-                    <a href="{{ route('surveilans_malaria.index') }}">
-                        <i class="material-icons">book</i>
-                        <p>Surveilans Malaria</p>
-                    </a>
-                </li>
-                @endcan
                 <li class="{{ (Str::contains(Request::url(), 'inbox')) ? 'active' : '' }}">
                     <a href="{{ route('inbox.index') }}">
                         <i class="material-icons">mail</i>
@@ -90,37 +68,12 @@
                         <p>Postingan</p>
                     </a>
                 </li>
-                @if (!auth()->user()->getPermissionNames()->first() == 'spbe')
-                <li class="{{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'active' : '' }}">
-                    <a data-toggle="collapse" href="#pagesExamplesss"
-                        aria-expanded="{{ (Str::contains(Request::url(), ['gallery', 'news'])) ? 'true' : '' }}">
-                        <i class="material-icons">
-                            receipt
-                        </i>
-                        <p>Layanan
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse {{ (Str::contains(Request::url(), ['permohonaninformasi'])) ? 'in' : '' }}"
-                        id="pagesExamplesss">
-                        <ul class="nav">
-                            <li class="{{ (Str::contains(Request::url(), 'permohonaninformasi')) ? 'active' : '' }}">
-                                <a href="{{ route('permohonaninformasi.index') }}"> <i
-                                        class="material-icons">view_list</i>
-                                    Permohonan Informasi</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                @endif
-                @if (auth()->user()->getPermissionNames()->first() == 'spbe')
                 <li class="{{ (Str::contains(Request::url(), 'download_area')) ? 'active' : '' }}">
                     <a href="{{ route('download_area.index') }}">
                         <i class="material-icons">file_download</i>
                         <p>Download Area</p>
                     </a>
                 </li>
-                @endif
                 @role('superadmin|admin')
                 <li
                     class="{{ (Str::contains(Request::url(), ['component', 'frontmenu', 'relatedlink', 'settings', 'themes', 'user', 'bidang'])) ? 'active' : '' }}">

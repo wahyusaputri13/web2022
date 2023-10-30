@@ -34,20 +34,9 @@
                             'placeholder' => 'Select Permission']); }}
                         </div>
                         @endrole
-                        @role(['superadmin', 'admin'])
-                        <div>
-                            {{Form::select('bidang_id', $bidang, null,['class' => 'form-control selectpicker',
-                            'data-style'
-                            => 'btn btn-success btn-round', 'title' => 'Choose Bidang'])}}
-                        </div>
-                        @endrole
                         <div class="form-group label-floating">
                             <label class="control-label">Name</label>
                             {{Form::text('name', null,['class' => 'form-control'])}}
-                        </div>
-                        <div class="form-group label-floating">
-                            <label class="control-label">NIP</label>
-                            {{Form::number('nip', null,['class' => 'form-control'])}}
                         </div>
                         <div class="form-group label-floating">
                             <label class="control-label">Jabatan / Golongan</label>
