@@ -26,8 +26,6 @@ class PermissionSeeder extends Seeder
             ]
         ];
 
-        foreach ($data as $datum) {
-            Permission::create($datum);
-        }
+        Permission::insert($data);
     }
 }

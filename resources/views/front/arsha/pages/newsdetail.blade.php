@@ -27,7 +27,7 @@
                                     <p class="card-text"><small class="text-muted"><i class="bi bi-person"></i><a
                                                 href="{{ url('/news-author', $data->upload_by) }}" class="text-muted">
                                                 {{
-                                                $data->upload_by }}</a> <i class="bi bi-clock"></i> <time>{{
+                                                $data->uploader->name }}</a> <i class="bi bi-clock"></i> <time>{{
                                                 \Carbon\Carbon::parse( $data->date )->format('l') }}, {{
                                                 \Carbon\Carbon::parse( $data->date
                                                 )->toFormattedDateString() }}</time> <i class="bi bi-eye"></i> {{

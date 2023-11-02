@@ -6,9 +6,6 @@ use App\Models\GuestBook;
 use App\Models\RelatedLink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Role;
-use App\Models\Themes;
-use App\Models\User;
 use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
@@ -23,17 +20,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
-            // NewsSeeder::class,
-            // GallerySeeder::class,
             FrontMenuSeeder::class,
             ThemesSeeder::class,
             ComCodes::class,
             PermissionSeeder::class,
             ComponentSeeder::class,
-            // RegionSeeder::class,
-
-            // untuk website satpol
-            BidangTusiSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
@@ -53,22 +44,6 @@ class DatabaseSeeder extends Seeder
             'open_hours' => 'Monday - Thursday (07:00AM - 04:00PM) Friday (07:00AM - 11:00AM)',
         ]);
 
-        // kampung pancasila
-        // DB::table('websites')->insert([
-        //     'web_name' => 'KAMPUNG PANCASILA WONOSOBO',
-        //     'web_description' => '"Semarak Kampung Pancasila Wonosobo penjaga Persatuan dan Kesatuan Bangsa!"',
-        //     'email' => 'superadmin@app.com',
-        //     'address' => 'Kodim 0707 Jl. Pemuda No.11, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311',
-        //     'phone' => '(0286) 321019',
-        //     'instagram' => '#',
-        //     'twitter' => '#',
-        //     'facebook' => '#',
-        //     'youtube' => '#',
-        //     'url_stream' => '#',
-        //     'themes_front' => 'FlexStart',
-        //     'themes_back' => 'back.a',
-        // ]);
-
         $related = [
             [
                 'name' => 'Website Pemkab Wonosobo',
@@ -84,9 +59,7 @@ class DatabaseSeeder extends Seeder
             ]
         ];
 
-        foreach ($related as $rr) {
-            RelatedLink::create($rr);
-        }
+        RelatedLink::insert($related);
 
         $faker = Faker::create('id_ID');
         for ($i = 1; $i <= 10; $i++) {

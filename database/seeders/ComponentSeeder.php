@@ -32,12 +32,6 @@ class ComponentSeeder extends Seeder
                 'active' => 0,
                 'slug' => Str::slug('Seputar Wonosobo', '-'),
             ],
-            // [
-            //     'name' => 'Layanan',
-            //     'active' => 1,
-            //     'slug' => Str::slug('Layanan', '-'),
-            // ],
-            // satpolpp
             [
                 'name' => 'Aduan Masyarakat',
                 'active' => 0,
@@ -50,8 +44,6 @@ class ComponentSeeder extends Seeder
             ],
         ];
 
-        foreach ($component as $cp) {
-            Component::create($cp);
-        }
+        Component::insert($component);
     }
 }

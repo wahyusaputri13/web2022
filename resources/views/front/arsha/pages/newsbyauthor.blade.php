@@ -40,7 +40,7 @@
                             <div class="entry-meta">
                                 <p class="card-text m-2"><small class="text-muted"><i class="bi bi-person"></i><a
                                             href="{{ url('/news-author', $author->upload_by) }}" class="text-muted"> {{
-                                            $author->upload_by }}</a> <i class="bi bi-clock"></i> <time>{{
+                                            $author->uploader->name }}</a> <i class="bi bi-clock"></i> <time>{{
                                             \Carbon\Carbon::parse( $author->date )->format('l') }}, {{
                                             \Carbon\Carbon::parse( $author->date
                                             )->toFormattedDateString() }}</time> <i class="bi bi-eye"></i> {{
@@ -91,18 +91,25 @@
                                 <div class="col-md-4 d-flex justify-content-center p-1">
                                     @if($n->gambarmuka)
                                     <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
-                                        class="img-fluid rounded-start rounded-end">
+                                        class="img-fluid rounded-start rounded-end" tyle="min-width: 110px !important; min-height: 90px !important; max-width: 110px !important; max-height: 90px !important;
+                                        object-fit: cover;">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                     @endif
                                 </div>
                                 <div class="col-md-8" style="text-align: center;">
-                                    <h5 class="card-title"><a href="{{ url('/news-detail', $n->slug) }}">
+                                    <h5 class="card-title">
+                                        <a href="{{ url('/news-detail', $n->slug) }}">
                                             {{ \Illuminate\Support\Str::limit($n->title, 50, $end='...') }}
-                                        </a></h5>
-                                    <p class="card-text"><small class="text-muted"><time datetime="2020-01-01">{{
-                                                \Carbon\Carbon::parse( $n->date
-                                                )->toFormattedDateString() }}</time></small>
+                                        </a>
+                                    </h5>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            <time datetime="2020-01-01">
+                                                {{ \Carbon\Carbon::parse( $n->date
+                                                )->toFormattedDateString() }}
+                                            </time>
+                                        </small>
                                     </p>
                                 </div>
                             </div>
@@ -115,5 +122,3 @@
     </section>
 </main>
 @endsection
-@push('after-script')
-@endpush

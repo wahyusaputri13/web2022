@@ -16,7 +16,7 @@ class CreateFrontMenusTable extends Migration
         Schema::create('front_menus', function (Blueprint $table) {
             $table->id();
             $table->string('menu_parent')->nullable();
-            $table->string('menu_name');
+            $table->string('menu_name')->nullable();
             $table->string('menu_url')->nullable();
             $table->string('kategori')->nullable();
             $table->longText('content')->nullable();

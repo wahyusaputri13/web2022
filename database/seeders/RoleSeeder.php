@@ -30,8 +30,6 @@ class RoleSeeder extends Seeder
             ]
         ];
 
-        foreach ($data as $datum) {
-            Role::create($datum);
-        }
+        Role::insert($data);
     }
 }

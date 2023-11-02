@@ -46,8 +46,6 @@ class ThemesSeeder extends Seeder
             ]
         ];
 
-        foreach ($themes as $datum) {
-            Themes::create($datum);
-        }
+        Themes::insert($themes);
     }
 }

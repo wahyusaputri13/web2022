@@ -44,8 +44,6 @@ class ComCodes extends Seeder
             ['code_cd' => 'INFORMASI_ST_04', 'code_nm' => 'Informasi Dikecualikan', 'code_group' => 'INFORMASI_ST', 'code_value' => ''],
         ];
 
-        foreach ($data as $datum) {
-            CS::create($datum);
-        }
+        CS::insert($data);
     }
 }

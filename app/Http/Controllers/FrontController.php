@@ -112,7 +112,8 @@ class FrontController extends Controller
     public function newsByAuthor($id)
     {
         Seo::seO();
-        $hasil = 'All post by : ' . $id;
+        $usere = User::find($id);
+        $hasil = 'All post by : ' . $usere->name;
         $data = News::with('gambar')->where('upload_by', '=', $id)->orderBy("date", "desc")->paginate(5);
         $news = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.newsbyauthor', compact('data', 'news', 'hasil'));
@@ -272,27 +273,6 @@ class FrontController extends Controller
             Alert::success('Success', 'Your Message Has Been Sent');
             return redirect(url('/'));
         }
-    }
-
-    // kampung pancasila
-    public function tentangkami()
-    {
-        return view('front.kampungpancasila.tentang-kami');
-    }
-
-    public function latarbelakang()
-    {
-        return view('front.kampungpancasila.latar-belakang');
-    }
-
-    public function tujuan()
-    {
-        return view('front.kampungpancasila.tujuan');
-    }
-
-    public function kampungpancasila()
-    {
-        return view('front.kampungpancasila.kampung-pancasila');
     }
 
     // sql ppid setda
