@@ -60,16 +60,21 @@
                             @forelse($n->gambar as $gambar)
                             @if ($loop->iteration == 1)
                             <img src="{{ asset('storage/') }}/{{ $gambar->path }}" class="img-fluid"
-                                alt="{{ $gambar->file_name }}">
+                                alt="{{ $gambar->file_name }}" style="min-width: 246px !important; min-height: 184px !important; max-width: 246px !important; max-height: 184px
+                                !important;
+                                object-fit: cover;">
                             @endif
                             @empty
                             <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">
                             @endforelse
                         </div>
-                        <h4 style="text-align: center;"><a href="{{ url('/news-detail', $n->slug) }}">
-                                {{ \Illuminate\Support\Str::limit($n->title, 50, $end = '...') }}</a>
+                        <h4 style="text-align: center;">
+                            <a href="{{ url('/news-detail', $n->slug) }}">
+                                {{ \Illuminate\Support\Str::limit($n->title, 50, $end = '...') }}
+                            </a>
                         </h4>
-                        <h6 style="text-align: center;">{{ \Carbon\Carbon::parse($n->date)->format('l') }},
+                        <h6 style="text-align: center;">
+                            {{ \Carbon\Carbon::parse($n->date)->format('l') }},
                             {{ \Carbon\Carbon::parse($n->date)->toFormattedDateString() }}
                         </h6>
                     </div>
@@ -196,26 +201,6 @@
                 $(".captcha span").html(data.captcha);
             }
         });
-    });
-
-    $('.btn-playstream').click(function () {
-        currentvalue = document.getElementById('audio_1').value;
-        if (currentvalue == "on") {
-            document.getElementById('audio_1').pause();
-            document.getElementById("audio_1").value = "off";
-            console.log("off!");
-        } else {
-            document.getElementById('audio_1').play();
-            document.getElementById("audio_1").value = "on";
-            console.log("on!");
-        }
-        // function playmusik() {
-        //     var song = new Audio();
-        //     song.src = "http://i.klikhost.com:8234/stream";
-        //     // song.autoplay = true;
-        //     song.play;
-        // }
-        // window.addEventListener("load", playmusik);
     });
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
