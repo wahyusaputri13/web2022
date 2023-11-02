@@ -86,7 +86,9 @@
                                 <div class="col-md-4 d-flex justify-content-center p-1">
                                     @if($n->gambarmuka)
                                     <img src="{{ asset('storage/') }}/{{ $n->gambarmuka->path}}"
-                                        class="img-fluid rounded-start rounded-end">
+                                        class="img-fluid rounded-start rounded-end" style="min-width: 110px !important; min-height: 90px !important; max-width: 110px !important; max-height: 90px
+                                        !important;
+                                        object-fit: cover;">
                                     @else
                                     <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid">
                                     @endif
