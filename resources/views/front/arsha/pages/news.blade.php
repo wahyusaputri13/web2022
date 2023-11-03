@@ -28,7 +28,9 @@
                         @forelse($n->gambar as $gambar)
                         @if($loop->iteration == 1)
                         <img src="{{ asset('storage/') }}/{{  $gambar->path }}" class="img-fluid"
-                            alt="{{ $gambar->file_name }}">
+                            alt="{{ $gambar->file_name }}" style="min-width: 246px !important; min-height: 184px !important; max-width: 246px !important; max-height: 184px
+                            !important;
+                            object-fit: cover;">
                         @endif
                         @empty
                         <img src="{{ asset('img/soulofjava.jpg') }}" class="img-fluid" alt="soul of java">

@@ -139,8 +139,9 @@ class FrontController extends Controller
 
     public function newsByCategory($id)
     {
+        // return News::withAnyTag($id)->get();
         Seo::seO();
-        $news = News::where('kategori', $id)->latest('date')->paginate(12);
+        $news = News::withAnyTag($id)->latest('date')->paginate(12);
         $sideposts = News::latest('date')->take(5)->get();
         return view('front.' . $this->themes->themes_front . '.pages.news', compact('news', 'sideposts'));
     }

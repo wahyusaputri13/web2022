@@ -1,38 +1,38 @@
 <div class="row">
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('/newsall') }}">Lihat Semua</a>
+            href="{{ url('/newsall') }}">LIHAT SEMUA</a>
     </div>
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Administrasi Pembangunan</a>
+            href="{{ url('newscategory') }}/Administrasi Pembangunan">BAG. ADBANG</a>
     </div>
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Hukum</a>
+            href="{{ url('newscategory') }}/Hukum">BAG. HUKUM</a>
     </div>
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('newscategory') }}/KATEGORI_NEWS_1">Kesejahtaraan Rakyat</a>
+            href="{{ url('newscategory') }}/Kesejahtaraan Rakyat">BAG. KESRA</a>
     </div>
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Organisasi</a>
+            href="{{ url('newscategory') }}/Organisasi">BAG. ORGANISASI</a>
     </div>
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('newscategory') }}/KATEGORI_NEWS_3">Pemerintahan</a>
+            href="{{ url('newscategory') }}/Pemerintahan">BAG. PEMERINTAHAN</a>
     </div>
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('newscategory') }}/KATEGORI_NEWS_0">Pengadaan Barang dan Jasa</a>
+            href="{{ url('newscategory') }}/Pengadaan Barang dan Jasa">BAG. PBJ</a>
     </div>
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('newscategory') }}/KATEGORI_NEWS_2">Protokol dan Komunikasi Pimpinan</a>
+            href="{{ url('newscategory') }}/Protokol dan Komunikasi Pimpinan">BAG. PROKOMPIM</a>
     </div>
     <div class="col-sm-12 col-lg-2 mt-1">
         <a class="{{ $btn }} ppid" style="background: {{ $bc }}; color: {{ $tc }}; display: block;"
-            href="{{ url('newscategory') }}/KATEGORI_NEWS_4">Umum</a>
+            href="{{ url('newscategory') }}/Umum">BAG. UMUM</a>
     </div>
 </div>
