@@ -108,12 +108,17 @@
                                             <a href="https://website.wonosobokab.go.id/category/detail/Formulir-Keberatan-atas-Permohonan-Informasi-Publik-pada-PPID-Kabupaten-Wonosobo"
                                                 target="_blank">{{ $sub3->menu_name }}
                                             </a>
+                                            @elseif ($sub3->menu_name == 'Agenda Pimpinan')
+                                            <a href="{{ url('agenda') }}">
+                                                {{ $sub3->menu_name }}
+                                            </a>
                                             @elseif ($sub3->menu_name == 'JDIH Wonosobo')
-                                            <a href="https://jdih.wonosobokab.go.id/" target="_blank">{{
-                                                $sub3->menu_name }}
+                                            <a href="https://jdih.wonosobokab.go.id/" target="_blank">
+                                                {{ $sub3->menu_name }}
                                             </a>
                                             @else
-                                            <a href="{{ url('page', $sub3->menu_url) }}">{{ $sub3->menu_name }}
+                                            <a href="{{ url('page', $sub3->menu_url) }}">
+                                                {{ $sub3->menu_name }}
                                             </a>
                                             @endif
                                         </li>

@@ -18,6 +18,7 @@
                 </div>
                 <div class="col-xl-5 offset-xl-1 col-lg-6">
                     <div class="single-widget-home mb-5 mb-lg-0">
+                        <h3 class="mb-4">Total Pengunjung : {{ $counter_web }}</h3>
                         <div class="map">
                             <iframe
                                 src="https://maps.google.com/maps?q={{ $data_website->latitude }},{{

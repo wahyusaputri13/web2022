@@ -73,6 +73,7 @@ class AgendaController extends Controller
             'title' => 'required',
             'date' => 'required',
             'location' => 'required',
+            'jam' => 'required',
         ]);
         Agenda::create($validated);
         return redirect(route('event.index'))->with(['success' => 'Data added successfully!']);
@@ -115,6 +116,7 @@ class AgendaController extends Controller
             'title' => 'required',
             'date' => 'required',
             'location' => 'required',
+            'jam' => 'required',
         ]);
         Agenda::find($id)->update($validated);
         return redirect(route('event.index'))->with(['success' => 'Data has been successfully changed!']);

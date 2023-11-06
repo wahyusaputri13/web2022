@@ -29,9 +29,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Date</th>
-                                        <th>Title</th>
-                                        <th>Location</th>
+                                        <th>Tanggal</th>
+                                        <th>Nama Kegiatan</th>
+                                        <th>Lokasi</th>
+                                        <th>Jam</th>
                                         <th class="disabled-sorting text-center">
                                             Actions</th>
                                     </tr>
@@ -76,12 +77,13 @@
             { data: 'tgl', className: "text-center" },
             { data: 'title', name: 'title', className: "text-center" },
             { data: 'location', name: 'location', className: "text-center" },
+            { data: 'jam', name: 'jam', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]
 
     });
-        // var table = $('#datatables').DataTable();
-        // $('.card .material-datatables label').addClass('form-group');
+    // var table = $('#datatables').DataTable();
+    // $('.card .material-datatables label').addClass('form-group');
 </script>
 <script>
     $(document).ready(function () {

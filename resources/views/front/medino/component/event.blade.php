@@ -29,6 +29,7 @@
                                         <th>Tanggal</th>
                                         <th>Nama Kegiatan</th>
                                         <th>Lokasi Kegiatan</th>
+                                        <th>Jam</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -61,6 +62,7 @@
             { data: 'tgl', className: "text-center" },
             { data: 'title', className: "text-center" },
             { data: 'location', className: "text-center" },
+            { data: 'jam', className: "text-center" },
         ]
 
     });

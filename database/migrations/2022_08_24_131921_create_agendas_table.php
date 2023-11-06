@@ -18,6 +18,7 @@ class CreateAgendasTable extends Migration
             $table->string('title');
             $table->date('date');
             $table->string('location');
+            $table->string('jam');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use App\Models\Agenda;
-use App\Models\Complaint;
 use App\Models\Counter;
 use Closure;
 use Illuminate\Http\Request;
@@ -12,7 +11,6 @@ use App\Models\FrontMenu;
 use App\Models\Inbox;
 use App\Models\News;
 use App\Models\RelatedLink;
-use Illuminate\Support\Facades\DB;
 
 class WebHelper
 {
