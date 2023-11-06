@@ -21,10 +21,12 @@ use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Counter;
+use App\Models\FrontMenu;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +55,16 @@ Route::get('callback', [SSOController::class, 'getCallback'])->name('sso.callbac
 Route::get('ssouser', [SSOController::class, 'connectUser'])->name('sso.authuser');
 
 Route::get('/', function () {
+    // $users = DB::table('front_menus')
+    //     ->leftJoin('news', 'front_menus.menu_name', '=', 'news.title')
+    //     ->whereNotNull('news.content')
+    //     ->get();
+    // return $users;
+    // foreach ($users as $key => $value) {
+    //     FrontMenu::where('menu_url', '=', $value->menu_url)->update(['content' => $value->content]);
+    // echo $value->content . '<br>';
+    // }
+    // return 'selesai';
     // $data = News::all();
     // $new = str_replace('../../', 'https://website.wonosobokab.go.id/', $data->content) . '<br>';
     // $data->update(['content' => $new]);
@@ -65,6 +77,7 @@ Route::get('/', function () {
     //     };
     // }
     // return 'selesai';
+
     $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
 
     $data = [

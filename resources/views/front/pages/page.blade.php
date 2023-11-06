@@ -18,21 +18,39 @@
     <!-- End Breadcrumbs -->
 
     <!-- ======= Blog Details Section ======= -->
-    <section id="blog" class="blog" style="height: 100vh;">
+    <section id="blog" class="blog">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="row g-5">
+            <div class="row">
+                <div class="col">
 
-                @if($data->menu_name == 'Daftar Informasi Publik')
-                <x-jip />
-                @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
-                <x-dip />
-                @elseif($data->title)
-                {!! $data->description !!}
-                @else
-                {!! $data->content !!}
-                @endif
+                    @if($data->menu_name == 'Daftar Informasi Publik')
+                    <div class="card">
+                        <div class="card-body">
+                            <x-jip />
+                        </div>
+                    </div>
+                    @elseif($data->menu_name == 'Daftar Informasi yang Dikecualikan')
+                    <div class="card">
+                        <div class="card-body">
+                            <x-dip />
+                        </div>
+                    </div>
+                    @elseif($data->title)
+                    <div class="card">
+                        <div class="card-body">
+                            {!! $data->description !!}
+                        </div>
+                    </div>
+                    @else
+                    <div class="card">
+                        <div class="card-body">
+                            {!! $data->content !!}
+                        </div>
+                    </div>
+                    @endif
 
+                </div>
             </div>
 
         </div>
