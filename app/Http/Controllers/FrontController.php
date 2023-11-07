@@ -131,7 +131,7 @@ class FrontController extends Controller
         OpenGraph::addProperty('type', 'article');
         OpenGraph::addProperty('locale', 'id');
 
-        if (Str::contains($data->path, 'https')) {
+        if (Str::contains($data->gambarmuka->path, 'https')) {
             OpenGraph::addImage($data->gambarmuka->path);
         } else {
             OpenGraph::addImage(url('storage') . '/' . $data->gambarmuka->path);
