@@ -1,14 +1,29 @@
 <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
         @forelse($jjj->gambar as $gambar)
+
         @if($loop->iteration == 1)
+
+        @if(Str::contains($gambar->path, 'https'))
+        <div class="carousel-item active">
+            <img src="{{ $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
+        </div>
+        @else
         <div class="carousel-item active">
             <img src="{{  url('storage/')}}/{{ $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
+        </div>
+        @endif
+        @else
+        @if(Str::contains($gambar->path, 'https'))
+        <div class="carousel-item">
+            <img src="{{ $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
         </div>
         @else
         <div class="carousel-item">
             <img src="{{ url('storage/')}}/{{ $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
         </div>
+        @endif
+
         @endif
         @empty
         <div class="carousel-item active">
