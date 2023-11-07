@@ -174,8 +174,11 @@ class NewsController extends Controller
             'date' => 'required',
         ]);
 
+        $isa =  News::find($id);
+        
         if ($request->datadip) {
-            News::find($id)->update([
+            $isa->slug =  null;
+            $isa->update([
                 'title' => $request->title,
                 'date' => $request->date,
                 'content' => $request->content,
@@ -188,7 +191,6 @@ class NewsController extends Controller
                 'upload_by' => auth()->user()->id
             ]);
         } else {
-            $isa =  News::find($id);
             $isa->slug =  null;
             $isa->update([
                 'title' => $request->title,
