@@ -21,13 +21,22 @@ use App\Http\Controllers\MigrasiDataController;
 use App\Http\Controllers\SSO\SSOController;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Counter;
-use App\Models\FrontMenu;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
+use App\Models\Website;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+// OR with multi
+use Artesaos\SEOTools\Facades\JsonLdMulti;
+
+// OR
+use Artesaos\SEOTools\Facades\SEOTools;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,12 +48,12 @@ use Illuminate\Support\Str;
 |
 */
 
-Route::group(
-    ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-    function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    }
-);
+// Route::group(
+//     ['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
+//     function () {
+//         \UniSharp\LaravelFilemanager\Lfm::routes();
+//     }
+// );
 
 Route::any('/register', function () {
     return Redirect::to(route('login'));
@@ -96,6 +105,7 @@ Route::get('/', function () {
     ];
 
     Seo::seO();
+
     Counter::create($data);
 
     $news = News::with('gambar', 'gambarmuka', 'uploader')->where('terbit', 1)->orderBy('date', 'desc')->paginate(3);
