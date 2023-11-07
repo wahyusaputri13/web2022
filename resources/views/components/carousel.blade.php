@@ -3,11 +3,13 @@
         @forelse($jjj->gambar as $gambar)
         @if($loop->iteration == 1)
         <div class="carousel-item active">
-            <img src="{{  url('storage') .'/'. $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
+            <img src="{{  $gambar->path }}" class="d-block w-100"
+                alt="{{ $gambar->file_name }}">
         </div>
         @else
         <div class="carousel-item">
-            <img src="{{  url('storage') .'/'. $gambar->path }}" class="d-block w-100" alt="{{ $gambar->file_name }}">
+            <img src="{{  $gambar->path }}" class="d-block w-100"
+                alt="{{ $gambar->file_name }}">
         </div>
         @endif
         @empty

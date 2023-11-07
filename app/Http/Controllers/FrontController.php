@@ -23,6 +23,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
 use Artesaos\SEOTools\Facades\OpenGraph;
+use Illuminate\Support\Str;
 
 class FrontController extends Controller
 {
@@ -120,13 +121,12 @@ class FrontController extends Controller
 
     public function newsdetail($slug)
     {
-        $dataku = Website::first();
         $data = News::with('gambar', 'uploader', 'gambarmuka')->where('slug', $slug)->first();
 
         Seo::seO();
 
-        OpenGraph::setDescription($dataku->web_description);
-        OpenGraph::setTitle($dataku->web_name);
+        OpenGraph::setDescription(Str::of($data->content)->limit(50));
+        OpenGraph::setTitle($data->title);
         OpenGraph::setUrl(url()->current());
         OpenGraph::addProperty('type', 'article');
         OpenGraph::addProperty('locale', 'id');
