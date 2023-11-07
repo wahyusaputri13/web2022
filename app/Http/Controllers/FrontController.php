@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Http;
+use Artesaos\SEOTools\Facades\OpenGraph;
 
 class FrontController extends Controller
 {
@@ -119,8 +120,18 @@ class FrontController extends Controller
 
     public function newsdetail($slug)
     {
+        $dataku = Website::first();
+        $data = News::with('gambar', 'uploader', 'gambarmuka')->where('slug', $slug)->first();
+
         Seo::seO();
-        $data = News::with('gambar', 'uploader')->where('slug', $slug)->first();
+
+        OpenGraph::setDescription($dataku->web_description);
+        OpenGraph::setTitle($dataku->web_name);
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addProperty('locale', 'id');
+        OpenGraph::addImage(url('storage') . '/' . $data->gambarmuka->path);
+
         views($data)->cooldown(5)->record();
         $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(5);
         $file = File::where('id_news', $data->attachment)->get();

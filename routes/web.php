@@ -23,20 +23,9 @@ use App\Http\Controllers\TestimonialController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
-use App\Models\Website;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
-use Artesaos\SEOTools\Facades\SEOMeta;
-use Artesaos\SEOTools\Facades\OpenGraph;
-use Artesaos\SEOTools\Facades\TwitterCard;
-use Artesaos\SEOTools\Facades\JsonLd;
-// OR with multi
-use Artesaos\SEOTools\Facades\JsonLdMulti;
 
-// OR
-use Artesaos\SEOTools\Facades\SEOTools;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
