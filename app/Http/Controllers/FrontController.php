@@ -125,7 +125,7 @@ class FrontController extends Controller
 
         Seo::seO();
 
-        OpenGraph::setDescription(Str::of($data->content)->limit(50));
+        OpenGraph::setDescription(strip_tags(Str::limit($data->content, 50, '...')));
         OpenGraph::setTitle($data->title);
         OpenGraph::setUrl(url()->current());
         OpenGraph::addProperty('type', 'article');
