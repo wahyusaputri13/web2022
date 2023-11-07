@@ -145,7 +145,7 @@
                         </li>
                         @endif
                         @endforeach
-                        <x-komponen li='menu-has-children' />
+                        <x-komponen />
                     </ul>
                 </nav>
                 <!-- #nav-menu-container -->

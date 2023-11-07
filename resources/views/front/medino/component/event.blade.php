@@ -21,18 +21,20 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="card-content">
-                            <table id="datatables" class="table is-striped" cellspacing="0" width="100%"
-                                style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Tanggal</th>
-                                        <th>Nama Kegiatan</th>
-                                        <th>Lokasi Kegiatan</th>
-                                        <th>Jam</th>
-                                    </tr>
-                                </thead>
-                            </table>
+                            <div class="table-responsive">
+                                <table id="datatables" class="table is-striped" cellspacing="0" width="100%"
+                                    style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tanggal</th>
+                                            <th>Nama Kegiatan</th>
+                                            <th>Lokasi Kegiatan</th>
+                                            <th>Jam</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

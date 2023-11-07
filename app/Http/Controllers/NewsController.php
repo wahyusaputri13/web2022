@@ -83,10 +83,10 @@ class NewsController extends Controller
             'description' => 'required',
         ]);
 
-        if ($request->dip_tahun) {
-            $id = News::create($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        if ($request->datadip) {
+            $id = News::create($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            $id = News::create($val + ['upload_by' => auth()->user()->id]);
+            $id = News::create($val + ['kategori' => 'INFORMASI_ST_02', 'upload_by' => auth()->user()->id]);
         }
 
         if ($request->document) {
@@ -148,10 +148,14 @@ class NewsController extends Controller
             'date' => 'required',
         ]);
 
-        if ($request->dip_tahun) {
-            News::find($id)->update($request->except(['_token']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
+        $isa =  News::find($id);
+
+        if ($request->datadip) {
+            $isa->slug =  null;
+            $isa->update($request->except(['_token', 'datadip']) + ['dip' => true, 'upload_by' => auth()->user()->id]);
         } else {
-            News::find($id)->update($validated + ['kategori' => $request->kategori ?? null, 'upload_by' => auth()->user()->id]);
+            $isa->slug =  null;
+            $isa->update($validated + ['kategori' => $request->kategori ?? 'INFORMASI_ST_02', 'upload_by' => auth()->user()->id]);
         }
 
         if ($request->document) {
