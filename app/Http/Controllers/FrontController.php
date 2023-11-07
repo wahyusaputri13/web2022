@@ -130,7 +130,12 @@ class FrontController extends Controller
         OpenGraph::setUrl(url()->current());
         OpenGraph::addProperty('type', 'article');
         OpenGraph::addProperty('locale', 'id');
-        OpenGraph::addImage(url('storage') . '/' . $data->gambarmuka->path);
+
+        if (Str::contains($data->path, 'https')) {
+            OpenGraph::addImage($data->gambarmuka->path);
+        } else {
+            OpenGraph::addImage(url('storage') . '/' . $data->gambarmuka->path);
+        }
 
         views($data)->cooldown(5)->record();
         $news = News::with('gambarmuka')->orderBy('date', 'desc')->paginate(5);
