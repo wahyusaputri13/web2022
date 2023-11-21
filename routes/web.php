@@ -19,6 +19,8 @@ use App\Http\Controllers\RelatedLinkController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\DailyReportController;
+use App\Http\Controllers\FlipbookController;
+use App\Http\Controllers\KategoriController;
 use App\Models\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Models\News;
@@ -102,6 +104,10 @@ Route::middleware(['auth:sanctum', 'verified', 'data_web'])->get('/dashboard', f
 })->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'data_web'], 'prefix' => 'admin'], function () {
+    Route::resource('kategori', KategoriController::class);
+    Route::resource('upload', FlipbookController::class);
+
+
     Route::resource('gallery', GalleryController::class);
     Route::resource('menu', MenuController::class);
     Route::resource('submenu', SubmenuController::class);
